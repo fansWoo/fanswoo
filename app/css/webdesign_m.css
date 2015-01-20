@@ -1,0 +1,163 @@
+﻿/*css reset*/
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*global*/
+
+body{ background-image:url(../img/bg5.jpg) ; background-size:cover;  }
+body p{ font-family: 微軟正黑體,Arial; }
+body h2{ font-family: 微軟正黑體,Arial; }
+.header{ width:100%; height:120px; background-color:rgba(51,51,51,0.9);position:fixed; z-index:9999; }
+.header .logoarea{ width:120px;  height:60px;margin:0 auto;  }
+.header .logoarea .logo{ width:120px; padding-top:5px; }
+.header .nav{ height:60px;}
+.header .in_nav{ width:300px; height:60px;  margin:0 auto; border-top:1px solid rgba(255,255,255,0.5);}
+.header .in_nav div{ float:left; width:70px; height:60px;line-height:60px;text-align:center; margin-left:5px;   }
+.header .nav .in_nav a{ display:block;text-decoration:none; font-size:0.5em; color: rgba(255,255,255,0.5); font-family: 微軟正黑體,Arial; letter-spacing:2px;}
+.header .nav .in_nav a:hover{ color:rgba(255,255,255,1); background-color:rgba(0,0,0,1);}
+
+.content1{ width:100%; height:639px; background:url(../img/mobile/webdesign/contant1_bg.jpg); background-size:auto; background-position:center;overflow:hidden;}
+.content1 .area{ width:300px; height:400px; margin-left:auto; margin-right:auto;padding-top:180px;}
+.content1 .area h1{display:block;width:300px; height:55px;margin-left:auto; margin-right:auto;background-color:rgba(0,0,0,0.8);margin-top:130px; background:url(../img/mobile/webdesign/contant1.png);}
+
+
+/****************************************************************************************************/
+
+.content2{ width:100%; height:1200px; background-color:#fff; overflow:hidden; }
+.content2 .area{ width:350px; height:950px; margin-left:auto; margin-right:auto; padding-top:80px; }
+.content2 .area h1{display:block; width:300px; height:50px;color:#4b4b4b; text-align:center; font-size:24px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; margin-bottom:20px;border-bottom:1px solid #4b4b4b;}
+.content2 .area .box1 {width:350px;height:480px;position:relative; margin:0 auto; }
+.content2 .area .box1 .contentbox1{display:block ;width:170px;height:170px; position:absolute; left:50%; margin-left:-160px; margin-top:-10px;z-index:2; }
+.content2 .area  .box1 .contentbox1 .box{ display:block;width:160px; height:160px; background-color:rgba(0,0,0,0.1); border-radius:85px; position:relative; border:5px solid  rgba(255,255,255,0.5); }
+.content2 .area .box1 .contentbox1 .box .hoverbox{width:160px; height:160px; background-color:rgba(0,0,0,0.7); border-radius:80px; position:absolute; left:px; top:px; opacity:0;-webkit-transition:opacity 1s; transition:opacity 1s;}
+.content2 .area .box1 .contentbox1 .box .hoverbox h2{display:block;width:100px; margin-left:auto; margin-right:auto; text-align:center; margin-top:20px;font-size:14px;color:#fff; letter-spacing:3px; border-bottom:1px solid #fff; padding-bottom:10px;margin-bottom:5px;}
+.content2 .area .box1 .contentbox1 .box .hoverbox p{ display:block;width:130px;color:#fff;font-size:12px;text-align:center; margin:0 auto; letter-spacing:3px; line-height:15px;}
+.content2 .area .box1 .contentbox1 .hoverbox:hover{opacity:1; }
+
+
+.content2 .area .box1 .contentbox2{display:block;width:150px;height:150px; position:absolute; left:50%; margin-left:-5px; margin-top:110px;z-index:2; }
+.content2 .area  .box1 .contentbox2 .box{ display:block;width:140px; height:140px; background-color:rgba(0,0,0,0.1); border-radius:75px; position:relative; border:5px solid  rgba(255,255,255,0.5); }
+.content2 .area .box1 .contentbox2 .box .hoverbox{width:140px; height:140px; background-color:rgba(0,0,0,0.7); border-radius:70px; position:absolute; left:px; top:px; opacity:0;-webkit-transition:opacity 1s; transition:opacity 1s;}
+.content2 .area .box1 .contentbox2 .box .hoverbox h2{ display:block;width:90px; margin-left:auto; margin-right:auto;text-align:center; margin-top:10px;font-size:14px;color:#fff; letter-spacing:3px; border-bottom:1px solid #fff; padding-bottom:10px;margin-bottom:5px;}
+.content2 .area .box1 .contentbox2 .box .hoverbox p{ display:block;width:90px;color:#fff;font-size:12px;text-align:center; margin:10px auto; letter-spacing:3px;line-height:15px}
+.content2 .area .box1 .contentbox2 .hoverbox:hover{opacity:1; }
+
+
+.content2 .area .box1 .contentbox3{display:block ;width:230px;height:230px; position:absolute; left:50%; margin-left:-150px; margin-top:250px;z-index:2;  }
+.content2 .area  .box1 .contentbox3 .box{ display:block;width:220px; height:220px; background-color:rgba(0,0,0,0.1); border-radius:115px; position:relative; border:5px solid  rgba(255,255,255,0.5); }
+.content2 .area .box1 .contentbox3 .box .hoverbox{width:220px; height:220px; background-color:rgba(0,0,0,0.7); border-radius:110px; position:absolute; left:px; top:px; opacity:0;-webkit-transition:opacity 1s; transition:opacity 1s;}
+.content2 .area .box1 .contentbox3 .box .hoverbox h2{ display:block;width:140px; margin-left:auto; margin-right:auto;text-align:center; margin-top:25px;font-size:14px;color:#fff; letter-spacing:3px; border-bottom:1px solid #fff; padding-bottom:10px;margin-bottom:5px;}
+.content2 .area .box1 .contentbox3 .box .hoverbox p{ display:block;width:160px;color:#fff;font-size:12px;text-align:center; margin:0 auto; letter-spacing:3px;line-height:15px}
+.content2 .area .box1 .contentbox3 .hoverbox:hover{opacity:1; }
+
+.content2 .area  .box2{ width:300px; height:500px;margin-top:50px; margin-left:auto; margin-right:auto; }
+.content2  .area  .box2 p{ display:block; width:300px;font-size:14px; letter-spacing:3px; margin-left:auto; margin-right:auto;  text-align:left; line-height:22px; }
+.content2 .area  .box2 .webdesignTop{ }
+.content2 .area  .box2 .webdesignNotice{ margin-top:50px;}
+.content2 .area  .box2 .webdesignNotice  h3{ font-size:18px; margin-bottom:10px;}
+/********************content3*************************/
+.content3{ width:100%; height:680px; background-color:#000;overflow:hidden;background:url(../img/mobile/webdesign/content3_bg2.jpg); background-size:cover; background-position:center; }
+.content3 .area{ width:300px; height:380px; margin-left:auto; margin-right:auto;  position:relative;background-color:rgba(0,0,0,0.7); margin-top:50px; padding-top:15px;}
+.content3   h1{display:block; width:250px; height:50px;color:#fff; text-align:center; font-size:30px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; line-height:50px; margin-bottom:20px; padding-bottom:10px; margin-top:100px;}
+.content3 .area p{ display:block; width:250px; margin:0 auto;color:#fff; line-height:18px; letter-spacing:3px; font-size:14px; text-align:left; padding:10px; }
+
+/*********************************************************************************************/
+
+
+
+/****************.content5*****************************/
+.content5{ width:100%; height:1780px; background-color:#fff;overflow:hidden; }
+.content5 .area{ width:350px; height:2000px; margin-left:auto; margin-right:auto; margin-left:auto; margin-right:auto; padding-top:80px; }
+.content5 h1{display:block; width:210px; height:100px;color:#4b4b4b; text-align:center; font-size:35px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; line-height:50px; margin-bottom:10px; }
+.content5 h2{display:block; width:300px;font-size:18px; line-height:22px;color:#4b4b4b; text-align:center; letter-spacing:5px;margin-left:auto; margin-right:auto;font-weight:800; margin-bottom:40px;border-top:1px solid #4b4b4b; padding-top:10px;}
+.content5 .area .content{ width:350px;height:2000px; margin:0 auto;}
+.content5 .area .content .box{ display:block;width:160px;height:160px; margin-left:5px; float:left; margin-bottom:130px; position:relative; background-color:rgba(0,0,0,0); }
+.content5 .area .content .box .pic{ display:block; width:140px; margin-left:10px; margin-top:8px;}
+.content5 .area .content .box .pic  img{ width:120px; margin-left:10px; margin-top:10px;}
+.content5 .area .content .box .boxCircle { position:absolute;width:128px;height:128px;border:3px solid #CCC; border-radius:150px; -webkit-transition: all 0.2s;transition: all 0.2s;left:0;margin-left:15px;margin-top:10px; }
+.content5 .area .content .box .boxTitle{ margin-top:20px; text-align:center; margin-bottom:10px; font-size:18px;color:#4b4b4b;}
+.content5 .area .content .box p{ display:block; width:150px;text-align:center; line-height:18px; color:#4b4b4b;font-size:14px; margin-left:auto; margin-right:auto; letter-spacing:2px;}
+
+
+
+
+
+/*****************.content9****************************/
+.content9{ width:100%; height:2400px; background-color:;background:url(../img/webdesign/content9_bg.jpg);}
+.content9 .boxcontent{ width:350px; height:2200px; margin-left:auto;margin-left:auto; margin-right:auto; padding-top:50px;margin-right:auto; margin-left:auto; }
+.content9 .boxcontent  h4{display:block; width:350px; height:50px;color:#4b4b4b; text-align:center; font-size:35px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; line-height:50px;    }
+.content9 .boxcontent .dot{ margin-left:0px; margin-top:10px;display:block; margin-left:auto; margin-right:auto;}
+.content9 .boxcontent .dot1{margin-top:280px; display:block; margin-left:auto; margin-right:auto;}
+.content9 .boxcontent .enter{ width:150px; height:40px; background-color:rgba(0,0,0,0.8); color:#f7911d; font-size:12px; text-align:center;margin-left:auto; letter-spacing:3px; margin-right:auto; margin-top:30px; line-height:40px;-webkit-transition: all 1s;transition: all 1s;border-radius:30px 30px 30px 30px;}
+.content9 .boxcontent .enter:hover{  background-color:#f7911d; color:#000;}
+.content9 .boxcontent  .boxarea{width:350px;height:1800px;margin-right:auto; margin-left:auto;  margin-top:50px;  }
+.content9 .boxcontent  .boxarea .box{display:block;width:300px;height:230px; margin: 0 auto;}
+.content9 .boxcontent  .boxarea .box .picbox{width:280px;height:163px;background-color:rgba(0,0,0,0.1);box-shadow:1px 1px 1px rgba(0,0,0,0.1); margin:0 auto; position:relative;}
+.content9 .boxcontent  .boxarea .box .picbox .shadow{ position:absolute;z-index:1;width:280px;height:150px;top:43px;left:0px; }
+.content9 .boxcontent  .boxarea .box .picbox .border{opacity:0;position:absolute; z-index:2; top:0px; left:0px; -webkit-transition: all 0.2s;transition: all 0.2s; }
+.content9 .boxcontent  .boxarea .box:hover .border{opacity:1;}
+.content9 .boxcontent  .boxarea .box h2{ font-size:16px; font-weight:900; color:#4b4b4b; letter-spacing:3px; font-weight:500;  margin-top:10px; margin-left:20px;}
+.content9 .boxcontent  .boxarea .box h3{ display:block; width:180px;font-size:14px; color:#2f78bd; letter-spacing:3px; line-height:20px;margin-left:20px;}
+.content9 .boxcontent  .boxarea .box  .picbox img{ width:280px; margin-bottom:20px;}
+
+
+
+
+
+
+
+
+
+footer{ width:100%; height:40px; background-color:rgba(51,51,51,0.9); margin:0 auto; padding-top:20px; }
+footer p{ text-align:center;font-family: 微軟正黑體,Arial;  color:rgba(255,255,255,0.5);font-size:12px;}
+

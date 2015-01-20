@@ -1,0 +1,118 @@
+/*************************************************Page news***/
+
+body { background-image:url(../img/bg5.jpg) ; background-size:cover;  }
+
+.content1{ width:100%; height:700px; background:url(../img/server/contant1_bg.png) 50% 50%; background-size:cover;overflow:hidden;}
+.content1 .area{ width:650px; height:550px; margin-left:auto; margin-right:auto;padding-top:190px;}
+.content1 .area h1{width:650px; height:120px;border:1px solid #fff;color:#fff; text-align:center; font-size:65px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; line-height:70px; background-image:url(../img/server/contant1.png); margin-top:15px; margin-bottom:15px;}
+.content1 .area p{width:600px;color:#fff;  text-align:left; letter-spacing:5px;  font-size:16px; float:left;}
+.content1 .area img{ display:block;width:130px; margin:0 auto;}
+
+
+
+/****************** *content6**************************/
+.content6{ width:100%; height:850px;background-color:#fff; overflow:hidden;}
+.content6 .area{ width:960px; height:650px; margin-left:auto; margin-right:auto; margin-left:auto; margin-right:auto; padding-top:120px; position:relative; }
+.content6 .area .bg{ position:absolute; width:850px;left:-400px;top:10px;}
+.content6 .area  .rightbox{ position:absolute;right:110px; top:80px;z-index:2;width:430px; height:400px;padding:30px; }
+.content6.hover .area  .rightbox{display:block;}
+
+.content6 .area  .rightbox h1{ display:block;color:#646464;font-size:35px;letter-spacing:7px; margin-bottom:20px;font-weight:800;border-bottom:1px solid #bebebe; padding-bottom:10px;  }
+.content6 .area  .rightbox p {color:#646464;font-size:14px; line-height:22px;letter-spacing:5px;font-weight:700; margin-top:15px;  }
+.content6 .area  .rightbox img{width:250px;}
+
+
+/****************** *content2**************************/
+.content2{ width:100%; height:1050px; background:url(../img/server/content2_bg.png) 50% 50% ; overflow:hidden; }
+.content2 .area{ width:960px; height:550px; margin-left:auto; margin-right:auto; margin-left:auto; margin-right:auto; padding-top:120px; }
+.content2 h1{display:block; width:450px; height:50px;color:#646464; border-bottom:1px solid #bebebe;text-align:center; font-size:35px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; line-height:50px; margin-bottom:15px; padding-bottom:10px; }
+.content2  .title2{display:block; width:500px;font-size:14px; line-height:22px;color:#646464; text-align:center; letter-spacing:5px;margin-left:auto; margin-right:auto; font-weight:600;  }
+.content2  .area  .boxcontent{width:960px; height:650px; margin:150px auto;}
+.content2  .area  .boxcontent .box{width:280px;height:500px; float:left; margin-left:20px;border:4px solid #fff;border-radius:20px;position:relative;-webkit-transition:all 1s; transition:all 1s; }
+
+.content2  .area  .boxcontent .box .program { display:block; position:absolute; top:-120px; left:60px;}
+.content2  .area  .boxcontent  .box.top { background-color:#fff; border-radius:20px; box-shadow:1px 1px 10px rgba(0,0,0,0.3);}
+.content2  .area  .boxcontent .box .serverPic{ display:block; margin-left:auto; margin-right:auto; margin-top:50px;-webkit-transition:all 0.5s; transition:all 0.5s; width:240px;margin-top:60px;}
+.content2  .area  .boxcontent .box:hover .serverPic{-webkit-transform: scale(1.08);transform: scale(1.08);}
+.content2  .area  .boxcontent .box .serverPic.top{ margin-top:100px; width:200px;}
+.content2  .area  .boxcontent .box .textarea{ width:250px; height:200px; border-top:1px solid #bebebe; padding-top:15px;margin-top:20px; margin-left:auto; margin-right:auto; letter-spacing:3px; line-height:18px; font-size:12px; text-align:center; color:#646464;}
+.content2  .area  .boxcontent .box .textarea .title{ font-size:26px; font-weight:800; margin-bottom:15px;}
+.content2  .area  .boxcontent .box .textarea p{ display:block; width:230px; margin-left:auto; margin-right:auto; padding-left:5px;font-size:13px; line-height:22px;letter-spacing:5px;font-weight:400; }
+
+/****************** *content7**************************/
+.content7{ width:100%; height:600px;background-color:#fff; overflow:hidden; }
+.content7 .area{ width:960px; height:650px; margin-left:auto; margin-right:auto; margin-left:auto; margin-right:auto; padding-top:120px; position:relative;z-index:1; }
+.content7 .area .bg{ position:absolute; width:990px; right:-200px;top:30px;}
+.content7 .area .leftbox{position:absolute; left:50px; z-index:2;width:700px; height:300px; border-radius:20px; background-color:rgba(255,255,255,0.2); padding:30px; }
+.content7 .area .leftbox .box1{width:160px;height:300px;float:left; border-right:1px solid #bebebe;  }
+.content7 .area .leftbox .box1 img{width:110px; margin-top:80px;}
+.content7 .area .leftbox .box2{width:450px;height:300px;float:left; margin-left:50px;letter-spacing:3px; font-size:14px; line-height:22px;letter-spacing:5px;font-weight:700;color:#646464;}
+.content7 .area .leftbox .box2 p{ margin-top:20px;}
+.content7 .area .leftbox .box2 h1{color:#646464;font-size:35px;letter-spacing:7px;font-weight:800; margin-bottom:30px; margin-top:30px;}
+
+/*********************content3************************/
+
+.content3{ width:100%; height:850px;overflow:hidden; }
+.content3 .area1{ width:30%; height:850px; float:left;background:url(../img/server/content3_bg.jpg);  }
+.content3 .area2{width:70%; height:850px; float:left;background:#fec947 ; }
+.content3 .area2 .content{ width:700px; height:750px; background-color:rgba(0,0,0,0); margin-left:80px;}
+.content3 .area2 .content .title1{ width:600px; height:80px; padding-top:100px; margin-bottom:50px;}
+.content3 .area2 .content .title1 img{ width:160px;float:left;}
+.content3 .area2 .content .title1 h1{ display:block; float:left;font-size:35px;color:#000;letter-spacing:7px;font-weight:bold; margin-left:20px; margin-top:-10px; }
+.content3 .area2 .content .title2{display:block; width:500px;clear:left; color:#000;letter-spacing:3px;font-size:14px;font-weight:700; }
+.content3 .area2 .content .boxarea{ width:650px; height:500px; margin-top:50px;}
+.content3 .area2 .content .boxarea .box{width:650px; height:150px;}
+.content3 .area2 .content .boxarea .box .circle{width:100px; height:100px;float:left; color:#fff;}
+
+.circle.read{ background-image:url(../img/ie8/server/server_circle1.png);}
+.circle.blue{ background-image:url(../img/ie8/server/server_circle22.png);}
+.circle.green{ background-image:url(../img/ie8/server/server_circle32.png);}
+.content3 .area2 .content .boxarea .box:hover .circle.read{background-image:url(../img/ie8/server/server_circle.png);}
+.content3 .area2 .content .boxarea .box:hover .circle.blue{background-image:url(../img/ie8/server/server_circle2.png);}
+.content3 .area2 .content .boxarea .box:hover .circle.green{background-image:url(../img/ie8/server/server_circle3.png);}
+.content3 .area2 .content .boxarea .box .circle p{ text-align:center; line-height:100px; font-size:35px;font-weight:700;}
+.content3 .area2 .content .boxarea .box .price{ width:400px;height:100px; float:left;color:#000; margin-left:40px; }
+.content3 .area2 .content .boxarea .box .price .p1{ font-size:35px;font-weight:700; letter-spacing:3px; padding-top:10px;}
+.content3 .area2 .content .boxarea .box .price .p2{ font-size:14px;font-weight:700; letter-spacing:3px; padding-top:10px;}
+.content3 .area2 .content .boxarea .box .arrow{ float:left;width:30px;margin-left:30px; margin-top:30px;}
+
+
+
+/********************content4*************************/
+
+.content4{ width:100%; height:750px;overflow:hidden; background-color:#fff; overflow:hidden; }
+.content4 .area{ width:960px; height:650px; margin-left:auto; margin-right:auto; margin-left:auto; margin-right:auto; padding-top:120px; position:relative; }
+.content4 .area .bg{ position:absolute;  width:900px; right:-350px; top:100px; opacity:0.6;}
+.content4 .area .leftbox{width:500px; height:600px;position:absolute; left:50%;margin-left:-450px; margin-top:20px;}
+.content4 .area .leftbox h1{display:block; width:650px; height:50px;color:#646464; text-align:left; font-size:35px;letter-spacing:7px;font-weight:800;margin-bottom:15px;}
+.content4 .area .leftbox  p{color:#646464; letter-spacing:3px;font-size:14px; line-height:22px;letter-spacing:5px; font-weight:700; }
+
+
+/****************.content5*****************************/
+.content5{ width:100%; height:950px;background:url(../img/server/content5_bg.jpg) 50% 50%;background-size:cover;overflow:hidden; }
+.content5 .area1{ width:850px; height:950px; float:left;background:#7075fe; }
+.content5 .area1 .content{ width:650px; height:750px; background-color:rgba(0,0,0,0); margin-left:80px; color:#fff;}
+.content5 .area1 .content .title1{ width:600px; height:80px; padding-top:100px; margin-left:10px; margin-bottom:0px;}
+.content5 .area1 .content .title1 img{ width:130px;float:left;}
+.content5 .area1 .content .title1 h1{ display:block; float:left;font-size:35px;color:#fff;letter-spacing:7px;font-weight:bold; margin-left:20px; }
+.content5 .area1 .content .title2{ display:block; width:450px; color:#fff;letter-spacing:3px;margin-top:60px;font-size:12px;font-weight:700;margin-left:15px;}
+
+.content5 .area1 .content .boxarea{ width:750px; height:500px; margin-top:130px;}
+.content5 .area1 .content .boxarea .box{width:220px; height:280px; float:left;margin-top:5px; margin-left:20px; background-color:rgba(0,0,0,0); color:#fff;  }
+.content5 .area1 .content .boxarea .box img{ width:80px;}
+.content5 .area1 .content .boxarea .box h2{ font-size:20px; margin-top:10px;letter-spacing:3px;}
+.content5 .area1 .content .boxarea .box p{ font-size:14px; line-height:22px;letter-spacing:5px;font-weight:400;  margin-top:10px;}
+.content5  .area2{ width:300px; height:950px; float:left; }
+
+
+/****************************************newsOver*****/
+
+body.newsOver .bg2 { -webkit-animation:p201309090355 1s; animation:p201309090355 1s; }
+@-webkit-keyframes p201309090355 {
+	0%{ -webkit-transform:translate(0,-100px); opacity:1; }
+	100%{ -webkit-transform:translate(0,50%); opacity:0; }
+}
+@keyframes p201309090355 {
+	0%{ transform:translate(0,-100px); opacity:1; }
+	100%{ transform:translate(0,50%); opacity:0; }
+}

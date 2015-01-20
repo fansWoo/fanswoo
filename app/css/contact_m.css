@@ -1,0 +1,80 @@
+﻿/*css reset*/
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*global*/
+
+body{ height:100%; background: url(http://fanswoo.com/web/business6/project/img/bg5.jpg) ;background-size:contain; }
+.header{ width:100%; height:120px; background-color:rgba(51,51,51,0.9);position:fixed; }
+.header .logoarea{ width:120px;  height:60px;margin:0 auto;  }
+.header .logoarea .logo{ width:120px; padding-top:5px; }
+.header .nav{ height:60px;}
+.header .in_nav{ width:300px; height:60px;  margin:0 auto; border-top:1px solid rgba(255,255,255,0.5);}
+.header .in_nav div{ float:left; width:70px; height:60px;line-height:60px;text-align:center; margin-left:5px;   }
+.header .nav .in_nav a{ display:block;text-decoration:none; font-size:0.5em; color: rgba(255,255,255,0.5); font-family: 微軟正黑體,Arial; letter-spacing:2px;}
+.header .nav .in_nav a:hover{ color:rgba(255,255,255,1); background-color:rgba(0,0,0,1);}
+
+.section1{width:100%; height:1050px; background-image:url(../img/mobile/bg3p1color.png); margin:0 auto;background-repeat:no-repeat; background-position:center;padding-top:180px; }
+
+.section1  .area{ width:300px; height:980px; background-color:rgba(255,255,255,0.8);margin:0 auto; box-shadow:1px 1px 20px rgba(0,0,0,0.3);  border-radius:15px 15px 15px 15px; padding-top:20px; box-shadow:1px 1px 20px rgba(0,0,0,0.3);  }
+.section1 .area .box{ width:280px; height:210px; margin-top:10px;  border-bottom:1px dashed rgba(0,0,0,0.3); text-align:center; margin-left:10px;  }
+.section1 .area .box  img{ margin-top:30px; margin-bottom:10px;}
+.section1 .area .box p{ font-size:11px; letter-spacing:2px;color:#777777; padding:3px;  line-height:20px; }
+
+.section1 .area .title{ text-align:center; font-size:20px;font-family: 微軟正黑體,Arial; letter-spacing:2px; padding-top:30px;color:#777777;    }
+.section1 .area .title2{ text-align:center; font-size:11px;font-family: 微軟正黑體,Arial; padding-top:10px; margin-bottom:20px;}
+
+
+footer{ width:100%; height:40px; background-color:rgba(51,51,51,0.9); margin:0 auto; padding-top:20px; }
+footer p{ text-align:center;font-family: 微軟正黑體,Arial;  color:rgba(255,255,255,0.5);font-size:12px;}
+

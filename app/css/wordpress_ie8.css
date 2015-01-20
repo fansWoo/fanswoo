@@ -1,0 +1,124 @@
+/*************************************************Page news***/
+
+body { background-image:url(../img/bg5.jpg) ; background-size:cover; }
+
+.content1{ width:100%; height:700px; background:url(../img/wordpress/contant1_bg.jpg) 50% 50% ; background-size:cover;overflow:hidden;}
+.content1 .area{ width:800px; height:400px; margin-left:auto; margin-right:auto;padding-top:150px;}
+.content1 .area h1{width:650px; height:120px;border:1px solid #fff;color:#fff; text-align:center; font-size:65px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; line-height:70px; background-image:url(../img/wordpress/contant1.png); margin-top:15px;}
+.content1 .area h2{color:#fff;  text-align:center;  padding-top:30px; letter-spacing:5px;  font-size:30px; margin-left:auto; margin-right:auto;font-weight:800; }
+.content1 .area h3{ width:750px;color:#fff;  text-align:center;  padding-top:10px; letter-spacing:5px;  font-size:20px;margin-left:auto; margin-right:auto;}
+.content1 .area img{ width:100px; margin-left:335px;}
+
+/****************** *content2**************************/
+.content2{ width:100%; height:1200px; background-color:#fff; overflow:hidden; }
+.content2 .area{ width:900px; height:550px; margin-left:auto; margin-right:auto; margin-left:auto; margin-right:auto; padding-top:120px; }
+.content2 h1{display:block; width:450px; height:50px;color:#646464; border-bottom:1px solid #646464;text-align:center; font-size:35px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; line-height:50px; margin-bottom:15px; }
+.content2 p{display:block; width:500px;font-size:14px; line-height:22px;color:#646464; text-align:center; letter-spacing:5px;margin-left:auto; margin-right:auto; margin-bottom:50px;  }
+.content2 .area .box1 {width:900px;height:400px; margin-left:-40px;  }
+.content2 .area .box1 .contantbox{display:block ;width:260px;height:320px;margin-left:40px;float:left; }
+.content2 .area .box1 .contantbox .box{width:280px; height:280px; position:relative;}
+.content2 .area .box1 .contantbox .box .hoverbox{ display:none;width:260px; height:260px;position:absolute; left:10px; top:10px; opacity:0; background-image:url(../img/ie8/wordpress/contant3_hoverbox.png);}
+.content2 .area .box1 .contantbox .box .hoverbox p{ color:#fff; margin-top:120px;font-size:14px; margin-left:-118px;}
+.content2 .area .box1 .contantbox:hover .hoverbox{ display:block; }
+
+.content2 .area .box1 .contantbox  p{ font-size:18px;color:#646464; letter-spacing:3px; margin-top:25px; margin-left:-108px;}
+.content2 .contant{width:100%;height:420px; background-color:#fff; margin-bottom:10px;overflow:hidden; margin-top:-40px;}
+.content2 .contant img{width:100%;float:left;opacity:1;-webkit-transition:opacity 1s; transition:opacity 0.5s;}
+.content2 .contant a{width:20%;display:block;float:left;}
+.content2 .contant img:hover{opacity:1;}
+
+/*********************content3************************/
+
+.content3{ width:100%; height:650px;background:url(../img/ie8/wordpress/contant2_bg.png) 50% 50%; background-size:cover; overflow:hidden;}
+.content3 .area{ width:1000px; height:500px; margin-left:auto; margin-right:auto; margin-left:auto; margin-right:auto; padding-top:110px;}
+.content3 .area .box{width:200px; height:350px; float:left; margin-left:10px;padding:20px; background-image:url(../img/ie8/wordpress/pic1.png);}
+.content3 .area .box h2{ font-size:20px;color:#fff; text-align:center; letter-spacing:5px; margin-bottom:10px; }
+.content3 .area .box p {font-size:12px;color:#fff; text-align:center; letter-spacing:3px; border-top:1px solid rgba(225,255,255,0.2); padding-top:10px; }
+.content3 .area .box img{ margin-left:px; margin-top:15px;}
+
+/********************content4*************************/
+
+.content4{ width:100%; height:900px; background-color:#fff;overflow:hidden; }
+.content4 .area{ width:990px; height:200px; margin-left:auto; margin-right:auto; margin-left:auto;  padding-top:110px; position:relative; text-align:right; }
+.content4 .area h1{display:block; width:100%; height:50px;color:#4b4b4b; font-size:35px; letter-spacing:7px; font-weight:900; line-height:50px; margin-bottom:100px;}
+.content4 .area p{display:block; width:100%; height:30px;color:#4b4b4b; font-size:15px; letter-spacing:3px; font-weight:100; line-height:30px; margin-bottom:10px; }
+.content4 .svg{ position:absolute; }
+.content4 .svg.svg1{ width:220px; height:220px; top:360px; left:370px; background-image:url(../img/ie8/wordpress/content4_1.png); background-position:center; }
+.content4 .svg.svg2{ width:300px; height:300px; top:130px; left:120px; background-image:url(../img/ie8/wordpress/content4_2.png);  background-position:center; }
+.content4 .svg.svg3{ width:400px; height:400px; top:440px; left:0;background-image:url(../img/ie8/wordpress/content4_3.png);background-position:center;  }
+.content4 .svg .text { display:block; position:absolute; top:50%; left:50%; width:220px; color:#555; letter-spacing:3px; text-align:center; }
+.content4 .svg.svg1 .text{ height:60px; margin:-30px 0 0 -110px; }
+.content4 .svg.svg2 .text{ height:100px; margin:-50px 0 0 -110px; }
+.content4 .svg.svg3 .text{ height:180px; margin:-90px 0 0 -110px; }
+.content4 .svg.svg1 .text h2 { font-size: 15px; }
+.content4 .svg.svg1 .text h2 .big { font-size: 40px; margin-left:20px; }
+.content4 .svg.svg2 .text h2 .big{ font-size: 60px; }
+.content4 .svg.svg3 .text h2 .big{ font-size: 120px; margin-left:30px; }
+.content4 .svg .text p { font-size: 15px; }
+ 
+/****************.content5*****************************/
+.content5{ width:100%; height:850px;background:url(../img/ie8/wordpress/contant5_bg.jpg) 50% 50% ; background-size:cover;overflow:hidden; }
+.content5 .area{ width:900px; height:750px; margin-left:auto; margin-right:auto; margin-left:auto; margin-right:auto; padding-top:110px;}
+.content5 h1{display:block; width:550px; height:50px;color:#4b4b4b; border-bottom:1px solid #4b4b4b;text-align:center; font-size:35px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; line-height:50px; margin-bottom:15px; }
+.content5 p{display:block; width:500px;font-size:14px; line-height:22px;color:#4b4b4b; text-align:center; letter-spacing:5px;margin-left:auto; margin-right:auto;font-weight:800;}
+.content5 .area .contant{width:600px;height:400px; position:relative;}
+.content5 .area .contant .pic1{ position:absolute; top:40px;}
+.content5 .area .contant .pic2{ position:absolute; top:170px; right:-150px;}
+.content5 .area .contant .pic3{ position:absolute; top:310px; right:-255px;}
+
+/*******************.content6**************************/
+.content6{ width:100%; height:750px; background-color:#fff; overflow:hidden;  }
+.content6 .area{ width:900px; height:700px; margin-left:auto; margin-right:auto; padding-top:px;position:relative; background-color:rgba(0,0,0,0); }
+.content6 .area .leftbox{ width:400px; height:600px; float:left;position:relative; background-color:rgba(0,0,0,0);}
+.content6 .area .leftbox .title1{position:absolute;width:200px; left:50px;top:245px;}
+.content6 .area .leftbox .title2{ position:absolute;width:193px;left:10px; top:405px;}
+.content6 .area  .leftbox .vs{ position:absolute;width:75px; left:120px;top:325px;}
+.content6.hover .area .leftbox .vs{display:block;}
+.content6 .area .leftbox .line{ width:150px; height:500px;position:absolute;top:100px;left:180px;
+-webkit-transform: rotate(20deg);opacity:0.5;}
+.content6 .area  .p1{width:550px; height:200px;position:absolute; right:-20px;top:240px;float:left;font-size:14px; letter-spacing:5px; line-height:18px;color:#4b4b4b;z-index:2;}
+.content6 .area  .p1 .dot1{ width:20px;position:absolute;left:-30px;}
+.content6 .area  .p2{width:550px; height:200px;position:absolute; right:20px;top:350px;float:left;font-size:14px; letter-spacing:5px; line-height:18px;color:#4b4b4b;z-index:2;}
+.content6 .area  .p2 .dot2{ width:20px;position:absolute;left:-30px;}
+.content6 .area .keyboard { position:absolute;right:-250px; z-index:1; bottom:0px;}
+
+/***************.content7******************************/
+.content7{ width:100%; height:1100px;background:url(../img/wordpress/contant5.jpg) 50% 50% ; background-size:auto; overflow:hidden; }
+.content7 .area{ width:900px; padding-right:70px; margin-left:auto; margin-right:auto; margin-left:auto; margin-right:auto; padding-top:90px; background-color:rgba(0,0,0,0); /*background-image:url(../img/wordpress/contant7_bg.png);*/ background-position:center; background-repeat:no-repeat; padding-left:70px;}
+.content7 .area h1{ display:block; width:650px; height:50px;color:#fff;text-align:center; font-size:40px;letter-spacing:7px;font-weight:800; line-height:50px; margin-left:120px; }
+.content7 .area p{ display:block; width:600px;font-size:14px; line-height:22px;color:#fff; text-align:center; letter-spacing:5px;font-weight:800;margin-left:150px; text-shadow:1px 1px 10px rgba(0,0,0,1); }
+.content7 .area .box{width:270px; height:1150px; float:left; background-color:rgba(0,0,0,0); margin-left:15px; margin-top:60px;}
+.content7 .area .box .pic{ width:200px; margin-left:auto; margin-right:auto;}
+.content7 .area .box .itemDiv{width:270px;height:650px;margin-right:auto; margin-left:auto; margin-top:30px; background-color:rgba(255,255,255,0.7); border-radius:15px;padding-top:20px; -webkit-transition:all 0.8s; transition:all 0.8s; }
+.content7 .area .box.box2 .itemDiv {  }
+.content7 .area .box:hover .itemDiv { background-color:rgba(255,255,255,1);}
+.content7 .area .box .itemDiv h3{ display:block;width:210px;text-align:center; font-size:15px;color:#ee3a83; margin-top:30px;letter-spacing:3px; padding:10px; margin: 0 auto; }
+.content7 .area .box .itemDiv h3 .big { font-size:35px; }
+.content7 .area .box .itemDiv .line{width:110px; margin-left:80px;}
+.content7 .area .box .itemDiv .item{width:210px;height:50px; text-align:center; line-height:50px; font-size:15px; border-bottom:1px dashed #6f6f6f; margin:0 auto; letter-spacing:3px;color:#646464;}
+.content7 .area .box .itemDiv .item .big { font-size:20px; color:#027de5; }
+
+/*****************.content9****************************/
+.content9{ width:100%; height:950px;}
+.content9 .boxContant{ width:960px; height:700px; margin-left:auto;margin-left:auto; margin-right:auto; padding-top:110px;margin-right:auto; margin-left:auto; }
+.content9 .boxContant  h4{display:block; width:550px; height:50px;color:#4b4b4b; border-bottom:1px solid #4b4b4b;text-align:center; font-size:35px;letter-spacing:7px;font-weight:800; margin-left:auto; margin-right:auto; line-height:50px; margin-bottom:15px; }
+.content9 .boxContant  p{display:block; width:500px;font-size:14px; line-height:22px;color:#4b4b4b; text-align:center; letter-spacing:5px;margin-left:auto; margin-right:auto;font-weight:800;}
+.content9 .boxContant  .boxarea{width:960px;height:500px;margin-right:auto; margin-left:auto;  margin-top:50px; }
+.content9 .boxContant  .boxarea .box{width:225px;height:250px;float:left; margin-left:7px; margin-top:7px; text-align:center; background-image:url(../img/ie8/wordpress/content9.png);}
+.content9 .boxContant  .boxarea .box h2{ font-size:18px; color:#4b4b4b; letter-spacing:3px; font-weight:500; margin-bottom:10px;}
+.content9 .boxContant  .boxarea .box h3{ display:block; width:180px;font-size:12px; color:#4b4b4b; letter-spacing:3px;margin-left:auto; margin-right:auto; line-height:20px;}
+.content9 .boxContant  .boxarea .box  img{ width:80px; margin-top:30px; margin-bottom:20px;}
+
+
+
+/****************************************newsOver*****/
+
+body.newsOver .bg2 { -webkit-animation:p201309090355 1s; animation:p201309090355 1s; }
+@-webkit-keyframes p201309090355 {
+	0%{ -webkit-transform:translate(0,-100px); opacity:1; }
+	100%{ -webkit-transform:translate(0,50%); opacity:0; }
+}
+@keyframes p201309090355 {
+	0%{ transform:translate(0,-100px); opacity:1; }
+	100%{ transform:translate(0,50%); opacity:0; }
+}
