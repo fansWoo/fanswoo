@@ -111,6 +111,36 @@ $(function(){
 								<img src="app/img/designSampleLogoCandace.png">
 							</div>
 						</div>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/basilai" data-csrc="app/img/web_7.jpg">
+							<div class="pic showOriginal">
+								<img src="app/img/beer.jpg">
+							</div>
+							<div class="pic showBlur">
+								<img src="app/img/beer.jpg">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								Basilai 原住民手工鮮釀啤酒
+							</div>
+							<div class="logo">
+								<img src="app/img/beer_logo.png">
+							</div>
+						</div>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/evpcone" data-csrc="app/img/web_5.jpg">
+							<div class="pic showOriginal">
+								<img src="app/img/evp.jpg">
+							</div>
+							<div class="pic showBlur">
+								<img src="app/img/evp.jpg">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								 EVP C-On 美商新能動力集團 
+							</div>
+							<div class="logo">
+								<img src="app/img/evplogo.png">
+							</div>
+						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/kantocars" data-csrc="app/img/web_2.jpg">
 							<div class="pic showOriginal">
 								<img src="app/img/car.jpg">
@@ -126,21 +156,10 @@ $(function(){
 								<img src="app/img/designSampleLogoKantocars.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/chid" data-csrc="app/img/web_4.jpg">
-							<div class="pic showOriginal">
-								<img src="app/img/cheng.jpg">
-							</div>
-							<div class="pic showBlur">
-								<img src="app/img/cheng.jpg">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								 成浩設計 嘉義頂級室內設計
-							</div>
-							<div class="logo">
-								<img src="app/img/chenglogo.png">
-							</div>
-						</div>
+					</div>
+					<div class="portfolioContent">
+					</div>
+					<div class="portfolioRight">
 						<div class="portfolioDiv"  data-chref="http://web.fanswoo.com/ipix" data-csrc="app/img/web_8.jpg">
 							<div class="pic showOriginal">
 								<img src="app/img/ipix.jpg">
@@ -154,25 +173,6 @@ $(function(){
 							</div>
 							<div class="logo">
 								<img src="app/img/ipix_logo.png">
-							</div>
-						</div>
-					</div>
-					<div class="portfolioContent">
-					</div>
-					<div class="portfolioRight">
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/evpcone" data-csrc="app/img/web_5.jpg">
-							<div class="pic showOriginal">
-								<img src="app/img/evp.jpg">
-							</div>
-							<div class="pic showBlur">
-								<img src="app/img/evp.jpg">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								 EVP C-On 美商新能動力集團 
-							</div>
-							<div class="logo">
-								<img src="app/img/evplogo.png">
 							</div>
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/eastmansion" data-csrc="app/img/web_3.jpg">
@@ -205,19 +205,19 @@ $(function(){
 								<img src="app/img/wantgo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yyh" data-csrc="app/img/web_7.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/chid" data-csrc="app/img/web_4.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/yyh.jpg">
+								<img src="app/img/cheng.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/yyh.jpg">
+								<img src="app/img/cheng.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								Y.Y.H 昀諭行專業空氣濾網
+								 成浩設計 嘉義頂級室內設計
 							</div>
 							<div class="logo">
-								<img src="app/img/yyh_logo.png">
+								<img src="app/img/chenglogo.png">
 							</div>
 						</div>
 					</div>

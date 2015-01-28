@@ -24,6 +24,40 @@
 								</div>
 							</div>
 						</a>
+						<a href="http://web.fanswoo.com/basilai" target="_blank">
+							<div class="portfolioDiv2" >
+								<div class="pic showOriginal">
+									<img src="app/img/beer.jpg">
+								</div>
+								<div class="pic showBlur">
+									<img src="app/img/beer.jpg">
+								</div>
+								<div class="bg"></div>
+								<div class="text">
+									Basilai 原住民手工鮮釀啤酒
+								</div>
+								<div class="logo">
+									<img src="app/img/beer_logo.png">
+								</div>
+							</div>
+						</a>
+						<a href="http://web.fanswoo.com/evpcone" target="_blank">
+							<div class="portfolioDiv2">
+								<div class="pic showOriginal">
+									<img src="app/img/evp.jpg">
+								</div>
+								<div class="pic showBlur">
+									<img src="app/img/evp.jpg">
+								</div>
+								<div class="bg"></div>
+								<div class="text">
+									 EVP C-On 美商新能動力集團 
+								</div>
+								<div class="logo">
+									<img src="app/img/evplogo.png">
+								</div>
+							</div>
+						</a>
 						<a href="http://web.fanswoo.com/kantocars" target="_blank">
 							<div class="portfolioDiv2">
 								<div class="pic showOriginal">
@@ -41,23 +75,10 @@
 								</div>
 							</div>
 						</a>
-						<a href="http://web.fanswoo.com/chid" target="_blank">
-							<div class="portfolioDiv2">
-								<div class="pic showOriginal">
-									<img src="app/img/cheng.jpg">
-								</div>
-								<div class="pic showBlur">
-									<img src="app/img/cheng.jpg">
-								</div>
-								<div class="bg"></div>
-								<div class="text">
-									 成浩設計 嘉義頂級室內設計
-								</div>
-								<div class="logo">
-									<img src="app/img/chenglogo.png">
-								</div>
-							</div>
-						</a>
+					</div>
+					<div class="portfolioContent">
+					</div>
+					<div class="portfolioRight">
 						<a href="http://web.fanswoo.com/ipix" target="_blank">
 							<div class="portfolioDiv2" >
 								<div class="pic showOriginal">
@@ -72,27 +93,6 @@
 								</div>
 								<div class="logo">
 									<img src="app/img/ipix_logo.png">
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="portfolioContent">
-					</div>
-					<div class="portfolioRight">
-						<a href="http://web.fanswoo.com/evpcone" target="_blank">
-							<div class="portfolioDiv2">
-								<div class="pic showOriginal">
-									<img src="app/img/evp.jpg">
-								</div>
-								<div class="pic showBlur">
-									<img src="app/img/evp.jpg">
-								</div>
-								<div class="bg"></div>
-								<div class="text">
-									 EVP C-On 美商新能動力集團 
-								</div>
-								<div class="logo">
-									<img src="app/img/evplogo.png">
 								</div>
 							</div>
 						</a>
@@ -130,20 +130,20 @@
 								</div>
 							</div>
 						</a>
-						<a href="http://web.fanswoo.com/yyh" target="_blank">
-							<div class="portfolioDiv2" >
+						<a href="http://web.fanswoo.com/chid" target="_blank">
+							<div class="portfolioDiv2">
 								<div class="pic showOriginal">
-									<img src="app/img/yyh.jpg">
+									<img src="app/img/cheng.jpg">
 								</div>
 								<div class="pic showBlur">
-									<img src="app/img/yyh.jpg">
+									<img src="app/img/cheng.jpg">
 								</div>
 								<div class="bg"></div>
 								<div class="text">
-									Y.Y.H 昀諭行專業空氣濾網
+									 成浩設計 嘉義頂級室內設計
 								</div>
 								<div class="logo">
-									<img src="app/img/yyh_logo.png">
+									<img src="app/img/chenglogo.png">
 								</div>
 							</div>
 						</a>

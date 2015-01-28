@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
+$db['default']['hostname'] = '146.148.55.60';
 $db['default']['username'] = 'fs_fanswoo';
 $db['default']['password'] = 'fjthgu55';
 $db['default']['database'] = 'fs_fanswoo';

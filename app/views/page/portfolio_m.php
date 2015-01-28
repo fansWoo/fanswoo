@@ -9,6 +9,26 @@
 			<p>Candace 洪秀女名品服飾設計</p>
 		</div>
 		<div class="box">
+			<a href="#"><img src="app/img/mobile/ipix.jpg" class="webimg"></a>
+			<p>IPIX 鏡花園</p>
+		</div>
+		<div class="box">
+			<a href="#"><img src="app/img/mobile/beer.jpg" class="webimg"></a>
+			<p>Basilai 原住民手工鮮釀啤酒</p>
+		</div>
+		<div class="box">
+			<a href="#"><img src="app/img/mobile/east.jpg" class="webimg"></a>
+			<p>EastMansion 高級歐美家具名品</p>
+		</div>
+		<div class="box">
+			<a href="#"><img src="app/img/mobile/evp.jpg" class="webimg"></a>
+			<p>EVP C-On 美商新能動力集團</p>
+		</div>
+		<div class="box">
+			<a href="#"><img src="app/img/mobile/wantgo.jpg" class="webimg"></a>
+			<p>WantGo 旺旺集團購物商城</p>
+		</div>
+		<div class="box">
 			<a href="#"><img src="app/img/mobile/car.jpg" class="webimg"></a>
 			<p>Kantocars 關東車材</p>
 		</div>
@@ -16,26 +36,7 @@
 			<a href="#"><img src="app/img/mobile/cheng.jpg" class="webimg"></a>
 			<p>成浩設計 嘉義頂級室內設計</p>
 		</div>
-		<div class="box">
-			<a href="#"><img src="app/img/mobile/ipix.jpg" class="webimg"></a>
-			<p>IPIX 鏡花園</p>
-		</div>
-		<div class="box">
-			<a href="#"><img src="app/img/mobile/evp.jpg" class="webimg"></a>
-			<p>EVP C-On 美商新能動力集團</p>
-		</div>
-		<div class="box">
-			<a href="#"><img src="app/img/mobile/east.jpg" class="webimg"></a>
-			<p>EastMansion 高級歐美家具名品</p>
-		</div>
-		<div class="box">
-			<a href="#"><img src="app/img/mobile/wantgo.jpg" class="webimg"></a>
-			<p>WantGo 旺旺集團購物商城</p>
-		</div>
-		<div class="box">
-			<a href="#"><img src="app/img/mobile/yyh.jpg" class="webimg"></a>
-			<p>Y.Y.H 昀諭行專業空氣濾網</p>
-		</div>
+
     </div>
 </div>
 <div class="section2">
