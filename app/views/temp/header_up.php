@@ -25,3 +25,4 @@
 	<?if(isset($global['website_script_plugin_fb'])):?><?=$global['website_script_plugin_fb']?><?endif?>
 	<?if(isset($global['website_script_plugin_custom'])):?><?=$global['website_script_plugin_custom']?><?endif?>
 	<link rel="shortcut icon" href="app/img/favicon.ico"></link>
+	<link rel="stylesheet" type="text/css" href="app/css/reset.css"></link>

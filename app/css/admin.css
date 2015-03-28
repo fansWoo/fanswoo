@@ -1,196 +1,4 @@
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-p,
-blockquote,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-pre,
-code,
-form,
-div,
-fieldset,
-legend,
-button,
-input,
-textarea,
-th,
-td {
-    margin: 0;
-    padding: 0;
-    font-family: 微軟正黑體, Arial;
-}
-fieldset,
-img {
-    border: 0;
-}
-/* remember to define focus styles! */
 
-:focus {
-    outline: 0;
-}
-address,
-caption,
-cite,
-code,
-dfn,
-em,
-strong,
-th,
-var,
-optgroup {
-    font-style: normal;
-    font-weight: normal;
-    font-family: 微軟正黑體, Arial;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-size: 100%;
-    font-weight: normal;
-    font-family: 微軟正黑體, Arial;
-}
-abbr,
-acronym {
-    border: 0;
-    font-variant: normal;
-}
-input,
-button,
-textarea,
-select,
-optgroup,
-option {
-    font-family: 微軟正黑體, Arial;
-    font-size: inherit;
-    font-style: inherit;
-    font-weight: inherit;
-}
-code,
-kbd,
-samp,
-tt {
-    font-size: 100%;
-}
-/*@purpose To enable resizing for IE */
-
-input,
-button,
-textarea,
-select {
-    font-size: 100%;
-}
-body {
-    line-height: 1.2;
-}
-ol,
-ul {
-    list-style: none;
-}
-/* tables still need 'cellspacing="0"' in the markup */
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-caption,
-th {
-    text-align: left;
-}
-sup,
-sub {
-    font-size: 100%;
-    vertical-align: baseline;
-}
-/* remember to highlight anchors and inserts somehow! */
-
-ins {
-    text-decoration: none;
-}
-blockquote,
-q {
-    quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: '';
-    content: none;
-}
-/* Define */
-
-h1 {
-    font-size: 2.8em;
-}
-h2,
-h3,
-h4 {
-    font-size: 2em;
-}
-a {
-    text-decoration: none;
-}
-blockquote {
-    margin: 5px 20px;
-    padding: 5px;
-}
-blockquote p,
-code {
-    padding: 10px 20px;
-    display: block;
-}
-code {
-    display: block;
-    margin: 5px 20px;
-}
-strong,
-em,
-caption,
-th {
-    font-style: normal;
-    font-weight: bold;
-}
-cite {
-    font-style: italic;
-    font-weight: normal;
-}
-sub,
-sup {
-    font-size: .8em;
-}
-sub {
-    vertical-align: sub;
-}
-sup {
-    vertical-align: super;
-}
-small {
-    font-size: 1em;
-}
-:focus {
-    outline: 0;
-}
-input:focus,
-div:focus,
-textarea:focus {
-    outline: 0;
-}
-input {
-    vertical-align: middle;
-}
 /* Layout */
 
 a {
@@ -198,6 +6,12 @@ a {
 }
 .gray {
     color: #999;
+}
+.green {
+    color: green;
+}
+.red {
+    color: red;
 }
 textarea {
     line-height: 18px;
@@ -212,6 +26,7 @@ input[type=password] {
     font-size: 12px;
     padding: 5px;
 }
+input ,select, textarea { -webkit-animation: fadeInLeft 0.8s; }
 [data-hrefto] {
     cursor: pointer;
 }
@@ -222,7 +37,6 @@ input[type=password] {
 body {
     font-size: 12px;
     /* Resets 1em to 10px */
-    color: #000;
     height: 100%;
     background: #fff;
     line-height: 1.4;
@@ -294,7 +108,7 @@ html.agent-ie8 .header .logo {
     background: rgba(50, 50, 50, 1);
     padding-left: 30px;
     cursor: pointer;
-    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
 }
 .sidebar .sidebox h2:hover {
     color: #FFF;
@@ -410,6 +224,7 @@ html.agent-ie8 .header .logo {
 .content .contentBox .spanLine.tableTitle {
     background: #EEE;
     border-radius: 15px;
+    margin-top: 15px;
     margin-bottom: 5px;
     min-height: 20px;
     line-height: 20px;
@@ -430,20 +245,27 @@ html.agent-ie8 .header .logo {
 }
 .content .contentBox .spanLine .spanLineLeft {
     float: left;
+    padding: 0 6px;
     min-height: 20px;
     width: 150px;
+    overflow: hidden;
 }
-.content .contentBox .spanLine .spanLineLeft.hoverHidden,
-.content .contentBox .spanLine .spanLineLeft.hoverHidden a {
+.content .contentBox .spanLine .spanLineLeft.hoverHidden {
     opacity: 0;
-    transition: opacity 0.5s;
+    -webkit-transform: translate(15px, 0);
+    transition: all 0.3s;
 }
-.content .contentBox .spanLine:hover .spanLineLeft.hoverHidden,
-.content .contentBox .spanLine:hover .spanLineLeft.hoverHidden a {
+.content .contentBox .spanLine:hover .spanLineLeft.hoverHidden {
+    -webkit-transform: translate(0, 0);
     opacity: 1;
 }
+.content .contentBox .spanLine .spanLineLeft.hoverHidden a{ margin-right: 10px; }
 .content .contentBox .spanLine .spanLineLeft.aligncenter {
     text-align: center;
+}
+.content .contentBox .spanLine .spanLineLeft.width200,
+.content .contentBox .spanLine .spanLineRight.width200 {
+    width: 200px;
 }
 .content .contentBox .spanLine .spanLineLeft.width300,
 .content .contentBox .spanLine .spanLineRight.width300 {
@@ -458,8 +280,12 @@ html.agent-ie8 .header .logo {
     width: 100px;
 }
 .content .contentBox .spanLine .spanLineLeft.text {
-    padding-left: 5px;
+    padding: 0 6px;
     width: 145px;
+}
+.content .contentBox .spanLine .spanLineLeft.text.width200,
+.content .contentBox .spanLine .spanLineRight.text.width200 {
+    width: 195px;
 }
 .content .contentBox .spanLine .spanLineLeft.text.width300,
 .content .contentBox .spanLine .spanLineRight.text.width300 {
@@ -475,20 +301,21 @@ html.agent-ie8 .header .logo {
 }
 .content .contentBox .spanLine .spanLineRight {
     float: right;
-    width: calc(100% - 150px);
+    width: calc(100% - 168px);
     min-height: 40px;
 }
 .content .contentBox .spanLine .spanLineRight p {
     margin: 5px 0;
     line-height: 20px;
 }
+.content .contentBox .spanLine .spanLineLeft textarea,
 .content .contentBox .spanLine .spanLineRight textarea {
-    width: 400px;
+    width: calc(100% - 12px);
     height: 200px;
     margin-top: 4px;
 }
 .content .contentBox .spanLine.spanSubmit {
-    padding-top: 20px;
+    padding-top: 50px;
     border: none;
 }
 .content .contentBox .spanLine.spanSubmit:hover {
@@ -509,18 +336,22 @@ html.agent-ie8 .header .logo {
     color: #FFF;
     background: #555;
 }
+.content .contentBox .spanLine .button.gray { background: #AAA; border-color: #999; color: #333; }
 .content .contentBox .spanLine select {
-    padding: 5px;
+    display: block;
+    float: left;
+    padding: 6px;
+    margin: 5px 5px 0 0;
     min-width: 150px;
-    height: 30px;
+    height: 32px;
     font-size: 12px;
     border: 1px solid #CCC;
     border-radius: 5px;
-    transition: border 0.5s;
 }
 .content .contentBox .spanLine select:hover {
     border: 1px solid #027de5;
 }
+.content .contentBox .spanLine .selectLine { display: block; overflow: hidden; border-bottom: 1px dashed #DDD; padding: 5px 0 10px; }
 .content .contentBox .spanLine input.text {
     width: calc(100% - 20px);
     padding: 5px;
@@ -569,6 +400,18 @@ html.agent-ie8 .header .logo {
     color: #555;
     background: #CCC;
 }
+
+.content .contentBox .spanLine .spanLineLeft .picidUploadList { padding-top: 10px; }
+.content .contentBox .spanLine .spanLineLeft .picidUploadList .picidUploadLi { float:left; width:50px; height: 50px; border: 2px solid #FFF; position:relative; margin: 0 5px 5px 0; }
+.content .contentBox .spanLine .spanLineLeft .picidUploadList .picidUploadLi .picDelete { display: block; position: absolute; width:50px; height: 50px; background: rgba(255, 255, 255, 0.8) url(../img/admin/delete.png) center center no-repeat; cursor: pointer; animation: fadeOut 0.5s; opacity: 0; -webkit-transition: opacity 0.5s; transition: opacity 0.5s; }
+.content .contentBox .spanLine .spanLineLeft .picidUploadList .picidUploadLi:hover .picDelete { opacity: 1; }
+
+.pageLink { margin: 20px 10px; }
+.pageLink a, .pageLink strong { display: block; float: left; width: 20px; height: 20px; margin-right: 10px; background: #EEE; text-align: center; padding: 5px; line-height: 20px; color: #555; -webkit-transition: all 0.5s; }
+.pageLink a:hover,
+.pageLink strong:hover,
+.pageLink strong { background: #555; color: #FFF; }
+
 .footer {
     height: 30px;
     line-height: 30px;

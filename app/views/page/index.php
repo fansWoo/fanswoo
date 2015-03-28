@@ -36,8 +36,6 @@
 				<img src="app/img/designBgPersist.jpg">
 				<img src="app/img/designSampleBg.png">
 				<img src="app/img/designSampleBgColor.jpg">
-				<img src="app/img/fanscriptSampleAnimation.jpg">
-				<img src="app/img/fanscriptSampleHTML5.jpg">
 				<img src="app/img/fanscriptSamplePad.jpg">
 				<img src="app/img/trunLeft.png">
 				<img src="app/img/trunRight.png">

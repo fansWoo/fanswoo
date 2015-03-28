@@ -276,7 +276,7 @@ html.agent-ie .wrapStart {
     margin: 100px 0 0 -390px;
     background: url(../img/bulb.png);
 }
-body.start .wrapStart .wrapContent .bulb {
+body.start .wrapStart.hover .wrapContent .bulb {
     display: block;
     -webkit-animation: p201407250622 5s, p201407250623 4s infinite;
     animation: p201407250622 5s, p201407250623 4s infinite;
@@ -570,7 +570,7 @@ body.start .wrapStart .wrapContent h4 {
     }
 }
 .wrapStart .wrapContent .picDown {
-    display: block;
+    display: none;
     position: absolute;
     left: 50%;
     margin: 300px 0 0 -61px;
@@ -581,8 +581,8 @@ body.start .wrapStart .wrapContent h4 {
     z-index: 2;
     opacity: 0;
 }
-body.forever .wrapStart .wrapContent .picDown {
-    opacity: 1;
+body.forever .wrapStart.hover .wrapContent .picDown {
+    display: block;
     -webkit-animation: p201407250425 1s, p201407231156 5s infinite;
     animation: p201407250425 1s, p201407231156 5s infinite;
 }
@@ -1334,29 +1334,6 @@ html.ie9 .wrapService .wrapContent .whiteBg .textPic .floatBox .textBottom {
     width: 120px;
     border-bottom: 1px solid #333;
 }
-.wrapService .wrapContent .pen {
-    display: none;
-}
-.wrapService.hover .wrapContent .pen {
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    margin-left: 230px;
-    margin-top: 750px;
-    width: 128px;
-    height: 128px;
-    background: url(../img/pencil.png) no-repeat;
-    z-index: 9999;
-    overflow: hidden;
-    -webkit-transform: rotate(80deg);
-    -ms-transform: rotate(80deg);
-    transform: rotate(80deg);
-}
-.wrapService.hover .wrapContent .pen {
-    -webkit-animation: p201309110656 4s infinite;
-    animation: p201309110656 4s infinite;
-}
 @-webkit-keyframes p201309110656 {
     0% {
         -webkit-transform: translate(5px, 5px) rotate(75deg);
@@ -1698,13 +1675,13 @@ html.ie9 .wrapService .wrapContent .whiteBg .textPic .floatBox .textBottom {
     margin-right: 10px;
     margin-bottom: 15px;
     padding: 10px;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
+    -webkit-transition: transform 0.2s;
+    transition: transform 0.2s;
 }
 .wrapBrand .wrapContent .logoArea .box:hover,
 .wrapBrand .wrapContent .logoArea:hover .box:hover {
     opacity: 1;
-    box-shadow: 5px 5px 200px #888, 5px 5px 50px #888, 5px 5px 20px #888;
+    box-shadow: 0 0 20px #888;
     z-index: 2;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;

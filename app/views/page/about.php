@@ -2,41 +2,39 @@
 	<script>
 	$(function(){
 		$(document).scroll(function(){
-			if($(document).scrollTop() < 5500){
+            var scrolltop = $(document).scrollTop();
+			if(scrolltop < 5500){
 				$('.videoFixed').removeClass('displayblock');
 			}
-			if($(document).scrollTop() < 1000){
+			if(scrolltop < 300){
 				line_nav_change(0);
-			}
-			else if($(document).scrollTop() >= 1000 && $(document).scrollTop() < 2000){
-				line_nav_change(1);
-			}
-			else if($(document).scrollTop() >= 2000 && $(document).scrollTop() < 3000){
-				line_nav_change(2);
-			}
-			else if($(document).scrollTop() >= 3000 && $(document).scrollTop() < 4000){
-				line_nav_change(3);
+				$('.wrapStart').addClass('hover');
 				$('.wrapService').removeClass('hover');
 				$('.wrapPersist').removeClass('hover');
 			}
-			else if($(document).scrollTop() >= 4000 && $(document).scrollTop() < 4500){
+			else if(scrolltop >= 300 && scrolltop < 2000){
+				line_nav_change(1);
+				$('.wrapStart').removeClass('hover');
+			}
+			else if(scrolltop >= 2000 && scrolltop < 3000){
+				line_nav_change(2);
+			}
+			else if(scrolltop >= 3000 && scrolltop < 4000){
+				line_nav_change(3);
+			}
+			else if(scrolltop >= 4000 && scrolltop < 4500){
 				line_nav_change(4);
 				$('.wrapPersist').addClass('hover');
 			}
-			else if($(document).scrollTop() >= 4500 && $(document).scrollTop() < 5000){
+			else if(scrolltop >= 4500 && scrolltop < 5000){
 				line_nav_change(5);
 				$('.wrapService').addClass('hover');
 			}
-			else if($(document).scrollTop() >= 5000 && $(document).scrollTop() < 6000){
+			else if(scrolltop >= 5000 && scrolltop < 6000){
 				$('.videoFixed').addClass('displayblock');
 			}
-			else if($(document).scrollTop() >= 6000 && $(document).scrollTop() < 6500){
+			else if(scrolltop >= 6000 && scrolltop < 6500){
 				line_nav_change(6);
-			}
-			else if($(document).scrollTop() >= 6500){
-				line_nav_change(7);
-				$('.wrapMenu').removeClass('hover');
-				$('.wrapMenuFixed').removeClass('hover');
 			}
 		});
 		$(document).on('mouseenter', '.lineFixed .nav', function(event){
@@ -136,7 +134,7 @@
 			<video src="app/img/video.mp4" autoplay loop muted>
 			</video>
 		</div>
-		<div class="wrapStart">
+		<div class="wrapStart hover">
 			<div class="wrapContent">
 				<div class="picDown"></div>
 				<div class="bulb"></div>
@@ -274,7 +272,6 @@
 					<div class="picture four">
 						<img src="app/img/customPic4.jpg">
 					</div>
-					<div class="pen"></div>
 					<div class="whiteBg">
 						<h2>客製專案 Project</h2>
 						<div class="textPic">
@@ -484,48 +481,6 @@
 				</div>
 				<p>想了解更多成功的合作案例，請與業務代表聯繫...</p>
 			</div>
-		</div>
-		<div class="wrapMenu">
-			
-		
-		</div>
-		
-		<div class="wrapMenuFixed">
-			
-			<div class="pic1">
-				
-					<img src="app/img/about_pic1.png" width="180" data-hrefto="index.php?app=page&ac=news">
-				 <div class="light"></div>	
-				
-				<h1>最新資訊</h1>
-				<p class="title">NEWS</p>
-				<hr>
-				<p>最新、最夯的熱門話題</p>
-			</div>
-			
-			<div class="pic2">
-			    <h1>作品集</h1>
-				<p class="title">PORTFOLIO</p>
-				<hr>
-				<p>最完美的作品呈獻</p>
-				<img src="app/img/about_pic3.png"  width="180" data-hrefto="index.php?app=page&ac=portfolio">
-				 <div class="light"  style="position:absolute; left:13px; top:275px;"></div>	
-					<img src="app/img/tod.png" class="tod" width="120">
-			        <img src="app/img/tod.png" class="tod2" width="120">
-			</div>
-			<div class="pic3">
-				<img src="app/img/about_pic2.png"  width="180" data-hrefto="index.php?app=page&ac=contact">
-				 <div class="light"></div>	
-				
-				<h1>聯絡我們</h1>
-				<p class="title">CONTACT</p>
-				<hr>
-				<p>歡迎與我們聯絡、洽詢</p>
-			</div>
-			
-			<div class="borderRight"></div>
-			<div class="borderTop"></div>
-			<div class="borderBottom"></div>
 		</div>
 	</div>
 <?=$temp['footer']?>
