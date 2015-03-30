@@ -219,7 +219,7 @@ if ( ! function_exists('get_config'))
 
 		if (isset($_config))
 		{
-			return $_config[0];
+			$result = $_config[0];
 		}
 
 		// Is the config file in the environment folder?
@@ -254,7 +254,9 @@ if ( ! function_exists('get_config'))
 			}
 		}
 
-		return $_config[0] =& $config;
+		$_config[0] =& $config;
+		$result = $_config[0];
+		return $result;
 	}
 }
 
@@ -562,3 +564,32 @@ if ( ! function_exists('html_escape'))
 
 /* End of file Common.php */
 /* Location: ./system/core/Common.php */
+
+
+function __autoload($class)
+{       
+	if ( ! class_exists('CI_Model'))
+	{
+		load_class('Model', 'core');
+	}
+
+	if (file_exists(APPPATH."models/".$class.EXT))
+	{
+		include_once(APPPATH."models/".$class.EXT);
+	}
+	else if (file_exists(BASEPATH."models/".$class.EXT))
+	{
+	    include_once(BASEPATH."models/".$class.EXT);
+	}
+	else if (file_exists(APPPATH."controllers/".$class.EXT))
+	{
+	    include_once(APPPATH."controllers/".$class.EXT);
+	}
+	else if($class == 'CI_Model') 
+	{
+		if(file_exists(BASEPATH."core/Model.php"))
+		{
+	    	include_once(BASEPATH."core/Model.php");
+		}
+	}
+}

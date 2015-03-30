@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '146.148.55.60';
-$db['default']['username'] = 'fs_fanswoo';
-$db['default']['password'] = 'fjthgu55';
-$db['default']['database'] = 'fs_fanswoo';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'fanswoo_fanswoo';
+$db['default']['password'] = '1234qwera';
+$db['default']['database'] = 'fanswoo_fanswoo';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = 'fs_';
 $db['default']['pconnect'] = TRUE;
