@@ -12,7 +12,6 @@
 	<div class="box">
 		<img src="app/img/mobile/tel.png">
 		<p>業務部 (02)2816-4533 #333</p>
-		<p>設計部 (02)2816-4533 #331</p>
 		<p>傳真機 (02)2816-4538</p>
 	</div>
 	<div class="box">

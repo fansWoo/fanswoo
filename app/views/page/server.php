@@ -55,13 +55,12 @@ $(function(){
 					<p>核心架構採Linux作業系統+Apache伺服器+MySQL資料庫+PHP程式語言，具有70%以上的高市佔率不管企業用戶、個人用戶都能感受到穩定的速度與效能。</p>
 			  </div>
 			</div>
-		
-		
 		</div>
 		<div class="content2">
 			<div class="area">
-				<h1>Google虛擬主機專案</h1>
-				<p class="title2">我們特別為小型用戶提供三種不同類型的主機專案</p>
+				<h1>Google SSD虛擬主機</h1>
+				<p class="title2">我們特別為小型用戶提供三種SSD高速硬碟的主機專案</p>
+				<p class="title2">依照客戶對網站的需求調整高流量或高頻寬專案</p>
 				<p class="title2">供用戶選擇最適合的需求與規格</p>
 				<div class="boxcontent">
 						<div class="box">
@@ -69,7 +68,7 @@ $(function(){
 							<img src="app/img/server/content2_server2.png" class="serverPic top">
 							<div class="textarea">
 								<p class="title">微型主機</p>
-								<p>50G容量/400G流量/1M頻寬/4條IP</p>
+								<p>10G SSD 硬碟容量<br>40G或400G流量<br>2M或1T共用頻寬</p>
 							</div>
 						</div>	
 						
@@ -78,7 +77,7 @@ $(function(){
 							<img src="app/img/server/content2_server1.png" class="serverPic">
 							<div class="textarea">
 								<p class="title">標準主機</p>
-								<p>100G容量/800G流量/1.5M頻寬/6條IP</p>
+								<p>20G SSD 硬碟容量<br>80G或800G流量<br>5M或1T共用頻寬</p>
 							</div>
 						</div>
 						
@@ -86,8 +85,8 @@ $(function(){
 							<img src="app/img/server/content2_C.png" class="program ">
 							<img src="app/img/server/content2_server3.png" class="serverPic top">
 							<div class="textarea">
-								<p class="title">無限流量主機</p>
-								<p>200G容量/無限流量/3M頻寬/12條IP</p>
+								<p class="title">專業主機</p>
+								<p>40G SSD 硬碟容量<br>120G或1200G流量<br>10M或1T共用頻寬</p>
 							</div>
 						</div>
 				</div>
@@ -97,7 +96,7 @@ $(function(){
 		</div>
 		<div class="content7">
 			<div class="area">
-				 <img src="app/img/server/content7_bg.png" class="bg">
+				<img src="app/img/server/content7_bg.png" class="bg">
 				
 			 
 				<div class="leftbox">
@@ -132,8 +131,8 @@ $(function(){
 							<div class="circle read"><p>G 1</p></div>
 							<img src="app/img/server/content3_arrow.png" class="arrow">
 							<div class="price">
-								<p class="p1">NT$ 7800元/月</p>
-								<p class="p2">200G容量/300G流量/無限頻寬/無限IP</p>
+								<p class="p1">NT$ 8,000元/月</p>
+								<p class="p2">200G SSD 硬碟容量 / 2T流量 / 無限頻寬</p>
 							</div>
 						</div>
 						<div class="box">
@@ -141,7 +140,7 @@ $(function(){
 							<img src="app/img/server/content3_arrow.png" class="arrow">
 							<div class="price">
 								<p class="p1">NT$ 1,5800元/月</p>
-								<p class="p2">400G容量/600G流量/無限頻寬/無限IP</p>
+								<p class="p2">400G SSD 硬碟容量 / 4T流量 / 無限頻寬</p>
 							</div>
 						</div>
 						<div class="box">
@@ -149,7 +148,7 @@ $(function(){
 							<img src="app/img/server/content3_arrow.png" class="arrow">
 							<div class="price">
 								<p class="p1">NT$ 3,1800元/月</p>
-								<p class="p2">800G容量/1200G流量/無限頻寬/無限IP</p>
+								<p class="p2">800G SSD 硬碟容量 / 8T流量 / 無限頻寬</p>
 							</div>
 						</div>
 					

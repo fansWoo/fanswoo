@@ -76,7 +76,6 @@ $(function(){
 			<div class="stage">
 				<img class="pic" src="app/img/tel.png">
 				<p>業務部 (02)2816-4533 #333</p>
-				<p>設計部 (02)2816-4533 #331</p>
 				<p>傳真機 (02)2816-4538</p>
 			</div>
 			<div class="stage">
@@ -162,9 +161,8 @@ $(function(){
 					<span>您的預算：</span>
 					<select class="money" name="money">
 						<option value="">請選擇預算</option>
-						<option value="10萬元以下">10萬元以下</option>
-						<option value="10萬元~20萬元">10萬元~20萬元</option>
-						<option value="20萬元~30萬元">20萬元~30萬元</option>
+						<option value="15萬元以下">15萬元以下</option>
+						<option value="15萬元~30萬元">15萬元~30萬元</option>
 						<option value="30萬元~50萬元">30萬元~50萬元</option>
 						<option value="50萬元~100萬元">50萬元~100萬元</option>
 						<option value="100萬元~200萬元">100萬元~200萬元</option>

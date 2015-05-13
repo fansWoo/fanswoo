@@ -13,7 +13,7 @@
 	  <div class="nav">
 		   <div class="in_nav">
 			<a href="page/about"><div>About</div></a>
-			<a href="news"><div>News</div></a>
+			<a href="note"><div>News</div></a>
 			<a href="page/portfolio"><div>Portfolio</div></a>
 			<a href="contact"><div>Contact</div></a>
 		   </div> 
