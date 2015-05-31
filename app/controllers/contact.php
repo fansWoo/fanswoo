@@ -1,15 +1,7 @@
 <?php
 
-class Contact extends CI_Controller {
-
-    private $data = array();
-    
-	public function __construct()
-	{
-		parent::__construct();
-        $this->data = $this->common_model->common();
-        $data = $this->data;
-    }
+class contact_controller extends FS_controller
+{
     
 	public function index(){
         $data = $this->data;

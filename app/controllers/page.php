@@ -1,13 +1,8 @@
 <?php
 
-class Page extends CI_Controller {
-
-    private $data = array();
-    
-	public function __construct(){
-		parent::__construct();
-        $this->data = $this->common_model->common();
-	}
+class page_controller extends FS_Controller
+{
+    public $data = array();
     
 	public function _remap($page = 'index'){
         $data = $this->data;

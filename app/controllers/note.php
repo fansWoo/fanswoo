@@ -1,15 +1,10 @@
 <?php
 
-class Note extends CI_Controller {
+class note_controller extends FS_controller {
     
-    private $data = array();
-    
-	public function __construct(){
-		parent::__construct();
-        $this->data = $this->common_model->common();
-	}
+	public function index()
+	{
 
-	public function index(){
         $data = $this->data;
         
         $this->load->model('note_list_model');
