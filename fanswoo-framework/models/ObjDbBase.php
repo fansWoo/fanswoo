@@ -74,7 +74,7 @@ class ObjDbBase extends ObjBase {
             return FALSE;
         }
         
-        if($db_where_Arr['status'] === FALSE)
+        if($db_where_Arr['status'] == FALSE)
         {
             unset($db_where_Arr['status']);
         }

@@ -164,7 +164,7 @@ class ObjList extends CI_Model {
         $db_where_or_Arr = typekey_to_nokey($db_where_or_Arr);
         $db_where_like_Arr = typekey_to_nokey($db_where_like_Arr);
         
-        if($db_where_Arr['status'] === FALSE)
+        if($db_where_Arr['status'] == FALSE)
         {
             unset($db_where_Arr['status']);
         }

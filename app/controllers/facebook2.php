@@ -366,8 +366,10 @@ class facebook2_controller extends FS_controller {
 		{
 			$FacebookFeed->facebookids_Str = $FacebookFeed->facebookids_Str . ',' . $facebookids_Str;
 		}
+        echo $FacebookFeed->facebookids_Str;
 		$FacebookFeed->status_Num = 2;
 		$FacebookFeed->update();
+        
 
 		echo 'true';
 	}
@@ -402,11 +404,14 @@ class facebook2_controller extends FS_controller {
 
 		foreach($FacebookFeedList->obj_Arr as $key => $value_FacebookFeed)
 		{
-			$facebookid_Arr = explode(",", $value_FacebookFeed->facebookids_Str);
-			foreach($facebookid_Arr as $key => $value)
-			{
-				$facebookids_Arr[] = strtolower($value);
-			}
+            if(!empty($value_FacebookFeed->facebookids_Str))
+            {
+                $facebookid_Arr = explode(",", $value_FacebookFeed->facebookids_Str);
+                foreach($facebookid_Arr as $key => $value)
+                {
+                    $facebookids_Arr[] = strtolower($value);
+                }
+            }
 		}
 		$facebookids_Arr = array_count_values($facebookids_Arr);
 
