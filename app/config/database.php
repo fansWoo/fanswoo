@@ -48,8 +48,8 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
+$db['default']['hostname'] = '130.211.248.87';
+$db['default']['username'] = 'fansw_fanswoo';
 $db['default']['password'] = '1234qwera';
 $db['default']['database'] = 'fanswoo_com_fanswoo';
 $db['default']['dbdriver'] = 'mysql';

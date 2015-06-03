@@ -1,4 +1,4 @@
-				<div class="footer">
+				<div class="pc_footer">
 					<div class="area">
 						<div class="boxRight">
 							<h1>
@@ -77,6 +77,17 @@
 				<div class="footerBottom">
 					© 2014 <a href="">fansWoo</a> All Rights Reserved. Design By <a href="">瘋沃科技</a>
 				</div>
+			</div>
+			<div class="phone_footer">
+				<div class="content">
+					<h1>瘋沃科技</h1>
+					<p>台北市重慶北路四段 248 號 4 樓</p>
+					<p>業務部 (02)2816-4533 #333</p>
+					<p>傳真機 (02)2816-4538</p>
+					<p>service@fanswoo.com</p>
+					<p>yi@fanswoo.com</p>
+				</div>
+				<p class="Design_By">© 2014 fansWoo All Rights Reserved. Design By 瘋沃科技</p>
 			</div>
 			<div class="picLoadingList2">
 				<img src="app/img/bg1.png">

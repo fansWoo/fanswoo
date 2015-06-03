@@ -22,8 +22,9 @@
 							<a href="note"><span class="title2">趨勢 News</span><span class="title1">News</span></a>
 							<a href="page/portfolio"><span class="title2">作品集 Portfolio</span><span class="title1">Portfolio</span></a>
 							<a href="contact"><span class="title2">聯繫 Contact</span><span class="title1">Contact</span></a>
+							<div class="footer">© 2014 fansWoo All Rights Reserved.</div>
 						</div>
-						<div class="footer">© 2014 fansWoo All Rights Reserved.</div>
+						
 					</nav>
 				</div>
 			</div>
