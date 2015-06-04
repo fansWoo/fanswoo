@@ -1,4 +1,4 @@
-<div class="topHeader">
+<div class="index_topHeader">
 	<div class="navBar">
 		<div class="box down">
 			<a href="page/about" class="nav<?if($page == 'about'):?> hover<?endif?>">About</a>
@@ -16,6 +16,39 @@
 				</div>
 				
 			</div>
+		</div>
+		<div class="box">
+			<a href="news" class="nav<?if($page == 'note'):?> hover<?endif?>">News</a>
+			<a class="nav2" href="note">最新趨勢</a>
+		</div>
+		<div class="box">
+			<a href="page/portfolio" class="nav<?if($page == 'portfolio'):?> hover<?endif?>">Portfoilo</a>
+			<a class="nav2" href="page/portfolio">作品集</a>
+		</div>
+		<div class="box">
+			<a href="contact" class="nav<?if($page == 'contact'):?> hover<?endif?>">Contact</a>
+			<a class="nav2" href="contact">聯繫我們</a>
+		</div>
+	</div>
+</div>
+<div class="phone_topHeader">
+	<div class="navBar">
+		<div class="box down">
+			<a href="page/about" class="nav<?if($page == 'about'):?> hover<?endif?>">About</a>
+			<a class="nav2" href="page/about">關於我們</a>
+			
+		</div>
+		<div class="box">
+			<a href="page/webdesign" class="nav hover">webdesign</a>
+			<a class="nav2" href="note">客製化網站</a>
+		</div>
+		<div class="box">
+			<a href="page/wordpress" class="nav hover">wordpress</a>
+			<a class="nav2" href="note">0元套版網站</a>
+		</div>
+		<div class="box">
+			<a href="page/server" class="nav hover">server</a>
+			<a class="nav2" href="note">伺服器主機</a>
 		</div>
 		<div class="box">
 			<a href="news" class="nav<?if($page == 'note'):?> hover<?endif?>">News</a>

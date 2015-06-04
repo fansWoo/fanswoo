@@ -183,5 +183,5 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	body.forever .plane{ display:none; }
 	
 	.phone_footer{display:block;width:100%;padding:20px 0px;background:url(../img/footerBg.jpg);}
-
+	.contactFormHover{display:none;}
 }

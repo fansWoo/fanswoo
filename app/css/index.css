@@ -221,7 +221,7 @@ body.forever .oneRightBox .box { display:block; -webkit-animation:oneRightBoxBox
 	.wrapper nav .menu:hover a:hover .title2,
 	.wrapper nav .menu a.click .title2 { margin-top:0; border-radius:50px; color:#fff; background:rgba(0,0,0,0.5); }
 	.wrapper nav .footer{ font-size:12px; text-align:center; color:#AAA; }
-	
+	.contactFormHover{display:none;}
 }
 
 
