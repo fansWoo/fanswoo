@@ -109,8 +109,8 @@ body.start.forever .wrapper { -webkit-animation:wrapperPageHomeForever 4s infini
 	100% { opacity:0.8; background:#333; }
 }
 .logoFixed{position:fixed; left:50%; top:50%; margin-left:-450px;margin-top:-280px; width:160px; height:60px;}
-.wrapper nav{ padding-bottom:20px;width:100%;position:absolute;left:50%; margin-left:-100px;top:50%; overflow:hidden;height:350px;margin-top:-175px;}
-.wrapper nav .menu{ list-style:none;width:100%;height:300px;padding-top:50px;}
+.wrapper nav{ padding-bottom:0px;width:100%;height:100%;position:absolute;left:50%; margin-left:-100px;top:0px; overflow:hidden;}
+.wrapper nav .menu{ list-style:none;width:100%;height:300px;padding-top:50px;position:absolute;top:50%;margin-top:-150px; }
 .wrapper nav .menu a { height:50px; overflow:hidden; display:block; }
 .wrapper nav .menu a .title1 { display:block; height:50px; line-height:50px; text-align:center; color:#FFF; text-decoration:none; -webkit-transition:all 0.3s ease-out; transition:all 0.3s ease-out; overflow:hidden; }
 .wrapper nav .menu a .title2 { height:50px; overflow:hidden; text-align:center; line-height:50px; margin-top:-50px; display:block; background:#333; color:#FFF; -webkit-transition:all 0.3s ease-out; transition:all 0.3s ease-out; }
@@ -128,7 +128,7 @@ body.start.forever .wrapper { -webkit-animation:wrapperPageHomeForever 4s infini
 .wrapper nav .menu:hover a.click .title2 { margin-top:-50px; animation:none; -webkit-animation:none; }
 .wrapper nav .menu:hover a:hover .title2,
 .wrapper nav .menu a.click .title2 { margin-top:0; border-radius:50px; color:#000; background:#FFF; }
-.wrapper nav .footer{ font-size:12px; text-align:center; color:#AAA; }
+.wrapper nav .footer{ font-size:12px; text-align:center; color:#AAA;position:absolute;bottom:30px; }
 
 .textHome { display:none; position:absolute; left:50%; top:50%;margin-top:-300px; overflow:hidden; box-shadow:0 0 100px #000; z-index:5; padding:30px; line-height:22px; color:#000; background:#FFF; width:200px; height:140px; margin-left:-80px; opacity:0.8; -webkit-transform: translate(-340px,185px); transform: translate(-340px,185px); border-radius:20px; box-shadow:5px 5px 100px #000; z-index:999;}
 .textHome h2 { display:block; overflow:hidden; font-size:15px; font-weight:900; margin-bottom:20px; border-left:10px solid #CCC; padding-left:5px; }
@@ -211,6 +211,20 @@ body.forever .oneRightBox .box { display:block; -webkit-animation:oneRightBoxBox
 	body.start.forever .brush { animation:none; }
 	.bg1 { display:block;width:600px; background: url(../img/bg1.png) no-repeat center center; background-size:contain;position:fixed;top:50%;left:50%;margin-top:-400px;margin-left:-300px; }
 	body.start .bg1 { animation:none; }
+	
+	
+	body.start .wrapper { display:block; -webkit-animation:a201506081151 1s; animation:a201506081151 1s; }
+	@-webkit-keyframes a201506081151{
+	0%{ opacity:0; }
+    50% { opacity:0;  }
+    100% { opacity:0.8;  }
+	}
+	@keyframes a201506081151{
+	0%{ opacity:0; }
+    50% {  opacity:0; }
+    100% { opacity:0.8;  }
+	}
+
 	.wrapper nav .menu a .title1 { display:block; height:50px; line-height:50px; text-align:center; color:#FFF; text-decoration:none; -webkit-transition:none; transition:none; overflow:hidden; }
 	.wrapper nav .menu a .title2 { height:50px; overflow:hidden; text-align:center; line-height:50px; margin-top:-50px; display:block; background:#333; color:#FFF; -webkit-transition:none; transition:none; }
 	.wrapper nav .menu:hover a:hover .title2,
@@ -222,6 +236,13 @@ body.forever .oneRightBox .box { display:block; -webkit-animation:oneRightBoxBox
 	.wrapper nav .menu a.click .title2 { margin-top:0; border-radius:50px; color:#fff; background:rgba(0,0,0,0.5); }
 	.wrapper nav .footer{ font-size:12px; text-align:center; color:#AAA; }
 	.contactFormHover{display:none;}
+	
+	.logoFixed { display:block; opacity: 1; -webkit-transform: translate(370px,80px) rotate(0deg); transform: translate(370px,80px) rotate(0deg); }
+	body.start .logoFixed,
+	body.start.forever .logoFixed { display:block; -webkit-animation:a201506081151 1s; animation:a201506081151 1s; }
+	body.start.forever .wrapper { -webkit-animation:none; animation:none; }
+
+
 }
 
 

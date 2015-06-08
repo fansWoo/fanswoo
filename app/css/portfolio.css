@@ -178,8 +178,11 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 .fixedNoClickRight { display:none;  }
 .fixedNoClickRight.opacity1 { opacity:0.9; }
 .fixedNoClick { display:none; }
-.fixedNoClick.displayblock { display:none;  }	
+.fixedNoClick.displayblock { display:none;  }
 
+
+	
+.contactFormHover{display:none;}
 
 
 

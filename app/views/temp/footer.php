@@ -87,7 +87,10 @@
 					<p>service@fanswoo.com</p>
 					<p>yi@fanswoo.com</p>
 				</div>
-				<p class="Design_By">© 2014 fansWoo All Rights Reserved. Design By 瘋沃科技</p>
+				<div class="Design_By">	
+					<p>© 2014 <a href="">fansWoo</a>  All Rights Reserved.</p>
+					<p>Design By <a href="">瘋沃科技</a></p>
+				</div>
 			</div>
 			<div class="picLoadingList2">
 				<img src="app/img/bg1.png">
