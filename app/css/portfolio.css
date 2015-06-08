@@ -124,10 +124,10 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 
 .bodyPagePortfolio { display:block;width:100%;height:100%;position:relative;overflow:hidden; }
 .portfolioPage{width:100%;}
-.bodyPagePortfolio .portfolioLeft { float:none; padding-top:120px; width:300px; margin-right:20px; overflow:hidden; }
-.bodyPagePortfolio .portfolioRight { float:none; padding-top:160px; width:300px; overflow:hidden; }
-.bodyPagePortfolio .portfolioDiv { width:100%; height:210px; background:#000; margin:20px auto 20px auto; overflow:hidden; position:relative; cursor:pointer;border-radius:5px; }
-.bodyPagePortfolio .portfolioDiv .pic.showOriginal { position:absolute; width:100%; height:210px; opacity:1; transition:opacity 1s; -webkit-transition:opacity 1s; z-index:1; overflow:hidden; }
+.bodyPagePortfolio .portfolioLeft { float:none; padding-top:50px; width:300px; margin-right:20px; overflow:hidden; }
+.bodyPagePortfolio .portfolioRight { float:none; padding-top:0px; width:300px; overflow:hidden;margin-top:-20px; }
+.bodyPagePortfolio .portfolioDiv { width:100%; height:170px; background:#000; margin:20px auto 20px auto; overflow:hidden; position:relative; cursor:auto;border-radius:5px; }
+.bodyPagePortfolio .portfolioDiv .pic.showOriginal { position:absolute; width:100%; height:170px; opacity:1; transition:opacity 1s; -webkit-transition:opacity 1s; z-index:1; overflow:hidden; }
 .bodyPagePortfolio .portfolioDiv:hover .pic.showOriginal { opacity:1; }
 .bodyPagePortfolio .portfolioDiv .pic.showOriginal img { width:100%; }
 .bodyPagePortfolio .portfolioDiv .pic.showBlur { display:none; }
@@ -137,8 +137,9 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 .bodyPagePortfolio .portfolioDiv .logo {display:none; }
 
 /************************************LOGO****************************************************/
-.bodyPagePortfolio .portfolioDiv  .box{ position:absolute; width:300px; height:210px; opacity:1; transition:opacity 1s; -webkit-transition:opacity 1s; z-index:1; overflow:hidden;}
-.bodyPagePortfolio .portfolioDiv .text1{ position:absolute; width:300px; height:50px;top:80px;color:#fff; z-index:9; line-height:50px; text-align:center; opacity:0; -webkit-transition:opacity 1s;overflow:hidden; background-color:rgba(0,0,0,0.8); letter-spacing:5px; font-size:14px;animation:none;}
+.bodyPagePortfolio .portfolioDiv  .box{ position:absolute; width:300px; height:170px; opacity:1; transition:opacity 1s; -webkit-transition:opacity 1s; z-index:1; overflow:hidden;}
+.bodyPagePortfolio .portfolioDiv  .box img{ width:100%;}
+.bodyPagePortfolio .portfolioDiv .text1{ position:absolute; width:300px; height:50px;top:60px;color:#fff; z-index:9; line-height:50px; text-align:center; opacity:0; -webkit-transition:opacity 1s;overflow:hidden; background-color:rgba(0,0,0,0.8); letter-spacing:5px; font-size:14px;animation:none;}
 .bodyPagePortfolio .portfolioDiv .text2{ position:absolute; width:300px; height:50px;top:80px;color:#000; z-index:9; line-height:50px; text-align:center; opacity:0; -webkit-transition:opacity 1s;overflow:hidden; background-color:rgba(255,255,255,0.8); letter-spacing:5px; font-size:14px;animation:none; }
 .bodyPagePortfolio .portfolioDiv:hover .text1{opacity:1;}
 .bodyPagePortfolio .portfolioDiv:hover .text2{opacity:1;}
@@ -151,10 +152,10 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 .bodyPagePortfolio .portfolioPageCISBg .portfolioTitle .zhtw ,
 .bodyPagePortfolio .portfolioPageMarketingBg .portfolioTitle .zhtw { color:#000; }
 
-.bodyPagePortfolio .portfolioPageWebsiteBg {width:100%;}
-.bodyPagePortfolio .portfolioPageCISBg { width:100%;background:url(../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
-.bodyPagePortfolio .portfolioPageGraphicDesignBg {width:100%; background:url(../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
-.bodyPagePortfolio .portfolioPageMarketingBg { width:100%;background:url(../img/bg13.jpg) 50% 50% fixed; background-size:cover; }
+.bodyPagePortfolio .portfolioPageWebsiteBg {width:100%;height:1650px;padding-top:50px;}
+.bodyPagePortfolio .portfolioPageCISBg { width:100%;height:1650px;background:url(../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
+.bodyPagePortfolio .portfolioPageGraphicDesignBg {width:100%;height:1650px; background:url(../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
+.bodyPagePortfolio .portfolioPageMarketingBg { width:100%;height:1650px;background:url(../img/bg13.jpg) 50% 50% fixed; background-size:cover; }
 .bodyPagePortfolio .portfolioPageBg .portfolioPageWebsite,
 .bodyPagePortfolio .portfolioPageBg .portfolioPageCIS,
 .bodyPagePortfolio .portfolioPageBg .portfolioPageGraphicDesign,
@@ -162,9 +163,9 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 
 .bodyPagePortfolio .portfolioPageBg.hover .portfolioPage {display:block;}
 .bodyPagePortfolio .portfolioPageBg.nohover .portfolioPage {display:block; }
-.bodyPagePortfolio .portfolioPageBg .portfolioContent { float:block; width:100%;overflow:hidden; }
-.bodyPagePortfolio .portfolioPageBg.hover .portfolioContent {display:block;}
-.bodyPagePortfolio .portfolioPageBg.nohover .portfolioContent {display:block; }
+.bodyPagePortfolio .portfolioPageBg .portfolioContent { display:none;float:none; width:100%;overflow:hidden; }
+.bodyPagePortfolio .portfolioPageBg.hover .portfolioContent {display:none;}
+.bodyPagePortfolio .portfolioPageBg.nohover .portfolioContent {display:none; }
 
 .fixedPortfolioContent { display:none; }
 .fixedPortfolioContent { display:none; }

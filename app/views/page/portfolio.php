@@ -23,6 +23,14 @@ $(function(){
 	
 	//作品頁變更 portfolie
 	$(document).on('click', '.bodyPagePortfolio .portfolioDiv', function(){
+		var window_width = $(window).width();
+		 if(window_width <= 700){
+			
+			 
+		 }
+		else if(window_width >=700){	
+			 $('.bodyPagePortfolio').css('display', 'block');
+			 $('.portfolioDiv').css('display', 'block');
 		$this = $(this);
 		var chref = $this.data('chref');
 		var csrc = $this.data('csrc');
@@ -60,6 +68,9 @@ $(function(){
 				$(".body").scrollTop(bodyScrollTop);
 			},2000);
 		}, 500);
+		
+		}
+		
 	});
 	$(document).on('click', '.fixedNoClickLeft, .fixedNoClickRight', function(){
 		if($('.portfolioPageBg').hasClass('hover') == true){

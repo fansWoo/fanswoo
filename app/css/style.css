@@ -162,8 +162,8 @@ body.start .index_topHeader { display:block; -webkit-animation:p201407240427 1s;
 	.phone_topHeader .navBar .box .item{width:170px;margin:0px  0px  0px 22px; overflow:hidden;padding-top:16px;}
 	.phone_topHeader .navBar .box:hover{background-color:#000;}
 	.phone_topHeader .navBar .box:active{background-color:#000;}
-	.phone_topHeader .navBar .box .item p{text-align:center; color:#acacac;letter-spacing:1px;margin-bottom:3px;float:left; margin-right:10px;transition:0.3s;}
-	.phone_topHeader .navBar .box:hover p{color:#eee;}
+	.phone_topHeader .navBar .box .item p{text-align:center; color:rgba(255,255,255,0.8);letter-spacing:1px;margin-bottom:3px;float:left; margin-right:10px;transition:0.3s;}
+	.phone_topHeader .navBar .box:hover p{color:rgba(255,255,255,1);}
 	.phone_topHeader .navBar .box:nth-of-type(1) .item span{color:#dd3c7b;}
 	.phone_topHeader .navBar .box:nth-of-type(2) .item span{color:#ed8d25;}
 	.phone_topHeader .navBar .box:nth-of-type(3) .item span{color:#84ae43;}
@@ -175,7 +175,7 @@ body.start .index_topHeader { display:block; -webkit-animation:p201407240427 1s;
 	.phone_topHeader .navBar .box .nav2{font-size:13px;letter-spacing:2px;}
 	.phone_topHeader .toggle{position:absolute;right:18px;top:17px;width:28px;height:28px;cursor:pointer;opacity:0.65;transition:0.3s;}
 	.phone_topHeader .toggle img{width:100%;}
-	.phone_topHeader .toggle.active{opacity:0.5;transform:rotate(90deg);}
+	.phone_topHeader .toggle.active{opacity:0.65;transform:rotate(90deg);}
 
 
 
