@@ -29,34 +29,24 @@ class contact_controller extends FS_controller
 		{
 			//判斷PC/Mobile瀏覽器
 			$this->load->library('user_agent');
-			if ($this->agent->is_mobile())
-			{
-				$agent = 'm';
-				$agent_temp = '_m';
-			}
-			else
-			{
-				$agent = '';
-				$agent_temp = '';
-			}
 			
             //data
-			$data['page'] = 'contact'.$agent_temp;
+			$data['page'] = 'contact';
         
             //global
             $data['global']['style'][] = 'style';
-            $data['global']['style'][] = 'contact'.$agent_temp;
+            $data['global']['style'][] = 'contact';
             
             //temp
-			$data['temp']['header_up'] = $this->load->view('temp/header_up'.$agent_temp, $data, TRUE);
-			$data['temp']['header_down'] = $this->load->view('temp/header_down'.$agent_temp, $data, TRUE);
+			$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
+			$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
 			if($agent !== 'm')
 			{
-				$data['temp']['topheader'] = $this->load->view('temp/topheader'.$agent_temp, $data, TRUE);
+				$data['temp']['topheader'] = $this->load->view('temp/topheader', $data, TRUE);
 			}
-			$data['temp']['footer'] = $this->load->view('temp/footer'.$agent_temp, $data, TRUE);
+			$data['temp']['footer'] = $this->load->view('temp/footer', $data, TRUE);
 			
-			$this->load->view('contact/index'.$agent_temp, $data);
+			$this->load->view('contact/index', $data);
 		}
 	}
 }
