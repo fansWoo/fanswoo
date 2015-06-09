@@ -310,12 +310,13 @@ $(function(){
 						<div class="portfolioDiv"  data-csrc="app/img/logo/portfoilo_logo_cis7.jpg">
 							<div class="box">
 								<img src="app/img/logo/portfoilo_logo7.jpg">
+								<div class="text1">
+									GRID MEDIA 多媒體設計公司
+								</div>
 							</div>
 					
 							<div class="bg"></div>
-							<div class="text1">
-								GRID MEDIA 多媒體設計公司
-							</div>
+							
 							
 						</div>
 						<div class="portfolioDiv"  data-csrc="app/img/logo/portfoilo_logo_cis8.jpg">

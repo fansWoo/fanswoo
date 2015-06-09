@@ -196,10 +196,8 @@ body.forever .oneRightBox .box { display:block; -webkit-animation:oneRightBoxBox
 .footer { background:none; }
 
 
-@media screen and (max-width: 959px) and (min-width:700px){
-	
 
-}
+
 
 @media screen and (max-width: 700px){
 	.textHome { display:none;animation:none; }

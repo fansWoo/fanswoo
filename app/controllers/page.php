@@ -17,12 +17,7 @@ class page_controller extends FS_Controller
 		}
 		
 		//判斷PC/Mobile瀏覽器
-		if (isset($data['global']['browser_agent']['agent']) && $data['global']['browser_agent']['agent'] == 'm')
-		{
-			$agent = 'm';
-			$agent_temp = '_m';
-		}
-		else if(isset($data['global']['browser_agent']['agent_ie']) && $data['global']['browser_agent']['agent_ie'] == 'ie8')
+		if(isset($data['global']['browser_agent']['agent_ie']) && $data['global']['browser_agent']['agent_ie'] == 'ie8')
 		{
 			$agent = 'ie8';
 			$agent_temp = '_ie8';

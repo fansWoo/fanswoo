@@ -37,9 +37,7 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 /************************************LOGO****************************************************/
 .bodyPagePortfolio .portfolioDiv  .box{ position:absolute; width:360px; height:210px; opacity:1; transition:opacity 1s; -webkit-transition:opacity 1s; z-index:1; overflow:hidden;}
 .bodyPagePortfolio .portfolioDiv .text1{ position:absolute; width:360px; height:50px;top:80px;color:#fff; z-index:9; line-height:50px; text-align:center; opacity:0; -webkit-transition:opacity 1s;overflow:hidden; background-color:rgba(0,0,0,0.8); letter-spacing:5px; font-size:14px;-webkit-animation:p201410030347 1s;animation:p201410030347 1s;   }
-.bodyPagePortfolio .portfolioDiv .text2{ position:absolute; width:360px; height:50px;top:80px;color:#000; z-index:9; line-height:50px; text-align:center; opacity:0; -webkit-transition:opacity 1s;overflow:hidden; background-color:rgba(255,255,255,0.8); letter-spacing:5px; font-size:14px;-webkit-animation:p201410030347 1s;animation:p201410030347 1s;   }
 .bodyPagePortfolio .portfolioDiv:hover .text1{opacity:1;}
-.bodyPagePortfolio .portfolioDiv:hover .text2{opacity:1;}
 @-webkit-keyframes p201410030347{
 	0%{-webkit-transform:translate(0,-20px);  }
 	50%{-webkit-transform: translate(0, -20px); }
@@ -132,15 +130,14 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 .bodyPagePortfolio .portfolioDiv .pic.showOriginal img { width:100%; }
 .bodyPagePortfolio .portfolioDiv .pic.showBlur { display:none; }
 .bodyPagePortfolio .portfolioDiv .bg {display:none; }
-.bodyPagePortfolio .portfolioDiv .text { display:block; position:absolute; width:100%; opacity:1; background:#000; bottom:0; color:#FFF; width:300px; text-align:center; font-size:14px; padding:5px; height:20px; line-height:20px; z-index:4;letter-spacing:1px; }
+.bodyPagePortfolio .portfolioDiv .text { display:block; position:absolute; width:100%; opacity:1; background:rgba(0,0,0,0.6); bottom:0; color:#FFF; width:300px; text-align:center; font-size:14px; padding:5px; height:20px; line-height:20px; z-index:4;letter-spacing:1px; }
 .bodyPagePortfolio .portfolioDiv:hover .text {opacity:1;animation:none; }
 .bodyPagePortfolio .portfolioDiv .logo {display:none; }
 
 /************************************LOGO****************************************************/
 .bodyPagePortfolio .portfolioDiv  .box{ position:absolute; width:300px; height:170px; opacity:1; transition:opacity 1s; -webkit-transition:opacity 1s; z-index:1; overflow:hidden;}
 .bodyPagePortfolio .portfolioDiv  .box img{ width:100%;}
-.bodyPagePortfolio .portfolioDiv .text1{ position:absolute; width:300px; height:50px;top:60px;color:#fff; z-index:9; line-height:50px; text-align:center; opacity:0; -webkit-transition:opacity 1s;overflow:hidden; background-color:rgba(0,0,0,0.8); letter-spacing:5px; font-size:14px;animation:none;}
-.bodyPagePortfolio .portfolioDiv .text2{ position:absolute; width:300px; height:50px;top:80px;color:#000; z-index:9; line-height:50px; text-align:center; opacity:0; -webkit-transition:opacity 1s;overflow:hidden; background-color:rgba(255,255,255,0.8); letter-spacing:5px; font-size:14px;animation:none; }
+.bodyPagePortfolio .portfolioDiv .text1{ position:absolute; width:300px; height:40px;left:0px;top:70px;color:#fff; z-index:9; line-height:40px; text-align:center; opacity:0; -webkit-transition:opacity 1s;overflow:hidden; background-color:rgba(0,0,0,0.8); letter-spacing:2px; font-size:13px;animation:none;}
 .bodyPagePortfolio .portfolioDiv:hover .text1{opacity:1;}
 .bodyPagePortfolio .portfolioDiv:hover .text2{opacity:1;}
 
