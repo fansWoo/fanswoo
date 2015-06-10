@@ -84,9 +84,9 @@
 				<p class="nav2" href="note">伺服器主機</p>
 			</div>
 		</a>
-		<a href="news" class="box">
+		<a href="page/news" class="box">
 			<div href="news" class="item">
-				<p href="news" class="nav<?if($page == 'note'):?> hover<?endif?>"><span>N</span>ews</p>
+				<p href="page/news" class="nav  hover"><span>N</span>ews</p>
 				<p class="nav2" href="note">最新趨勢</p>
 			</div>
 		</a>

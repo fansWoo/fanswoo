@@ -145,8 +145,8 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	.wrap {width:100%;margin:0 auto; overflow:hidden;height:2150px; }
 	.pc_content{display:none;}
 	.phone_content{width:100%;display:block;overflow:hidden;}
-	.phone_content .textContact{ display:block;position:absolute;left:50%;margin-left:-150px;margin-top:100px; overflow:hidden; box-shadow:0 0 20px #CCC; z-index:5; padding:20px; line-height:22px; color:#777; background: rgba(255, 255, 255, 0.9); width:260px; border-radius:10px; letter-spacing:3px; opacity:1; z-index:98; }
-	.phone_content .textContact h2 { display:block; overflow:hidden; font-size:18px; font-weight:900; margin-bottom:20px;  border-left:10px solid #ff9204; padding-left:5px; }
+	.phone_content .textContact{ display:block;position:absolute;left:50%;margin-left:-165px;margin-top:100px; overflow:hidden; box-shadow:0 0 20px #CCC; z-index:5; padding:15px;padding-top:30px;  line-height:22px; color:#777; background: rgba(255, 255, 255, 0.9); width:300px; border-radius:10px; letter-spacing:3px; opacity:1; z-index:98; }
+	.phone_content .textContact h2 { display:block; overflow:hidden; font-size:22px; font-weight:600; margin-bottom:20px;  border-left:10px solid #ff9204; padding-left:5px; }
 	.phone_content .textContact h2 b { color:#ff9204; }
 	.phone_content .textContact p{font-size:14px;text-align:center;}
 	.phone_content .textContact .title_p{display:block;margin-bottom:15px; padding-bottom:15px;border-bottom:1px dashed #ccc; }
@@ -154,16 +154,16 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	.phone_content .textContact .stage p { line-height:20px; margin-bottom:5px; }
 	.phone_content .textContact .stage .pic{display:block;  margin: 15px auto  15px auto; overflow:hidden; }
 	
-	.phone_content .textContactForm {width:260px;padding-bottom:30px;position:absolute;left:50%;margin-left:-150px;margin-top:1030px;display:block;box-shadow:0 0 100px #000; padding:20px; line-height:40px; background: rgba(255, 255, 255, 0.7);  border-radius:10px; box-shadow:0 0 20px #CCC; overflow:hidden; z-index:97;}
+	.phone_content .textContactForm {width:300px;padding-bottom:30px;position:absolute;left:50%;margin-left:-165px;margin-top:1010px;display:block;box-shadow:0 0 100px #000; padding:15px;padding-top:30px; line-height:40px; background: rgba(255, 255, 255, 0.9);  border-radius:10px; box-shadow:0 0 20px #CCC; overflow:hidden; z-index:97;}
 
-	.phone_content .textContactForm .textContactFormContent { width:260px; overflow:hidden; }
+	.phone_content .textContactForm .textContactFormContent { width:300px; overflow:hidden; }
 	.phone_content .textContactForm .textContactFormContent .textContactFormClose {display:none;}
 	
 	.phone_content .textContactForm .textContactFormContent .rightBox { padding-top:10px; width:100%; line-height:25px; }
 	.phone_content .textContactForm .textContactFormContent .rightBox p{ width:100%;display:block; min-height:40px; line-height:20px;border-radius:3px; margin-bottom:5px;}
-	.phone_content .textContactForm .textContactFormContent .rightBox textarea{ width:255px;height:200px;border-radius:3px;border:1px solid #cacaca; }
+	.phone_content .textContactForm .textContactFormContent .rightBox textarea{ width:298px;height:200px;border-radius:3px;border:1px solid #cacaca; }
 	.phone_content .textContactForm .textContactFormContent .rightBox p input{width:190px;height:25px;float:right;margin-top:-4px; border-radius:3px;border:1px solid #cacaca;padding-left:5px; }
-	.phone_content .textContactForm .textContactFormContent .rightBox .contactSubmit { border:1px solid #555; background:#555; color:#FFF; cursor:pointer; border-radius:5px; width:200px; height:40px; -webkit-transition: all 1s; transition: all 1s;margin-left:35px;margin-top:10px;}
+	.phone_content .textContactForm .textContactFormContent .rightBox .contactSubmit { border:1px solid #555; background:#555; color:#FFF; cursor:pointer; border-radius:5px; width:200px; height:40px; -webkit-transition: all 1s; transition: all 1s;margin-left:55px;margin-top:10px;}
 	.phone_content .textContactForm .textContactFormContent .rightBox .contactSubmit:hover { background:#999; border:1px solid #777; }
 	
 	.phone_content .textContactForm .textContactFormContent .leftBox {width:100%; margin-bottom:15px; }
@@ -171,7 +171,7 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	.phone_content .textContactForm .textContactFormContent .leftBox .area select { width:100%; margin-top:5px; line-height:50px; height:30px; vertical-align:middel;border-radius:3px; }
 	.phone_content .textContactForm h2 { margin-bottom:10px; }
 
-	.phone_content .textContactFormMoneyFixed { display:block;line-height:25px; width:230px; height:50px; padding:15px; background: rgba(50, 50, 50, 0.6); color:#FFF; border-radius:5px; z-index:999; text-align:center;letter-spacing:2px;margin-top:10px;}
+	.phone_content .textContactFormMoneyFixed { display:block;line-height:25px; width:270px; height:50px; padding:15px; background: rgba(50, 50, 50, 0.6); color:#FFF; border-radius:5px; z-index:999; text-align:center;letter-spacing:2px;margin-top:10px;}
 	
 	.pencil { display:block;animation:none;	}
 	body.start .pencil { display:block; animation:none;	}
@@ -183,4 +183,5 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	body.forever .plane{ display:none; }
 	
 	.contactFormHover{display:none;}
+	
 }

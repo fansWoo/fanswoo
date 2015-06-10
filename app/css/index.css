@@ -211,7 +211,7 @@ body.forever .oneRightBox .box { display:block; -webkit-animation:oneRightBoxBox
 	body.start .bg1 { animation:none; }
 	
 	
-	body.start .wrapper { display:block; -webkit-animation:a201506081151 1s; animation:a201506081151 1s; }
+	body.start .wrapper { display:block; -webkit-animation:a201506081151 0.5s; animation:a201506081151 0.5s; }
 	@-webkit-keyframes a201506081151{
 	0%{ opacity:0; }
     50% { opacity:0;  }

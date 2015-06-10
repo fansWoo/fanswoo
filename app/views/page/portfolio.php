@@ -107,128 +107,128 @@ $(function(){
 				<div class="portfolioPage portfolioPageWebsite">
 					<div class="portfolioLeft">
 						<h2 class="portfolioTitle">Website Design <span class="zhtw">形象、購物網站設計</span></h2>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace" data-csrc="app/img/web_1.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace" data-csrc="app/img/portfolio/web_1.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="app/img/portfolio/designSampleCandace.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="app/img/portfolio/designSampleCandace.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Candace 洪秀女名品服飾設計
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoCandace.png">
+								<img src="app/img/portfolio/designSampleLogoCandace.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/basilai" data-csrc="app/img/web_7.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/basilai" data-csrc="app/img/portfolio/web_7.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/beer.jpg">
+								<img src="app/img/portfolio/beer.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/beer.jpg">
+								<img src="app/img/portfolio/beer.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Basilai 原住民手工鮮釀啤酒
 							</div>
 							<div class="logo">
-								<img src="app/img/beer_logo.png">
+								<img src="app/img/portfolio/beer_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/evpcone" data-csrc="app/img/web_5.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/187french" data-csrc="app/img/portfolio/187_web.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/evp.jpg">
+								<img src="app/img/portfolio/187.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/evp.jpg">
+								<img src="app/img/portfolio/187.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								 EVP C-On 美商新能動力集團 
+								 187 allée française 187巷的法式
 							</div>
 							<div class="logo">
-								<img src="app/img/evplogo.png">
+								<img src="app/img/portfolio/187_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/kantocars" data-csrc="app/img/web_2.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/whenyi" data-csrc="app/img/portfolio/whenyi_web.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/car.jpg">
+								<img src="app/img/portfolio/whenyi.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/car.jpg">
+								<img src="app/img/portfolio/whenyi.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								Kantocars 關東車材
+								HUAN YI 寰藝
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoKantocars.png">
+								<img src="app/img/portfolio/whenyi_logo.png">
 							</div>
 						</div>
 					</div>
 					<div class="portfolioContent">
 					</div>
 					<div class="portfolioRight">
-						<div class="portfolioDiv"  data-chref="http://web.fanswoo.com/ipix" data-csrc="app/img/web_8.jpg">
+						<div class="portfolioDiv"  data-chref="http://web.fanswoo.com/ipix" data-csrc="app/img/portfolio/web_8.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/ipix.jpg">
+								<img src="app/img/portfolio/ipix.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/ipix.jpg">
+								<img src="app/img/portfolio/ipix.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								IPIX 鏡花園
 							</div>
 							<div class="logo">
-								<img src="app/img/ipix_logo.png">
+								<img src="app/img/portfolio/ipix_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/eastmansion" data-csrc="app/img/web_3.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/million_roof" data-csrc="app/img/portfolio/sun_roof_web.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/east.jpg">
+								<img src="app/img/portfolio/sun_roof.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/east.jpg">
+								<img src="app/img/portfolio/sun_roof.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								 EastMansion 高級歐美家具名品
+								 工研院 陽光屋頂百萬座
 							</div>
 							<div class="logo">
-								<img src="app/img/eastlogo.png">
+								<img src="app/img/portfolio/sun_roof_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/wantgowant" data-csrc="app/img/web_6.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit" data-csrc="app/img/portfolio/petkit_web.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/wantgo.jpg">
+								<img src="app/img/portfolio/petkit.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/wantgo.jpg">
+								<img src="app/img/portfolio/petkit.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								WantGo 旺旺集團購物商城
+								Petkit 寵物智能管家
 							</div>
 							<div class="logo">
-								<img src="app/img/wantgo.png">
+								<img src="app/img/portfolio/petkit_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/chid" data-csrc="app/img/web_4.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/chid" data-csrc="app/img/portfolio/web_4.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/cheng.jpg">
+								<img src="app/img/portfolio/cheng.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/cheng.jpg">
+								<img src="app/img/portfolio/cheng.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								 成浩設計 嘉義頂級室內設計
 							</div>
 							<div class="logo">
-								<img src="app/img/chenglogo.png">
+								<img src="app/img/portfolio/chenglogo.png">
 							</div>
 						</div>
 					</div>

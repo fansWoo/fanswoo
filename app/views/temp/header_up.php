@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 	<?if(isset($global['website_metatag_array'])):?>
 	<?foreach($global['website_metatag_array'] as $value):?>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta name="keywords" content="<?=$value?>">
 	<?endforeach?>
 	<?endif?>

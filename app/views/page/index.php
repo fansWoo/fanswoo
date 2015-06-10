@@ -19,7 +19,7 @@
 					<nav>
 						<div class="menu">
 							<a href="page/about"><span class="title2">關於 About</span><span class="title1">About</span></a>
-							<a href="note"><span class="title2">趨勢 News</span><span class="title1">News</span></a>
+							<a href="page/news"><span class="title2">趨勢 News</span><span class="title1">News</span></a>
 							<a href="page/portfolio"><span class="title2">作品集 Portfolio</span><span class="title1">Portfolio</span></a>
 							<a href="contact"><span class="title2">聯繫 Contact</span><span class="title1">Contact</span></a>
 						</div>
