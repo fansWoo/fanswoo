@@ -1,4 +1,5 @@
 <?=$temp['header_up']?>
+<script src="app/js/smooth_scrollerator.js"></script>
 <!-- Facebook Conversion Code for 聯繫我們 -->
 <script>(function() {
   var _fbq = window._fbq || (window._fbq = []);
