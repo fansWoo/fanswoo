@@ -219,7 +219,7 @@ function reset_null_arr(&$arg1, $arg2)
     {
         if(empty($arg1[$key]))
         {
-            $arg1[$key] = NULL;
+            $arg1[$key] = '';
         }
     }
 }
@@ -322,17 +322,100 @@ function js_console_log($arg)
 	}
 }
 
+/**
+ * 发送HTTP请求
+ *
+ * @param string $url 请求地址
+ * @param string $method 请求方式 GET/POST
+ * @param string $refererUrl 请求来源地址
+ * @param array $data 发送数据
+ * @param string $contentType 
+ * @param string $timeout
+ * @param string $proxy
+ * @return boolean
+ */
+function send_request($url, $data, $refererUrl = '', $method = 'GET', $contentType = '', $timeout = 30)
+{
+    $ch = null;
+    if('POST' === strtoupper($method))
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+        curl_setopt($ch, CURLOPT_USERAGENT, "snsgou.com's CURL Example beta");
+        if ($refererUrl) {
+            curl_setopt($ch, CURLOPT_REFERER, $refererUrl);
+        }
+        if($contentType) {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:'.$contentType));
+            echoe($contentType);
+        }
+        if(is_array($data))
+        {
+            $post_field_Str = '';
+            foreach($data as $key => $value)
+            {
+                $post_field_Str = $post_field_Str.$key.'='.$value.'&';
+            }
+            $data = $post_field_Str;
+        }
+        if(is_string($data))
+        {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        }
+        else
+        {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        }
+    }
+    else if('GET' === strtoupper($method))
+    {
+        if(is_array($data))
+        {
+            $post_field_Str = '';
+            foreach($data as $key => $value)
+            {
+                $post_field_Str = $key.'='.$value.'&';
+            }
+            $data = $post_field_Str;
+        }
+        if(is_string($data))
+        {
+            $real_url = $url. (strpos($url, '?') === false ? '?' : ''). $data;
+        }
+        else
+        {
+            $real_url = $url. (strpos($url, '?') === false ? '?' : ''). http_build_query($data);
+        }
+
+        $ch = curl_init($real_url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:'.$contentType));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+        if ($refererUrl)
+        {
+            curl_setopt($ch, CURLOPT_REFERER, $refererUrl);
+        }
+    }
+    else
+    {
+        $args = func_get_args();
+        return false;
+    }
+
+    $ret = curl_exec($ch);
+    $info = curl_getinfo($ch);
+
+    curl_close($ch);
+    return $ret;
+}
+
 //輸出排列整齊的陣列
 function pre($arg)
 {
     echo '<pre>';
-    print_r($arg);
-    echo '</pre>';
-}
-
-//快速輸出加中斷點
-function echoe($arg)
-{
     if(is_array($arg) || is_object($arg))
     {
         pre($arg);
@@ -341,6 +424,13 @@ function echoe($arg)
     {
         echo $arg;
     }
+    echo '</pre>';
+}
+
+//快速輸出加中斷點
+function echoe($arg)
+{
+    pre($arg);
     exit;
 }
 
