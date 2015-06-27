@@ -1,6 +1,6 @@
 /*************************************************PageHome***/
 
-.logoFixed { display:none; opacity: 1; -webkit-transform: translate(370px,80px) rotate(0deg); transform: translate(370px,80px) rotate(0deg); }
+.logoFixed { display: block; position:fixed; left:50%; top:0; margin-left:-450px; width:160px; height:60px; padding:0; background: url(../img/logo.svg) no-repeat 0 10px; text-indent:-9999px; z-index:99998; overflow:hidden; -webkit-animation:p201407240426 3s; animation:p201407240426 3s; opacity: 1; -webkit-transform: translate(370px,80px) rotate(0deg); transform: translate(370px,80px) rotate(0deg); }
 body.start .logoFixed,
 body.start.forever .logoFixed { display:block; -webkit-animation:logoFixedPageHome 3.5s; animation:logoFixedPageHome 3.5s; }
 @-webkit-keyframes logoFixedPageHome {
@@ -14,6 +14,7 @@ body.start.forever .logoFixed { display:block; -webkit-animation:logoFixedPageHo
 	100%{ transform-origin: left bottom; transform: translate(370px,80px) rotate(0deg); opacity: 1; }
 }
 
+.brush { position: absolute; left:50%; top:50%; margin-left:-60px; margin-top:-60px; width:256px; height:256px; background: url(../img/brush.png) no-repeat; text-indent:-9999px; z-index:9999; overflow:hidden; opacity:1; -webkit-transform: translate(-300px,0); transform: translate(-300px,0); display:none; }
 .brush { display:none; margin-left:-30px;}
 body.start .brush { display:block; -webkit-animation:p201407240306 3s; animation:p201407240306 3s; }
 @-webkit-keyframes p201407240306 {
@@ -54,19 +55,21 @@ body.start.forever .brush { -webkit-animation:brushPageHomeForever 1.5s infinite
 	100%{ transform: rotate(-1deg) translate(-300px,0) ; }
 }
 
-.bg1 { display:none; background: url(../img/bg1.png) no-repeat center center;position:fixed;top:50%;left:50%;margin-top:-400px; }
-body.start .bg1 { display:block; -webkit-animation:bg1PageHome 3s; animation:bg1PageHome 3s; }
-@-webkit-keyframes bg1PageHome {
+
+.bg1 { display:none; background: url(../img/bg1Black.png) no-repeat center center;position:fixed;top:50%;left:50%;margin-top:-400px; opacity: 0; }
+body.start .bg1 { display:block; animation:p201506270204 3.5s; }
+@keyframes p201506270204 {
 	0%{ opacity:0; }
-	20%{ opacity:0; background: url(../img/bg1Black.png) no-repeat center center; }
-	70%{ background: url(../img/bg1Black.png) no-repeat center center; }
-	100%{ opacity:1; background: url(../img/bg1.png) no-repeat center center; }
+	40%{ opacity:0; }
+	70%{ opacity:1; }
+	100%{ opacity:0; }
 }
-@keyframes bg1PageHome {
+.bg2 { display:none; background: url(../img/bg1.png) no-repeat center center;position:fixed;top:50%;left:50%;margin-top:-400px; }
+body.start .bg2 { display:block; animation:p201506270205 3.5s; opacity: 1; }
+@keyframes p201506270205 {
 	0%{ opacity:0; }
-	20%{ opacity:0; background: url(../img/bg1Black.png) no-repeat center center; }
-	70%{ background: url(../img/bg1Black.png) no-repeat center center; }
-	100%{ opacity:1; background: url(../img/bg1.png) no-repeat center center; }
+	70%{ opacity:0; }
+	100%{ opacity:1; }
 }
 
 .wrapper{ display:none; opacity:0.8; width:200px; height:100%; position:fixed; left:50%;  margin-left:-100px; background: #333; overflow:hidden; box-shadow:0 0 20px #CCC; z-index:99; }

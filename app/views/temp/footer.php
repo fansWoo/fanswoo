@@ -1,3 +1,4 @@
+			<div class="pc_footer">
 				<div class="footer">
 					<div class="area">
 						<div class="boxRight">
@@ -73,23 +74,37 @@
 								<a href="">網路開店很簡單？探討架設購物網站常見的迷思</a>
 							</div>
 						</div>
-<script type="text/javascript">
-/* <![CDATA[ */
-var google_conversion_id = 1037100439;
-var google_custom_params = window.google_tag_params;
-var google_remarketing_only = true;
-/* ]]> */
-</script>
-<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
-</script>
-<noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1037100439/?value=0&amp;guid=ON&amp;script=0"/>
-</div>
-</noscript>
 					</div>
+					<script type="text/javascript">
+					/* <![CDATA[ */
+					var google_conversion_id = 1037100439;
+					var google_custom_params = window.google_tag_params;
+					var google_remarketing_only = true;
+					/* ]]> */
+					</script>
+					<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+					</script>
+					<noscript>
+					<div style="display:inline;">
+					<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1037100439/?value=0&amp;guid=ON&amp;script=0"/>
+					</div>
+					</noscript>
 				<div class="footerBottom">
 					© 2014 <a href="">fansWoo</a> All Rights Reserved. Design By <a href="">瘋沃科技</a>
+				</div>
+			</div>
+			<div class="phone_footer">
+				<div class="content">
+					<h1>瘋沃科技</h1>
+					<p>台北市重慶北路四段 248 號 4 樓</p>
+					<p>業務部 (02)2816-4533 #333</p>
+					<p>傳真機 (02)2816-4538</p>
+					<p>service@fanswoo.com</p>
+					<p>yi@fanswoo.com</p>
+				</div>
+				<div class="Design_By">	
+					<p>© 2014 <a href="">fansWoo</a>  All Rights Reserved.</p>
+					<p>Design By <a href="">瘋沃科技</a></p>
 				</div>
 			</div>
 			<div class="picLoadingList2">
