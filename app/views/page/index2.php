@@ -37,41 +37,41 @@ $(function(){
 			$('.content_start').addClass('unhover');
         }
 
-        var content_plan_top = $('.content_plan').offset().top;
-        var content_plan_height_all = $('.content_plan').heightAll();
+   //      var content_plan_top = $('.content_plan').offset().top;
+   //      var content_plan_height_all = $('.content_plan').heightAll();
         
-        if(scroll_top_height >= content_plan_top && scroll_top < content_plan_top + content_plan_height_all)
-        {
+   //      if(scroll_top_height >= content_plan_top && scroll_top < content_plan_top + content_plan_height_all)
+   //      {
 
-			$('.content_plan .plan').css('display', 'block');
-			$('.content_plan .content').css('display', 'block');
+			// $('.content_plan .plan').css('display', 'block');
+			// $('.content_plan .content').css('display', 'block');
 
-			var s1 = (scroll_top_height - content_plan_top) / 3;
-			var s2 = (scroll_top_height - content_plan_top) / 2;
-			var s3 = (scroll_top_height - content_plan_top) / 8;
+			// var s1 = (scroll_top_height - content_plan_top) / 3;
+			// var s2 = (scroll_top_height - content_plan_top) / 2;
+			// var s3 = (scroll_top_height - content_plan_top) / 8;
 
-			$('.content_plan .plan').css('transform', 'translate(-' + s2 + 'px, ' + s1 + 'px)');
-			$('.content_plan .content').css('transform', 'translate(0, -' + s3 + 'px)');
+			// $('.content_plan .plan').css('transform', 'translate(-' + s2 + 'px, ' + s1 + 'px)');
+			// $('.content_plan .content').css('transform', 'translate(0, -' + s3 + 'px)');
 
-        }
+   //      }
 
-        var content_color_top = $('.content_color').offset().top;
-        var content_color_height_all = $('.content_color').heightAll();
+   //      var content_color_top = $('.content_color').offset().top;
+   //      var content_color_height_all = $('.content_color').heightAll();
         
-        if(scroll_top_height >= content_color_top && scroll_top < content_color_top + content_color_height_all)
-        {
+   //      if(scroll_top_height >= content_color_top && scroll_top < content_color_top + content_color_height_all)
+   //      {
 
-			$('.content_plan .plan').css('display', 'none');
-			$('.content_plan .content').css('display', 'none');
+			// $('.content_plan .plan').css('display', 'none');
+			// $('.content_plan .content').css('display', 'none');
 
-			var s1 = (scroll_top_height - content_color_top) / 3;
-			var s2 = (scroll_top_height - content_color_top) / 2;
-			var s3 = (scroll_top_height - content_color_top) / 8;
+			// var s1 = (scroll_top_height - content_color_top) / 3;
+			// var s2 = (scroll_top_height - content_color_top) / 2;
+			// var s3 = (scroll_top_height - content_color_top) / 8;
 
-			$('.content_color .plan').css('transform', 'translate(-' + s2 + 'px, ' + s1 + 'px)');
-			$('.content_color .content').css('transform', 'translate(0, -' + s3 + 'px)');
+			// $('.content_color .plan').css('transform', 'translate(-' + s2 + 'px, ' + s1 + 'px)');
+			// $('.content_color .content').css('transform', 'translate(0, -' + s3 + 'px)');
 
-        }
+   //      }
 
         var content_portfolio_top = $('.content_portfolio').offset().top;
         var content_portfolio_height_all = $('.content_portfolio').heightAll();
@@ -134,74 +134,11 @@ $(function(){
 			</nav>
 		</div>
 	</div>
-	<div class="content_question1">
-		<div class="star1">
-			<img src="app/img/index/star1.png">
-		</div>
-		<div class="star2">
-			<img src="app/img/index/star2.png">
-		</div>
-		<div class="star3">
-			<img src="app/img/index/star3.png">
-		</div>
-		<div class="star4">
-			<img src="app/img/index/star4.png">
-		</div>
-		<div class="star5">
-			<img src="app/img/index/star1.png">
-		</div>
-		<div class="star6">
-			<img src="app/img/index/star2.png">
-		</div>
-		<div class="star7">
-			<img src="app/img/index/star3.png">
-		</div>
-		<div class="pic_move pic1">
-			<img src="app/img/index/content_question_pic1.png">
-		</div>
-		<div class="pic_move pic2">
-			<img src="app/img/index/content_question_pic2.png">
-		</div>
-		<div class="pic_move pic3">
-			<img src="app/img/index/content_question_pic3.png">
-		</div>
-		<div class="title_move title1">
-			<p>你正在煩惱這些問題嗎？</p>
-			<p>想要避免客源繼續流失？</p>
-			<p>找了好幾間設計公司？</p>
-			<p>重做了無數個網站都不滿意？</p>
-		</div>
-		<div class="title_move title2">
-			<p>你正在煩惱這些問題嗎？</p>
-			<p>想要避免客源繼續流失？</p>
-			<p>找了好幾間設計公司？</p>
-			<p>重做了無數個網站都不滿意？</p>
-		</div>
-		<div class="title_move title3">
-			<p>你正在煩惱這些問題嗎？</p>
-			<p>想要避免客源繼續流失？</p>
-			<p>找了好幾間設計公司？</p>
-			<p>重做了無數個網站都不滿意？</p>
-		</div>
-	</div>
-	<div class="content_question2">
-		<div class="title">fansWoo是你解決問題的好幫手</div>
-	</div>
 	<div class="content_plan">
-		<div class="plan">
-			<img src="app/img/index/plan.png">
-		</div>
-		<div class="content">
-			<img src="app/img/index/titile_plan.png">
-		</div>
 	</div>
 	<div class="content_color">
-		<div class="title">fansWoo將為你的品牌填上色彩</div>
 	</div>
 	<div class="content_picture">
-		<div class="content">
-			<img src="app/img/index/content_picture.png">
-		</div>
 	</div>
 	<div class="content_portfolio">
 		<img class="title" src="app/img/index/title.png">

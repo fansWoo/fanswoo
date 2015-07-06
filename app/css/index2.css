@@ -1,6 +1,6 @@
 /*************************************************PageHome***/
 
-.content_start { height: 800px; }
+.content_start { height: 1000px; }
 .logoFixed { display: none; }
 .contactFormHover { display: none; }
 
@@ -215,53 +215,22 @@ body.start .content_start.unhover .oneRightBox{ animation: none; transition: all
     100% { opacity:0; transform: perspective(400px) rotateX(90deg); }
 }
 */
-/****************content_question1*****************/
-
-.content_question1 { display: none; position: relative; height: 4000px; overflow: hidden; }
-.content_question1 .pic_move { position: absolute; left: 50%; }
-.content_question1 .pic_move.pic1 { margin-top: -800px; margin-left: -300px; }
-.content_question1 .pic_move.pic2 { margin-top: -1600px; margin-left: 100px; }
-.content_question1 .pic_move.pic3 { margin-top: -2400px; margin-left: -300px; }
-
-.content_question1 .title_move { position: absolute; left: 50%; width: 600px; font-size: 20px; }
-.content_question1 .title_move.title1 { margin-top: 400px; margin-left: 80px; }
-.content_question1 .title_move.title2 { margin-top: 1800px; margin-left: -580px; text-align: right; }
-.content_question1 .title_move.title3 { margin-top: 3300px; margin-left: 80px; }
-
-.content_question1 .star1 { position: absolute; left: 50%; margin-top: 0px; margin-left: -500px; }
-.content_question1 .star2 { position: absolute; left: 50%; margin-top: 100px; margin-left: -550px; }
-.content_question1 .star3 { position: absolute; left: 50%; margin-top: 200px; margin-left: 400px; }
-.content_question1 .star4 { position: absolute; left: 50%; margin-top: 300px; margin-left: 470px; }
-.content_question1 .star5 { position: absolute; left: 50%; margin-top: 400px; margin-left: -570px; }
-.content_question1 .star6 { position: absolute; left: 50%; margin-top: 500px; margin-left: -450px; }
-.content_question1 .star7 { position: absolute; left: 50%; margin-top: 600px; margin-left: 350px; }
-
-/****************content_question2*****************/
-
-.content_question2 { display: none; background: ; background-size: cover; height: 1000px; overflow: hidden; }
-.content_question2 .title { width: 400px; font-size: 28px; margin: 200px auto; }
 
 /****************content_plan*****************/
 
-.content_plan { display: block; position: relative; background: url(../img/index/bg_table.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 4000px; overflow: hidden; }
-.content_plan .content { position: fixed; left: 50%; top: 50%; width: 400px; margin: 300px 0 0 -200px; z-index:1; }
-.content_plan .content img{ float: left; width: 100%; }
-.content_plan .plan { position: fixed; left: 50%; top: 50%; width: 130%; margin-top: -1150px; margin-right: -1150px; overflow: hidden; z-index:1;}
-.content_plan .plan img{ float: left; width: 100%; }
+.content_plan { display: block; position: relative; background: url(../img/index/bg_table.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 1000px; overflow: hidden; }
 
 /****************content_color*****************/
 
-.content_color { background: url(../img/index/bg_table2.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 800px; overflow: hidden; }
-.content_color .title { width: 400px; font-size: 28px; margin: 200px auto; }
+.content_color { background: url(../img/index/bg_table2.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 1000px; overflow: hidden; }
 
 /****************content_picture*****************/
 
-.content_picture { background: url(../img/index/bg_table3.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 800px; overflow: hidden; }
-.content_picture .content { width: 400px; margin: 200px auto; }
+.content_picture { background: url(../img/index/bg_table3.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 1000px; overflow: hidden; }
 
 /****************content_portfolio*****************/
 
-.content_portfolio { background: #FFF; position: relative; height: 4000px; overflow: hidden; z-index: 1; }
+.content_portfolio { background: #FFF; position: relative; height: 3420px; overflow: hidden; z-index: 1; }
 .content_portfolio .bg1 { position: absolute; margin-top: 50px; width: 100%; }
 .content_portfolio .bg2 { position: absolute; margin-top: 1350px; width: 100%; }
 .content_portfolio .item { position: absolute; margin-top: 900px; width: 100%; }
