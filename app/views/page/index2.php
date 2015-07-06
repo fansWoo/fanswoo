@@ -18,6 +18,10 @@ $(function(){
 
         if(scroll_top == 0 )
         {
+
+			$('.content_plan .plan').css('display', 'none');
+			$('.content_plan .content').css('display', 'none');
+
 			$('.content_title1').removeClass('hover1s hover2s');
 			$('.content_title1').addClass('unhover');
 			setTimeout(function(){
@@ -33,35 +37,59 @@ $(function(){
 			$('.content_start').addClass('unhover');
         }
 
-        var content_question1_top = $('.content_question1').offset().top;
-        var content_question1_height_all = $('.content_question1').heightAll();
+        var content_plan_top = $('.content_plan').offset().top;
+        var content_plan_height_all = $('.content_plan').heightAll();
         
-        if(scroll_top_height >= content_question1_top && scroll_top < content_question1_top + content_question1_height_all)
+        if(scroll_top_height >= content_plan_top && scroll_top < content_plan_top + content_plan_height_all)
         {
-			var s1 = (scroll_top_height - content_question1_top) * 1.65;
-			var s2 = (scroll_top_height - content_question1_top) / 5;
-			var s3 = (scroll_top_height - content_question1_top) / 1.2;
-			var s4 = (scroll_top_height - content_question1_top) / 1.3;
-			var s5 = (scroll_top_height - content_question1_top) / 1.4;
 
-			$('.content_question1 .pic_move').css('transform', 'translate(0, ' + s1 + 'px) scale(1.5)');
+			$('.content_plan .plan').css('display', 'block');
+			$('.content_plan .content').css('display', 'block');
 
-			$('.content_question1 .title_move').css('transform', 'translate(0, -' + s2 + 'px)');
+			var s1 = (scroll_top_height - content_plan_top) / 3;
+			var s2 = (scroll_top_height - content_plan_top) / 2;
+			var s3 = (scroll_top_height - content_plan_top) / 8;
 
-			$('.content_question1 .star1').css('transform', 'translate(0, ' + s3 + 'px)');
-			$('.content_question1 .star3').css('transform', 'translate(0, ' + s4 + 'px)');
-			$('.content_question1 .star2').css('transform', 'translate(0, ' + s5 + 'px)');
-			$('.content_question1 .star4').css('transform', 'translate(0, ' + s3 + 'px)');
-			$('.content_question1 .star5').css('transform', 'translate(0, ' + s4 + 'px)');
-			$('.content_question1 .star6').css('transform', 'translate(0, ' + s5 + 'px)');
-			$('.content_question1 .star7').css('transform', 'translate(0, ' + s3 + 'px)');
+			$('.content_plan .plan').css('transform', 'translate(-' + s2 + 'px, ' + s1 + 'px)');
+			$('.content_plan .content').css('transform', 'translate(0, -' + s3 + 'px)');
+
+        }
+
+        var content_color_top = $('.content_color').offset().top;
+        var content_color_height_all = $('.content_color').heightAll();
+        
+        if(scroll_top_height >= content_color_top && scroll_top < content_color_top + content_color_height_all)
+        {
+
+			$('.content_plan .plan').css('display', 'none');
+			$('.content_plan .content').css('display', 'none');
+
+			var s1 = (scroll_top_height - content_color_top) / 3;
+			var s2 = (scroll_top_height - content_color_top) / 2;
+			var s3 = (scroll_top_height - content_color_top) / 8;
+
+			$('.content_color .plan').css('transform', 'translate(-' + s2 + 'px, ' + s1 + 'px)');
+			$('.content_color .content').css('transform', 'translate(0, -' + s3 + 'px)');
+
+        }
+
+        var content_portfolio_top = $('.content_portfolio').offset().top;
+        var content_portfolio_height_all = $('.content_portfolio').heightAll();
+        
+        if(scroll_top_height >= content_portfolio_top && scroll_top < content_portfolio_top + content_portfolio_height_all)
+        {
+			var s1 = (scroll_top_height - content_portfolio_top) / 5;
+			var s2 = (scroll_top_height - content_portfolio_top) / 5;
+
+			$('.content_portfolio .bg1').css('transform', 'translate(0, ' + s1 + 'px)');
+			$('.content_portfolio .bg2').css('transform', 'translate(0, ' + s1 + 'px)');
 
         }
 
         var content_bottom_top = $('.content_bottom').offset().top;
         var content_bottom_height_all = $('.content_bottom').heightAll();
 
-        if(scroll_top >= content_bottom_top)
+        if(scroll_top_height >= content_bottom_top)
         {
 			var s1 = (scroll_top_height - content_bottom_top) / 2;
 
@@ -81,7 +109,6 @@ $(function(){
 <?=$temp['header_down']?>
 	<div class="content_start">
 		<div class="logo"></div>
-		<div class="bg1">fansWoo</div>
 		<div class="bg2">fansWoo</div>
 		<div class="brush">fansWoo</div>
 		<div class="textHome">
@@ -160,25 +187,32 @@ $(function(){
 	<div class="content_question2">
 		<div class="title">fansWoo是你解決問題的好幫手</div>
 	</div>
+	<div class="content_plan">
+		<div class="plan">
+			<img src="app/img/index/plan.png">
+		</div>
+		<div class="content">
+			<img src="app/img/index/titile_plan.png">
+		</div>
+	</div>
 	<div class="content_color">
 		<div class="title">fansWoo將為你的品牌填上色彩</div>
 	</div>
-	<div class="content_woo">
-		<div class="title">fansWoo將為你的品牌填上色彩</div>
+	<div class="content_picture">
+		<div class="content">
+			<img src="app/img/index/content_picture.png">
+		</div>
 	</div>
 	<div class="content_portfolio">
-		<h2 style="display: block; width: 200px; margin: 100px auto; font-size: 30px;">合作案例</h2>
-		<div class="million_roof">
-			<img src="app/img/index/browser1.jpg">
-		</div>
-		<div class="gopro">
-			<img src="app/img/index/browser2.jpg">
-		</div>
-		<div class="candace">
-			<img src="app/img/index/browser1.jpg">
-		</div>
+		<img class="title" src="app/img/index/title.png">
+		<img class="bg1" src="app/img/index/bg1.png">
+		<img class="bg2" src="app/img/index/bg2.jpg">
+		<img class="item" src="app/img/index/portfolio.png">
 	</div>
 	<div class="content_bottom">
+		<div class="bg1">
+			<img src="app/img/index/content_bottom.jpg">
+		</div>
 		<div class="service">
 			<img src="app/img/index/content_question_pic3.png">
 		</div>

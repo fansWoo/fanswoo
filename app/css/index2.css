@@ -46,19 +46,11 @@ body.start .brush { display:block; animation: brushPageHomeForever 1.5s infinite
 body.start .content_start.hover .brush{ animation: brushPageHomeForever 1.5s infinite; transition: all 0.8s; opacity: 1; }
 body.start .content_start.unhover .brush{ animation: none; transition: all 0.8s; opacity: 0; }
 
-.bg1 { display:none; background: url(../img/bg1Black.png) no-repeat center center;position:fixed;top:50%;left:50%;margin-top:-400px; opacity: 0; }
-body.start .bg1 { display:block; animation:p201506270204 3.5s; }
-@keyframes p201506270204 {
-	0%{ opacity:0; }
-	40%{ opacity:0; }
-	70%{ opacity:1; }
-	100%{ opacity:0; }
-}
-.bg2 { display:none; background: url(../img/bg1.png) no-repeat center center;position:fixed;top:50%;left:50%;margin-top:-400px; }
-body.start .bg2 { display:block; animation:p201506270205 3.5s; opacity: 1; }
+.content_start .bg2 { display:none; position:fixed; left:50%; top:50%; margin-left:-500px; margin-top:-250px; padding:0; width:1000px; height:800px; text-indent:-9999px; z-index:1; overflow:hidden; display:none; background: url(../img/bg1.png) no-repeat center center;position:fixed;top:50%;left:50%;margin-top:-400px; }
+body.start .content_start .bg2 { display:block; animation:p201506270205 3.5s; opacity: 1; }
 @keyframes p201506270205 {
 	0%{ opacity:0; }
-	70%{ opacity:0; }
+	50%{ opacity:0; }
 	100%{ opacity:1; }
 }
 body.start .content_start.hover .bg2{ animation: none; transition: all 1s; opacity: 1; }
@@ -225,7 +217,7 @@ body.start .content_start.unhover .oneRightBox{ animation: none; transition: all
 */
 /****************content_question1*****************/
 
-.content_question1 { position: relative; height: 4000px; overflow: hidden; }
+.content_question1 { display: none; position: relative; height: 4000px; overflow: hidden; }
 .content_question1 .pic_move { position: absolute; left: 50%; }
 .content_question1 .pic_move.pic1 { margin-top: -800px; margin-left: -300px; }
 .content_question1 .pic_move.pic2 { margin-top: -1600px; margin-left: 100px; }
@@ -246,22 +238,34 @@ body.start .content_start.unhover .oneRightBox{ animation: none; transition: all
 
 /****************content_question2*****************/
 
-.content_question2 { background: url(../img/bg8.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 1000px; overflow: hidden; }
+.content_question2 { display: none; background: ; background-size: cover; height: 1000px; overflow: hidden; }
 .content_question2 .title { width: 400px; font-size: 28px; margin: 200px auto; }
+
+/****************content_plan*****************/
+
+.content_plan { display: block; position: relative; background: url(../img/index/bg_table.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 4000px; overflow: hidden; }
+.content_plan .content { position: fixed; left: 50%; top: 50%; width: 400px; margin: 300px 0 0 -200px; z-index:1; }
+.content_plan .content img{ float: left; width: 100%; }
+.content_plan .plan { position: fixed; left: 50%; top: 50%; width: 130%; margin-top: -1150px; margin-right: -1150px; overflow: hidden; z-index:1;}
+.content_plan .plan img{ float: left; width: 100%; }
 
 /****************content_color*****************/
 
-.content_color { background: url(../img/bg7.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 1000px; overflow: hidden; }
+.content_color { background: url(../img/index/bg_table2.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 800px; overflow: hidden; }
 .content_color .title { width: 400px; font-size: 28px; margin: 200px auto; }
 
-/****************content_woo*****************/
+/****************content_picture*****************/
 
-.content_woo { background: url(../img/bg6.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 1000px; overflow: hidden; }
-.content_woo .title { width: 400px; font-size: 28px; margin: 200px auto; }
+.content_picture { background: url(../img/index/bg_table3.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 800px; overflow: hidden; }
+.content_picture .content { width: 400px; margin: 200px auto; }
 
 /****************content_portfolio*****************/
 
-.content_portfolio { background: #FFF; position: relative; height: 3000px; overflow: hidden; }
+.content_portfolio { background: #FFF; position: relative; height: 4000px; overflow: hidden; z-index: 1; }
+.content_portfolio .bg1 { position: absolute; margin-top: 50px; width: 100%; }
+.content_portfolio .bg2 { position: absolute; margin-top: 1350px; width: 100%; }
+.content_portfolio .item { position: absolute; margin-top: 900px; width: 100%; }
+.content_portfolio .title { position: absolute; left: 50%; width: 595px; margin-left: -297px; z-index: 2; }
 
 .content_portfolio .million_roof { position: absolute; width: 1000px; height: 600px; left: 0; background: ; margin-top: 100px; }
 .content_portfolio .million_roof img { float:left; width: 100%; }
@@ -272,7 +276,10 @@ body.start .content_start.unhover .oneRightBox{ animation: none; transition: all
 
 /****************content_bottom*****************/
 
-.content_bottom { background: url(../img/bg1.jpg) fixed; background-size: cover; height: 4500px; overflow: hidden; }
+.content_bottom { height: 4500px; overflow: hidden; }
+.content_bottom .bg1 { display: none; position: fixed; left: 0; top : 0; height: 100%; overflow: hidden; }
+.content_bottom.hover .bg1 { display: block; }
+.content_bottom .bg1 img { float: left; height: 100%; }
 .content_bottom .service { display:none; position: fixed; top:0; margin-left: 1000px; }
 .content_bottom.hover .service { display: block; animation: p201506270828 1s; }
 .content_bottom .contact { display:none; position: fixed; top:0; margin-left: 3000px; }
