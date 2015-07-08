@@ -1,6 +1,6 @@
 /*************************************************PageHome***/
-
-.content_start { height: 800px; }
+body { background: none;}
+.content_start { height: 800px; background: url(../img/bg5.jpg) fixed center center no-repeat;background-size: cover;}
 .logoFixed { display: none; }
 .contactFormHover { display: none; }
 
@@ -488,7 +488,8 @@ html.agent-ie .wrapProgram {
 
 /****************content_portfolio*****************/
 
-.content_portfolio { width:100%;background: #FFF; position: relative; height: 4000px; overflow: hidden; z-index: 1; }
+.content_portfolio { width:100%;background: #FFF; position: relative; height:3670px; overflow: hidden; z-index: 1; }
+.content_portfolio .top_title { position: absolute; left: 50%; width: 595px; margin-left: -297px; z-index: 2; }
 .content_portfolio .portfolio_box1{width:100%;height: 950px;position: relative;}
 .content_portfolio .portfolio_box1 .bg1 { position: absolute; margin-top: 100px; width: 100%; bottom:0px;}
 .content_portfolio .portfolio_box1 .cloudy{position: absolute; width:100%;left:50%;margin-left:-50%;top:50%;margin-top:-260px;z-index:6;}
@@ -499,12 +500,15 @@ html.agent-ie .wrapProgram {
 .content_portfolio  .portfolio_box2 .cloudy{width:95%;position: absolute;left:50%;margin-left:-45%;top:50%; margin-top:240px;}
 .content_portfolio  .portfolio_box2 .text_box{width:400px;position: absolute;left:50%;margin-left:-300px; margin-top:370px;}
 .content_portfolio  .portfolio_box2 .text_box .title{width:380px;}
-.content_portfolio  .portfolio_box2 .title2{width:700px;position:absolute;left:50%;}
+.content_portfolio  .portfolio_box2 .title2{width:700px;position:absolute;left:50%;top:50%;margin-left:-300px;margin-top:500px;z-index:8;}
 
-.content_portfolio  .bg2 { position: absolute; margin-top:-180px; width: 100%;height:1000px; background:url(../img/index/bg2.jpg) center center;  background-size:cover;}
+.content_portfolio  .portfolio_box3 { position:absolute; margin-top:-100px; width: 100%;height:1000px;}
+.content_portfolio  .portfolio_box3 .bg2{width:100%;}
+.content_portfolio  .portfolio_box3 .title{width:435px;position:absolute;left:50%;left:1050px;top:50%; margin-top:-220px; }
+.content_portfolio  .portfolio_box3 .title2{width:550px;position:absolute;left:50%;left:450px;top:50%; margin-top:-20px; }
 
-.content_portfolio .item {display:none; position: absolute; margin-top: 900px; width: 100%; }
-.content_portfolio .title { position: absolute; left: 50%; width: 595px; margin-left: -297px; z-index: 2; }
+.content_portfolio  .portfolio_box4{ position:absolute; margin-top:1550px; width: 100%;height:1000px;}
+.content_portfolio  .portfolio_box4 .bg3{width:100%;}
 
 .content_portfolio .million_roof { position: absolute; width: 1000px; height: 600px; left: 0; background: ; margin-top: 100px; }
 .content_portfolio .million_roof img { float:left; width: 100%; }
@@ -516,9 +520,15 @@ html.agent-ie .wrapProgram {
 /****************content_bottom*****************/
 
 .content_bottom { height: 4500px; overflow: hidden; }
-.content_bottom .bg1 { display: none; position: fixed; left: 0; top : 0; height: 100%; overflow: hidden; }
+.content_bottom .bg1 { display: none; position:fixed;left: 0; top : 0;width:100%;height:500px; }
+.content_bottom .bg1  img{position:absolute;left:-10px;bottom:0px;}
 .content_bottom.hover .bg1 { display: block; }
-.content_bottom .bg1 img { float: left; height: 100%; }
+.content_bottom .bg2 { display: none; position: fixed; left: 0; bottom : -10px;width:100%;overflow: hidden;}
+.content_bottom .bg2  img{width:100%;}
+.content_bottom.hover .bg2 { display: block; }
+
+
+/**.content_bottom .bg1 img { float: left; height: 100%; }***/
 .content_bottom .service { display:none; position: fixed; top:0; margin-left: 1000px; }
 .content_bottom.hover .service { display: block; animation: p201506270828 1s; }
 .content_bottom .contact { display:none; position: fixed; top:0; margin-left: 3000px; }

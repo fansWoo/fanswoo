@@ -96,7 +96,7 @@ $(function(){
 			var s2 = (scroll_top_height - content_portfolio_top) / 5;
 
 			$('.content_portfolio .bg1').css('transform', 'translate(0, ' + s1 + 'px)');
-			$('.content_portfolio .bg2').css('transform', 'translate(0, ' + s1 + 'px)');
+			$('.content_portfolio .portfolio_box3').css('transform', 'translate(0, ' + s1 + 'px)');
 
         }
 
@@ -219,7 +219,7 @@ $(function(){
 		</div>
 	</div>
 	<div class="content_portfolio">
-		<img class="title" src="app/img/index/title.png">
+		<img class="top_title" src="app/img/index/title.png">
 		<div class="portfolio_box1">
 			<img class="cloudy" src="app/img/index/cloudy.png">
 			<img class="bg1" src="app/img/index/bg1.png">
@@ -234,14 +234,21 @@ $(function(){
 			<img class="sun" src="app/img/index/portfolio_box2/sun.png">
 			<img class="cloudy" src="app/img/index/portfolio_box2/cloudy.png">
 		</div>
-		<div class="bg2">
-			
+		<div class="portfolio_box3">
+			<img src="app/img/index/bg2.jpg" class="bg2">
+			<img src="app/img/index/portfolio_box3/bg2_pic.png" class="title">
+			<img src="app/img/index/portfolio_box3/title2.png" class="title2">
 		</div>
-		<img class="item" src="app/img/index/portfolio.png" >
+		<div class="portfolio_box4">
+			<img src="app/img/index/index4-13.png" class="bg3">
+		</div>
 	</div>
 	<div class="content_bottom">
 		<div class="bg1">
-			<img src="app/img/index/content_bottom.jpg">
+			<img src="app/img/index/fixed_bg1_1.png">
+		</div>
+		<div class="bg2">
+			<img src="app/img/index/fixed_bg2.png">
 		</div>
 		<div class="service">
 			<img src="app/img/index/content_question_pic3.png">
