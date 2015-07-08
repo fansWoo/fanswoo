@@ -1,11 +1,7 @@
 /*************************************************PageHome***/
-<<<<<<< HEAD
 
-.content_start { height: 1000px; }
-=======
 body { background: none;}
 .content_start { height: 800px; background: url(../img/bg5.jpg) fixed center center no-repeat;background-size: cover;}
->>>>>>> origin/develop
 .logoFixed { display: none; }
 .contactFormHover { display: none; }
 
@@ -245,28 +241,7 @@ body.start .content_start.unhover .oneRightBox{ animation: none; transition: all
     100% { opacity:0; transform: perspective(400px) rotateX(90deg); }
 }
 */
-<<<<<<< HEAD
 
-/****************content_plan*****************/
-
-.content_plan { display: block; position: relative; background: url(../img/index/bg_table.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 1000px; overflow: hidden; }
-
-/****************content_color*****************/
-
-.content_color { background: url(../img/index/bg_table2.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 1000px; overflow: hidden; }
-
-/****************content_picture*****************/
-
-.content_picture { background: url(../img/index/bg_table3.jpg) no-repeat 50% 50% fixed; background-size: cover; height: 1000px; overflow: hidden; }
-
-/****************content_portfolio*****************/
-
-.content_portfolio { background: #FFF; position: relative; height: 3420px; overflow: hidden; z-index: 1; }
-.content_portfolio .bg1 { position: absolute; margin-top: 50px; width: 100%; }
-.content_portfolio .bg2 { position: absolute; margin-top: 1350px; width: 100%; }
-.content_portfolio .item { position: absolute; margin-top: 900px; width: 100%; }
-.content_portfolio .title { position: absolute; left: 50%; width: 595px; margin-left: -297px; z-index: 2; }
-=======
 /*美術素描稿*/
 .wrapMarketing {
     width: 100%;
