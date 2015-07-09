@@ -2,11 +2,64 @@
 <script src="app/js/smooth_scrollerator.js"></script>
 <script>
 $(function(){
+		$(document).scroll(function(){
+			var window_width = $(window).width();
+
+			var scroll_top = $(document).scrollTop();
+			if(scroll_top == 0){
+				$('.wrapMarketing, .wrapGraphic, .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1' ).removeClass('hover');
+				$('.content1').addClass('hover');
+
+			}
+			
+			else if(scroll_top >= 1000 && scroll_top < 2000){
+				$('.wrapMarketing').addClass('hover');
+			}
+			else if(scroll_top >= 2000 && scroll_top < 2500){
+				$('.wrapGraphic').addClass('hover');
+			}
+			else if(scroll_top >= 2500 && scroll_top < 3100){
+				$('.wrapProgram').addClass('hover');
+			}
+			else if(scroll_top >= 3100 && scroll_top < 4300){
+				$('.portfolio_box1').addClass('hover');
+			}
+			else if(scroll_top >= 4300 && scroll_top < 6500 ){
+				$('.portfolio_box2').addClass('hover');
+			   
+			}
+			else if(scroll_top >= 6500 && scroll_top < 7500 ){
+				$('.portfolio_box3').addClass('hover');
+			   
+			}
+			else if(scroll_top >= 7500 && scroll_top < 11050 ){
+				$('.portfolio_box4').addClass('hover');
+			   
+			}
+			else if(scroll_top >= 11050 && scroll_top < 12600 ){
+				$('#pic_move_pic1').addClass('hover');
+			   
+			}
+			else if(scroll_top >= 12600 && scroll_top < 14400 ){
+				$('#pic_move_pic2').addClass('hover');
+			   
+			}
+			else if(scroll_top >= 14400 && scroll_top < 15500 ){
+				$('#pic_move_pic3').addClass('hover');
+			   
+			}
+			else if(scroll_top >= 15500 && scroll_top < 18250 ){
+				$('#pic_move_pic4').addClass('hover');
+			   
+			}
+		});
 	var window_height = $(window).height();
 	$('.content_start').css('height', window_height);
+	
 	$(window).resize(function(){
 		var window_height = $(window).height();
 		$('.content_start').css('height', window_height);
+		
 	});
 	$('a[href^=#]').click(function () {
 		var speed = 500;
@@ -21,10 +74,10 @@ $(function(){
 		$(document).scrollTop(0);
 		location.href = 'page/index2';
 	}
-	$(window).resize(function(){
-		$(document).scrollTop(0);
-		location.href = 'page/index2';
-	});
+	//$(window).resize(function(){
+		//$(document).scrollTop(0);
+		//location.href = 'page/index2';
+	//});
 	$(document).scroll(function(){
         var scroll_top = $(document).scrollTop();
         var scroll_top_height = scroll_top + $(window).height();
@@ -106,12 +159,14 @@ $(function(){
         if(scroll_top_height >= content_bottom_top)
         {
 			var s1 = (scroll_top_height - content_bottom_top) / 2;
+			var s2 = (scroll_top_height - content_bottom_top) / 8;
 
 			$('.content_bottom').addClass('hover');
 			$('.content_bottom .service').css('transform', 'translate(-' + s1 + 'px, 0)');
 			$('.content_bottom .contact').css('transform', 'translate(-' + s1 + 'px, 0)');
 
 			$('.content_bottom .pic_move').css('transform', 'translate(-' + s1 + 'px, 0)');
+			$('.content_bottom .bg1 img').css('transform', 'translate(+' + s2 + 'px, 0)');
         }
         else
         {
@@ -145,7 +200,7 @@ $(function(){
 					<span class="li"><span class="title2">經典作品</span><span class="title1">Portfolio</span></span>
 					<span class="li"><span class="title2">服務項目</span><span class="title1">Service</span></span>
 				</div>
-				<a href="#wrapMarketing"><img src="app/img/index/arrow.png" class="arrow"></a>	
+				<a href="#wrapMarketing"><img src="app/img/index/arrow_down.png" class="arrow"></a>	
 			</nav>
 		</div>
 	</div>
@@ -203,15 +258,19 @@ $(function(){
 		</div>
 	</div>
 	<div class="content_portfolio">
-		<img class="top_title" src="app/img/index/title.png">
 		<div class="portfolio_box1">
+			<img class="top_title" src="app/img/index/title.png">
 			<img class="cloudy" src="app/img/index/cloudy.png">
 			<img class="bg1" src="app/img/index/bg1.png">
 		</div>
 		<div class="portfolio_box2">
 			<div class="text_box">
 				<img class="title" src="app/img/index/portfolio_box2/index4-08.png">
-				<div class="button"></div>
+				<a href=""  class="portfolio_more">
+					<p>了解更多</p>
+					<img src="app/img/index/arrow.png">
+					<div class="light"></div>
+				</a>
 			</div>
 			<img class="title2" src="app/img/index/portfolio_box2/index4-09.png">
 			<img class="pc" src="app/img/index/portfolio_box2/pc.png">
@@ -220,36 +279,86 @@ $(function(){
 		</div>
 		<div class="portfolio_box3">
 			<img src="app/img/index/bg2.jpg" class="bg2">
-			<img src="app/img/index/portfolio_box3/bg2_pic.png" class="title">
 			<img src="app/img/index/portfolio_box3/title2.png" class="title2">
+			<div class="text_box">
+				<img src="app/img/index/portfolio_box3/bg2_pic.png" class="title">
+				<a href=""  class="portfolio_more">
+					<p>了解更多</p>
+					<img src="app/img/index/arrow.png">
+					<div class="light"></div>
+				</a>
+			</div>
 		</div>
 		<div class="portfolio_box4">
-			<img src="app/img/index/index4-13.png" class="bg3">
+			<!--<img src="app/img/index/portfolio_box4/bg4.jpg" class="bg9">-->
+			<img src="app/img/index/portfolio_box4/people.png" class="people">
+			<img src="app/img/index/portfolio_box4/pad.png" class="pad">
+			<img src="app/img/index/portfolio_box4/text1.png" class="text1">
+			<img src="app/img/index/portfolio_box4/text2.png" class="text2">
 		</div>
 	</div>
 	<div class="content_bottom">
 		<div class="bg1">
-			<img src="app/img/index/fixed_bg1_1.png">
+			<img src="app/img/index/fixed_table/fixed_bg1_1.png">
 		</div>
 		<div class="bg2">
-			<img src="app/img/index/fixed_bg2.png">
+			<img src="app/img/index/fixed_table/fixed_bg3.png">
 		</div>
 		<div class="service">
-			<img src="app/img/index/content_question_pic3.png">
+			<div class="text_box">
+				<img src="app/img/index/fixed_table/text1.png" class="text">
+			</div>
+			<img src="app/img/index/fixed_table/pic1.png" class="pic">
 		</div>
-		<div class="pic_move pic1">
-			<img src="app/img/index/content_question_pic2.png">
+		<div class="pic_move pic1" id="pic_move_pic1">
+			<div class="text_box">
+				<img src="app/img/index/fixed_table/text2.png" class="text">
+				<a href=""  class="more">
+					<p>了解更多</p>
+					<img src="app/img/index/arrow.png">
+					<div class="light"></div>
+				</a>
+			</div>
+			<img src="app/img/index/fixed_table/pic2.png" class="pic">
 		</div>
-		<div class="pic_move pic2">
-			<img src="app/img/index/content_question_pic1.png">
+		<div class="pic_move pic2" id="pic_move_pic2">
+			<div class="text_box">
+				<img src="app/img/index/fixed_table/text3.png" class="text">
+				<a href=""  class="more">
+					<p>了解更多</p>
+					<img src="app/img/index/arrow.png">
+					<div class="light"></div>
+				</a>
+			</div>
+			<img src="app/img/index/fixed_table/pic3.png" class="pic">
 		</div>
-		<div class="pic_move pic3">
-			<img src="app/img/index/content_question_pic2.png">
+		<div class="pic_move pic3" id="pic_move_pic3">
+			<div class="text_box">
+				<img src="app/img/index/fixed_table/text4.png" class="text">
+				<a href=""  class="more">
+					<p>了解更多</p>
+					<img src="app/img/index/arrow.png">
+					<div class="light"></div>
+				</a>
+			</div>
+			<img src="app/img/index/fixed_table/pic4.png" class="pic">
+		</div>
+		<div class="pic_move pic4" id="pic_move_pic4">
+			<div class="text_box">
+				<img src="app/img/index/fixed_table/text5.png" class="text">
+				<a href=""  class="more">
+					<p>了解更多</p>
+					<img src="app/img/index/arrow.png">
+					<div class="light"></div>
+				</a>
+			</div>
+			<img src="app/img/index/fixed_table/pic5.png" class="pic">
 		</div>
 		<div class="contact">
-			<img src="app/img/index/content_question_pic3.png">
+			
 		</div>
 	</div>
+	
 </div>
 </body>
 </html>
