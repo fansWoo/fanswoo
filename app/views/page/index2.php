@@ -1,7 +1,21 @@
 <?=$temp['header_up']?>
 <script src="app/js/smooth_scrollerator.js"></script>
+<script src="app/js/cycle2.js"></script>
+
 <script>
 $(function(){
+		$(" .slide_pic > .square").cycle({
+				fx      :       "scrollHorz", 
+				//fade
+				//scrollHorz
+				timeout: 0 ,
+				speed: 2000,
+				manualSpeed: 600,
+				slides: ' > .slide_pic_href',
+				next: '.next',
+				prev: ' .prev',
+				
+		});
 		$(document).scroll(function(){
 			var window_width = $(window).width();
 
@@ -159,7 +173,7 @@ $(function(){
         if(scroll_top_height >= content_bottom_top)
         {
 			var s1 = (scroll_top_height - content_bottom_top) / 2;
-			var s2 = (scroll_top_height - content_bottom_top) / 8;
+			var s2 = (scroll_top_height - content_bottom_top) / 50;
 
 			$('.content_bottom').addClass('hover');
 			$('.content_bottom .service').css('transform', 'translate(-' + s1 + 'px, 0)');
@@ -202,6 +216,24 @@ $(function(){
 				</div>
 				<a href="#wrapMarketing"><img src="app/img/index/arrow_down.png" class="arrow"></a>	
 			</nav>
+		</div>
+	</div>
+	<div class="phone_content_start">
+		<div class="bg2"></div>
+		<div class="wrapper">
+			<div class="logo"></div>
+			<div class="nav">
+				<div class="menu">
+					<span class="li"><span class="title2">關於我們</span><span class="title1">About</span></span>
+					<span class="li"><span class="title2">經典作品</span><span class="title1">Portfolio</span></span>
+					<span class="li"><span class="title2">服務項目</span><span class="title1">Service</span></span>
+				</div>
+				<a href="#wrapMarketing">
+				<div class="arrow">
+					<img src="app/img/index/arrow_down.png">	
+				</div>
+				</a>
+			</div>
 		</div>
 	</div>
 	<div class="wrapMarketing" id="wrapMarketing">
@@ -263,11 +295,19 @@ $(function(){
 			<img class="cloudy" src="app/img/index/cloudy.png">
 			<img class="bg1" src="app/img/index/bg1.png">
 		</div>
+		<div class="phone_portfolio_box1">
+			<img class="top_title" src="app/img/index/mobile/title.png">
+			<div class="text">
+				<p>我們已成功為這些知名品牌建立高品質的網站，相信我們也能讓你的粉絲驚艷不已！</p>
+			</div>
+			<img class="cloudy" src="app/img/index/cloudy.png">
+			<img class="bg" src="app/img/index/bg1.png">
+		</div>
 		<div class="portfolio_box2">
 			<div class="text_box">
 				<img class="title" src="app/img/index/portfolio_box2/index4-08.png">
 				<a href=""  class="portfolio_more">
-					<p>了解更多</p>
+					<p>立即前往</p>
 					<img src="app/img/index/arrow.png">
 					<div class="light"></div>
 				</a>
@@ -277,17 +317,38 @@ $(function(){
 			<img class="sun" src="app/img/index/portfolio_box2/sun.png">
 			<img class="cloudy" src="app/img/index/portfolio_box2/cloudy.png">
 		</div>
+		<div class="phone_portfolio_box2">
+			<div class="text_box">
+				<img class="title" src="app/img/index/portfolio_box2/index4-08.png">
+			</div>
+			<img class="title2" src="app/img/index/portfolio_box2/index4-09.png">
+			<img class="pc" src="app/img/index/mobile/pc.png">
+			<img class="sun" src="app/img/index/portfolio_box2/sun.png">
+			<a href=""  class="portfolio_more">
+				<p>立即前往</p>
+				<img src="app/img/index/arrow.png">
+				<div class="light"></div>
+			</a>
+		</div>
 		<div class="portfolio_box3">
 			<img src="app/img/index/bg2.jpg" class="bg2">
 			<img src="app/img/index/portfolio_box3/title2.png" class="title2">
 			<div class="text_box">
 				<img src="app/img/index/portfolio_box3/bg2_pic.png" class="title">
 				<a href=""  class="portfolio_more">
-					<p>了解更多</p>
+					<p>立即前往</p>
 					<img src="app/img/index/arrow.png">
 					<div class="light"></div>
 				</a>
 			</div>
+		</div>
+		<div class="phone_portfolio_box3">
+			<img src="app/img/index/mobile/index_mobile-10.png" class="bg">
+			<a href=""  class="portfolio_more">
+				<p>立即前往</p>
+				<img src="app/img/index/arrow.png">
+				<div class="light"></div>
+			</a>
 		</div>
 		<div class="portfolio_box4">
 			<!--<img src="app/img/index/portfolio_box4/bg4.jpg" class="bg9">-->
@@ -295,6 +356,19 @@ $(function(){
 			<img src="app/img/index/portfolio_box4/pad.png" class="pad">
 			<img src="app/img/index/portfolio_box4/text1.png" class="text1">
 			<img src="app/img/index/portfolio_box4/text2.png" class="text2">
+			<a href=""  class="portfolio_more">
+				<p>立即前往</p>
+				<img src="app/img/index/arrow.png">
+				<div class="light"></div>
+			</a>
+		</div>
+		<div class="phone_portfolio_box4">
+			<img src="app/img/index/mobile/bg2.png" class="bg">
+			<a href=""  class="portfolio_more">
+				<p>立即前往</p>
+				<img src="app/img/index/arrow.png">
+				<div class="light"></div>
+			</a>
 		</div>
 	</div>
 	<div class="content_bottom">
@@ -358,7 +432,159 @@ $(function(){
 			
 		</div>
 	</div>
-	
+	<div class="phone_content_bottom">
+		<div class="bg1">
+			<img src="app/img/index/fixed_table/fixed_bg1_1.png">
+		</div>
+		<div class="bg2">
+			<img src="app/img/index/fixed_table/fixed_bg3.png">
+		</div>
+		<div class="phone_slide_pic_box" >
+			<div class="slide_pic" >
+				<div class="square">
+					<div class="slide_pic_href one">
+						<div class="text">
+							<h1>客製化服務<br>打造專屬於您的網站</h1>
+							<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+						</div>
+						<img src="app/img/index/fixed_table/pic1.png" class="pic">
+						
+					</div>
+					<div class="slide_pic_href two">
+						<div class="text">
+							<h1>美術設計</h1>
+							<p>我們受邀協助設計中華民國經濟部能源局與工研院合作的太陽能推廣專。源局與工研院合作的。</p>
+						</div>
+						<img src="app/img/index/fixed_table/pic2.png" class="pic">
+					</div>
+					<div class="slide_pic_href three">
+						<div class="text">
+							<h1>客製化網站</h1>
+							<p>我們受邀協助設計中華民國經濟部能源局與工研院合作的太陽能推廣專。源局與工研院合作的。</p>
+						</div>
+						<img src="app/img/index/fixed_table/pic3.png" class="pic">
+					</div>
+					<div class="slide_pic_href four">
+						<div class="text">
+							<h1>0元套版網站<br>打造專屬於您的網站</h1>
+							<p>我們受邀協助設計中華民國經濟部能源局與工研院合作的太陽能推廣專。源局與工研院合作的。</p>
+						</div>
+						<img src="app/img/index/fixed_table/pic4.png" class="pic">
+					</div>
+					<div class="slide_pic_href five">
+						<div class="text">
+							<h1>客製化服務<br>打造專屬於您的網站</h1>
+							<p>我們受邀協助設計中華民國經濟部能源局與工研院合作的太陽能推廣專。源局與工研院合作的。</p>
+						</div>
+						<img src="app/img/index/fixed_table/pic5.png" class="pic">
+					</div>
+				</div>	
+			</div>
+			<div class="cycle-pager"></div>
+			<img src="app/img/index/mobile/mobile_arrow.png" class="next">
+			<img src="app/img/index/mobile/mobile_arrow.png" class="prev">
+		</div>
+	</div>
+	<div class="phone_contact">
+		<div class="title">
+			<h1>請提早聯繫我們</h1>
+			<p>本公司設計案件較多</p>
+			<p>為盡早處理您的專案，請提前詢問或索取估價資訊</p>
+		</div>
+		<div class="textContactForm">
+			<div class="textContactFormContent">
+				<div class="leftBox">
+					<div class="area">
+						<span>詢問項目：</span>
+						<select class="need" name="need">
+							<option value="">請選擇詢問項目</option>
+							<option value="網站開發">網站開發</option>
+							<option value="程式系統開發">程式系統開發</option>
+							<option value="美術設計">美術設計</option>
+							<option value="網路行銷">網路行銷</option>
+							<option value="伺服器租賃">伺服器租賃</option>
+							<option value="其它問題">其它問題</option>
+						</select>
+					</div>
+					<div class="area">
+						<span>項目細節：</span>
+						<select class="need_child" name="need_child">
+							<option value="先選擇主要項目">先選擇主要項目</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="網站開發" style="display:none;">
+							<option value="形象網站設計">形象網站設計</option>
+							<option value="0元套版網站">0元套版網站</option>
+							<option value="購物網站開發">購物網站開發</option>
+							<option value="網路平台開發">網路平台開發</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="程式系統開發" style="display:none;">
+							<option value="程式系統開發">程式系統開發</option>
+							<option value="手機App開發">手機App開發</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="美術設計" style="display:none;">
+							<option value="LOGO/CIS 設計">LOGO/CIS 設計</option>
+							<option value="平面設計">平面設計</option>
+							<option value="產品包裝設計">產品包裝設計</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="網路行銷" style="display:none;">
+							<option value="facebook 粉絲團">facebook 粉絲團</option>
+							<option value="Google Adwords">Google Adwords</option>
+							<option value="網路行銷企劃">網路行銷企劃</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="伺服器租賃" style="display:none;">
+							<option value="虛擬伺服器租賃">虛擬伺服器租賃</option>
+							<option value="雲端主機租賃">雲端主機租賃</option>
+							<option value="電子信箱主機租賃">電子信箱主機租賃</option>
+							<option value="Google Apps設定">Google Apps設定</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="其它問題" style="display:none;">
+							<option value="其它問題">其它問題</option>
+						</select>
+					</div>
+					<div class="area">
+						<span>您的預算：</span>
+						<select class="money" name="money">
+							<option value="">請選擇預算</option>
+							<option value="15萬元以下">15萬元以下</option>
+							<option value="15萬元~30萬元">15萬元~30萬元</option>
+							<option value="30萬元~50萬元">30萬元~50萬元</option>
+							<option value="50萬元~100萬元">50萬元~100萬元</option>
+							<option value="100萬元~200萬元">100萬元~200萬元</option>
+							<option value="200萬元以上">200萬元以上</option>
+						</select>
+						<div class="textContactFormMoneyFixed">
+							預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價
+						</div>
+					</div>
+				</div>
+				<div class="rightBox">
+					
+					<p>您的姓名：<input type="text" class="name" name="name" placeholder="請填寫您的姓名"></p>
+					<p>公司名稱：<input type="text" class="company" name="company" placeholder="請填寫公司名稱"></p>
+					<p>聯繫電話：<input type="text" class="telphone" name="telphone" placeholder="請填寫聯繫電話"></p>
+					<p>電子郵件：<input type="text" class="email" name="email" placeholder="請填寫電子郵件"></p>
+					<p>公司地址：<input type="text" class="address" name="address" placeholder="請填寫公司地址"></p>
+					<textarea name="text"></textarea>
+					<p style="text-align:center;">本公司設計案件較多，為盡早處理您的專案，請提前詢問及索取報價資訊。</p>
+					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
+				</div>
+				</form>
+			</div>
+			<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page -->
+			<script type="text/javascript">
+			/* <![CDATA[ */
+			var google_conversion_id = 1037100439;
+			var google_conversion_language = "en";
+			var google_conversion_format = "3";
+			var google_conversion_color = "ffffff";
+			var google_conversion_label = "54GrCKiolVYQl8vD7gM";
+			var google_remarketing_only = false;
+			/* ]]> */
+			</script>
+			<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
+			<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
+		</div>	
+	</div>
 </div>
 </body>
 </html>
