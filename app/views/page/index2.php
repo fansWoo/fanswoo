@@ -46,23 +46,23 @@ $(function(){
 				$('.portfolio_box3').addClass('hover');
 			   
 			}
-			else if(scroll_top >= 7500 && scroll_top < 11050 ){
+			else if(scroll_top >= 7500 && scroll_top < 8450 ){
 				$('.portfolio_box4').addClass('hover');
 			   
 			}
-			else if(scroll_top >= 11050 && scroll_top < 12600 ){
+			else if(scroll_top >= 8450 && scroll_top < 9400 ){
 				$('#pic_move_pic1').addClass('hover');
 			   
 			}
-			else if(scroll_top >= 12600 && scroll_top < 14400 ){
+			else if(scroll_top >= 9400 && scroll_top < 9900 ){
 				$('#pic_move_pic2').addClass('hover');
 			   
 			}
-			else if(scroll_top >= 14400 && scroll_top < 15500 ){
+			else if(scroll_top >= 9900 && scroll_top < 10400 ){
 				$('#pic_move_pic3').addClass('hover');
 			   
 			}
-			else if(scroll_top >= 15500 && scroll_top < 18250 ){
+			else if(scroll_top >= 10400 && scroll_top < 14050 ){
 				$('#pic_move_pic4').addClass('hover');
 			   
 			}
@@ -172,8 +172,8 @@ $(function(){
 
         if(scroll_top_height >= content_bottom_top)
         {
-			var s1 = (scroll_top_height - content_bottom_top) / 2;
-			var s2 = (scroll_top_height - content_bottom_top) / 50;
+			var s1 = (scroll_top_height - content_bottom_top) * 1.5;
+			var s2 = (scroll_top_height - content_bottom_top) / 30;
 
 			$('.content_bottom').addClass('hover');
 			$('.content_bottom .service').css('transform', 'translate(-' + s1 + 'px, 0)');
