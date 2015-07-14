@@ -332,6 +332,7 @@ $(function(){
 		</div>
 		<div class="portfolio_box3">
 			<img src="app/img/index/bg2.jpg" class="bg2">
+			<img src="app/img/index/portfolio_box2/pad_bg.png" class="pad_bg2">
 			<img src="app/img/index/portfolio_box3/title2.png" class="title2">
 			<div class="text_box">
 				<img src="app/img/index/portfolio_box3/bg2_pic.png" class="title">
