@@ -35,14 +35,14 @@ $(function(){
 			else if(scroll_top >= 2500 && scroll_top < 3100){
 				$('.wrapProgram').addClass('hover');
 			}
-			else if(scroll_top >= 3100 && scroll_top < 4300){
+			else if(scroll_top >= 3100 && scroll_top < 4500){
 				$('.portfolio_box1').addClass('hover');
 			}
-			else if(scroll_top >= 4300 && scroll_top < 6500 ){
+			else if(scroll_top >= 4500 && scroll_top < 5000 ){
 				$('.portfolio_box2').addClass('hover');
 			   
 			}
-			else if(scroll_top >= 6500 && scroll_top < 7500 ){
+			else if(scroll_top >= 5000 && scroll_top < 7500 ){
 				$('.portfolio_box3').addClass('hover');
 			   
 			}
@@ -100,9 +100,6 @@ $(function(){
         if(scroll_top == 0 )
         {
 
-			$('.content_plan .plan').css('display', 'none');
-			$('.content_plan .content').css('display', 'none');
-
 			$('.content_title1').removeClass('hover1s hover2s');
 			$('.content_title1').addClass('unhover');
 			setTimeout(function(){
@@ -117,75 +114,42 @@ $(function(){
 			$('.content_start').removeClass('hover');
 			$('.content_start').addClass('unhover');
         }
+		
+		var window_width = $(window).width();
+		if(window_width > 1024){
+			var content_portfolio_top = $('.content_portfolio').offset().top;
+			var content_portfolio_height_all = $('.content_portfolio').heightAll();
+			
+			if(scroll_top_height >= content_portfolio_top && scroll_top < content_portfolio_top + content_portfolio_height_all)
+			{
+				var s1 = (scroll_top_height - content_portfolio_top) / 5;
+				var s2 = (scroll_top_height - content_portfolio_top) / 5;
 
-   //      var content_plan_top = $('.content_plan').offset().top;
-   //      var content_plan_height_all = $('.content_plan').heightAll();
-        
-   //      if(scroll_top_height >= content_plan_top && scroll_top < content_plan_top + content_plan_height_all)
-   //      {
+				$('.content_portfolio .bg1').css('transform', 'translate(0, ' + s1 + 'px)');
+				$('.content_portfolio .portfolio_box3').css('transform', 'translate(0, ' + s1 + 'px)');
 
-			// $('.content_plan .plan').css('display', 'block');
-			// $('.content_plan .content').css('display', 'block');
+			}
 
-			// var s1 = (scroll_top_height - content_plan_top) / 3;
-			// var s2 = (scroll_top_height - content_plan_top) / 2;
-			// var s3 = (scroll_top_height - content_plan_top) / 8;
+			var content_bottom_top = $('.content_bottom').offset().top;
+			var content_bottom_height_all = $('.content_bottom').heightAll();
 
-			// $('.content_plan .plan').css('transform', 'translate(-' + s2 + 'px, ' + s1 + 'px)');
-			// $('.content_plan .content').css('transform', 'translate(0, -' + s3 + 'px)');
+			if(scroll_top_height >= content_bottom_top)
+			{
+				var s1 = (scroll_top_height - content_bottom_top) * 1.5;
+				var s2 = (scroll_top_height - content_bottom_top) / 30;
 
-   //      }
+				$('.content_bottom').addClass('hover');
+				$('.content_bottom .service').css('transform', 'translate(-' + s1 + 'px, 0)');
+				$('.content_bottom .contact').css('transform', 'translate(-' + s1 + 'px, 0)');
 
-   //      var content_color_top = $('.content_color').offset().top;
-   //      var content_color_height_all = $('.content_color').heightAll();
-        
-   //      if(scroll_top_height >= content_color_top && scroll_top < content_color_top + content_color_height_all)
-   //      {
-
-			// $('.content_plan .plan').css('display', 'none');
-			// $('.content_plan .content').css('display', 'none');
-
-			// var s1 = (scroll_top_height - content_color_top) / 3;
-			// var s2 = (scroll_top_height - content_color_top) / 2;
-			// var s3 = (scroll_top_height - content_color_top) / 8;
-
-			// $('.content_color .plan').css('transform', 'translate(-' + s2 + 'px, ' + s1 + 'px)');
-			// $('.content_color .content').css('transform', 'translate(0, -' + s3 + 'px)');
-
-   //      }
-
-        var content_portfolio_top = $('.content_portfolio').offset().top;
-        var content_portfolio_height_all = $('.content_portfolio').heightAll();
-        
-        if(scroll_top_height >= content_portfolio_top && scroll_top < content_portfolio_top + content_portfolio_height_all)
-        {
-			var s1 = (scroll_top_height - content_portfolio_top) / 5;
-			var s2 = (scroll_top_height - content_portfolio_top) / 5;
-
-			$('.content_portfolio .bg1').css('transform', 'translate(0, ' + s1 + 'px)');
-			$('.content_portfolio .portfolio_box3').css('transform', 'translate(0, ' + s1 + 'px)');
-
-        }
-
-        var content_bottom_top = $('.content_bottom').offset().top;
-        var content_bottom_height_all = $('.content_bottom').heightAll();
-
-        if(scroll_top_height >= content_bottom_top)
-        {
-			var s1 = (scroll_top_height - content_bottom_top) * 1.5;
-			var s2 = (scroll_top_height - content_bottom_top) / 30;
-
-			$('.content_bottom').addClass('hover');
-			$('.content_bottom .service').css('transform', 'translate(-' + s1 + 'px, 0)');
-			$('.content_bottom .contact').css('transform', 'translate(-' + s1 + 'px, 0)');
-
-			$('.content_bottom .pic_move').css('transform', 'translate(-' + s1 + 'px, 0)');
-			$('.content_bottom .bg1 img').css('transform', 'translate(+' + s2 + 'px, 0)');
-        }
-        else
-        {
-			$('.content_bottom').removeClass('hover');
-        }
+				$('.content_bottom .pic_move').css('transform', 'translate(-' + s1 + 'px, 0)');
+				$('.content_bottom .bg1 img').css('transform', 'translate(+' + s2 + 'px, 0)');
+			}
+			else
+			{
+				$('.content_bottom').removeClass('hover');
+			}
+		}
     });
 });
 </script>
@@ -321,13 +285,11 @@ $(function(){
 			<div class="text_box">
 				<img class="title" src="app/img/index/portfolio_box2/index4-08.png">
 			</div>
-			<img class="title2" src="app/img/index/portfolio_box2/index4-09.png">
 			<img class="pc" src="app/img/index/mobile/pc.png">
 			<img class="sun" src="app/img/index/portfolio_box2/sun.png">
 			<a href=""  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="app/img/index/arrow.png">
-				<div class="light"></div>
 			</a>
 		</div>
 		<div class="portfolio_box3">
@@ -339,7 +301,6 @@ $(function(){
 				<a href=""  class="portfolio_more">
 					<p>立即前往</p>
 					<img src="app/img/index/arrow.png">
-					<div class="light"></div>
 				</a>
 			</div>
 		</div>
@@ -348,11 +309,10 @@ $(function(){
 			<a href=""  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="app/img/index/arrow.png">
-				<div class="light"></div>
 			</a>
 		</div>
 		<div class="portfolio_box4">
-			<!--<img src="app/img/index/portfolio_box4/bg4.jpg" class="bg9">-->
+			<img src="app/img/index/portfolio_box4/bg4.jpg" class="bg9">
 			<img src="app/img/index/portfolio_box4/people.png" class="people">
 			<img src="app/img/index/portfolio_box4/pad.png" class="pad">
 			<img src="app/img/index/portfolio_box4/text1.png" class="text1">
@@ -360,7 +320,6 @@ $(function(){
 			<a href=""  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="app/img/index/arrow.png">
-				<div class="light"></div>
 			</a>
 		</div>
 		<div class="phone_portfolio_box4">
@@ -368,7 +327,6 @@ $(function(){
 			<a href=""  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="app/img/index/arrow.png">
-				<div class="light"></div>
 			</a>
 		</div>
 	</div>
