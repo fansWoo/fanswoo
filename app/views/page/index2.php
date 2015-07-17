@@ -105,6 +105,7 @@ $(function(){
 			setTimeout(function(){
 				$('.content_start').removeClass('unhover');
 				$('.content_start').addClass('hover');
+				
 			}, 500);
         }
         else if(scroll_top > 0 && scroll_top < 500)
@@ -113,7 +114,23 @@ $(function(){
 			$('.content_title1').addClass('hover');
 			$('.content_start').removeClass('hover');
 			$('.content_start').addClass('unhover');
+			
         }
+		if(scroll_top > 0 )
+		{
+			$('.index_topHeader').addClass('hover');
+			$('.logoFixed').addClass('hover');
+			$('.index_topHeader').removeClass('unhover');
+			$('.logoFixed').removeClass('unhover');
+		}
+		else if(scroll_top <= 500)
+		{
+
+			$('.index_topHeader').addClass('unhover');
+			$('.logoFixed').addClass('unhover');
+			$('.logoFixed').addClass('hover');
+			
+        }	
 		
 		var window_width = $(window).width();
 		if(window_width > 1024){
@@ -154,6 +171,7 @@ $(function(){
 });
 </script>
 <?=$temp['header_down']?>
+<?=$temp['topheader']?>
 	<div class="content_start">
 		<div class="logo"></div>
 		<div class="bg2">fansWoo</div>
@@ -193,9 +211,9 @@ $(function(){
 					<span class="li"><span class="title2">服務項目</span><span class="title1">Service</span></span>
 				</div>
 				<a href="#wrapMarketing">
-				<div class="arrow">
-					<img src="app/img/index/arrow_down.png">	
-				</div>
+					<div class="arrow">
+						<img src="app/img/index/arrow_down.png">	
+					</div>
 				</a>
 			</div>
 		</div>
@@ -545,5 +563,4 @@ $(function(){
 		</div>	
 	</div>
 </div>
-</body>
-</html>
+<?=$temp['footer']?>

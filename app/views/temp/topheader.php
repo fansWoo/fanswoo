@@ -26,14 +26,14 @@
 			<a class="nav2" href="page/about">關於我們</a>
 			<div class="downbox">
 				<div class="downbox1">
-					<a href="page/webdesign"><div class="downbox3">客製化網站</div></a>
+					<a href="page/webdesign">客製化網站</a>
 				</div>
 				<div class="downbox1">
-					<a href="page/wordpress"><div class="downbox3">0元套版網站</div></a>
+					<a href="page/wordpress">0元套版網站</a>
 				</div>
 				
 				<div class="downbox1" style="border:none;">
-					<a href="page/server"><div class="downbox3" style="border:none;">伺服器主機</div></a>
+					<a href="page/server">伺服器主機</a>
 				</div>
 				
 			</div>
