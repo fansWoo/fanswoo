@@ -1,6 +1,6 @@
 <?=$temp['header_up']?>
 <script src="app/js/smooth_scrollerator.js"></script>
-<!--<script>
+<script>
 $(function(){
 	
 	$(document).scroll(function(){
@@ -70,7 +70,7 @@ $(function(){
 		
 	});
 });
-</script>-->
+</script>
 <?=$temp['header_down']?>
 <?=$temp['topheader']?>
 <div class="content1">
