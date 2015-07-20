@@ -1,6 +1,6 @@
 <?=$temp['header_up']?>
 <script src="app/js/smooth_scrollerator.js"></script>
-<script>
+<!--<script>
 $(function(){
 	
 	$(document).scroll(function(){
@@ -61,8 +61,8 @@ $(function(){
 		}
 	});	
 	var window_height = $(window).height();
-		$('.content1').css('height', window_height);
-		$('.content1 .area').css('height', window_height);
+		$('.content1').css('height', window_height  * 2);
+		$('.content1 .area').css('height', window_height  * 2);
 		$(window).resize(function(){
 			var window_height = $(window).height();
 			$('.content1').css('height', window_height);
@@ -70,7 +70,7 @@ $(function(){
 		
 	});
 });
-</script>
+</script>-->
 <?=$temp['header_down']?>
 <?=$temp['topheader']?>
 <div class="content1">

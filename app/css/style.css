@@ -2,7 +2,7 @@
 /* Layout */
 a { color:#027de5; }
 [data-hrefto]{ cursor:pointer; }
-body { font-size: 12px; /* Resets 1em to 10px */color: #000; background: #fff url(../img/bg5.jpg) fixed center center no-repeat; background-size:cover; line-height: 1.4; overflow-y:scroll;position:relative; }
+body { font-size: 12px; /* Resets 1em to 10px */color: #000; background: #fff url(../img/bg5.jpg) fixed center center no-repeat; background-size:cover; line-height: 1.4; overflow-y:scroll; overflow-x:hidden; position:relative; }
 .body { overflow-x:hidden; }
 
 .logoStart { position:fixed; left:50%; top:50%; margin-top:-45px; margin-left:-100px; width:200px; height:90px; padding:0; z-index:99998; background: url(../img/logo_black.svg) no-repeat; overflow:hidden; -webkit-animation: a201309080227 5s infinite; animation: a201309080227 5s infinite; }
