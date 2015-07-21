@@ -3,7 +3,7 @@
 a { color:#027de5; }
 [data-hrefto]{ cursor:pointer; }
 body { font-size: 12px; /* Resets 1em to 10px */color: #000; background: #fff url(../img/bg5.jpg) fixed center center no-repeat; background-size:cover; line-height: 1.4; overflow-y:scroll; overflow-x:hidden; position:relative; }
-.body { overflow-x:hidden; }
+.body { overflow-x:hidden;}
 
 .logoStart { position:fixed; left:50%; top:50%; margin-top:-45px; margin-left:-100px; width:200px; height:90px; padding:0; z-index:99998; background: url(../img/logo_black.svg) no-repeat; overflow:hidden; -webkit-animation: a201309080227 5s infinite; animation: a201309080227 5s infinite; }
 @-webkit-keyframes a201309080227{
@@ -27,7 +27,7 @@ body { font-size: 12px; /* Resets 1em to 10px */color: #000; background: #fff ur
 .picLoadingList { display:none; }
 .picLoadingList2 { display:none; }
 
-.logoFixed { display: block; position:fixed; left:50%; top:0; margin-left:-450px; width:160px; height:60px; padding:0; background: url(../img/logo.svg) no-repeat 0 10px; text-indent:-9999px; z-index:99998; overflow:hidden; -webkit-animation:p201407240426 3s; animation:p201407240426 3s; }
+.logoFixed { display: block; position:fixed; left:50%; top:0; margin-left:-450px; width:160px; height:60px; padding:0; background: url(../img/logo.svg) no-repeat 0 10px; text-indent:-9999px; z-index:999999; overflow:hidden; -webkit-animation:p201407240426 3s; animation:p201407240426 3s; }
 @-webkit-keyframes p201407240426{
 	0%{ -webkit-transform: translate(-30px, 0); opacity:0; }
 	70%{ -webkit-transform: translate(-30px, 0); opacity:0; }
@@ -42,7 +42,7 @@ html.agent-ie .logoFixed { background-position: 0 0; }
 html.agent-ie8 .logoFixed,
 html.agent-ie9 .logoFixed { background-image: url(../img/logo.png); }
 
-.index_topHeader { display:none; position:fixed; width:100%; height:60px; top:0; background: rgba(0, 0, 0, 0.8); z-index:111; overflow:hidden;}
+.index_topHeader { display:none; position:fixed; width:100%; height:60px; top:0; background: rgba(0, 0, 0, 0.8); z-index:99999; }
 body.start .index_topHeader { display:block; -webkit-animation:p201407240427 1s; animation:p201407240427 1s; }
 body.start .index_topHeader.hover{display:block;z-index:111;}
 @-webkit-keyframes p201407240427{
