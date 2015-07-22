@@ -3,6 +3,16 @@
 <script src="app/js/cycle2.js"></script>
 <script>
 $(function(){
+		$(document).on('click', '.content9 .choose_box , .content9 .circle', function(){
+			var bgname = $(this).data('bgname');
+			$('.content9 .choose_box').removeClass('clicked');
+			$(this).addClass('clicked');
+			//新增的
+			$('.content9 .choose_box').removeClass('hover');
+			$('.content9 h4').removeClass('hover');
+			$('.content9 .choose_box[data-bgname=' + bgname + '] ').addClass('hover');
+			 $('.content9 h4[data-bgname=' + bgname + ']').addClass('hover');	
+		});
 		$(".content8 .slide_pic > .square1").cycle({
 				fx      :       "fade", 
 				//fade
@@ -51,7 +61,33 @@ $(function(){
 		else if(scroll_top >=4350 && scroll_top <5000){
 			$('.content7').addClass('hover');
 		}
-
+		
+		if(window_width > 700 && window_width <= 1400){
+			if(scroll_top >= 0 && scroll_top < 300){
+				$('.content1 .arrow').addClass('fixed');
+				$('.content1 .area').addClass('fixed');
+				$('.content1 .area').removeClass('stop');
+			}
+			else if(scroll_top > 300){
+				$('.content1 .area').addClass('stop');
+				$('.content1 .area').removeClass('fixed');	
+				$('.content1 .arrow').removeClass('fixed');
+						
+			}		
+		}
+		if(window_width > 1400){
+			if(scroll_top >= 0 && scroll_top < 200){
+				$('.content1 .arrow').addClass('fixed');
+				$('.content1 .area').addClass('fixed');
+				$('.content1 .area').removeClass('stop');
+			}
+			else if(scroll_top > 200){
+				$('.content1 .area').addClass('stop');
+				$('.content1 .area').removeClass('fixed');	
+				$('.content1 .arrow').removeClass('fixed');
+						
+			}			
+		}
 	});	
 	$('a[href^=#]').click(function () {
 		var speed = 500;
@@ -69,19 +105,19 @@ $(function(){
 		var window_width = $(window).width();
 		if(window_width > 700){
 			var content_portfolio_top = $('.content1').offset().top;
-			var content_portfolio_height_all = $('.content1').heightAll();
+			var content_portfolio_height_all = $('.content1').heightAll();	
 			
 			if(scroll_top_height >= content_portfolio_top && scroll_top < content_portfolio_top + content_portfolio_height_all)
 			{
 				var s1 = (scroll_top_height - content_portfolio_top) / 12;
 				var s2 = (scroll_top_height - content_portfolio_top) / 3;
 				var s3 = (scroll_top_height - content_portfolio_top) / 6;
-				var s4 = (scroll_top_height - content_portfolio_top) / 3;
+				var s4 = (scroll_top_height - content_portfolio_top) / 4;
 
 				$('.content1 .bg1').css('transform', 'translateY(-' + s1 + 'px)');
-				$('.content1 .bg2').css('transform', 'translateY(+' + s2 + 'px)');
-				$('.content1 .bg3').css('transform', 'translateY(+' + s3 + 'px)');
-				$('.content1 .arrow').css('transform', 'translateY(+' + s4 + 'px)');
+				$('.content1 .bg2').css('transform', 'translateY(' + s2 + 'px)');
+				//$('.content1 .arrow').css('transform', 'translateY(' + s4 + 'px)');
+				//$('.content1 .area').css('transform', 'translateY(' + s4 + 'px)');
 
 			}
 		}
@@ -106,14 +142,6 @@ $(function(){
 	<div class="bg2">
 		<img src="app/img/server/content1/bg4.png">
 	</div>
-	<div class="bg3">
-		<img src="app/img/server/content1/bg3.png">
-	</div>
-	<a href="#content2">
-		<div class="arrow">
-			<img src="app/img/index/arrow_down.png">	
-		</div>
-	</a>
 	<div class="mobile_bg">
 		<img src="app/img/server/mobile/bg1.png">
 	</div>
@@ -126,7 +154,9 @@ $(function(){
 			<h2>為企業網站、購物網站和網路平台</h2>	
 			<h2>找到完美解決方案！</h2>	
 		</div>
-		
+		<a href="#content2" class="arrow">
+			<img src="app/img/index/arrow_down.png">	
+		</a>
 	</div>
 </div>
 <div class="content2" id="content2">
@@ -585,8 +615,142 @@ $(function(){
 	</div>
 </div>
 <div class="content9">
-
-
+	<div class="content_area">
+		<h1>聯繫我們</h1>
+		<div class="title_box">
+			<div class="line1"></div>
+			<p>本公司設計案件較多，為盡早處理您的專案，請提前詢問或索取估價資訊。</p>
+			<div class="line2"></div>
+		</div>
+		<div class="textContactForm">
+			<div class="textContactFormContent">
+				<div class="leftBox">
+					<div class="area">
+						<p>您的姓名</p><input type="text" class="name" name="name" placeholder="請填寫您的姓名">
+					</div>
+					<div class="area">
+						<p>公司名稱</p><input type="text" class="company" name="company" placeholder="請填寫公司名稱">
+					</div>	
+					<div class="area">
+						<p>聯繫電話</p><input type="text" class="telphone" name="telphone" placeholder="請填寫聯繫電話">
+					</div>
+					<div class="area">	
+						<p>電子郵件</p><input type="text" class="email" name="email" placeholder="請填寫電子郵件">
+					</div>
+					<div class="area">		
+						<p>公司地址</p><input type="text" class="address" name="address" placeholder="請填寫公司地址">
+					</div>
+					<div class="area">
+						<p>詢問項目</p>
+						<select class="need" name="need">
+							<option value="">請選擇詢問項目</option>
+							<option value="網站開發">網站開發</option>
+							<option value="程式系統開發">程式系統開發</option>
+							<option value="美術設計">美術設計</option>
+							<option value="網路行銷">網路行銷</option>
+							<option value="伺服器租賃">伺服器租賃</option>
+							<option value="其它問題">其它問題</option>
+						</select>
+					</div>
+					<div class="area">
+						<p>項目細節</p>
+						<select class="need_child" name="need_child">
+							<option value="先選擇主要項目">先選擇主要項目</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="網站開發" style="display:none;">
+							<option value="形象網站設計">形象網站設計</option>
+							<option value="0元套版網站">0元套版網站</option>
+							<option value="購物網站開發">購物網站開發</option>
+							<option value="網路平台開發">網路平台開發</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="程式系統開發" style="display:none;">
+							<option value="程式系統開發">程式系統開發</option>
+							<option value="手機App開發">手機App開發</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="美術設計" style="display:none;">
+							<option value="LOGO/CIS 設計">LOGO/CIS 設計</option>
+							<option value="平面設計">平面設計</option>
+							<option value="產品包裝設計">產品包裝設計</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="網路行銷" style="display:none;">
+							<option value="facebook 粉絲團">facebook 粉絲團</option>
+							<option value="Google Adwords">Google Adwords</option>
+							<option value="網路行銷企劃">網路行銷企劃</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="伺服器租賃" style="display:none;">
+							<option value="虛擬伺服器租賃">虛擬伺服器租賃</option>
+							<option value="雲端主機租賃">雲端主機租賃</option>
+							<option value="電子信箱主機租賃">電子信箱主機租賃</option>
+							<option value="Google Apps設定">Google Apps設定</option>
+						</select>
+						<select class="need_child" name="need_child" data-selected="其它問題" style="display:none;">
+							<option value="其它問題">其它問題</option>
+						</select>
+					</div>
+					<div class="area phone">
+						<span>您的預算：</span>
+						<select class="money" name="money">
+							<option value="">請選擇預算</option>
+							<option value="15萬元以下">15萬元以下</option>
+							<option value="15萬元~30萬元">15萬元~30萬元</option>
+							<option value="30萬元~50萬元">30萬元~50萬元</option>
+							<option value="50萬元~100萬元">50萬元~100萬元</option>
+							<option value="100萬元~200萬元">100萬元~200萬元</option>
+							<option value="200萬元以上">200萬元以上</option>
+						</select>
+						<div class="textContactFormMoneyFixed">
+							預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價
+						</div>
+					</div>
+				</div>
+				<div class="rightBox">
+					<textarea name="text" placeholder="我還想補充..."></textarea>
+				</div>
+				<div class="price_choose">
+					<p>預算選擇</p>
+					<div class="choose_area">
+						<div class="choose_box" data-bgname="text1">
+							<h3>15萬以下</h3>
+							<div class="circle"></div>
+							<h4 data-bgname="text1">普通或可能導致負面形象</h4>
+						</div>
+						<div class="line"></div>
+						<div class="choose_box" data-bgname="text2">
+							<h3>15~25萬</h3>
+							<div class="circle"></div>
+							<h4 data-bgname="text2">感到耳目一新</h4>
+						</div>
+						<div class="line"></div>
+						<div class="choose_box" data-bgname="text3">
+							<h3>25~50萬</h3>
+							<div class="circle"></div>
+							<h4 data-bgname="text3">印象非常深刻的網站</h4>
+						</div>
+						<div class="line"></div>
+						<div class="choose_box" data-bgname="text4">
+							<h3>50~100萬</h3>
+							<div class="circle"></div>
+							<h4 data-bgname="text4">最極致的設計</h4>
+						</div>
+					</div>
+				</div>
+				<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
+			</div>
+			<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page -->
+			<script type="text/javascript">
+			/* <![CDATA[ */
+			var google_conversion_id = 1037100439;
+			var google_conversion_language = "en";
+			var google_conversion_format = "3";
+			var google_conversion_color = "ffffff";
+			var google_conversion_label = "54GrCKiolVYQl8vD7gM";
+			var google_remarketing_only = false;
+			/* ]]> */
+			</script>
+			<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
+			<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
+		</div>
+	</div>
 </div>
 
 <?=$temp['footer']?>
