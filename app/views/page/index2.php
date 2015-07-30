@@ -25,51 +25,109 @@ $(function(){
 				$('.content1').addClass('hover');
 
 			}
-			if(scroll_top > 4500 && scroll_top < 7000){
-				$('.videoFixed').addClass('hover');
+			if(window_width > 1024 && window_width <= 1400){
+				if(scroll_top > 4500 && scroll_top < 6500){
+					$('.videoFixed').addClass('hover');
+				}
+				else if(scroll_top  < 4500){
+					$('.videoFixed').removeClass('hover');
+				}
+				else if(scroll_top  > 6800){
+					$('.videoFixed').removeClass('hover');
+				}
+				
+				else if(scroll_top >= 1000 && scroll_top < 2000){
+					$('.wrapMarketing').addClass('hover');
+				}
+				else if(scroll_top >= 2000 && scroll_top < 2500){
+					$('.wrapGraphic').addClass('hover');
+				}
+				else if(scroll_top >= 2500 && scroll_top < 3100){
+					$('.wrapProgram').addClass('hover');
+				}
+				else if(scroll_top >= 3100 && scroll_top < 4500){
+					$('.portfolio_box1').addClass('hover');
+				}
+				else if(scroll_top >= 4500 && scroll_top < 5000 ){
+					$('.portfolio_box2').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 5000 && scroll_top < 7500 ){
+					$('.portfolio_box3').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 7500 && scroll_top < 8450 ){
+					$('.portfolio_box4').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 8450 && scroll_top < 9400 ){
+					$('#pic_move_pic1').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 9400 && scroll_top < 9900 ){
+					$('#pic_move_pic2').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 9900 && scroll_top < 10400 ){
+					$('#pic_move_pic3').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 10400 && scroll_top < 14050 ){
+					$('#pic_move_pic4').addClass('hover');
+				   
+				}
 			}
-			else if(scroll_top > 7000){
-				$('.videoFixed').removeClass('hover');
-			}	
-			else if(scroll_top >= 1000 && scroll_top < 2000){
-				$('.wrapMarketing').addClass('hover');
-			}
-			else if(scroll_top >= 2000 && scroll_top < 2500){
-				$('.wrapGraphic').addClass('hover');
-			}
-			else if(scroll_top >= 2500 && scroll_top < 3100){
-				$('.wrapProgram').addClass('hover');
-			}
-			else if(scroll_top >= 3100 && scroll_top < 4500){
-				$('.portfolio_box1').addClass('hover');
-			}
-			else if(scroll_top >= 4500 && scroll_top < 5000 ){
-				$('.portfolio_box2').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 5000 && scroll_top < 7500 ){
-				$('.portfolio_box3').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 7500 && scroll_top < 8450 ){
-				$('.portfolio_box4').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 8450 && scroll_top < 9400 ){
-				$('#pic_move_pic1').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 9400 && scroll_top < 9900 ){
-				$('#pic_move_pic2').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 9900 && scroll_top < 10400 ){
-				$('#pic_move_pic3').addClass('hover');
-			   
-			}
-			else if(scroll_top >= 10400 && scroll_top < 14050 ){
-				$('#pic_move_pic4').addClass('hover');
-			   
+			if(window_width > 1400){
+				if(scroll_top > 5000 && scroll_top < 8500){
+					$('.videoFixed').addClass('hover');
+				}
+				else if(scroll_top  < 5000){
+					$('.videoFixed').removeClass('hover');
+				}
+				else if(scroll_top  > 8500){
+					$('.videoFixed').removeClass('hover');
+				}
+				
+				else if(scroll_top >= 1000 && scroll_top < 2000){
+					$('.wrapMarketing').addClass('hover');
+				}
+				else if(scroll_top >= 2000 && scroll_top < 2500){
+					$('.wrapGraphic').addClass('hover');
+				}
+				else if(scroll_top >= 2500 && scroll_top < 3100){
+					$('.wrapProgram').addClass('hover');
+				}
+				else if(scroll_top >= 3100 && scroll_top < 4500){
+					$('.portfolio_box1').addClass('hover');
+				}
+				else if(scroll_top >= 4500 && scroll_top < 5000 ){
+					$('.portfolio_box2').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 5000 && scroll_top < 7500 ){
+					$('.portfolio_box3').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 7500 && scroll_top < 8450 ){
+					$('.portfolio_box4').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 8450 && scroll_top < 9400 ){
+					$('#pic_move_pic1').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 9400 && scroll_top < 9900 ){
+					$('#pic_move_pic2').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 9900 && scroll_top < 10400 ){
+					$('#pic_move_pic3').addClass('hover');
+				   
+				}
+				else if(scroll_top >= 10400 && scroll_top < 14050 ){
+					$('#pic_move_pic4').addClass('hover');
+				   
+				}
 			}
 		});
 	var window_height = $(window).height();
@@ -286,6 +344,7 @@ $(function(){
 			<img class="top_title" src="app/img/index/title.png">
 			<img class="cloudy" src="app/img/index/cloudy.png">
 			<img class="bg1" src="app/img/index/bg1.png">
+			<div class="white_bg_out"></div>
 		</div>
 		<div class="phone_portfolio_box1">
 			<img class="top_title" src="app/img/index/mobile/title.png">
@@ -308,6 +367,7 @@ $(function(){
 			<img class="pc" src="app/img/index/portfolio_box2/pc.png">
 			<img class="sun" src="app/img/index/portfolio_box2/sun.png">
 			<img class="cloudy" src="app/img/index/portfolio_box2/cloudy.png">
+			<div class="white_bg01"></div>
 		</div>
 		<div class="phone_portfolio_box2">
 			<div class="text_box">
@@ -321,7 +381,9 @@ $(function(){
 			</a>
 		</div>
 		<div class="portfolio_box3">
+			<div class="white_bg01"></div>
 			<img src="app/img/index/bg2.png" class="bg2">
+			<div class="white_bg02"></div>
 			<img src="app/img/index/portfolio_box2/pad_bg.png" class="pad_bg2">
 			<img src="app/img/index/portfolio_box3/title2.png" class="title2">
 			<div class="text_box">
