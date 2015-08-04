@@ -43,7 +43,7 @@ $(function(){
 		if(scroll_top == 0){
 			$('.content2 , .content3 , .content4 , .content5 , .content6 , .content7 , .content8' ).removeClass('hover');
 		}
-		else if(scroll_top >= 850 && scroll_top < 1200){
+		else if(scroll_top >= 550 && scroll_top < 1200){
 			$('.content2').addClass('hover');
 		}
 		else if(scroll_top >= 1200 && scroll_top < 2000){
@@ -122,12 +122,73 @@ $(function(){
 			<img src="app/img/marketing/content2/bg.png">
 		</div>
 	</div>
+	<div class="phone_area">
+		<div class="text_arae">
+			<div class="title">
+				<h1>同樣的廣告預算<br>
+				如何透過Big Data創造2倍收益？</h1>
+			</div>
+			<div class="text">
+				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾的訂單。
+				</p>
+				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。
+				</p>
+			</div>
+		</div>
+		<div class="bg">
+			<img src="app/img/marketing/content2/bg.png">
+		</div>
+	</div>
 </div>
 <div class="content3">
 	<div class="area">
-		
-	</div>
-	
+		<div class="title_box">
+			<img src="app/img/marketing/content3/title.png">
+			<div class="right_text">	
+				<h1>Facebook<br> 
+				社群行銷的時代！</h1>
+			</div>
+			<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
+		</div>
+		<div class="item_area">
+			<div class="line_box1">
+				<img src="app/img/marketing/content3/line_box.png">
+			</div>
+			<div class="line_box2">
+				<img src="app/img/marketing/content3/line_box.png">
+			</div>
+			<div class="line_box3">
+				<img src="app/img/marketing/content3/line.png">
+			</div>
+			<div class="item_box">
+				<div class="pic_box">
+					<img src="app/img/marketing/content3/icon01.png">
+				</div>
+				<div class="text_box">
+					<img src="app/img/marketing/content3/text01.png">
+					<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
+				</div>
+			</div>
+			<div class="item_box">
+				<div class="pic_box">
+					<img src="app/img/marketing/content3/icon02.png">
+				</div>
+				<div class="text_box">
+					<img src="app/img/marketing/content3/text02.png">
+					<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
+				</div>
+			</div>
+			<div class="item_box">
+				<div class="pic_box">
+					<img src="app/img/marketing/content3/icon03.png">
+				</div>
+				<div class="text_box">
+					<img src="app/img/marketing/content3/text03.png">
+					<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，替您的產品找到最佳效益的廣告配置。</p>
+				</div>
+			</div>
+		</div>
+	</div>	
 </div>
 <div class="content4">
 	<div class="area">
@@ -136,14 +197,53 @@ $(function(){
 </div>
 <div class="content5">
 	<div class="area">
-		<div class="text_box">	
-			<h1>Google<br>
+		<div class="title_box">
+			<img src="app/img/marketing/content5/title.png">
+			<div class="right_text">	
+				<h1>Google<br> 
 				全方位精準行銷</h1>
+			</div>
 			<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益。</p>
-			
 		</div>
-		
-	</div>
+		<div class="item_area">
+			<div class="line_box1">
+				<img src="app/img/marketing/content3/line_box.png">
+			</div>
+			<div class="line_box2">
+				<img src="app/img/marketing/content3/line_box.png">
+			</div>
+			<div class="line_box3">
+				<img src="app/img/marketing/content3/line.png">
+			</div>
+			<div class="item_box">
+				<div class="pic_box">
+					<img src="app/img/marketing/content3/icon01.png">
+				</div>
+				<div class="text_box">
+					<img src="app/img/marketing/content5/text01.png">
+					<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
+				</div>
+			</div>
+			<div class="item_box">
+				<div class="pic_box">
+					<img src="app/img/marketing/content3/icon02.png">
+				</div>
+				<div class="text_box">
+					<img src="app/img/marketing/content5/text02.png">
+					<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
+				</div>
+			</div>
+			<div class="item_box">
+				<div class="pic_box">
+					<img src="app/img/marketing/content3/icon03.png">
+				</div>
+				<div class="text_box">
+					<img src="app/img/marketing/content5/text03.png">
+					<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，替您的產品找到最佳效益的廣告配置。</p>
+				</div>
+			</div>
+		</div>
+	</div>	
 </div>
 <div class="content6">
 	<div class="area">
