@@ -253,8 +253,8 @@ h1{font-size:36px;letter-spacing:3px;line-height:42px;font-weight:500;}
 .content5 .area .item_area .line_box1 img{width:8px;}
 .content5 .area .item_area .line_box2{width:8px;height:22px;position:absolute;top:240px;left:60px;transform:scaleX(-1);-webkit-transform:scaleX(-1);overflow:hidden; }
 .content5 .area .item_area .line_box2 img{width:8px;}
-.content5 .area .item_area .line_box3{width:60px;height:22px;position:absolute;top:373px;left:62px;}
-.content5 .area .item_area .line_box3 img{width:60px;}
+.content5 .area .item_area .line_box3{width:200px;height:130px;position:absolute;top:372px;left:62px;overflow:hidden;}
+.content5 .area .item_area .line_box3 img{width:200px;}
 .content5 .area .item_area .item_box{width:100%;margin:30px auto;overflow:hidden; }
 .content5 .area .item_area .item_box .pic_box{width:100px;float:left; margin-left:10px;}
 .content5 .area .item_area .item_box .pic_box img{width:100%;}
@@ -296,7 +296,7 @@ h1{font-size:36px;letter-spacing:3px;line-height:42px;font-weight:500;}
 }
 @media screen and (max-width: 500px){
 	.content5  {height:auto;padding-bottom:0px;background-color:#1e834c; }
-	.content5  .area{display:block;width:100%;background-color:#1e834c;padding-bottom:50px; }
+	.content5  .area{display:block;width:100%;background-color:#1e834c;padding-bottom:45px; }
 	
 	.content5 .area .title_box{width:320px; margin:80px auto 50px  auto; position:relative;overflow:hidden;}
 	.content5 .area .title_box img{display:block;width:140px;height:220px;position:relative;top:0px;left:0px;}
@@ -307,7 +307,7 @@ h1{font-size:36px;letter-spacing:3px;line-height:42px;font-weight:500;}
 	.content5 .area .item_area{width:310px;margin:35px auto;}
 	.content5 .area .item_area .line_box1{width:8px;height:50px;top:115px;left:53px;}
 	.content5 .area .item_area .line_box2{width:8px;height:40px;top:280px;left:53px; }
-	.content5 .area .item_area .line_box3{width:60px;height:80px;position:absolute;top:420px;left:53px;}
+	.content5 .area .item_area .line_box3{width:200px;height:80px;position:absolute;top:420px;left:53px;}
 	.content5 .area .item_area .item_box{width:100%;margin:30px auto;overflow:hidden;  }
 	.content5 .area .item_area .item_box .pic_box{width:100px;float:left;margin-left:0px; margin-right:10px;margin-top:8px;}
 	.content5 .area .item_area .item_box .text_box{float:right;width:190px;}
@@ -316,31 +316,27 @@ h1{font-size:36px;letter-spacing:3px;line-height:42px;font-weight:500;}
 
 
 /*****************.content6******************************************/
-.content6{ width:100%; height:750px;overflow:hidden; background:url(../img/marketing/content4/bg.png) 50% 50% fixed;background-size:cover  }
-.content6 .area{width:1050px; margin:0px auto;overflow:hidden; }
+.content6{ width:100%; height:1200px;overflow:hidden; background:url(../img/marketing/content4/bg.png) 50% 50% fixed;background-size:cover; }
+.content6 .area{width:1050px;height:1200px; margin:0px auto;position:relative; }
+.content6 .area img{width:100%;}
+.content6 .area .text_area{position:absolute;width:450px;left:50%;margin-left:-430px; top:50%; margin-top:-200px;}
+.content6 .area .text_area h1{margin-bottom:20px;}
+.content6 .area .earth{position:absolute;width:220px;left:-50px;top:50%; margin-top:-50px;}
+.content6 .area .computer{position:absolute;width:560px;left:50%;top:50%; margin-top:-280px;}
+.content6 .area .top_line{position:absolute;width:830px;left:50%;margin-left:-435px;top:0px;}
+
 
 
 @media screen and (min-width:1400px){
 	.content6{ width:100%; height:800px;}
 	.content6 .area{width:1270px;}
-	.content6 .area .left_box{width:400px;}
-	.content6 .area .left_box img{width:100%; margin-top:30px;}
-	.content6 .area .right_box{width:830px;margin-top:70px;}
-	.content6 .area .right_box .box {width:220px;float:left;margin-right:20px;}
-	.content6 .area .right_box .box .type{width:210px;}
-	.content6 .area .right_box .box .item_box{padding:10px;width:198px; }
-	.content6 .area .right_box .box.short{width:120px; }
-	.content6 .area .right_box .box.short .item_box{ width:100px; }
+	
 }
 @media screen and ( max-width:1024px ) and (min-width: 700px) {
 	.content6{ width:100%; height:900px;overflow:hidden;  background:#EBEBEC; }
-	.content6 .area{width:750px; margin:100px auto;overflow:hidden; }
-	.content6 .area .left_box{width:750px;float:none; }
-	.content6 .area .left_box img{width:100%;}
-	.content6  .pc_title{display:none;}
-	.content6  .pad_title{display:block;}
-	.content6 .area .right_box{width:710px;float:none; margin-top:40px;}
-}
+	
+	
+}	
 @media screen and (max-width: 700px){
 	
 	

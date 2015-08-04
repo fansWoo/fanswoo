@@ -213,7 +213,7 @@ $(function(){
 				<img src="app/img/marketing/content3/line_box.png">
 			</div>
 			<div class="line_box3">
-				<img src="app/img/marketing/content3/line.png">
+				<img src="app/img/marketing/content5/line.png">
 			</div>
 			<div class="item_box">
 				<div class="pic_box">
@@ -247,7 +247,20 @@ $(function(){
 </div>
 <div class="content6">
 	<div class="area">
-	
+		<div class="text_area">
+			<h1>全球的網站都幫您打品牌</h1>
+			<p>您使用YouTube觀賞影片嗎？您上天下的網站看新聞嗎？您上露天拍賣找商品嗎？</p>
+			<p>這些網站其實都是Google多媒體聯播網的一員。Google在台灣有超過兩萬個合作網站，是台灣最大網路廣告播送平台，每天曝光超過2億次！只要把廣告放上Google聯播網，就會在全台最熱門的網站上曝光，幫您打響知名度幫您打響知名度。</p>
+		</div>
+		<div class="earth">
+			<img src="app/img/marketing/content6/earth.png">
+		</div>
+		<div class="computer">
+			<img src="app/img/marketing/content6/computer.png">
+		</div>
+		<div class="top_line">
+			<img src="app/img/marketing/content6/top_line.png">
+		</div>
 	</div>	
 </div>
 <div class="content7">
