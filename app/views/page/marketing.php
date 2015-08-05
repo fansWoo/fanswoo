@@ -3,6 +3,23 @@
 <script src="app/js/cycle2.js"></script>
 <script>
 $(function(){
+	$(window).resize(function(){
+		$(document).scrollTop(0);
+		location.href = 'page/marketing';
+	});
+	$(" .slide_pic > .square").cycle({
+		fx      :       "scrollHorz", 
+		//fade
+		//scrollHorz
+		timeout: 0 ,
+		speed: 2000,
+		manualSpeed: 600,
+		slides: ' > .slide_pic_href',
+		next: ' .content7  .next',
+		prev: ' .content7  .prev',
+		pager: ' .cycle-pager '
+		
+	});
 	var window_width = $(window).width();
 	var window_height = $(window).height();
 			
@@ -428,6 +445,34 @@ $(function(){
 		</div>
 		<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最。<br>
 			可以滿足各種行銷訴求，一定能替您的產品找到最。</p>
+	</div>
+	<div class="phone_area">
+		<h1>當網路行銷結合網站UI/UX<br>
+		會發生什麼事？</h1>
+		<div class="phone_slide_pic_box" >
+			<div class="slide_pic" >
+				<div class="square">
+					<div class="slide_pic_href one">
+						<img src="app/img/marketing/content7/mobile/pic01.png">
+						<h2>有效的網路行銷</h2>
+						<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+					</div>
+					<div class="slide_pic_href one">
+						<img src="app/img/marketing/content7/mobile/pic02.png">
+						<h2>有效的網路行銷</h2>
+						<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+					</div>
+					<div class="slide_pic_href one">
+						<img src="app/img/marketing/content7/mobile/pic03.png">
+						<h2>有效的網路行銷</h2>
+						<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+					</div>
+				</div>	
+			</div>
+			<div class="cycle-pager"></div>
+			<div class="next"></div>
+			<div class="prev"></div>
+		</div>
 	</div>
 </div>
 <div class="content9">
