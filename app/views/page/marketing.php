@@ -150,49 +150,141 @@ $(function(){
 			</div>
 			<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
 		</div>
-		<div class="item_area">
-			<div class="line_box1">
-				<img src="app/img/marketing/content3/line_box.png">
+	
+	<div class="item_area">
+		<div class="line_box1">
+			<img src="app/img/marketing/content3/line_box.png">
+		</div>
+		<div class="line_box2">
+			<img src="app/img/marketing/content3/line_box.png">
+		</div>
+		<div class="line_box3">
+			<img src="app/img/marketing/content3/line_long.png">
+		</div>
+		<div class="item_box">
+			<div class="pic_box">
+				<img src="app/img/marketing/content3/icon01.png">
 			</div>
-			<div class="line_box2">
-				<img src="app/img/marketing/content3/line_box.png">
-			</div>
-			<div class="line_box3">
-				<img src="app/img/marketing/content3/line.png">
-			</div>
-			<div class="item_box">
-				<div class="pic_box">
-					<img src="app/img/marketing/content3/icon01.png">
-				</div>
-				<div class="text_box">
-					<img src="app/img/marketing/content3/text01.png">
-					<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
-				</div>
-			</div>
-			<div class="item_box">
-				<div class="pic_box">
-					<img src="app/img/marketing/content3/icon02.png">
-				</div>
-				<div class="text_box">
-					<img src="app/img/marketing/content3/text02.png">
-					<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
-				</div>
-			</div>
-			<div class="item_box">
-				<div class="pic_box">
-					<img src="app/img/marketing/content3/icon03.png">
-				</div>
-				<div class="text_box">
-					<img src="app/img/marketing/content3/text03.png">
-					<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，替您的產品找到最佳效益的廣告配置。</p>
-				</div>
+			<div class="text_box">
+				<img src="app/img/marketing/content3/text01.png">
+				<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
 			</div>
 		</div>
-	</div>	
+		<div class="item_box">
+			<div class="pic_box">
+				<img src="app/img/marketing/content3/icon02.png">
+			</div>
+			<div class="text_box">
+				<img src="app/img/marketing/content3/text02.png">
+				<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
+			</div>
+		</div>
+		<div class="item_box">
+			<div class="pic_box">
+				<img src="app/img/marketing/content3/icon03.png">
+			</div>
+			<div class="text_box">
+				<img src="app/img/marketing/content3/text03.png">
+				<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，替您的產品找到最佳效益的廣告配置。</p>
+			</div>
+		</div>
+	</div>
+</div>	
 </div>
 <div class="content4">
 	<div class="area">
-		
+		<div class="line">
+			<img src="app/img/marketing/content4/line.png">
+		</div>
+		<div class="hand">
+			<img src="app/img/marketing/content4/hand.png">
+		</div>
+		<div class="start01">
+			<img src="app/img/marketing/content4/pic02.png">
+		</div>
+		<div class="start02">
+			<img src="app/img/marketing/content4/pic02.png">
+		</div>
+		<div class="pic01">
+			<img src="app/img/marketing/content4/pic01.png">
+		</div>
+		<div class="window01">
+			<img src="app/img/marketing/content4/window01.png">
+		</div>
+		<div class="window02">
+			<img src="app/img/marketing/content4/window02.png">
+		</div>
+		<div class="dialog_box one">
+			<div class="number">
+				<h3>56<span>%</span></h3>
+				<p>的用戶表示</p>
+			</div>
+			<img src="app/img/marketing/content4/pic03.png">
+		</div>
+		<div class="dialog_box two">
+			<div class="number">
+				<h3>42<span>%</span></h3>
+				<p>的用戶表示</p>
+			</div>
+			<img src="app/img/marketing/content4/pic04.png">
+		</div>
+		<div class="dialog_box three">
+			<div class="number">
+				<h3>36<span>%</span></h3>
+				<p>的用戶表示</p>
+			</div>
+			<img src="app/img/marketing/content4/pic05.png">
+		</div>
+		<div class="text_area one">
+			<h1>貼文廣告</h1>
+			<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
+			<img src="app/img/marketing/content4/icon01.png">
+		</div>
+		<div class="text_area two">
+			<h1>讚廣告</h1>
+			<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
+			<img src="app/img/marketing/content4/icon02.png">
+		</div>
+	</div>
+	<div class="phone_area">
+		<div class="dialog_box01">
+			<img src="app/img/marketing/content4/mobile/dialog_box01.png">
+		</div>
+		<div class="dialog_box02">
+			<img src="app/img/marketing/content4/mobile/dialog_box02.png">
+		</div>
+		<div class="dialog_box03">
+			<img src="app/img/marketing/content4/mobile/dialog_box03.png">
+		</div>
+		<div class="line01">
+			<img src="app/img/marketing/content4/mobile/line01.png">
+		</div>
+		<div class="line02">
+			<img src="app/img/marketing/content4/mobile/line02.png">
+		</div>
+		<div class="window01">
+			<img src="app/img/marketing/content4/window01.png">
+		</div>
+		<div class="window02">
+			<img src="app/img/marketing/content4/window02.png">
+		</div>
+		<div class="hand">
+			<img src="app/img/marketing/content4/mobile/hand.png">
+		</div>
+		<div class="text_box01">
+			<h1>貼文廣告</h1>
+			<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
+		</div>
+		<div class="text_box02">
+			<h1>讚廣告</h1>
+			<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
+		</div>
+		<div class="pic01">
+			<img src="app/img/marketing/content4/icon01.png">
+		</div>
+		<div class="pic02">
+			<img src="app/img/marketing/content4/icon02.png">
+		</div>
 	</div>
 </div>
 <div class="content5">
@@ -213,7 +305,7 @@ $(function(){
 				<img src="app/img/marketing/content3/line_box.png">
 			</div>
 			<div class="line_box3">
-				<img src="app/img/marketing/content5/line.png">
+				<img src="app/img/marketing/content5/line_long.png">
 			</div>
 			<div class="item_box">
 				<div class="pic_box">
@@ -250,7 +342,9 @@ $(function(){
 		<div class="text_area">
 			<h1>全球的網站都幫您打品牌</h1>
 			<p>您使用YouTube觀賞影片嗎？您上天下的網站看新聞嗎？您上露天拍賣找商品嗎？</p>
-			<p>這些網站其實都是Google多媒體聯播網的一員。Google在台灣有超過兩萬個合作網站，是台灣最大網路廣告播送平台，每天曝光超過2億次！只要把廣告放上Google聯播網，就會在全台最熱門的網站上曝光，幫您打響知名度幫您打響知名度。</p>
+			<p>
+			這些網站其實都是Google多媒體聯播網的一員。Google在台灣有超過兩萬個合作網站，是台灣最大網路廣告播送平台，每天曝光超過2億次！</p>
+			<p>只要把廣告放上Google聯播網，就會在全台最熱門的網站上曝光，幫您打響知名度幫您打響知名度。</p>
 		</div>
 		<div class="earth">
 			<img src="app/img/marketing/content6/earth.png">
@@ -258,14 +352,82 @@ $(function(){
 		<div class="computer">
 			<img src="app/img/marketing/content6/computer.png">
 		</div>
-		<div class="top_line">
-			<img src="app/img/marketing/content6/top_line.png">
+		<div class="start">
+			<img src="app/img/marketing/content6/start.png">
+		</div>
+		<div class="bottom_line01">
+			<img src="app/img/marketing/content6/bottom_line01.png">
+		</div>
+		<div class="bottom_line02">
+			<img src="app/img/marketing/content6/bottom_line02.png">
+		</div>
+		<div class="bottom_line03">
+			<img src="app/img/marketing/content6/bottom_line03.png">
+		</div>
+		<div class="bottom_line04">
+			<img src="app/img/marketing/content6/bottom_line04.png">
+		</div>
+		<div class="phone_line">
+			<img src="app/img/marketing/content6/mobile/line.png">
+		</div>
+		<div class="circle_box one">
+			<img src="app/img/marketing/content6/icon.png">
+			<div class="text">
+				<p>Google的廣告格式</p>
+				<p>可以滿足各種行銷訴求</p>
+			</div>
+		</div>
+		<div class="circle_box two">
+			<img src="app/img/marketing/content6/icon.png">
+			<div class="text">	
+				<p>Google的廣告格式</p>
+				<p>可以滿足各種行銷訴求</p>
+			</div>
+		</div>
+		<div class="circle_box three">
+			<img src="app/img/marketing/content6/icon.png">
+			<div class="text">		
+				<p>Google的廣告格式</p>
+				<p>可以滿足各種行銷訴求</p>
+			</div>
+		</div>
+		<div class="circle_box four">
+			<img src="app/img/marketing/content6/icon.png">
+			<div class="text">		
+				<p>Google的廣告格式</p>
+				<p>可以滿足各種行銷訴求</p>
+			</div>
 		</div>
 	</div>	
 </div>
 <div class="content7">
 	<div class="area">
-		
+		<h1>當網路行銷結合網站UI/UX<br>
+		會發生什麼事？</h1>
+		<div class="center_box">
+			<div class="box">
+				<img src="app/img/marketing/content7/icon01.png" class="pic">
+				<img src="app/img/marketing/content7/border.png" class="border">
+			</div>
+			<div class="box two">
+				<img src="app/img/marketing/content7/icon02.png" class="pic">
+				<img src="app/img/marketing/content7/border.png" class="border">
+				<div class="line01">
+					<img src="app/img/marketing/content7/line.png">
+				</div>
+				<div class="line02">
+					<img src="app/img/marketing/content7/line.png">
+				</div>
+				<p>導入人潮</p>
+				<p>轉換成訂單</p>
+			</div>
+			<div class="box">
+				<img src="app/img/marketing/content7/icon03.png" class="pic">
+				<img src="app/img/marketing/content7/border.png" class="border">
+			</div>
+		</div>
+		<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最。<br>
+			可以滿足各種行銷訴求，一定能替您的產品找到最。</p>
 	</div>
 </div>
 <div class="content9">
