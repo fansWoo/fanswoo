@@ -423,28 +423,47 @@ $(function(){
 		會發生什麼事？</h1>
 		<div class="center_box">
 			<div class="box">
-				<img src="app/img/marketing/content7/icon01.png" class="pic">
-				<img src="app/img/marketing/content7/border.png" class="border">
+				<div class="pic_box">
+					<img src="app/img/marketing/content7/icon01.png" class="pic">
+					<img src="app/img/marketing/content7/pic01.png" class="pic_hover">
+					<img src="app/img/marketing/content7/border.png" class="border">
+				</div>
+				<div class="text">
+					<h2>有效的網路行銷</h2>
+					<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+				</div>
 			</div>
 			<div class="box two">
-				<img src="app/img/marketing/content7/icon02.png" class="pic">
-				<img src="app/img/marketing/content7/border.png" class="border">
-				<div class="line01">
-					<img src="app/img/marketing/content7/line.png">
+				<div class="pic_box">
+					<img src="app/img/marketing/content7/icon02.png" class="pic">
+					<img src="app/img/marketing/content7/pic02.png" class="pic_hover">
+					<img src="app/img/marketing/content7/border.png" class="border">
+					<div class="line01">
+						<img src="app/img/marketing/content7/line.png">
+					</div>
+					<div class="line02">
+						<img src="app/img/marketing/content7/line.png">
+					</div>
 				</div>
-				<div class="line02">
-					<img src="app/img/marketing/content7/line.png">
+				<p class="p">導入人潮</p>
+				<p class="p">轉換成訂單</p>
+				<div class="text">
+					<h2>網站UI/UX設計</h2>
+					<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
 				</div>
-				<p>導入人潮</p>
-				<p>轉換成訂單</p>
 			</div>
 			<div class="box">
-				<img src="app/img/marketing/content7/icon03.png" class="pic">
-				<img src="app/img/marketing/content7/border.png" class="border">
+				<div class="pic_box">
+					<img src="app/img/marketing/content7/icon03.png" class="pic">
+					<img src="app/img/marketing/content7/pic03.png" class="pic_hover">
+					<img src="app/img/marketing/content7/border.png" class="border">
+				</div>
+				<div class="text">
+					<h2>創造正面循環</h2>
+					<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+				</div>	
 			</div>
 		</div>
-		<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最。<br>
-			可以滿足各種行銷訴求，一定能替您的產品找到最。</p>
 	</div>
 	<div class="phone_area">
 		<h1>當網路行銷結合網站UI/UX<br>
