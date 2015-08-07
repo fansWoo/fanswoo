@@ -47,7 +47,7 @@ $(function(){
 			$('.content2 #text_arae_one , .content2 #text_arae_two , .content2 .hand_box , .content2 .house ' ).removeClass('hover');
 			$(' .content3 , .content4 , .content5 ' ).removeClass('hover');
 		}
-		else if(scroll_top >= 500 && scroll_top < 950){
+		else if(scroll_top >= 400 && scroll_top < 950){
 			$('.content2 #text_arae_one ').addClass('hover');
 		}
 		else if(scroll_top >= 950 && scroll_top < 1600){
@@ -72,7 +72,6 @@ $(function(){
 				
 			}
 		}
-		
 		if(window_width > 700 && window_width <= 1400){
 			
 		}
@@ -80,13 +79,35 @@ $(function(){
 			
 		}
 	});	
-	
+	$(document).scroll(function(){
+		
+		var scroll_top = $(document).scrollTop();
+        var scroll_top_height = scroll_top + $(window).height();
+		console.log(scroll_top);
+		var window_width = $(window).width();
+		if(window_width > 700){
+			var content_portfolio_top = $('.bird').offset().top;
+			var content_portfolio_height_all = $('.bird').heightAll();	
+			
+			if(scroll_top_height >= content_portfolio_top && scroll_top < content_portfolio_top + content_portfolio_height_all)
+			{
+				var s1 = (scroll_top_height - content_portfolio_top) / 6;
+				
+
+				$('.bird').css('transform', 'translateY(+' + s1 + 'px)');
+				
+				//$('.content1 .arrow').css('transform', 'translateY(' + s4 + 'px)');
+				//$('.content1 .area').css('transform', 'translateY(' + s4 + 'px)');
+
+			}
+		}
+	});	
 	$(document).on('mouseenter', '.content5 .border', function(){
-		$(this).removeClass('hover');
-		$(this).addClass('hover2');
+	
+		$(this).addClass('hover');
 	});
 	$(document).on('mouseleave', '.content5 .border', function(){
-		$(this).removeClass('hover2');
+		$(this).removeClass('hover');
 	});
 			
 	$('a[href^=#]').click(function () {
@@ -198,15 +219,15 @@ $(function(){
 			<p>插畫設計、主視覺設計</p>
 			<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
 		</div>
-		<!--<div class="bg2">
+		<div class="bg2">
 			<img src="app/img/graphic/content5/bg2.png">
 		</div>
 		<div class="bg3">
 			<img src="app/img/graphic/content5/bg3.png">
-		</div>-->
-		<div class="pic01">
-			<img src="app/img/graphic/content5/pic01.png">
 		</div>
+		<!--<div class="pic01">
+			<img src="app/img/graphic/content5/pic01.png">
+		</div>-->
 		<div class="glass">
 			<img src="app/img/graphic/content5/glass.png">
 		</div>
