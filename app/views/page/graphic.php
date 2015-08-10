@@ -10,7 +10,7 @@ $(function(){
 	var window_width = $(window).width();
 	var window_height = $(window).height();
 			
-		if(window_width < 700){	
+		if(window_width < 500){	
 			$('.content1').css('height', window_height);
 			$('.content1 .area').css('height', '400');
 			$(window).resize(function(){
@@ -19,7 +19,7 @@ $(function(){
 
 			});	
 		}
-		else if	(window_width > 700){
+		else if	(window_width > 500){
 			$('.content1').css('height', window_height);
 			$('.content1 .area').css('height', window_height);
 			$(window).resize(function(){
@@ -43,61 +43,119 @@ $(function(){
 	$(document).scroll(function(){
 		var window_width = $(window).width();
 		var scroll_top = $(document).scrollTop();
-		if(scroll_top == 0){
-			$('.content2 #text_arae_one , .content2 #text_arae_two , .content2 .hand_box , .content2 .house ' ).removeClass('hover');
-			$(' .content3 , .content4 , .content5 ' ).removeClass('hover');
-		}
-		else if(scroll_top >= 400 && scroll_top < 950){
-			$('.content2 #text_arae_one ').addClass('hover');
-		}
-		else if(scroll_top >= 950 && scroll_top < 1600){
-			$('.content2 #text_arae_two').addClass('hover');
-			$('.content2 .hand_box ').addClass('hover');
-			$('.content2 .house ').addClass('hover');
-		}
-		else if(scroll_top >= 1600 && scroll_top < 2400){
-			$('.content3').addClass('hover');
-		}
-		else if(scroll_top >= 2400 && scroll_top < 3200){
-			$('.content4').addClass('hover');
-		}
-		else if(scroll_top >= 3200 && scroll_top < 6000){
-			if($('.content5').hasClass('hover'))
-			{
+			if(window_width >= 1400){
+			if(scroll_top == 0){
+				$('.content2 #text_arae_one , .content2 #text_arae_two , .content2 .hand_box , .content2 .house ' ).removeClass('hover');
+				$(' .content3 , .content4 , .content5 ' ).removeClass('hover');
 			}
-			else
-			{
-				$('.content5 .border').addClass('hover');
-				$('.content5').addClass('hover');
-				
+			else if(scroll_top >= 400 && scroll_top < 950){
+				$('.content2 #text_arae_one ').addClass('hover');
 			}
-		}
-		if(window_width > 700 && window_width <= 1400){
-			
+			else if(scroll_top >= 950 && scroll_top < 1700){
+				$('.content2 #text_arae_two').addClass('hover');
+				$('.content2 .hand_box ').addClass('hover');
+				$('.content2 .house ').addClass('hover');
+			}
+			else if(scroll_top >= 1700 && scroll_top < 2600){
+				$('.content3').addClass('hover');
+			}
+			else if(scroll_top >= 2600 && scroll_top < 3500){
+				$('.content4').addClass('hover');
+			}
+			else if(scroll_top >= 3500 && scroll_top < 6000){
+				if($('.content5').hasClass('hover'))
+				{
+				}
+				else
+				{
+					$('.content5 .border').addClass('hover');
+					$('.content5').addClass('hover');
+					
+				}
+			}
+		}	
+		if(window_width > 1024 && window_width <= 1400){
+			if(scroll_top == 0){
+				$('.content2 #text_arae_one , .content2 #text_arae_two , .content2 .hand_box , .content2 .house ' ).removeClass('hover');
+				$(' .content3 , .content4 , .content5 ' ).removeClass('hover');
+			}
+			else if(scroll_top >= 400 && scroll_top < 950){
+				$('.content2 #text_arae_one ').addClass('hover');
+			}
+			else if(scroll_top >= 950 && scroll_top < 1600){
+				$('.content2 #text_arae_two').addClass('hover');
+				$('.content2 .hand_box ').addClass('hover');
+				$('.content2 .house ').addClass('hover');
+			}
+			else if(scroll_top >= 1600 && scroll_top < 2400){
+				$('.content3').addClass('hover');
+			}
+			else if(scroll_top >= 2400 && scroll_top < 3200){
+				$('.content4').addClass('hover');
+			}
+			else if(scroll_top >= 3200 && scroll_top < 6000){
+				if($('.content5').hasClass('hover'))
+				{
+				}
+				else
+				{
+					$('.content5 .border').addClass('hover');
+					$('.content5').addClass('hover');
+					
+				}
+			}
+		}	
+		else if(window_width > 500 && window_width < 1024){
+			if(scroll_top == 0){
+				$('.content2 #text_arae_one , .content2 #text_arae_two , .content2 .hand_box , .content2 .house ' ).removeClass('hover');
+				$(' .content3 , .content4 , .content5 ' ).removeClass('hover');
+			}
+			else if(scroll_top >= 400 && scroll_top < 1300){
+				$('.content2 #text_arae_one ').addClass('hover');
+				$('.content2 #text_arae_two').addClass('hover');
+			}
+			else if(scroll_top >= 1300 && scroll_top < 2000){
+				$('.content2 .hand_box ').addClass('hover');
+				$('.content2 .house ').addClass('hover');
+			}
+			else if(scroll_top >= 2000 && scroll_top < 2400){
+				$('.content3').addClass('hover');
+			}
+			else if(scroll_top >= 2400 && scroll_top < 3200){
+				$('.content4').addClass('hover');
+			}
+			else if(scroll_top >= 3200 && scroll_top < 6000){
+				if($('.content5').hasClass('hover'))
+				{
+				}
+				else
+				{
+					$('.content5 .border').addClass('hover');
+					$('.content5').addClass('hover');
+					
+				}
+			}
 		}
 		if(window_width > 1400){
 			
 		}
 	});	
+
 	$(document).scroll(function(){
 		
 		var scroll_top = $(document).scrollTop();
         var scroll_top_height = scroll_top + $(window).height();
 		console.log(scroll_top);
 		var window_width = $(window).width();
-		if(window_width > 700){
-			var content_portfolio_top = $('.bird').offset().top;
-			var content_portfolio_height_all = $('.bird').heightAll();	
+		if(window_width > 500){
+			var content_portfolio_top = $('.content2').offset().top;
+			var content_portfolio_height_all = $('.content2').heightAll();	
 			
 			if(scroll_top_height >= content_portfolio_top && scroll_top < content_portfolio_top + content_portfolio_height_all)
 			{
-				var s1 = (scroll_top_height - content_portfolio_top) / 6;
-				
+				var s1 = (scroll_top_height - content_portfolio_top) / 1.5;
+				$('.content2 .bird').css('transform', 'translateY(+' + s1 + 'px) translateX(+' + s1 + 'px)');
 
-				$('.bird').css('transform', 'translateY(+' + s1 + 'px)');
-				
-				//$('.content1 .arrow').css('transform', 'translateY(' + s4 + 'px)');
-				//$('.content1 .area').css('transform', 'translateY(' + s4 + 'px)');
 
 			}
 		}
@@ -139,30 +197,34 @@ $(function(){
 		</a>
 	</div>
 </div>
+
+<div class="content2" id="content2">
 <div class="bird">
 	<img src="app/img/graphic/content2/bird.png">
 </div>
-<div class="content2" id="content2">
+<div class="phone_bird">
+	<img src="app/img/graphic/content2/bird.png">
+</div>
 	<div class="area">
 		<div class="text_arae one" id="text_arae_one">
 			<div class="title">
-				<h1>設計緣起<br>
+				<h1>設計緣起</h1>
 				<h2>為什麼環保產業要用綠色作為主色？<br>
 				為什麼XXXXXX？</h2>
 			</div>
 			<div class="text">
 				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
-				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
+				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕。</p>
 			</div>
 		</div>
 		<div class="text_arae two" id="text_arae_two">
 			<div class="title">
-				<h1>企業的命脈，由此開始<br>
+				<h1>企業的命脈，由此開始</h1>
 				<h2>CIS企業識別設計、LOGO設計</h2>
 			</div>
 			<div class="text">
 				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
-				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
+				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕。</p>
 			</div>
 		</div>
 		<div class="hand_box">
@@ -170,7 +232,13 @@ $(function(){
 				<img src="app/img/graphic/content2/pic_card.png" class="card_01">
 			</div>
 			<img src="app/img/graphic/content2/hand.png" class="pic_hand">
-		</div>	
+		</div>
+		<div class="phone_hand_box">
+			<div class="pic_card_box">
+				<img src="app/img/graphic/content2/pic_card.png" class="card_01">
+			</div>
+			<img src="app/img/graphic/content2/mobile/hand.png" class="pic_hand">
+		</div>			
 		<div class="house">
 			<img src="app/img/graphic/content2/house.png">
 		</div>
@@ -191,13 +259,25 @@ $(function(){
 		</div>
 		<div class="bg01"></div>
 		<div class="bg02"></div>
-	</div>	
+	</div>
+	<div class="phone_area">
+		<div class=" left_pic">
+			<img src="app/img/graphic/content3/mobile/pic.png">
+		</div>
+		<div class="text_box">
+			<h1>以不凡的姿態<br>
+			接近你的消費族群</h1>
+			<h2>文宣設計、文宣設計、文宣設計</h2>
+			<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
+			<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Faceb。</p>
+		</div>
+	</div>		
 </div>
 <div class="content4">
 	<div class="area">
 		<div class="text_box">
 			<h1>為你的產品注入生命力</h1>
-			<p>產品包裝設計、產品包裝設計</p>
+			<h2>產品包裝設計、產品包裝設計</h2>
 			<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。全球Facebook用戶數已達12億全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出</p>
 		</div>
 		<div class="pic_hand">
@@ -209,6 +289,9 @@ $(function(){
 		<div class="pic_color">
 			<img src="app/img/graphic/content4/ddd.png" class="ddd">
 			<img src="app/img/graphic/content4/bg.png" class="color">
+		</div>
+		<div class="phone_pic_color">
+			<img src="app/img/graphic/content4/mobile/bg.png">
 		</div>
 	</div>	
 </div>
@@ -225,9 +308,6 @@ $(function(){
 		<div class="bg3">
 			<img src="app/img/graphic/content5/bg3.png">
 		</div>
-		<!--<div class="pic01">
-			<img src="app/img/graphic/content5/pic01.png">
-		</div>-->
 		<div class="glass">
 			<img src="app/img/graphic/content5/glass.png">
 		</div>
