@@ -3,10 +3,10 @@
 <script src="app/js/cycle2.js"></script>
 <script>
 $(function(){
-	//$(window).resize(function(){
-		//$(document).scrollTop(0);
-		//location.href = 'page/marketing';
-	//});
+	$(window).resize(function(){
+		$(document).scrollTop(0);
+		location.href = 'page/graphic';
+	});
 	var window_width = $(window).width();
 	var window_height = $(window).height();
 			
