@@ -35,7 +35,7 @@ h2{font-size:24px;letter-spacing:2px;}
 	100% { opacity:0.5 ;}
 }
 .content1 .area{ position:absolute;width:40%;left:50%; margin-left:-20%;top:0px;background-color:rgba(0,0,0,0.8);overflow:hidden;}
-.content1 .area .pic1{width:160px;position:absolute;left:50%;top:50%;margin-top:-180px; margin-left:-80px;-webkit-animation: p201507170120 1.5s;animation: p201507170120 1.5s; }
+.content1 .area .pic1{width:160px;position:absolute;left:50%;top:50%;margin-top:-150px; margin-left:-75px;-webkit-animation: p201507170120 1.5s;animation: p201507170120 1.5s; }
 .content1 .area .pic1 img{width:100%;}
 @-webkit-keyframes p201507170120{
 	0% { opacity:0 ; }
@@ -79,7 +79,7 @@ h2{font-size:24px;letter-spacing:2px;}
 	.content1 .area{ position:absolute;width:50%;left:50%; margin-left:-25%; }
 	.content1 .area .text{width:84%; position:absolute;left:50%; margin-left:-40%;top:50%;margin-top:-50px; padding-top:35px; }
 	.content1 .area .text h2{margin-bottom:20px;font-size:28px;letter-spacing:8px;}
-	.content1 .area .pic1{width:260px;margin-top:-330px;margin-left:-130px;}
+	.content1 .area .pic1{width:260px;margin-top:-280px;margin-left:-120px;}
 	.content1  .arrow{width:80px;height:120px;display:block;position:absolute;left:50%;margin-left:-40px;overflow:hidden;}	
 }
 @media screen and ( max-width:1024px ) and (min-width: 500px) {

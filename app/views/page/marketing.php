@@ -43,7 +43,6 @@ $(function(){
 			});
 			
 		}
-
 		$(document).on('click', '.content9 .choose_box , .content9 .circle', function(){
 			var bgname = $(this).data('bgname');
 			$('.content9 .choose_box').removeClass('clicked');
@@ -54,38 +53,172 @@ $(function(){
 			$('.content9 .choose_box[data-bgname=' + bgname + '] ').addClass('hover');
 			 $('.content9 h4[data-bgname=' + bgname + ']').addClass('hover');	
 		});
-	$(document).scroll(function(){
-		var window_width = $(window).width();
-		var scroll_top = $(document).scrollTop();
-		if(scroll_top == 0){
-			$('.content2 , .content3 , .content4 , .content5 , .content6 , .content7 , .content8' ).removeClass('hover');
+		if(window_width > 500 && window_width <= 1400){			
+			$(document).scroll(function(){
+				var window_width = $(window).width();
+				var scroll_top = $(document).scrollTop();
+				if(scroll_top == 0){
+					$('.content2 , .content3 , .content5 , .content6 , .content7 , .content8' ).removeClass('hover');
+					$(' .content4 .hover_area01 , .content4 .hover_area02' ).removeClass('hover');
+					$('.content6 .bottom_line01 , .content6 .bottom_line02 , .content6 .bottom_line03 , .content6 .bottom_line04 , .content6 .circle_box , .content6 .earth' ).removeClass('hover');
+				}
+				else if(scroll_top >= 300 && scroll_top < 1000){
+					$('.content2').addClass('hover');
+				}
+				else if(scroll_top >= 1000 && scroll_top < 2000){
+					$('.content3').addClass('hover');
+				}
+				else if(scroll_top >= 2000 && scroll_top < 2500){
+					$('.content4 .hover_area01').addClass('hover');
+				}
+				else if(scroll_top >= 2500 && scroll_top < 2900){
+					$('.content4 .hover_area02').addClass('hover');
+				}
+				else if(scroll_top >= 2900 && scroll_top < 3900){
+					$('.content5').addClass('hover');
+				}
+				else if(scroll_top >= 3900 && scroll_top < 4200){
+					$('.content6').addClass('hover');
+				}
+				else if(scroll_top >= 4200 && scroll_top < 5000){
+					$('.content6 .bottom_line01').addClass('hover');
+					$('.content6 .bottom_line02').addClass('hover');
+					$('.content6 .bottom_line03').addClass('hover');
+					$('.content6 .bottom_line04').addClass('hover');
+					$('.content6 .earth').addClass('hover');
+					$('.content6 .circle_box').addClass('hover');
+				}
+				else if(scroll_top >=5000 && scroll_top <6000){
+					$('.content7').addClass('hover');
+				}
+				//線條動畫
+				if(scroll_top < 1600)
+				{
+					$('.content3 .line_box3').css('height', 1 + 'px');
+				}
+				else if(scroll_top >= 1600 && scroll_top < 2200)
+				{
+					var line_dash_height = 1600 * ( (scroll_top - 1580) / 1600);
+					$('.content3 .line_box3').css('height', line_dash_height + 'px');
+				}
+				else if(scroll_top >= 2200)
+				{
+					$('.content3 .line_box3').css('height', 1600 + 'px');
+				}
+				if(scroll_top < 2250)
+				{
+					$('.content4 .line').css('height', 1 + 'px');
+				}
+				else if(scroll_top >= 2250 && scroll_top < 2750)
+				{
+					var line_dash_height = 1600 * ( (scroll_top - 2200) / 2250);
+					$('.content4 .line').css('height', line_dash_height + 'px');
+				}
+				else if(scroll_top >= 2750)
+				{
+					$('.content4 .line').css('height', 550 + 'px');
+				}
+				
+				if(scroll_top < 3500)
+				{
+					$('.content5 .line_box3').css('height', 1 + 'px');
+				}
+				else if(scroll_top >= 3500 && scroll_top < 4550)
+				{
+					var line_dash_height = 1600 * ( (scroll_top - 3400) / 3500);
+					$('.content5 .line_box3').css('height', line_dash_height + 'px');
+				}
+				else if(scroll_top >= 4550)
+				{
+					$('.content5 .line_box3').css('height', 1500 + 'px');
+				}
+			});		
+		}	
+		if(window_width > 1400 ){			
+			$(document).scroll(function(){
+				var window_width = $(window).width();
+				var scroll_top = $(document).scrollTop();
+				if(scroll_top == 0){
+					$('.content2 , .content3 , .content5 , .content6 , .content7 , .content8' ).removeClass('hover');
+					$(' .content4 .hover_area01 , .content4 .hover_area02' ).removeClass('hover');
+					$('.content6 .bottom_line01 , .content6 .bottom_line02 , .content6 .bottom_line03 , .content6 .bottom_line04 , .content6 .circle_box , .content6 .earth' ).removeClass('hover');
+				}
+				else if(scroll_top >= 500 && scroll_top < 1500){
+					$('.content2').addClass('hover');
+				}
+				else if(scroll_top >= 1500 && scroll_top < 2500){
+					$('.content3').addClass('hover');
+				}
+				else if(scroll_top >= 1500 && scroll_top < 2500){
+					$('.content3').addClass('hover');
+				}
+				else if(scroll_top >= 2500 && scroll_top < 2800){
+					$('.content4 .hover_area01').addClass('hover');
+				}
+				else if(scroll_top >= 2800 && scroll_top < 3400){
+					$('.content4 .hover_area02').addClass('hover');
+				}
+				else if(scroll_top >= 3400 && scroll_top < 4100){
+					$('.content5').addClass('hover');
+				}
+				else if(scroll_top >= 4100 && scroll_top < 5000){
+					$('.content6').addClass('hover');
+				}
+				else if(scroll_top >= 5000 && scroll_top < 5550){
+					$('.content6 .bottom_line01').addClass('hover');
+					$('.content6 .bottom_line02').addClass('hover');
+					$('.content6 .bottom_line03').addClass('hover');
+					$('.content6 .bottom_line04').addClass('hover');
+					$('.content6 .earth').addClass('hover');
+					$('.content6 .circle_box').addClass('hover');
+				}
+				else if(scroll_top >=5550 && scroll_top <7000){
+					$('.content7').addClass('hover');
+				}
+				//線條動畫
+				if(scroll_top < 2000)
+				{
+					$('.content3 .line_box3').css('height', 1 + 'px');
+				}
+				else if(scroll_top >= 2000 && scroll_top < 2500)
+				{
+					var line_dash_height = 2000 * ( (scroll_top - 1950) / 2000);
+					$('.content3 .line_box3').css('height', line_dash_height + 'px');
+				}
+				else if(scroll_top >= 2500)
+				{
+					$('.content3 .line_box3').css('height', 2000 + 'px');
+				}
+				if(scroll_top < 2650)
+				{
+					$('.content4 .line').css('height', 1 + 'px');
+				}
+				else if(scroll_top >= 2650 && scroll_top < 3000)
+				{
+					var line_dash_height = 1600 * ( (scroll_top - 2600) / 2650);
+					$('.content4 .line').css('height', line_dash_height + 'px');
+				}
+				else if(scroll_top >= 3000)
+				{
+					$('.content4 .line').css('height', 2650 + 'px');
+				}
+				
+				if(scroll_top < 4000)
+				{
+					$('.content5 .line_box3').css('height', 1 + 'px');
+				}
+				else if(scroll_top >= 4000 && scroll_top < 4750)
+				{
+					var line_dash_height = 1400 * ( (scroll_top - 3950) / 4000);
+					$('.content5 .line_box3').css('height', line_dash_height + 'px');
+				}
+				else if(scroll_top >= 4750)
+				{
+					$('.content5 .line_box3').css('height', 1000 + 'px');
+				}
+			});		
 		}
-		else if(scroll_top >= 550 && scroll_top < 1200){
-			$('.content2').addClass('hover');
-		}
-		else if(scroll_top >= 1200 && scroll_top < 2000){
-			$('.content3').addClass('hover');
-		}
-		else if(scroll_top >= 2000 && scroll_top < 2900){
-			$('.content4').addClass('hover');
-		}
-		else if(scroll_top >= 2900 && scroll_top < 3600){
-			$('.content5').addClass('hover');
-		}
-		else if(scroll_top >= 3600 && scroll_top < 4350){
-			$('.content6').addClass('hover');
-		}
-		else if(scroll_top >=4350 && scroll_top <5000){
-			$('.content7').addClass('hover');
-		}
-		
-		if(window_width > 700 && window_width <= 1400){
-			
-		}
-		if(window_width > 1400){
-			
-		}
-	});	
+	
 	$('a[href^=#]').click(function () {
 		var speed = 500;
 		var href = $(this).attr("href");
@@ -136,7 +269,19 @@ $(function(){
 			</div>
 		</div>
 		<div class="bg">
-			<img src="app/img/marketing/content2/bg.png">
+			<img src="app/img/marketing/content2/bg1.png" class="one">
+			<img src="app/img/marketing/content2/bg2.png" class="two">
+			<img src="app/img/marketing/content2/bg3.png" class="three">
+			<img src="app/img/marketing/content2/bg4.png" class="four">
+			<img src="app/img/marketing/content2/bg5.png" class="five">
+			<img src="app/img/marketing/content2/bg6.png" class="six">
+			<img src="app/img/marketing/content2/bg7.png" class="seven">
+			<img src="app/img/marketing/content2/bg8.png" class="eight">
+			<img src="app/img/marketing/content2/bg9.png" class="nine">
+			<img src="app/img/marketing/content2/bg10.png" class="ten">
+			<img src="app/img/marketing/content2/bg11.png" class="eleven">
+			<img src="app/img/marketing/content2/bg12.png" class="twelve">
+			<img src="app/img/marketing/content2/bg13.png" class="thirteen">
 		</div>
 	</div>
 	<div class="phone_area">
@@ -178,31 +323,37 @@ $(function(){
 		<div class="line_box3">
 			<img src="app/img/marketing/content3/line_long.png">
 		</div>
-		<div class="item_box">
+		<div class="item_box one">
 			<div class="pic_box">
 				<img src="app/img/marketing/content3/icon01.png">
 			</div>
 			<div class="text_box">
 				<img src="app/img/marketing/content3/text01.png">
-				<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
+				<div class="text">
+					<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
+				</div>
 			</div>
 		</div>
-		<div class="item_box">
+		<div class="item_box two">
 			<div class="pic_box">
 				<img src="app/img/marketing/content3/icon02.png">
 			</div>
 			<div class="text_box">
 				<img src="app/img/marketing/content3/text02.png">
-				<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
+				<div class="text">
+					<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
+				</div>
 			</div>
 		</div>
-		<div class="item_box">
+		<div class="item_box three">
 			<div class="pic_box">
 				<img src="app/img/marketing/content3/icon03.png">
 			</div>
 			<div class="text_box">
 				<img src="app/img/marketing/content3/text03.png">
-				<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，替您的產品找到最佳效益的廣告配置。</p>
+				<div class="text">
+					<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，替您的產品找到最佳效益的廣告配置。</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -213,56 +364,60 @@ $(function(){
 		<div class="line">
 			<img src="app/img/marketing/content4/line.png">
 		</div>
-		<div class="hand">
-			<img src="app/img/marketing/content4/hand.png">
-		</div>
-		<div class="start01">
-			<img src="app/img/marketing/content4/pic02.png">
-		</div>
-		<div class="start02">
-			<img src="app/img/marketing/content4/pic02.png">
-		</div>
-		<div class="pic01">
-			<img src="app/img/marketing/content4/pic01.png">
-		</div>
-		<div class="window01">
-			<img src="app/img/marketing/content4/window01.png">
-		</div>
-		<div class="window02">
-			<img src="app/img/marketing/content4/window02.png">
-		</div>
-		<div class="dialog_box one">
-			<div class="number">
-				<h3>56<span>%</span></h3>
-				<p>的用戶表示</p>
+		<div class="hover_area01">
+			<div class="start01">
+				<img src="app/img/marketing/content4/pic02.png">
 			</div>
-			<img src="app/img/marketing/content4/pic03.png">
-		</div>
-		<div class="dialog_box two">
-			<div class="number">
-				<h3>42<span>%</span></h3>
-				<p>的用戶表示</p>
+			<div class="start02">
+				<img src="app/img/marketing/content4/pic02.png">
 			</div>
-			<img src="app/img/marketing/content4/pic04.png">
-		</div>
-		<div class="dialog_box three">
-			<div class="number">
-				<h3>36<span>%</span></h3>
-				<p>的用戶表示</p>
+			<div class="pic01">
+				<img src="app/img/marketing/content4/pic01.png">
 			</div>
-			<img src="app/img/marketing/content4/pic05.png">
+			<div class="dialog_box one">
+				<div class="number">
+					<h3>56<span>%</span></h3>
+					<p>的用戶表示</p>
+				</div>
+				<img src="app/img/marketing/content4/pic03.png">
+			</div>
+			<div class="window01">
+				<img src="app/img/marketing/content4/window01.png">
+			</div>
+			<div class="text_area one">
+				<h1>貼文廣告</h1>
+				<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
+				<img src="app/img/marketing/content4/icon01.png">
+			</div>
 		</div>
-		<div class="text_area one">
-			<h1>貼文廣告</h1>
-			<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
-			<img src="app/img/marketing/content4/icon01.png">
+		<div class="hover_area02">	
+			<div class="window02">
+				<img src="app/img/marketing/content4/window02.png">
+			</div>
+			<div class="hand">
+				<img src="app/img/marketing/content4/hand.png">
+			</div>
+			<div class="text_area two">
+				<h1>讚廣告</h1>
+				<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
+				<img src="app/img/marketing/content4/icon02.png">
+			</div>
+			<div class="dialog_box two">
+				<div class="number">
+					<h3>42<span>%</span></h3>
+					<p>的用戶表示</p>
+				</div>
+				<img src="app/img/marketing/content4/pic04.png">
+			</div>
+			<div class="dialog_box three">
+				<div class="number">
+					<h3>36<span>%</span></h3>
+					<p>的用戶表示</p>
+				</div>
+				<img src="app/img/marketing/content4/pic05.png">
+			</div>
 		</div>
-		<div class="text_area two">
-			<h1>讚廣告</h1>
-			<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
-			<img src="app/img/marketing/content4/icon02.png">
-		</div>
-	</div>
+	</div>	
 	<div class="phone_area">
 		<div class="dialog_box01">
 			<img src="app/img/marketing/content4/mobile/dialog_box01.png">
@@ -307,7 +462,8 @@ $(function(){
 <div class="content5">
 	<div class="area">
 		<div class="title_box">
-			<img src="app/img/marketing/content5/title.png">
+			<img src="app/img/marketing/content5/title.png" class="pc_title">
+			<img src="app/img/marketing/content5/title2.png" class="phone_title">
 			<div class="right_text">	
 				<h1>Google<br> 
 				全方位精準行銷</h1>
@@ -324,16 +480,16 @@ $(function(){
 			<div class="line_box3">
 				<img src="app/img/marketing/content5/line_long.png">
 			</div>
-			<div class="item_box">
+			<div class="item_box one">
 				<div class="pic_box">
 					<img src="app/img/marketing/content3/icon01.png">
 				</div>
-				<div class="text_box">
+				<div class="text_box ">
 					<img src="app/img/marketing/content5/text01.png">
 					<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
 				</div>
 			</div>
-			<div class="item_box">
+			<div class="item_box two">
 				<div class="pic_box">
 					<img src="app/img/marketing/content3/icon02.png">
 				</div>
@@ -342,7 +498,7 @@ $(function(){
 					<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
 				</div>
 			</div>
-			<div class="item_box">
+			<div class="item_box three">
 				<div class="pic_box">
 					<img src="app/img/marketing/content3/icon03.png">
 				</div>
@@ -386,6 +542,9 @@ $(function(){
 		</div>
 		<div class="phone_line">
 			<img src="app/img/marketing/content6/mobile/line.png">
+		</div>
+		<div class="phone_line2">
+			<img src="app/img/marketing/content6/mobile/line2.png">
 		</div>
 		<div class="circle_box one">
 			<img src="app/img/marketing/content6/icon.png">
