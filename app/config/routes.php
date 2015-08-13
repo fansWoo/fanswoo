@@ -40,7 +40,7 @@
 
 $route['404_override'] = '';
 $route['default_controller'] = 'page/index';
-$route['admin'] = 'admin/index';
+$route['admin'] = 'admin/rewrite';
 
 
 /* End of file routes.php */

@@ -1,4 +1,5 @@
 <?=$temp['header_up']?>
+<script src="app/js/smooth_scrollerator.js"></script>
 <?=$temp['header_down']?>
 <?=$temp['topheader']?>
 		<div class="bg1">fansWoo</div>

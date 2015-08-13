@@ -1,4 +1,5 @@
 ﻿<?=$temp['header_up']?>
+<?=$temp['topheader']?>
 <?=$temp['header_down']?>
 	<div class="content1">
 			<div class="area">
@@ -151,60 +152,49 @@
 			<div class="content7">
 			<div class="area">
 				<h1>WordPress專用主機</h1>
-				
-				<div class="box top">
-						<img src="app/img/wordpress/contant7_pic1.png" class="pic">
+				<div class="box">
+					<img src="app/img/wordpress/contant7_pic1.png" class="pic">
 					<div class="itemDiv">
-						<h2> 微型主機</h2>
+						<div class="item" style="height:70px; line-height:80px;font-size:30px;font-weight:500;letter-spacing:5px;color:#f7911d; border:none;">微型主機</div>
 						<img src="app/img/wordpress/contant7_line1.png" class="line">
-						<div class="item">不限流量</div>
 						<div class="item">35萬種版型</div>
 						<div class="item">圖文頁數無限頁</div>
-						<div class="item">facebook社群外掛</div>
-						<div class="item"><span class="big">90G</span>容量</div>
-						<div class="item"><span class="big">500K</span>頻寬</div>
-						<div class="item"><span class="big">3條</span>IP</div>
+						<div class="item">40G或<span class="big">400G</span>流量</div>
+						<div class="item"><span class="big">10G</span>SSD容量</div>
+						<div class="item"><span class="big">2M</span>或<span class="big">1T</span>共用頻寬</div>
+						<div class="item"><span class="big">無限</span>IP</div>
 						<div class="item">0元設計費</div>
-						<div class="item">0元開發費</div>
-						<div class="item">0元安裝費</div>
-						<h3>NT$ <span class="big">500元</span> /月</h3>
+						<h3>NT$ <span class="big">700元</span> /月</h3>
 					</div>
 				</div>
-				<div class="box">
-						<img src="app/img/wordpress/contant7_pic2.png" class="pic">
-					<div class="itemDiv top">
-						<h2>一般主機</h2>
-						<img src="app/img/wordpress/contant7_line2.png" class="line">
-						<div class="item">不限流量</div>
-						<div class="item">35萬種版型</div>
-						<div class="item">圖文頁數無限頁</div>
-						<div class="item">facebook社群外掛</div>
-						<div class="item"><span class="big">120G</span>容量</div>
-						<div class="item"><span class="big">1M</span>頻寬</div>
-						<div class="item"><span class="big">5條</span>IP</div>
-						<div class="item">0元設計費</div>
-						<div class="item">0元開發費</div>
-						<div class="item">0元安裝費</div>
-						<h3>NT$ <span class="big">1500元</span> /月</h3>
-						
-					</div>
-				</div>
-				<div class="box">
-						<img src="app/img/wordpress/contant7_pic3.png" class="pic">
+				<div class="box box2">
+					<img src="app/img/wordpress/contant7_pic2.png" class="pic">
 					<div class="itemDiv">
-						<h2>商務主機</h2>
-						<img src="app/img/wordpress/contant7_line3.png" class="line">
-						<div class="item">不限流量</div>
+						<div class="item" style="height:70px; line-height:80px;font-size:30px;font-weight:500;letter-spacing:5px;color:#f7911d; border:none;">標準主機</div>
+						<img src="app/img/wordpress/contant7_line2.png" class="line">
 						<div class="item">35萬種版型</div>
 						<div class="item">圖文頁數無限頁</div>
-						<div class="item">facebook社群外掛</div>
-						<div class="item"><span class="big">150G</span>容量</div>
-						<div class="item"><span class="big">2M</span>頻寬</div>
-						<div class="item"><span class="big">12條</span>IP</div>
+						<div class="item">80G或<span class="big">800G</span>流量</div>
+						<div class="item"><span class="big">20G</span>SSD容量</div>
+						<div class="item"><span class="big">5M</span>或<span class="big">1T</span>共用頻寬</div>
+						<div class="item"><span class="big">無限</span>IP</div>
 						<div class="item">0元設計費</div>
-						<div class="item">0元開發費</div>
-						<div class="item">0元安裝費</div>
-						<h3>NT$ <span class="big">3500元</span> /月</h3>
+						<h3>NT$ <span class="big">1500元</span> /月</h3>
+					</div>
+				</div>
+				<div class="box">
+					<img src="app/img/wordpress/contant7_pic3.png" class="pic">
+					<div class="itemDiv">
+						<div class="item" style="height:70px; line-height:80px;font-size:30px;font-weight:500;letter-spacing:5px;color:#f7911d; border:none;">專業主機</div>
+						<img src="app/img/wordpress/contant7_line3.png" class="line">
+						<div class="item">35萬種版型</div>
+						<div class="item">圖文頁數無限頁</div>
+						<div class="item">120G或<span class="big">1200G</span>流量</div>
+						<div class="item"><span class="big">40G</span>SSD容量</div>
+						<div class="item"><span class="big">10M</span>或<span class="big">1T</span>共用頻寬</div>
+						<div class="item"><span class="big">無限</span>IP</div>
+						<div class="item">0元設計費</div>
+						<h3>NT$ <span class="big">3200元</span> /月</h3>
 					</div>
 				</div>
 			</div>

@@ -10,7 +10,12 @@
 |
 */
 
-
+$hook['post_controller_constructor'][] = array(
+                                'class'    => 'I18n',
+                                'function' => 'auto_load_language',
+                                'filename' => 'I18n.php',
+                                'filepath' => 'libraries'
+                                );
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title><?=$global['website_title_name']?> - <?=$global['website_title_introduction']?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 	<?if(isset($global['website_metatag_array'])):?>
 	<?foreach($global['website_metatag_array'] as $value):?>
 	<meta name="keywords" content="<?=$value?>">
@@ -25,3 +26,4 @@
 	<?if(isset($global['website_script_plugin_fb'])):?><?=$global['website_script_plugin_fb']?><?endif?>
 	<?if(isset($global['website_script_plugin_custom'])):?><?=$global['website_script_plugin_custom']?><?endif?>
 	<link rel="shortcut icon" href="app/img/favicon.ico"></link>
+	<link rel="stylesheet" type="text/css" href="app/css/reset.css"></link>

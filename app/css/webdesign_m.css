@@ -57,6 +57,10 @@ table {
 body{ background-image:url(../img/bg5.jpg) ; background-size:cover;  }
 body p{ font-family: 微軟正黑體,Arial; }
 body h2{ font-family: 微軟正黑體,Arial; }
+@media screen and (max-width: 700px){
+ .phone_topHeader{display:block;}
+
+}
 .header{ width:100%; height:120px; background-color:rgba(51,51,51,0.9);position:fixed; z-index:9999; }
 .header .logoarea{ width:120px;  height:60px;margin:0 auto;  }
 .header .logoarea .logo{ width:120px; padding-top:5px; }
@@ -66,8 +70,8 @@ body h2{ font-family: 微軟正黑體,Arial; }
 .header .nav .in_nav a{ display:block;text-decoration:none; font-size:0.5em; color: rgba(255,255,255,0.5); font-family: 微軟正黑體,Arial; letter-spacing:2px;}
 .header .nav .in_nav a:hover{ color:rgba(255,255,255,1); background-color:rgba(0,0,0,1);}
 
-.content1{ width:100%; height:639px; background:url(../img/mobile/webdesign/contant1_bg.jpg); background-size:auto; background-position:center;overflow:hidden;}
-.content1 .area{ width:300px; height:400px; margin-left:auto; margin-right:auto;padding-top:180px;}
+.content1{ width:100%; height:600px; background:url(../img/mobile/webdesign/contant1_bg.jpg); background-size:auto; background-position:center;overflow:hidden;}
+.content1 .area{ width:300px; height:400px; margin-left:auto; margin-right:auto;padding-top:150px;}
 .content1 .area h1{display:block;width:300px; height:55px;margin-left:auto; margin-right:auto;background-color:rgba(0,0,0,0.8);margin-top:130px; background:url(../img/mobile/webdesign/contant1.png);}
 
 

@@ -91,7 +91,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 
 /*
@@ -106,7 +106,7 @@ $config['enable_hooks'] = FALSE;
 | http://codeigniter.com/user_guide/general/creating_libraries.html
 |
 */
-$config['subclass_prefix'] = 'MY_';
+$config['subclass_prefix'] = 'FS_';
 
 
 /*
@@ -244,7 +244,7 @@ $config['encryption_key'] = 'e9cjd93lxz';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'fs_session';
+$config['sess_cookie_name']		= 'ipix';
 $config['sess_expiration']		= 0;
 $config['sess_expire_on_close']	= FALSE;
 $config['sess_encrypt_cookie']	= FALSE;
@@ -267,7 +267,7 @@ $config['sess_time_to_update']	= 2592000;
 */
 $config['cookie_prefix']	= "";
 $config['cookie_domain']	= "";
-$config['cookie_path']		= "/";
+$config['cookie_path']		= $config['base_url'];
 $config['cookie_secure']	= FALSE;
 
 /*
@@ -293,7 +293,7 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_cookie_name' = The cookie name
 | 'csrf_expire' = The number in seconds the token should expire.
 */
-$config['csrf_protection'] = TRUE;
+$config['csrf_protection'] = FALSE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;

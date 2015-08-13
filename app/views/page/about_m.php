@@ -1,4 +1,5 @@
 <?=$temp['header_up']?>
+<?=$temp['topheader']?>
 <?=$temp['header_down']?>
 	<div class="section1">
 		<div class="area">

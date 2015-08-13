@@ -1,13 +1,8 @@
 <?php
 
-class Page extends CI_Controller {
-
-    private $data = array();
-    
-	public function __construct(){
-		parent::__construct();
-        $this->data = $this->common_model->common();
-	}
+class page_controller extends FS_Controller
+{
+    public $data = array();
     
 	public function _remap($page = 'index'){
         $data = $this->data;
@@ -22,12 +17,7 @@ class Page extends CI_Controller {
 		}
 		
 		//判斷PC/Mobile瀏覽器
-		if (isset($data['global']['browser_agent']['agent']) && $data['global']['browser_agent']['agent'] == 'm')
-		{
-			$agent = 'm';
-			$agent_temp = '_m';
-		}
-		else if(isset($data['global']['browser_agent']['agent_ie']) && $data['global']['browser_agent']['agent_ie'] == 'ie8')
+		if(isset($data['global']['browser_agent']['agent_ie']) && $data['global']['browser_agent']['agent_ie'] == 'ie8')
 		{
 			$agent = 'ie8';
 			$agent_temp = '_ie8';
