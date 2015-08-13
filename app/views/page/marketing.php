@@ -1,12 +1,12 @@
 <?=$temp['header_up']?>
-<script src="app/js/smooth_scrollerator.js"></script>
+<!--<script src="app/js/smooth_scrollerator.js"></script>-->
 <script src="app/js/cycle2.js"></script>
 <script>
 $(function(){
-	$(window).resize(function(){
-		$(document).scrollTop(0);
-		location.href = 'page/marketing';
-	});
+	//$(window).resize(function(){
+		//$(document).scrollTop(0);
+		//location.href = 'page/marketing';
+	//});
 	$(" .slide_pic > .square").cycle({
 		fx      :       "scrollHorz", 
 		//fade
@@ -23,7 +23,7 @@ $(function(){
 	var window_width = $(window).width();
 	var window_height = $(window).height();
 			
-		if(window_width < 700){	
+		if(window_width < 550){	
 			$('.content1').css('height', window_height);
 			$('.content1 .area').css('height', '400');
 			$(window).resize(function(){
@@ -32,7 +32,7 @@ $(function(){
 
 			});	
 		}
-		else if	(window_width > 700){
+		else if	(window_width > 550){
 			$('.content1').css('height', window_height);
 			$('.content1 .area').css('height', window_height);
 			$(window).resize(function(){
@@ -61,18 +61,32 @@ $(function(){
 					$('.content2 , .content3 , .content5 , .content6 , .content7 , .content8' ).removeClass('hover');
 					$(' .content4 .hover_area01 , .content4 .hover_area02' ).removeClass('hover');
 					$('.content6 .bottom_line01 , .content6 .bottom_line02 , .content6 .bottom_line03 , .content6 .bottom_line04 , .content6 .circle_box , .content6 .earth' ).removeClass('hover');
+					$('.content4 #dialog_box_one span , #dialog_box_two span , #dialog_box_three span').text('0');
+					
 				}
 				else if(scroll_top >= 300 && scroll_top < 1000){
 					$('.content2').addClass('hover');
 				}
-				else if(scroll_top >= 1000 && scroll_top < 2000){
+				else if(scroll_top >= 1000 && scroll_top < 1900){
 					$('.content3').addClass('hover');
 				}
-				else if(scroll_top >= 2000 && scroll_top < 2500){
+				else if(scroll_top >= 1900 && scroll_top < 2400){
 					$('.content4 .hover_area01').addClass('hover');
+					timer('.content4 #dialog_box_one:eq(0) span');
+					setTimeout(function(){
+						timer('.content4 #dialog_box_one:eq(1) span');
+					}, 3000);
 				}
-				else if(scroll_top >= 2500 && scroll_top < 2900){
+				else if(scroll_top >= 2400 && scroll_top < 2900){
 					$('.content4 .hover_area02').addClass('hover');
+					timer('.content4 #dialog_box_two:eq(0) span ');
+					setTimeout(function(){
+						timer('.content4 #dialog_box_two:eq(1) span ');
+					}, 3000);
+					timer('.content4 #dialog_box_three:eq(0) span ');
+					setTimeout(function(){
+						timer('.content4 #dialog_box_three:eq(1) span');
+					}, 3000);
 				}
 				else if(scroll_top >= 2900 && scroll_top < 3900){
 					$('.content5').addClass('hover');
@@ -142,6 +156,7 @@ $(function(){
 					$('.content2 , .content3 , .content5 , .content6 , .content7 , .content8' ).removeClass('hover');
 					$(' .content4 .hover_area01 , .content4 .hover_area02' ).removeClass('hover');
 					$('.content6 .bottom_line01 , .content6 .bottom_line02 , .content6 .bottom_line03 , .content6 .bottom_line04 , .content6 .circle_box , .content6 .earth' ).removeClass('hover');
+					$('.content4 #dialog_box_one span , #dialog_box_two span , #dialog_box_three span').text('0');
 				}
 				else if(scroll_top >= 500 && scroll_top < 1500){
 					$('.content2').addClass('hover');
@@ -154,9 +169,21 @@ $(function(){
 				}
 				else if(scroll_top >= 2500 && scroll_top < 2800){
 					$('.content4 .hover_area01').addClass('hover');
+					timer('.content4 #dialog_box_one:eq(0) span');
+					setTimeout(function(){
+						timer('.content4 #dialog_box_one:eq(1) span');
+					}, 3000);
 				}
 				else if(scroll_top >= 2800 && scroll_top < 3400){
 					$('.content4 .hover_area02').addClass('hover');
+					timer('.content4 #dialog_box_two:eq(0) span ');
+					setTimeout(function(){
+						timer('.content4 #dialog_box_two:eq(1) span ');
+					}, 3000);
+					timer('.content4 #dialog_box_three:eq(0) span ');
+					setTimeout(function(){
+						timer('.content4 #dialog_box_three:eq(1) span');
+					}, 3000);
 				}
 				else if(scroll_top >= 3400 && scroll_top < 4100){
 					$('.content5').addClass('hover');
@@ -227,7 +254,16 @@ $(function(){
 		$("html, body").animate({scrollTop: position}, speed, "swing");
 			return false;
 	});
-
+	function timer(jquery_selector){
+		var time = parseInt($(jquery_selector).text());
+		if(time < $(jquery_selector).data('count') )
+		{
+			$(jquery_selector).text(time + 1);
+			setTimeout(function(){
+				timer(jquery_selector);
+			}, 90);
+		}
+	}
 	
 });
 </script>
@@ -374,9 +410,9 @@ $(function(){
 			<div class="pic01">
 				<img src="app/img/marketing/content4/pic01.png">
 			</div>
-			<div class="dialog_box one">
+			<div class="dialog_box one" id="dialog_box_one">
 				<div class="number">
-					<h3>56<span>%</span></h3>
+					<h3><span data-count="56">0</span>%</h3>
 					<p>的用戶表示</p>
 				</div>
 				<img src="app/img/marketing/content4/pic03.png">
@@ -402,16 +438,16 @@ $(function(){
 				<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
 				<img src="app/img/marketing/content4/icon02.png">
 			</div>
-			<div class="dialog_box two">
+			<div class="dialog_box two" id="dialog_box_two">
 				<div class="number">
-					<h3>42<span>%</span></h3>
+					<h3><span data-count="42">0</span>%</h3>
 					<p>的用戶表示</p>
 				</div>
 				<img src="app/img/marketing/content4/pic04.png">
 			</div>
-			<div class="dialog_box three">
+			<div class="dialog_box three" id="dialog_box_three">
 				<div class="number">
-					<h3>36<span>%</span></h3>
+					<h3><span data-count="36">0</span>%</h3>
 					<p>的用戶表示</p>
 				</div>
 				<img src="app/img/marketing/content4/pic05.png">

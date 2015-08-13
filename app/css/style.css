@@ -53,7 +53,8 @@ body.start .index_topHeader.hover{display:block;z-index:111;}
 	0%{ transform: translate(0, -60px); opacity:0; }
 	100%{ transform: translate(0, 0); opacity:1; }
 }
-.index_topHeader .navBar { width:500px; padding-left:300px; margin:0 auto; }
+.index_topHeader .center{width:960px;margin:0 auto;}
+.index_topHeader .navBar { width:500px; float:right; margin:0 auto; }
 .index_topHeader .navBar .box{width:120px;height:60px; position:relative;float:left; text-align:center;}
 .index_topHeader .navBar .box .nav { position:absolute; top:0px; left:0px;opacity:1;  color:rgba(255,255,255,0.5); float:left; width:120px; height:55px; line-height:50px;  text-align:center; border-top:5px solid #000;cursor:pointer; letter-spacing:2px; -webkit-transition:opacity 0.5s; transition:opacity 0.5s; }
 .index_topHeader .navBar .box .nav2{ position:absolute; top:0px; left:0px; color:rgba(255,255,255,1); float:left; width:120px; height:55px; line-height:50px;text-align:center;opacity:0; border-top:5px solid rgba(255,255,255,0.8); -webkit-transition:opacity 0.5s; transition:opacity 0.5s; cursor:pointer;letter-spacing:2px; }
@@ -98,37 +99,38 @@ body.start .index_topHeader.hover{display:block;z-index:111;}
 .greenBorder { display:block; border-left:10px solid #8bb01c; line-height:20px; height:20px; padding:0 0 0 10px; }
 
 
+
 .footer{ display:block; position:absolute;bottom:0px;left:0px; width:100%; background:rgba(0,0,0,0.5); padding:10px 0px; z-index:10;overflow:hidden; }
 .footer .area{width:960px;margin:0 auto;}
 .footer .area p{color:#fff;font-size:12px;letter-spacing:2px; font-weight:100;}
 .footer .area .left{float:left;} 
 .footer .area .right{float:right;} 
-.phone_footer{display:none;}
+@media screen and ( max-width:1024px ) and (min-width: 960px) {
+	.footer .area{width:960px;margin:0 auto;}
 
 
+}
+@media screen and ( max-width:959px ) and (min-width: 550px) {
+	.index_topHeader .center{width:700px;margin:0 auto;}
+	.index_topHeader .navBar { width:500px; float:right; margin:0 auto; }
+	.index_topHeader .navBar .box{width:100px;height:60px; position:relative;float:left; text-align:center;}
+	.index_topHeader .navBar .box .nav { float:left; width:100px; }
+	.index_topHeader .navBar .box .nav2{float:left; width:100px; }
+	.index_topHeader .navBar .box.down .downbox{ width:100px;}
+	.index_topHeader .navBar .box .downbox .downbox1{width:100px;}
+	.footer .area{width:700px;margin:0 auto;}
+	.logoFixed { display: block; position:fixed; left:50%; top:0; margin-left:-320px;}
 
-
-
-
-
-@media screen and (max-width: 700px){
+}
+@media screen and (max-width: 550px){
 	.logoStart{display:none;}
 	.picLoading{display:none;} 
 	.logoFixed {display:none;}
 	.pc_footer {display:none;}
 	.contactFormHover{display:none;}
 	
-	.phone_footer{display:block;width:100%;padding:20px 0px 0px 0px; background:url(../img/footerBg.jpg);color:#999;position:relative; z-index:9999;letter-spacing:1px; font-size:12px;overflow:hidden;}
-	.phone_footer .content{width:300px;margin:0px auto 0px auto;margin-bottom:25px;overflow:hidden;}
-	.phone_footer .content h1{font-size:16px; padding-bottom:5px;letter-spacing:2px;}
-	.phone_footer .content .p{ margin-bottom:5px;}
-	.phone_footer .content p{letter-spacing:1px;}
-	.phone_footer .Design_By{width:100%;text-align:center;border-top:1px solid rgba(130,130,130,1);background-color: rgba(80,80,80, 1); color:#999;padding:10px 0px;}
-	.phone_footer .Design_By a { color:#d4d4d4; }
-	
 	.index_topHeader{display:none;}
 	body.start .index_topHeader { display:none;animation:none; }
-
 	.phone_topHeader{display:block;width:100%;background-color:rgba(0,0,0,1);height:60px;position:fixed;z-index:99999;}
 	.phone_topHeader a{display:block;}
 	.phone_topHeader .logo_box{width:140px; margin-left:18px; margin-top:13px;}
@@ -152,6 +154,13 @@ body.start .index_topHeader.hover{display:block;z-index:111;}
 	.phone_topHeader .toggle{position:absolute;right:18px;top:17px;width:28px;height:28px;cursor:pointer;opacity:0.65;transition:0.3s;}
 	.phone_topHeader .toggle img{width:100%;}
 	.phone_topHeader .toggle.active{opacity:0.65;transform:rotate(90deg);}
+	
+	.footer{ display:block; position:absolute;bottom:0px;left:0px; width:100%; background:rgba(0,0,0,0.5); padding:10px 0px; z-index:10;overflow:hidden; }
+	.footer .area{width:300px;margin:0 auto;}
+	.footer .area p{color:#fff;font-size:12px;letter-spacing:2px; font-weight:100;text-align:center;}
+	.footer .area .left{float:none;text-align:center;} 
+	.footer .area .right{float:right;} 
+	
 }
 
 
