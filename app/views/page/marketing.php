@@ -1,12 +1,12 @@
 <?=$temp['header_up']?>
-<!--<script src="app/js/smooth_scrollerator.js"></script>-->
+<script src="app/js/smooth_scrollerator.js"></script>
 <script src="app/js/cycle2.js"></script>
 <script>
 $(function(){
-	//$(window).resize(function(){
-		//$(document).scrollTop(0);
-		//location.href = 'page/marketing';
-	//});
+	$(window).resize(function(){
+		$(document).scrollTop(0);
+		location.href = 'page/marketing';
+	});
 	$(" .slide_pic > .square").cycle({
 		fx      :       "scrollHorz", 
 		//fade
