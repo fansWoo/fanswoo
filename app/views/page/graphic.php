@@ -43,7 +43,16 @@ $(function(){
 	$(document).scroll(function(){
 		var window_width = $(window).width();
 		var scroll_top = $(document).scrollTop();
+
 			if(window_width >= 1400){
+				
+			if(scroll_top > 1080){
+			$('.content1 .arrow').css('display' , 'none');
+			}
+			else if(scroll_top < 1080){
+				$('.content1 .arrow').css('display' , 'block');
+			}	
+			
 			if(scroll_top == 0){
 				$('.content2 #text_arae_one , .content2 #text_arae_two , .content2 .hand_box , .content2 .house ' ).removeClass('hover');
 				$(' .content3 , .content4 , .content5 ' ).removeClass('hover');
@@ -75,6 +84,12 @@ $(function(){
 			}
 		}	
 		if(window_width > 1024 && window_width <= 1400){
+			if(scroll_top > 500){
+			$('.content1 .arrow').css('display' , 'none');
+			}
+			else if(scroll_top < 500){
+				$('.content1 .arrow').css('display' , 'block');
+			}	
 			if(scroll_top == 0){
 				$('.content2 #text_arae_one , .content2 #text_arae_two , .content2 .hand_box , .content2 .house ' ).removeClass('hover');
 				$(' .content3 , .content4 , .content5 ' ).removeClass('hover');
@@ -106,6 +121,13 @@ $(function(){
 			}
 		}	
 		else if(window_width > 500 && window_width < 1024){
+			if(scroll_top > 500){
+			$('.content1 .arrow').css('display' , 'none');
+			}
+			else if(scroll_top < 500){
+				$('.content1 .arrow').css('display' , 'block');
+			}	
+			
 			if(scroll_top == 0){
 				$('.content2 #text_arae_one , .content2 #text_arae_two , .content2 .hand_box , .content2 .house ' ).removeClass('hover');
 				$(' .content3 , .content4 , .content5 ' ).removeClass('hover');
@@ -137,7 +159,12 @@ $(function(){
 			}
 		}
 		if(window_width > 1400){
-			
+			if(scroll_top > 1080){
+			$('.content1 .arrow').css('display' , 'none');
+			}
+			else if(scroll_top < 1080){
+				$('.content1 .arrow').css('display' , 'block');
+			}	
 		}
 	});	
 

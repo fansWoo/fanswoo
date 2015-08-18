@@ -57,6 +57,12 @@ $(function(){
 			$(document).scroll(function(){
 				var window_width = $(window).width();
 				var scroll_top = $(document).scrollTop();
+				if(scroll_top > 500){
+				$('.content1 .arrow').css('display' , 'none');
+				}
+				else if(scroll_top < 500){
+					$('.content1 .arrow').css('display' , 'block');
+				}	
 				if(scroll_top == 0){
 					$('.content2 , .content3 , .content5 , .content6 , .content7 , .content8' ).removeClass('hover');
 					$(' .content4 .hover_area01 , .content4 .hover_area02' ).removeClass('hover');
@@ -152,6 +158,12 @@ $(function(){
 			$(document).scroll(function(){
 				var window_width = $(window).width();
 				var scroll_top = $(document).scrollTop();
+				if(scroll_top > 1080){
+				$('.content1 .arrow').css('display' , 'none');
+				}
+				else if(scroll_top < 1080){
+					$('.content1 .arrow').css('display' , 'block');
+				}	
 				if(scroll_top == 0){
 					$('.content2 , .content3 , .content5 , .content6 , .content7 , .content8' ).removeClass('hover');
 					$(' .content4 .hover_area01 , .content4 .hover_area02' ).removeClass('hover');

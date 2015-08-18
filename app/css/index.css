@@ -3,6 +3,13 @@
 .videoFixed.hover{display:block;}
 .videoFixed video { float: left; width:100%;height:100%;padding:0px; }
 
+@media screen and ( max-width:1600px ) and (min-width: 1400px) {
+	.videoFixed { display:none;position:fixed; width: 120%;overflow: hidden; padding:0px; }
+	.videoFixed.hover{display:block;}
+	.videoFixed video { float: left; width:100%;height:100%;padding:0px; }
+	
+}
+
 @media screen and ( max-width:1024px ) and (min-width: 700px) {
 	.videoFixed{display:none;}
 	
@@ -14,6 +21,7 @@
 
 body { background: none;background:#fff;}
 .content_start {position:relative;height: 800px; background: url(../img/bg5.jpg) fixed center center no-repeat;background-size: cover;position:relative;z-index:3;}
+.content_start.unhover {z-index:1;}
 .logoFixed {  }
 .contactFormHover { display: none; }
 .index_topHeader{display:none; position:fixed; width:100%; height:60px; top:0px; background: rgba(0, 0, 0, 0.8); z-index:99999;}
@@ -685,7 +693,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 
 /****************content_bottom*****************/
 
-.content_bottom { height:6000px; overflow: hidden;}
+.content_bottom { height:4000px; overflow: hidden;}
 .content_bottom .bg1 { display: none; position:fixed;left: 0; top : 0;width:100%;height:60%;overflow: hidden;}
 .content_bottom .bg1  img{position:absolute;right:-10px;bottom:0px;height:100%;}
 .content_bottom.hover .bg1 { display: block; }
@@ -711,10 +719,10 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 
 .content_bottom .pic_move.pic1 { margin-left: 3800px;}
 .content_bottom .pic_move.pic1 .pic{width:505px;}
-.content_bottom .pic_move.pic1 .text_box {display:none;right:-200px;top:30px; }
+.content_bottom .pic_move.pic1 .text_box {display:block;opacity:0;right:-200px;top:30px; }
 .content_bottom .pic_move.pic1 .text_box .text{width:255px; }
 .content_bottom .pic_move.pic1 .text_box .more{margin-left:140px; }
-#pic_move_pic1.hover .text_box {display:block;-webkit-animation: p201506270833 1.5s;animation: p201506270833 1.5s;} 
+#pic_move_pic1.hover .text_box {display:block;opacity:1;-webkit-animation: p201506270833 1.5s;animation: p201506270833 1.5s;} 
 
 @-webkit-keyframes p201506270833{
 	0% { opacity:0 ; -webkit-transform:translate(80px , 0px);}
@@ -742,8 +750,8 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 #pic_move_pic3.hover .text_box {display:block;animation: p201506270833 1.5s;} 
 
 .content_bottom .pic_move.pic4 { margin-left: 6300px;margin-top:0px; }
-.content_bottom .pic_move.pic4 .pic{width:430px;position:absolute;top:-260px;}
-.content_bottom .pic_move.pic4 .text_box { display:none;right:-180px;top:-170px;}
+.content_bottom .pic_move.pic4 .pic{width:400px;position:absolute;top:-230px;}
+.content_bottom .pic_move.pic4 .text_box { display:none;right:-150px;top:-170px;}
 .content_bottom .pic_move.pic4 .text_box .text{width:280px;}
 .content_bottom .pic_move.pic4 .text_box .more{margin-left:170px; }
 #pic_move_pic4.hover .text_box {display:block;animation: p201506270833 1.5s;} 
@@ -759,7 +767,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 
 /******************.content9****************************************/
 
-.content9{ width:100%; height:850px;position:fixed;overflow:hidden; margin-left: 7800px;top:50%; margin-top:-510px;z-index:99999;  }
+.content9{ display:none;width:100%; height:850px;position:fixed;overflow:hidden; margin-left: 7800px;top:50%; margin-top:-510px;z-index:99999;  }
 .content9 .content_area{width:880px;height:850px; position:relative;margin:80px auto;}
 .content9 .content_area h1{font-size:36px;letter-spacing:3px; margin:0px auto; display:block; font-weight:400;text-align:center;color:#444; margin-bottom:20px;}
 .content9 .content_area .title_box{width:100%;margin-bottom:20px;overflow:hidden; }
@@ -848,15 +856,8 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 
 }
 
-
-
-
-
-
-
-
 @media screen and (min-width: 1400px){
-	.content_bottom { height:4500px; overflow: hidden;}
+	.content_bottom { height:4000px; overflow: hidden;}
 	.content_bottom .service { display:none; position: fixed; top:50%;width:800px; margin-top:-210px; margin-left: 3500px;z-index:3; }
 	.content_bottom .pic_move.pic1 { margin-left: 4500px;}
 	.content_bottom .pic_move.pic2 { margin-left: 5300px;margin-top:-30px; }

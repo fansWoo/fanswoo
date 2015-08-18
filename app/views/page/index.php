@@ -18,25 +18,25 @@ $(function(){
 		});
 		$(document).scroll(function(){
 			var window_width = $(window).width();
-
 			var scroll_top = $(document).scrollTop();
-			if(scroll_top == 0){
-				$('.wrapMarketing, .wrapGraphic, .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1' ).removeClass('hover');
-				$('.content1').addClass('hover');
+			if(window_width > 1024 && window_width <= 1400){
+			
+				if(scroll_top == 0){
+					$('.wrapMarketing, .wrapGraphic, .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1 , #pic_move_pic2 , #pic_move_pic3 , #pic_move_pic4' ).removeClass('hover');
+					$('.content1').addClass('hover');
 
-			}
-			if(window_width > 1024 && window_width < 1400){
-				if(scroll_top > 4500 && scroll_top < 6500){
+				}
+				if(scroll_top > 4500 && scroll_top < 6700){
 					$('.videoFixed').addClass('hover');
 				}
 				else if(scroll_top  < 4500){
 					$('.videoFixed').removeClass('hover');
 				}
-				else if(scroll_top  > 6500){
+				else if(scroll_top  > 6700){
 					$('.videoFixed').removeClass('hover');
 				}
 				
-				else if(scroll_top >= 1000 && scroll_top < 2000){
+				if(scroll_top >= 1000 && scroll_top < 2000){
 					$('.wrapMarketing').addClass('hover');
 				}
 				else if(scroll_top >= 2000 && scroll_top < 2500){
@@ -48,47 +48,55 @@ $(function(){
 				else if(scroll_top >= 3100 && scroll_top < 4500){
 					$('.portfolio_box1').addClass('hover');
 				}
-				else if(scroll_top >= 4500 && scroll_top < 5000 ){
+				else if(scroll_top >= 4500 && scroll_top < 5500 ){
 					$('.portfolio_box2').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 5000 && scroll_top < 7500 ){
+				else if(scroll_top >= 5500 && scroll_top < 6500 ){
 					$('.portfolio_box3').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 7500 && scroll_top < 8450 ){
+				else if(scroll_top >= 6500 && scroll_top < 8200 ){
 					$('.portfolio_box4').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 8450 && scroll_top < 9400 ){
+				else if(scroll_top >= 8200 && scroll_top < 9000 ){
 					$('#pic_move_pic1').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 9400 && scroll_top < 9900 ){
+				else if(scroll_top >= 9000 && scroll_top < 9600 ){
 					$('#pic_move_pic2').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 9900 && scroll_top < 10400 ){
+				else if(scroll_top >= 9600 && scroll_top < 10000 ){
 					$('#pic_move_pic3').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 10400 && scroll_top < 14050 ){
+				else if(scroll_top >= 10000){
 					$('#pic_move_pic4').addClass('hover');
 				   
 				}
 			}
+	
 			if(window_width >= 1400){
-				if(scroll_top > 5000 && scroll_top < 8500){
+				
+				if(scroll_top > 4500 && scroll_top < 8500){
 					$('.videoFixed').addClass('hover');
 				}
-				else if(scroll_top  < 5000){
+				else if(scroll_top  <= 4500){
 					$('.videoFixed').removeClass('hover');
 				}
-				else if(scroll_top  > 8500){
+				else if(scroll_top  >= 8500){
 					$('.videoFixed').removeClass('hover');
 				}
-				
-				else if(scroll_top >= 1000 && scroll_top < 2000){
+
+				if(scroll_top == 0){
+					$('.wrapMarketing, .wrapGraphic, .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1 , #pic_move_pic2 , #pic_move_pic3 , #pic_move_pic4' ).removeClass('hover');
+					$('.content1').addClass('hover');
+
+				}
+
+				if(scroll_top >= 1000 && scroll_top < 2000){
 					$('.wrapMarketing').addClass('hover');
 				}
 				else if(scroll_top >= 2000 && scroll_top < 2500){
@@ -100,31 +108,31 @@ $(function(){
 				else if(scroll_top >= 3100 && scroll_top < 4500){
 					$('.portfolio_box1').addClass('hover');
 				}
-				else if(scroll_top >= 4500 && scroll_top < 5000 ){
+				else if(scroll_top >= 4500 && scroll_top < 5500 ){
 					$('.portfolio_box2').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 5000 && scroll_top < 7500 ){
+				else if(scroll_top >= 5500 && scroll_top < 6500 ){
 					$('.portfolio_box3').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 7500 && scroll_top < 8450 ){
+				else if(scroll_top >= 6500 && scroll_top < 8200 ){
 					$('.portfolio_box4').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 8450 && scroll_top < 9400 ){
+				else if(scroll_top >= 8200 && scroll_top < 9000 ){
 					$('#pic_move_pic1').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 9400 && scroll_top < 9900 ){
+				else if(scroll_top >= 9000 && scroll_top < 9600 ){
 					$('#pic_move_pic2').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 9900 && scroll_top < 10400 ){
+				else if(scroll_top >= 9600 && scroll_top < 10000 ){
 					$('#pic_move_pic3').addClass('hover');
 				   
 				}
-				else if(scroll_top >= 10400 && scroll_top < 14050 ){
+				else if(scroll_top >= 10000){
 					$('#pic_move_pic4').addClass('hover');
 				   
 				}
@@ -161,19 +169,20 @@ $(function(){
 
 			$('.content_title1').removeClass('hover1s hover2s');
 			$('.content_title1').addClass('unhover');
+			$('.content_start .arrow').css('display' , 'block');
 			setTimeout(function(){
 				$('.content_start').removeClass('unhover');
 				$('.content_start').addClass('hover');
 				
 			}, 500);
         }
-        else if(scroll_top > 0 && scroll_top < 500)
+        else if(scroll_top > 0 )
         {
 			$('.content_title1').removeClass('unhover');
 			$('.content_title1').addClass('hover');
 			$('.content_start').removeClass('hover');
 			$('.content_start').addClass('unhover');
-			
+			$('.content_start .arrow').css('display' , 'none');
         }
 		if(scroll_top > 0 )
 		{
@@ -216,11 +225,10 @@ $(function(){
 
 				$('.content_bottom').addClass('hover');
 				$('.content_bottom .service').css('transform', 'translate(-' + s1 + 'px, 0)');
-				$('.content_bottom .contact').css('transform', 'translate(-' + s1 + 'px, 0)');
 
 				$('.content_bottom .pic_move').css('transform', 'translate(-' + s1 + 'px, 0)');
 				$('.content_bottom .bg1 img').css('transform', 'translate(+' + s2 + 'px, 0)');
-				$('.content_bottom .content9').css('transform', 'translate(-' + s1 + 'px, 0)');
+				
 			}
 			else
 			{
@@ -665,105 +673,6 @@ $(function(){
 			<img src="app/img/index/mobile/mobile_arrow.png" class="prev">
 		</div>
 	</div>
-	<!--<div class="phone_contact">
-		<div class="title">
-			<h1>請提早聯繫我們</h1>
-			<p>本公司設計案件較多</p>
-			<p>為盡早處理您的專案，請提前詢問或索取估價資訊</p>
-		</div>
-		<div class="textContactForm">
-			<div class="textContactFormContent">
-				<div class="leftBox">
-					<div class="area">
-						<span>詢問項目：</span>
-						<select class="need" name="need">
-							<option value="">請選擇詢問項目</option>
-							<option value="網站開發">網站開發</option>
-							<option value="程式系統開發">程式系統開發</option>
-							<option value="美術設計">美術設計</option>
-							<option value="網路行銷">網路行銷</option>
-							<option value="伺服器租賃">伺服器租賃</option>
-							<option value="其它問題">其它問題</option>
-						</select>
-					</div>
-					<div class="area">
-						<span>項目細節：</span>
-						<select class="need_child" name="need_child">
-							<option value="先選擇主要項目">先選擇主要項目</option>
-						</select>
-						<select class="need_child" name="need_child" data-selected="網站開發" style="display:none;">
-							<option value="形象網站設計">形象網站設計</option>
-							<option value="0元套版網站">0元套版網站</option>
-							<option value="購物網站開發">購物網站開發</option>
-							<option value="網路平台開發">網路平台開發</option>
-						</select>
-						<select class="need_child" name="need_child" data-selected="程式系統開發" style="display:none;">
-							<option value="程式系統開發">程式系統開發</option>
-							<option value="手機App開發">手機App開發</option>
-						</select>
-						<select class="need_child" name="need_child" data-selected="美術設計" style="display:none;">
-							<option value="LOGO/CIS 設計">LOGO/CIS 設計</option>
-							<option value="平面設計">平面設計</option>
-							<option value="產品包裝設計">產品包裝設計</option>
-						</select>
-						<select class="need_child" name="need_child" data-selected="網路行銷" style="display:none;">
-							<option value="facebook 粉絲團">facebook 粉絲團</option>
-							<option value="Google Adwords">Google Adwords</option>
-							<option value="網路行銷企劃">網路行銷企劃</option>
-						</select>
-						<select class="need_child" name="need_child" data-selected="伺服器租賃" style="display:none;">
-							<option value="虛擬伺服器租賃">虛擬伺服器租賃</option>
-							<option value="雲端主機租賃">雲端主機租賃</option>
-							<option value="電子信箱主機租賃">電子信箱主機租賃</option>
-							<option value="Google Apps設定">Google Apps設定</option>
-						</select>
-						<select class="need_child" name="need_child" data-selected="其它問題" style="display:none;">
-							<option value="其它問題">其它問題</option>
-						</select>
-					</div>
-					<div class="area">
-						<span>您的預算：</span>
-						<select class="money" name="money">
-							<option value="">請選擇預算</option>
-							<option value="15萬元以下">15萬元以下</option>
-							<option value="15萬元~30萬元">15萬元~30萬元</option>
-							<option value="30萬元~50萬元">30萬元~50萬元</option>
-							<option value="50萬元~100萬元">50萬元~100萬元</option>
-							<option value="100萬元~200萬元">100萬元~200萬元</option>
-							<option value="200萬元以上">200萬元以上</option>
-						</select>
-						<div class="textContactFormMoneyFixed">
-							預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價
-						</div>
-					</div>
-				</div>
-				<div class="rightBox">
-					
-					<p>您的姓名：<input type="text" class="name" name="name" placeholder="請填寫您的姓名"></p>
-					<p>公司名稱：<input type="text" class="company" name="company" placeholder="請填寫公司名稱"></p>
-					<p>聯繫電話：<input type="text" class="telphone" name="telphone" placeholder="請填寫聯繫電話"></p>
-					<p>電子郵件：<input type="text" class="email" name="email" placeholder="請填寫電子郵件"></p>
-					<p>公司地址：<input type="text" class="address" name="address" placeholder="請填寫公司地址"></p>
-					<textarea name="text"></textarea>
-					<p style="text-align:center;">本公司設計案件較多，為盡早處理您的專案，請提前詢問及索取報價資訊。</p>
-					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
-				</div>
-				</form>
-			</div>
-			<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page 
-			<script type="text/javascript">
-			/* <![CDATA[ */
-			var google_conversion_id = 1037100439;
-			var google_conversion_language = "en";
-			var google_conversion_format = "3";
-			var google_conversion_color = "ffffff";
-			var google_conversion_label = "54GrCKiolVYQl8vD7gM";
-			var google_remarketing_only = false;
-			/* ]]> */
-			</script>
-			<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
-			<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
-		</div>	
-	</div>-->
+
 </div>
 <?=$temp['footer']?>
