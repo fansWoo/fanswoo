@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
 <div class="contentBox allWidth">
 	<h3><?=$child3_title_Str?> > <?=$child4_title_Str?></h3>
@@ -61,6 +62,7 @@
         </div>
         <div class="spanLineLeft width300 hoverHidden">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?productid=<?=$value_ProductShop->productid_Num?>">編輯</a>
+            <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/copy/?productid=<?=$value_ProductShop->productid_Num?>">複製</a>
             <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?productid=<?=$value_ProductShop->productid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
         </div>
 	</div>
@@ -74,4 +76,5 @@
     <?endif?>
     <div class="pageLink"><?=$product_links?></div>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

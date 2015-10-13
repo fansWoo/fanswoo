@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > 基本資料<?if(!empty($user_UserFieldShop->uid_Num)):?>編輯<?else:?>新增<?endif?></h3>
@@ -44,57 +45,10 @@
             <div class="spanLineRight">
                 <?if(!empty($user_UserFieldShop->uid_Num)):?><input type="hidden" name="uid_Num" value="<?=$user_UserFieldShop->uid_Num?>"><?endif?>
                 <input type="submit" class="submit" value="<?if(!empty($user_UserFieldShop->uid_Num)):?>儲存變更<?else:?>新增會員<?endif?>">
-                <?if(!empty($user_UserFieldShop->uid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?productid=<?=$user_UserFieldShop->uid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>
 	</div>
 	</form>
-</div>
-<div class="contentBox allWidth">
-    <h3><?=$child3_title_Str?> > 商店資料編輯</h3>
-    <h4>請填寫<?=$child3_title_Str?>商店資料編輯之詳細資訊</h4>
-    <?php echo form_open_multipart("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_userfieldshop_post/") ?>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                常用收件人姓名
-            </div>
-            <div class="spanLineLeft width200">
-                <input type="text" class="text" name="receive_name_Str" placeholder="請輸入收件人姓名" value="<?=$user_UserFieldShop->receive_name_Str?>">
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                常用收件人電話
-            </div>
-            <div class="spanLineLeft width200">
-                <input type="text" class="text" name="receive_phone_Str" placeholder="請輸入收件人電話" value="<?=$user_UserFieldShop->receive_phone_Str?>">
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                常用收件人地址
-            </div>
-            <div class="spanLineLeft width200">
-                <input type="text" class="text" name="receive_address_Str" placeholder="請輸入收件人地址" value="<?=$user_UserFieldShop->receive_address_Str?>">
-            </div>
-        </div>
-    </div>
-    <div class="spanLine spanSubmit">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineRight">
-                <?if(!empty($user_UserFieldShop->uid_Num)):?><input type="hidden" name="uid_Num" value="<?=$user_UserFieldShop->uid_Num?>"><?endif?>
-                <input type="submit" class="submit" value="<?if(!empty($user_UserFieldShop->uid_Num)):?>儲存變更<?else:?>新增會員<?endif?>">
-            </div>
-        </div>
-    </div>
-    </form>
 </div>
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > 變更密碼</h3>
@@ -160,4 +114,5 @@
     <?endif?>
     </form>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

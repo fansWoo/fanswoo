@@ -1,6 +1,6 @@
 <?php
 
-class order_shop_controller extends FS_controller {
+class Order_shop_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'shop';
     protected $child2_name_Str = 'order_shop';
@@ -11,16 +11,16 @@ class order_shop_controller extends FS_controller {
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
         $this->load->model('AdminModel');
         $this->AdminModel->child1_name_Str = $this->child1_name_Str;
         $this->AdminModel->child2_name_Str = $this->child2_name_Str;
         $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if($data['User']->uid_Num == '')
+        {
+            $url = base_url('user/login/?url=admin');
+            header('Location: '.$url);
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -29,9 +29,11 @@ class order_shop_controller extends FS_controller {
     public function edit()
     {
         $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
+        $admin_data_Arr = $this->AdminModel->get_data(array(
             'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        ));
+        if($admin_data_Arr === FALSE) return FALSE;
+        $data = array_merge($data, $admin_data_Arr);
 
         $orderid_Num = $this->input->get('orderid');
 
@@ -53,14 +55,15 @@ class order_shop_controller extends FS_controller {
         }
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -81,6 +84,7 @@ class order_shop_controller extends FS_controller {
         $receive_remark_Str = $this->input->post('receive_remark_Str', TRUE);
         $sendtime_Str = $this->input->post('sendtime_Str', TRUE);
         $order_status_Num = $this->input->post('order_status_Num', TRUE);
+        $content_Str = $this->input->post('content_Str', TRUE);
 
         //建構OrderShop物件，並且更新
         $OrderShop = new OrderShop();
@@ -112,6 +116,19 @@ class order_shop_controller extends FS_controller {
             )
         ));
 
+
+        if( !empty($content_Str) )
+        {
+            $Comment = new Comment;
+            $Comment->construct([
+                'uid_Num' => $data['User']->uid_Num,
+                'typename_Str' => 'order',
+                'id_Num' => $OrderShop->orderid_Num,
+                'content_Str' => $content_Str
+            ]);
+            $Comment->update();
+        }
+
         //送出成功訊息
         $this->load->model('Message');
         $this->Message->show(array(
@@ -123,9 +140,11 @@ class order_shop_controller extends FS_controller {
     public function tablelist()
     {
         $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
+        $admin_data_Arr = $this->AdminModel->get_data(array(
             'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        ));
+        if($admin_data_Arr === FALSE) return FALSE;
+        $data = array_merge($data, $admin_data_Arr);
 
         $data['search_orderid_Num'] = $this->input->get('orderid');
         $data['search_title_Str'] = $this->input->get('title');
@@ -154,18 +173,16 @@ class order_shop_controller extends FS_controller {
         ));
         $data['page_links'] = $data['OrderShopList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
 
-        //view data設定
-        $data['admin_sidebox'] = $this->AdminModel->reset_sidebox();
-
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);

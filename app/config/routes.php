@@ -38,9 +38,21 @@
 |
 */
 
-$route['404_override'] = '';
+//基本轉址
 $route['default_controller'] = 'page/index';
+$route['404_override'] = '';
 $route['admin'] = 'admin/rewrite';
+
+//購物功能
+$route['product'] = 'shop/product';
+$route['product/(:num)'] = "shop/product/view/$1";
+$route['shop'] = 'shop/store';
+$route['store'] = 'shop/store';
+$route['order'] = 'shop/order';
+$route['order/(:any)'] = 'shop/order/$1';
+
+//其它app
+$route['(:any)/(:num)'] = "$1/view/$2";
 
 
 /* End of file routes.php */

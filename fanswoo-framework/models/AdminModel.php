@@ -42,23 +42,31 @@ class AdminModel extends FS_Model {
 		$data_Arr = array_merge($data_Arr, $child_data_Arr);
 
 		$group_purview_Bln = FALSE;
-		foreach($data['User']->group_UserGroupList->uniqueids_Arr as $key => $value_Num)
+		if( in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) )
 		{
-			if(
-				!empty($group_purview_Arr[$value_Num]) &&
-				is_array($group_purview_Arr[$value_Num])
-			)
+			$group_purview_Bln = TRUE;
+		}
+		else
+		{
+			foreach($data['User']->group_UserGroupList->uniqueids_Arr as $key => $value_Num)
 			{
-				foreach($group_purview_Arr[$value_Num] as $key => $value_Arr)
+				if(
+					!empty($group_purview_Arr[$value_Num]) &&
+					is_array($group_purview_Arr[$value_Num])
+				)
 				{
-					if(
-						$value_Arr[0] === $child1_name_Str &&
-						$value_Arr[1] === $child2_name_Str &&
-						$value_Arr[2] === $child3_name_Str
-					)
+					foreach($group_purview_Arr[$value_Num] as $key => $value_Arr)
 					{
-						$group_purview_Bln = TRUE;
-						break;
+						if(
+							$value_Arr[0] === $child1_name_Str &&
+							$value_Arr[1] === $child2_name_Str &&
+							$value_Arr[2] === $child3_name_Str &&
+							$value_Arr[3] === $child4_name_Str
+						)
+						{
+							$group_purview_Bln = TRUE;
+							break;
+						}
 					}
 				}
 			}
@@ -68,15 +76,10 @@ class AdminModel extends FS_Model {
         {
             $this->load->model('Message');
             $this->Message->show(array(
-                'message' => '沒有觀看權限',
+                'message' => '管理權限不足',
                 'url' => 'admin'
             ));
-        }
-
-        //沒有這個頁面
-        if ( ! file_exists('app/views/admin/'.$data_Arr['admin_child_url_Str']))
-        {
-            show_404();
+            return FALSE;
         }
 
 		return $data_Arr;
@@ -124,73 +127,66 @@ class AdminModel extends FS_Model {
 		$child2_name_Str = $this->child2_name_Str;
 		$child3_name_Str = $this->child3_name_Str;
 		$child4_name_Str = $this->child4_name_Str;
+
 		$admin_sidebox = $this->config->item('admin_sidebox', 'admin');
 		$group_purview_Arr = $this->config->item('group_purview_Arr', 'admin');
 
-		$child1_display_array[] = array();
-		$child2_display_array[] = array();
-		$child3_display_array[] = array();
-		foreach($data['User']->group_UserGroupList->uniqueids_Arr as $key => $value_Num)
+		if( in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) )
 		{
-			if(
-				!empty($group_purview_Arr[$value_Num]) &&
-				is_array($group_purview_Arr[$value_Num])
-			)
+			$admin_sidebox2 = $admin_sidebox;
+		}
+		else
+		{
+			foreach($data['User']->group_UserGroupList->uniqueids_Arr as $key => $value_Num)
 			{
-				foreach($group_purview_Arr[$value_Num] as $key => $value_Arr)
+				if(
+					!empty($group_purview_Arr[$value_Num]) &&
+					is_array($group_purview_Arr[$value_Num])
+				)
 				{
-					$child1_display_array[] = $value_Arr[0];
-					$child2_display_array[] = $value_Arr[1];
-					$child3_display_array[] = $value_Arr[2];
+					foreach($group_purview_Arr[$value_Num] as $key => $value_Arr)
+					{
+						foreach($admin_sidebox as $key => $child1)
+						{
+					        if( $key == $value_Arr[0])
+					        {
+						        foreach($child1['child2'] as $key2 => $child2)
+						        {
+						            if( $key2 == $value_Arr[1] )
+						            {
+							            foreach($child2['child3'] as $key3 => $child3)
+							            {
+								            if( $key3 == $value_Arr[2] )
+								            {
+									            foreach($child3['child4'] as $key4 => $child4)
+									            {
+										            if( $key4 == $value_Arr[3] )
+										            {
+														$admin_sidebox2[$key]['title'] = $admin_sidebox[$key]['title'];
+														$admin_sidebox2[$key]['child2'][$key2]['title'] = $admin_sidebox[$key]['child2'][$key2]['title'];
+										        		$admin_sidebox2[$key]['child2'][$key2]['child3'][$key3]['title'] = $admin_sidebox[$key]['child2'][$key2]['child3'][$key3]['title'];
+										            	$admin_sidebox2[$key]['child2'][$key2]['child3'][$key3]['child4'][$key4] = $admin_sidebox[$key]['child2'][$key2]['child3'][$key3]['child4'][$key4];
+										            }
+									            }
+									        }
+									    }
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
 
-		foreach($admin_sidebox as $key => $child1)
-		{
-	        if( in_array($key, $child1_display_array))
-	        {
-		        foreach($child1['child2'] as $key2 => $child2)
-		        {
-		            if(in_array($key2, $child2_display_array))
-		            {
-			            foreach($child2['child3'] as $key3 => $child3)
-			            {
-				            if(in_array($key3, $child3_display_array))
-				            {
-					            foreach($child3['child4'] as $key4 => $child4)
-					            {
-						            if(
-						                $key == $child1_name_Str &&
-						                $key2 == $child2_name_Str &&
-						                $key3 == $child3_name_Str &&
-						                $key4 == $child4_name_Str
-						            )
-						            {
-						                $admin_sidebox[$key]['child2'][$key2]['child3'][$key3]['child4'][$key4]['select'] = TRUE;
-						                $admin_sidebox[$key]['child2'][$key2]['select'] = TRUE;
-						                $admin_sidebox[$key]['select'] = TRUE;
-						            }
-						        }
-					    	}
-					    	else
-					    	{
-		                		unset($admin_sidebox[$key]['child2'][$key2]['child3'][$key3]);
-					    	}
-			            }
-		            }
-		            else
-		            {
-		                unset($admin_sidebox[$key]['child2'][$key2]);
-		            }
-		        }
-	        }
-	        else
-	        {
-	            unset($admin_sidebox[$key]);
-	        }
-		}
-		return $admin_sidebox;
+		$admin_sidebox2[$child1_name_Str]['child2'][$child2_name_Str]['child3'][$child3_name_Str]['child4'][$child4_name_Str]['select'] = TRUE;
+		$admin_sidebox2[$child1_name_Str]['child2'][$child2_name_Str]['child3'][$child3_name_Str]['select'] = TRUE;
+		$admin_sidebox2[$child1_name_Str]['child2'][$child2_name_Str]['select'] = TRUE;
+		$admin_sidebox2[$child1_name_Str]['select'] = TRUE;
+
+		// ec($admin_sidebox2);
+
+		return $admin_sidebox2;
 	}
 	
 }

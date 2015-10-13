@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > <?if(!empty($product_ProductShop->productid_Num)):?>編輯<?else:?>新增<?endif?></h3>
@@ -28,54 +29,39 @@
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                產品首圖
+                產品圖片
             </div>
-            <div class="spanLineLeft width500">
-                <div class="fileMultiple1"><input type="file" name="mainpicids_FileArr" accept="image/*"></div>
-                <?if(!empty($product_ProductShop->mainpic_PicObjList->obj_Arr[0]->picid_Num)):?>
-                <div class="picidUploadList">
-                    <div fanswoo-picid="<?=$product_ProductShop->mainpic_PicObjList->obj_Arr[0]->picid_Num?>" class="picidUploadLi">
-                        <div fanswoo-picDelete class="picDelete"></div>
-                        <img src="<?=$product_ProductShop->mainpic_PicObjList->obj_Arr[0]->path_Arr['w50h50']?>">
-                        <input type="hidden" name="mainpicids_Arr[]" value="<?=$product_ProductShop->mainpic_PicObjList->obj_Arr[0]->picid_Num?>">
+            <div class="spanLineRight">
+                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div class="picidUploadList" fanswoo-piclist>
+                    <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
+                        <div class="pic"><img src="" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]">
                     </div>
-                </div>
-                <?endif?>
-		    </div>
-		</div>
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <span class="gray">請上傳300x300之圖檔</span>
-		    </div>
-		</div>
-	</div>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                產品其它照片
-            </div>
-            <div class="spanLineLeft width500">
-                <div fanswoo-fileMultiple><input type="file" name="picids_FilesArr[]" accept="image/*" multiple></div>
-                <?if(!empty($product_ProductShop->pic_PicObjList->obj_Arr)):?>
-                <div class="picidUploadList">
+                    <?if(!empty($product_ProductShop->pic_PicObjList->obj_Arr)):?>
                     <?foreach($product_ProductShop->pic_PicObjList->obj_Arr as $key => $value_PicObj):?>
                     <div fanswoo-picid="<?=$value_PicObj->picid_Num?>" class="picidUploadLi">
-                        <div fanswoo-picDelete class="picDelete"></div>
-                        <img src="<?=$value_PicObj->path_Arr['w50h50']?>">
-                        <input type="hidden" name="picids_Arr[]" value="<?=$value_PicObj->picid_Num?>">
+                        <div class="pic"><img src="<?=$value_PicObj->path_Arr['w50h50']?>" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly value="<?=$value_PicObj->path_Arr['w0h0']?>" /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]" value="<?=$value_PicObj->picid_Num?>">
                     </div>
                     <?endforeach?>
+                    <?endif?>
                 </div>
-                <?endif?>
 		    </div>
 		</div>
 	    <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請上傳300x300之圖檔</span>
+                <span class="gray">請上傳300x300之圖檔，多張圖檔將以第一張為默認顯示圖檔</span>
 		    </div>
 		</div>
 	</div>
@@ -164,11 +150,103 @@
                 <span class="gray">請選擇二級分類及分類標籤，多種分類可以重複選取</span>
             </div>
         </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                產品庫存
+            </div>
+            <div class="spanLineLeft width600 stock_area">
+                <?if($product_ProductShop->stock_StockProductShopList->obj_Arr):?>
+                <?foreach($product_ProductShop->stock_StockProductShopList->obj_Arr as $key => $value_StockProductShop):?>
+                <div class="selectLine">
+                    <input type="text" class="text width100 stock_class1" name="stock_classname1_StrArr[]" placeholder="規格1" data-value="<?=$value_StockProductShop->classname1_Str?>" value="<?=$value_StockProductShop->classname1_Str?>" disabled>
+                    <input type="text" class="text width100 stock_class2" name="stock_classname2_StrArr[]" placeholder="規格2" data-value="<?=$value_StockProductShop->classname2_Str?>" value="<?=$value_StockProductShop->classname2_Str?>" disabled>
+                    <input type="text" class="text width100 color_rgb" name="stock_color_rgb_StrArr[]" placeholder="RGB色碼" data-value="<?=$value_StockProductShop->color_rgb_Str?>" value="<?=$value_StockProductShop->color_rgb_Str?>">
+                    <input type="number" class="text width100" min="0" name="stock_stocknum_NumArr[]" placeholder="庫存" data-value="<?=$value_StockProductShop->stocknum_Num?>" value="<?=$value_StockProductShop->stocknum_Num?>">
+                    <input type="hidden" class="stock_class1_disabled" name="stock_classname1_StrArr[]" data-value="<?=$value_StockProductShop->classname1_Str?>" value="<?=$value_StockProductShop->classname1_Str?>">
+                    <input type="hidden" class="stock_class2_disabled" name="stock_classname2_StrArr[]" data-value="<?=$value_StockProductShop->classname2_Str?>" value="<?=$value_StockProductShop->classname2_Str?>">
+                    <input type="hidden" class="stockid" name="stockid_NumArr[]" value="<?=$value_StockProductShop->stockid_Num?>">
+                    <span class="move">移動</span>
+                    <span class="copy">複製</span>
+                    <span class="delete">清除</span>
+                </div>
+                <?endforeach?>
+                <?else:?>
+                <div class="selectLine">
+                    <input type="text" class="text width100 stock_class1" name="stock_classname1_StrArr[]" placeholder="規格1" data-value="" value="">
+                    <input type="text" class="text width100 stock_class2" name="stock_classname2_StrArr[]" placeholder="規格2" data-value="" value="">
+                    <input type="text" class="text width100 color_rgb" name="stock_color_rgb_StrArr[]" placeholder="RGB色碼">
+                    <input type="number" class="text width100" min="0" name="stock_stocknum_NumArr[]" placeholder="庫存" data-value="" value="">
+                    <input type="hidden" class="stockid" name="stockid_NumArr[]" value="">
+                </div>
+                <?endif?>
+            </div>
+            <div class="selectLine stock_line_clone" style="display: none;">
+                <input type="text" class="text width100 stock_class1" name="stock_classname1_StrArr[]" placeholder="規格1" data-value="">
+                <input type="text" class="text width100 stock_class2" name="stock_classname2_StrArr[]" placeholder="規格2" data-value="">
+                <input type="text" class="text width100 color_rgb" name="stock_color_rgb_StrArr[]" placeholder="RGB色碼">
+                <input type="number" class="text width100" min="0" name="stock_stocknum_NumArr[]" placeholder="庫存" data-value="">
+                <span class="move">移動</span>
+                <span class="copy">複製</span>
+                <span class="delete">清除</span>
+            </div>
+            <script>
+            $(function(){
+                $( ".stock_area" ).sortable({
+                    handle: ".move"
+                });
+                $('.stock_line_clone').clone().removeClass('stock_line_clone').css('display', 'block').disableSelection().insertAfter('.stock_area .selectLine:last');
+                $(document).on('change', '.stock_area .stock_class1', function(){
+                    $(this).attr('data-value', $(this).val());
+                    if( $(".stock_area > .selectLine > .stock_class1[data-value='']").size() === 0 )
+                    {
+                        $('.stock_line_clone').clone().removeClass('stock_line_clone').css('display', 'block').disableSelection().insertAfter('.stock_area .selectLine:last');
+                    }
+                });
+                $('.stock_area .copy').disableSelection();
+                $(document).on('click', '.stock_area .copy', function(){
+                    $clone = $(this).parents('.selectLine').clone().insertAfter( $(this).parents('.selectLine') );
+                    $clone.children('.stockid').val('');
+                    $clone.children('.stock_class1').removeAttr('disabled');
+                    $clone.children('.stock_class2').removeAttr('disabled');
+                    $clone.children('.stock_class1_disabled').remove();
+                    $clone.children('.stock_class2_disabled').remove();
+                });
+                $('.stock_area .delete').disableSelection();
+                $(document).on('click', '.stock_area .delete', function(){
+                    var answer = confirm('確定要刪除嗎？');
+                    if ( ! answer){
+                        return false;
+                    }
+                    var stockid = $(this).parents('.selectLine').children('.stockid').val();
+                    $.ajax({
+                        url: 'api/product/delete_stock/?stockid=' + stockid,
+                        error: function(xhr){},
+                        success: function(response){
+                        }
+                    });
+                    if(
+                        $(".stock_area > .selectLine").size() > 2
+                    )
+                    {
+                        $(this).parent('.selectLine').remove();
+                    }
+                    else
+                    {
+                        $(this).parent('.selectLine').children(':input').val('');
+                        $(this).parent('.selectLine').children(':input').attr('data-value', '');
+                    }
+                });
+            });
+            </script>
+        </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta2/tablelist">管理二級分類</a>
+                <p class="gray">請填寫規格1、規格2的庫存數量，可以依照不同種類之規格填寫顏色、尺寸等自定義規格</p>
+                <p class="gray">至少必須填寫第一筆規格，讓系統計算庫存資訊</p>
             </div>
         </div>
     </div>
@@ -185,14 +263,24 @@
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                產品規格
+                產品內容
             </div>
             <div class="spanLineRight">
-                <textarea cols="80" id="content_specification" name="content_specification_Str" rows="10"><?=$product_ProductShop->content_specification_Html?></textarea>
-                <script src="app/js/ckeditor/ckeditor.js"></script>
+                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div class="picidUploadList" fanswoo-piclist>
+                    <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
+                        <div class="pic"><img src="" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                    </div>
+                </div>
+                <textarea cols="80" id="content" name="content_Str" rows="10"><?=$product_ProductShop->content_Html?></textarea>
+                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
                 <script>
-                    CKEDITOR.replace( 'content_specification', {
-                        toolbar: 'bbcode'
+                    CKEDITOR.replace( 'content', {
+                        toolbar: 'html'
                     });
                 </script>
 		    </div>
@@ -200,18 +288,34 @@
             </div>
 		</div>
 	</div>
-	<div class="spanLine">
-	    <div class="spanStage">
+    <div class="spanLine">
+        <div class="spanStage">
             <div class="spanLineLeft">
-                產品詳述
+                產品規格
             </div>
             <div class="spanLineRight">
-                <textarea cols="80" id="content" name="content_Str" rows="10"><?=$product_ProductShop->content_Html?></textarea>
-		    </div>
+                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div class="picidUploadList" fanswoo-piclist>
+                    <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
+                        <div class="pic"><img src="" fanswoo-picid_img></div>
+                        <div class="other">
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
+                            <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
+                        </div>
+                    </div>
+                </div>
+                <textarea cols="80" id="content_specification" name="content_specification_Str" rows="10"><?=$product_ProductShop->content_specification_Html?></textarea>
+                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
+                <script>
+                    CKEDITOR.replace( 'content_specification', {
+                        toolbar: 'html'
+                    });
+                </script>
+            </div>
             <div class="spanLineLeft">
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -221,12 +325,13 @@
                 <input type="number" class="text width100" name="prioritynum_Num" value="<?=$product_ProductShop->prioritynum_Num?>">
             </div>
 		</div>
-	    <div class="spanStage">
+        <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
+                <p class="gray">優先排序指數越高，排序順序越前面</p>
             </div>
-		</div>
+        </div>
 	</div>
     <?if(!empty($product_ProductShop->productid_Num)):?>
     <div class="spanLine">
@@ -253,4 +358,5 @@
 	</div>
 	</form>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

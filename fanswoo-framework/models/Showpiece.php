@@ -7,7 +7,6 @@ class Showpiece extends ObjDbBase
     public $uid_Num = 0;
     public $name_Str = '';
     public $pic_PicObjList;//照片類別列表
-    public $mainpic_PicObjList;//照片類別列表
     public $content_Html = '';//網頁語言類別
     public $content_specification_Html = '';//網頁語言類別
     public $synopsis_Str = '';
@@ -25,7 +24,6 @@ class Showpiece extends ObjDbBase
         'price' => 'price_Num',
         'synopsis' => 'synopsis_Str',
         'picids' => array('pic_PicObjList', 'uniqueids_Str'),
-        'mainpicids' => array('mainpic_PicObjList', 'uniqueids_Str'),
         'classids' => array('class_ClassMetaList', 'uniqueids_Str'),
         'content' => 'content_Html',
         'content_specification' => 'content_specification_Html',
@@ -37,7 +35,7 @@ class Showpiece extends ObjDbBase
 	public function construct($arg)
 	{
         //引入引數並將空值的變數給予空值
-        reset_null_arr($arg, ['showpieceid_Num', 'uid_Num', 'name_Str', 'picids_Str', 'picids_Arr', 'mainpicids_Str', 'mainpicids_Arr', 'content_Str', 'content_specification_Str', 'synopsis_Str', 'price_Num', 'classids_Str', 'classids_Arr', 'prioritynum_Num', 'updatetime_Str', 'updatetime_inputtime_date_Str', 'updatetime_inputtime_time_Str', 'status_Num']);
+        reset_null_arr($arg, ['showpieceid_Num', 'uid_Num', 'name_Str', 'picids_Str', 'picids_Arr', 'content_Str', 'content_specification_Str', 'synopsis_Str', 'price_Num', 'classids_Str', 'classids_Arr', 'prioritynum_Num', 'updatetime_Str', 'updatetime_inputtime_date_Str', 'updatetime_inputtime_time_Str', 'status_Num']);
         foreach($arg as $key => $value) ${$key} = $arg[$key];
         
         //將引數設為物件屬性，或將引數作為物件型屬性的建構值
@@ -62,10 +60,6 @@ class Showpiece extends ObjDbBase
             'picids_Str' => $picids_Str,
             'picids_Arr' => $picids_Arr
         ], 'PicObjList');
-        $this->set('mainpic_PicObjList', [
-            'picids_Str' => $mainpicids_Str,
-            'picids_Arr' => $mainpicids_Arr
-        ], 'PicObjList');
         $this->set__uid_Num(['uid_Num' => $uid_Num]);
         
         return TRUE;
@@ -78,10 +72,15 @@ class Showpiece extends ObjDbBase
         foreach($arg as $key => $value) ${$key} = $arg[$key];
 
         //若uid為空則以登入者uid作為本物件之預設uid
-        if(empty($uid_Num) || empty($uid_Num))
+        if(empty($uid_Num))
         {
-            $data['user'] = get_user();
-            $uid_Num = $data['user']['uid'];
+            $User = new User();
+            $User->construct_db([
+                'db_where_Arr' => [
+                    'uid' => $this->session->userdata('uid')
+                ]
+            ]);
+            $uid_Num = $User->uid_Num;
         }
 
         $this->uid_Num = $uid_Num;

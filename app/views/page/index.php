@@ -239,7 +239,7 @@ $(function(){
 });
 </script>
 <?=$temp['header_down']?>
-<?=$temp['topheader']?>
+<?=$temp['header_bar']?>
 <div class="videoFixed">
 	<video src="app/img/goproVideo.mp4" autoplay loop muted>
 	</video>
@@ -264,9 +264,9 @@ $(function(){
 		<div class="wrapper">
 			<nav>
 				<div class="menu">
-					<span class="li"><span class="title2">關於我們</span><span class="title1">About</span></span>
-					<span class="li"><span class="title2">經典作品</span><span class="title1">Portfolio</span></span>
-					<span class="li"><span class="title2">服務項目</span><span class="title1">Service</span></span>
+					<span class="li"><span class="title2"><a href="page/about">關於我們</a></span><span class="title1">About</span></span>
+					<span class="li"><span class="title2"><a href="page/portfolio">經典作品</a></span><span class="title1">Portfolio</span></span>
+					<span class="li"><span class="title2"><a href="page/server">服務項目</a></span><span class="title1">Service</span></span>
 				</div>
 				<a href="#wrapMarketing"><img src="app/img/index/arrow_down.png" class="arrow"></a>	
 			</nav>
@@ -278,9 +278,9 @@ $(function(){
 			<div class="logo"></div>
 			<div class="nav">
 				<div class="menu">
-					<span class="li"><span class="title2">關於我們</span><span class="title1">About</span></span>
-					<span class="li"><span class="title2">經典作品</span><span class="title1">Portfolio</span></span>
-					<span class="li"><span class="title2">服務項目</span><span class="title1">Service</span></span>
+					<span class="li"><span class="title2"><a href="page/about">關於我們</a></span><span class="title1">About</span></span>
+					<span class="li"><span class="title2"><a href="page/portfolio">經典作品</a></span><span class="title1">Portfolio</span></span>
+					<span class="li"><span class="title2"><a href="page/server">服務項目</a></span><span class="title1">Service</span></span>
 				</div>
 				<a href="#wrapMarketing">
 					<div class="arrow">
@@ -675,4 +675,5 @@ $(function(){
 	</div>
 
 </div>
-<?=$temp['footer']?>
+<?=$temp['footer_bar']?>
+<?=$temp['body_end']?>

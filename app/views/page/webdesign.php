@@ -24,10 +24,10 @@ $(function(){
 });
 </script>
 <?=$temp['header_down']?>
-		<div class="bg1">fansWoo</div>
+<!-- 		<div class="bg1">fansWoo</div>
 		<div class="bg2">fansWoo</div>
-		<div class="bg3">fansWoo</div>
-<?=$temp['topheader']?>
+		<div class="bg3">fansWoo</div> -->
+<?=$temp['header_bar']?>
         
 		<div class="content1">
 			<div class="area">
@@ -325,4 +325,5 @@ $(function(){
 		  
 			
 </div>		
-<?=$temp['footer']?>
+<?=$temp['footer_bar']?>
+<?=$temp['body_end']?>

@@ -91,7 +91,7 @@ $(function(){
 });
 </script>
 <?=$temp['header_down']?>
-<?=$temp['topheader']?>
+<?=$temp['header_bar']?>
 		<div class="fixedNoClickLeft"></div>
 		<div class="fixedNoClickRight"></div>
 		<div class="fixedNoClick"></div>
@@ -597,4 +597,5 @@ $(function(){
 			</div>
 		</div>
 	</div>
-<?=$temp['footer']?>
+<?=$temp['footer_bar']?>
+<?=$temp['body_end']?>

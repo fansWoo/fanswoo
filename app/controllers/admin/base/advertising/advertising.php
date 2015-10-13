@@ -1,6 +1,6 @@
 <?php
 
-class advertising_controller extends FS_controller {
+class Advertising_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'base';
     protected $child2_name_Str = 'advertising';
@@ -11,16 +11,16 @@ class advertising_controller extends FS_controller {
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
         $this->load->model('AdminModel');
         $this->AdminModel->child1_name_Str = $this->child1_name_Str;
         $this->AdminModel->child2_name_Str = $this->child2_name_Str;
         $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if(empty($data['User']->uid_Num))
+        {
+            $url = base_url('user/login/?url=admin');
+            header('Location: '.$url);
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -44,21 +44,26 @@ class advertising_controller extends FS_controller {
 
         $data['AdvertisingClassList'] = new ObjList();
         $data['AdvertisingClassList']->construct_db(array(
+            'db_where_Arr' => [
+                'modelname' => 'advertising'
+            ],
             'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'AdvertisingClass',
+            'model_name_Str' => 'ClassMeta',
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -80,26 +85,7 @@ class advertising_controller extends FS_controller {
             $classids_Arr = $this->input->post('classids_Arr', TRUE);
             $content_Str = $this->input->post('content_Str');
             $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
-
-            //其它圖片上傳（多張上傳）
             $picids_Arr = $this->input->post('picids_Arr', TRUE);
-            $picids_FilesArr = $this->input->file('picids_FilesArr');
-            foreach($picids_FilesArr['name'] as $key => $value)
-            {
-                if(!empty($value))
-                {
-                    $pic_PicObj = new PicObj();
-                    $pic_PicObj->construct(array(
-                        'picfile_FileArr' => getfile_from_files(array(
-                            'files_Arr' => $picids_FilesArr,
-                            'key_Str' => $key
-                        )),
-                        'thumb_Str' => 'w50h50,w300h300,w600h600'
-                    ));
-                    $pic_PicObj->upload();
-                    $picids_Arr[] = $pic_PicObj->picid_Num;
-                }
-            }
 
             //建構Advertising物件，並且更新
             $Advertising = new Advertising();
@@ -112,7 +98,7 @@ class advertising_controller extends FS_controller {
                 'content_Str' => $content_Str,
                 'prioritynum_Num' => $prioritynum_Num
             ));
-            $Advertising->update(array());
+            $Advertising->update();
 
             //送出成功訊息
             $this->load->model('Message');
@@ -166,10 +152,10 @@ class advertising_controller extends FS_controller {
             'db_where_or_Arr' => array(
                 'classids' => array($class_ClassMeta->classid_Num)
             ),
-            'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
-            ),
+            'db_orderby_Arr' => [
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
+            ],
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'Advertising',
             'limitstart_Num' => $limitstart_Num,
@@ -179,21 +165,25 @@ class advertising_controller extends FS_controller {
 
         $data['AdvertisingClassList'] = new ObjList();
         $data['AdvertisingClassList']->construct_db(array(
+            'db_where_Arr' => [
+                'modelname' => 'advertising'
+            ],
             'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'AdvertisingClass',
+            'model_name_Str' => 'ClassMeta',
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -236,14 +226,14 @@ class advertising_controller extends FS_controller {
         //CSRF過濾
         if($hash_Str == $this->security->get_csrf_hash())
         {
-            $advertising_ProductShop = new ProductShop();
-            $advertising_ProductShop->construct(array('advertisingid_Num' => $advertisingid_Num));
-            $advertising_ProductShop->delete();
+            $advertising_Advertising = new Advertising();
+            $advertising_Advertising->construct(array('advertisingid_Num' => $advertisingid_Num));
+            $advertising_Advertising->delete();
 
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => '刪除成功',
-                'url' => 'admin/shop/advertising_shop/advertising/advertising_list'
+                'url' => 'admin/base/advertising/advertising/tablelist'
             ));
         }
         else
@@ -251,7 +241,7 @@ class advertising_controller extends FS_controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/shop/advertising_shop/advertising/advertising_list'
+                'url' => 'admin/base/advertising/advertising/tablelist'
             ));
         }
     }

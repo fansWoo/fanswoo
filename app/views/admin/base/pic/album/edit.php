@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > <?if(!empty($class_ClassMeta->classid_Num)):?>編輯<?else:?>新增<?endif?></h3>
@@ -11,14 +12,14 @@
                 分類名稱
             </div>
             <div class="spanLineLeft">
-                <input type="text" class="text" name="classname_Str" placeholder="標籤名稱" value="<?=$class_ClassMeta->classname_Str?>">
+                <input type="text" class="text" name="classname_Str" placeholder="分類名稱" value="<?=$class_ClassMeta->classname_Str?>">
             </div>
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
-                <p class="gray">請輸入分類標籤的名稱，此標籤名稱可供產品作分類</p>
+                <p class="gray">請輸入分類標籤的名稱，此標籤名稱將作為分類名稱</p>
             </div>
         </div>
     </div>
@@ -28,7 +29,7 @@
                 分類代號
             </div>
             <div class="spanLineLeft">
-                <input type="text" class="text" name="slug_Str" placeholder="標籤名稱" value="<?=$class_ClassMeta->slug_Str?>">
+                <input type="text" class="text" name="slug_Str" placeholder="分類代號" value="<?=$class_ClassMeta->slug_Str?>">
             </div>
         </div>
         <div class="spanStage">
@@ -37,6 +38,23 @@
             <div class="spanLineRight">
                 <p class="gray">請填寫分類標籤的代號，此標籤代號將作為搜尋關鍵字</p>
                 <p class="gray">本值需為英文及數字組合，不得含有中文，並且不得與其它分類標籤有重複</p>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                分類簡介
+            </div>
+            <div class="spanLineLeft width400">
+                <textarea name="content_Str" placeholder="分類簡介"><?=$class_ClassMeta->content_Str?></textarea>
+            </div>
+        </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineRight">
+                <p class="gray">請填寫200字以內的分類簡介</p>
             </div>
         </div>
     </div>
@@ -53,6 +71,7 @@
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
+                <p class="gray">優先排序值較高者，其排序較為前面</p>
             </div>
         </div>
     </div>
@@ -79,4 +98,5 @@
     </div>
     </form>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

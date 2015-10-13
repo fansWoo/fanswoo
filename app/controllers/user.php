@@ -1,7 +1,9 @@
 <?php
 
-class user_controller extends FS_controller
+class User_Controller extends MY_Controller
 {
+
+	private $next_url_Str = 'admin';
 	
 	public function index()
 	{
@@ -24,9 +26,9 @@ class user_controller extends FS_controller
 	{
         $data = $this->data;
 
-		if(!empty($data['user']['uid']))
+		if(!empty($data['User']->uid_Num))
 		{
-			$url_Str = base_url('page/index');
+			$url_Str = base_url($this->next_url_Str);
 			header('Location: '.$url_Str);
 		}
         
@@ -38,14 +40,13 @@ class user_controller extends FS_controller
 		$data['page'] = 'user';
         
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'user';
+        $data['global']['style'][] = 'app/css/user/user.css';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
 		$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-		$data['temp']['topheader'] = $this->load->view('temp/topheader', $data, TRUE);
-		$data['temp']['footer'] = $this->load->view('temp/footer', $data, TRUE);
+		$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
+		$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
 		
 		//輸出模板
 		$this->load->view('user/register.php', $data);
@@ -72,9 +73,10 @@ class user_controller extends FS_controller
 				'password_Str' => $password_Str,
 				'password2_Str' => $password2_Str
 			));
+
 			if($register_status === TRUE)
 			{
-				$url_Str = 'page/index';
+				$url_Str = $this->next_url_Str;
 				$message_Str = "註冊成功";
 				
 				$this->load->model('Message');
@@ -105,26 +107,25 @@ class user_controller extends FS_controller
 
 		$this->load->library('form_validation');
 
-		if(!empty($data['user']['uid']))
+		if(!empty($data['User']->uid_Num))
 		{
-			$url_Str = base_url('page/index');
+			$url_Str = base_url($this->next_url_Str);
 			header('Location: '.$url_Str);
 		}
 
         $data['url_Str'] = $this->input->get('url');
 
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'user';
+        $data['global']['style'][] = 'app/css/user/user.css';
             
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
 		$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-		$data['temp']['topheader'] = $this->load->view('temp/topheader', $data, TRUE);
-		$data['temp']['footer'] = $this->load->view('temp/footer', $data, TRUE);
+		$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
+		$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
 				
 		//輸出模板
-		$this->load->view('user/login.php', $data);
+		$this->load->view('user/login', $data);
 	}
 	
 	public function login_post()
@@ -150,10 +151,13 @@ class user_controller extends FS_controller
 			{
 				if(empty($url_Str))
 				{
-					$url_Str = 'page/index';
+					$url_Str = $this->next_url_Str;
 				}
-				$url_Str = base_url($url_Str);
-				header("Location: $url_Str");
+
+				$message_Str = "登入成功";
+				
+				$this->load->model('Message');
+				$this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
 			}
 			else
 			{
@@ -187,14 +191,13 @@ class user_controller extends FS_controller
 		$data['page'] = 'user';
         
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'user';
+        $data['global']['style'][] = 'app/css/user/user.css';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
 		$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-		$data['temp']['topheader'] = $this->load->view('temp/topheader', $data, TRUE);
-		$data['temp']['footer'] = $this->load->view('temp/footer', $data, TRUE);
+		$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
+		$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
 		
 		//輸出模板
 		$this->load->view('user/forgetpsw.php', $data);
@@ -263,14 +266,13 @@ class user_controller extends FS_controller
 		$data['page'] = 'user';
         
         //global
-        $data['global']['style'][] = 'style';
-        $data['global']['style'][] = 'user';
+        $data['global']['style'][] = 'app/css/user/user.css';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
 		$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-		$data['temp']['topheader'] = $this->load->view('temp/topheader', $data, TRUE);
-		$data['temp']['footer'] = $this->load->view('temp/footer', $data, TRUE);
+		$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
+		$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
 		
 		//輸出模板
 		$this->load->view('user/resetpsw', $data);
@@ -308,7 +310,7 @@ class user_controller extends FS_controller
 
 			if($return_message_Str === TRUE)
 			{
-				$url_Str = base_url('user/login');
+				$url_Str = 'user/login';
 				$message = '密碼變更成功，請重新登入';
 				
 				$this->load->model('Message');
@@ -316,7 +318,7 @@ class user_controller extends FS_controller
 			}
 			else
 			{
-				$url_Str = base_url('user/resetpsw/?email='.$email_Str.'&change_email_key='.$change_email_key_Str);
+				$url_Str = 'user/resetpsw/?email='.$email_Str.'&change_email_key='.$change_email_key_Str;
 				$message = $return_message_Str;
 				
 				$this->load->model('Message');
@@ -325,7 +327,7 @@ class user_controller extends FS_controller
 		}
 		else
 		{
-			$url_Str = base_url('user/resetpsw/?email='.$email_Str.'&change_email_key='.$change_email_key_Str);
+			$url_Str = 'user/resetpsw/?email='.$email_Str.'&change_email_key='.$change_email_key_Str;
 			$message = validation_errors();
 			
 			$this->load->model('Message');

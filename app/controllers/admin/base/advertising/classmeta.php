@@ -1,6 +1,6 @@
 <?php
 
-class classmeta_controller extends FS_controller {
+class Classmeta_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'base';
     protected $child2_name_Str = 'advertising';
@@ -11,16 +11,16 @@ class classmeta_controller extends FS_controller {
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
         $this->load->model('AdminModel');
         $this->AdminModel->child1_name_Str = $this->child1_name_Str;
         $this->AdminModel->child2_name_Str = $this->child2_name_Str;
         $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if($data['User']->uid_Num == '')
+        {
+            $url = base_url('user/login/?url=admin');
+            header('Location: '.$url);
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -47,15 +47,18 @@ class classmeta_controller extends FS_controller {
             'db_where_deletenull_Bln' => TRUE
         ));
 
+        // ec($data['ClassMeta']);
+
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -67,16 +70,21 @@ class classmeta_controller extends FS_controller {
 
         $this->form_validation->set_rules('classname_Str', 'classname_Str', 'required');
 
+
         if ($this->form_validation->run() !== FALSE)
         {
             $classid_Num = $this->input->post('classid_Num', TRUE);
             $classname_Str = $this->input->post('classname_Str', TRUE);
+            $slug_Str = $this->input->post('slug_Str', TRUE);
+            $content_Str = $this->input->post('content_Str', TRUE);
             $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
 
             $class_ClassMeta = new ClassMeta();
             $class_ClassMeta->construct(array(
                 'classid_Num' => $classid_Num,
                 'classname_Str' => $classname_Str,
+                'slug_Str' => $slug_Str,
+                'content_Str' => $content_Str,
                 'prioritynum_Num' => $prioritynum_Num,
                 'modelname_Str' => 'advertising'
             ));
@@ -112,25 +120,57 @@ class classmeta_controller extends FS_controller {
 
         $data['AdvertisingClassList'] = new ObjList();
         $data['AdvertisingClassList']->construct_db(array(
+            'db_where_Arr' => [
+                'modelname' => 'advertising'
+            ],
             'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'AdvertisingClass',
+            'model_name_Str' => 'ClassMeta',
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));
         $data['class_links'] = $data['AdvertisingClassList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+    }
+
+    public function delete()
+    {
+        $hash_Str = $this->input->get('hash');
+        $classid_Num = $this->input->get('classid');
+
+        //CSRF過濾
+        if($hash_Str == $this->security->get_csrf_hash())
+        {
+            $class_ClassMeta = new ClassMeta();
+            $class_ClassMeta->construct(array('classid_Num' => $classid_Num));
+            $class_ClassMeta->delete();
+
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '刪除成功',
+                'url' => 'admin/base/advertising/classmeta/tablelist/'
+            ));
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/base/advertising/classmeta/tablelist/'
+            ));
+        }
     }
 
 }

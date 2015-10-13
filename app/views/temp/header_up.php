@@ -19,7 +19,7 @@
     <?endif?>
 	<?if(isset($global['js'])):?>
 	<?foreach($global['js'] as $value):?>
-	<script src="app/js/<?=$value?>.js"></script>
+	<script src="<?=$value?>"></script>
 	<?endforeach?>
 	<?endif?>
 	<?if(isset($global['website_script_plugin_ga'])):?><?=$global['website_script_plugin_ga']?><?endif?>

@@ -5,8 +5,6 @@ class SettingList extends ObjList
 
     public function construct($arg)
     {
-        $construct_Arr = !empty($arg['construct_Arr']) ? $arg['construct_Arr'] : array() ;
-
         parent::construct(array(
             'construct_Arr' => $arg['construct_Arr'],
             'model_name_Str' => 'Setting',
@@ -17,7 +15,6 @@ class SettingList extends ObjList
 
     public function construct_db($arg)
     {
-        $db_where_Arr = !empty($arg['db_where_Arr']) ? $arg['db_where_Arr'] : array() ;
         parent::construct_db(array(
             'db_where_Arr' => $arg['db_where_Arr'],
             'model_name_Str' => 'Setting',

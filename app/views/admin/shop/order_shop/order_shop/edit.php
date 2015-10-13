@@ -29,7 +29,8 @@ $(function(){
     });
 });
 </script>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2>訂單管理 - 確認訂單</h2>
 <div class="contentBox allWidth">
     <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
@@ -74,17 +75,26 @@ $(function(){
 		    </div>
 		</div>
 	</div>
-    <?if($OrderShop->pay_status_Num == 1 && $OrderShop->pay_paytype_Str == 'atm'):?>
-	<div class="spanLine">
-	    <div class="spanStage">
+    <div class="spanLine">
+        <div class="spanStage">
             <div class="spanLineLeft">
-                付款總金額
+                訂單總金額
             </div>
-            <div class="spanLineLeft">
-                <?=$OrderShop->pay_price_total_Num?>（含運費總額）
-		    </div>
-		</div>
-	</div>
+            <div class="spanLineRight">
+                NT$ <?=$OrderShop->pay_price_total_Num?>
+                （ 包含運費 
+                NT$ <?=$OrderShop->pay_price_freight_Num?>
+                <?if($OrderShop->tradein_count_Num > 0):?>
+                、 滿額優惠減免 NT$<?=$OrderShop->tradein_count_Num?>
+                <?endif?>
+                <?if($OrderShop->coupon_count_Num > 0):?>
+                、 折扣金減免 NT$<?=$OrderShop->coupon_count_Num?>
+                <?endif?>
+                ）
+            </div>
+        </div>
+    </div>
+    <?if($OrderShop->pay_status_Num == 1 && $OrderShop->pay_paytype_Str == 'atm'):?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -181,8 +191,8 @@ $(function(){
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width300">
-                <a href="product/?productid=<?=$value_CartShop->product_ProductShop->productid_Num?>" target="_blank">
-                    <?=$value_CartShop->product_ProductShop->name_Str?>
+                <a href="admin/shop/product/product/edit/?productid=<?=$value_CartShop->product_ProductShop->productid_Num?>" target="_blank">
+                    <?=$value_CartShop->product_ProductShop->name_Str?> ( <?=$value_CartShop->StockProductShop->classname1_Str?> / <?=$value_CartShop->StockProductShop->classname2_Str?> )
                 </a>
             </div>
             <div class="spanLineLeft width100 aligncenter">
@@ -268,6 +278,35 @@ $(function(){
 		</div>
 	</div>
     <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
+    <h3>訂單留言</h3>
+    <h4>請確認訂單留言資訊</h4>
+    <div class="spanLine">
+        <?if( !empty($OrderShop->comment_CommentList->obj_Arr) ):?>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                訂單留言
+            </div>
+            <div class="spanLineLeft width500">
+                <?foreach($OrderShop->comment_CommentList->obj_Arr as $key => $value_Comment):?>
+                <p><?=$value_Comment->uid_User->username_Str?> <span class="gray"><?=$value_Comment->updatetime_DateTime->datetime_Str?></span></p>
+                <div style="word-wrap:break-word;"><?=$value_Comment->content_Html?></div>
+                <div style="border-top: 1px #CCC dashed;margin:10px 0;"></div>
+                <?endforeach?>
+            </div>
+        </div>
+        <?endif?>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                <?if( empty($OrderShop->comment_CommentList->obj_Arr) ):?>
+                訂單留言
+                <?endif?>
+            </div>
+            <div class="spanLineLeft width500">
+                <textarea cols="80" name="content_Str" rows="10" placeholder="請填寫新的留言..."></textarea>
+            </div>
+        </div>
+    </div>
+    <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -294,8 +333,8 @@ $(function(){
                 貨物寄出時間
             </div>
             <div class="spanLineLeft">
-                <script src="app/js/jquery-ui-timepicker-addon/script.js"></script>
-                <link rel="stylesheet" type="text/css" href="app/js/jquery-ui-timepicker-addon/style.css"></link>
+                <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
+                <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
                 <script>
                 $(function(){
                     $('#sendtime_Str').datetimepicker({
@@ -335,10 +374,11 @@ $(function(){
             <div class="spanLineRight">
                 <?if(!empty($OrderShop->orderid_Num)):?><input type="hidden" name="orderid_Num" value="<?=$OrderShop->orderid_Num?>"><?endif?>
                 <input type="submit" class="submit" value="<?if(!empty($OrderShop->orderid_Num)):?>儲存變更<?else:?>確認訂單<?endif?>">
-                <?if( empty($OrderShop->orderid_Num) === FALSE ):?><span class="submit gray" onClick="fanScript.check_href_action('確定要刪除這個訂單？', 'admin/order/delete_order/<?=$OrderShop->orderid_Num?>/<?=$this->security->get_csrf_hash()?>');">刪除訂單</span><?endif?>
+                <?if( empty($OrderShop->orderid_Num) === FALSE ):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除這個訂單？', 'admin/shop/order_shop/order_shop/delete/?orderid=<?=$OrderShop->orderid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除訂單</span><?endif?>
             </div>
         </div>
 	</div>
 	</form>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

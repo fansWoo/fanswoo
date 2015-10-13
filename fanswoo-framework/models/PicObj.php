@@ -11,13 +11,14 @@ class PicObj extends ObjDbBase {
     public $md5_Str = '';
     public $class_ClassMetaList;
     public $picfile_FileArr = array();
-    public $modelname_Str = 'w50h50,w300h300';
+    public $modelname_Str = 'w50h50,w300h300,w600h600';
     public $thumb_Str = '';//ex: w50h50,w300h300
     public $path_Arr = array();
     //ex: array('w0h0' => 'app/pic/00/52/85/01-abcdefg-w100h100.jpg', 'w100h100' => 'app/pic/00/52/85/01-abcdefg-w100h100.jpg')
     public $prioritynum_Num = 0;
     public $updatetime_DateTime;
     public $status_Num = 1;
+    public $max_size_Num = 10485760;//單一檔案最大上傳尺寸
     public $db_name_Str = 'pic';//填寫物件聯繫資料庫之名稱
     public $db_uniqueid_Str = 'picid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_Arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
@@ -97,29 +98,6 @@ class PicObj extends ObjDbBase {
         {
             $md5_Str = substr(md5('FANSWOO'.rand(10000000, 99999999)),8,16);
         }
-        
-        //path
-        if( !empty($thumb_Str) && !empty($md5_Str) && !empty($picid_Num) )
-        {
-            $substr_picid_Num = abs(intval($picid_Num));
-            $substr_picid_Num = sprintf("%08d", $substr_picid_Num);
-
-            $dir1_Num = substr($substr_picid_Num, 0, 2);
-            $dir2_Num = substr($substr_picid_Num, 2, 2);
-            $dir3_Num = substr($substr_picid_Num, 4, 2);
-            $dir4_Num = substr($substr_picid_Num, 6, 2);
-            $path_Arr['w0h0'] = APPPATH.'./pic/'.$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$md5_Str.'.jpg';
-            
-            $thumb_Arr = explode(',', $thumb_Str);
-            foreach($thumb_Arr as $key => $value)
-            {
-                $path_Arr[$value] = APPPATH.'./pic/'.$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$md5_Str.'-'.$value.'.jpg';
-            }
-        }
-        else
-        {
-            $path_Arr = array();
-        }
 
         //建立DateTime物件
         $updatetime_DateTime = new DateTimeObj();
@@ -140,17 +118,46 @@ class PicObj extends ObjDbBase {
         $this->md5_Str = $md5_Str;
         $this->class_ClassMetaList = $class_ClassMetaList;
         $this->picfile_FileArr = $picfile_FileArr;
-        $this->path_Arr = $path_Arr;
         $this->prioritynum_Num = $prioritynum_Num;
         $this->updatetime_DateTime = $updatetime_DateTime;
         $this->status_Num = $status_Num;
+
+        $path_Arr = $this->get_path();
+        $this->path_Arr = $path_Arr;
         
         return TRUE;
+    }
+
+    public function get_path()
+    {
+        //path
+        if( !empty($this->thumb_Str) && !empty($this->md5_Str) && !empty($this->picid_Num) )
+        {
+            $substr_picid_Num = abs(intval($this->picid_Num));
+            $substr_picid_Num = sprintf("%08d", $substr_picid_Num);
+
+            $dir1_Num = substr($substr_picid_Num, 0, 2);
+            $dir2_Num = substr($substr_picid_Num, 2, 2);
+            $dir3_Num = substr($substr_picid_Num, 4, 2);
+            $dir4_Num = substr($substr_picid_Num, 6, 2);
+            $path_Arr['w0h0'] = prep_url($_SERVER['HTTP_HOST'].base_url('app/pic/'.$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$this->md5_Str.'.jpg'));
+            
+            $thumb_Arr = explode(',', $this->thumb_Str);
+            foreach($thumb_Arr as $key => $value)
+            {
+                $path_Arr[$value] = prep_url($_SERVER['HTTP_HOST'].base_url('app/pic/'.$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$this->md5_Str.'-'.$value.'.jpg'));
+            }
+        }
+        else
+        {
+            $path_Arr = array();
+        }
+
+        return $path_Arr;
     }
     
     public function upload()
     {
-        $picid_Num = $this->picid_Num;
         $thumb_Str = $this->thumb_Str;
         $picfile_FileArr = $this->picfile_FileArr;
         
@@ -160,7 +167,13 @@ class PicObj extends ObjDbBase {
         }
         
         $this->update(array());
-        $this->cutphoto(array('width' => 0, 'height' => 0));
+
+        $cutphoto_status_Str = $this->cutphoto(array('width' => 0, 'height' => 0));
+        if($cutphoto_status_Str !== TRUE)
+        {
+            $this->delete();
+            return $cutphoto_status_Str;
+        }
         
         $thumb_Arr = explode(',', $thumb_Str);
         foreach($thumb_Arr as $key => $value_Str)
@@ -174,6 +187,9 @@ class PicObj extends ObjDbBase {
                 $this->cutphoto( array( 'width' => $width_Num, 'height' => $height_Num) );
             }
         }
+
+        $path_Arr = $this->get_path();
+        $this->path_Arr = $path_Arr;
         
         return TRUE;
     }
@@ -190,9 +206,18 @@ class PicObj extends ObjDbBase {
 
         if(empty($picfile_FileArr))
         {
-            return FALSE;
+            return '請選擇正確的圖檔';
         }
-        
+
+        if($picfile_FileArr['size'] > $this->max_size_Num )
+        {
+            return '單一檔案尺寸過大，超過檔案最大限制';
+        }
+        if($picfile_FileArr['size'] == 0)
+        {
+            return '圖檔尺寸過大超過伺服器限制，請聯繫伺服器管理員修改php.ini之upload_max_filesize限制';
+        }
+
 		$picid_Num = abs(intval($picid_Num));
 		$picid_Num = sprintf("%08d", $picid_Num);
         
@@ -210,8 +235,8 @@ class PicObj extends ObjDbBase {
         
         if($width == 0 || $height == 0)
         {
-            $width = 1900;
-            $height = 1600;
+            $width = 10000;
+            $height = 10000;
             $d_photo = APPPATH.'./pic/'.$dir1.'/'.$dir2.'/'.$dir3.'/'.$dir4.'-'.$md5_Str.'.jpg';
         }
         else
@@ -316,6 +341,8 @@ class PicObj extends ObjDbBase {
             imagedestroy($new_img);
             imagedestroy($new_imgx);
         }
+
+        return TRUE;
     }
 	
 }

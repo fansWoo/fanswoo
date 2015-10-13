@@ -1,6 +1,6 @@
 <?php
 
-class classmeta_controller extends FS_controller {
+class Classmeta_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'base';
     protected $child2_name_Str = 'user';
@@ -11,16 +11,16 @@ class classmeta_controller extends FS_controller {
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
         $this->load->model('AdminModel');
         $this->AdminModel->child1_name_Str = $this->child1_name_Str;
         $this->AdminModel->child2_name_Str = $this->child2_name_Str;
         $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if($data['User']->uid_Num == '')
+        {
+            $url = base_url('user/login/?url=admin');
+            header('Location: '.$url);
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -48,14 +48,15 @@ class classmeta_controller extends FS_controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -110,24 +111,51 @@ class classmeta_controller extends FS_controller {
         $limitcount = !empty($limitcount) ? $limitcount : 20;
         $limitcount = $limitcount > 100 ? $limitcount : 100;
 
+        //權限判斷
+        if(
+            in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+        }
+        else if(
+            in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+            $groupids_1_purview = 1;
+        }
+        else if(
+            in_array( 3, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+            $groupids_1_purview = 1;
+            $groupids_2_purview = 2;
+            $groupids_3_purview = 3;
+        }
+
         $data['UserGroupList'] = new ObjList();
         $data['UserGroupList']->construct_db(array(
+            'db_where_Arr' => [
+                'groupid !=' => $groupids_1_purview,
+                'groupid != ' => $groupids_2_purview,
+                'groupid !=  ' => $groupids_3_purview
+            ],
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'UserGroup',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
+            'limitstart_Num' => $limitstart,
+            'limitcount_Num' => $limitcount
         ));
         $data['class_links'] = $data['UserGroupList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);

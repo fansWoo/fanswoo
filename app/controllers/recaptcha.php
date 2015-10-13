@@ -1,6 +1,6 @@
 <?php
 
-class recaptcha_controller extends FS_Controller
+class Recaptcha_Controller extends MY_Controller
 {
     public $data = array();
     
@@ -11,8 +11,8 @@ class recaptcha_controller extends FS_Controller
 		$this->load->library('form_validation');
         
         //global
-		$data['global']['style'][] = 'style'.$agent_temp;
-		$data['global']['style'][] = $page.$agent_temp;
+		$data['global']['style'][] = 'app/css/style'.$agent_temp.'.css';
+		$data['global']['style'][] = $page.$agent_temp.'.css';
         
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up'.$agent_temp, $data, TRUE);

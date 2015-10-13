@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
 <div class="contentBox allWidth">
 	<h3><?=$child3_title_Str?> > <?=$child4_title_Str?></h3>
@@ -51,8 +52,8 @@
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?advertisingid=<?=$value_Advertising->advertisingid_Num?>"><?=$value_Advertising->title_Str?></a>
         </div>
         <div class="spanLineLeft text width150">
-            <?if(!empty($value_Advertising->class_AdvertisingClassList->obj_Arr)):?>
-            <?foreach($value_Advertising->class_AdvertisingClassList->obj_Arr as $key => $value_ClassMeta):?>
+            <?if(!empty($value_Advertising->class_ClassMetaList->obj_Arr)):?>
+            <?foreach($value_Advertising->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
                 <?if($key !== 0):?>,<?endif?><?=$value_ClassMeta->classname_Str?>
             <?endforeach?>
             <?else:?>
@@ -74,4 +75,5 @@
     <?endif?>
     <div class="pageLink"><?=$page_link?></div>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

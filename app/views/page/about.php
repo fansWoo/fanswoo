@@ -83,7 +83,7 @@
 	}
 	</script>
 <?=$temp['header_down']?>
-<?=$temp['topheader']?>
+<?=$temp['header_bar']?>
 		<div class="lineBorderLeft"></div>
 		<div class="lineFixed">
 			<div class="nav">
@@ -484,4 +484,5 @@
 			</div>
 		</div>
 	</div>
-<?=$temp['footer']?>
+<?=$temp['footer_bar']?>
+<?=$temp['body_end']?>

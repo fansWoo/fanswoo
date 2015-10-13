@@ -142,7 +142,7 @@ $(function(){
 });
 </script>
 <?=$temp['header_down']?>
-<?=$temp['topheader']?>
+<?=$temp['header_bar']?>
 <div class="content1">
 	<div class="bg1">
 		<img src="app/img/server/content1/bg3.png">
@@ -761,4 +761,5 @@ $(function(){
 	</div>
 </div>
 
-<?=$temp['footer']?>
+<?=$temp['footer_bar']?>
+<?=$temp['body_end']?>

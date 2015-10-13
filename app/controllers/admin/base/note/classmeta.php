@@ -1,6 +1,6 @@
 <?php
 
-class classmeta_controller extends FS_controller {
+class Classmeta_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'base';
     protected $child2_name_Str = 'note';
@@ -11,16 +11,16 @@ class classmeta_controller extends FS_controller {
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
         $this->load->model('AdminModel');
         $this->AdminModel->child1_name_Str = $this->child1_name_Str;
         $this->AdminModel->child2_name_Str = $this->child2_name_Str;
         $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if($data['User']->uid_Num == '')
+        {
+            $url = base_url('user/login/?url=admin');
+            header('Location: '.$url);
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -47,14 +47,15 @@ class classmeta_controller extends FS_controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -71,6 +72,7 @@ class classmeta_controller extends FS_controller {
           	$classid_Num = $this->input->post('classid_Num', TRUE);
             $classname_Str = $this->input->post('classname_Str', TRUE);
             $slug_Str = $this->input->post('slug_Str', TRUE);
+            $content_Str = $this->input->post('content_Str', TRUE);
             $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
                 
             $ClassMeta = new ClassMeta();
@@ -78,6 +80,7 @@ class classmeta_controller extends FS_controller {
             	'classid_Num' => $classid_Num,
             	'classname_Str' => $classname_Str,
             	'slug_Str' => $slug_Str,
+                'content_Str' => $content_Str,
                 'prioritynum_Num' => $prioritynum_Num,
             	'modelname_Str' => 'note'
             ));
@@ -121,7 +124,7 @@ class classmeta_controller extends FS_controller {
         $class_ClassMeta = new ClassMeta();
         $class_ClassMeta->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Str' => $data['user']['uid'],
+                'uid_Str' => $data['User']->uid_Num,
                 'slug_Str' => $data['search_class_slug_Str']
             ),
             'db_where_deletenull_Bln' => FALSE
@@ -130,8 +133,8 @@ class classmeta_controller extends FS_controller {
         $data['class_list_ClassMetaList'] = new ObjList();
         $data['class_list_ClassMetaList']->construct_db(array(
             'db_where_Arr' => array(
-                'modelname_Str' => 'note',
-                'slug_Str' => $data['search_slug_Str']
+                'modelname' => 'note',
+                'slug' => $data['search_slug_Str']
             ),
             'db_where_like_Arr' => array(
                 'classname_Str' => $data['search_classname_Str']
@@ -151,14 +154,15 @@ class classmeta_controller extends FS_controller {
         $data['class_links'] = $data['class_list_ClassMetaList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);

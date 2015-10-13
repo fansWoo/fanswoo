@@ -1,6 +1,6 @@
 <?php
 
-class user_controller extends FS_controller {
+class User_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'base';
     protected $child2_name_Str = 'user';
@@ -11,16 +11,16 @@ class user_controller extends FS_controller {
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
         $this->load->model('AdminModel');
         $this->AdminModel->child1_name_Str = $this->child1_name_Str;
         $this->AdminModel->child2_name_Str = $this->child2_name_Str;
         $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if($data['User']->uid_Num == '')
+        {
+            $url = base_url('user/login/?url=admin');
+            header('Location: '.$url);
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -42,6 +42,25 @@ class user_controller extends FS_controller {
             )
         ));
 
+        if(
+            in_array( 1, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
+            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
+            in_array( 2, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
+            !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
+            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
+            in_array( 3, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
+            !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
+            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '不可以編輯權限更高的管理員',
+                'url' => 'admin/base/user/user/tablelist'
+            ));
+            return FALSE;
+        }
+
         if(empty($data['user_UserFieldShop']->uid_Num))
         {
             $this->load->model('Message');
@@ -51,9 +70,35 @@ class user_controller extends FS_controller {
             ));
             return FALSE;
         }
+        
+        //權限判斷
+        if(
+            in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+        }
+        else if(
+            in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+            $groupids_1_purview = 1;
+        }
+        else if(
+            in_array( 3, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+            $groupids_1_purview = 1;
+            $groupids_2_purview = 2;
+            $groupids_3_purview = 3;
+        }
 
         $data['UserGroupList'] = new ObjList();
         $data['UserGroupList']->construct_db(array(
+            'db_where_Arr' => array(
+                'groupid !=' => $groupids_1_purview,
+                'groupid != ' => $groupids_2_purview,
+                'groupid !=  ' => $groupids_3_purview
+            ),
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'UserGroup',
             'limitstart_Num' => 0,
@@ -61,14 +106,15 @@ class user_controller extends FS_controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -83,8 +129,36 @@ class user_controller extends FS_controller {
 
         if ($this->form_validation->run() !== FALSE)
         {
+            $data['user_UserFieldShop'] = new UserFieldShop();
+            $data['user_UserFieldShop']->construct_db(array(
+                'db_where_Arr' => array(
+                    'user.uid' => $uid_Num
+                )
+            ));
+
+            //權限判斷
+            if( 
+                in_array( 1, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
+                !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
+                in_array( 2, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
+                !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
+                !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
+                in_array( 3, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
+                !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
+                !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
+            )
+            {
+                $this->load->model('Message');
+                $this->Message->show(array(
+                    'message' => '不可以編輯權限更高的管理員',
+                    'url' => 'admin/base/user/user/tablelist'
+                ));
+                return FALSE;
+            }
+
             //基本post欄位
             $username_Str = $this->input->post('username_Str', TRUE);
+            $groupids_Arr = $this->input->post('groupids_Arr', TRUE);
 
             //建構User物件，並且更新
             $UserFieldShop = new UserFieldShop();
@@ -92,60 +166,22 @@ class user_controller extends FS_controller {
                 'uid_Num' => $uid_Num,
                 'username_Str' => $username_Str
             ));
+            
+            //建立UserGroupList物件
+            check_comma_array($groupids_Str, $groupids_Arr);
+            $UserFieldShop->group_UserGroupList = new ObjList;
+            $UserFieldShop->group_UserGroupList->construct_db(array(
+                'db_where_or_Arr' => array(
+                    'groupid_Num' => $groupids_Arr
+                ),
+                'model_name_Str' => 'UserGroup',
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ));
+
             $UserFieldShop->update(array(
                 'db_update_Arr' => array(
-                    'user.username', 'user.updatetime'
-                )
-            ));
-
-            //送出成功訊息
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/base/user/user/edit/?uid='.$uid_Num
-            ));
-        }
-        else
-        {
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => 'admin/base/user/user/edit/?uid='.$uid_Num
-            ));
-        }
-    }
-
-    public function edit_userfieldshop_post()
-    {
-        $data = $this->data;//取得公用數據
-
-        $this->form_validation->set_rules('receive_name_Str', '常用收件人姓名', 'required');
-        $this->form_validation->set_rules('receive_phone_Str', '常用收件人電話', 'required');
-        $this->form_validation->set_rules('receive_address_Str', '常用收件人地址', 'required');
-        $uid_Num = $this->input->post('uid_Num', TRUE);
-
-        if ($this->form_validation->run() !== FALSE)
-        {
-            //基本post欄位
-            $receive_name_Str = $this->input->post('receive_name_Str', TRUE);
-            $receive_phone_Str = $this->input->post('receive_phone_Str', TRUE);
-            $receive_address_Str = $this->input->post('receive_address_Str', TRUE);
-
-            //建構User物件，並且更新
-            $UserFieldShop = new UserFieldShop();
-            $UserFieldShop->construct(array(
-                'uid_Num' => $uid_Num,
-                'receive_name_Str' => $receive_name_Str,
-                'receive_phone_Str' => $receive_phone_Str,
-                'receive_address_Str' => $receive_address_Str
-            ));
-            $UserFieldShop->update(array(
-                'db_update_Arr' => array(
-                    'user_field_shop.receive_name',
-                    'user_field_shop.receive_phone',
-                    'user_field_shop.receive_address'
+                    'user.username', 'user.updatetime', 'user.groupids'
                 )
             ));
 
@@ -245,15 +281,39 @@ class user_controller extends FS_controller {
                 'groupid_Num' => $data['search_group_groupid_Num']
             )
         ));
+        
+        //權限判斷
+        if(
+            in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+        }
+        else if(
+            in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+            $groupids_1_purview = 1;
+        }
+        else if(
+            in_array( 3, $data['User']->group_UserGroupList->uniqueids_Arr)
+        )
+        {
+            $groupids_1_purview = 1;
+            $groupids_2_purview = 2;
+            $groupids_3_purview = 3;
+        }
 
         $data['user_UserList'] = new ObjList();
         $data['user_UserList']->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Num' => $data['search_uid_Num']
+                'uid' => $data['search_uid_Num'],
+                'groupids !=' => $groupids_1_purview,
+                'groupids != ' => $groupids_2_purview,
+                'groupids !=  ' => $groupids_3_purview
             ),
             'db_where_like_Arr' => array(
-                'username_Str' => $data['search_username_Str'],
-                'email_Str' => $data['search_email_Str']
+                'username' => $data['search_username_Str'],
+                'email' => $data['search_email_Str']
             ),
             'db_where_or_Arr' => array(
                 'groupids' => array($UserGroup->groupid_Num)
@@ -271,6 +331,11 @@ class user_controller extends FS_controller {
 
         $data['UserGroupList'] = new ObjList();
         $data['UserGroupList']->construct_db(array(
+            'db_where_Arr' => array(
+                'groupid !=' => $groupids_1_purview,
+                'groupid != ' => $groupids_2_purview,
+                'groupid !=  ' => $groupids_3_purview
+            ),
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'UserGroup',
             'limitstart_Num' => 0,
@@ -278,14 +343,15 @@ class user_controller extends FS_controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -341,7 +407,7 @@ class user_controller extends FS_controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => '刪除成功',
-                'url' => 'admin/shop/product_shop/product/product_list'
+                'url' => 'admin/base/user/user/tablelist'
             ));
         }
         else
@@ -349,7 +415,7 @@ class user_controller extends FS_controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/shop/product_shop/product/product_list'
+                'url' => 'admin/base/user/user/tablelist'
             ));
         }
     }

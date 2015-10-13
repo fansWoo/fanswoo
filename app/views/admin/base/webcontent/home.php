@@ -1,5 +1,6 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
 <h2>內容管理 - 首頁內容</h2>
 <div class="contentBox allWidth">
 	<h3>展示藝廊</h3>
@@ -141,5 +142,5 @@
 	</div>
 	</form>
 </div>
-
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>

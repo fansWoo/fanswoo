@@ -1,6 +1,6 @@
 <?php
 
-class classmeta_controller extends FS_controller {
+class Classmeta_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'shop';
     protected $child2_name_Str = 'product';
@@ -11,16 +11,16 @@ class classmeta_controller extends FS_controller {
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
         $this->load->model('AdminModel');
         $this->AdminModel->child1_name_Str = $this->child1_name_Str;
         $this->AdminModel->child2_name_Str = $this->child2_name_Str;
         $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if($data['User']->uid_Num == '')
+        {
+            $url = base_url('user/login/?url=admin');
+            header('Location: '.$url);
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -29,9 +29,11 @@ class classmeta_controller extends FS_controller {
     public function edit()
     {
         $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
+        $admin_data_Arr = $this->AdminModel->get_data(array(
             'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        ));
+        if($admin_data_Arr === FALSE) return FALSE;
+        $data = array_merge($data, $admin_data_Arr);
 
         //引入GET數值
         $classid_Num = $this->input->get('classid');
@@ -61,14 +63,15 @@ class classmeta_controller extends FS_controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -118,9 +121,11 @@ class classmeta_controller extends FS_controller {
     public function tablelist()
     {
         $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
+        $admin_data_Arr = $this->AdminModel->get_data(array(
             'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        ));
+        if($admin_data_Arr === FALSE) return FALSE;
+        $data = array_merge($data, $admin_data_Arr);
 
         $data['search_classname_Str'] = $this->input->get('classname');
         $data['search_slug_Str'] = $this->input->get('slug');
@@ -134,7 +139,7 @@ class classmeta_controller extends FS_controller {
         $class_ClassMeta = new ClassMeta();
         $class_ClassMeta->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Str' => $data['user']['uid'],
+                'uid_Str' => $data['User']->uid_Num,
                 'slug_Str' => $data['search_class2_slug_Str']
             ),
             'db_where_deletenull_Bln' => FALSE
@@ -175,14 +180,15 @@ class classmeta_controller extends FS_controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -231,7 +237,7 @@ class classmeta_controller extends FS_controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => '刪除成功',
-                'url' => 'admin/product/class_list'
+                'url' => 'admin/shop/product/classmeta/tablelist'
             ));
         }
         else
@@ -239,7 +245,7 @@ class classmeta_controller extends FS_controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/product/class_list'
+                'url' => 'admin/shop/product/classmeta/tablelist'
             ));
         }
     }

@@ -17,14 +17,15 @@ $config['language']['files'] = array('common', 'admin', 'user', 'message', 'form
 //If user locale not found, set this valus as a defaul user locale
 $config['language']['default_locale'] = 'zh-TW';
 
-//Default language folder, if locale folder not found
-$config['language']['locale']['default'] = 'zh-TW';
-
 //zh-TW locale mapped to tchinese folder
-$config['language']['locale']['zh-TW'] = 'zh-TW';
-
-//en locale mapped to schinese folder
-$config['language']['locale']['en'] = 'en';
+$config['language']['locale'] = [
+	'zh-TW' => '繁體中文 (TW)',
+	'zh-HK' => '繁體中文 (HK)',
+	'zh-CN' => '简体中文 (CN)',
+	'ja-JP' => '日本語',
+	'ko-KR' => '한국어',
+	'en-US' => 'English (US)',
+];
 
 /* End of file i18n.php */
 /* Location: ./application/config/i18n.php */

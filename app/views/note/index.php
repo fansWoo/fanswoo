@@ -1,38 +1,37 @@
 <?=$temp['header_up']?>
 <script src="app/js/smooth_scrollerator.js"></script>
 <?=$temp['header_down']?>
-<?=$temp['topheader']?>
+<?=$temp['header_bar']?>
 		<div class="bg1">fansWoo</div>
 		<div class="bg2">fansWoo</div>
 		<div class="bg3">fansWoo</div>
         
 		<div class="textHotNews">
 			<h2>熱門文章</h2>
-			<?foreach($note_other_list as $value):?>
-				<a href="note/view/<?=$value['noteid']?>"><?=$value['title']?></a>
+			<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteFieldList):?>
+				<a href="note/view/<?=$value_NoteFieldList->noteid_Num?>"><?=$value_NoteFieldList->title_Str?></a>
 			<?endforeach?>
 		</div>
 		<div class="newsContent">
 			<h2 class="newsTitle">趨勢 <b>N</b>ews</h2>
 			<h3><b>設計創作、市場行銷、企業管理、科技資訊</b></h3>
-			<?if(isset($note_list)):?>
-			<?foreach($note_list as $value):?>
+				<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteFieldList):?>
 				<div class="stage">
-					<h3 class="title"><a href="note/view/<?=$value['noteid']?>"><?=$value['title']?></a></h3>
-					<p class="title2"><a href="" fanScript-hrefNone class="author">Sacriley Yang</a><?=$value['updatetime']?></p>
-					<?if($value['pic']):?>
-					<a href="note/view/<?=$value['noteid']?>" class="pic">
-						<img src="<?=$value['pic']?>">
-					</a>
+					<h3 class="title"><a href="note/view/<?=$value_NoteFieldList->noteid_Num?>"><?=$value_NoteFieldList->title_Str?></a></h3>
+					<p class="title2"><a href="" fanScript-hrefNone class="author">Sacriley Yang</a><?=$value_NoteFieldList->updatetime_DateTime->getdate_Arr['year']?>.<?=$value_NoteFieldList->updatetime_DateTime->getdate_Arr['mon']?>.<?=$value_NoteFieldList ->updatetime_DateTime->getdate_Arr['mday']?></p>
+					<?if($value_NoteFieldList->pic_PicObjList->obj_Arr[0]->path_Arr['w0h0'] !== NULL):?>
+						<a href="note/view/<?=$value_NoteFieldList->noteid_Num?>" class="pic">
+							<img src="<?=$value_NoteFieldList->pic_PicObjList->obj_Arr[0]->path_Arr['w0h0']?>">
+						</a>
 					<?endif?>
 					<div class="message">
-					<?=$value['content_html']?>
+						<?=mb_substr(strip_tags($value_NoteFieldList->content_Html), 0, 100, 'utf-8')?>
 					</div>
 					<iframe src="http://www.facebook.com/widgets/like.php?href=http://www.facebook.com/fanswoo.my&show_faces=true" scrolling="no" frameborder="0" allowTransparency="true" style="border:none;overflow:hidden;width:500px; height:65px;"></iframe>
-					<p>（<a href="note/view/<?=$value['noteid']?>">繼續閱讀...</a>）</p>
+					<p>（<a href="note/view/<?=$value_NoteFieldList->noteid_Num?>">繼續閱讀...</a>）</p>
 				</div>
-			<?endforeach?>
-			<?else:?>
+				<?endforeach?>
+				<?if(0):?>
 				<div class="stage">
 					<h3 class="title"><a href="note/view/<?=$note['noteid']?>"><?=$note['title']?></a></h3>
 					<p class="title2"><a href="" fanScript-hrefNone class="author">Sacriley Yang</a><?=$note['updatetime']?></p>
@@ -51,6 +50,7 @@
 						</a>
 					<?endforeach?>
 				</div>
+				<?endif?>
 				<?if(0):?>
 				<div class="authorArea">
 					<h3>本篇作者</h3>
@@ -73,6 +73,6 @@
 					</script>
 					<div class="fb-comments" data-href="http://web.fanswoo.com/business/note/view/<?=$note['noteid']?>" data-width="520"></div>
 				</div>
-			<?endif?>
 		</div>
-<?=$temp['footer']?>
+<?=$temp['footer_bar']?>
+<?=$temp['body_end']?>

@@ -1,6 +1,6 @@
 <?php
 
-class global_controller extends FS_controller {
+class Global_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'base';
     protected $child2_name_Str = 'global';
@@ -11,16 +11,17 @@ class global_controller extends FS_controller {
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
         $this->load->model('AdminModel');
         $this->AdminModel->child1_name_Str = $this->child1_name_Str;
         $this->AdminModel->child2_name_Str = $this->child2_name_Str;
         $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if(empty($data['User']->uid_Num))
+        {
+            $url = base_url('user/login/?url=admin');
+            header('Location: '.$url);
+            return FALSE;
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -33,27 +34,16 @@ class global_controller extends FS_controller {
             'child4_name_Str' => 'common'//管理分類名稱
         )));
 
-        //view sidebox設定
-        $data['admin_sidebox'] = $this->AdminModel->reset_sidebox();
-
-
-        $SettingList = new SettingList();
-        $SettingList->construct_db([
-            'db_where_Arr' => [
-                'modelname' => 'smtp'
-            ]
-        ]);
-        $data['global'] = array_merge($data['global'], $SettingList->get_array());
-
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -188,7 +178,38 @@ class global_controller extends FS_controller {
         }
     }
 
-    public function common_smtp_post()
+    public function email()
+    {
+        $data = $this->data;//取得公用數據
+        $data = array_merge($data, $this->AdminModel->get_data(array(
+            'child4_name_Str' => 'email'//管理分類名稱
+        )));
+
+
+        $SettingList = new SettingList();
+        $SettingList->construct_db([
+            'db_where_Arr' => [
+                'modelname' => 'smtp'
+            ]
+        ]);
+        $data['global'] = array_merge($data['global'], $SettingList->get_array());
+
+        //global
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
+
+        //temp
+        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+
+        //輸出模板
+        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+    }
+
+    public function email_smtp_post()
     {
 
         $this->form_validation->set_rules('smtp_account', 'SMTP顯示郵件', 'required');
@@ -248,7 +269,7 @@ class global_controller extends FS_controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => '設定成功',
-                'url' => 'admin/base/global/global/common'
+                'url' => 'admin/base/global/global/email'
             ));
         }
         else
@@ -269,19 +290,17 @@ class global_controller extends FS_controller {
         $data = array_merge($data, $this->AdminModel->get_data(array(
             'child4_name_Str' => 'seo'//管理分類名稱
         )));
-
-        //view sidebox設定
-        $data['admin_sidebox'] = $this->AdminModel->reset_sidebox();
         
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
             
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -295,16 +314,23 @@ class global_controller extends FS_controller {
         {
             $website_metatag = $this->input->post('website_metatag', TRUE);
 
-            $SettingList = new SettingList();
-            $SettingList->construct(array(
-                'construct_Arr' => array(
-                    array(
-                        'keyword_Str' => 'website_metatag',
-                        'value_Str' => $website_metatag
-                    )
-                )
+            $Setting = new Setting;
+            $Setting->construct(array(
+                'keyword_Str' => 'website_metatag',
+                'value_Str' => $website_metatag
             ));
-            $SettingList->update(array());
+            $Setting->update();
+
+            // $SettingList = new SettingList();
+            // $SettingList->construct(array(
+            //     'construct_Arr' => array(
+            //         array(
+            //             'keyword_Str' => 'website_metatag',
+            //             'value_Str' => $website_metatag
+            //         )
+            //     )
+            // ));
+            // $SettingList->update();
 
             //送出成功訊息
             $this->load->model('Message');
@@ -331,19 +357,17 @@ class global_controller extends FS_controller {
         $data = array_merge($data, $this->AdminModel->get_data(array(
             'child4_name_Str' => 'plugin'//管理分類名稱
         )));
-
-        //view sidebox設定
-        $data['admin_sidebox'] = $this->AdminModel->reset_sidebox();
         
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
             
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-        $data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);

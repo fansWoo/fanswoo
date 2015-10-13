@@ -152,6 +152,24 @@ class User extends ObjDbBase {
             'status' => 1
         ));
 
+        $shop_user_register_get_coupon_count_Setting = new Setting();
+        $shop_user_register_get_coupon_count_Setting->construct_db([
+            'db_where_Arr' => [
+                'keyword' => 'shop_user_register_get_coupon_count'
+            ]
+        ]);
+
+        $UserFieldShop = new UserFieldShop();
+        $UserFieldShop->construct_db([
+            'db_where_Arr' => [
+                'user.uid' => $uid_Num
+            ]
+        ]);
+        $UserFieldShop->set('coupon_count_Num', $UserFieldShop->coupon_count_Num + $shop_user_register_get_coupon_count_Setting->value_Str);
+        $UserFieldShop->update([
+            'db_update_Arr' => ['user_field_shop.coupon_count']
+        ]);
+
         $this->login(array('email_Str' => $email_Str, 'password_Str' => $password_Str));
 
         return TRUE;

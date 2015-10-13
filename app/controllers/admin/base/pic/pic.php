@@ -1,6 +1,6 @@
 <?php
 
-class pic_controller extends FS_Controller {
+class Pic_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'base';
     protected $child2_name_Str = 'pic';
@@ -11,16 +11,16 @@ class pic_controller extends FS_Controller {
         parent::__construct();
         $data = $this->data;
 
-        if($data['user']['uid'] == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
         $this->load->model('AdminModel');
         $this->AdminModel->child1_name_Str = $this->child1_name_Str;
         $this->AdminModel->child2_name_Str = $this->child2_name_Str;
         $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if($data['User']->uid_Num == '')
+        {
+            $url = base_url('user/login/?url=admin');
+            header('Location: '.$url);
+        }
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -46,7 +46,7 @@ class pic_controller extends FS_Controller {
         $data['ClassMetaList'] = new ObjList();
         $data['ClassMetaList']->construct_db(array(
         	'db_where_Arr' => array(
-        		'uid_Str' => $data['user']['uid'],
+        		'uid_Str' => $data['User']->uid_Num,
         		'modelname' => 'pic'
         	),
             'model_name_Str' => 'ClassMeta',
@@ -55,14 +55,16 @@ class pic_controller extends FS_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
             
         //temp
-		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-		$data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-		$data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
@@ -70,6 +72,7 @@ class pic_controller extends FS_Controller {
 
 	public function edit_post()
 	{
+        $picids_Arr = $this->input->post('picids_Arr');
 
 		$picid_Num = $this->input->post('picid_Num');
         $classids_Arr = $this->input->post('classids_Arr');
@@ -93,8 +96,8 @@ class pic_controller extends FS_Controller {
                 'limitcount_Num' => 100
             ));
             $PicObj->updatetime_DateTime = new DateTimeObj();
-		    $PicObj->updatetime_DateTime->construct(array());
-		    $PicObj->update(array());
+		    $PicObj->updatetime_DateTime->construct();
+		    $PicObj->update();
 
 			$this->load->model('Message');
 			$this->Message->show(array(
@@ -102,35 +105,42 @@ class pic_controller extends FS_Controller {
 			    'url' => 'admin/base/pic/pic/tablelist'
 			));
 		}
-		else
+		else if( !empty($picids_Arr) )
 		{
-	        $picfile_FileArr = $this->input->file('picfile_FileArr');
-		    if(!empty($picfile_FileArr))
-		    {
-		        $PicObj = new PicObj();
-		        $PicObj->construct(array(
-		           	'picfile_FileArr' => $picfile_FileArr,
-                    'classids_Arr' => $classids_Arr,
-		            'thumb_Str' => 'w50h50,w300h300'
-		        ));
-		        $PicObj->upload();
-
-			    $this->load->model('Message');
-			    $this->Message->show(array(
-			        'message' => '設定成功',
-			        'url' => 'admin/base/pic/pic/tablelist'
-			    ));
-		    }
-		    else
-		    {
-			    $this->load->model('Message');
-			    $this->Message->show(array(
-			        'message' => '設定失敗',
-			        'url' => 'admin/base/pic/pic/tablelist'
-			    ));
-		    }
+		    $PicObjList = new ObjList;
+            $PicObjList->construct_db([
+                'db_where_or_Arr' => [
+                    'picid' => $picids_Arr
+                ],
+                'model_name_Str' => 'PicObj',
+                'db_orderby_Arr' => [
+                    ['prioritynum', 'DESC'],
+                    ['updatetime', 'DESC']
+                ],
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ]);
+            foreach($PicObjList->obj_Arr as $key => $value_PicObj)
+            {
+                $value_PicObj->set('class_ClassMetaList', [
+                    'classids_Arr' => $classids_Arr
+                ], 'ClassMetaList');
+                $value_PicObj->update();
+            }
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '設定成功',
+                'url' => 'admin/base/pic/pic/tablelist'
+            ));
 		}
-	        
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '未知的錯誤',
+                'url' => 'admin/base/pic/pic/tablelist'
+            ));
+        }
 
 	}
 	
@@ -153,17 +163,17 @@ class pic_controller extends FS_Controller {
         $class_ClassMeta = new ClassMeta();
         $class_ClassMeta->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Str' => $data['user']['uid'],
+                'uid_Str' => $data['User']->uid_Num,
                 'slug_Str' => $data['search_class_slug_Str']
             ),
             'db_where_deletenull_Bln' => FALSE
         ));
 
-        $data['piclist_PicList'] = $this->load->model('ObjList', nrnum());
+        $data['piclist_PicList'] = new ObjList;
         $data['piclist_PicList']->construct_db(array(
             'db_where_Arr' => array(
                 'picid_Num' => $data['search_picid_Num'],
-                'uid_Num' => $data['user']['uid'],
+                'uid_Num' => $data['User']->uid_Num,
             ),
             'db_where_like_Arr' => array(
                 'title_Str' => $data['search_title_Str']
@@ -174,8 +184,8 @@ class pic_controller extends FS_Controller {
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'PicObj',
             'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
             ),
             'limitstart_Num' => $limitstart_Num,
             'limitcount_Num' => $limitcount_Num
@@ -185,7 +195,7 @@ class pic_controller extends FS_Controller {
         $data['pic_ClassMetaList'] = $this->load->model('ObjList', nrnum());
         $data['pic_ClassMetaList']->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Num' => $data['user']['uid'],
+                'uid_Num' => $data['User']->uid_Num,
                 'modelname' => 'pic'
             ),
             'db_where_deletenull_Bln' => TRUE,
@@ -199,14 +209,15 @@ class pic_controller extends FS_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'admin';
-        $data['global']['js'][] = 'script_common';
-        $data['global']['js'][] = 'admin';
+        $data['global']['style'][] = 'app/css/admin/global.css';
+        $data['global']['js'][] = 'app/js/admin.js';
             
         //temp
-		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-		$data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-		$data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);

@@ -64,7 +64,7 @@ $(function(){
 	<div class="plane">fansWoo</div>
 	<div class="bg1">fansWoo</div>
 	<div class="bg2">fansWoo</div>
-<?=$temp['topheader']?>
+<?=$temp['header_bar']?>
 	<div class="pc_content">
 		<div class="textContact">
 			<div class="textContactContent">
@@ -314,4 +314,5 @@ $(function(){
 		</div>
 	</div>
 </div>
-<?=$temp['footer']?>
+<?=$temp['footer_bar']?>
+<?=$temp['body_end']?>

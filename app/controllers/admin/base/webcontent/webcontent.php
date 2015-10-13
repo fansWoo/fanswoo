@@ -1,25 +1,28 @@
 <?php
 		
-class Webcontent extends CI_Controller {
+class Webcontent_Controller extends MY_Controller {
     
     private $data = array();
 	private $father_name = 'webcontent';//管理分類名稱
 
 	public function __construct()
 	{
-		parent::__construct();
-        $this->data = $this->common_model->common();
-        $data = $this->common_model->data;
-        
-		if($data['user']['uid'] == '')
-		{
+        parent::__construct();
+        $data = $this->data;
+
+        $this->load->model('AdminModel');
+        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
+        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
+        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
+
+        if($data['User']->uid_Num == '')
+        {
             $url = base_url('user/login/?url=admin');
-			header('Location: '.$url);
-		}
-		
-		$this->load->model('admin_model');
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+            header('Location: '.$url);
+        }
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
 	}
     
 	public function home($input = '')
@@ -156,13 +159,15 @@ class Webcontent extends CI_Controller {
 			$data['child_name'] = $child_name;
         
             //global
-            $data['global']['style'][] = 'admin';
-			$data['global']['js'][] = 'script_common';
+	        $data['global']['style'][] = 'app/css/admin/global.css';
+	        $data['global']['js'][] = 'app/js/admin.js';
             
             //temp
-			$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-			$data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-			$data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+	        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
+	        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+	        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+	        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+	        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 				
 			//輸出模板
 			$this->load->view('admin/'.$this->father_name.'/'.$child_name, $data);
@@ -337,13 +342,15 @@ class Webcontent extends CI_Controller {
 			$data['child_name'] = $child_name;
         
             //global
-            $data['global']['style'][] = 'admin';
-			$data['global']['js'][] = 'script_common';
+	        $data['global']['style'][] = 'app/css/admin/global.css';
+	        $data['global']['js'][] = 'app/js/admin.js';
             
             //temp
-			$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-			$data['temp']['admin_header_down'] = $this->load->view('admin/temp/admin_header_down', $data, TRUE);
-			$data['temp']['admin_footer'] = $this->load->view('admin/temp/admin_footer', $data, TRUE);
+	        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
+	        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+	        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+	        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+	        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 				
 			//輸出模板
 			$this->load->view('admin/'.$this->father_name.'/'.$child_name, $data);

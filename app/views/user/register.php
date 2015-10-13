@@ -1,6 +1,5 @@
 <?=$temp['header_up']?>
 <?=$temp['header_down']?>
-<?=$temp['topheader']?>
 <div class="userBox">
 	<h2>會員註冊</h2>
 	<div class="userBoxContent">
@@ -29,7 +28,7 @@
 	<div class="userBoxOther">
 		<p><a href="user/login">會員登入</a></p>
 		<p><a href="user/forgetpsw">忘記密碼？</a></p>
-		<p><a href="page/index">回到首頁</a></p>
+		<p><a href="<?=base_url()?>">回到首頁</a></p>
 	</div>
 </div>
-<?=$temp['footer']?>
+<?=$temp['body_end']?>

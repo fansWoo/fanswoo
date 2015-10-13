@@ -1,29 +1,30 @@
 <?=$temp['header_up']?>
-<?=$temp['admin_header_down']?>
-<h2>相簿管理 - 照片列表</h2>
+<?=$temp['header_down']?>
+<?=$temp['admin_header_bar']?>
+<h2>分類標籤管理 - 圖片列表</h2>
 <div class="contentBox allWidth">
-	<h3>照片列表</h3>
-	<h4>請填寫欲新增或更改之照片</h4>
+	<h3>圖片列表</h3>
+	<h4>請填寫欲新增或更改之圖片</h4>
 	<div class="spanLine noneBg">
         <div class="spanLineLeft">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit" class="button">新增<?=$child3_title_Str?></a>
         </div>
         <div class="spanLineRight width300">
-            <input type="text" class="floatright text" id="search" name="search" placeholder="請輸入想要搜尋的照片標題" style="display:none;">
+            <input type="text" class="floatright text" id="search" name="search" placeholder="請輸入想要搜尋的圖片標題" style="display:none;">
         </div>
 	</div>
 	<div class="spanLine tableTitle">
         <div class="spanLineLeft text width100">
-			照片ID
+			圖片ID
         </div>
         <div class="spanLineLeft text width100">
-			照片預覽
+			圖片預覽
         </div>
         <div class="spanLineLeft text width300">
-			照片標題
+			圖片標題
         </div>
         <div class="spanLineLeft text width150">
-            相簿分類
+            分類標籤
         </div>
 	</div>
     <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
@@ -32,7 +33,7 @@
                 <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_picid_Num)?$search_picid_Num:''?>" name="search_picid_Num" placeholder="請填寫id">
             </div>
             <div class="spanLineLeft text width100">
-                照片預覽
+                圖片預覽
             </div>
             <div class="spanLineLeft text width300">
                 <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title_Str)?$search_title_Str:''?>" name="search_title_Str" placeholder="請填寫標籤名稱">
@@ -86,4 +87,5 @@
     </div>
     <?endif?>
 </div>
-<?=$temp['admin_footer']?>
+<?=$temp['admin_footer_bar']?>
+<?=$temp['body_end']?>
