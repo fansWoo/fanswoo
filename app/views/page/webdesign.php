@@ -306,7 +306,7 @@ $(function(){
 						<h3>旺旺集團購物商城 </h3>
 					</div>
 					<div class="box">
-						<div class="picbox" data-hrefto="http://web.fanswoo.com/basial">
+						<div class="picbox" data-hrefto="http://web.fanswoo.com/basilai">
 							<img src="app/img/webdesign/beer.jpg">
 							<img src="app/img/webdesign/content9_border.png" class="border">
 							<img src="app/img/webdesign/content9_shadow.png" class="shadow">

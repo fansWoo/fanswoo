@@ -61,10 +61,10 @@ body.start .index_topHeader.hover{display:block;z-index:111;}
 .index_topHeader .navBar .box:hover .nav{opacity:0; }
 .index_topHeader .navBar .box:hover .nav2{ opacity:1; }
 .index_topHeader .navBar .box.down{position:relative;}
-.index_topHeader .navBar .box.down .downbox{ display:none;position:absolute;width:120px;height:168px;top:60px;left:0px; background-color:rgba(0,0,0,0.7);border-radius:0px 0px 10px 10px;-webkit-animation:p201407240450 0.65s; animation:p201407240450 0.65s;}
+.index_topHeader .navBar .box.down .downbox{ display:none;position:absolute;width:120px;height:224px;top:60px;left:0px; background-color:rgba(0,0,0,0.7);border-radius:0px 0px 10px 10px;-webkit-animation:p201407240450 0.65s; animation:p201407240450 0.65s;}
 .index_topHeader .navBar .box .downbox .downbox1{width:120px;height:55px; line-height:55px;color:#fff;border-bottom:1px solid #5d5d5d;letter-spacing:2px;color:#fff;}
 .index_topHeader .navBar .box.down .downbox a{display:block;color:#fff;}
-.index_topHeader .navBar .box.down:hover .downbox{display:block;height:168px;  }
+.index_topHeader .navBar .box.down:hover .downbox{display:block;height:224px;  }
 .index_topHeader .navBar .box.down:hover .downbox a{color:#fff;}
 @-webkit-keyframes p201407240450{
 	0%{ -webkit-transform: translate(0, -10px); opacity:0; }

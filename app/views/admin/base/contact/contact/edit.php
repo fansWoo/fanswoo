@@ -19,10 +19,10 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                電子郵件
+                公司名稱
             </div>
             <div class="spanLineLeft width500">
-                <?=$Contact->email_Str?>
+                <?=$Contact->company_Str?>
             </div>
         </div>
     </div>
@@ -39,10 +39,50 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                詢問類別
+                電子郵件
+            </div>
+            <div class="spanLineLeft width500">
+                <?=$Contact->email_Str?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                公司地址
+            </div>
+            <div class="spanLineLeft width500">
+                <?=$Contact->address_Str?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                詢問項目
             </div>
             <div class="spanLineLeft width500">
                 <?=$Contact->classtype_Str?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                主要項目
+            </div>
+            <div class="spanLineLeft width500">
+                <?=$Contact->classtype2_Str?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                預算
+            </div>
+            <div class="spanLineLeft width500">
+                <?=$Contact->money_Str?>
             </div>
         </div>
     </div>

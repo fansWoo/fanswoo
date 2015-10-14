@@ -46,7 +46,7 @@ class Contact_Controller extends MY_Controller {
             return FALSE;
         }
 
-        $data['Contact'] = new Contact();
+        $data['Contact'] = new ContactFanswoo();
         $data['Contact']->construct_db(array(
             'db_where_Arr' => array(
                 'contactid_Num' => $contactid_Num
@@ -77,7 +77,7 @@ class Contact_Controller extends MY_Controller {
         $status_process_Num = $this->input->post('status_process_Num');
 
         //建構Contact物件，並且更新
-        $Contact = new Contact();
+        $Contact = new ContactFanswoo();
         $Contact->construct(array(
             'contactid_Num' => $contactid_Num,
             'status_process_Num' => $status_process_Num
@@ -125,7 +125,7 @@ class Contact_Controller extends MY_Controller {
                 array('contactid', 'DESC')
             ),
             'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'Contact',
+            'model_name_Str' => 'ContactFanswoo',
             'limitstart_Num' => $limitstart_Num,
             'limitcount_Num' => $limitcount_Num
         ));
@@ -183,7 +183,7 @@ class Contact_Controller extends MY_Controller {
         //CSRF過濾
         if($hash_Str == $this->security->get_csrf_hash())
         {
-            $Contact = new Contact();
+            $Contact = new ContactFanswoo();
             $Contact->construct(array('contactid_Num' => $contactid_Num));
             $Contact->delete();
 

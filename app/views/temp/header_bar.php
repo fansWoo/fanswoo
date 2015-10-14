@@ -86,20 +86,22 @@
 				<a class="nav2" href="page/about">關於我們</a>
 				<div class="downbox">
 					<div class="downbox1">
-						<a href="page/webdesign">客製化網站</a>
+						<a href="graphic">客製化網站</a>
 					</div>
 					<div class="downbox1">
 						<a href="page/wordpress">0元套版網站</a>
 					</div>
-					
+					<div class="downbox1">
+						<a href="marketing">網路行銷</a>
+					</div>
 					<div class="downbox1" style="border:none;">
-						<a href="page/server">伺服器主機</a>
+						<a href="server">伺服器主機</a>
 					</div>
 					
 				</div>
 			</div>
 			<div class="box">
-				<a href="news" class="nav<?if($page == 'note'):?> hover<?endif?>">News</a>
+				<a href="note" class="nav<?if($page == 'note'):?> hover<?endif?>">News</a>
 				<a class="nav2" href="note">最新趨勢</a>
 			</div>
 			<div class="box">
@@ -127,27 +129,33 @@
 				<p class="nav2" href="page/about">關於我們</p>
 			</div>
 		</a>
-		<a href="page/webdesign" class="box">
+		<a href="graphic" class="box">
 			<div  class="item">
-				<p href="page/webdesign" class="nav hover"><span>w</span>ebdesign</p>
-				<p class="nav2" href="note">客製化網站</p>
+				<p href="graphic" class="nav hover"><span>G</span>raphic</p>
+				<p class="nav2" href="graphic">客製化網站</p>
 			</div>
 		</a>
 		<a href="page/wordpress"  class="box">
 			<div class="item">
-				<p href="page/wordpress" class="nav hover"><span>w</span>ordpress</p>
-				<p class="nav2" href="note">0元套版網站</p>
+				<p href="page/wordpress" class="nav hover"><span>W</span>ordpress</p>
+				<p class="nav2" href="page/wordpress">0元套版網站</p>
 			</div>
 		</a>
-		<a href="page/server" class="box">
+		<a href="marketing"  class="box">
 			<div class="item">
-				<p href="page/server" class="nav hover"><span>s</span>erver</p>
-				<p class="nav2" href="note">伺服器主機</p>
+				<p href="marketing" class="nav hover"><span>M</span>arketing</p>
+				<p class="nav2" href="marketing">網路行銷</p>
 			</div>
 		</a>
-		<a href="page/news" class="box">
-			<div href="news" class="item">
-				<p href="page/news" class="nav  hover"><span>N</span>ews</p>
+		<a href="server" class="box">
+			<div class="item">
+				<p href="server" class="nav hover"><span>S</span>erver</p>
+				<p class="nav2" href="server">伺服器主機</p>
+			</div>
+		</a>
+		<a href="note" class="box">
+			<div href="note" class="item">
+				<p href="note" class="nav  hover"><span>N</span>ews</p>
 				<p class="nav2" href="note">最新趨勢</p>
 			</div>
 		</a>

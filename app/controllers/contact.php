@@ -23,6 +23,8 @@ class Contact_Controller extends MY_controller
     {
         $data = $this->data;
 
+        $data['previous_url_Str'] = uri_string();
+
         //global
         $data['global']['style'][] = 'app/css/temp/style.css';
         $data['global']['style'][] = 'app/css/temp/header_bar.css';
@@ -41,27 +43,44 @@ class Contact_Controller extends MY_controller
     }
 
     public function contact_post()
-    {
-        $this->form_validation->set_rules('username_Str', 'Your name', 'required');
-        $this->form_validation->set_rules('email_Str', 'Email', 'required');
-        $this->form_validation->set_rules('classtype_Str', 'Emotional State', 'required');
-        $this->form_validation->set_rules('content_Str', 'Message', 'required');
+    {   
+        $previous_url_Str = $this->input->post('previous_url_Str');
+
+        $this->form_validation->set_rules('username_Str', '您的姓名', 'required');
+        $this->form_validation->set_rules('company_Str', '公司名稱', 'required');
+        $this->form_validation->set_rules('phone_Str', '聯繫電話', 'required');
+        $this->form_validation->set_rules('email_Str', '電子郵件', 'required');
+        $this->form_validation->set_rules('address_Str', '公司地址', 'required');
+        // $this->form_validation->set_rules('content_Str', '聯繫內容', 'required');
+        $this->form_validation->set_rules('classtype_Str', '詢問項目', 'required');
+        // $this->form_validation->set_rules('classtype2_Str', '主要項目', 'required');
+        $this->form_validation->set_rules('money_Str', '預算', 'required');
 
         if ($this->form_validation->run() !== FALSE)
         {
             //基本post欄位
             $username_Str = $this->input->post('username_Str', TRUE);
+            $company_Str = $this->input->post('company_Str', TRUE);
+            $phone_Str = $this->input->post('phone_Str', TRUE);
             $email_Str = $this->input->post('email_Str', TRUE);
-            $classtype_Str = $this->input->post('classtype_Str', TRUE);
+            $address_Str = $this->input->post('address_Str', TRUE);
             $content_Str = $this->input->post('content_Str', TRUE);
+            $classtype_Str = $this->input->post('classtype_Str', TRUE);
+            $classtype2_Str = $this->input->post('classtype2_Str', TRUE);
+            $money_Str = $this->input->post('money_Str', TRUE);
 
             //建構Contact物件，並且更新
-            $Contact = new Contact();
+            $Contact = new ContactFanswoo();
             $Contact->construct(array(
                 'username_Str' => $username_Str,
+                'company_Str' => $company_Str,
+                'phone_Str' => $phone_Str,
                 'email_Str' => $email_Str,
-                'classtype_Str' => $classtype_Str,
+                'address_Str' => $address_Str,
                 'content_Str' => $content_Str,
+                'classtype_Str' => $classtype_Str,
+                'classtype2_Str' => $classtype2_Str,
+                'money_Str' => $money_Str,
                 'status_process_Num' => 1
             ));
             $Contact->update();
@@ -75,12 +94,21 @@ class Contact_Controller extends MY_controller
             ]);
 
             $email_Str = $Setting->value_Str;
-            $email_name_Str = 'alchema';
-            $title_Str = 'alchema網站有新的聯繫單';
-
-            $message_Str = '您好：<br><br>我們收到一封聯繫單，請至後台觀看，謝謝<br><br>後台位置：<br>
-            <a href="http://'.$_SERVER['HTTP_HOST'].'/fanswoo/admin">
-            http://'.$_SERVER['HTTP_HOST'].'/fanswoo/admin</a><br><br>'.date('Y-m-d H:i:s');
+            $email_name_Str = 'fanswoo';
+            $title_Str = $company_Str.'的'.$username_Str.'有一封瘋沃科技的需求單';
+            $message_Str = '您好，我們收到一封聯繫單<br>
+            <br>客戶姓名： '.$username_Str.
+            '<br>公司名稱： '.$company_Str.
+            '<br>聯繫電話： '.$phone_Str.
+            '<br>電子郵件： '.$email_Str.
+            '<br>聯繫地址： '.$address_Str.
+            '<br>詢問項目： '.$classtype_Str.
+            '<br>項目細節： '.$classtype2_Str.
+            '<br>客戶預算： '.$money_Str.
+            '<br>需求內容： '.$content_Str.
+            '<br><br>'.date('Y-m-d H:i:s').
+            '<br><br>後台位置：<br><a href="http://'.$_SERVER['HTTP_HOST'].base_url().'admin">
+            http://'.$_SERVER['HTTP_HOST'].base_url().'admin</a><br>';
 
             $Mailer = new Mailer;
             $return_message_Str = $Mailer->sendmail($email_Str, $email_name_Str, $title_Str, $message_Str);
@@ -94,7 +122,7 @@ class Contact_Controller extends MY_controller
                 $this->load->model('Message');
                 $this->Message->show(array(
                     'message' => 'error(4)：Mail Server Error',
-                    'url' => 'contact'
+                    'url' => $previous_url_Str
                 ));
                 return FALSE;
             }
@@ -103,7 +131,7 @@ class Contact_Controller extends MY_controller
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => 'Setting Success',
-                'url' => 'contact'
+                'url' => $previous_url_Str
             ));
         }
         else
@@ -113,7 +141,7 @@ class Contact_Controller extends MY_controller
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => $validation_errors_Str,
-                'url' => 'contact'
+                'url' => $previous_url_Str
             ));
         }
     }

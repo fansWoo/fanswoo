@@ -54,6 +54,7 @@ $(function(){
 		$('.need_child').css('display', 'none');
 		$('.need_child').addClass('displaynone');
 		$('.need_child[data-selected=' + selected + ']').css('display', 'block');
+		$('.need_child[data-selected=' + selected + ']').attr('name', 'classtype2_Str');
 		$('.need_child option').removeAttr('selected');
 		$('.need_child[data-selected=' + selected + '] option:first').attr('selected', true);
 	});
@@ -95,23 +96,24 @@ $(function(){
 		<div class="textContactForm">
 			<div class="textContactFormContent">
 				<div class="textContactFormClose"></div>
-				<?php echo form_open('contact/index') ?>
+				<?=form_open("contact/contact_post")?>
 				<div class="rightBox">
-					<?=validation_errors()?>
-					<p>您的姓名：<input type="text" class="name" name="name" placeholder="請填寫您的姓名"></p>
-					<p>公司名稱：<input type="text" class="company" name="company" placeholder="請填寫公司名稱"></p>
-					<p>聯繫電話：<input type="text" class="telphone" name="telphone" placeholder="請填寫聯繫電話"></p>
-					<p>電子郵件：<input type="text" class="email" name="email" placeholder="請填寫電子郵件"></p>
-					<p>公司地址：<input type="text" class="address" name="address" placeholder="請填寫公司地址"></p>
-					<textarea name="text"></textarea>
+					<!--<?=validation_errors()?>-->
+					<p>您的姓名：<input type="text" class="name" name="username_Str" placeholder="請填寫您的姓名" required></p>
+					<p>公司名稱：<input type="text" class="company" name="company_Str" placeholder="請填寫公司名稱" required></p>
+					<p>聯繫電話：<input type="tel" class="telphone" name="phone_Str" placeholder="請填寫聯繫電話" required></p>
+					<p>電子郵件：<input type="email" class="email" name="email_Str" placeholder="請填寫電子郵件" required></p>
+					<p>公司地址：<input type="text" class="address" name="address_Str" placeholder="請填寫公司地址" required></p>
+					<textarea name="content_Str"></textarea>
 					<p>本公司設計案件較多，為盡早處理您的專案，請提前詢問及索取報價資訊。</p>
 					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
+					<input type="hidden" name="previous_url_Str" value="<?=$previous_url_Str?>">
 				</div>
 				<div class="leftBox">
 					<h2>線上諮詢 / 索取報價</h2>
 					<div class="area">
 						<span>詢問項目：</span>
-						<select class="need" name="need">
+						<select class="need" name="classtype_Str" required>
 							<option value="">請選擇詢問項目</option>
 							<option value="網站開發">網站開發</option>
 							<option value="程式系統開發">程式系統開發</option>
@@ -123,36 +125,36 @@ $(function(){
 					</div>
 					<div class="area">
 						<span>項目細節：</span>
-						<select class="need_child" name="need_child">
+						<select class="need_child">
 							<option value="先選擇主要項目">先選擇主要項目</option>
 						</select>
-						<select class="need_child" name="need_child" data-selected="網站開發" style="display:none;">
+						<select class="need_child" data-selected="網站開發" style="display:none;">
 							<option value="形象網站設計">形象網站設計</option>
 							<option value="0元套版網站">0元套版網站</option>
 							<option value="購物網站開發">購物網站開發</option>
 							<option value="網路平台開發">網路平台開發</option>
 						</select>
-						<select class="need_child" name="need_child" data-selected="程式系統開發" style="display:none;">
+						<select class="need_child" data-selected="程式系統開發" style="display:none;">
 							<option value="程式系統開發">程式系統開發</option>
 							<option value="手機App開發">手機App開發</option>
 						</select>
-						<select class="need_child" name="need_child" data-selected="美術設計" style="display:none;">
+						<select class="need_child" data-selected="美術設計" style="display:none;">
 							<option value="LOGO/CIS 設計">LOGO/CIS 設計</option>
 							<option value="平面設計">平面設計</option>
 							<option value="產品包裝設計">產品包裝設計</option>
 						</select>
-						<select class="need_child" name="need_child" data-selected="網路行銷" style="display:none;">
+						<select class="need_child" data-selected="網路行銷" style="display:none;">
 							<option value="facebook 粉絲團">facebook 粉絲團</option>
 							<option value="Google Adwords">Google Adwords</option>
 							<option value="網路行銷企劃">網路行銷企劃</option>
 						</select>
-						<select class="need_child" name="need_child" data-selected="伺服器租賃" style="display:none;">
+						<select class="need_child" data-selected="伺服器租賃" style="display:none;">
 							<option value="虛擬伺服器租賃">虛擬伺服器租賃</option>
 							<option value="雲端主機租賃">雲端主機租賃</option>
 							<option value="電子信箱主機租賃">電子信箱主機租賃</option>
 							<option value="Google Apps設定">Google Apps設定</option>
 						</select>
-						<select class="need_child" name="need_child" data-selected="其它問題" style="display:none;">
+						<select class="need_child" data-selected="其它問題" style="display:none;">
 							<option value="其它問題">其它問題</option>
 						</select>
 					</div>
@@ -161,7 +163,7 @@ $(function(){
 							預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價
 						</div>
 						<span>您的預算：</span>
-						<select class="money" name="money">
+						<select class="money" name="money_Str" required>
 							<option value="">請選擇預算</option>
 							<option value="15萬元以下">15萬元以下</option>
 							<option value="15萬元~30萬元">15萬元~30萬元</option>
