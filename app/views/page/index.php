@@ -4,6 +4,9 @@
 
 <script>
 $(function(){
+		$(window).resize(function(){
+			location.href = ' contact ';
+		});
 		$(" .slide_pic > .square").cycle({
 				fx      :       "scrollHorz", 
 				//fade
@@ -361,7 +364,7 @@ $(function(){
 		<div class="portfolio_box2">
 			<div class="text_box">
 				<img class="title" src="app/img/index/portfolio_box2/index4-08.png">
-				<a href=""  class="portfolio_more">
+				<a href="http://web.fanswoo.com/million_roof/  "  target="_blank" class="portfolio_more">
 					<p>立即前往</p>
 					<img src="app/img/index/arrow.png">
 					<div class="light"></div>
@@ -379,7 +382,7 @@ $(function(){
 			</div>
 			<img class="pc" src="app/img/index/mobile/pc.png">
 			<img class="sun" src="app/img/index/portfolio_box2/sun.png">
-			<a href=""  class="portfolio_more">
+			<a href="http://web.fanswoo.com/million_roof/ "  target="_blank" class="portfolio_more">
 				<p>立即前往</p>
 				<img src="app/img/index/arrow.png">
 			</a>
@@ -392,7 +395,7 @@ $(function(){
 			<img src="app/img/index/portfolio_box3/title2.png" class="title2">
 			<div class="text_box">
 				<img src="app/img/index/portfolio_box3/bg2_pic.png" class="title">
-				<a href=""  class="portfolio_more">
+				<a href="http://web.fanswoo.com/ipix/"  target="_blank" class="portfolio_more">
 					<p>立即前往</p>
 					<img src="app/img/index/arrow.png">
 				</a>
@@ -400,7 +403,7 @@ $(function(){
 		</div>
 		<div class="phone_portfolio_box3">
 			<img src="app/img/index/mobile/index_mobile-10.png" class="bg">
-			<a href=""  class="portfolio_more">
+			<a href="http://web.fanswoo.com/ipix/"  target="_blank"  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="app/img/index/arrow.png">
 			</a>
@@ -411,14 +414,14 @@ $(function(){
 			<img src="app/img/index/portfolio_box4/pad.png" class="pad">
 			<img src="app/img/index/portfolio_box4/text1.png" class="text1">
 			<img src="app/img/index/portfolio_box4/text2.png" class="text2">
-			<a href=""  class="portfolio_more">
+			<a href="http://candace.asia/" target="_blank"  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="app/img/index/arrow.png">
 			</a>
 		</div>
 		<div class="phone_portfolio_box4">
 			<img src="app/img/index/mobile/bg2.png" class="bg">
-			<a href=""  class="portfolio_more">
+			<a href="http://candace.asia/" target="_blank"  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="app/img/index/arrow.png">
 			</a>
@@ -440,7 +443,7 @@ $(function(){
 		<div class="pic_move pic1" id="pic_move_pic1">
 			<div class="text_box">
 				<img src="app/img/index/fixed_table/text2.png" class="text">
-				<a href=""  class="more">
+				<a href="marketing"  class="more">
 					<p>了解更多</p>
 					<img src="app/img/index/arrow.png">
 					<div class="light"></div>
@@ -451,7 +454,7 @@ $(function(){
 		<div class="pic_move pic2" id="pic_move_pic2">
 			<div class="text_box">
 				<img src="app/img/index/fixed_table/text3.png" class="text">
-				<a href=""  class="more">
+				<a href="graphic"  class="more">
 					<p>了解更多</p>
 					<img src="app/img/index/arrow.png">
 					<div class="light"></div>
@@ -462,7 +465,7 @@ $(function(){
 		<div class="pic_move pic3" id="pic_move_pic3">
 			<div class="text_box">
 				<img src="app/img/index/fixed_table/text4.png" class="text">
-				<a href=""  class="more">
+				<a href="page/wordpress"  class="more">
 					<p>了解更多</p>
 					<img src="app/img/index/arrow.png">
 					<div class="light"></div>
@@ -473,7 +476,7 @@ $(function(){
 		<div class="pic_move pic4" id="pic_move_pic4">
 			<div class="text_box">
 				<img src="app/img/index/fixed_table/text5.png" class="text">
-				<a href=""  class="more">
+				<a href="server"  class="more">
 					<p>了解更多</p>
 					<img src="app/img/index/arrow.png">
 					<div class="light"></div>

@@ -18,7 +18,9 @@ window._fbq.push(['track', '6020797556140', {'value':'0.00','currency':'TWD'}]);
 <noscript style="display:none;"><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6020797556140&amp;cd[value]=0.00&amp;cd[currency]=TWD&amp;noscript=1" /></noscript>
 <script>
 $(function(){
-	
+	$(window).resize(function(){
+		location.href = ' contact ';
+	});
 	//聯繫頁變更
 	$(document).on('mouseenter', '.textContactForm', function(){
 		$('.textContactForm').addClass('hover');
@@ -64,8 +66,9 @@ $(function(){
 	<div class="pencil">fansWoo</div>
 	<div class="plane">fansWoo</div>
 	<div class="bg1">fansWoo</div>
-	<div class="bg2">fansWoo</div>
+	<div class="bg2"></div>
 <?=$temp['header_bar']?>
+	
 	<div class="pc_content">
 		<div class="textContact">
 			<div class="textContactContent">
@@ -315,6 +318,5 @@ $(function(){
 			<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
 		</div>
 	</div>
-</div>
 <?=$temp['footer_bar']?>
 <?=$temp['body_end']?>

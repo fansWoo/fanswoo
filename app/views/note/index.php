@@ -2,10 +2,9 @@
 <script src="app/js/smooth_scrollerator.js"></script>
 <?=$temp['header_down']?>
 <?=$temp['header_bar']?>
-		<div class="bg1">fansWoo</div>
-		<div class="bg2">fansWoo</div>
-		<div class="bg3">fansWoo</div>
-        
+		<div class="bg1"></div>
+		<div class="bg2"></div>
+		<div class="bg3"></div>
 		<div class="textHotNews">
 			<h2>熱門文章</h2>
 			<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteFieldList):?>
