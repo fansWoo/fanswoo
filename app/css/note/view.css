@@ -1,6 +1,7 @@
 /*************************************************Page news***/
 
-body { background: #fff url(../../img/bg5.jpg) fixed center center no-repeat; background-size:cover; }
+body { background: #fff url(../../img/bg5.jpg) fixed center center no-repeat; background-size:cover; position:relative;}
+.wrap{width:100%;overflow:hidden;position:relative;}
 .brush { display:none; -webkit-transform: rotate(-1deg) translate(-1300px,0); transform: rotate(-1deg) translate(-1300px,0); }
 body.start .brush { display:block; -webkit-animation:brushPageDesign 1s; animation:brushPageDesign 1s; }
 @-webkit-keyframes brushPageDesign {
@@ -12,7 +13,7 @@ body.start .brush { display:block; -webkit-animation:brushPageDesign 1s; animati
 	100%{ transform: rotate(-1deg) translate(-1300px,0) ; }
 }
 
-.bg1 { display:none; box-shadow:none; left:50%; top:50%; height:800px; width:1000px; background: url(../../img/bg1.png) no-repeat center center; -webkit-transform: rotate(15deg) translate(120px,-100px); transform: rotate(15deg) translate(120px,-100px); z-index:2; }
+.bg1 { position:fixed;display:none; box-shadow:none; left:50%; top:50%; height:800px; width:1000px; background: url(../../img/bg1.png) no-repeat center center; -webkit-transform: rotate(15deg) translate(120px,-100px); transform: rotate(15deg) translate(120px,-100px); z-index:2; margin-left:-500px; margin-top:-300px; }
 body.start .bg1 { display:block; -webkit-animation:p084220130905 3s; animation:p084220130905 3s; }
 @-webkit-keyframes p084220130905{
 	0%{ -webkit-transform: rotate(0) translate(0,0) ; }
@@ -25,7 +26,7 @@ body.start .bg1 { display:block; -webkit-animation:p084220130905 3s; animation:p
 	100%{ transform: rotate(15deg) translate(120px,-100px) ; }
 }
 
-.bg2 { display:none; box-shadow:none; left:50%; top:50%; height:800px; width:1000px; background: url(../../img/bg1.png) no-repeat center center; z-index:2; -webkit-transform: rotate(-15deg) translate(-120px,-100px); transform: rotate(-15deg) translate(-120px,-100px); }
+.bg2 {position:fixed; display:none; box-shadow:none; left:50%; top:50%; height:800px; width:1000px; background: url(../../img/bg1.png) no-repeat center center; z-index:2; -webkit-transform: rotate(-15deg) translate(-120px,-100px); transform: rotate(-15deg) translate(-120px,-100px); margin-left:-500px; margin-top:-300px; }
 body.start .bg2 { display:block; -webkit-animation:p085320130905 3s; animation:p085320130905 3s; }
 @-webkit-keyframes p085320130905{
 	0%{ -webkit-transform: rotate(0) translate(0,0) ; }
@@ -40,7 +41,7 @@ body.start .bg2 { display:block; -webkit-animation:p085320130905 3s; animation:p
 	100%{ transform: rotate(-15deg) translate(-120px,-100px) ; }
 }
 
-.bg3 { display:none; width:2000px; opacity:0.5; -webkit-transform: translate(0,0); transform: translate(0,0); background: url(../../img/bg1Black.png) repeat-x; left:0; top:0; margin-top:0; z-index:1;}
+.bg3 { position:fixed;display:none; width:2000px; height:2000px;opacity:0.5; -webkit-transform: translate(0,0); transform: translate(0,0); background: url(../../img/bg1Black.png)   top center repeat-x; left:0; top:0; margin-top:0; z-index:1;}
 body.start .bg3 { display:block; -webkit-animation:p4322013828 3s; animation:p4322013828 3s; }
 @-webkit-keyframes p4322013828{
 	0%{ opacity:0; }
