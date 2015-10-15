@@ -53,9 +53,9 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 .bodyPagePortfolio .portfolioPageMarketingBg .portfolioTitle .zhtw { color:#000; }
 
 .bodyPagePortfolio .portfolioPageWebsiteBg {width:100%; min-height:1200px; }
-.bodyPagePortfolio .portfolioPageCISBg { min-height:1200px; background:url(../../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
-.bodyPagePortfolio .portfolioPageGraphicDesignBg { min-height:1200px; background:url(../../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
-.bodyPagePortfolio .portfolioPageMarketingBg { min-height:1200px; background:url(../../img/bg13.jpg) 50% 50% fixed; background-size:cover; }
+.bodyPagePortfolio .portfolioPageCISBg { display:none;min-height:1200px; background:url(../../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
+.bodyPagePortfolio .portfolioPageGraphicDesignBg { display:none;min-height:1200px; background:url(../../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
+.bodyPagePortfolio .portfolioPageMarketingBg {display:none; min-height:1200px; background:url(../../img/bg13.jpg) 50% 50% fixed; background-size:cover; }
 .bodyPagePortfolio .portfolioPageBg .portfolioPageWebsite,
 .bodyPagePortfolio .portfolioPageBg .portfolioPageCIS,
 .bodyPagePortfolio .portfolioPageBg .portfolioPageGraphicDesign,

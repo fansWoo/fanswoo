@@ -89,9 +89,6 @@
 								<a href="graphic">客製化網站</a>
 							</div>
 							<div class="downbox1">
-								<a href="page/wordpress">0元套版網站</a>
-							</div>
-							<div class="downbox1">
 								<a href="marketing">網路行銷</a>
 							</div>
 							<div class="downbox1" style="border:none;">
@@ -133,12 +130,6 @@
 					<div  class="item">
 						<p href="graphic" class="nav hover"><span>G</span>raphic</p>
 						<p class="nav2" href="graphic">客製化網站</p>
-					</div>
-				</a>
-				<a href="page/wordpress"  class="box">
-					<div class="item">
-						<p href="page/wordpress" class="nav hover"><span>W</span>ordpress</p>
-						<p class="nav2" href="page/wordpress">0元套版網站</p>
 					</div>
 				</a>
 				<a href="marketing"  class="box">
