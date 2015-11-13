@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 建立日期: 2015-10-14: 18:22:19
+-- 建立日期: 2015-11-13: 18:11:08
 -- 伺服器版本: 5.6.21
 -- PHP 版本: 5.6.3
 
@@ -786,7 +786,9 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('b1dc22151cd618d298451ef2a94cf658', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1444812449, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('d449c636f1d9d94a91fbf155c8f3ae96', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444812560, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('bde2a2b42d047dde117f2577f8e80f06', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1444813076, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
-('8c60395236efacb364443bd7f4acbaa2', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444813140, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
+('8c60395236efacb364443bd7f4acbaa2', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444813140, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('be746f2ac39485a07b932896811e60ce', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447406257, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528505";}'),
+('ab4afbf46f10666b4f5f5def0b20b484', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447407179, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528506";}');
 
 -- --------------------------------------------------------
 
@@ -963,7 +965,8 @@ INSERT INTO `fs_user` (`uid`, `email`, `username`, `picids`, `groupids`, `update
 (528501, 'service@fanswoo.com', '系統管理員', '', '1', '2015-08-15 17:53:45', 1),
 (528504, 'test@fanswoo.com', 'test@fanswoo.com', '', '100', '2015-09-15 22:56:05', 1),
 (528503, 'admin2@fanswoo.com', '一般管理員', '', '3', '2015-08-16 01:24:52', 1),
-(528502, 'admin@fanswoo.com', '總管理員', '', '2', '2015-09-16 01:33:39', 1);
+(528502, 'admin@fanswoo.com', '總管理員', '', '2', '2015-09-16 01:33:39', 1),
+(528505, 'mimi@fanswoo.com', 'mimi@fanswoo.com', '', '100', '2015-11-13 17:20:42', 1);
 
 -- --------------------------------------------------------
 
@@ -988,7 +991,8 @@ INSERT INTO `fs_user_field_shop` (`uid`, `receive_name`, `receive_phone`, `recei
 (528501, 'test', 'test', 'test', 222),
 (528502, '', '', '', 5),
 (528504, 'test', '123', 'rrr', 454),
-(528503, '', '', '', 0);
+(528503, '', '', '', 0),
+(528505, '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1040,7 +1044,38 @@ INSERT INTO `fs_user_verification` (`uid`, `email`, `password`, `password_salt`,
 (528501, 'service@fanswoo.com', 'f3ebc5fbce456c6f185f419c62461602', '0f7d26', '1234qwera', '53B9E1', '2015-04-10 23:00:53', 0, 0),
 (528503, 'admin2@fanswoo.com', 'b2b5410b5f94eea7feff94aab7ba763e', 'f3ab44', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528502, 'admin@fanswoo.com', 'caf77603f131efe6b052eba84f65ff9d', 'db5afb', '12345678', '', '0000-00-00 00:00:00', 0, 0),
-(528504, 'test@fanswoo.com', '4476e1b3311ef7703d03d8b7ec4d503c', '4da76f', '12345678', '', '0000-00-00 00:00:00', 0, 0);
+(528504, 'test@fanswoo.com', '4476e1b3311ef7703d03d8b7ec4d503c', '4da76f', '12345678', '', '0000-00-00 00:00:00', 0, 0),
+(528505, 'mimi@fanswoo.com', '90e802de64aba9f482b58f35b68dd20f', '93e516', '9b95a7c3', '', '0000-00-00 00:00:00', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_wordpress_order`
+--
+
+CREATE TABLE IF NOT EXISTS `fs_wordpress_order` (
+  `orderid` mediumint(8) NOT NULL,
+  `uid` mediumint(8) NOT NULL,
+  `username` char(100) NOT NULL,
+  `email` char(100) NOT NULL,
+  `phone` char(100) NOT NULL,
+  `company` char(100) NOT NULL,
+  `content` text NOT NULL,
+  `classtype` char(100) NOT NULL,
+  `address` char(100) NOT NULL,
+  `month` mediumint(8) NOT NULL,
+  `price` mediumint(8) NOT NULL,
+  `updatetime` datetime NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `orderid` (`orderid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_wordpress_order`
+--
+
+INSERT INTO `fs_wordpress_order` (`orderid`, `uid`, `username`, `email`, `phone`, `company`, `content`, `classtype`, `address`, `month`, `price`, `updatetime`, `status`) VALUES
+(1, 528505, '張琬君', 'mimi@fanswoo.com', '0912345678', 'Fanswoo', 'Hello', '微型主機', '台北市', 12, 38400, '2015-11-13 17:50:26', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
