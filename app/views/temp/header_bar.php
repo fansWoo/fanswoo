@@ -91,10 +91,12 @@
 							<div class="downbox1">
 								<a href="marketing">網路行銷</a>
 							</div>
+							<div class="downbox1">
+								<a href="wordpress">0元套版網站</a>
+							</div>
 							<div class="downbox1" style="border:none;">
 								<a href="server">伺服器主機</a>
 							</div>
-							
 						</div>
 					</div>
 					<div class="box">
@@ -136,6 +138,12 @@
 					<div class="item">
 						<p href="marketing" class="nav hover"><span>M</span>arketing</p>
 						<p class="nav2" href="marketing">網路行銷</p>
+					</div>
+				</a>
+				<a href="wordpress"  class="box">
+					<div class="item">
+						<p href="wordpress" class="nav hover"><span>W</span>ordpress</p>
+						<p class="nav2" href="wordpress">0元套版網站</p>
 					</div>
 				</a>
 				<a href="server" class="box">

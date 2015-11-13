@@ -269,7 +269,7 @@ $(function(){
 				<div class="menu">
 					<span class="li"><span class="title2"><a href="page/about">關於我們</a></span><span class="title1">About</span></span>
 					<span class="li"><span class="title2"><a href="page/portfolio">經典作品</a></span><span class="title1">Portfolio</span></span>
-					<span class="li"><span class="title2"><a href="page/server">服務項目</a></span><span class="title1">Service</span></span>
+					<span class="li"><span class="title2"><a href="server">服務項目</a></span><span class="title1">Service</span></span>
 				</div>
 				<a href="#wrapMarketing"><img src="app/img/index/arrow_down.png" class="arrow"></a>	
 			</nav>
@@ -283,7 +283,7 @@ $(function(){
 				<div class="menu">
 					<span class="li"><span class="title2"><a href="page/about">關於我們</a></span><span class="title1">About</span></span>
 					<span class="li"><span class="title2"><a href="page/portfolio">經典作品</a></span><span class="title1">Portfolio</span></span>
-					<span class="li"><span class="title2"><a href="page/server">服務項目</a></span><span class="title1">Service</span></span>
+					<span class="li"><span class="title2"><a href="server">服務項目</a></span><span class="title1">Service</span></span>
 				</div>
 				<a href="#wrapMarketing">
 					<div class="arrow">
@@ -465,7 +465,7 @@ $(function(){
 		<div class="pic_move pic3" id="pic_move_pic3">
 			<div class="text_box">
 				<img src="app/img/index/fixed_table/text4.png" class="text">
-				<a href="page/wordpress"  class="more">
+				<a href="wordpress"  class="more">
 					<p>了解更多</p>
 					<img src="app/img/index/arrow.png">
 					<div class="light"></div>

@@ -79,8 +79,8 @@ $config['group_purview_Arr'] = array(
 	'100' => array(//一般會員
 		array('user', 'global', 'global', 'user'),
 		// array('user', 'global', 'global_shop', 'user'),
-		// array('user', 'order_shop', 'order_shop', 'edit'),
-		// array('user', 'order_shop', 'order_shop', 'tablelist')
+		array('user', 'order_shop', 'order_shop', 'edit'),
+		array('user', 'order_shop', 'order_shop', 'tablelist')
 	),
 	'101' => array(//進階會員
 		array('user', 'global', 'global', 'user'),

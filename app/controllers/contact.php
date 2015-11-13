@@ -106,9 +106,8 @@ class Contact_Controller extends MY_controller
             '<br>項目細節： '.$classtype2_Str.
             '<br>客戶預算： '.$money_Str.
             '<br>需求內容： '.$content_Str.
-            '<br><br>'.date('Y-m-d H:i:s').
-            '<br><br>後台位置：<br><a href="http://'.$_SERVER['HTTP_HOST'].base_url().'admin">
-            http://'.$_SERVER['HTTP_HOST'].base_url().'admin</a><br>';
+            '<br><br>填寫時間：'.date('Y-m-d H:i:s').
+            '<br><br>後台位置：<a href="http://'.$_SERVER['HTTP_HOST'].base_url().'admin">http://'.$_SERVER['HTTP_HOST'].base_url().'admin</a><br>';
 
             $Mailer = new Mailer;
             $return_message_Str = $Mailer->sendmail($email_Str, $email_name_Str, $title_Str, $message_Str);
