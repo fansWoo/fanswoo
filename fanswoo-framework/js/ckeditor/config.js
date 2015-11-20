@@ -7,7 +7,8 @@ CKEDITOR.editorConfig = function( config ) {
     config.uiColor = '#DDDDDD';
     config.height = 350;
     config.language = 'zh';
-    config.allowedContent = true;
+    config.allowedContent = false;
+    config.extraPlugins = 'image2';
     config.enterMode = CKEDITOR.ENTER_BR;
     config.shiftEnterMode = CKEDITOR.ENTER_P;
     // 使用bbcode 開啟 BB Code 模式 ， extraPlugins: 'bbcode'
@@ -15,18 +16,10 @@ CKEDITOR.editorConfig = function( config ) {
     config.font_names = 'Arial;Arial Black;Comic Sans MS;Courier New;Tahoma;Times New Roman;Verdana;新細明體;細明體;標楷體;微軟正黑體';
     config.fontSize_sizes = '10/10px;12/12px;15/15px;20/20px;24/24px;36/36px;72/72px';
     config.toolbar = 'basic';
-    config.toolbar_bbcode =
+    config.toolbar_basic =
     [
         ['FontSize','Bold','Italic','Underline','TextColor'],
-        ['Image','Link','Unlink'],
-        ['Source']
-    ];
-    config.toolbar_note =
-    [
-        ['FontSize','Font','Bold','Italic','Underline','TextColor'],
-        ['Image','Link','Unlink','Table','HorizontalRule','RemoveFormat'],
-        ['NumberedList','BulletedList','JustifyLeft','JustifyCenter','JustifyRight'],
-        ['Source']
+        ['Image','Link','Unlink']
     ];
     config.toolbar_html =
     [
@@ -35,7 +28,7 @@ CKEDITOR.editorConfig = function( config ) {
         '/',
          ['Image','Link','Unlink','Anchor','Table','HorizontalRule','SpecialChar','PageBreak','RemoveFormat'], ['NumberedList','BulletedList','JustifyLeft','JustifyCenter','JustifyRight','Outdent','Indent','Blockquote','CreateDiv'],
          ['Form','Checkbox','Radio','TextField','Textarea','Select','Button','ImageButton','HiddenField', 'Iframe'],
-        [ 'Find', 'Replace', 'ShowBlocks','Scayt','PasteFromWord' ],
+        [ 'Find', 'Replace', 'ShowBlocks','Scayt','PasteFromWord' ]
     ];
 };
 

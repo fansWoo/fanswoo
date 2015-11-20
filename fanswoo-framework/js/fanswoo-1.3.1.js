@@ -685,6 +685,17 @@
 	}
 })(jQuery);//$ > jQuery over
 
+window.requestAnimationFrame = (function(){
+    return  window.requestAnimationFrame       || 
+            window.webkitRequestAnimationFrame || 
+            window.mozRequestAnimationFrame    || 
+            window.oRequestAnimationFrame      || 
+            window.msRequestAnimationFrame     || 
+            function( callback ){
+                window.setTimeout(callback, 1000 / 60);//定义每秒执行60次动画
+            };
+})();
+
 //fanswoo Class
 function fanswoo(){
 	var $ = jQuery;//jQuery $ > jQuery Start
@@ -753,13 +764,13 @@ function fanswoo(){
 		}, x);
 	}
     
-    
     this.check_href_action = function(message, url){
         var message;
         var url;
+        var base_Str = $('base').attr('href');
         var answer = confirm(message);
         if (answer){
-            location.href = url;
+            location.href = base_Str + url;
         }
     }
 	

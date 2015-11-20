@@ -2,7 +2,7 @@
 
 class FS_Loader extends CI_Loader
 {
-	protected $_ci_sdk_model_paths		= array();
+	protected $_ci_sdk_model_paths = array();
 
 	public function __construct()
 	{
@@ -16,18 +16,30 @@ class FS_Loader extends CI_Loader
 		log_message('debug', "Loader Class Initialized");
 	}
 
-	public function view($view, $vars = array(), $return = FALSE)
+	public function view($arg, $vars_Arr = array(), $return_Bln = FALSE)
 	{
+		if( is_array($arg) )
+		{
+			$view_Str = $arg['view_Str'];
+			$vars_Arr = $arg['vars_Arr'];
+			$return_Bln = $arg['return_Bln'];
+		}
+		else
+		{
+			$view_Str = $arg;
+		}
+
 		$CI =& get_instance();
 		$CI->load->library('i18n');
 
-		$language_path_Str = $CI->i18n->get_current_locale().'/'.$view;
-		if( !file_exists( APPPATH.'views/'.$language_path_Str.'.php' ) )
+		if(
+			file_exists( APPPATH.'views/'.$CI->i18n->get_current_locale().'/'.$view_Str.'.php' )
+		)
 		{
-			$language_path_Str = $view;
+			$view_Str = $CI->i18n->get_current_locale().'/'.$view_Str;
 		}
 
-        return parent::view($language_path_Str, $vars, $return);
+        return parent::view($view_Str, $vars_Arr, $return_Bln);
 	}
 
 	public function model($model, $name = '', $db_conn = FALSE)

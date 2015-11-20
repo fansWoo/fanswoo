@@ -120,7 +120,7 @@ class I18n{
                 $lang2 = '';
                 foreach($language_Arr['locale'] as $key => $value_Str)
                 {
-                    if( substr($lang, 0, 2) == substr($key, 0, 2) )
+                    if( substr($lang, 0, 5) == substr($key, 0, 5) )
                     {
                         $lang = $lang2 = $key;
                         break;
