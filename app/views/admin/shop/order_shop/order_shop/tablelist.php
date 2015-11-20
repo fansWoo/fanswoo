@@ -67,7 +67,7 @@
         <div class="spanLineLeft text width150">
             <?=$value_OrderShop->setuptime_DateTimeObj->datetime_Str?>
         </div>
-        <div class="spanLineLeft width300 hoverHidden">
+        <div class="spanLineLeft width100 hoverHidden">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?orderid=<?=$value_OrderShop->orderid_Num?>">編輯</a>
             <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?orderid=<?=$value_OrderShop->orderid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
         </div>

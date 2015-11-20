@@ -11,6 +11,7 @@ class Setting extends ObjDbBase
     public $db_name_Str = 'setting';//填寫物件聯繫資料庫之名稱
     public $db_name_Arr = ['setting'];
     public $db_uniqueid_Str = 'settingid';//填寫物件聯繫資料庫之唯一ID
+    public $db_objlist_key_Str = 'keyword_Str';//填寫物件聯繫資料庫之唯一ID
     public $db_uniquefield_Arr = ['keyword', 'locale'];//填寫物件聯繫資料庫之唯一ID
     public $db_field_Arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'settingid' => 'settingid_Num',

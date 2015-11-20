@@ -2,6 +2,7 @@
 
 class WordpressOrder extends ObjDbBase
 {
+    public $wordpress_orderid_Num = 0;
     public $orderid_Num = 0;
     public $uid_Num = 0;
     public $username_Str = '';
@@ -11,14 +12,15 @@ class WordpressOrder extends ObjDbBase
     public $classtype_Str = '';
     public $company_Str = '';
     public $address_Str = '';
-    public $month_Num = 0;
+    public $years_Num = 0;
     public $price_Num = 0;
     public $status_process_Num = 0;
     public $updatetime_DateTime;
     public $status_Num = 1;
     public $db_name_Str = 'fs_wordpress_order';//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid_Str = 'orderid';//填寫物件聯繫資料庫之唯一ID
+    public $db_uniqueid_Str = 'wordpress_orderid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_Arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
+        'wordpress_orderid' => 'wordpress_orderid_Num',
         'orderid' => 'orderid_Num',
         'uid' => 'uid_Num',
         'username' => 'username_Str',
@@ -28,7 +30,7 @@ class WordpressOrder extends ObjDbBase
         'classtype' => 'classtype_Str',
         'company' => 'company_Str',
         'address' => 'address_Str',
-        'month' => 'month_Num',
+        'years' => 'years_Num',
         'price' => 'price_Num',
         'updatetime' => array('updatetime_DateTime', 'datetime_Str'),
         'status' => 'status_Num'
@@ -38,10 +40,11 @@ class WordpressOrder extends ObjDbBase
     {
         parent::construct($arg);
         //引入引數並將空值的變數給予空值
-        reset_null_arr($arg, ['contactid_Num', 'uid_Num', 'username_Str', 'email_Str', 'phone_Str', 'content_Str', 'classtype_Str', 'company_Str', 'address_Str', 'month_Num', 'price_Num','updatetime_Str', 'updatetime_inputtime_date_Str', 'updatetime_inputtime_time_Str', 'status_Num']);
+        reset_null_arr($arg, ['wordpress_orderid_Num', 'orderid_Num', 'uid_Num', 'username_Str', 'email_Str', 'phone_Str', 'content_Str', 'classtype_Str', 'company_Str', 'address_Str', 'years_Num', 'price_Num','updatetime_Str', 'updatetime_inputtime_date_Str', 'updatetime_inputtime_time_Str', 'status_Num']);
         foreach($arg as $key => $value) ${$key} = $arg[$key];
         
         //將引數設為物件屬性，或將引數作為物件型屬性的建構值
+        $this->set('wordpress_orderid_Num', $wordpress_orderid_Num);
         $this->set('orderid_Num', $orderid_Num);
         $this->set('uid_Num', $uid_Num);
         $this->set('username_Str', $username_Str);
@@ -51,7 +54,7 @@ class WordpressOrder extends ObjDbBase
         $this->set('classtype_Str', $classtype_Str);
         $this->set('company_Str', $company_Str);
         $this->set('address_Str', $address_Str);
-        $this->set('month_Num', $month_Num);
+        $this->set('years_Num', $years_Num);
         $this->set('price_Num', $price_Num);
         $this->set('status_Num', $status_Num);
         $this->set('updatetime_DateTime', [

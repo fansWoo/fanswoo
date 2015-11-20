@@ -42,6 +42,13 @@ class Order_shop_Controller extends MY_Controller {
             )
         ));
 
+        $data['WordpressOrder'] = new WordpressOrder();
+        $data['WordpressOrder']->construct_db(array(
+            'db_where_Arr' => array(
+                'orderid_Num' => $orderid_Num
+            )
+        ));
+
         $data['transfer_SettingList'] = new SettingList();
         $data['transfer_SettingList']->construct_db([
             'db_where_Arr' => [

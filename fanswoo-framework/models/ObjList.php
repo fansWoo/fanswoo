@@ -38,13 +38,10 @@ class ObjList extends CI_Model {
             foreach($construct_Arr as $key => $value_Arr)
             {
                 $Model = new $model_name_Str;
-                // $this->obj_Arr[] = new $model_name_Str;
                 foreach($this->child_value_Arr as $key2 => $value2_Str)
                 {
                     $Model->set($key2, $value2_Str);
-                    // $this->obj_Arr[$key]->set($key2, $value2_Str);
                 }
-                // $this->obj_Arr[$key]->construct($value_Arr);
 
                 if($deletelocale_Bln == TRUE)
                 {
@@ -75,7 +72,12 @@ class ObjList extends CI_Model {
                 $Model->construct($value_Arr);
                 $model_db_uniqueid_Str = $Model->$db_uniqueid_Str;
                 $this->uniqueids_Arr[] = $model_db_uniqueid_Str;
-                if(!empty($model_db_uniqueid_Str) && !is_numeric($model_db_uniqueid_Str))
+                $db_objlist_key_Str = $Model->db_objlist_key_Str;
+                if( !empty($Model->$db_objlist_key_Str) )
+                {
+                    $this->obj_Arr[$Model->$db_objlist_key_Str] = $Model;
+                }
+                else if(!empty($model_db_uniqueid_Str) && !is_numeric($model_db_uniqueid_Str))
                 {
                     $this->obj_Arr[$model_db_uniqueid_Str] = $Model;
                 }

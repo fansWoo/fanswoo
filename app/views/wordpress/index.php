@@ -34,29 +34,32 @@ $(function(){
 
         $("#classtype").change(function(){
             var a1 = $("#classtype").val();
-            if(a1="微型主機"){var a1 = 700;}
-            if(a1="標準主機"){var a1 = 1500;}
-            if(a1="專業主機"){var a1 = 3200;}
-            var a2 = $("#month").val();
+            if(a1=="0"){var a1 = 0;}
+            if(a1=="微型主機"){var a1 = 700;}
+            if(a1=="標準主機"){var a1 = 1500;}
+            if(a1=="專業主機"){var a1 = 3200;}
+            var a2 = $("#years").val() * 12;
             v1 = a1 * a2;
 			$("#price").val(v1);
         });
 
-        $("#month").change(function(){
+        $("#years").change(function(){
         	var a1 = $("#classtype").val();
-            if(a1="微型主機"){var a1 = 700;}
-            if(a1="標準主機"){var a1 = 1500;}
-            if(a1="專業主機"){var a1 = 3200;}
-            var a2 = $("#month").val();
+        	if(a1=="0"){var a1 = 0;}
+            if(a1=="微型主機"){var a1 = 700;}
+            if(a1=="標準主機"){var a1 = 1500;}
+            if(a1=="專業主機"){var a1 = 3200;}
+            var a2 = $("#years").val() * 12;
             v1 = a1 * a2;
 			$("#price").val(v1);
         });
-        $("#month").keyup(function(){
+        $("#years").keyup(function(){
         	var a1 = $("#classtype").val();
-            if(a1="微型主機"){var a1 = 700;}
-            if(a1="標準主機"){var a1 = 1500;}
-            if(a1="專業主機"){var a1 = 3200;}
-            var a2 = $("#month").val();
+        	if(a1=="0"){var a1 = 0;}
+            if(a1=="微型主機"){var a1 = 700;}
+            if(a1=="標準主機"){var a1 = 1500;}
+            if(a1=="專業主機"){var a1 = 3200;}
+            var a2 = $("#years").val() * 12;
             v1 = a1 * a2;
 			$("#price").val(v1);
         });
@@ -364,7 +367,7 @@ $(function(){
 						</select>
 					</div>
 					<div class="area">
-						<p>訂購期限</p><input type="number" min="1" id="month" class="address" name="month_Num" placeholder="請填寫訂購期限(月)" required>
+						<p>訂購期限</p><input type="number" min="1" max="80" id="years" class="address" name="years_Num" placeholder="請填寫訂購期限(年)" required>
 					</div>
 					<div class="area">
 						<p>總金額</p><input id="price" name="price_Num" readonly>

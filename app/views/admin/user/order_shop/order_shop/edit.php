@@ -57,7 +57,7 @@ $(function(){
                 付款總金額
             </div>
             <div class="spanLineRight">
-                NT$<?=$OrderShop->pay_price_total_Num?>（含運費 NT$<?=$OrderShop->pay_price_freight_Num?> <?if($OrderShop->tradein_count_Num > 0):?>、 滿額優惠減免 NT$<?=$OrderShop->tradein_count_Num?> <?endif?> <?if($OrderShop->coupon_count_Num > 0):?>、 折扣金減免 NT$<?=$OrderShop->coupon_count_Num?> <?endif?>）
+                NT$ <?=$WordpressOrder->price_Num?>
 		    </div>
 		</div>
 	</div>
@@ -188,41 +188,46 @@ $(function(){
                 購物貨物列表
             </div>
             <div class="spanLineLeft width300">
-                貨物名稱
+                申請主機方案
 		    </div>
             <div class="spanLineLeft width100 aligncenter">
                 單價
             </div>
             <div class="spanLineLeft width100 aligncenter">
-                數量
+                使用期限
             </div>
             <div class="spanLineLeft width100 aligncenter">
                 小計
             </div>
 		</div>
 	</div>
-    <?foreach($OrderShop->cart_CartShopList->obj_Arr as $key => $value_CartShop):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width300">
                 <a href="product/<?=$value_CartShop->product_ProductShop->productid_Num?>" target="_blank">
-                    <?=$value_CartShop->product_ProductShop->name_Str?> ( <?=$value_CartShop->StockProductShop->classname1_Str?> / <?=$value_CartShop->StockProductShop->classname2_Str?> )
+                    <?=$WordpressOrder->classtype_Str?>
                 </a>
             </div>
             <div class="spanLineLeft width100 aligncenter">
-                <?=$value_CartShop->price_Num?>
+                <?if($WordpressOrder->classtype_Str == '微型主機'):?>
+                NT$ 700
+                <?elseif($WordpressOrder->classtype_Str == '標準主機'):?>
+                NT$ 1500
+                <?elseif($WordpressOrder->classtype_Str == '專業主機'):?>
+                NT$ 3200
+                <?endif?>
+                / 月
             </div>
             <div class="spanLineLeft width100 aligncenter">
-                <?=$value_CartShop->amount_Num?>
+                <?=$WordpressOrder->years_Num?> 年
             </div>
             <div class="spanLineLeft width100 aligncenter">
-                <?=$value_CartShop->price_total_Num?>
+                NT$ <?=$WordpressOrder->price_Num?>
             </div>
         </div>
     </div>
-    <?endforeach?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -259,6 +264,7 @@ $(function(){
 		    </div>
 		</div>
 	</div>
+    <?if(0):?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -275,6 +281,7 @@ $(function(){
 		    </div>
 		</div>
 	</div>
+    <?endif?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -285,6 +292,7 @@ $(function(){
 		    </div>
 		</div>
 	</div>
+    <?if(0):?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -295,6 +303,7 @@ $(function(){
 		    </div>
 		</div>
 	</div>
+    <?endif?>
     <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
     <h3>訂單留言</h3>
     <h4>請確認訂單留言資訊</h4>

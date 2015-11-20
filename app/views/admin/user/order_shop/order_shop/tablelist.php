@@ -5,8 +5,6 @@
 <div class="contentBox allWidth">
 	<h3>訂單列表</h3>
 	<h4>請填寫欲新增或更改之訂單</h4>
-	<div class="spanLine noneBg">
-	</div>
 	<div class="spanLine tableTitle">
         <div class="spanLineLeft text width100">
 			訂單ID
@@ -69,7 +67,7 @@
         <div class="spanLineLeft text width150">
             <?=$value_OrderShop->setuptime_DateTimeObj->datetime_Str?>
         </div>
-        <div class="spanLineLeft width300 hoverHidden">
+        <div class="spanLineLeft width100 hoverHidden">
             <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?orderid=<?=$value_OrderShop->orderid_Num?>">編輯</a>
         </div>
 	</div>
