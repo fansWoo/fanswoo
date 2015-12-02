@@ -5,7 +5,7 @@
 $(function(){
 	$(window).resize(function(){
 		$(document).scrollTop(0);
-		location.href = 'page/graphic';
+		location.href = 'graphic';
 	});
 	var window_width = $(window).width();
 	var window_height = $(window).height();
@@ -445,7 +445,7 @@ $(function(){
 					</div>
 					<div class="area phone">
 						<span>您的預算：</span>
-						<select class="money">
+						<select class="money" name="money_Str">
 							<option value="">請選擇預算</option>
 							<option value="15萬元以下">15萬元以下</option>
 							<option value="15萬元~30萬元">15萬元~30萬元</option>
