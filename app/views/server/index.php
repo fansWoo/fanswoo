@@ -722,12 +722,10 @@ $(function(){
 						<span>您的預算：</span>
 						<select class="money" name="money_Str">
 							<option value="">請選擇預算</option>
-							<option value="15萬元以下">15萬元以下</option>
-							<option value="15萬元~30萬元">15萬元~30萬元</option>
-							<option value="30萬元~50萬元">30萬元~50萬元</option>
-							<option value="50萬元~100萬元">50萬元~100萬元</option>
-							<option value="100萬元~200萬元">100萬元~200萬元</option>
-							<option value="200萬元以上">200萬元以上</option>
+							<option value="15萬以下">15萬以下</option>
+							<option value="15~25萬">15~25萬</option>
+							<option value="25~50萬">25~50萬</option>
+							<option value="50~100萬">50~100萬</option>
 						</select>
 						<div class="textContactFormMoneyFixed">
 							預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價
