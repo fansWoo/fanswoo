@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 建立日期: 2015-11-20: 10:56:25
+-- 建立日期: 2015-12-03: 18:03:45
 -- 伺服器版本: 5.6.21
 -- PHP 版本: 5.6.3
 
@@ -62,6 +62,16 @@ CREATE TABLE IF NOT EXISTS `fs_class` (
   UNIQUE KEY `classid` (`classid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 資料表的匯出資料 `fs_class`
+--
+
+INSERT INTO `fs_class` (`classid`, `classname`, `slug`, `content`, `uid`, `amountnum`, `modelname`, `classids`, `prioritynum`, `updatetime`, `locale`, `status`) VALUES
+(1, 'A級形象網站', 'a035b87f', '', 528502, 0, 'project', '', 0, '2015-12-02 16:56:04', 'zh-TW', 1),
+(2, 'A+級形象網站', '8f1225c7', '', 528502, 0, 'project', '', 0, '2015-12-02 16:57:24', 'zh-TW', 1),
+(3, 'A級購物網站', '2a1069c2', '', 528502, 0, 'project', '', 0, '2015-12-02 16:57:39', 'zh-TW', 1),
+(4, 'A+級購物網站', 'f495dcfe', '', 528502, 0, 'project', '', 0, '2015-12-02 16:57:47', 'zh-TW', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -86,7 +96,9 @@ CREATE TABLE IF NOT EXISTS `fs_comment` (
 
 INSERT INTO `fs_comment` (`commentid`, `uid`, `typename`, `id`, `title`, `content`, `updatetime`, `status`) VALUES
 (1, 528501, 'order', 1, '', 'hello', '2015-11-20 10:38:01', 1),
-(2, 528505, 'order', 1, '', 'hi', '2015-11-20 10:42:13', 1);
+(2, 528505, 'order', 1, '', 'hi', '2015-11-20 10:42:13', 1),
+(3, 528501, 'project', 5, '', 'test1', '2015-12-03 16:22:52', 1),
+(4, 528501, 'project', 5, '', 'test2', '2015-12-03 16:27:05', 1);
 
 -- --------------------------------------------------------
 
@@ -795,9 +807,21 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('d449c636f1d9d94a91fbf155c8f3ae96', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444812560, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('bde2a2b42d047dde117f2577f8e80f06', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1444813076, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('8c60395236efacb364443bd7f4acbaa2', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444813140, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
-('be746f2ac39485a07b932896811e60ce', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447406257, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('be746f2ac39485a07b932896811e60ce', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447406257, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
 ('ab4afbf46f10666b4f5f5def0b20b484', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447407179, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528506";}'),
-('9f5ac9b4cedec5e0bed56d98bb34dacb', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447907839, 'a:1:{s:9:"user_data";s:0:"";}');
+('9f5ac9b4cedec5e0bed56d98bb34dacb', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447907839, 'a:1:{s:9:"user_data";s:0:"";}'),
+('e3e334a4060554d21b7607d64a591332', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449122268, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('f73d9636c9ccc5985e415c553c9fac01', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449122626, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('d28c7f1907cd2acb3e4fc1455c50cc83', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449123314, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('e133b4bf86700f7f18054b220f0f13bb', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449124005, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('4044a6fbe4b91dbcd17ce2b523bfdbcd', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449124491, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('7bd73ed32bd8a33fe7575318b3082a9d', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449124653, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('36320acd9cb6c577b670e2c1b1480d41', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449124661, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('03920eac733fd6a48407ed39820b40a9', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449125148, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('67cd5b82155b50c24b41773a5ecb34e2', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449126039, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('fe386328c510952ea57757d6ae49b3cd', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449126082, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('1e1fc03a2ac695567f726045a10c9de4', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449132843, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('b40449c25711fc94bebe0df8617ce808', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449134050, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
 
 -- --------------------------------------------------------
 
@@ -831,12 +855,16 @@ INSERT INTO `fs_setting` (`settingid`, `keyword`, `value`, `modelname`, `locale`
 (9, 'smtp_email', 'mimi@fanswoo.com', 'smtp', 'zh-TW', 1),
 (10, 'smtp_password', 'qwe33117785200', 'smtp', 'zh-TW', 1),
 (11, 'smtp_host', 'smtp.gmail.com', 'smtp', 'zh-TW', 1),
-(12, 'smtp_username', 'Fanswoo', 'smtp', 'zh-TW', 1),
+(12, 'smtp_username', 'fansWoo 瘋沃科技', 'smtp', 'zh-TW', 1),
 (13, 'smtp_ssl_checkbox', '1', 'smtp', 'zh-TW', 1),
 (14, 'bank_code', '中國信託（銀行代號：700）', 'shop_transfer', 'zh-TW', 1),
 (15, 'bank_account', '123-456-789-000', 'shop_transfer', 'zh-TW', 1),
 (16, 'bank_account_name', 'Fanswoo', 'shop_transfer', 'zh-TW', 1),
-(17, 'bank_account_remark', '', 'shop_transfer', 'zh-TW', 1);
+(17, 'bank_account_remark', '', 'shop_transfer', 'zh-TW', 1),
+(18, 'website_name', 'fansWoo 瘋沃科技', '', 'zh-TW', 1),
+(19, 'website_logo', 'img/favicon.ico', '', 'zh-TW', 1),
+(20, 'website_email', 'service@fanswoo.com', '', 'zh-TW', 1),
+(21, 'website_metatag', '網頁設計、fansWoo design,網頁設計,網站設計,網頁設計公司,台北網頁設計,瘋沃網頁設計\r\n中小型企業形象網站網頁設計瘋沃科技網頁設計公司提供最優質的網頁設計、網站架設、多媒體網頁設計等多項服務. 我們的客戶來自於各行各業，以最全面性的服務來滿足您對於網頁設計的需求', '', 'zh-TW', 1);
 
 -- --------------------------------------------------------
 
@@ -897,7 +925,7 @@ CREATE TABLE IF NOT EXISTS `fs_shop_order` (
 
 INSERT INTO `fs_shop_order` (`orderid`, `uid`, `receive_name`, `receive_phone`, `receive_time`, `receive_address`, `receive_remark`, `pay_paytype`, `pay_sendtype`, `pay_price_total`, `pay_price_freight`, `pay_account`, `pay_name`, `pay_paytime`, `pay_remark`, `pay_status`, `coupon_count`, `tradein_count`, `paycheck_status`, `product_status`, `order_status`, `sendtime`, `setuptime`, `updatetime`, `status`) VALUES
 (528501, 528505, '張琬君', '0912345678', NULL, '台北市', NULL, 'atm', NULL, 0, 0, '', '', '2015-11-20 10:46:00', '', 0, 0, 0, 0, 0, 0, '2015-11-20 10:46:00', '2015-11-20 10:46:00', '2015-11-20 10:46:00', 1),
-(528500, 528505, '張琬君', '0912345678', '', '台北市', '', 'atm', NULL, 0, 0, '(700)1234567-1234567', '張琬君', '2015-11-20 10:40:00', '', 1, 0, 0, 1, 1, 1, '2015-11-20 10:26:03', '2015-11-20 10:26:03', '2015-11-20 10:44:54', 1);
+(528500, 528505, '張琬君', '0912345678', '', '台北市', '', 'atm', NULL, 0, 0, '(700)1234567-1234567', '張琬君', '2015-11-20 10:40:00', '', 1, 0, 0, 1, 1, 1, '2015-11-20 10:26:03', '2015-11-20 10:26:03', '2015-12-03 16:04:26', 1);
 
 -- --------------------------------------------------------
 
@@ -938,6 +966,72 @@ CREATE TABLE IF NOT EXISTS `fs_shop_product_stock` (
   `classname2` char(100) NOT NULL,
   UNIQUE KEY `stockid` (`stockid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_shop_project`
+--
+
+CREATE TABLE IF NOT EXISTS `fs_shop_project` (
+  `projectid` mediumint(8) NOT NULL,
+  `uid` mediumint(8) NOT NULL,
+  `name` char(100) NOT NULL,
+  `permission_uids` char(100) NOT NULL,
+  `working_days` mediumint(8) NOT NULL,
+  `classids` char(100) NOT NULL,
+  `designids` char(200) NOT NULL,
+  `pay_name` char(32) NOT NULL,
+  `pay_account` char(50) NOT NULL,
+  `pay_price_total` mediumint(10) NOT NULL,
+  `pay_paytime` datetime NOT NULL,
+  `pay_remark` text NOT NULL,
+  `pay_status` int(1) NOT NULL,
+  `paycheck_status` int(1) NOT NULL,
+  `project_status` int(1) NOT NULL,
+  `setuptime` datetime NOT NULL,
+  `updatetime` datetime NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `projectid` (`projectid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_shop_project`
+--
+
+INSERT INTO `fs_shop_project` (`projectid`, `uid`, `name`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `updatetime`, `status`) VALUES
+(5, 528501, 'test', '528501\r\n528502', 20, '1', '6,3,2,1', '張琬君', '(700)1234567-1234567', 64000, '2015-12-03 15:00:00', 'test', 1, 1, 1, '2015-12-05 00:00:00', '2015-12-03 18:02:24', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_shop_project_design`
+--
+
+CREATE TABLE IF NOT EXISTS `fs_shop_project_design` (
+  `designid` mediumint(8) NOT NULL,
+  `uid` mediumint(8) NOT NULL,
+  `title` char(50) NOT NULL,
+  `price` mediumint(10) NOT NULL,
+  `synopsis` char(200) NOT NULL,
+  `prioritynum` mediumint(8) NOT NULL,
+  `updatetime` datetime NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `designid` (`designid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_shop_project_design`
+--
+
+INSERT INTO `fs_shop_project_design` (`designid`, `uid`, `title`, `price`, `synopsis`, `prioritynum`, `updatetime`, `status`) VALUES
+(1, 528502, 'PHP網站系統後台架構', 18000, '', 0, '2015-12-02 16:05:11', 1),
+(2, 528502, 'PHP管理員登入系統', 18000, '', 0, '2015-12-03 12:22:04', 1),
+(3, 528502, 'PHP網站標題、電子郵件資訊設置系統', 10000, '', 0, '2015-12-03 12:22:15', 1),
+(4, 528502, 'PHP網站標籤基本設置系統', 8000, '', 0, '2015-12-03 12:24:03', 1),
+(5, 528502, 'PHP第三方javascript外掛崁入系統', 8000, '', 0, '2015-12-03 12:23:58', 1),
+(6, 528502, 'PHP文章管理系統', 18000, '', 0, '2015-12-03 12:23:35', 1),
+(7, 528502, 'PHP文章分類標籤系統', 8000, '', 0, '2015-12-03 12:23:52', 1);
 
 -- --------------------------------------------------------
 
