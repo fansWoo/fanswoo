@@ -5,18 +5,18 @@ $(function(){
 </script>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2>Wordpress 訂單管理 - 確認訂單</h2>
+<h2>專案管理 - 確認專案</h2>
 <div class="contentBox allWidth">
     <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
-	<h3>訂單資訊</h3>
-	<h4>請確認訂單、款項、貨物及收件資訊</h4>
+	<h3>專案資訊</h3>
+	<h4>請確認專案內容與款項資訊</h4>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                訂單編號
+                專案編號
             </div>
             <div class="spanLineLeft width500">
-                <?if(!empty($OrderShop->orderid_Num)):?><?=$OrderShop->orderid_Num?><?endif?>
+                <?if(!empty($Project->projectid_Num)):?><?=$Project->projectid_Num?><?endif?>
 		    </div>
 		</div>
 	</div>
@@ -26,8 +26,8 @@ $(function(){
                 訂購會員
             </div>
             <div class="spanLineLeft width500">
-                <?if(!empty($OrderShop->uid_User->email_Str)):?><?=$OrderShop->uid_User->email_Str?><?endif?>
-                （會員編號：<?if(!empty($OrderShop->uid_Num)):?><?=$OrderShop->uid_Num?><?endif?>）
+                <?if(!empty($Project->uid_User->email_Str)):?><?=$Project->uid_User->email_Str?><?endif?>
+                （會員編號：<?if(!empty($Project->uid_Num)):?><?=$Project->uid_Num?><?endif?>）
 		    </div>
 		</div>
 	</div>
@@ -40,24 +40,17 @@ $(function(){
                 付款方式
             </div>
             <div class="spanLineLeft">
-                <?if($OrderShop->pay_paytype_Str == 'atm'):?>
                 ATM轉帳
-                <?elseif($OrderShop->pay_paytype_Str == 'card'):?>
-                信用卡
-                <?elseif($OrderShop->pay_paytype_Str == 'cash_on_delivery'):?>
-                貨到付款
-                <?endif?>
 		    </div>
 		</div>
 	</div>
-    <?if($OrderShop->pay_paytype_Str == 'atm'):?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
                 付款總金額
             </div>
             <div class="spanLineRight">
-                NT$ <?=$WordpressOrder->price_Num?>
+                NT$ <?=$Project->pay_price_total_Num?>
 		    </div>
 		</div>
 	</div>
@@ -91,8 +84,8 @@ $(function(){
                 轉帳帳號
             </div>
             <div class="spanLineLeft">
-                <?if($OrderShop->pay_status_Num == 1):?>
-                <?=$OrderShop->pay_account_Str?>
+                <?if($Project->pay_status_Num == 1):?>
+                <?=$Project->pay_account_Str?>
                 <?else:?>
                 <input type="text" class="text" name="pay_account_Str">
                 <?endif?>
@@ -105,8 +98,8 @@ $(function(){
                 轉帳人姓名
             </div>
             <div class="spanLineLeft">
-                <?if($OrderShop->pay_status_Num == 1):?>
-                <?=$OrderShop->pay_name_Str?>
+                <?if($Project->pay_status_Num == 1):?>
+                <?=$Project->pay_name_Str?>
                 <?else:?>
                 <input type="text" class="text" name="pay_name_Str">
                 <?endif?>
@@ -119,8 +112,8 @@ $(function(){
                 轉帳時間
             </div>
             <div class="spanLineLeft">
-                <?if($OrderShop->pay_status_Num == 1):?>
-                <?=$OrderShop->pay_paytime_DateTimeObj->datetime_Str?>
+                <?if($Project->pay_status_Num == 1):?>
+                <?=$Project->pay_paytime_DateTimeObj->datetime_Str?>
                 <?else:?>
                 <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
                 <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
@@ -143,24 +136,23 @@ $(function(){
                 付款備註
             </div>
             <div class="spanLineLeft width500">
-                <?if($OrderShop->pay_status_Num == 1):?>
-                <?=$OrderShop->pay_remark_Str?>
+                <?if($Project->pay_status_Num == 1):?>
+                <?=$Project->pay_remark_Str?>
                 <?else:?>
                 <textarea name="pay_remark_Str"></textarea>
                 <?endif?>
 		    </div>
 		</div>
 	</div>
-    <?endif?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
                 付款狀態
             </div>
             <div class="spanLineLeft width500">
-                <?if($OrderShop->pay_status_Num == 0):?>
+                <?if($Project->pay_status_Num == 0):?>
                 <span class="red">會員尚未填寫付款資訊</span>
-                <?elseif($OrderShop->pay_status_Num == 1):?>
+                <?elseif($Project->pay_status_Num == 1):?>
                 <span class="green">會員已填寫付款資訊</span>
                 <?endif?>
 		    </div>
@@ -172,149 +164,67 @@ $(function(){
                 款項確認狀態
             </div>
             <div class="spanLineLeft width500">
-                <span class="<?if($OrderShop->paycheck_status_Num == 0):?>red<?elseif($OrderShop->paycheck_status_Num == 1):?>green<?endif?>">
-                    <?if($OrderShop->paycheck_status_Num == 0):?>款項待確認<?endif?>
-                    <?if($OrderShop->paycheck_status_Num == 1):?>款項已確認<?endif?>
+                <span class="<?if($Project->paycheck_status_Num == 0):?>red<?elseif($Project->paycheck_status_Num == 1):?>green<?endif?>">
+                    <?if($Project->paycheck_status_Num == 0):?>款項待確認<?endif?>
+                    <?if($Project->paycheck_status_Num == 1):?>款項已確認<?endif?>
                 </span>
 		    </div>
 		</div>
 	</div>
     <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
-	<h3>貨物處理狀態</h3>
-	<h4>請確認貨物處理狀態</h4>
+	<h3>設計項目列表</h3>
+	<h4>請確認設計項目列表</h4>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                購物貨物列表
+                設計項目列表
             </div>
             <div class="spanLineLeft width300">
-                申請主機方案
+                設計項目
 		    </div>
             <div class="spanLineLeft width100 aligncenter">
                 單價
             </div>
-            <div class="spanLineLeft width100 aligncenter">
-                使用期限
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-                小計
-            </div>
 		</div>
 	</div>
+    <?if(!empty($Project->designids_Str)):?>
+    <?foreach($DesignPriceList->obj_Arr as $key => $value_DesignPrice):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
-            <div class="spanLineLeft width300">
-                <a href="product/<?=$value_CartShop->product_ProductShop->productid_Num?>" target="_blank">
-                    <?=$WordpressOrder->classtype_Str?>
-                </a>
+            <div class="spanLineLeft width300" style="color:#027de5">
+                <?=$value_DesignPrice->title_Str?>
             </div>
             <div class="spanLineLeft width100 aligncenter">
-                <?if($WordpressOrder->classtype_Str == '微型主機'):?>
-                NT$ 700
-                <?elseif($WordpressOrder->classtype_Str == '標準主機'):?>
-                NT$ 1500
-                <?elseif($WordpressOrder->classtype_Str == '專業主機'):?>
-                NT$ 3200
-                <?endif?>
-                / 月
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-                <?=$WordpressOrder->years_Num?> 年
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-                NT$ <?=$WordpressOrder->price_Num?>
+                <?=$value_DesignPrice->price_Num?>
             </div>
         </div>
     </div>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                貨物處理狀態
-            </div>
-            <div class="spanLineLeft width500">
-                <span class="<?if($OrderShop->product_status_Num == 0):?>red<?elseif($OrderShop->product_status_Num == 1):?>green<?endif?>">
-                    <?if($OrderShop->product_status_Num == 0):?>貨物待確認<?endif?>
-                    <?if($OrderShop->product_status_Num == 1):?>貨物已確認<?endif?>
-                </span>
-		    </div>
-		</div>
-	</div>
-    <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
-	<h3>收件人資訊</h3>
-	<h4>請確認訂單收件人資訊</h4>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                收件人姓名
-            </div>
-            <div class="spanLineLeft">
-                <?=$OrderShop->receive_name_Str?>
-		    </div>
-		</div>
-	</div>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                收件人電話
-            </div>
-            <div class="spanLineLeft">
-                <?=$OrderShop->receive_phone_Str?>
-		    </div>
-		</div>
-	</div>
-    <?if(0):?>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                收件最佳時間
-            </div>
-            <div class="spanLineLeft width500">
-                <?if($OrderShop->receive_time_Str == 'morning'):?>
-                早上 8:00 ~ 12:00
-                <?elseif($OrderShop->receive_time_Str == 'afternoon'):?>
-                下午 12:00 ~ 17:00
-                <?elseif($OrderShop->receive_time_Str == 'night'):?>
-                晚上 17:00 以後
-                <?endif?>
-		    </div>
-		</div>
-	</div>
-    <?endif?>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                收件人地址
-            </div>
-            <div class="spanLineLeft width500">
-                <?=$OrderShop->receive_address_Str?>
-		    </div>
-		</div>
-	</div>
-    <?if(0):?>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                收件人備註
-            </div>
-            <div class="spanLineLeft width500">
-                <?=$OrderShop->receive_remark_Str?>
-		    </div>
-		</div>
-	</div>
-    <?endif?>
-    <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
-    <h3>訂單留言</h3>
-    <h4>請確認訂單留言資訊</h4>
+    <?endforeach?>
+    <?else:?>
     <div class="spanLine">
-        <?if( !empty($OrderShop->comment_CommentList->obj_Arr) ):?>
         <div class="spanStage">
             <div class="spanLineLeft">
-                訂單留言
+            </div>
+            <div class="spanLineLeft width300" style="color:#027de5">
+            </div>
+            <div class="spanLineLeft width100 aligncenter">
+            </div>
+        </div>
+    </div>
+    <?endif?>
+    <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
+    <h3>專案修改建議</h3>
+    <h4>請確認專案修改建議</h4>
+    <div class="spanLine">
+        <?if( !empty($Project->comment_CommentList->obj_Arr) ):?>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案修改建議
             </div>
             <div class="spanLineLeft width500">
-                <?foreach($OrderShop->comment_CommentList->obj_Arr as $key => $value_Comment):?>
+                <?foreach($Project->comment_CommentList->obj_Arr as $key => $value_Comment):?>
                 <p><?=$value_Comment->uid_User->username_Str?> <span class="gray"><?=$value_Comment->updatetime_DateTime->datetime_Str?></span></p>
                 <div style="word-wrap:break-word;"><?=$value_Comment->content_Html?></div>
                 <div style="border-top: 1px #CCC dashed;margin:10px 0;"></div>
@@ -324,12 +234,12 @@ $(function(){
         <?endif?>
         <div class="spanStage">
             <div class="spanLineLeft">
-                <?if( empty($OrderShop->comment_CommentList->obj_Arr) ):?>
-                訂單留言
+                <?if( empty($Project->comment_CommentList->obj_Arr) ):?>
+                專案修改建議
                 <?endif?>
             </div>
             <div class="spanLineLeft width500">
-                <textarea cols="80" name="content_Str" rows="10" placeholder="請填寫新的留言..."></textarea>
+                <textarea cols="80" name="content_Str" rows="10" placeholder="請填寫新的專案修改建議..."></textarea>
             </div>
         </div>
     </div>
@@ -337,10 +247,20 @@ $(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                下單時間
+                專案開始時間
             </div>
             <div class="spanLineLeft width500">
-                <?=$OrderShop->setuptime_DateTimeObj->datetime_Str?>
+                <?=$Project->setuptime_DateTimeObj->datetime_Str?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案所需時程
+            </div>
+            <div class="spanLineLeft width500">
+                <?=$Project->working_days_Num?> 天
             </div>
         </div>
     </div>
@@ -350,33 +270,25 @@ $(function(){
                 最後更新時間
             </div>
             <div class="spanLineLeft width500">
-                <?=$OrderShop->updatetime_DateTimeObj->datetime_Str?>
+                <?=$Project->updatetime_DateTimeObj->datetime_Str?>
             </div>
         </div>
     </div>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                貨物寄出時間
+                專案進行狀態
             </div>
-            <div class="spanLineLeft width500">
-                <?=$OrderShop->sendtime_DateTimeObj->datetime_Str?>
-		    </div>
-		</div>
-	</div>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                訂單處理狀態
-            </div>
-            <div class="spanLineLeft width500">
-                <span class="<?if($OrderShop->order_status_Num == 0):?>red<?elseif($OrderShop->order_status_Num == 1):?>green<?endif?>">
-                    <?if($OrderShop->order_status_Num == 0):?>
-                    訂單未完成
-                    <?elseif($OrderShop->order_status_Num == 1):?>
-                    訂單已完成，已確認貨物及付款狀態
-                    <?endif?>
-                </select>
+            <div class="spanLineLeft width500" style="color:#027de5">
+                <?if($Project->project_status_Num == 1):?>
+                估價中
+                <?elseif($Project->project_status_Num == 2):?>
+                開發中
+                <?elseif($Project->project_status_Num == 3):?>
+                維護
+                <?elseif($Project->project_status_Num == 4):?>
+                結案
+                <?endif?>
 		    </div>
         </div>
         <div class="spanStage">
@@ -392,7 +304,7 @@ $(function(){
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
-                <?if(!empty($OrderShop->orderid_Num)):?><input type="hidden" name="orderid_Num" value="<?=$OrderShop->orderid_Num?>"><?endif?>
+                <?if(!empty($Project->projectid_Num)):?><input type="hidden" name="projectid_Num" value="<?=$Project->projectid_Num?>"><?endif?>
                 <input type="submit" class="submit" value="儲存變更">
             </div>
         </div>

@@ -260,6 +260,8 @@ class ObjDbBase extends ObjBase {
                     $this->$db_uniqueid_Str = $db_uniqueid_Num;
                     $this->db->insert($db_name_Arr[$key], $db_field_Arr2);
                 }
+                $db_uniqueid_Str = $db_uniqueid_Str.'_Num';
+                $this->$db_uniqueid_Str = $db_uniqueid_Num;
             }
             else
             {

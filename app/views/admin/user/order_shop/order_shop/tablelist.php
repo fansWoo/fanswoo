@@ -1,9 +1,9 @@
 <?=$temp['header_up']?>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2>訂單管理 - 訂單列表</h2>
+<h2>Wordpress 訂單管理 - 訂單列表</h2>
 <div class="contentBox allWidth">
-	<h3>訂單列表</h3>
+	<h3>Wordpress 訂單列表</h3>
 	<h4>請填寫欲新增或更改之訂單</h4>
 	<div class="spanLine tableTitle">
         <div class="spanLineLeft text width100">

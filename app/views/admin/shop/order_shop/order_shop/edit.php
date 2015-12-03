@@ -31,7 +31,7 @@ $(function(){
 </script>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2>訂單管理 - 確認訂單</h2>
+<h2>Wordpress 訂單管理 - 確認訂單</h2>
 <div class="contentBox allWidth">
     <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
 	<h3>訂單資訊</h3>
