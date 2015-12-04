@@ -1,10 +1,10 @@
 <?php
 
-class Classmeta_Controller extends MY_Controller {
+class Classmeta2_Controller extends MY_Controller {
 
     protected $child1_name_Str = 'shop';
     protected $child2_name_Str = 'project';
-    protected $child3_name_Str = 'classmeta';
+    protected $child3_name_Str = 'classmeta2';
 
     public function __construct()
     {
@@ -48,17 +48,6 @@ class Classmeta_Controller extends MY_Controller {
             ),
             'db_where_deletenull_Bln' => TRUE
         ));
-        
-        //建立class2_ClassMetaList
-        $data['class2_ClassMetaList'] = new ObjList();
-        $data['class2_ClassMetaList']->construct_db(array(
-            'db_where_Arr' => array(
-                'modelname_Str' => 'project_class2'
-            ),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
 
         //global
         $data['global']['style'][] = 'app/css/admin/global.css';
@@ -86,7 +75,6 @@ class Classmeta_Controller extends MY_Controller {
             $classid_Num = $this->input->post('classid_Num', TRUE);
             $classname_Str = $this->input->post('classname_Str', TRUE);
             $slug_Str = $this->input->post('slug_Str', TRUE);
-            $classids_Arr = $this->input->post('classids_Arr', TRUE);
             $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
 
             $class_ClassMeta = new ClassMeta();
@@ -94,16 +82,15 @@ class Classmeta_Controller extends MY_Controller {
                 'classid_Num' => $classid_Num,
                 'classname_Str' => $classname_Str,
                 'slug_Str' => $slug_Str,
-                'classids_Arr' => $classids_Arr,
                 'prioritynum_Num' => $prioritynum_Num,
-                'modelname_Str' => 'project'
+                'modelname_Str' => 'project_class2'
             ));
             $class_ClassMeta->update(array());
 
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => '設定成功',
-                'url' => 'admin/shop/project/classmeta/tablelist'
+                'url' => 'admin/shop/project/classmeta2/tablelist'
             ));
         }
         else
@@ -111,7 +98,7 @@ class Classmeta_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => validation_errors(),
-                'url' => 'admin/shop/project/classmeta/tablelist'
+                'url' => 'admin/shop/project/classmeta2/tablelist'
             ));
         }
     }
@@ -142,7 +129,7 @@ class Classmeta_Controller extends MY_Controller {
         $data['class_list_ClassMetaList'] = new ObjList();
         $data['class_list_ClassMetaList']->construct_db(array(
             'db_where_Arr' => array(
-                'modelname_Str' => 'project',
+                'modelname_Str' => 'project_class2',
                 'slug_Str' => $data['search_slug_Str']
             ),
             'db_where_like_Arr' => array(
@@ -166,7 +153,7 @@ class Classmeta_Controller extends MY_Controller {
         $data['class2_ClassMetaList'] = new ObjList();
         $data['class2_ClassMetaList']->construct_db(array(
             'db_where_Arr' => array(
-                'modelname_Str' => 'project_class2'
+                'modelname_Str' => 'project'
             ),
             'model_name_Str' => 'ClassMeta',
             'limitstart_Num' => 0,
@@ -190,33 +177,33 @@ class Classmeta_Controller extends MY_Controller {
 
     public function tablelist_post()
     {
-        $data = $this->data;
+        $data = $this->data;//取得公用數據
 
-        $search_classname_Str = $this->input->post('search_classname_Str', TRUE);
         $search_slug_Str = $this->input->post('search_slug_Str', TRUE);
-        $search_class2_slug_Str = $this->input->post('search_class2_slug_Str', TRUE);
+        $search_classname_Str = $this->input->post('search_classname_Str', TRUE);
+        $search_class2_class_slug_Str = $this->input->post('search_class2_class_slug_Str', TRUE);
 
-        $url_Str = base_url('admin/shop/project/classmeta/tablelist/?');
-
-        if(!empty($search_classname_Str))
-        {
-            $url_Str = $url_Str.'&classname='.$search_classname_Str;
-        }
+        $url_Str = base_url('admin/shop/project/classmeta2/tablelist/?');
 
         if(!empty($search_slug_Str))
         {
             $url_Str = $url_Str.'&slug='.$search_slug_Str;
         }
 
-        if(!empty($search_class2_slug_Str))
+        if(!empty($search_classname_Str))
         {
-            $url_Str = $url_Str.'&class2_slug='.$search_class2_slug_Str;
+            $url_Str = $url_Str.'&classname='.$search_classname_Str;
+        }
+
+        if(!empty($search_class2_class_slug_Str))
+        {
+            $url_Str = $url_Str.'&class2_slug='.$search_class2_class_slug_Str;
         }
 
         header("Location: $url_Str");
     }
 
-    public function delete()
+    public function delete($classid = 0, $hash = '')
     {
         $hash_Str = $this->input->get('hash');
         $classid_Num = $this->input->get('classid');
@@ -231,7 +218,7 @@ class Classmeta_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => '刪除成功',
-                'url' => 'admin/shop/project/classmeta/tablelist'
+                'url' => 'admin/shop/project/classmeta2/tablelist'
             ));
         }
         else
@@ -239,9 +226,11 @@ class Classmeta_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/shop/project/classmeta/tablelist'
+                'url' => 'admin/shop/project/classmeta2/tablelist'
             ));
         }
     }
 
 }
+
+?>

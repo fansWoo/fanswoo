@@ -63,6 +63,8 @@ $config['group_purview_Arr'] = array(
 		array('shop', 'project', 'project', 'tablelist'),
 		array('shop', 'project', 'classmeta', 'edit'),
 		array('shop', 'project', 'classmeta', 'tablelist'),
+		array('shop', 'project', 'classmeta2', 'edit'),
+		array('shop', 'project', 'classmeta2', 'tablelist'),
 		array('shop', 'project', 'design', 'edit'),
 		array('shop', 'project', 'design', 'tablelist'),
         
@@ -364,12 +366,19 @@ $config['admin_sidebox'] = array(
 							)
 						),
 				 		'classmeta' => array(
-				 			'title' => '專案類別',
+				 			'title' => '專案分類',
 				 			'child4' => array(
 				 				'edit' => array('title' => '編輯'),
 				 				'tablelist' => array('title' => '列表')
 				 			)
 				 		),
+				 		'classmeta2' => array(
+							'title' => '二級分類',
+							'child4' => array(
+								'edit' => array('title' => '編輯'),
+								'tablelist' => array('title' => '列表')
+							)
+						),
 						'design' => array(
 							'title' => '設計項目',
 							'child4' => array(

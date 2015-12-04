@@ -52,6 +52,16 @@ class Project_Controller extends MY_Controller {
             'limitcount_Num' => 100
         ));
 
+        $data['class2_ClassMetaList'] = new ObjList();
+        $data['class2_ClassMetaList']->construct_db(array(
+            'db_where_Arr' => array(
+                'modelname_Str' => 'project_class2'
+            ),
+            'model_name_Str' => 'ClassMeta',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+
         $data['ProjectDesignList'] = new ObjList();
         $data['ProjectDesignList']->construct_db(array(
             'db_orderby_Arr' => array(

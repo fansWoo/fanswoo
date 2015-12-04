@@ -18,7 +18,7 @@
 			專案名稱
         </div>
         <div class="spanLineLeft text width150">
-            專案類別
+            專案分類標籤
         </div>
 	</div>
     <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
@@ -31,7 +31,7 @@
             </div>
             <div class="spanLineLeft text width150">
                 <select name="search_class_slug_Str" style="margin-left:-6px;">
-                    <option value="">不透過專案類別篩選</option>
+                    <option value="">不透過分類標籤篩選</option>
                     <?foreach($ProjectClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
                     <option value="<?=$value_ClassMeta->slug_Str?>"<?if(!empty($search_class_slug_Str) && $search_class_slug_Str == $value_ClassMeta->slug_Str) echo ' selected'?>><?=$value_ClassMeta->classname_Str?></option>
                     <?endforeach?>
@@ -59,7 +59,7 @@
                 <?if($key !== 0):?>,<?endif?><?=$value_ClassMeta->classname_Str?>
             <?endforeach?>
             <?else:?>
-            <span class="gray">沒有專案類別</span>
+            <span class="gray">沒有分類標籤</span>
             <?endif?>
         </div>
         <div class="spanLineLeft width300 hoverHidden">
