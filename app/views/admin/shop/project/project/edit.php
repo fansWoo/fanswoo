@@ -37,10 +37,10 @@ $(function(){
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
+<?php echo form_open_multipart("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > <?if(!empty($Project->projectid_Num)):?>編輯<?else:?>新增<?endif?></h3>
     <h4>請填寫<?=$child3_title_Str?>之詳細資訊</h4>
-    <?php echo form_open_multipart("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -228,11 +228,13 @@ $(function(){
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請填寫擁有查看此專案系統權限之會員ID，每個ID一行</span>
+                <span class="gray">請填寫擁有查看此專案系統權限之會員ID，每個ID一行</span><br>
+                <span class="gray">第一位會員即為此專案訂購會員</span>
             </div>
         </div>
     </div>
-    <div style="margin:30px 0;"></div>
+</div>
+<div class="contentBox allWidth">
     <h3>付款資訊</h3>
     <h4>請確認本訂單之付款資訊</h4>
     <?if($Project->pay_status_Num == 1):?>
@@ -304,36 +306,61 @@ $(function(){
             </div>
         </div>
     </div>
-    <div style="margin:30px 0;"></div>
-    <h3>專案修改建議</h3>
+</div>
+<?if(!empty($projectid_Num)):?>
+<?if(!empty($SuggestList->obj_Arr)):?>
+<div class="contentBox allWidth">
+    <h3>專案修改建議列表</h3>
     <h4>請確認專案修改建議</h4>
     <div class="spanLine">
-        <?if( !empty($Project->comment_CommentList->obj_Arr) ):?>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                專案修改建議
+        <div class="spanLineLeft" style="margin-top:10px;">
+            專案修改建議列表
+        </div>
+        <div class="spanLine tableTitle">
+            <div class="spanLineLeft text width100">
+                修改建議ID
             </div>
-            <div class="spanLineLeft width500">
-                <?foreach($Project->comment_CommentList->obj_Arr as $key => $value_Comment):?>
-                <p><?=$value_Comment->uid_User->username_Str?> <span class="gray"><?=$value_Comment->updatetime_DateTime->datetime_Str?></span></p>
-                <div style="word-wrap:break-word;"><?=$value_Comment->content_Html?></div>
-                <div style="border-top: 1px #CCC dashed;margin:10px 0;"></div>
-                <?endforeach?>
+            <div class="spanLineLeft text width300">
+                修改建議標題
+            </div>
+            <div class="spanLineLeft text width100">
+                處理狀態
+            </div>
+            <div class="spanLineLeft text width150">
+                提出時間
             </div>
         </div>
-        <?endif?>
-        <div class="spanStage">
+        <?foreach($SuggestList->obj_Arr as $key => $value_Suggest):?>
+        <div class="spanLine" style="border-bottom: 0px solid #EEE;">
             <div class="spanLineLeft">
-                <?if( empty($Project->comment_CommentList->obj_Arr) ):?>
-                專案修改建議
+            </div>
+            <div class="spanLineLeft text width100">
+                <?=$value_Suggest->suggestid_Num?>
+            </div>
+            <div class="spanLineLeft text width300">
+                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/suggest/edit/?suggestid=<?=$value_Suggest->suggestid_Num?>&projectid=<?=$Project->projectid_Num?>" target="_blank">
+                    <?=$value_Suggest->title_Str?>
+                </a>
+            </div>
+            <div class="spanLineLeft text width100">
+                <?if($value_Suggest->answer_status_Num == 1):?>
+                <span class="green">評估中</span>
+                <?elseif($value_Suggest->answer_status_Num == 2):?>
+                <span class="green">修改中</span>
+                <?elseif($value_Suggest->answer_status_Num == 3):?>
+                <span>已完成</span>
                 <?endif?>
             </div>
-            <div class="spanLineLeft width500">
-                <textarea cols="80" name="content_Str" rows="10" placeholder="請填寫新的專案修改建議..."></textarea>
+            <div class="spanLineLeft text width150">
+                <?=$value_Suggest->suggest_time_DateTime->datetime_Str?>
             </div>
         </div>
+        <?endforeach?>
     </div>
-    <div style="margin:30px 0;"></div>
+</div>
+<?endif?>
+<?endif?>
+<div class="contentBox allWidth">
     <h3>專案資訊</h3>
     <h4>請確認本專案之進行資訊</h4>
     <div class="spanLine">
@@ -372,7 +399,7 @@ $(function(){
             </div>
         </div>
     </div>
-    </form>
 </div>
+</form>
 <?=$temp['admin_footer_bar']?>
 <?=$temp['body_end']?>

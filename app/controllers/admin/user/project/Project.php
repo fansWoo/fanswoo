@@ -33,15 +33,24 @@ class Project_Controller extends MY_Controller {
             'child4_name_Str' => 'edit'//管理分類名稱
         )));
             
-        $projectid_Num = $this->input->get('projectid');
+        $data['projectid_Num'] = $this->input->get('projectid');
 
         $data['Project'] = new Project();
         $data['Project']->construct_db(array(
             'db_where_Arr' => array(
-                'projectid_Num' => $projectid_Num
+                'projectid_Num' => $data['projectid_Num']
             )
         ));
 
+        $project_permission_uids_Arr = explode(PHP_EOL, trim($data['Project']->permission_uids_Str) );
+
+        $data['project_User'] = new User();
+        $data['project_User']->construct_db(array(
+            'db_where_Arr' => array(
+                'uid_Num' => $project_permission_uids_Arr[0]
+            )
+        ));
+        // ec($data['project_User']);
         if(empty($data['Project']->projectid_Num))
         {
             $this->load->model('Message');
@@ -71,6 +80,20 @@ class Project_Controller extends MY_Controller {
             ),
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'Design',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+
+        $data['SuggestList'] = new ObjList();
+        $data['SuggestList']->construct_db(array(
+            'db_where_Arr' => array(
+                'projectid_Num' => $data['projectid_Num']
+            ),
+            'db_orderby_Arr' => array(
+                array('suggestid', 'ASC')
+            ),
+            'db_where_deletenull_Bln' => TRUE,
+            'model_name_Str' => 'Suggest',
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));

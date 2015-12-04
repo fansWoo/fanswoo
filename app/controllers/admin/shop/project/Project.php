@@ -33,12 +33,12 @@ class Project_Controller extends MY_Controller {
             'child4_name_Str' => 'edit'//管理分類名稱
         )));
             
-        $projectid_Num = $this->input->get('projectid');
+        $data['projectid_Num'] = $this->input->get('projectid');
 
         $data['Project'] = new Project();
         $data['Project']->construct_db(array(
             'db_where_Arr' => array(
-                'projectid' => $projectid_Num
+                'projectid' => $data['projectid_Num']
             )
         ));
 
@@ -85,6 +85,20 @@ class Project_Controller extends MY_Controller {
             ),
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'Design',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+
+        $data['SuggestList'] = new ObjList();
+        $data['SuggestList']->construct_db(array(
+            'db_where_Arr' => array(
+                'projectid_Num' => $data['projectid_Num']
+            ),
+            'db_orderby_Arr' => array(
+                array('suggestid', 'ASC')
+            ),
+            'db_where_deletenull_Bln' => TRUE,
+            'model_name_Str' => 'Suggest',
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));

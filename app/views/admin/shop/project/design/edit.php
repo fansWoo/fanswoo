@@ -70,7 +70,7 @@
 		</div>
 		<div class="spanLineRight">
             <?if(!empty($Design->designid_Num)):?><input type="hidden" name="designid_Num" value="<?=$Design->designid_Num?>"><?endif?>
-		    <input type="submit" class="submit" value="<?if(!empty($Design->designid_Num)):?>儲存變更<?else:?>新增標籤<?endif?>">
+		    <input type="submit" class="submit" value="<?if(!empty($Design->designid_Num)):?>儲存變更<?else:?>新增設計項目<?endif?>">
             <?if(!empty($Design->designid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?classid=<?=$Design->designid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
 		</div>
 	</div>

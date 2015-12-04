@@ -41,21 +41,6 @@ class Design extends ObjDbBase
         ], 'DateTimeObj');
         $this->set__status_Num(['status_Num' => $arg['status_Num']]);
         $this->set__uid_Num(['uid_Num' => $arg['uid_Num']]);
-
-        // //建立ClassMetaList物件
-        // if($this->construct_class_Bln)
-        // {
-        //     check_comma_array($classids_Str, $classids_Arr);
-        //     $class_ClassMetaList = new ObjList;
-        //     $class_ClassMetaList->construct_db(array(
-        //         'db_where_or_Arr' => array(
-        //             'classid_Num' => $classids_Arr
-        //         ),
-        //         'model_name_Str' => 'ClassMeta',
-        //         'limitstart_Num' => 0,
-        //         'limitcount_Num' => 100
-        //     ));
-        // }
         
         return TRUE;
     }

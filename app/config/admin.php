@@ -67,11 +67,14 @@ $config['group_purview_Arr'] = array(
 		array('shop', 'project', 'classmeta2', 'tablelist'),
 		array('shop', 'project', 'design', 'edit'),
 		array('shop', 'project', 'design', 'tablelist'),
+		array('shop', 'project', 'suggest', 'edit'),
+		array('shop', 'project', 'suggest', 'tablelist'),
         
 		array('user', 'global', 'global', 'user'),
 		// array('user', 'global', 'global_shop', 'user'),
 		array('user', 'project', 'project', 'edit'),
 		array('user', 'project', 'project', 'tablelist'),
+		array('user', 'project', 'suggest', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'tablelist')
 	),
@@ -87,6 +90,7 @@ $config['group_purview_Arr'] = array(
 		// array('user', 'global', 'global_shop', 'user'),
 		array('user', 'project', 'project', 'edit'),
 		array('user', 'project', 'project', 'tablelist'),
+		array('user', 'project', 'suggest', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'tablelist')
 	),
@@ -95,6 +99,7 @@ $config['group_purview_Arr'] = array(
 		// array('user', 'global', 'global_shop', 'user'),
 		array('user', 'project', 'project', 'edit'),
 		array('user', 'project', 'project', 'tablelist'),
+		array('user', 'project', 'suggest', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'tablelist')
 	),
@@ -385,6 +390,12 @@ $config['admin_sidebox'] = array(
 								'edit' => array('title' => '編輯'),
 								'tablelist' => array('title' => '列表')
 							)
+						),
+						'suggest' => array(
+							'title' => '專案修改建議',
+							'child4' => array(
+								'edit' => array('title' => '編輯')
+							)
 						)
 					)
 				),
@@ -430,6 +441,12 @@ $config['admin_sidebox'] = array(
 							'child4' => array(
 								'edit' => array('title' => '編輯'),
 								'tablelist' => array('title' => '列表')
+							)
+						),
+						'suggest' => array(
+							'title' => '修改建議',
+							'child4' => array(
+								'edit' => array('title' => '編輯'),
 							)
 						)
 					)

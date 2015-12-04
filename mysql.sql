@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 建立日期: 2015-12-03: 18:03:45
+-- 建立日期: 2015-12-04: 18:32:05
 -- 伺服器版本: 5.6.21
 -- PHP 版本: 5.6.3
 
@@ -67,10 +67,12 @@ CREATE TABLE IF NOT EXISTS `fs_class` (
 --
 
 INSERT INTO `fs_class` (`classid`, `classname`, `slug`, `content`, `uid`, `amountnum`, `modelname`, `classids`, `prioritynum`, `updatetime`, `locale`, `status`) VALUES
-(1, 'A級形象網站', 'a035b87f', '', 528502, 0, 'project', '', 0, '2015-12-02 16:56:04', 'zh-TW', 1),
-(2, 'A+級形象網站', '8f1225c7', '', 528502, 0, 'project', '', 0, '2015-12-02 16:57:24', 'zh-TW', 1),
-(3, 'A級購物網站', '2a1069c2', '', 528502, 0, 'project', '', 0, '2015-12-02 16:57:39', 'zh-TW', 1),
-(4, 'A+級購物網站', 'f495dcfe', '', 528502, 0, 'project', '', 0, '2015-12-02 16:57:47', 'zh-TW', 1);
+(1, 'A級形象網站', 'a035b87f', '', 528502, 0, 'project', '5', 0, '2015-12-04 14:32:09', 'zh-TW', 1),
+(2, 'A+級形象網站', '8f1225c7', '', 528502, 0, 'project', '5', 0, '2015-12-04 14:32:05', 'zh-TW', 1),
+(3, 'A級購物網站', '2a1069c2', '', 528502, 0, 'project', '6', 0, '2015-12-04 14:32:02', 'zh-TW', 1),
+(4, 'A+級購物網站', 'f495dcfe', '', 528502, 0, 'project', '6', 0, '2015-12-04 14:31:57', 'zh-TW', 1),
+(5, '形象網站', 'bfe2f174', '', 528501, 0, 'project_class2', '', 0, '2015-12-04 14:26:06', 'zh-TW', 1),
+(6, '購物網站', 'bafb9971', '', 528501, 0, 'project_class2', '', 0, '2015-12-04 14:26:12', 'zh-TW', 1);
 
 -- --------------------------------------------------------
 
@@ -821,7 +823,9 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('67cd5b82155b50c24b41773a5ecb34e2', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449126039, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('fe386328c510952ea57757d6ae49b3cd', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449126082, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('1e1fc03a2ac695567f726045a10c9de4', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449132843, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
-('b40449c25711fc94bebe0df8617ce808', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449134050, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
+('b40449c25711fc94bebe0df8617ce808', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449134050, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('355b92cf0ba98ea80c6bf9f2765b974a', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449223981, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('c249528d1c6e724bb33661da909751e6', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449224006, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
 
 -- --------------------------------------------------------
 
@@ -1000,7 +1004,7 @@ CREATE TABLE IF NOT EXISTS `fs_shop_project` (
 --
 
 INSERT INTO `fs_shop_project` (`projectid`, `uid`, `name`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `updatetime`, `status`) VALUES
-(5, 528501, 'test', '528501\r\n528502', 20, '1', '6,3,2,1', '張琬君', '(700)1234567-1234567', 64000, '2015-12-03 15:00:00', 'test', 1, 1, 1, '2015-12-05 00:00:00', '2015-12-03 18:02:24', 1);
+(528501, 528502, 'test', '528502\r\n528501', 30, '2', '4,5,7,6,3,2,1', '張琬君', '(700)1234567-1234567', 88000, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2015-12-04 18:30:50', 1);
 
 -- --------------------------------------------------------
 
@@ -1032,6 +1036,35 @@ INSERT INTO `fs_shop_project_design` (`designid`, `uid`, `title`, `price`, `syno
 (5, 528502, 'PHP第三方javascript外掛崁入系統', 8000, '', 0, '2015-12-03 12:23:58', 1),
 (6, 528502, 'PHP文章管理系統', 18000, '', 0, '2015-12-03 12:23:35', 1),
 (7, 528502, 'PHP文章分類標籤系統', 8000, '', 0, '2015-12-03 12:23:52', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_shop_project_suggest`
+--
+
+CREATE TABLE IF NOT EXISTS `fs_shop_project_suggest` (
+  `suggestid` mediumint(8) NOT NULL,
+  `projectid` mediumint(8) NOT NULL,
+  `uid` mediumint(8) NOT NULL,
+  `title` char(50) NOT NULL,
+  `content` char(200) NOT NULL,
+  `answer` char(200) NOT NULL,
+  `suggest_time` datetime NOT NULL,
+  `updatetime` datetime NOT NULL,
+  `suggest_status` int(1) NOT NULL,
+  `answer_status` int(1) NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `suggestid` (`suggestid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_shop_project_suggest`
+--
+
+INSERT INTO `fs_shop_project_suggest` (`suggestid`, `projectid`, `uid`, `title`, `content`, `answer`, `suggest_time`, `updatetime`, `suggest_status`, `answer_status`, `status`) VALUES
+(2, 528501, 528501, '修改建議測試2', '建議測試內容', '', '2015-12-04 18:14:55', '2015-12-04 18:14:55', 1, 1, 1),
+(1, 528501, 528502, '修改建議測試', '測試內容', 'OK', '2015-12-04 18:08:40', '2015-12-04 18:17:56', 1, 3, 1);
 
 -- --------------------------------------------------------
 

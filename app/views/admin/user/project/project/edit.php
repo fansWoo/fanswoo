@@ -26,12 +26,13 @@ $(function(){
                 訂購會員
             </div>
             <div class="spanLineLeft width500">
-                <?if(!empty($Project->uid_User->email_Str)):?><?=$Project->uid_User->email_Str?><?endif?>
-                （會員編號：<?if(!empty($Project->uid_Num)):?><?=$Project->uid_Num?><?endif?>）
+                <?if(!empty($project_User->email_Str)):?><?=$project_User->email_Str?><?endif?>
+                （會員編號：<?if(!empty($project_User->uid_Num)):?><?=$project_User->uid_Num?><?endif?>）
 		    </div>
 		</div>
 	</div>
-    <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
+</div>
+<div class="contentBox allWidth">
 	<h3>付款資訊</h3>
 	<h4>請確認本訂單之付款資訊</h4>
 	<div class="spanLine">
@@ -171,7 +172,8 @@ $(function(){
 		    </div>
 		</div>
 	</div>
-    <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
+</div>
+<div class="contentBox allWidth">
 	<h3>設計項目列表</h3>
 	<h4>請確認設計項目列表</h4>
 	<div class="spanLine">
@@ -193,7 +195,7 @@ $(function(){
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
-            <div class="spanLineLeft width300" style="color:#027de5">
+            <div class="spanLineLeft width300">
                 <?=$value_DesignPrice->title_Str?>
             </div>
             <div class="spanLineLeft width100 aligncenter">
@@ -214,36 +216,72 @@ $(function(){
         </div>
     </div>
     <?endif?>
-    <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
-    <h3>專案修改建議</h3>
+</div>
+<?if($Project->project_status_Num == 1):?>
+<?else:?>
+<div class="contentBox allWidth">
+    <h3>專案修改建議列表</h3>
     <h4>請確認專案修改建議</h4>
     <div class="spanLine">
-        <?if( !empty($Project->comment_CommentList->obj_Arr) ):?>
-        <div class="spanStage">
+        <div class="spanLineLeft" style="margin-top:10px;">
+            專案修改建議列表
+        </div>
+        <?if($Project->project_status_Num == 4):?>
+        <?else:?>
+        <div class="spanLine noneBg">
             <div class="spanLineLeft">
-                專案修改建議
+                <a href="admin/user/project/suggest/edit?projectid=<?=$Project->projectid_Num?>" class="button">新增修改建議</a>
             </div>
-            <div class="spanLineLeft width500">
-                <?foreach($Project->comment_CommentList->obj_Arr as $key => $value_Comment):?>
-                <p><?=$value_Comment->uid_User->username_Str?> <span class="gray"><?=$value_Comment->updatetime_DateTime->datetime_Str?></span></p>
-                <div style="word-wrap:break-word;"><?=$value_Comment->content_Html?></div>
-                <div style="border-top: 1px #CCC dashed;margin:10px 0;"></div>
-                <?endforeach?>
-            </div>
+        </div>
+        <div class="spanLineLeft">
         </div>
         <?endif?>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                <?if( empty($Project->comment_CommentList->obj_Arr) ):?>
-                專案修改建議
-                <?endif?>
+        <div class="spanLine tableTitle">
+            <div class="spanLineLeft text width100">
+                修改建議ID
             </div>
-            <div class="spanLineLeft width500">
-                <textarea cols="80" name="content_Str" rows="10" placeholder="請填寫新的專案修改建議..."></textarea>
+            <div class="spanLineLeft text width300">
+                修改建議名稱
+            </div>
+            <div class="spanLineLeft text width100">
+                處理狀態
+            </div>
+            <div class="spanLineLeft text width150">
+                提出時間
             </div>
         </div>
+        <?foreach($SuggestList->obj_Arr as $key => $value_Suggest):?>
+        <div class="spanLine" style="border-bottom: 0px solid #EEE;">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineLeft text width100">
+                <?=$value_Suggest->suggestid_Num?>
+            </div>
+            <div class="spanLineLeft text width300">
+                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/suggest/edit/?suggestid=<?=$value_Suggest->suggestid_Num?>&projectid=<?=$Project->projectid_Num?>" target="_blank">
+                    <?=$value_Suggest->title_Str?>
+                </a>
+            </div>
+            <div class="spanLineLeft text width100">
+                <?if($value_Suggest->answer_status_Num == 1):?>
+                <span class="green">評估中</span>
+                <?elseif($value_Suggest->answer_status_Num == 2):?>
+                <span class="green">修改中</span>
+                <?elseif($value_Suggest->answer_status_Num == 3):?>
+                <span>已完成</span>
+                <?endif?>
+            </div>
+            <div class="spanLineLeft text width150">
+                <?=$value_Suggest->suggest_time_DateTime->datetime_Str?>
+            </div>
+        </div>
+        <?endforeach?>
     </div>
-    <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
+</div>
+<?endif?>
+<div class="contentBox allWidth">
+    <h3>專案時程及進度</h3>
+    <h4>請確認案時程及進度</h4>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
