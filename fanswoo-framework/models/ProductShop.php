@@ -11,12 +11,15 @@ class ProductShop extends ObjDbBase
     public $content_specification_Html = '';//網頁語言類別
     public $synopsis_Str = '';
     public $price_Num = 0;
+    public $cost_Num = 0;
+    public $warehouseid_Str = '';
     public $class_ClassMetaList;//分類標籤類別列表
     public $stock_StockProductShopList;
     public $stock_classname1_Arr = [];
     public $stock_classname2_Arr = [];
     public $prioritynum_Num = 0;
     public $updatetime_DateTime;
+    public $shelves_status_Num = 2;
     public $status_Num = 1;
     public $db_name_Str = 'shop_product';//填寫物件聯繫資料庫之名稱
     public $db_uniqueid_Str = 'productid';//填寫物件聯繫資料庫之唯一ID
@@ -25,6 +28,8 @@ class ProductShop extends ObjDbBase
         'uid' => 'uid_Num',
         'name' => 'name_Str',
         'price' => 'price_Num',
+        'cost' => 'cost_Num',
+        'warehouseid' => 'warehouseid_Str',
         'synopsis' => 'synopsis_Str',
         'picids' => array('pic_PicObjList', 'uniqueids_Str'),
         'classids' => array('class_ClassMetaList', 'uniqueids_Str'),
@@ -32,6 +37,7 @@ class ProductShop extends ObjDbBase
         'content_specification' => 'content_specification_Html',
         'prioritynum' => 'prioritynum_Num',
         'updatetime' => array('updatetime_DateTime', 'datetime_Str'),
+        'shelves_status' => 'shelves_status_Num',
         'status' => 'status_Num'
     );
 	
@@ -48,12 +54,15 @@ class ProductShop extends ObjDbBase
         $content_specification_Str = !empty($arg['content_specification_Str']) ? $arg['content_specification_Str'] : '' ;
         $synopsis_Str = !empty($arg['synopsis_Str']) ? $arg['synopsis_Str'] : '' ;
         $price_Num = !empty($arg['price_Num']) ? $arg['price_Num'] : 0 ;
+        $cost_Num = !empty($arg['cost_Num']) ? $arg['cost_Num'] : 0 ;
+        $warehouseid_Str = !empty($arg['warehouseid_Str']) ? $arg['warehouseid_Str'] : '';
         $classids_Str = !empty($arg['classids_Str']) ? $arg['classids_Str'] : '';
         $classids_Arr = !empty($arg['classids_Arr']) ? $arg['classids_Arr'] : array();
         $prioritynum_Num = !empty($arg['prioritynum_Num']) ? $arg['prioritynum_Num'] : 0;
         $updatetime_Str = !empty($arg['updatetime_Str']) ? $arg['updatetime_Str'] : '';
         $updatetime_inputtime_date_Str = !empty($arg['updatetime_inputtime_date_Str']) ? $arg['updatetime_inputtime_date_Str'] : '';
         $updatetime_inputtime_time_Str = !empty($arg['updatetime_inputtime_time_Str']) ? $arg['updatetime_inputtime_time_Str'] : '';
+        $shelves_status_Num = !empty($arg['shelves_status_Num']) ? $arg['shelves_status_Num'] : 2;
         $status_Num = !empty($arg['status_Num']) ? $arg['status_Num'] : 1;
         
         //若uid為空則以登入者uid作為本物件之預設uid
@@ -127,9 +136,12 @@ class ProductShop extends ObjDbBase
         $this->content_specification_Html = $content_specification_Html;
         $this->synopsis_Str = $synopsis_Str;
         $this->price_Num = $price_Num;
+        $this->cost_Num = $cost_Num;
+        $this->warehouseid_Str = $warehouseid_Str;
         $this->class_ClassMetaList = $class_ClassMetaList;
         $this->prioritynum_Num = $prioritynum_Num;
         $this->updatetime_DateTime = $updatetime_DateTime;
+        $this->shelves_status_Num = $shelves_status_Num;
         $this->status_Num = $status_Num;
         
         //建立PicObjList物件

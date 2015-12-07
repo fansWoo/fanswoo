@@ -113,10 +113,9 @@ class Classmeta_Controller extends MY_Controller {
             'child4_name_Str' => 'tablelist'//管理分類名稱
         )));
 
-        $limitstart = $this->input->get('limitstart');
-        $limitcount = $this->input->get('limitcount');
-        $limitcount = !empty($limitcount) ? $limitcount : 20;
-        $limitcount = $limitcount > 100 ? $limitcount : 100;
+        $limitstart_Num = $this->input->get('limitstart');
+        $limitcount_Num = $this->input->get('limitcount');
+        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 20;
 
         $data['AdvertisingClassList'] = new ObjList();
         $data['AdvertisingClassList']->construct_db(array(
@@ -125,8 +124,8 @@ class Classmeta_Controller extends MY_Controller {
             ],
             'db_where_deletenull_Bln' => TRUE,
             'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
+            'limitstart_Num' => $limitstart_Num,
+            'limitcount_Num' => $limitcount_Num
         ));
         $data['class_links'] = $data['AdvertisingClassList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
 
@@ -143,6 +142,34 @@ class Classmeta_Controller extends MY_Controller {
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+    }
+
+    public function tablelist_post()
+    {
+        $data = $this->data;//取得公用數據
+
+        $search_classname_Str = $this->input->post('search_classname_Str', TRUE);
+        $search_slug_Str = $this->input->post('search_slug_Str', TRUE);
+        $search_username_Str = $this->input->post('search_username_Str', TRUE);
+
+        $url_Str = base_url('admin/base/note/classmeta/tablelist/?');
+
+        if(!empty($search_classname_Str))
+        {
+            $url_Str = $url_Str.'&classname='.$search_classname_Str;
+        }
+
+        if(!empty($search_slug_Str))
+        {
+            $url_Str = $url_Str.'&slug='.$search_slug_Str;
+        }
+
+        if(!empty($search_username_Str))
+        {
+            $url_Str = $url_Str.'&username='.$search_username_Str;
+        }
+
+        header("Location: $url_Str");
     }
 
     public function delete()

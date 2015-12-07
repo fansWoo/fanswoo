@@ -65,9 +65,9 @@ $(function(){
     });
     $(document).on('mouseleave', '.sidebar', function () {
         $('.acHref').removeClass('hover');
-        $('.sidebox.select').addClass('hover');
-        $('.acHref.select').addClass('hover');
-        $('.acHref acHrefSmall.select').addClass('hover');
+        $('.sidebox.selected').addClass('hover');
+        $('.acHref.selected').addClass('hover');
+        $('.acHref acHrefSmall.selected').addClass('hover');
     });
     //多圖片上傳自動新增上傳按鈕
     $(document).on('change', '[fanswoo-fileMultiple]', function(){
@@ -82,6 +82,16 @@ $(function(){
         {
             $(this).remove();
         }
+    });
+    $(".spanLineTableContent .tablelist").each(function(key, value){
+        var total_lineleft_width = 0;
+        $(this).find(".spanLineLeft").each(function(key, value){
+            var lineleft_width = $(this).widthAll();
+            total_lineleft_width = total_lineleft_width + lineleft_width;
+        });
+            console.log(total_lineleft_width);
+        $(this).width(total_lineleft_width);
+        $(".spanLineTableContent").width(total_lineleft_width);
     });
     //圖片AJAX上傳系統
     $( "[fanswoo-piclist]" ).sortable();
@@ -229,7 +239,7 @@ $(function(){
                                         $clone = $("[fanswoo-filelist]:eq(" + key + ") [fanswoo-fileid][fanswoo-clone]").clone();
                                         $clone.removeAttr("fanswoo-clone").prependTo("[fanswoo-filelist]:eq(" + key + ")");
                                         $clone.attr('fanswoo-fileid', response_Json.file_Arr[i].fileid_Num );
-                                        $clone.find("[fanswoo-input_copy]").val( response_Json.file_Arr[i].path_Str );
+                                        $clone.find("[fanswoo-input_copy]").val( response_Json.file_Arr[i].download_file_path_Str );
                                         $clone.find("[fanswoo-fileid_input_hidden_fileid]").val( response_Json.file_Arr[i].fileid_Num );
                                     }
                                 }

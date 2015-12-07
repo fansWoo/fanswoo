@@ -115,6 +115,7 @@ class Classmeta_Controller extends MY_Controller {
         $data['search_classname_Str'] = $this->input->get('classname');
         $data['search_slug_Str'] = $this->input->get('slug');
         $data['search_class_slug_Str'] = $this->input->get('class_slug');
+        $data['search_username_Str'] = $this->input->get('username');
 
         $limitstart = $this->input->get('limitstart');
         $limitcount = $this->input->get('limitcount');
@@ -130,27 +131,65 @@ class Classmeta_Controller extends MY_Controller {
             'db_where_deletenull_Bln' => FALSE
         ));
 
-        $data['class_list_ClassMetaList'] = new ObjList();
-        $data['class_list_ClassMetaList']->construct_db(array(
+        $User = new User();
+        $User->construct_db(array(
             'db_where_Arr' => array(
-                'modelname' => 'note',
-                'slug' => $data['search_slug_Str']
-            ),
-            'db_where_like_Arr' => array(
-                'classname_Str' => $data['search_classname_Str']
-            ),
-            'db_where_or_Arr' => array(
-                'classids' => array($class_ClassMeta->classid_Num)
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('classid', 'DESC')
-            ),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
+                'username' => $data['search_username_Str']
+            )
         ));
+
+        $data['UserGroup_Num'] = $data['User']->group_UserGroupList->obj_Arr[0]->groupid_Num;
+
+        if($data['UserGroup_Num'] == 100)
+        {
+            $data['class_list_ClassMetaList'] = new ObjList();
+            $data['class_list_ClassMetaList']->construct_db(array(
+                'db_where_Arr' => array(
+                    'modelname' => 'note',
+                    'slug' => $data['search_slug_Str'],
+                    'uid' => $data['User']->uid_Num
+                ),
+                'db_where_like_Arr' => array(
+                    'classname_Str' => $data['search_classname_Str']
+                ),
+                'db_where_or_Arr' => array(
+                    'classids' => array($class_ClassMeta->classid_Num)
+                ),
+                'db_where_deletenull_Bln' => TRUE,
+                'db_orderby_Arr' => array(
+                    array('prioritynum', 'DESC'),
+                    array('classid', 'DESC')
+                ),
+                'model_name_Str' => 'ClassMeta',
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ));
+        }
+        else
+        {
+            $data['class_list_ClassMetaList'] = new ObjList();
+            $data['class_list_ClassMetaList']->construct_db(array(
+                'db_where_Arr' => array(
+                    'modelname' => 'note',
+                    'slug' => $data['search_slug_Str'],
+                    'uid' => $User->uid_Num
+                ),
+                'db_where_like_Arr' => array(
+                    'classname_Str' => $data['search_classname_Str']
+                ),
+                'db_where_or_Arr' => array(
+                    'classids' => array($class_ClassMeta->classid_Num)
+                ),
+                'db_where_deletenull_Bln' => TRUE,
+                'db_orderby_Arr' => array(
+                    array('prioritynum', 'DESC'),
+                    array('classid', 'DESC')
+                ),
+                'model_name_Str' => 'ClassMeta',
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ));
+        }
         $data['class_links'] = $data['class_list_ClassMetaList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
 
         //global
@@ -174,6 +213,7 @@ class Classmeta_Controller extends MY_Controller {
 
         $search_classname_Str = $this->input->post('search_classname_Str', TRUE);
         $search_slug_Str = $this->input->post('search_slug_Str', TRUE);
+        $search_username_Str = $this->input->post('search_username_Str', TRUE);
 
         $url_Str = base_url('admin/base/note/classmeta/tablelist/?');
 
@@ -185,6 +225,11 @@ class Classmeta_Controller extends MY_Controller {
         if(!empty($search_slug_Str))
         {
             $url_Str = $url_Str.'&slug='.$search_slug_Str;
+        }
+
+        if(!empty($search_username_Str))
+        {
+            $url_Str = $url_Str.'&username='.$search_username_Str;
         }
 
         header("Location: $url_Str");

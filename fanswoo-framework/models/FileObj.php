@@ -9,10 +9,12 @@ class FileObj extends ObjDbBase {
     public $size_Num = '';
     public $type_Str = '';
     public $md5_Str = '';
-    public $permission_uids_Str = '';
+    public $permission_uids_UserList = '';
     public $class_ClassMetaList;
     public $filefile_FileArr = array();
     public $path_Str = '';
+    public $file_path_Str = '';
+    public $download_file_path_Str = '';
     public $prioritynum_Num = 0;
     public $updatetime_DateTime;
     public $status_Num = 1;
@@ -27,7 +29,7 @@ class FileObj extends ObjDbBase {
         'size' => 'size_Num',
         'type' => 'type_Str',
         'md5' => 'md5_Str',
-        'permission_uids' => 'permission_uids_Str',
+        'permission_uids' => ['permission_uids_UserList', 'uniqueids_Str'],
         'classids' => array('class_ClassMetaList', 'uniqueids_Str'),
         'prioritynum' => 'prioritynum_Num',
         'updatetime' => array('updatetime_DateTime', 'datetime_Str'),
@@ -45,6 +47,7 @@ class FileObj extends ObjDbBase {
         $type_Str = !empty($arg['type_Str']) ? $arg['type_Str'] : '' ;
         $md5_Str = !empty($arg['md5_Str']) ? $arg['md5_Str'] : '' ;
         $permission_uids_Str = !empty($arg['permission_uids_Str']) ? $arg['permission_uids_Str'] : '' ;
+        $permission_emails_Str = !empty($arg['permission_emails_Str']) ? $arg['permission_emails_Str'] : '' ;
         $classids_Str = !empty($arg['classids_Str']) ? $arg['classids_Str'] : '' ;
         $classids_Arr = !empty($arg['classids_Arr']) ? $arg['classids_Arr'] : array() ;
         $path_Str = !empty($arg['path_Str']) ? $arg['path_Str'] : '' ;
@@ -113,15 +116,22 @@ class FileObj extends ObjDbBase {
         $this->size_Num = $size_Num;
         $this->type_Str = $type_Str;
         $this->md5_Str = $md5_Str;
-        $this->permission_uids_Str = $permission_uids_Str;
         $this->class_ClassMetaList = $class_ClassMetaList;
         $this->filefile_FileArr = $filefile_FileArr;
         $this->prioritynum_Num = $prioritynum_Num;
         $this->updatetime_DateTime = $updatetime_DateTime;
         $this->status_Num = $status_Num;
 
-        $path_Str = $this->get_path();
-        $this->path_Str = $path_Str;
+        // ec($permission_emails_Str);
+
+        $this->set__permission_uids_UserList([
+            'permission_uids_Str' => $permission_uids_Str,
+            'permission_emails_Str' => $permission_emails_Str
+        ]);
+
+        $this->set__path_Str();
+        $this->set__file_path_Str();
+        $this->set__download_file_path_Str();
         
         return TRUE;
     }
@@ -149,6 +159,118 @@ class FileObj extends ObjDbBase {
         }
 
         return $path_Str;
+    }
+
+    public function set__path_Str()
+    {
+        //path
+        if( !empty($this->md5_Str) && !empty($this->fileid_Num) )
+        {
+            // $type_Arr = explode('/', $this->type_Str);
+            $type_Arr = explode('.', $this->filename_Str);
+            $ext_Str = $type_Arr[1];
+            $substr_fileid_Num = abs(intval($this->fileid_Num));
+            $substr_fileid_Num = sprintf("%08d", $substr_fileid_Num);
+
+            $dir1_Num = substr($substr_fileid_Num, 0, 2);
+            $dir2_Num = substr($substr_fileid_Num, 2, 2);
+            $dir3_Num = substr($substr_fileid_Num, 4, 2);
+            $dir4_Num = substr($substr_fileid_Num, 6, 2);
+            $path_Str = prep_url($_SERVER['HTTP_HOST'].base_url('app/file/'.$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$this->md5_Str.'.'.$ext_Str));
+        }
+        else
+        {
+            $path_Str = '';
+        }
+        $this->path_Str = $path_Str;
+    }
+
+    public function set__file_path_Str()
+    {
+        //path
+        if( !empty($this->md5_Str) && !empty($this->fileid_Num) )
+        {
+            // $type_Arr = explode('/', $this->type_Str);
+            $type_Arr = explode('.', $this->filename_Str);
+            $ext_Str = $type_Arr[1];
+            $substr_fileid_Num = abs(intval($this->fileid_Num));
+            $substr_fileid_Num = sprintf("%08d", $substr_fileid_Num);
+
+            $dir1_Num = substr($substr_fileid_Num, 0, 2);
+            $dir2_Num = substr($substr_fileid_Num, 2, 2);
+            $dir3_Num = substr($substr_fileid_Num, 4, 2);
+            $dir4_Num = substr($substr_fileid_Num, 6, 2);
+            $file_path_Str = APPPATH."file/".$dir1_Num.'/'.$dir2_Num.'/'.$dir3_Num.'/'.$dir4_Num.'-'.$this->md5_Str.'.'.$ext_Str;
+        }
+        else
+        {
+            $file_path_Str = '';
+        }
+        $this->file_path_Str = $file_path_Str;
+    }
+
+    public function set__download_file_path_Str()
+    {
+        //path
+        if( !empty($this->md5_Str) && !empty($this->fileid_Num) )
+        {
+            $download_file_path_Str = prep_url($_SERVER['HTTP_HOST'].base_url('api/file/download_file/'.$this->fileid_Num));
+        }
+        else
+        {
+            $download_file_path_Str = '';
+        }
+        $this->download_file_path_Str = $download_file_path_Str;
+    }
+
+    public function set__permission_uids_UserList($arg)
+    {
+        if( !empty($arg['permission_uids_Str']) )
+        {
+            $permission_uids_Arr = explode(',', $arg['permission_uids_Str']);
+            $UserList = new ObjList();
+            $UserList->construct_db([
+                'db_where_or_Arr' => [
+                    'uid' => $permission_uids_Arr
+                ],
+                'model_name_Str' => 'User',
+                'db_orderby_Arr' => [
+                    'uid' => $permission_uids_Arr
+                ],
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ]);
+        }
+        else if( !empty($arg['permission_emails_Str']) )
+        {
+            $permission_emails_Arr = explode(PHP_EOL, $arg['permission_emails_Str']);
+            $UserList = new ObjList();
+            $UserList->construct_db([
+                'db_where_or_Arr' => [
+                    'email' => $permission_emails_Arr
+                ],
+                'model_name_Str' => 'User',
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ]);
+
+            $UserList->uniqueids_Arr = [];
+            foreach($UserList->obj_Arr as $key => $value_User)
+            {
+                $array_search_Num = array_search( $value_User->email_Str, $permission_emails_Arr );
+                if( $array_search_Num !== FALSE )
+                {
+                    $UserList->uniqueids_Arr[$array_search_Num] = $value_User->uid_Num;
+                }
+            }
+            ksort($UserList->uniqueids_Arr);
+            $UserList->uniqueids_Str = implode(',', $UserList->uniqueids_Arr);
+        }
+        else
+        {
+            $UserList = new ObjList;
+        }
+        $this->permission_uids_UserList = $UserList;
     }
     
     public function upload()
@@ -194,6 +316,8 @@ class FileObj extends ObjDbBase {
             move_uploaded_file($filefile_FileArr['tmp_name'], $path_Str);
 
             $this->set('path_Str', $this->get_path() );
+            $this->set('file_path_Str', $path_Str );
+            $this->set__download_file_path_Str();
 
             return TRUE;
         }
@@ -202,6 +326,12 @@ class FileObj extends ObjDbBase {
             return FALSE;
         }
         
+    }
+
+    public function destroy()
+    {
+        parent::destroy();
+        unlink( $this->file_path_Str );
     }
 	
 }

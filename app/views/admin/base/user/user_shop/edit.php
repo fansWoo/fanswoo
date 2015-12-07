@@ -2,6 +2,54 @@
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
+<?if(empty($user_UserFieldShop->uid_Num)):?>
+<div class="contentBox allWidth">
+    <h3><?=$child3_title_Str?> > <?if(!empty($user_UserFieldShop->uid_Num)):?>編輯<?else:?>新增<?endif?></h3>
+    <h4>請填寫<?=$child3_title_Str?>之詳細資訊</h4>
+    <?php echo form_open_multipart("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_adduser_post/") ?>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                會員電子郵件
+            </div>
+            <div class="spanLineLeft width200">
+                <input type="text" name="email_Str" class="text" placeholder="請輸入會員的電子郵件">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                會員密碼
+            </div>
+            <div class="spanLineLeft width200">
+                <input type="password" name="password_Str" class="text" placeholder="請輸入8-16字元的密碼">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                確認密碼
+            </div>
+            <div class="spanLineLeft width200">
+                <input type="password" name="password2_Str" class="text" placeholder="請再次輸入8-16字元的密碼">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine spanSubmit">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineRight">
+                <input type="submit" class="submit" value="新增會員">
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+<?endif?>
+<?if(!empty($user_UserFieldShop->uid_Num)):?>
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > 基本資料<?if(!empty($user_UserFieldShop->uid_Num)):?>編輯<?else:?>新增<?endif?></h3>
 	<h4>請填寫<?=$child3_title_Str?>之詳細資訊</h4>
@@ -79,6 +127,8 @@
 	</div>
 	</form>
 </div>
+<?endif?>
+<?if(!empty($user_UserFieldShop->uid_Num)):?>
 <div class="contentBox allWidth">
     <h3><?=$child3_title_Str?> > 變更密碼</h3>
     <h4>請填寫新的<?=$child3_title_Str?>會員密碼</h4>
@@ -104,7 +154,6 @@
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
-                
             </div>
             <div class="spanLineRight">
                 <span class="gray">請輸入英文與數字結合之8-16個字元的密碼</span>
@@ -122,7 +171,6 @@
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
-                
             </div>
             <div class="spanLineRight">
                 <span class="gray">請確認兩次輸入的密碼一致</span>
@@ -199,5 +247,6 @@
     </div>
     </form>
 </div>
+<?endif?>
 <?=$temp['admin_footer_bar']?>
 <?=$temp['body_end']?>

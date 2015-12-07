@@ -59,24 +59,25 @@ $config['group_purview_Arr'] = array(
 		// array('shop', 'product', 'set', 'set'),
 		array('shop', 'order_shop', 'order_shop', 'edit'),
 		array('shop', 'order_shop', 'order_shop', 'tablelist'),
-		array('shop', 'project', 'project', 'edit'),
-		array('shop', 'project', 'project', 'tablelist'),
-		array('shop', 'project', 'project', 'prints'),
-		array('shop', 'project', 'classmeta', 'edit'),
-		array('shop', 'project', 'classmeta', 'tablelist'),
-		array('shop', 'project', 'classmeta2', 'edit'),
-		array('shop', 'project', 'classmeta2', 'tablelist'),
-		array('shop', 'project', 'design', 'edit'),
-		array('shop', 'project', 'design', 'tablelist'),
-		array('shop', 'project', 'suggest', 'edit'),
-		array('shop', 'project', 'suggest', 'tablelist'),
+
+		array('project', 'project', 'project', 'edit'),
+		array('project', 'project', 'project', 'tablelist'),
+		array('project', 'project', 'project', 'prints'),
+		array('project', 'project', 'classmeta', 'edit'),
+		array('project', 'project', 'classmeta', 'tablelist'),
+		array('project', 'project', 'classmeta2', 'edit'),
+		array('project', 'project', 'classmeta2', 'tablelist'),
+		array('project', 'project', 'suggest', 'edit'),
+		array('project', 'project', 'suggest', 'tablelist'),
+		array('project', 'design', 'design', 'edit'),
+		array('project', 'design', 'design', 'tablelist'),
+		array('project', 'user', 'project', 'edit'),
+		array('project', 'user', 'project', 'tablelist'),
+		array('project', 'user', 'design', 'edit'),
+		array('project', 'user', 'suggest', 'edit'),
         
 		array('user', 'global', 'global', 'user'),
 		// array('user', 'global', 'global_shop', 'user'),
-		array('user', 'project', 'project', 'edit'),
-		array('user', 'project', 'project', 'tablelist'),
-		array('user', 'project', 'design', 'edit'),
-		array('user', 'project', 'suggest', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'tablelist')
 	),
@@ -87,31 +88,31 @@ $config['group_purview_Arr'] = array(
 		// array('base', 'user', 'user_shop', 'tablelist'),
 		// array('base', 'user', 'classmeta', 'edit'),
 		// array('base', 'user', 'classmeta', 'tablelist'),
+
+		array('project', 'user', 'project', 'edit'),
+		array('project', 'user', 'project', 'tablelist'),
+		array('project', 'user', 'design', 'edit'),
+		array('project', 'user', 'suggest', 'edit'),
         
 		array('user', 'global', 'global', 'user'),
 		// array('user', 'global', 'global_shop', 'user'),
-		array('user', 'project', 'project', 'edit'),
-		array('user', 'project', 'project', 'tablelist'),
-		array('user', 'project', 'design', 'edit'),
-		array('user', 'project', 'suggest', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'tablelist')
 	),
 	'100' => array(//一般會員
+		array('project', 'user', 'project', 'edit'),
+		array('project', 'user', 'project', 'tablelist'),
+		array('project', 'user', 'design', 'edit'),
+		array('project', 'user', 'suggest', 'edit'),
+
 		array('user', 'global', 'global', 'user'),
 		// array('user', 'global', 'global_shop', 'user'),
-		array('user', 'project', 'project', 'edit'),
-		array('user', 'project', 'project', 'tablelist'),
-		array('user', 'project', 'design', 'edit'),
-		array('user', 'project', 'suggest', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'tablelist')
 	),
 	'101' => array(//進階會員
 		array('user', 'global', 'global', 'user'),
 		// array('user', 'global', 'global_shop', 'user'),
-		// array('user', 'project', 'project', 'edit'),
-		// array('user', 'project', 'project', 'tablelist'),
 		// array('user', 'order_shop', 'order_shop', 'edit'),
 		// array('user', 'order_shop', 'order_shop', 'tablelist')
 	)
@@ -364,46 +365,6 @@ $config['admin_sidebox'] = array(
 						)
 					)
 				),
-				'project' => array(
-					'title' => '專案管理',
-					'child3' => array(
-						'project' => array(
-							'title' => '專案',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表'),
-								'prints' => array('title' => '列印')
-							)
-						),
-				 		'classmeta' => array(
-				 			'title' => '專案分類',
-				 			'child4' => array(
-				 				'edit' => array('title' => '編輯'),
-				 				'tablelist' => array('title' => '列表')
-				 			)
-				 		),
-				 		'classmeta2' => array(
-							'title' => '二級分類',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
-							)
-						),
-						'design' => array(
-							'title' => '設計項目',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
-							)
-						),
-						'suggest' => array(
-							'title' => '專案修改建議',
-							'child4' => array(
-								'edit' => array('title' => '編輯')
-							)
-						)
-					)
-				),
 				'order_shop' => array(
 					'title' => 'Wordpress 訂單',
 					'child3' => array(
@@ -416,6 +377,61 @@ $config['admin_sidebox'] = array(
 						)
 					)
 				)
+			)
+		),
+		'project' => array(
+			'title' => '專案系統',
+			'child2' => array(
+				'project' => array(
+					'title' => '專案管理',
+					'child3' => array(
+						'project' => array(
+							'title' => '專案',
+							'child4' => array(
+								'edit' => array('title' => '編輯'),
+								'tablelist' => array('title' => '列表')
+							)
+						),
+						'classmeta' => array(
+						 	'title' => '專案分類',
+						 	'child4' => array(
+						 		'edit' => array('title' => '編輯'),
+						 		'tablelist' => array('title' => '列表')
+						 	)
+						),
+					 	'classmeta2' => array(
+							'title' => '二級分類',
+							'child4' => array(
+								'edit' => array('title' => '編輯'),
+								'tablelist' => array('title' => '列表')
+							)
+						)
+					)
+				),
+				'design' => array(
+					'title' => '設計項目管理',
+					'child3' => array(
+						'design' => array(
+							'title' => '設計項目',
+							'child4' => array(
+								'edit' => array('title' => '編輯'),
+								'tablelist' => array('title' => '列表')
+							)
+						)
+					)
+				),
+				'user' => array(
+					'title' => '我的專案',
+					'child3' => array(
+						'project' => array(
+							'title' => '我的專案',
+							'child4' => array(
+								'edit' => array('title' => '編輯'),
+								'tablelist' => array('title' => '列表')
+							)
+						)
+					)
+				),
 			)
 		),
 		'user' => array(
@@ -436,31 +452,6 @@ $config['admin_sidebox'] = array(
 								'user' => array('title' => '會員資料')
 							)
 						)
-					)
-				),
-				'project' => array(
-					'title' => '我的專案',
-					'child3' => array(
-						'project' => array(
-							'title' => '我的專案',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
-							)
-						),
-						'design' => array(
-							'title' => '設計項目',
-							'child4' => array(
-								'edit' => array('title' => '查看'),
-							)
-						),
-						'suggest' => array(
-							'title' => '修改建議',
-							'child4' => array(
-								'edit' => array('title' => '編輯')
-							)
-						)
-
 					)
 				),
 				'order_shop' => array(

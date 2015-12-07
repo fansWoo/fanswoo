@@ -41,18 +41,34 @@ class Pic_Controller extends MY_Controller {
         		'picid_Num' => $picid_Num
         	)
         ));
-        // echoe($data['PicObj']->picid_Num);
-            
-        $data['ClassMetaList'] = new ObjList();
-        $data['ClassMetaList']->construct_db(array(
-        	'db_where_Arr' => array(
-        		'uid_Str' => $data['User']->uid_Num,
-        		'modelname' => 'pic'
-        	),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
+
+        $data['UserGroup_Num'] = $data['User']->group_UserGroupList->obj_Arr[0]->groupid_Num;
+
+        if($data['UserGroup_Num'] == 100)
+        {   
+            $data['ClassMetaList'] = new ObjList();
+            $data['ClassMetaList']->construct_db(array(
+            	'db_where_Arr' => array(
+            		'uid_Str' => $data['User']->uid_Num,
+            		'modelname' => 'pic'
+            	),
+                'model_name_Str' => 'ClassMeta',
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ));
+        }
+        else
+        {
+            $data['ClassMetaList'] = new ObjList();
+            $data['ClassMetaList']->construct_db(array(
+                'db_where_Arr' => array(
+                    'modelname' => 'pic'
+                ),
+                'model_name_Str' => 'ClassMeta',
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ));
+        }
 
         //global
         $data['global']['style'][] = 'app/css/admin/global.css';
@@ -99,6 +115,18 @@ class Pic_Controller extends MY_Controller {
 		    $PicObj->updatetime_DateTime->construct();
 		    $PicObj->update();
 
+            if( !empty($comment_content_Str) )
+            {
+                $Comment = new Comment;
+                $Comment->construct([
+                    'uid_Num' => $data['User']->uid_Num,
+                    'typename_Str' => 'pic',
+                    'id_Num' => $PicObj->picid_Num,
+                    'content_Str' => $comment_content_Str
+                ]);
+                $Comment->update();
+            }
+
 			$this->load->model('Message');
 			$this->Message->show(array(
 			    'message' => '設定成功',
@@ -120,6 +148,7 @@ class Pic_Controller extends MY_Controller {
                 'limitstart_Num' => 0,
                 'limitcount_Num' => 100
             ]);
+
             foreach($PicObjList->obj_Arr as $key => $value_PicObj)
             {
                 $value_PicObj->set('class_ClassMetaList', [
@@ -127,6 +156,7 @@ class Pic_Controller extends MY_Controller {
                 ], 'ClassMetaList');
                 $value_PicObj->update();
             }
+
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => '設定成功',
@@ -159,54 +189,110 @@ class Pic_Controller extends MY_Controller {
         $data['search_class_slug_Str'] = $this->input->get('class_slug');
         $data['search_title_Str'] = $this->input->get('title');
         $data['search_picid_Num'] = $this->input->get('picid');
+        $data['search_username_Str'] = $this->input->get('username');
 
         $class_ClassMeta = new ClassMeta();
         $class_ClassMeta->construct_db(array(
             'db_where_Arr' => array(
-                'uid_Str' => $data['User']->uid_Num,
                 'slug_Str' => $data['search_class_slug_Str']
             ),
             'db_where_deletenull_Bln' => FALSE
         ));
 
-        $data['piclist_PicList'] = new ObjList;
-        $data['piclist_PicList']->construct_db(array(
+        $User = new User();
+        $User->construct_db(array(
             'db_where_Arr' => array(
-                'picid_Num' => $data['search_picid_Num'],
-                'uid_Num' => $data['User']->uid_Num,
-            ),
-            'db_where_like_Arr' => array(
-                'title_Str' => $data['search_title_Str']
-            ),
-            'db_where_or_Arr' => array(
-                'classids_Str' => array($class_ClassMeta->classid_Num)
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'PicObj',
-            'db_orderby_Arr' => array(
-                'prioritynum' => 'DESC',
-                'updatetime' => 'DESC'
-            ),
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
-      	));
+                'username' => $data['search_username_Str']
+            )
+        ));
+
+        $data['UserGroup_Num'] = $data['User']->group_UserGroupList->obj_Arr[0]->groupid_Num;
+
+        if($data['UserGroup_Num'] == 100)
+        {
+            $data['piclist_PicList'] = new ObjList;
+            $data['piclist_PicList']->construct_db(array(
+                'db_where_Arr' => array(
+                    'picid_Num' => $data['search_picid_Num'],
+                    'uid_Num' => $data['User']->uid_Num,
+                ),
+                'db_where_like_Arr' => array(
+                    'title_Str' => $data['search_title_Str']
+                ),
+                'db_where_or_Arr' => array(
+                    'classids_Str' => array($class_ClassMeta->classid_Num)
+                ),
+                'db_where_deletenull_Bln' => TRUE,
+                'model_name_Str' => 'PicObj',
+                'db_orderby_Arr' => array(
+                    'prioritynum' => 'DESC',
+                    'updatetime' => 'DESC'
+                ),
+                'limitstart_Num' => $limitstart_Num,
+                'limitcount_Num' => $limitcount_Num
+          	));
+        }
+        else
+        {
+            $data['piclist_PicList'] = new ObjList;
+            $data['piclist_PicList']->construct_db(array(
+                'db_where_Arr' => array(
+                    'picid_Num' => $data['search_picid_Num'],
+                    'uid_Num' => $User->uid_Num,
+                ),
+                'db_where_like_Arr' => array(
+                    'title_Str' => $data['search_title_Str']
+                ),
+                'db_where_or_Arr' => array(
+                    'classids_Str' => array($class_ClassMeta->classid_Num)
+                ),
+                'db_where_deletenull_Bln' => TRUE,
+                'model_name_Str' => 'PicObj',
+                'db_orderby_Arr' => array(
+                    'prioritynum' => 'DESC',
+                    'updatetime' => 'DESC'
+                ),
+                'limitstart_Num' => $limitstart_Num,
+                'limitcount_Num' => $limitcount_Num
+            ));
+        }
         $data['pic_links'] = $data['piclist_PicList']->create_links(array('base_url_Str' => "admin/base/pic/pic/tablelist/?class_slug=$data[search_class_slug_Str]"));
 
-        $data['pic_ClassMetaList'] = $this->load->model('ObjList', nrnum());
-        $data['pic_ClassMetaList']->construct_db(array(
-            'db_where_Arr' => array(
-                'uid_Num' => $data['User']->uid_Num,
-                'modelname' => 'pic'
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'ClassMeta',
-            'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
-            ),
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
+        if($data['UserGroup_Num'] == 100)
+        {
+            $data['pic_ClassMetaList'] = $this->load->model('ObjList', nrnum());
+            $data['pic_ClassMetaList']->construct_db(array(
+                'db_where_Arr' => array(
+                    'uid_Num' => $data['User']->uid_Num,
+                    'modelname' => 'pic'
+                ),
+                'db_where_deletenull_Bln' => TRUE,
+                'model_name_Str' => 'ClassMeta',
+                'db_orderby_Arr' => array(
+                    array('prioritynum', 'DESC'),
+                    array('updatetime', 'DESC')
+                ),
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ));
+        }
+        else
+        {
+            $data['pic_ClassMetaList'] = $this->load->model('ObjList', nrnum());
+            $data['pic_ClassMetaList']->construct_db(array(
+                'db_where_Arr' => array(
+                    'modelname' => 'pic'
+                ),
+                'db_where_deletenull_Bln' => TRUE,
+                'model_name_Str' => 'ClassMeta',
+                'db_orderby_Arr' => array(
+                    array('prioritynum', 'DESC'),
+                    array('updatetime', 'DESC')
+                ),
+                'limitstart_Num' => 0,
+                'limitcount_Num' => 100
+            ));
+        }
 
         //global
         $data['global']['style'][] = 'app/css/admin/global.css';
@@ -230,6 +316,7 @@ class Pic_Controller extends MY_Controller {
         $search_picid_Num = $this->input->post('search_picid_Num', TRUE);
         $search_title_Str = $this->input->post('search_title_Str', TRUE);
         $search_class_slug_Str = $this->input->post('search_class_slug_Str', TRUE);
+        $search_username_Str = $this->input->post('search_username_Str', TRUE);
 
         $url_Str = base_url('admin/base/pic/pic/tablelist/?');
 
@@ -246,6 +333,11 @@ class Pic_Controller extends MY_Controller {
         if(!empty($search_class_slug_Str))
         {
             $url_Str = $url_Str.'&class_slug='.$search_class_slug_Str;
+        }
+
+        if(!empty($search_username_Str))
+        {
+            $url_Str = $url_Str.'&username='.$search_username_Str;
         }
 
         header("Location: $url_Str");

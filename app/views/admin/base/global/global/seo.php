@@ -22,10 +22,6 @@
                 <p class="gray">每個不同的SEO標籤請以「,」分隔，如要區分大段落的SEO標籤，請以斷行分隔</p>
             </div>
         </div>
-		<div class="spanLineLeft">
-		</div>
-		<div class="spanLineRight">
-		</div>
 	</div>
 	<div class="spanLine spanSubmit">
         <div class="spanStage">

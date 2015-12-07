@@ -182,49 +182,49 @@ $(function(){
     <div style="border-top: 2px #AAA dashed;margin:30px 0;"></div>
 	<h3>貨物處理狀態</h3>
 	<h4>請確認貨物處理狀態</h4>
-	<div class="spanLine">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-                購物貨物列表
-            </div>
-            <div class="spanLineLeft width300">
-                申請主機方案
-		    </div>
-            <div class="spanLineLeft width100 aligncenter">
-                單價
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-                使用期限
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-                小計
-            </div>
-		</div>
-	</div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width300">
-                <a href="product/<?=$value_CartShop->product_ProductShop->productid_Num?>" target="_blank">
-                    <?=$WordpressOrder->classtype_Str?>
-                </a>
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-                <?if($WordpressOrder->classtype_Str == '微型主機'):?>
-                NT$ 700
-                <?elseif($WordpressOrder->classtype_Str == '標準主機'):?>
-                NT$ 1500
-                <?elseif($WordpressOrder->classtype_Str == '專業主機'):?>
-                NT$ 3200
-                <?endif?>
-                / 月
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-                <?=$WordpressOrder->years_Num?> 年
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-                NT$ <?=$WordpressOrder->price_Num?>
+	<div class="spanLineTable">
+        <div class="spanLineTableContent">
+            <div class="spanLine order tablelist tableTitle">
+                <div class="spanLineLeft">
+                    購物貨物列表
+                </div>
+                <div class="spanLineLeft width300">
+                    申請主機方案
+    		    </div>
+                <div class="spanLineLeft width100 aligncenter">
+                    單價
+                </div>
+                <div class="spanLineLeft width100 aligncenter">
+                    使用期限
+                </div>
+                <div class="spanLineLeft width100 aligncenter">
+                    小計
+                </div>
+    		</div>
+	        <div class="spanLine order tablelist">
+                <div class="spanLineLeft">
+                </div>
+                <div class="spanLineLeft width300">
+                    <a href="product/<?=$value_CartShop->product_ProductShop->productid_Num?>" target="_blank">
+                        <?=$WordpressOrder->classtype_Str?>
+                    </a>
+                </div>
+                <div class="spanLineLeft width100 aligncenter">
+                    <?if($WordpressOrder->classtype_Str == '微型主機'):?>
+                    NT$ 700
+                    <?elseif($WordpressOrder->classtype_Str == '標準主機'):?>
+                    NT$ 1500
+                    <?elseif($WordpressOrder->classtype_Str == '專業主機'):?>
+                    NT$ 3200
+                    <?endif?>
+                    / 月
+                </div>
+                <div class="spanLineLeft width100 aligncenter">
+                    <?=$WordpressOrder->years_Num?> 年
+                </div>
+                <div class="spanLineLeft width100 aligncenter">
+                    NT$ <?=$WordpressOrder->price_Num?>
+                </div>
             </div>
         </div>
     </div>

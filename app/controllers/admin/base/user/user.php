@@ -43,11 +43,14 @@ class User_Controller extends MY_Controller {
         ));
 
         if(
+            !empty( $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr ) &&
             in_array( 1, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
             !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
+            !empty( $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr ) &&
             in_array( 2, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
             !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
             !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
+            !empty( $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr ) &&
             in_array( 3, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
             !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
             !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
@@ -56,16 +59,6 @@ class User_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => '不可以編輯權限更高的管理員',
-                'url' => 'admin/base/user/user/tablelist'
-            ));
-            return FALSE;
-        }
-
-        if(empty($data['user_UserFieldShop']->uid_Num))
-        {
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '請先選擇欲修改的會員',
                 'url' => 'admin/base/user/user/tablelist'
             ));
             return FALSE;
@@ -201,6 +194,54 @@ class User_Controller extends MY_Controller {
                 'message' => $validation_errors_Str,
                 'url' => 'admin/base/user/user/edit/?uid='.$uid_Num
             ));
+        }
+    }
+
+    public function edit_adduser_post()
+    {
+        $data = $this->data;//取得公用數據
+        
+        $this->form_validation->set_rules('email_Str', 'email', 'required');
+        $this->form_validation->set_rules('password_Str', '密碼', 'required');
+        $this->form_validation->set_rules('password2_Str', '確認密碼', 'required');
+        
+        if ($this->form_validation->run() !== FALSE)
+        {
+            $email_Str = $this->input->post('email_Str', TRUE);
+            $password_Str = $this->input->post('password_Str', TRUE);
+            $password2_Str = $this->input->post('password2_Str', TRUE);
+
+            $User = new User();
+            $register_status = $User->add(array(
+                'email_Str' => $email_Str,
+                'password_Str' => $password_Str,
+                'password2_Str' => $password2_Str
+            ));
+
+            if($register_status === TRUE)
+            {
+                $url_Str = 'admin/base/user/user/tablelist';
+                $message_Str = "註冊成功";
+                
+                $this->load->model('Message');
+                $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
+            }
+            else
+            {
+                $url_Str = 'admin/base/user/user/tablelist';
+                $message_Str = $register_status;
+                
+                $this->load->model('Message');
+                $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
+            }
+        }
+        else
+        {
+            $url_Str = 'admin/base/user/user/tablelist';
+            $message = validation_errors();
+            
+            $this->load->model('Message');
+            $this->Message->show(array('message' => $message, 'url' => $url_Str));
         }
     }
 
@@ -419,7 +460,6 @@ class User_Controller extends MY_Controller {
             ));
         }
     }
-
 }
 
 ?>

@@ -16,6 +16,10 @@ class OrderShop extends ObjDbBase
     public $pay_account_Str = '';
     public $pay_remark_Str = '';
     public $pay_price_freight_Num = 0;
+    public $transport_mode_Str = '';
+    public $transport_id_Str = '';
+    public $transport_base_price_Num = 0;
+    public $transport_additional_price_Num = 0;
     public $coupon_count_Num = 0;
     public $tradein_count_Num = 0;
     public $pay_paytime_DateTimeObj;
@@ -46,6 +50,10 @@ class OrderShop extends ObjDbBase
         'pay_account' => 'pay_account_Str',
         'pay_remark' => 'pay_remark_Str',
         'pay_price_freight' => 'pay_price_freight_Num',
+        'transport_mode' => 'transport_mode_Str',
+        'transport_id' => 'transport_id_Str',
+        'transport_base_price' => 'transport_base_price_Num',
+        'transport_additional_price' => 'transport_additional_price_Num',
         'coupon_count' => 'coupon_count_Num',
         'tradein_count' => 'tradein_count_Num',
         'pay_paytime' => array('pay_paytime_DateTimeObj', 'datetime_Str'),
@@ -75,6 +83,10 @@ class OrderShop extends ObjDbBase
         $this->set('pay_account_Str', $arg['pay_account_Str']);
         $this->set('pay_remark_Str', $arg['pay_remark_Str']);
         $this->set('pay_price_freight_Num', $arg['pay_price_freight_Num']);
+        $this->set('transport_mode_Str', $arg['transport_mode_Str']);
+        $this->set('transport_id_Str', $arg['transport_id_Str']);
+        $this->set('transport_base_price_Num', $arg['transport_base_price_Num']);
+        $this->set('transport_additional_price_Num', $arg['transport_additional_price_Num']);
         $this->set('coupon_count_Num', $arg['coupon_count_Num']);
         $this->set('tradein_count_Num', $arg['tradein_count_Num']);
         $this->set('pay_status_Num', $arg['pay_status_Num']);

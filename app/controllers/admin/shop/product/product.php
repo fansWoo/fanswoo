@@ -92,12 +92,21 @@ class Product_Controller extends MY_Controller {
             //基本post欄位
             $name_Str = $this->input->post('name_Str', TRUE);
             $price_Num = $this->input->post('price_Num', TRUE);
+            $cost_Num = $this->input->post('cost_Num', TRUE);
             $synopsis_Str = $this->input->post('synopsis_Str', TRUE);
             $classids_Arr = $this->input->post('classids_Arr', TRUE);
             $content_Str = $this->input->post('content_Str');
             $content_specification_Str = $this->input->post('content_specification_Str');
+            $warehouseid_Str = $this->input->post('warehouseid_Str', TRUE);
             $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
             $picids_Arr = $this->input->post('picids_Arr', TRUE);
+            $shelves_status_Num = $this->input->post('shelves_status_Num', TRUE);
+            $show_Bln = $this->input->post('show_Bln', TRUE);
+
+            if(!empty($show_Bln))
+            {
+                $shelves_status_Num = 2;
+            }
 
             //建構ProductShop物件，並且更新
             $product_ProductShop = new ProductShop();
@@ -105,12 +114,15 @@ class Product_Controller extends MY_Controller {
                 'productid_Num' => $productid_Num,
                 'name_Str' => $name_Str,
                 'price_Num' => $price_Num,
+                'cost_Num' => $cost_Num,
                 'synopsis_Str' => $synopsis_Str,
                 'picids_Arr' => $picids_Arr,
                 'classids_Arr' => $classids_Arr,
                 'content_Str' => $content_Str,
                 'content_specification_Str' => $content_specification_Str,
-                'prioritynum_Num' => $prioritynum_Num
+                'warehouseid_Str' => $warehouseid_Str,
+                'prioritynum_Num' => $prioritynum_Num,
+                'shelves_status_Num' => $shelves_status_Num,
             ));
             $product_ProductShop->update();
 
@@ -140,12 +152,20 @@ class Product_Controller extends MY_Controller {
                 }
             }
 
-            //送出成功訊息
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/shop/product/product/tablelist'
-            ));
+            if(!empty($show_Bln))
+            {
+                header('Location: '.base_url('product/'.$product_ProductShop->productid_Num));
+            }
+            else
+            {
+                //送出成功訊息
+                $this->load->model('Message');
+                $this->Message->show(array(
+                    'message' => '設定成功',
+                    'url' => 'admin/shop/product/product/tablelist'
+                ));
+            }
+
         }
         else
         {
@@ -168,7 +188,7 @@ class Product_Controller extends MY_Controller {
         $product2_ProductShop = new ProductShop();
         $product2_ProductShop->construct_db(array(
             'db_where_Arr' => array(
-                'productid_Num' => $productid_Num
+                'productid' => $productid_Num
             )
         ));
 
@@ -190,6 +210,7 @@ class Product_Controller extends MY_Controller {
 
         $product_ProductShop->update();
 
+        $stock_count_Num = count($product2_ProductShop->stock_StockProductShopList->obj_Arr);
         foreach( $product2_ProductShop->stock_StockProductShopList->obj_Arr as $key => $value_StockProductShop )
         {
             $StockProductShop = new StockProductShop();
@@ -198,7 +219,8 @@ class Product_Controller extends MY_Controller {
                 'classname1_Str' => $value_StockProductShop->classname1_Str,
                 'classname2_Str' => $value_StockProductShop->classname2_Str,
                 'color_rgb_Str' => $value_StockProductShop->color_rgb_Str,
-                'stocknum_Num' => $value_StockProductShop->stocknum_Num
+                'stocknum_Num' => $value_StockProductShop->stocknum_Num,
+                'prioritynum_Num' => $stock_count_Num - $key
             ]);
             $StockProductShop->update();
         }
@@ -231,6 +253,14 @@ class Product_Controller extends MY_Controller {
         $data['search_productid_Num'] = $this->input->get('productid');
         $data['search_name_Str'] = $this->input->get('name');
         $data['search_class_slug_Str'] = $this->input->get('class_slug');
+        $data['search_warehouseid_Str'] = $this->input->get('warehouseid');
+        $data['search_shelves_status_Num'] = $this->input->get('shelves_status');
+
+        //預設顯示已上架產品
+        if(empty($data['search_shelves_status_Num']))
+        {
+            $data['search_shelves_status_Num'] = 1;
+        }
 
         $limitstart_Num = $this->input->get('limitstart');
         $limitcount_Num = $this->input->get('limitcount');
@@ -246,10 +276,12 @@ class Product_Controller extends MY_Controller {
         $data['product_ProductShopList'] = new ObjList();
         $data['product_ProductShopList']->construct_db(array(
             'db_where_Arr' => array(
-                'productid_Num' => $data['search_productid_Num']
+                'productid_Num' => $data['search_productid_Num'],
+                'shelves_status' => $data['search_shelves_status_Num']
             ),
             'db_where_like_Arr' => array(
-                'name_Str' => $data['search_name_Str']
+                'name_Str' => $data['search_name_Str'],
+                'warehouseid_Str'=>  $data['search_warehouseid_Str']
             ),
             'db_where_or_Arr' => array(
                 'classids' => array($class_ClassMeta->classid_Num)
@@ -263,6 +295,7 @@ class Product_Controller extends MY_Controller {
             'limitstart_Num' => $limitstart_Num,
             'limitcount_Num' => $limitcount_Num
         ));
+
         $data['product_links'] = $data['product_ProductShopList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
 
         $data['class_ClassMetaList'] = new ObjList();
@@ -298,6 +331,8 @@ class Product_Controller extends MY_Controller {
         $search_productid_Num = $this->input->post('search_productid_Num', TRUE);
         $search_class_slug_Str = $this->input->post('search_class_slug_Str', TRUE);
         $search_name_Str = $this->input->post('search_name_Str', TRUE);
+        $search_warehouseid_Str = $this->input->post('search_warehouseid_Str', TRUE);
+        $search_shelves_status_Num = $this->input->post('search_shelves_status_Num', TRUE);
 
         $url_Str = base_url('admin/shop/product/product/tablelist/?');
 
@@ -314,6 +349,16 @@ class Product_Controller extends MY_Controller {
         if(!empty($search_name_Str))
         {
             $url_Str = $url_Str.'&name='.$search_name_Str;
+        }
+
+        if(!empty($search_warehouseid_Str))
+        {
+            $url_Str = $url_Str.'&warehouseid='.$search_warehouseid_Str;
+        }
+
+        if(!empty($search_shelves_status_Num))
+        {
+            $url_Str = $url_Str.'&shelves_status='.$search_shelves_status_Num;
         }
 
         header("Location: $url_Str");

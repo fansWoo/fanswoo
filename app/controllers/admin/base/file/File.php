@@ -74,7 +74,7 @@ class File_Controller extends MY_Controller {
         $fileids_Arr = $this->input->post('fileids_Arr');
 		$fileid_Num = $this->input->post('fileid_Num');
         $classids_Arr = $this->input->post('classids_Arr');
-        $permission_uids_Str = $this->input->post('permission_uids_Str');
+        $permission_emails_Str = $this->input->post('permission_emails_Str');
 
 		if(!empty($fileid_Num))
 		{
@@ -85,7 +85,7 @@ class File_Controller extends MY_Controller {
 		        )
 		    ));
 
-            $FileObj->permission_uids_Str = $permission_uids_Str;
+            $FileObj->set__permission_uids_UserList(['permission_emails_Str' => $permission_emails_Str]);
 
             $FileObj->class_ClassMetaList = new ObjList();
             $FileObj->class_ClassMetaList->construct_db(array(
@@ -128,7 +128,7 @@ class File_Controller extends MY_Controller {
                 $value_FileObj->set('class_ClassMetaList', [
                     'classids_Arr' => $classids_Arr
                 ], 'ClassMetaList');
-                $value_FileObj->set('permission_uids_Str', $permission_uids_Str);
+                $value_FileObj->set__permission_uids_UserList(['permission_emails_Str' => $permission_emails_Str]);
                 $value_FileObj->update();
             }
 
@@ -282,6 +282,38 @@ class File_Controller extends MY_Controller {
             $this->Message->show(array(
                 'message' => '刪除失敗',
 	        	'url' => 'admin/base/file/file/tablelist'
+            ));
+        }
+    }
+
+    public function destroy()
+    {
+        $hash_Str = $this->input->get('hash');
+        $fileid_Num = $this->input->get('fileid');
+
+        //CSRF過濾
+        if($hash_Str == $this->security->get_csrf_hash())
+        {
+            $FileObj = new FileObj();
+            $FileObj->construct_db([
+                'db_where_Arr' => [
+                    'fileid' => $fileid_Num
+                ]
+            ]);
+            $FileObj->destroy();
+
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '銷毀成功',
+                'url' => 'admin/base/file/file/tablelist'
+            ));
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '銷毀失敗',
+                'url' => 'admin/base/file/file/tablelist'
             ));
         }
     }

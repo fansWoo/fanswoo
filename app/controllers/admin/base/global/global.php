@@ -279,7 +279,7 @@ class Global_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => $validation_errors_Str,
-                'url' => 'admin/base/global/global/common'
+                'url' => 'admin/base/global/global/email'
             ));
         }
     }

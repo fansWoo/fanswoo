@@ -1,18 +1,15 @@
 
 /* Layout */
 
-a {
-    color: #027de5;
-}
-.gray {
-    color: #999;
-}
-.green {
-    color: green;
-}
-.red {
-    color: red;
-}
+.header_bar_mobile { display: none; }
+.header_bar_mobile_content { display: none; }
+.wrap_shadow { display: none; }
+
+a { color: #027de5; }
+.gray { color: #999; }
+.green { color: green; }
+.red { color: red; }
+
 textarea {
     line-height: 18px;
     font-size: 12px;
@@ -95,13 +92,9 @@ html.agent-ie8 .header .logo {
     padding-bottom: 10000px;
     margin-bottom: -10000px;
 }
-@media screen and (max-width: 767px) {
-    .sidebar
-    {
-        display: none;
-    }
+.phone_sidebar {
+    display: none;
 }
-
 .sidebar .sidebox {
     margin-bottom: 10px;
 }
@@ -196,13 +189,6 @@ html.agent-ie8 .header .logo {
     min-height: 600px;
     padding: 80px 20px;
 }
-
-@media screen and (max-width: 767px) {
-    .content
-    {
-        width: calc(100% - 80px);
-    }
-}
 .content h2 {
     margin-bottom: 20px;
 }
@@ -265,16 +251,9 @@ html.agent-ie8 .header .logo {
     width: 150px;
     overflow: hidden;
 }
-.content .contentBox .spanLine .spanLineLeft.hoverHidden {
-    opacity: 0;
-    -webkit-transform: translate(15px, 0);
-    transition: all 0.3s;
-}
-.content .contentBox .spanLine:hover .spanLineLeft.hoverHidden {
-    -webkit-transform: translate(0, 0);
-    opacity: 1;
-}
-.content .contentBox .spanLine .spanLineLeft.hoverHidden a{ margin-right: 10px; }
+.content .contentBox .spanLine .spanLineLeft.tablelistMenu a,
+.content .contentBox .spanLine .spanLineLeft.tablelistMenu .ahref
+{ margin-right: 10px; }
 .content .contentBox .spanLine .spanLineLeft.aligncenter {
     text-align: center;
 }
@@ -344,6 +323,7 @@ html.agent-ie8 .header .logo {
     width: calc(100% - 12px);
     height: 200px;
     margin-top: 4px;
+    border:1px solid #CCC;
 }
 
 .content .contentBox .spanLine .spanLineRight .contentList{  }
@@ -477,6 +457,7 @@ html.agent-ie8 .header .logo {
 .footer .center{
     margin: 0 auto;
 }
+.footer select {font-size: 12px; border-radius: 5px; }
 .footer .language { display: block; position: absolute; right: 0; margin-right: 30px; }
 
 .stock_area .delete { color: blue; cursor: pointer; margin-right: 10px; }
@@ -492,3 +473,93 @@ html.agent-ie8 .header .logo {
 [fanswoo-file_upload_ajax] [fanswoo-file_upload_ajax_btn] > span { display: block; height: 20px; line-height: 20px; cursor: pointer; }
 [fanswoo-file_upload_ajax] [fanswoo-file_upload_ajax_btn] input{ position: absolute;top: 0; right: 0;margin: 0;border:solid transparent; opacity: 0;filter:alpha(opacity=0); cursor: pointer;animation: none; transition: none; line-height:30px; height:30px; } 
 [fanswoo-file_upload_ajax] [fanswoo-file_upload_ajax_message] { color: #777; height: 20px; line-height: 20px; }
+
+.content .spanLineTable{
+    width: auto;
+    height: auto;
+    line-height: 40px;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+@media screen and (min-width: 1600px){
+    .content { min-height: 1200px; }
+}
+@media screen and (max-width:1024px) and (min-width: 960px){
+    .content { min-height: 960px; }
+}
+@media screen and (max-width: 959px) {
+    .sidebar { display: none; }
+    .header { display: none; }
+    .header_bar_mobile { display: block; width: calc(100% - 40px); height: 50px; line-height: 50px; padding: 0 20px 0 30px; position: fixed; top: 0; background: #333; z-index: 999; }
+    .header_bar_mobile .logo { float: left; display: block; width: 120px; height: 50px; background: url(../../img/fanswoo-logo.svg) no-repeat center center; }
+    .header_bar_mobile .menu { float: right; padding: 10px; width: 30px; height: 30px; transition: all 0.3s; cursor: pointer; opacity: 0.9; }
+    .header_bar_mobile.clicked .menu { transform: rotate(90deg); -webkit-transform: rotate(90deg); }
+    .header_bar_mobile .menu img { float: right; width: 100%; height: 100%; }
+
+    .header_bar_mobile_content { display: block; width: 200px; height: 100%; right: 0; margin-right: -200px; padding-top: 55px; position: fixed; top: 0; background: rgba(51,51,51,0.95); transform: translateX(0); z-index: 998;}
+    .header_bar_mobile_content a { display: block; }
+    .header_bar_mobile_content .li { display: block; width: 100%; padding: 0 25px; height: auto; line-height: 45px; color: #fff; letter-spacing: 2px; transition: 0.3s; -webkit-transition: 0.3s; border-bottom: 1px dashed rgba(255,255,255,0.2); font-size: 15px; }
+
+    .header_bar_mobile_content .header_father_area { display: block; width: 100%; padding: 0 px; height: auto; line-height: 45px; color: #fff; letter-spacing: 2px; transition: 0.3s; -webkit-transition: 0.3s; border-bottom: 1px dashed rgba(255,255,255,0.1); }
+    .header_bar_mobile_content .header_father_area p { padding-left: 25px; line-height: 45px; font-size: 15px; cursor: pointer; }
+    .header_bar_mobile_content .header_father_area .child_area { width:100%; display: none; padding-bottom: 0px; background: rgba(51,51,51,1); }
+    .header_bar_mobile_content .header_father_area .child_area a { height:auto; width:80%; padding: 13px 0px 13px 25px; color: rgba(255,255,255,0.7); line-height: 5px; font-size: 15px; }
+    .header_bar_mobile_content .header_father_area .child_area a:hover { color: rgba(255,255,255,1); }
+    .header_bar_mobile_content .header_father_area .child_area .active { display: block; }
+
+    .wrap_shadow { display: none; position: fixed; width: 100%; height: 100%; background: rgba(255,255, 255, 0.85); z-index: 997; opacity: 0; cursor: pointer; }
+
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.width100,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.width100,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.width200,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.width200,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.width300,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.width300,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.width400,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.width400,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.width500,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.width500,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.width600,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.width600 { width: 100%; }
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.text { padding: 0 6px; width: 145px; }
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.text.width100,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.text.width100,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.text.width200,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.text.width200,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.text.width300,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.text.width300,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.text.width400,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.text.width400,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.text.width500,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.text.width500,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.text.width600,
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineRight.text.width600 { width: 100%; }
+
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft.text { width: 100%; }
+    .content .contentBox:not(.contentTablelist) .spanLine:not(.order) .spanLineLeft { min-height: 5px; width: auto; }
+    .content .contentBox:not(.contentTablelist) .spanLine .spanLineRight { float:left; width: 100%; min-height: 20px;}
+    .content .contentBox:not(.contentTablelist) .spanLine .spanLineRight .gray { margin-left: 6px; font-size: 12px; }
+    .content .contentBox:not(.contentTablelist) .spanLine .spanLineRight [fanswoo-pic_upload_ajax] { margin-left: 5px; }
+    .content .contentBox:not(.contentTablelist) .spanLine.spanSubmit { padding-top: 10px; margin: 0 auto; text-align: center; }
+    .content .contentBox:not(.contentTablelist) .spanLine input.text { width: calc(100% - 20px); }
+    .content .contentBox:not(.contentTablelist) .spanLine input.submit { -webkit-appearance: none; float: none; margin: 0 auto; margin-top: 10px; width: 80%; }
+    .content .contentBox:not(.contentTablelist) .spanLine span.submit.gray { float: none; margin: 0 auto; margin-top:10px; width: 80%; padding: 0px; }
+    .content .contentBox .spanLine .button { -webkit-appearance: none; }
+    .content .contentBox:not(.contentTablelist) .spanLine.noneBg { border-bottom: 1px solid #EEE; }
+    .content .contentBox:not(.contentTablelist) .spanLine .spanLineRight p { margin-left: 6px; }
+    .content .contentBox:not(.contentTablelist) .spanLine .spanLineLeft.aligncenter { text-align: left; }
+    .content .contentBox:not(.contentTablelist) .spanLine .spanLineLeft textarea,
+    .content .contentBox:not(.contentTablelist) .spanLine .spanLineRight textarea { float: none; width: calc(100% - 20px); }
+    .content .contentBox .spanLine:hover { background: #FFF; }
+
+    .footer { height: auto; line-height: 25px; }
+    .footer select { font-size: 12px; border-radius: 5px; }
+    .footer .language { float: right; width: 35%; margin-right: 0px; margin-top: 5px; }
+    .footer .center { float: left; width: 60%; line-height: 20px; margin: 10px auto 10px auto; padding-left: 5px; }
+
+    .content { width: calc(100% - 80px); padding-bottom: 5px;}
+
+    .spanLineLeft img { max-width: 100%; }
+    .pageLink { width: 100%; }
+}

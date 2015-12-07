@@ -179,10 +179,10 @@ class AdminModel extends FS_Model {
 			}
 		}
 
-		$admin_sidebox2[$child1_name_Str]['child2'][$child2_name_Str]['child3'][$child3_name_Str]['child4'][$child4_name_Str]['select'] = TRUE;
-		$admin_sidebox2[$child1_name_Str]['child2'][$child2_name_Str]['child3'][$child3_name_Str]['select'] = TRUE;
-		$admin_sidebox2[$child1_name_Str]['child2'][$child2_name_Str]['select'] = TRUE;
-		$admin_sidebox2[$child1_name_Str]['select'] = TRUE;
+		$admin_sidebox2[$child1_name_Str]['child2'][$child2_name_Str]['child3'][$child3_name_Str]['child4'][$child4_name_Str]['selected'] = TRUE;
+		$admin_sidebox2[$child1_name_Str]['child2'][$child2_name_Str]['child3'][$child3_name_Str]['selected'] = TRUE;
+		$admin_sidebox2[$child1_name_Str]['child2'][$child2_name_Str]['selected'] = TRUE;
+		$admin_sidebox2[$child1_name_Str]['selected'] = TRUE;
 
 		// ec($admin_sidebox2);
 

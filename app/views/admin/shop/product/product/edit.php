@@ -6,7 +6,19 @@
     <h3><?=$child3_title_Str?> > <?if(!empty($product_ProductShop->productid_Num)):?>編輯<?else:?>新增<?endif?></h3>
 	<h4>請填寫<?=$child3_title_Str?>之詳細資訊</h4>
 	<?php echo form_open_multipart("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
-	<div class="spanLine">
+    <?if(!empty($product_ProductShop->productid_Num)):?>
+        <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                產品連結
+            </div>
+            <div class="spanLineLeft width500">
+                <a href="<?=base_url('product/view/'.$product_ProductShop->productid_Num)?>"><?=$_SERVER['HTTP_HOST'].base_url('product/view/'.$product_ProductShop->productid_Num)?></a>
+            </div>
+        </div>
+    </div>
+    <?endif?>
+    <div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
                 產品名稱
@@ -16,6 +28,16 @@
 		    </div>
 		</div>
 	</div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                產品倉儲編號
+            </div>
+            <div class="spanLineLeft">
+                <input type="text" class="text" name="warehouseid_Str" placeholder="請輸入產品倉儲編號" value="<?=$product_ProductShop->warehouseid_Str?>">
+            </div>
+        </div>
+    </div>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -26,6 +48,16 @@
 		    </div>
 		</div>
 	</div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                產品成本
+            </div>
+            <div class="spanLineLeft">
+                <input type="number" min="0" class="text" name="cost_Num" placeholder="請輸入產品成本" value="<?=$product_ProductShop->cost_Num?>">
+            </div>
+        </div>
+    </div>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -316,6 +348,19 @@
             </div>
         </div>
     </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                 產品上架狀態
+            </div>
+            <div class="spanLineLeft">
+                <select name="shelves_status_Num">
+                    <option value="2"<?if($product_ProductShop->shelves_status_Num == 2):?> selected<?endif?>>未上架</option>
+                    <option value="1"<?if($product_ProductShop->shelves_status_Num == 1):?> selected<?endif?>>已上架</option>
+                </select>
+            </div>
+        </div>
+    </div>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -351,7 +396,8 @@
             </div>
             <div class="spanLineRight">
                 <?if(!empty($product_ProductShop->productid_Num)):?><input type="hidden" name="productid_Num" value="<?=$product_ProductShop->productid_Num?>"><?endif?>
-                <input type="submit" class="submit" value="<?if(!empty($product_ProductShop->productid_Num)):?>儲存變更<?else:?>新增產品<?endif?>">
+                <input type="submit" class="submit" name="send_Bln" value="<?if(!empty($product_ProductShop->productid_Num)):?>儲存變更<?else:?>新增產品<?endif?>">
+                <input type="submit" class="submit" name="show_Bln" value="存成草稿並預覽">
                 <?if(!empty($product_ProductShop->productid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?productid=<?=$product_ProductShop->productid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>

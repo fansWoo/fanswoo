@@ -14,8 +14,9 @@
 				</select>
 				<script>
 					$(function(){
+						var base_Str = $('base').attr('href');
 						$(document).on('change', '.footer .language select', function(){
-							location.href = $(this).val();
+							location.href = base_Str + $(this).val();
 						});
 					});
 				</script>

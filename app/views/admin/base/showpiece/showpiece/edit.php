@@ -227,8 +227,9 @@
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
+                <p class="gray">優先排序值較高者，其排序較為前面</p>
             </div>
-		</div>
+        </div>
 	</div>
     <?if(!empty($showpiece_Showpiece->showpieceid_Num)):?>
     <div class="spanLine">

@@ -174,6 +174,97 @@ class User extends ObjDbBase {
 
         return TRUE;
     }
+
+    public function add($arg)
+    {
+        $email_Str = !empty($arg['email_Str']) ? $arg['email_Str'] : '';
+        $password_Str = !empty($arg['password_Str']) ? $arg['password_Str'] : '';
+        $password2_Str = !empty($arg['password2_Str']) ? $arg['password2_Str'] : '';
+
+        if($password_Str !== $password2_Str)
+        {
+            return 'Please enter the password twice to confirm agreement';
+        }
+
+        if(!preg_match("/^([0-9A-Za-z]+)$/", $password_Str))
+        {
+            return 'Please enter a password consisting of letters and numbers';
+        }
+
+        if(strlen($password_Str) < 8 || strlen($password_Str) > 16)
+        {
+            return 'Please enter a password of 8-16 characters';
+        }
+
+        if(!preg_match('/^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/', $email_Str))
+        {
+            return 'Please enter a valid email format';
+        }
+
+        $email_Arr = explode('@', $email_Str);
+        if(!checkdnsrr($email_Arr[1], 'MX'))
+        {
+            return 'Please enter the correct domain';
+        }
+        
+        $this->db->from('user_verification');
+        $this->db->where(array('email' => $email_Str));
+        $query = $this->db->get();
+            
+        if($query->num_rows() > 0)
+        {
+            return 'This account has been added';
+        }
+
+        $password_salt_Str = substr(md5(rand(32767, 65534) + $this->config->item('timenow')), 0, 6);
+        $password_md5_Str = $this->md5_password($password_Str, $password_salt_Str);
+
+        $updatetime_DateTimeObj = new DateTimeObj();
+        $updatetime_DateTimeObj->construct(array());
+
+        $uid_Num = db_search_max(array(
+            'table_name' => 'user',
+            'id_name' => 'uid'
+        )) + 1;
+
+        $this->db->insert('user_verification', array(
+            'uid' => $uid_Num,
+            'email' => $email_Str,
+            'password' => $password_md5_Str,
+            'password_salt' => $password_salt_Str,
+            'password_key' => $password_Str,
+        ));
+
+        $this->db->insert('user', array(
+            'uid' => $uid_Num,
+            'email' => $email_Str,
+            'username' => $email_Str,
+            'groupids' => '100',
+            'picids' => '',
+            'updatetime' => $updatetime_DateTimeObj->datetime_Str,
+            'status' => 1
+        ));
+
+        $shop_user_register_get_coupon_count_Setting = new Setting();
+        $shop_user_register_get_coupon_count_Setting->construct_db([
+            'db_where_Arr' => [
+                'keyword' => 'shop_user_register_get_coupon_count'
+            ]
+        ]);
+
+        $UserFieldShop = new UserFieldShop();
+        $UserFieldShop->construct_db([
+            'db_where_Arr' => [
+                'user.uid' => $uid_Num
+            ]
+        ]);
+        $UserFieldShop->set('coupon_count_Num', $UserFieldShop->coupon_count_Num + $shop_user_register_get_coupon_count_Setting->value_Str);
+        $UserFieldShop->update([
+            'db_update_Arr' => ['user_field_shop.coupon_count']
+        ]);
+
+        return TRUE;
+    }
 	
 	public function login($arg)
     {
@@ -206,6 +297,9 @@ class User extends ObjDbBase {
 				'uid'  => $user[0]['uid']
 			);
 			$this->session->set_userdata($newdata);
+
+            $this->construct(['uid_Num' => $user[0]['uid']]);
+
 			return TRUE;
 		}
         else
@@ -351,6 +445,24 @@ class User extends ObjDbBase {
         $md5_password_Str = md5(md5($password_Str).$password_salt_Str);
 
         return $md5_password_Str;
+    }
+
+    public function destroy()
+    {
+        parent::destroy();
+
+        $this->db->where(array(
+            'uid' => $this->get('uid_Num')
+        ));
+
+        $this->db->delete('user_verification');
+
+        $this->db->where(array(
+            'uid' => $this->get('uid_Num')
+        ));
+
+        $this->db->delete('user_field_shop');
+
     }
 	
 }

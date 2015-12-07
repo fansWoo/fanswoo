@@ -3,7 +3,7 @@
 class PicObj extends ObjDbBase {
 
     public $picid_Num = 0;
-    public $uid_Num = 0;
+    public $uid_User;
     public $title_Str = '';
     public $filename_Str = '';
     public $size_Num = '';
@@ -11,6 +11,7 @@ class PicObj extends ObjDbBase {
     public $md5_Str = '';
     public $class_ClassMetaList;
     public $picfile_FileArr = array();
+    public $comment_CommentList;
     public $modelname_Str = 'w50h50,w300h300,w600h600';
     public $thumb_Str = '';//ex: w50h50,w300h300
     public $path_Arr = array();
@@ -23,7 +24,7 @@ class PicObj extends ObjDbBase {
     public $db_uniqueid_Str = 'picid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_Arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'picid' => 'picid_Num',
-        'uid' => 'uid_Num',
+        'uid' => ['uid_User', 'uid_Num'],
         'title' => 'title_Str',
         'thumb' => 'thumb_Str',
         'filename' => 'filename_Str',
@@ -39,7 +40,6 @@ class PicObj extends ObjDbBase {
 	public function construct($arg)
 	{
         $picid_Num = !empty($arg['picid_Num']) ? $arg['picid_Num'] : 0 ;
-        $uid_Num = !empty($arg['uid_Num']) ? $arg['uid_Num'] : array() ;
         $picfile_FileArr = !empty($arg['picfile_FileArr']) ? $arg['picfile_FileArr'] : array() ;
         $thumb_Str = !empty($arg['thumb_Str']) ? $arg['thumb_Str'] : 'w50h50,w300h300' ;
         $title_Str = !empty($arg['title_Str']) ? $arg['title_Str'] : '' ;
@@ -109,7 +109,6 @@ class PicObj extends ObjDbBase {
         
         //set
         $this->picid_Num = $picid_Num;
-        $this->uid_Num = $uid_Num;
         $this->filename_Str = $filename_Str;
         $this->thumb_Str = $thumb_Str;
         $this->title_Str = $title_Str;
@@ -121,11 +120,31 @@ class PicObj extends ObjDbBase {
         $this->prioritynum_Num = $prioritynum_Num;
         $this->updatetime_DateTime = $updatetime_DateTime;
         $this->status_Num = $status_Num;
+        $this->set__uid_User(['uid_Num' => $arg['uid_Num']]);
+        $this->set__comment_CommentList(['picid_Num' => $arg['picid_Num']]);
 
         $path_Arr = $this->get_path();
         $this->path_Arr = $path_Arr;
         
         return TRUE;
+    }
+
+    public function set__comment_CommentList($arg)
+    {
+        reset_null_arr($arg, ['picid_Num']);
+        foreach($arg as $key => $value) ${$key} = $arg[$key];
+
+        $comment_CommentList = new ObjList();
+        $comment_CommentList->construct_db(array(
+            'db_where_Arr' => [
+                'typename' => 'pic',
+                'id' => $picid_Num
+            ],
+            'model_name_Str' => 'Comment',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 9999
+        ));
+        $this->set('comment_CommentList', $comment_CommentList);
     }
 
     public function get_path()

@@ -19,6 +19,24 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                文章代碼
+            </div>
+            <div class="spanLineLeft width500">
+                <input type="text" class="text" name="slug_Str" placeholder="文章代碼" value="<?=$NoteField->slug_Str?>">
+            </div>
+        </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineRight">
+                <p class="gray">請填寫文章代碼，將會顯示於此文章連結網址，若無填寫則會自動產生亂碼</p>
+                <p class="gray">本值需為英文或數字組合，不得含有中文及特殊符號，並且不得與其它文章代碼有重複</p>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 分類標籤
             </div>
             <div class="spanLineLeft width300">
@@ -139,10 +157,30 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                 文章發表狀態
+            </div>
+            <div class="spanLineLeft">
+                <select name="shelves_status_Num">
+                    <option value="2"<?if($NoteField->shelves_status_Num == 2):?> selected<?endif?>>未發表</option>
+                    <option value="1"<?if($NoteField->shelves_status_Num == 1):?> selected<?endif?>>已發表</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 優先排序指數
             </div>
             <div class="spanLineLeft">
                 <input type="number" class="text width100" name="prioritynum_Num" min="0" value="<?=$NoteField->prioritynum_Num?>">
+            </div>
+        </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineRight">
+                <p class="gray">優先排序值較高者，其排序較為前面</p>
             </div>
         </div>
     </div>
@@ -187,6 +225,7 @@
             <div class="spanLineRight">
                 <?if(!empty($NoteField->noteid_Num)):?><input type="hidden" name="noteid_Num" value="<?=$NoteField->noteid_Num?>"><?endif?>
                 <input type="submit" class="submit" value="<?if(!empty($NoteField->noteid_Num)):?>儲存變更<?else:?>新增文章<?endif?>">
+                <input type="submit" class="submit" name="show_Bln" value="存成草稿並預覽">
                 <?if(!empty($NoteField->noteid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?noteid=<?=$NoteField->noteid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>

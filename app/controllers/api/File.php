@@ -49,8 +49,7 @@ class File_Controller extends MY_Controller {
     
     public function delete_file($do, $fileid = 0)
     {
-        global $admin;
-        $data = $this->common_model->data;
+        $data = $this->data;
         $child_name = 'postfile';//管理分類類別名稱
         
         if( !empty($fileid) )
@@ -59,6 +58,63 @@ class File_Controller extends MY_Controller {
             $FileObj->construct(array('fileid_Num' => $fileid));
             $FileObj->delete();
             return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+    
+    public function download_file($fileid = 0)
+    {
+        $data = $this->data;
+        
+        if( !empty($fileid) )
+        {
+            $FileObj = new FileObj();
+            $FileObj->construct_db([
+                'db_where_Arr' => [
+                    'fileid' => $fileid
+                ]
+            ]);
+            
+            if( empty($FileObj->fileid_Num) )
+            {
+                echo '檔案不存在';
+                return FALSE;
+            }
+
+            if(
+                $data['User']->uid_Num == $FileObj->uid_Num ||
+                in_array( $data['User']->uid_Num, $FileObj->permission_uids_UserList->uniqueids_Arr )
+            )
+            {
+
+                $file_name = $FileObj->filename_Str;
+
+                $file_path = $FileObj->file_path_Str;
+                $file_size = filesize($file_path);
+
+                header('Pragma: public');
+                header('Expires: 0');
+                header('Last-Modified: ' . gmdate('D, d M Y H:i ') . ' GMT');
+                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                header('Cache-Control: private', false);
+                header('Content-Type: application/octet-stream');
+                header('Content-Length: ' . $file_size);
+                header('Content-Disposition: attachment; filename="' . $file_name . '";');
+                header('Content-Transfer-Encoding: binary');
+                readfile($file_path);
+
+                return TRUE;
+
+            }
+            else
+            {
+
+                echo '檔案觀看權限不足';
+                return FALSE;
+            }
         }
         else
         {

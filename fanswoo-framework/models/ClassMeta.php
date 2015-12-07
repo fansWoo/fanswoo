@@ -3,7 +3,7 @@
 class ClassMeta extends ObjDbBase {
 
     public $classid_Num = 0;
-    public $uid_Num = 0;
+    public $uid_User;
     public $classname_Str = '';
     public $slug_Str = '';
     public $content_Str = '';
@@ -20,7 +20,7 @@ class ClassMeta extends ObjDbBase {
     public $db_uniqueid_Str = 'classid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_Arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'classid' => 'classid_Num',
-        'uid' => 'uid_Num',
+        'uid' => ['uid_User', 'uid_Num'],
         'classname' => 'classname_Str',
         'slug' => 'slug_Str',
         'content' => 'content_Str',
@@ -38,7 +38,6 @@ class ClassMeta extends ObjDbBase {
         $data = $this->data;
 
         $classid_Num = !empty($arg['classid_Num']) ? $arg['classid_Num'] : 0;
-        $uid_Num = !empty($arg['uid_Num']) ? $arg['uid_Num'] : 0;
         $classname_Str = !empty($arg['classname_Str']) ? $arg['classname_Str'] : '';
         $slug_Str = !empty($arg['slug_Str']) ? $arg['slug_Str'] : '';
         $content_Str = !empty($arg['content_Str']) ? $arg['content_Str'] : '';
@@ -89,7 +88,7 @@ class ClassMeta extends ObjDbBase {
         $this->set('content_Str', $content_Str);
         $this->set__locale_Str(['locale_Str' => $arg['locale_Str']]);
         $this->set__slug_Str(['slug_Str' => $slug_Str]);
-        $this->set__uid_Num(['uid_Num' => $uid_Num]);
+        $this->set__uid_User(['uid_Num' => $arg['uid_Num']]);
         
         return TRUE;
     }

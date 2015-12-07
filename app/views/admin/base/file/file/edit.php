@@ -33,10 +33,10 @@
                 檔案網址
             </div>
             <div class="spanLineLeft width500">
-                <input type="text" style="width:450px;" value="<?=$FileObj->path_Str?>" fanswoo-input_copy readonly>
+                <input type="text" style="width:450px;" value="<?=$FileObj->download_file_path_Str?>" fanswoo-input_copy readonly>
                 <br>
-                <a href="<?=$FileObj->path_Str?>" target="_blank">
-                    <?=$FileObj->path_Str?>
+                <a href="<?=$FileObj->download_file_path_Str?>">
+                    下載檔案
                 </a>
 		    </div>
 		</div>
@@ -82,15 +82,17 @@
             <div class="spanLineLeft">
                 會員檔案下載權限
             </div>
-            <div class="spanLineLeft width150">
-                <textarea name="permission_uids_Str"><?=$FileObj->permission_uids_Str?></textarea>
+            <div class="spanLineLeft width500">
+                <textarea name="permission_emails_Str"><?if($FileObj->permission_uids_UserList->obj_Arr):?><?foreach( $FileObj->permission_uids_UserList->obj_Arr as $key => $value_User ):?><?=$value_User->email_Str?>
+
+<?endforeach?><?endif?></textarea>
             </div>
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請填寫擁有檔案下載權限之會員ID，每個ID一行</span>
+                <span class="gray">請填寫擁有檔案下載權限之會員email帳號，每個email帳號一行</span>
             </div>
         </div>
     </div>
@@ -113,7 +115,8 @@
             <div class="spanLineRight">
                 <?if(!empty($FileObj->fileid_Num)):?><input type="hidden" name="fileid_Num" value="<?=$FileObj->fileid_Num?>"><?endif?>
                 <input type="submit" class="submit" value="儲存變更">
-                <?if(!empty($FileObj->fileid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?fileid=<?=$FileObj->fileid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
+                <?if(!empty($FileObj->fileid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('刪除後將進入回收空間，確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?fileid=<?=$FileObj->fileid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
+                <?if(!empty($FileObj->fileid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('銷毀後將再也無法復原，確定要銷毀嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/destroy/?fileid=<?=$FileObj->fileid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">銷毀<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>
 	</div>
