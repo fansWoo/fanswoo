@@ -119,6 +119,82 @@ class Project_Controller extends MY_Controller {
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
     }
 
+    public function prints()
+    {
+        $data = $this->data;//取得公用數據
+        $data = array_merge($data, $this->AdminModel->get_data(array(
+            'child4_name_Str' => 'prints'//管理分類名稱
+        )));
+            
+        $data['projectid_Num'] = $this->input->get('projectid');
+
+        $data['Project'] = new Project();
+        $data['Project']->construct_db(array(
+            'db_where_Arr' => array(
+                'projectid' => $data['projectid_Num']
+            )
+        ));
+        
+        if(empty($data['Project']->projectid_Num))
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '請先選擇欲列印的專案',
+                'url' => 'admin/shop/project/project/tablelist'
+            ));
+            return FALSE;
+        }
+
+        $project_permission_uids_Arr = explode(PHP_EOL, trim($data['Project']->permission_uids_Str) );
+
+        $data['project_User'] = new User();
+        $data['project_User']->construct_db(array(
+            'db_where_Arr' => array(
+                'uid_Num' => $project_permission_uids_Arr[0]
+            )
+        ));
+
+        $data['ProjectDesignList'] = new ObjList();
+        $data['ProjectDesignList']->construct_db(array(
+            'db_orderby_Arr' => array(
+                array('updatetime', 'DESC')
+            ),
+            'db_where_deletenull_Bln' => TRUE,
+            'model_name_Str' => 'Design',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+
+        $data['SuggestList'] = new ObjList();
+        $data['SuggestList']->construct_db(array(
+            'db_where_Arr' => array(
+                'projectid_Num' => $data['projectid_Num']
+            ),
+            'db_orderby_Arr' => array(
+                array('suggestid', 'ASC')
+            ),
+            'db_where_deletenull_Bln' => TRUE,
+            'model_name_Str' => 'Suggest',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+        
+        //global
+        $data['global']['style'][] = 'app/css/admin/prints.css';
+        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
+
+        //temp
+        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
+        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
+        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
+        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+
+        //輸出模板
+        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+    }
+
     public function edit_post()
     {
         $data = $this->data;//取得公用數據
@@ -135,6 +211,8 @@ class Project_Controller extends MY_Controller {
             $classids_Arr = $this->input->post('classids_Arr', TRUE);
             $designids_Str = $this->input->post('designids_Str[]', TRUE);
             $pay_price_total_Num = $this->input->post('pay_price_total_Num', TRUE);
+            $pay_price_receive_Num = $this->input->post('pay_price_receive_Num', TRUE);
+            $pay_price_schedule_Num = $this->input->post('pay_price_schedule_Num', TRUE);
             $paycheck_status_Num = $this->input->post('paycheck_status_Num', TRUE);
             $project_status_Num = $this->input->post('project_status_Num', TRUE);
             $setuptime_Str = $this->input->post('setuptime_Str', TRUE);
@@ -150,6 +228,8 @@ class Project_Controller extends MY_Controller {
                 'classids_Arr' => $classids_Arr,
                 'designids_Str' => implode(",",$designids_Str),
                 'pay_price_total_Num' => $pay_price_total_Num,
+                'pay_price_receive_Num' => $pay_price_receive_Num,
+                'pay_price_schedule_Num' => $pay_price_schedule_Num,
                 'paycheck_status_Num' => $paycheck_status_Num,
                 'project_status_Num' => $project_status_Num,
                 'setuptime_Str' => $setuptime_Str
@@ -162,6 +242,8 @@ class Project_Controller extends MY_Controller {
                 'classids',
                 'designids',
                 'pay_price_total',
+                'pay_price_receive',
+                'pay_price_schedule',
                 'paycheck_status',
                 'project_status',
                 'setuptime',

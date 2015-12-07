@@ -50,7 +50,7 @@ class Project_Controller extends MY_Controller {
                 'uid_Num' => $project_permission_uids_Arr[0]
             )
         ));
-        // ec($data['project_User']);
+
         if(empty($data['Project']->projectid_Num))
         {
             $this->load->model('Message');
@@ -70,8 +70,8 @@ class Project_Controller extends MY_Controller {
 
         $data['project_designids_Arr'] = explode(",", trim($data['Project']->designids_Str));
 
-        $data['DesignPriceList'] = new ObjList();
-        $data['DesignPriceList']->construct_db(array(
+        $data['DesignList'] = new ObjList();
+        $data['DesignList']->construct_db(array(
             'db_where_or_Arr' => array(
                 'designid' => $data['project_designids_Arr']
             ),
@@ -124,7 +124,6 @@ class Project_Controller extends MY_Controller {
         $pay_name_Str = $this->input->post('pay_name_Str', TRUE);
         $pay_paytime_Str = $this->input->post('pay_paytime_Str', TRUE);
         $pay_remark_Str = $this->input->post('pay_remark_Str', TRUE);
-        $content_Str = $this->input->post('content_Str', TRUE);
 
         if( !empty($pay_account_Str) && !empty($pay_name_Str) && !empty($pay_paytime_Str) )
         {
@@ -147,18 +146,6 @@ class Project_Controller extends MY_Controller {
                     'pay_status',
                 )
             ));
-        }
-
-        if( !empty($content_Str) )
-        {
-            $Comment = new Comment;
-            $Comment->construct([
-                'uid_Num' => $data['User']->uid_Num,
-                'typename_Str' => 'project',
-                'id_Num' => $projectid_Num,
-                'content_Str' => $content_Str
-            ]);
-            $Comment->update();
         }
 
         //送出成功訊息

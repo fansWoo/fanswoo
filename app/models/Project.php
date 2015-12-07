@@ -13,6 +13,8 @@ class Project extends ObjDbBase
     public $pay_name_Str = '';
     public $pay_account_Str = '';
     public $pay_price_total_Num = 0;
+    public $pay_price_receive_Num = 0;
+    public $pay_price_schedule_Num = 0;
     public $pay_remark_Str = '';
     public $pay_status_Num = 0;
     public $paycheck_status_Num = 0;
@@ -34,6 +36,8 @@ class Project extends ObjDbBase
         'pay_name' => 'pay_name_Str',
         'pay_account' => 'pay_account_Str',
         'pay_price_total' => 'pay_price_total_Num',
+        'pay_price_receive' => 'pay_price_receive_Num',
+        'pay_price_schedule' => 'pay_price_schedule_Num',
         'pay_remark' => 'pay_remark_Str',
         'pay_status' => 'pay_status_Num',
         'paycheck_status' => 'paycheck_status_Num',
@@ -60,6 +64,8 @@ class Project extends ObjDbBase
         $this->set('pay_name_Str', $arg['pay_name_Str']);
         $this->set('pay_account_Str', $arg['pay_account_Str']);
         $this->set('pay_price_total_Num', $arg['pay_price_total_Num']);
+        $this->set('pay_price_receive_Num', $arg['pay_price_receive_Num']);
+        $this->set('pay_price_schedule_Num', $arg['pay_price_schedule_Num']);
         $this->set('pay_remark_Str', $arg['pay_remark_Str']);
         $this->set('pay_status_Num', $arg['pay_status_Num']);
         $this->set('paycheck_status_Num', $arg['paycheck_status_Num']);
@@ -76,27 +82,8 @@ class Project extends ObjDbBase
         $this->set('status_Num', $arg['status_Num']);
         $this->set__uid_User(['uid_Num' => $arg['uid_Num']]);
         $this->set__uid_Num(['uid_Num' => $arg['uid_Num']]);
-        $this->set__comment_CommentList(['projectid_Num' => $arg['projectid_Num']]);
         
         return TRUE;
-    }
-
-    public function set__comment_CommentList($arg)
-    {
-        reset_null_arr($arg, ['projectid_Num']);
-        foreach($arg as $key => $value) ${$key} = $arg[$key];
-
-        $comment_CommentList = new ObjList();
-        $comment_CommentList->construct_db(array(
-            'db_where_Arr' => [
-                'typename' => 'project',
-                'id' => $projectid_Num
-            ],
-            'model_name_Str' => 'Comment',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 9999
-        ));
-        $this->set('comment_CommentList', $comment_CommentList);
     }
 	
 }

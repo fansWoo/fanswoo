@@ -52,9 +52,7 @@
             <?=$value_Design->price_Num?>
         </div>
         <div class="spanLineLeft width150 hoverHidden">
-            <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?designid=<?=$value_Design->designid_Num?>">編輯</a>
-            <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/copy/?designid=<?=$value_Design->designid_Num?>">複製</a>
-            <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除這個設計項目？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?designid=<?=$value_Design->designid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
+            <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?designid=<?=$value_Design->designid_Num?>">查看</a>
         </div>
 	</div>
     <?endforeach?>

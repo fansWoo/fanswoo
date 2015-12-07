@@ -104,6 +104,48 @@ class Design_Controller extends MY_Controller {
         }
     }
 
+    public function copy()
+    {
+        $data = $this->data;//取得公用數據
+
+        $designid_Num = $this->input->get('designid');
+
+        $Design = new Design();
+        $Design->construct_db(array(
+            'db_where_Arr' => array(
+                'designid_Num' => $designid_Num
+            )
+        ));
+
+        //建構DesignFanswoo物件，並且更新
+        $DesignFanswoo = new Design();
+        $DesignFanswoo->construct(array(
+            'title_Str' => $Design->title_Str,
+            'price_Num' => $Design->price_Num,
+            'synopsis_Str' => $Design->synopsis_Str,
+            'prioritynum_Num' => $Design->prioritynum_Num,
+        ));
+
+        $DesignFanswoo->update();
+
+        if($DesignFanswoo->designid_Num !== NULL)
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '複製成功',
+                'url' => 'admin/shop/project/design/tablelist'
+            ));
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '複製失敗',
+                'url' => 'admin/shop/project/design/tablelist'
+            ));
+        }
+    }
+
     public function tablelist()
     {
         $data = $this->data;//取得公用數據

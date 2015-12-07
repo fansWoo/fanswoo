@@ -2,36 +2,131 @@
 <script>
 $(function(){
 
-    var design_price_input = 0;
-
+    var design_price_total = 0;
     $(".design_price").each(function(key, value){
+        design_price_total += parseInt($(".design_price").eq(key).text());
+        $(".design_price_total").text(design_price_total);
+    });
 
-        design_price_input += parseInt($(".design_price").eq(key).text());
-        $("#design_price_input").val(design_price_input);
+    $("#pay_price_schedule").text(<?=$Project->pay_price_schedule_Num?>+' %');
+    $("#pay_price_schedule_input").val(<?=$Project->pay_price_schedule_Num?>);
+
+    var schedule = parseInt($("#pay_price_schedule_input").val());
+    if(schedule==100){$("#pay_price_schedule").css('color','green');}
+    else{$("#pay_price_schedule").css('color','red');}
+
+    $("#pay_price_total").change(function(){
+
+        var total = parseInt($("#pay_price_total").val());
+        var receive = parseInt($("#pay_price_receive").val());
+        schedule = ( receive / total ) * 100 ;
+
+        // $("#pay_price_schedule").text(schedule.toFixed(2)+' %');
+        // $("#pay_price_schedule_input").val(schedule.toFixed(2));
+
+        //四捨五入
+        $("#pay_price_schedule").text(Math.round(schedule)+' %');
+        $("#pay_price_schedule_input").val(Math.round(schedule));
+
+        if(total==receive)
+        { 
+            $("#pay_price_schedule").css('color','green');
+        }
+        else
+        { 
+            $("#pay_price_schedule").css('color','red');
+        }
+
+        if(total<receive)
+        {
+            alert("收款金額大於總金額");
+            var receive = $("#pay_price_receive").val(0);
+            $("#pay_price_schedule").text("0 %");
+            $("#pay_price_schedule_input").val("0");
+        }
 
     });
 
-    
+    $("#pay_price_total").keyup(function(){
 
-    // $(".checkbox").each(function(key, value){
+        var total = parseInt($("#pay_price_total").val());
+        var receive = parseInt($("#pay_price_receive").val());
+        schedule = ( receive / total ) * 100 ;
 
-    //     $(".checkbox").eq(key).click(function() {
-    //     $(".checkbox").eq(key).attr("id","checkbox_value");
-    //     // $(".checkbox").eq(key).prop("checked",true);
-    //     console.log($(".checkbox").eq(key));
-    // });
+        // $("#pay_price_schedule").text(schedule.toFixed(2)+' %');
+        // $("#pay_price_schedule_input").val(schedule.toFixed(2));
 
-        // $(".checkbox").each(function(key, value){
+        //四捨五入
+        $("#pay_price_schedule").text(Math.round(schedule)+' %');
+        $("#pay_price_schedule_input").val(Math.round(schedule));
 
-        //     $(".checkbox").eq(key).click(function() {
-        //     $(".checkbox").eq(key).attr("id","checkbox_value");
-        //     // $(".checkbox").eq(key).prop("checked",true);
-        //     });
-        // });
+        if(total==receive)
+        { 
+            $("#pay_price_schedule").css('color','green');
+        }
+        else
+        { 
+            $("#pay_price_schedule").css('color','red');
+        }
 
-        // $(document).on('click', "#design_price_input", function(){
-        //     $("#design_price_input").val(200);
-    // });
+    });
+
+    $("#pay_price_receive").change(function(){
+
+        var total = parseInt($("#pay_price_total").val());
+        var receive = parseInt($("#pay_price_receive").val());
+        schedule = ( receive / total ) * 100 ;
+
+        // $("#pay_price_schedule").text(schedule.toFixed(2)+' %');
+        // $("#pay_price_schedule_input").val(schedule.toFixed(2));
+
+        //四捨五入
+        $("#pay_price_schedule").text(Math.round(schedule)+' %');
+        $("#pay_price_schedule_input").val(Math.round(schedule));
+
+        if(total==receive)
+        { 
+            $("#pay_price_schedule").css('color','green');
+        }
+        else
+        { 
+            $("#pay_price_schedule").css('color','red');
+        }
+
+        if(total<receive)
+        {
+            alert("收款金額大於總金額");
+            var receive = $("#pay_price_receive").val(0);
+            $("#pay_price_schedule").text("0 %");
+            $("#pay_price_schedule_input").val("0");
+        }
+
+    });
+
+    $("#pay_price_receive").keyup(function(){
+
+        var total = parseInt($("#pay_price_total").val());
+        var receive = parseInt($("#pay_price_receive").val());
+        schedule = ( receive / total ) * 100 ;
+
+        // $("#pay_price_schedule").text(schedule.toFixed(2)+' %');
+        // $("#pay_price_schedule_input").val(schedule.toFixed(2));
+
+        //四捨五入
+        $("#pay_price_schedule").text(Math.round(schedule)+' %');
+        $("#pay_price_schedule_input").val(Math.round(schedule));
+
+        if(total==receive)
+        { 
+            $("#pay_price_schedule").css('color','green');
+        }
+        else
+        { 
+            $("#pay_price_schedule").css('color','red');
+        }
+
+    });
+
 });
 </script>
 <?=$temp['header_down']?>
@@ -145,7 +240,7 @@ $(function(){
             <div class="spanLineRight">
                 <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
                 <div class="checkbox_item">
-                    <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><span style="margin-left:5px;" required><?=$value_Design->title_Str?></span><br>  
+                    <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;" required><?=$value_Design->title_Str?></span></a><br>  
                 </div>
                 <?endforeach?>
             </div>
@@ -161,27 +256,51 @@ $(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                項目加總費用
+                設計項目加總金額 (NT$)
             </div>
-            <div class="spanLineLeft" style="display:none;">
+            <div class="spanLineLeft">
                 <?foreach($DesignPriceList->obj_Arr as $key => $value_DesignPrice):?>
-                    <span class="design_price"><?=$value_DesignPrice->price_Num?></span>
+                    <?if(!empty($Project->designids_Str)):?>
+                        <span class="design_price" style="display:none;"><?=$value_DesignPrice->price_Num?></span>
+                    <?else:?>
+                        <span class="design_price" style="display:none;">0</span>
+                    <?endif?>
                 <?endforeach?>
-            </div>
-            <div class="spanLineLeft">
-                <?if(!empty($Project->designids_Str)):?>
-                    <input id="design_price_input" type="number" min="0" class="text" name="pay_price_total_Num" readonly style="cursor: pointer;">
-                <?else:?>
-                    <span class="red">請選擇設計項目</span>
-                <?endif?>
-            </div>
-        </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
+                <span class="design_price_total"></span>
             </div>
             <div class="spanLineRight">
                 <p class="gray">儲存專案後改變金額</p>
-                <!-- <p class="gray">點選輸入框重新計算金額</p> -->
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案總金額 (NT$)
+            </div>
+            <div class="spanLineLeft">
+                <input id="pay_price_total" type="number" min="0" class="text" name="pay_price_total_Num" value="<?=$Project->pay_price_total_Num?>">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案已收款項 (NT$)
+            </div>
+            <div class="spanLineLeft">
+                <input id="pay_price_receive" type="number" min="0" class="text" name="pay_price_receive_Num" value="<?=$Project->pay_price_receive_Num?>">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案付款進度
+            </div>
+            <div class="spanLineLeft">
+                <input id="pay_price_schedule_input" type="hidden" name="pay_price_schedule_Num" value="<?=$Project->pay_price_schedule_Num?>">
+                <span id="pay_price_schedule" style="margin-left:5px;" class="red"></span>
             </div>
         </div>
     </div>
@@ -236,7 +355,7 @@ $(function(){
 </div>
 <div class="contentBox allWidth">
     <h3>付款資訊</h3>
-    <h4>請確認本訂單之付款資訊</h4>
+    <h4>請確認本專案之付款資訊</h4>
     <?if($Project->pay_status_Num == 1):?>
     <div class="spanLine">
         <div class="spanStage">
@@ -311,7 +430,7 @@ $(function(){
 <?if(!empty($SuggestList->obj_Arr)):?>
 <div class="contentBox allWidth">
     <h3>專案修改建議列表</h3>
-    <h4>請確認專案修改建議</h4>
+    <h4>請確認本專案之修改建議</h4>
     <div class="spanLine">
         <div class="spanLineLeft" style="margin-top:10px;">
             專案修改建議列表
@@ -395,6 +514,7 @@ $(function(){
             <div class="spanLineRight">
                 <?if(!empty($Project->projectid_Num)):?><input type="hidden" name="projectid_Num" value="<?=$Project->projectid_Num?>"><?endif?>
                 <input type="submit" class="submit" value="<?if(!empty($Project->projectid_Num)):?>儲存變更<?else:?>新增專案<?endif?>">
+                <?if(!empty($Project->projectid_Num)):?><a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/project/prints?projectid=<?=$Project->projectid_Num?>" target="_blank"><span class="submit">列印內容</span></a><?endif?>
                 <?if(!empty($Project->projectid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?noteid=<?=$Project->projectid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>

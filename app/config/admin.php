@@ -61,6 +61,7 @@ $config['group_purview_Arr'] = array(
 		array('shop', 'order_shop', 'order_shop', 'tablelist'),
 		array('shop', 'project', 'project', 'edit'),
 		array('shop', 'project', 'project', 'tablelist'),
+		array('shop', 'project', 'project', 'prints'),
 		array('shop', 'project', 'classmeta', 'edit'),
 		array('shop', 'project', 'classmeta', 'tablelist'),
 		array('shop', 'project', 'classmeta2', 'edit'),
@@ -74,6 +75,7 @@ $config['group_purview_Arr'] = array(
 		// array('user', 'global', 'global_shop', 'user'),
 		array('user', 'project', 'project', 'edit'),
 		array('user', 'project', 'project', 'tablelist'),
+		array('user', 'project', 'design', 'edit'),
 		array('user', 'project', 'suggest', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'tablelist')
@@ -90,6 +92,7 @@ $config['group_purview_Arr'] = array(
 		// array('user', 'global', 'global_shop', 'user'),
 		array('user', 'project', 'project', 'edit'),
 		array('user', 'project', 'project', 'tablelist'),
+		array('user', 'project', 'design', 'edit'),
 		array('user', 'project', 'suggest', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'tablelist')
@@ -99,6 +102,7 @@ $config['group_purview_Arr'] = array(
 		// array('user', 'global', 'global_shop', 'user'),
 		array('user', 'project', 'project', 'edit'),
 		array('user', 'project', 'project', 'tablelist'),
+		array('user', 'project', 'design', 'edit'),
 		array('user', 'project', 'suggest', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'edit'),
 		array('user', 'order_shop', 'order_shop', 'tablelist')
@@ -367,7 +371,8 @@ $config['admin_sidebox'] = array(
 							'title' => '專案',
 							'child4' => array(
 								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'tablelist' => array('title' => '列表'),
+								'prints' => array('title' => '列印')
 							)
 						),
 				 		'classmeta' => array(
@@ -443,12 +448,19 @@ $config['admin_sidebox'] = array(
 								'tablelist' => array('title' => '列表')
 							)
 						),
+						'design' => array(
+							'title' => '設計項目',
+							'child4' => array(
+								'edit' => array('title' => '查看'),
+							)
+						),
 						'suggest' => array(
 							'title' => '修改建議',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
+								'edit' => array('title' => '編輯')
 							)
 						)
+
 					)
 				),
 				'order_shop' => array(

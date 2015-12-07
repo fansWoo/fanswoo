@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 建立日期: 2015-12-04: 18:32:05
+-- 建立日期: 2015-12-07: 15:54:20
 -- 伺服器版本: 5.6.21
 -- PHP 版本: 5.6.3
 
@@ -825,7 +825,9 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('1e1fc03a2ac695567f726045a10c9de4', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449132843, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('b40449c25711fc94bebe0df8617ce808', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449134050, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
 ('355b92cf0ba98ea80c6bf9f2765b974a', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449223981, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
-('c249528d1c6e724bb33661da909751e6', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449224006, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
+('c249528d1c6e724bb33661da909751e6', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449224006, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('c569f1a9dfbb45e1117ce8c5c4e659f0', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449467525, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('dfa9b96f131dcb8c983b67f467f03a0c', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449467670, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
 
 -- --------------------------------------------------------
 
@@ -988,6 +990,8 @@ CREATE TABLE IF NOT EXISTS `fs_shop_project` (
   `pay_name` char(32) NOT NULL,
   `pay_account` char(50) NOT NULL,
   `pay_price_total` mediumint(10) NOT NULL,
+  `pay_price_receive` mediumint(10) NOT NULL,
+  `pay_price_schedule` mediumint(3) NOT NULL,
   `pay_paytime` datetime NOT NULL,
   `pay_remark` text NOT NULL,
   `pay_status` int(1) NOT NULL,
@@ -1003,8 +1007,9 @@ CREATE TABLE IF NOT EXISTS `fs_shop_project` (
 -- 資料表的匯出資料 `fs_shop_project`
 --
 
-INSERT INTO `fs_shop_project` (`projectid`, `uid`, `name`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `updatetime`, `status`) VALUES
-(528501, 528502, 'test', '528502\r\n528501', 30, '2', '4,5,7,6,3,2,1', '張琬君', '(700)1234567-1234567', 88000, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2015-12-04 18:30:50', 1);
+INSERT INTO `fs_shop_project` (`projectid`, `uid`, `name`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_price_receive`, `pay_price_schedule`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `updatetime`, `status`) VALUES
+(528501, 528502, 'test', '528502\r\n528501', 30, '2', '7,6,5,4,3,2,1', '張琬君', '(700)1234567-1234567', 88000, 88000, 100, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2015-12-07 14:19:25', 1),
+(528502, 528501, 'test2', '528501', 30, '4', '2,1', 'Mimi Chang', '(700)1111111-2222222', 36000, 0, 0, '2015-12-07 14:50:00', '付款備註', 1, 0, 1, '2015-12-07 14:34:19', '2015-12-07 15:49:43', 1);
 
 -- --------------------------------------------------------
 
@@ -1029,13 +1034,13 @@ CREATE TABLE IF NOT EXISTS `fs_shop_project_design` (
 --
 
 INSERT INTO `fs_shop_project_design` (`designid`, `uid`, `title`, `price`, `synopsis`, `prioritynum`, `updatetime`, `status`) VALUES
-(1, 528502, 'PHP網站系統後台架構', 18000, '', 0, '2015-12-02 16:05:11', 1),
-(2, 528502, 'PHP管理員登入系統', 18000, '', 0, '2015-12-03 12:22:04', 1),
-(3, 528502, 'PHP網站標題、電子郵件資訊設置系統', 10000, '', 0, '2015-12-03 12:22:15', 1),
-(4, 528502, 'PHP網站標籤基本設置系統', 8000, '', 0, '2015-12-03 12:24:03', 1),
-(5, 528502, 'PHP第三方javascript外掛崁入系統', 8000, '', 0, '2015-12-03 12:23:58', 1),
-(6, 528502, 'PHP文章管理系統', 18000, '', 0, '2015-12-03 12:23:35', 1),
-(7, 528502, 'PHP文章分類標籤系統', 8000, '', 0, '2015-12-03 12:23:52', 1);
+(1, 528501, 'PHP網站系統後台架構', 18000, 'PHP網站系統後台架構 詳細內容', 0, '2015-12-07 14:13:26', 1),
+(2, 528501, 'PHP管理員登入系統', 18000, 'PHP管理員登入系統 詳細內容', 0, '2015-12-07 14:13:35', 1),
+(3, 528501, 'PHP網站標題、電子郵件資訊設置系統', 10000, 'PHP網站標題、電子郵件資訊設置系統 詳細內容', 0, '2015-12-07 14:13:45', 1),
+(4, 528501, 'PHP網站標籤基本設置系統', 8000, 'PHP網站標籤基本設置系統 詳細內容', 0, '2015-12-07 14:13:50', 1),
+(5, 528501, 'PHP第三方javascript外掛崁入系統', 8000, 'PHP第三方javascript外掛崁入系統 詳細內容', 0, '2015-12-07 14:13:54', 1),
+(6, 528501, 'PHP文章管理系統', 18000, 'PHP文章管理系統 詳細內容', 0, '2015-12-07 14:13:58', 1),
+(7, 528501, 'PHP文章分類標籤系統', 8000, 'PHP文章分類標籤系統 詳細內容', 0, '2015-12-07 14:14:02', 1);
 
 -- --------------------------------------------------------
 

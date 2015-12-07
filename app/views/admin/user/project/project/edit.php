@@ -1,8 +1,4 @@
 <?=$temp['header_up']?>
-<script>
-$(function(){
-});
-</script>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
 <h2>專案管理 - 確認專案</h2>
@@ -48,13 +44,37 @@ $(function(){
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
-                付款總金額
+                應付款金額
             </div>
             <div class="spanLineRight">
                 NT$ <?=$Project->pay_price_total_Num?>
 		    </div>
 		</div>
 	</div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                已收款金額
+            </div>
+            <div class="spanLineRight">
+                NT$ <?=$Project->pay_price_receive_Num?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案付款進度
+            </div>
+            <div class="spanLineRight">
+                <?if($Project->pay_price_schedule_Num == 100):?>
+                    <span class="green"><?=$Project->pay_price_schedule_Num?> %</span>
+                <?else:?>
+                    <span class="red"><?=$Project->pay_price_schedule_Num?> %</span>
+                <?endif?>
+            </div>
+        </div>
+    </div>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -85,10 +105,10 @@ $(function(){
                 轉帳帳號
             </div>
             <div class="spanLineLeft">
-                <?if($Project->pay_status_Num == 1):?>
-                <?=$Project->pay_account_Str?>
+                <?if($Project->paycheck_status_Num == 0):?>
+                    <input type="text" class="text" name="pay_account_Str" value="<?=$Project->pay_account_Str?>" required>
                 <?else:?>
-                <input type="text" class="text" name="pay_account_Str">
+                    <?=$Project->pay_account_Str?>
                 <?endif?>
             </div>
         </div>
@@ -99,10 +119,10 @@ $(function(){
                 轉帳人姓名
             </div>
             <div class="spanLineLeft">
-                <?if($Project->pay_status_Num == 1):?>
-                <?=$Project->pay_name_Str?>
+                <?if($Project->paycheck_status_Num == 0):?>
+                    <input type="text" class="text" name="pay_name_Str" value="<?=$Project->pay_name_Str?>" required>
                 <?else:?>
-                <input type="text" class="text" name="pay_name_Str">
+                    <?=$Project->pay_name_Str?>
                 <?endif?>
 		    </div>
 		</div>
@@ -113,20 +133,20 @@ $(function(){
                 轉帳時間
             </div>
             <div class="spanLineLeft">
-                <?if($Project->pay_status_Num == 1):?>
-                <?=$Project->pay_paytime_DateTimeObj->datetime_Str?>
+                <?if($Project->paycheck_status_Num == 0):?>
+                    <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
+                        <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
+                        <script>
+                        $(function(){
+                            $('#pay_paytime_Str').datetimepicker({
+                                dateFormat: 'yy-mm-dd',
+                                timeFormat: 'HH:mm:ss'
+                            });
+                        });
+                    </script>
+                    <input type="text" class="text" id="pay_paytime_Str" name="pay_paytime_Str" value="<?=$Project->pay_paytime_DateTimeObj->datetime_Str?>" required>
                 <?else:?>
-                <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
-                <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
-                <script>
-                $(function(){
-                    $('#pay_paytime_Str').datetimepicker({
-                        dateFormat: 'yy-mm-dd',
-                        timeFormat: 'HH:mm:ss'
-                    });
-                });
-                </script>
-                <input type="text" class="text" id="pay_paytime_Str" name="pay_paytime_Str">
+                    <?=$Project->pay_paytime_DateTimeObj->datetime_Str?>
                 <?endif?>
 		    </div>
 		</div>
@@ -137,10 +157,10 @@ $(function(){
                 付款備註
             </div>
             <div class="spanLineLeft width500">
-                <?if($Project->pay_status_Num == 1):?>
-                <?=$Project->pay_remark_Str?>
+                <?if($Project->paycheck_status_Num == 0):?>
+                    <textarea name="pay_remark_Str"><?=$Project->pay_remark_Str?></textarea>
                 <?else:?>
-                <textarea name="pay_remark_Str"></textarea>
+                    <?=$Project->pay_remark_Str?>
                 <?endif?>
 		    </div>
 		</div>
@@ -171,7 +191,27 @@ $(function(){
                 </span>
 		    </div>
 		</div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineRight">
+                <p class="gray">款項經確認後，便無法再修改付款資料</p>
+            </div>
+        </div>
 	</div>
+    <?if($Project->paycheck_status_Num == 0):?>
+    <div class="spanLine spanSubmit">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineRight">
+                <?if(!empty($Project->projectid_Num)):?><input type="hidden" name="projectid_Num" value="<?=$Project->projectid_Num?>"><?endif?>
+                <input type="submit" class="submit" value="儲存變更">
+            </div>
+        </div>
+    </div>
+    <?endif?>
+    </form>
 </div>
 <div class="contentBox allWidth">
 	<h3>設計項目列表</h3>
@@ -190,16 +230,18 @@ $(function(){
 		</div>
 	</div>
     <?if(!empty($Project->designids_Str)):?>
-    <?foreach($DesignPriceList->obj_Arr as $key => $value_DesignPrice):?>
+    <?foreach($DesignList->obj_Arr as $key => $value_Design):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width300">
-                <?=$value_DesignPrice->title_Str?>
+                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank">
+                    <?=$value_Design->title_Str?>
+                </a>
             </div>
             <div class="spanLineLeft width100 aligncenter">
-                <?=$value_DesignPrice->price_Num?>
+                <?=$value_Design->price_Num?>
             </div>
         </div>
     </div>
@@ -329,25 +371,7 @@ $(function(){
                 <?endif?>
 		    </div>
         </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineRight">
-                <p class="gray">訂單確認狀態選項經確認送出後，便無法再修改本訂單所有資料</p>
-            </div>
-		</div>
 	</div>
-	<div class="spanLine spanSubmit">
-	    <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineRight">
-                <?if(!empty($Project->projectid_Num)):?><input type="hidden" name="projectid_Num" value="<?=$Project->projectid_Num?>"><?endif?>
-                <input type="submit" class="submit" value="儲存變更">
-            </div>
-        </div>
-	</div>
-	</form>
 </div>
 <?=$temp['admin_footer_bar']?>
 <?=$temp['body_end']?>
