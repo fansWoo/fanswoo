@@ -39,6 +39,14 @@ $(function(){
             $("#pay_price_schedule_input").val("0");
         }
 
+        var total2 = $("#pay_price_total").val();
+        var receive2 = $("#pay_price_receive").val();
+
+        if(total2==''||receive2=='')
+        {
+            $("#pay_price_schedule").text("0 %");
+        }
+
     });
 
     $("#pay_price_total").keyup(function(){
@@ -61,6 +69,14 @@ $(function(){
         else
         { 
             $("#pay_price_schedule").css('color','red');
+        }
+
+        var total2 = $("#pay_price_total").val();
+        var receive2 = $("#pay_price_receive").val();
+
+        if(total2==''||receive2=='')
+        {
+            $("#pay_price_schedule").text("0 %");
         }
 
     });
@@ -95,6 +111,14 @@ $(function(){
             $("#pay_price_schedule_input").val("0");
         }
 
+        var total2 = $("#pay_price_total").val();
+        var receive2 = $("#pay_price_receive").val();
+
+        if(total2==''||receive2=='')
+        {
+            $("#pay_price_schedule").text("0 %");
+        }
+
     });
 
     $("#pay_price_receive").keyup(function(){
@@ -117,6 +141,14 @@ $(function(){
         else
         { 
             $("#pay_price_schedule").css('color','red');
+        }
+
+        var total2 = $("#pay_price_total").val();
+        var receive2 = $("#pay_price_receive").val();
+
+        if(total2==''||receive2=='')
+        {
+            $("#pay_price_schedule").text("0 %");
         }
 
     });
@@ -145,20 +177,53 @@ $(function(){
             <div class="spanLineLeft">
                 專案分類
             </div>
-            <div class="spanLineLeft width500" fanswoo-selectEachDiv="class">
+            <div class="spanLineLeft width500">
                 <?if(!empty($Project->class_ClassMetaList->obj_Arr)):?>
-                <?foreach($Project->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
-                    <div class="selectLine" fanswoo-selectEachLine>
-                        <span class="floatleft">分類 <span fanswoo-selectEachLineCount></span> ：</span>
+                    <?foreach($Project->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+                        <div class="selectLine" style="border-bottom:0px dashed #DDD;" fanswoo-selectEachLine>
+                            <select fanswoo-selectEachLineMaster="class">
+                                <option value="">沒有分類標籤</option>
+                                <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
+                                <option value="<?=$value2_ClassMeta->classid_Num?>"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> selected<?endif?>><?=$value2_ClassMeta->classname_Str?></option>
+                                <?endforeach?>
+                            </select>
+                            <span fanswoo-selectEachLineSlave="class">
+                            <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
+                                <select fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> name="classids_Arr[]"<?else:?> style="display:none;"<?endif?>>
+                                    <option value="">沒有分類標籤</option>
+                                    <?
+                                        $test_ClassMetaList = new ObjList();
+                                        $test_ClassMetaList->construct_db(array(
+                                            'db_where_Arr' => array(
+                                                'modelname_Str' => 'project'
+                                            ),
+                                            'db_where_or_Arr' => array(
+                                                'classids' => array($value2_ClassMeta->classid_Num)
+                                            ),
+                                            'model_name_Str' => 'ClassMeta',
+                                            'limitstart_Num' => 0,
+                                            'limitcount_Num' => 100
+                                        ));
+                                    ?>
+                                    <?foreach($test_ClassMetaList->obj_Arr as $key3 => $value3_ClassMeta):?>
+                                    <option value="<?=$value3_ClassMeta->classid_Num?>"<?if($value_ClassMeta->classid_Num == $value3_ClassMeta->classid_Num):?> selected<?endif?>><?=$value3_ClassMeta->classname_Str?></option>
+                                    <?endforeach?>
+                                </select>
+                            <?endforeach?>
+                            </span>
+                        </div>
+                    <?endforeach?>
+                    <?else:?>
+                    <div class="selectLine" style="border-bottom:0px dashed #DDD;" fanswoo-selectEachLine>
                         <select fanswoo-selectEachLineMaster="class">
                             <option value="">沒有分類標籤</option>
                             <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                            <option value="<?=$value2_ClassMeta->classid_Num?>"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> selected<?endif?>><?=$value2_ClassMeta->classname_Str?></option>
+                            <option value="<?=$value2_ClassMeta->classid_Num?>"><?=$value2_ClassMeta->classname_Str?></option>
                             <?endforeach?>
                         </select>
                         <span fanswoo-selectEachLineSlave="class">
                         <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                            <select fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> name="classids_Arr[]"<?else:?> style="display:none;"<?endif?>>
+                            <select name="classids_Arr[]" fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]" style="display:none;">
                                 <option value="">沒有分類標籤</option>
                                 <?
                                     $test_ClassMetaList = new ObjList();
@@ -175,106 +240,20 @@ $(function(){
                                     ));
                                 ?>
                                 <?foreach($test_ClassMetaList->obj_Arr as $key3 => $value3_ClassMeta):?>
-                                <option value="<?=$value3_ClassMeta->classid_Num?>"<?if($value_ClassMeta->classid_Num == $value3_ClassMeta->classid_Num):?> selected<?endif?>><?=$value3_ClassMeta->classname_Str?></option>
+                                <option value="<?=$value3_ClassMeta->classid_Num?>"><?=$value3_ClassMeta->classname_Str?></option>
                                 <?endforeach?>
                             </select>
                         <?endforeach?>
                         </span>
                     </div>
-                <?endforeach?>
                 <?endif?>
-                <div class="selectLine" fanswoo-selectEachLine>
-                    <span class="floatleft">分類 <span fanswoo-selectEachLineCount></span> ：</span>
-                    <select fanswoo-selectEachLineMaster="class">
-                        <option value="">沒有分類標籤</option>
-                        <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                        <option value="<?=$value2_ClassMeta->classid_Num?>"><?=$value2_ClassMeta->classname_Str?></option>
-                        <?endforeach?>
-                    </select>
-                    <span fanswoo-selectEachLineSlave="class">
-                    <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                        <select name="classids_Arr[]" fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]" style="display:none;">
-                            <option value="">沒有分類標籤</option>
-                            <?
-                                $test_ClassMetaList = new ObjList();
-                                $test_ClassMetaList->construct_db(array(
-                                    'db_where_Arr' => array(
-                                        'modelname_Str' => 'project'
-                                    ),
-                                    'db_where_or_Arr' => array(
-                                        'classids' => array($value2_ClassMeta->classid_Num)
-                                    ),
-                                    'model_name_Str' => 'ClassMeta',
-                                    'limitstart_Num' => 0,
-                                    'limitcount_Num' => 100
-                                ));
-                            ?>
-                            <?foreach($test_ClassMetaList->obj_Arr as $key3 => $value3_ClassMeta):?>
-                            <option value="<?=$value3_ClassMeta->classid_Num?>"><?=$value3_ClassMeta->classname_Str?></option>
-                            <?endforeach?>
-                        </select>
-                    <?endforeach?>
-                    </span>
-                </div>
             </div>
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請選擇二級分類及分類標籤，多種分類可以重複選取</span>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                設計項目類別
-            </div>
-            <div class="spanLineRight">
-                <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
-                <div class="checkbox_item">
-                    <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/design/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;" required><?=$value_Design->title_Str?></span></a><br>  
-                </div>
-                <?endforeach?>
-            </div>
-        </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/design/design/tablelist">管理設計項目類別</a>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                專案總金額 (NT$)
-            </div>
-            <div class="spanLineLeft">
-                <input id="pay_price_total" type="number" min="0" class="text" name="pay_price_total_Num" value="<?=$Project->pay_price_total_Num?>">
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                專案已收款項 (NT$)
-            </div>
-            <div class="spanLineLeft">
-                <input id="pay_price_receive" type="number" min="0" class="text" name="pay_price_receive_Num" value="<?=$Project->pay_price_receive_Num?>">
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                專案付款進度
-            </div>
-            <div class="spanLineLeft">
-                <input id="pay_price_schedule_input" type="hidden" name="pay_price_schedule_Num" value="<?=$Project->pay_price_schedule_Num?>">
-                <span id="pay_price_schedule" style="margin-left:5px;" class="red"></span>
+                <span class="gray">請選擇二級分類及分類標籤</span>
             </div>
         </div>
     </div>
@@ -328,8 +307,77 @@ $(function(){
     </div>
 </div>
 <div class="contentBox allWidth">
+    <h3>設計項目列表</h3>
+    <h4>請確認本專案之設計項目資訊</h4>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                設計項目類別
+            </div>
+            <div class="spanLineLeft width300">
+                <p style="margin-left:20px;">系統開發</p>
+                <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
+                <?if($value_Design->class_ClassMetaList->obj_Arr[0]->class_ClassMetaList->obj_Arr[0]->classname_Str=='系統開發'):?>
+                    <div class="checkbox_item">
+                        <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/design/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;" required><?=$value_Design->title_Str?></span></a><br>  
+                    </div>
+                <?endif?>
+                <?endforeach?>
+            </div>
+            <div class="spanLineLeft width300">
+                <p style="margin-left:20px;">美術設計</p>
+                <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
+                <?if($value_Design->class_ClassMetaList->obj_Arr[0]->class_ClassMetaList->obj_Arr[0]->classname_Str=='美術設計'):?>
+                    <div class="checkbox_item">
+                        <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/design/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;" required><?=$value_Design->title_Str?></span></a><br>  
+                    </div>
+                <?endif?>
+                <?endforeach?>
+            </div>
+        </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineLeft width500">
+                <a href="admin/<?=$child1_name_Str?>/design/design/tablelist">管理設計項目類別</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contentBox allWidth">
     <h3>付款資訊</h3>
     <h4>請確認本專案之付款資訊</h4>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案總金額 (NT$)
+            </div>
+            <div class="spanLineLeft">
+                <input id="pay_price_total" type="number" min="0" class="text" name="pay_price_total_Num" value="<?=$Project->pay_price_total_Num?>">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案已收款項 (NT$)
+            </div>
+            <div class="spanLineLeft">
+                <input id="pay_price_receive" type="number" min="0" class="text" name="pay_price_receive_Num" value="<?=$Project->pay_price_receive_Num?>">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案付款進度
+            </div>
+            <div class="spanLineLeft">
+                <input id="pay_price_schedule_input" type="hidden" name="pay_price_schedule_Num" value="<?=$Project->pay_price_schedule_Num?>">
+                <span id="pay_price_schedule" style="margin-left:5px;" class="red"></span>
+            </div>
+        </div>
+    </div>
     <?if($Project->pay_status_Num == 1):?>
     <div class="spanLine">
         <div class="spanStage">

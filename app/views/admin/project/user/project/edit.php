@@ -222,7 +222,10 @@
                 <div class="spanLineLeft width300">
                     設計項目
     		    </div>
-                <div class="spanLineLeft width100 aligncenter">
+                <div class="spanLineLeft width150">
+                    分類標籤
+                </div>
+                <div class="spanLineLeft width100">
                     單價
                 </div>
     		</div>
@@ -234,7 +237,16 @@
                         <?=$value_Design->title_Str?>
                     </a>
                 </div>
-                <div class="spanLineLeft width100 aligncenter">
+                <div class="spanLineLeft text width150">
+                    <?if(!empty($value_Design->class_ClassMetaList->obj_Arr)):?>
+                    <?foreach($value_Design->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+                        <?if($key !== 0):?>,<?endif?><?=$value_ClassMeta->classname_Str?>
+                    <?endforeach?>
+                    <?else:?>
+                    <span class="gray">沒有分類標籤</span>
+                    <?endif?>
+                </div>
+                <div class="spanLineLeft width100">
                     <?=$value_Design->price_Num?>
                 </div>
             </div>

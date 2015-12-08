@@ -9,6 +9,16 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                專案單號
+            </div>
+            <div class="spanLineLeft width400">
+                <?=$Project->projectid_Num?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 專案名稱
             </div>
             <div class="spanLineLeft width400">
