@@ -216,7 +216,6 @@ class Project_Controller extends MY_Controller {
             $paycheck_status_Num = $this->input->post('paycheck_status_Num', TRUE);
             $project_status_Num = $this->input->post('project_status_Num', TRUE);
             $setuptime_Str = $this->input->post('setuptime_Str', TRUE);
-            $content_Str = $this->input->post('content_Str', TRUE);
 
             //建構Project物件，並且更新
             $Project = new Project();
@@ -251,18 +250,6 @@ class Project_Controller extends MY_Controller {
                 )
             ));
 
-            if( !empty($content_Str) )
-            {
-                $Comment = new Comment;
-                $Comment->construct([
-                    'uid_Num' => $data['User']->uid_Num,
-                    'typename_Str' => 'project',
-                    'id_Num' => $projectid_Num,
-                    'content_Str' => $content_Str
-                ]);
-                $Comment->update();
-            }
-
             //送出成功訊息
             $this->load->model('Message');
             $this->Message->show(array(
@@ -278,6 +265,55 @@ class Project_Controller extends MY_Controller {
             $this->Message->show(array(
                 'message' => $validation_errors_Str,
                 'url' => 'admin/project/project/project/edit/?projectid='.$projectid_Num
+            ));
+        }
+    }
+
+    public function copy()
+    {
+        $data = $this->data;//取得公用數據
+
+        $projectid_Num = $this->input->get('projectid');
+
+        $Project = new Project();
+        $Project->construct_db(array(
+            'db_where_Arr' => array(
+                'projectid' => $projectid_Num
+            )
+        ));
+
+        //建構ProjectFanswoo物件，並且更新
+        $ProjectFanswoo = new Project();
+        $ProjectFanswoo->construct(array(
+            'name_Str' => $Project->name_Str,
+            'permission_uids_Str' => $Project->permission_uids_Str,
+            'working_days_Num' => $Project->working_days_Num,
+            'classids_Arr' => $Project->class_ClassMetaList->uniqueids_Arr,
+            'designids_Str' => $Project->designids_Str,
+            'pay_price_total_Num' => $Project->pay_price_total_Num,
+            // 'pay_price_receive_Num' => $Project->pay_price_receive_Num,
+            // 'pay_price_schedule_Num' => $Project->pay_price_schedule_Num,
+            // 'paycheck_status_Num' => $Project->paycheck_status_Num,
+            'project_status_Num' => $Project->project_status_Num,
+            'setuptime_Str' => $Project->setuptime_DateTimeObj->datetime_Str
+        ));
+
+        $ProjectFanswoo->update();
+
+        if($ProjectFanswoo->projectid_Num !== NULL)
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '複製成功',
+                'url' => 'admin/project/project/project/tablelist'
+            ));
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show(array(
+                'message' => '複製失敗',
+                'url' => 'admin/project/project/project/tablelist'
             ));
         }
     }

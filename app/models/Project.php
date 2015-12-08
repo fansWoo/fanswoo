@@ -23,7 +23,7 @@ class Project extends ObjDbBase
     public $setuptime_DateTimeObj;
     public $updatetime_DateTimeObj;
     public $status_Num = 1;
-    public $db_name_Str = 'shop_project';//填寫物件聯繫資料庫之名稱
+    public $db_name_Str = 'project';//填寫物件聯繫資料庫之名稱
     public $db_uniqueid_Str = 'projectid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_Arr = [//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'projectid' => 'projectid_Num',

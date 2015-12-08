@@ -2,12 +2,6 @@
 <script>
 $(function(){
 
-    var design_price_total = 0;
-    $(".design_price").each(function(key, value){
-        design_price_total += parseInt($(".design_price").eq(key).text());
-        $(".design_price_total").text(design_price_total);
-    });
-
     $("#pay_price_schedule").text(<?=$Project->pay_price_schedule_Num?>+' %');
     $("#pay_price_schedule_input").val(<?=$Project->pay_price_schedule_Num?>);
 
@@ -256,26 +250,6 @@ $(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                設計項目加總金額 (NT$)
-            </div>
-            <div class="spanLineLeft">
-                <?foreach($DesignPriceList->obj_Arr as $key => $value_DesignPrice):?>
-                    <?if(!empty($Project->designids_Str)):?>
-                        <span class="design_price" style="display:none;"><?=$value_DesignPrice->price_Num?></span>
-                    <?else:?>
-                        <span class="design_price" style="display:none;">0</span>
-                    <?endif?>
-                <?endforeach?>
-                <span class="design_price_total"></span>
-            </div>
-            <div class="spanLineRight">
-                <p class="gray">儲存專案後改變金額</p>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
                 專案總金額 (NT$)
             </div>
             <div class="spanLineLeft">
@@ -431,50 +405,41 @@ $(function(){
 <div class="contentBox allWidth">
     <h3>專案修改建議列表</h3>
     <h4>請確認本專案之修改建議</h4>
-    <div class="spanLine">
-        <div class="spanLineLeft" style="margin-top:10px;">
-            專案修改建議列表
+    <div class="spanLineTable">
+        <div class="spanLineTableContent">
+            <div class="spanLine order tablelist tableTitle">
+                <div class="spanLineLeft text width300">
+                    修改建議標題
+                </div>
+                <div class="spanLineLeft text width100">
+                    處理狀態
+                </div>
+                <div class="spanLineLeft text width150">
+                    提出時間
+                </div>
+            </div>
+            <?foreach($SuggestList->obj_Arr as $key => $value_Suggest):?>
+            <div class="spanLine order tablelist" style="border-bottom: 0px solid #EEE;">
+                <div class="spanLineLeft text width300">
+                    <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/suggest/edit/?suggestid=<?=$value_Suggest->suggestid_Num?>&projectid=<?=$Project->projectid_Num?>" target="_blank">
+                        <?=$value_Suggest->title_Str?>
+                    </a>
+                </div>
+                <div class="spanLineLeft text width100">
+                    <?if($value_Suggest->answer_status_Num == 1):?>
+                    <span class="green">評估中</span>
+                    <?elseif($value_Suggest->answer_status_Num == 2):?>
+                    <span class="green">修改中</span>
+                    <?elseif($value_Suggest->answer_status_Num == 3):?>
+                    <span>已完成</span>
+                    <?endif?>
+                </div>
+                <div class="spanLineLeft text width150">
+                    <?=$value_Suggest->suggest_time_DateTime->datetime_Str?>
+                </div>
+            </div>
+            <?endforeach?>
         </div>
-        <div class="spanLine tableTitle">
-            <div class="spanLineLeft text width100">
-                修改建議ID
-            </div>
-            <div class="spanLineLeft text width300">
-                修改建議標題
-            </div>
-            <div class="spanLineLeft text width100">
-                處理狀態
-            </div>
-            <div class="spanLineLeft text width150">
-                提出時間
-            </div>
-        </div>
-        <?foreach($SuggestList->obj_Arr as $key => $value_Suggest):?>
-        <div class="spanLine" style="border-bottom: 0px solid #EEE;">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft text width100">
-                <?=$value_Suggest->suggestid_Num?>
-            </div>
-            <div class="spanLineLeft text width300">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/suggest/edit/?suggestid=<?=$value_Suggest->suggestid_Num?>&projectid=<?=$Project->projectid_Num?>" target="_blank">
-                    <?=$value_Suggest->title_Str?>
-                </a>
-            </div>
-            <div class="spanLineLeft text width100">
-                <?if($value_Suggest->answer_status_Num == 1):?>
-                <span class="green">評估中</span>
-                <?elseif($value_Suggest->answer_status_Num == 2):?>
-                <span class="green">修改中</span>
-                <?elseif($value_Suggest->answer_status_Num == 3):?>
-                <span>已完成</span>
-                <?endif?>
-            </div>
-            <div class="spanLineLeft text width150">
-                <?=$value_Suggest->suggest_time_DateTime->datetime_Str?>
-            </div>
-        </div>
-        <?endforeach?>
     </div>
 </div>
 <?endif?>
@@ -514,7 +479,7 @@ $(function(){
             <div class="spanLineRight">
                 <?if(!empty($Project->projectid_Num)):?><input type="hidden" name="projectid_Num" value="<?=$Project->projectid_Num?>"><?endif?>
                 <input type="submit" class="submit" value="<?if(!empty($Project->projectid_Num)):?>儲存變更<?else:?>新增專案<?endif?>">
-                <?if(!empty($Project->projectid_Num)):?><a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/project/prints?projectid=<?=$Project->projectid_Num?>" target="_blank"><span class="submit">列印內容</span></a><?endif?>
+                <?if(!empty($Project->projectid_Num)):?><a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/project/prints?projectid=<?=$Project->projectid_Num?>" target="_blank"><span class="submit">列印成估價單</span></a><?endif?>
                 <?if(!empty($Project->projectid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?noteid=<?=$Project->projectid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>

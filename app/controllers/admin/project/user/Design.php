@@ -67,51 +67,5 @@ class Design_Controller extends MY_Controller {
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
     }
-
-    public function edit_post()
-    {
-        $data = $this->data;//取得公用數據
-
-        $this->form_validation->set_rules('title_Str', '設計項目名稱', 'required');
-
-        $designid_Num = $this->input->post('designid_Num', TRUE);
-
-        if ($this->form_validation->run() !== FALSE)
-        {
-            //基本post欄位
-            $title_Str = $this->input->post('title_Str', TRUE);
-            $price_Num = $this->input->post('price_Num', TRUE);
-            $synopsis_Str = $this->input->post('synopsis_Str', TRUE);
-            $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
-
-            //建構Design物件，並且更新
-            $Design = new Design();
-            $Design->construct(array(
-                'designid_Num' => $designid_Num,
-                'title_Str' => $title_Str,
-                'price_Num' => $price_Num,
-                'synopsis_Str' => $synopsis_Str,
-                'prioritynum_Num' => $prioritynum_Num
-            ));
-            $Design->update();
-
-            //送出成功訊息
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/project/user/project/tablelist'
-            ));
-        }
-        else
-        {
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => 'admin/project/user/design/edit/?designid='.$designid_Num
-            ));
-        }
-    }
     
 }

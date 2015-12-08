@@ -36,6 +36,7 @@ input ,select, textarea { -webkit-animation: fadeInLeft 0.8s; }
 }
 body {
     font-size: 12px;
+    width: 210mm;
     /* Resets 1em to 10px */
     height: 100%;
     background: #fff;
@@ -46,19 +47,11 @@ body {
     height: 100%;
     overflow-x: hidden;
 }
-.wrap {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #EEE;
-}
 
 .content {
     display:block;
+    width: 200mm;
     margin: 0 auto;
-    width: 210mm;
-    min-height: 600px;
-    padding: 50px 20px;
 }
 
 .content h2 {
@@ -87,6 +80,7 @@ body {
     margin-bottom: 20px;
 }
 .content .contentBox .spanLine {
+    width:190mm;
     padding: 5px 10px;
     border-bottom: 1px solid #EEE;
     min-height: 40px;
@@ -94,14 +88,14 @@ body {
     overflow: hidden;
     -webkit-transition: background 0.5s;
 }
-.content .contentBox .spanLine.tableTitle {
+/*.content .contentBox .spanLine.tableTitle {
     background: #EEE;
     border-radius: 15px;
     margin-top: 15px;
     margin-bottom: 5px;
     min-height: 20px;
     line-height: 20px;
-}
+}*/
 .content .contentBox .spanLine:hover {
     background: #EEE;
 }

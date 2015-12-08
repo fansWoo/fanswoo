@@ -23,24 +23,35 @@
         			設計項目報價 (NT$)
                 </div>
                 <div class="spanLineLeft text width150">
+                    設計項目分類標籤
+                </div>
+                <div class="spanLineLeft text width150">
                     編輯操作
                 </div>
         	</div>
             <div class="spanLine tablelist">
-            <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
-                <div class="spanLineLeft text width100">
-                    <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_designid_Num)?$search_designid_Num:''?>" name="search_designid_Num" placeholder="請填寫ID">
-                </div>
-                <div class="spanLineLeft text width300">
-                    <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title_Str)?$search_title_Str:''?>" name="search_title_Str" placeholder="請填寫設計項目名稱">
-                </div>
-                <div class="spanLineLeft text width150">
-                    <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_price_Num)?$search_price_Num:''?>" name="search_price_Num" placeholder="請填寫報價金額">
-                </div>
-                <div class="spanLineLeft text width150">
-                    <input type="submit" class="button" style="height: 30px; margin-left:-6px;" value="篩選">
-                </div>
-            </form>
+                <?php echo form_open("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
+                    <div class="spanLineLeft text width100">
+                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_designid_Num)?$search_designid_Num:''?>" name="search_designid_Num" placeholder="請填寫ID">
+                    </div>
+                    <div class="spanLineLeft text width300">
+                        <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title_Str)?$search_title_Str:''?>" name="search_title_Str" placeholder="請填寫設計項目名稱">
+                    </div>
+                    <div class="spanLineLeft text width150">
+                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_price_Num)?$search_price_Num:''?>" name="search_price_Num" placeholder="請填寫報價金額">
+                    </div>
+                    <div class="spanLineLeft text width150">
+                        <select name="search_class_slug_Str" style="margin-left:-6px;">
+                            <option value="">不透過分類標籤篩選</option>
+                            <?foreach($DesignClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+                            <option value="<?=$value_ClassMeta->slug_Str?>"<?if(!empty($search_class_slug_Str) && $search_class_slug_Str == $value_ClassMeta->slug_Str) echo ' selected'?>><?=$value_ClassMeta->classname_Str?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                    <div class="spanLineLeft text width150">
+                        <input type="submit" class="button" style="height: 30px; margin-left:-6px;" value="篩選">
+                    </div>
+                </form>
             </div>
             <?if(!empty($DesignList->obj_Arr)):?>
             <?foreach($DesignList->obj_Arr as $key => $value_Design):?>
@@ -55,6 +66,15 @@
                 </div>
                 <div class="spanLineLeft text width150">
                     <?=$value_Design->price_Num?>
+                </div>
+                <div class="spanLineLeft text width150">
+                    <?if(!empty($value_Design->class_ClassMetaList->obj_Arr)):?>
+                    <?foreach($value_Design->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+                        <?if($key !== 0):?>,<?endif?><?=$value_ClassMeta->classname_Str?>
+                    <?endforeach?>
+                    <?else:?>
+                    <span class="gray">沒有分類標籤</span>
+                    <?endif?>
                 </div>
                 <div class="spanLineLeft width150 tablelistMenu">
                     <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?designid=<?=$value_Design->designid_Num?>">編輯</a>

@@ -14,7 +14,7 @@ class Suggest extends ObjDbBase
     public $suggest_status_Num = 0;
     public $answer_status_Num = 1;
     public $status_Num = 1;
-    public $db_name_Str = 'shop_project_suggest';//填寫物件聯繫資料庫之名稱
+    public $db_name_Str = 'project_suggest';//填寫物件聯繫資料庫之名稱
     public $db_uniqueid_Str = 'suggestid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_Arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'suggestid' => 'suggestid_Num',

@@ -219,9 +219,6 @@
 	<div class="spanLineTable">
         <div class="spanLineTableContent">
             <div class="spanLine order tablelist tableTitle">
-                <div class="spanLineLeft">
-                    設計項目列表
-                </div>
                 <div class="spanLineLeft width300">
                     設計項目
     		    </div>
@@ -232,8 +229,6 @@
             <?if(!empty($Project->designids_Str)):?>
             <?foreach($DesignList->obj_Arr as $key => $value_Design):?>
             <div class="spanLine order tablelist">
-                <div class="spanLineLeft">
-                </div>
                 <div class="spanLineLeft width300">
                     <a href="admin/<?=$child1_name_Str?>/user/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank">
                         <?=$value_Design->title_Str?>
@@ -264,10 +259,7 @@
 <div class="contentBox allWidth">
     <h3>專案修改建議列表</h3>
     <h4>請確認專案修改建議</h4>
-    <div class="spanLine">
-        <div class="spanLineLeft" style="margin-top:10px;">
-            專案修改建議列表
-        </div>
+    <div class="spanLineTable">
         <?if($Project->project_status_Num == 4):?>
         <?else:?>
         <div class="spanLine noneBg">
@@ -275,49 +267,41 @@
                 <a href="admin/project/user/suggest/edit?projectid=<?=$Project->projectid_Num?>" class="button">新增修改建議</a>
             </div>
         </div>
-        <div class="spanLineLeft">
-        </div>
         <?endif?>
-        <div class="spanLine tableTitle">
-            <div class="spanLineLeft text width100">
-                修改建議ID
+        <div class="spanLineTableContent">
+            <div class="spanLine order tablelist tableTitle">
+                <div class="spanLineLeft text width300">
+                    修改建議標題
+                </div>
+                <div class="spanLineLeft text width100">
+                    處理狀態
+                </div>
+                <div class="spanLineLeft text width150">
+                    提出時間
+                </div>
             </div>
-            <div class="spanLineLeft text width300">
-                修改建議名稱
+            <?foreach($SuggestList->obj_Arr as $key => $value_Suggest):?>
+            <div class="spanLine order tablelist" style="border-bottom: 0px solid #EEE;">
+                <div class="spanLineLeft text width300">
+                    <a href="admin/<?=$child1_name_Str?>/user/suggest/edit/?suggestid=<?=$value_Suggest->suggestid_Num?>&projectid=<?=$Project->projectid_Num?>" target="_blank">
+                        <?=$value_Suggest->title_Str?>
+                    </a>
+                </div>
+                <div class="spanLineLeft text width100">
+                    <?if($value_Suggest->answer_status_Num == 1):?>
+                    <span class="green">評估中</span>
+                    <?elseif($value_Suggest->answer_status_Num == 2):?>
+                    <span class="green">修改中</span>
+                    <?elseif($value_Suggest->answer_status_Num == 3):?>
+                    <span>已完成</span>
+                    <?endif?>
+                </div>
+                <div class="spanLineLeft text width150">
+                    <?=$value_Suggest->suggest_time_DateTime->datetime_Str?>
+                </div>
             </div>
-            <div class="spanLineLeft text width100">
-                處理狀態
-            </div>
-            <div class="spanLineLeft text width150">
-                提出時間
-            </div>
+            <?endforeach?>
         </div>
-        <?foreach($SuggestList->obj_Arr as $key => $value_Suggest):?>
-        <div class="spanLine" style="border-bottom: 0px solid #EEE;">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft text width100">
-                <?=$value_Suggest->suggestid_Num?>
-            </div>
-            <div class="spanLineLeft text width300">
-                <a href="admin/<?=$child1_name_Str?>/user/suggest/edit/?suggestid=<?=$value_Suggest->suggestid_Num?>&projectid=<?=$Project->projectid_Num?>" target="_blank">
-                    <?=$value_Suggest->title_Str?>
-                </a>
-            </div>
-            <div class="spanLineLeft text width100">
-                <?if($value_Suggest->answer_status_Num == 1):?>
-                <span class="green">評估中</span>
-                <?elseif($value_Suggest->answer_status_Num == 2):?>
-                <span class="green">修改中</span>
-                <?elseif($value_Suggest->answer_status_Num == 3):?>
-                <span>已完成</span>
-                <?endif?>
-            </div>
-            <div class="spanLineLeft text width150">
-                <?=$value_Suggest->suggest_time_DateTime->datetime_Str?>
-            </div>
-        </div>
-        <?endforeach?>
     </div>
 </div>
 <?endif?>

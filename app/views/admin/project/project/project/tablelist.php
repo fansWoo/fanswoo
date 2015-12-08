@@ -69,6 +69,7 @@
                 </div>
                 <div class="spanLineLeft width300 tablelistMenu">
                     <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?projectid=<?=$value_Project->projectid_Num?>">編輯</a>
+                    <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/copy/?projectid=<?=$value_Project->projectid_Num?>">複製</a>
                     <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?projectid=<?=$value_Project->projectid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
                 </div>
         	</div>

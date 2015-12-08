@@ -40,7 +40,27 @@ class Design_Controller extends MY_Controller {
             'db_where_Arr' => array(
                 'designid_Num' => $designid_Num
             )
-        )); 
+        ));
+
+        $data['DesignClassMetaList'] = new ObjList();
+        $data['DesignClassMetaList']->construct_db(array(
+            'db_where_Arr' => array(
+                'modelname' => 'design'
+            ),
+            'model_name_Str' => 'ClassMeta',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
+
+        $data['class2_ClassMetaList'] = new ObjList();
+        $data['class2_ClassMetaList']->construct_db(array(
+            'db_where_Arr' => array(
+                'modelname_Str' => 'design_class2'
+            ),
+            'model_name_Str' => 'ClassMeta',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
 
         //global
         $data['global']['style'][] = 'app/css/admin/global.css';
@@ -72,6 +92,7 @@ class Design_Controller extends MY_Controller {
             $title_Str = $this->input->post('title_Str', TRUE);
             $price_Num = $this->input->post('price_Num', TRUE);
             $synopsis_Str = $this->input->post('synopsis_Str', TRUE);
+            $classids_Arr = $this->input->post('classids_Arr', TRUE);
             $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
 
             //建構Design物件，並且更新
@@ -81,6 +102,7 @@ class Design_Controller extends MY_Controller {
                 'title_Str' => $title_Str,
                 'price_Num' => $price_Num,
                 'synopsis_Str' => $synopsis_Str,
+                'classids_Arr' => $classids_Arr,
                 'prioritynum_Num' => $prioritynum_Num
             ));
             $Design->update();
@@ -123,6 +145,7 @@ class Design_Controller extends MY_Controller {
             'title_Str' => $Design->title_Str,
             'price_Num' => $Design->price_Num,
             'synopsis_Str' => $Design->synopsis_Str,
+            'classids_Arr' => $Design->class_ClassMetaList->uniqueids_Arr,
             'prioritynum_Num' => $Design->prioritynum_Num,
         ));
 
@@ -156,10 +179,18 @@ class Design_Controller extends MY_Controller {
         $data['search_designid_Num'] = $this->input->get('designid');
         $data['search_title_Str'] = $this->input->get('title');
         $data['search_price_Num'] = $this->input->get('price');
+        $data['search_class_slug_Str'] = $this->input->get('class_slug');
 
         $limitstart_Num = $this->input->get('limitstart');
         $limitcount_Num = $this->input->get('limitcount');
         $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 20;
+
+        $class_ClassMeta = new ClassMeta();
+        $class_ClassMeta->construct_db(array(
+            'db_where_Arr' => array(
+                'slug' => $data['search_class_slug_Str']
+            )
+        ));
 
         $data['DesignList'] = new ObjList();
         $data['DesignList']->construct_db(array(
@@ -169,6 +200,9 @@ class Design_Controller extends MY_Controller {
             'db_where_like_Arr' => array(
                 'title_Str' => $data['search_title_Str'],
                 'price_Num' => $data['search_price_Num']
+            ),
+            'db_where_or_Arr' => array(
+                'classids' => array($class_ClassMeta->classid_Num)
             ),
             'db_orderby_Arr' => array(
                 array('prioritynum', 'DESC'),
@@ -180,6 +214,16 @@ class Design_Controller extends MY_Controller {
             'limitcount_Num' => $limitcount_Num
         ));
         $data['design_links'] = $data['DesignList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
+
+        $data['DesignClassMetaList'] = new ObjList();
+        $data['DesignClassMetaList']->construct_db(array(
+            'db_where_Arr' => array(
+                'modelname' => 'design'
+            ),
+            'model_name_Str' => 'ClassMeta',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ));
 
         //global
         $data['global']['style'][] = 'app/css/admin/global.css';
@@ -204,6 +248,7 @@ class Design_Controller extends MY_Controller {
         $search_designid_Num = $this->input->post('search_designid_Num', TRUE);
         $search_title_Str = $this->input->post('search_title_Str', TRUE);
         $search_price_Num = $this->input->post('search_price_Num', TRUE);
+        $search_class_slug_Str = $this->input->post('search_class_slug_Str', TRUE);
 
         $url_Str = base_url('admin/project/design/design/tablelist/?');
 
@@ -220,6 +265,11 @@ class Design_Controller extends MY_Controller {
         if(!empty($search_price_Num))
         {
             $url_Str = $url_Str.'&price='.$search_price_Num;
+        }
+
+        if(!empty($search_class_slug_Str))
+        {
+            $url_Str = $url_Str.'&class_slug='.$search_class_slug_Str;
         }
 
         header("Location: $url_Str");

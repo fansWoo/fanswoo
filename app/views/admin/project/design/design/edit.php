@@ -29,6 +29,92 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                設計項目分類
+            </div>
+            <div class="spanLineLeft width500" fanswoo-selectEachDiv="class">
+                <?if(!empty($Design->class_ClassMetaList->obj_Arr)):?>
+                <?foreach($Design->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
+                    <div class="selectLine" fanswoo-selectEachLine>
+                        <span class="floatleft">分類 <span fanswoo-selectEachLineCount></span> ：</span>
+                        <select fanswoo-selectEachLineMaster="class">
+                            <option value="">沒有分類標籤</option>
+                            <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
+                            <option value="<?=$value2_ClassMeta->classid_Num?>"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> selected<?endif?>><?=$value2_ClassMeta->classname_Str?></option>
+                            <?endforeach?>
+                        </select>
+                        <span fanswoo-selectEachLineSlave="class">
+                        <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
+                            <select fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]"<?if($value_ClassMeta->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> name="classids_Arr[]"<?else:?> style="display:none;"<?endif?>>
+                                <option value="">沒有分類標籤</option>
+                                <?
+                                    $test_ClassMetaList = new ObjList();
+                                    $test_ClassMetaList->construct_db(array(
+                                        'db_where_Arr' => array(
+                                            'modelname_Str' => 'design'
+                                        ),
+                                        'db_where_or_Arr' => array(
+                                            'classids' => array($value2_ClassMeta->classid_Num)
+                                        ),
+                                        'model_name_Str' => 'ClassMeta',
+                                        'limitstart_Num' => 0,
+                                        'limitcount_Num' => 100
+                                    ));
+                                ?>
+                                <?foreach($test_ClassMetaList->obj_Arr as $key3 => $value3_ClassMeta):?>
+                                <option value="<?=$value3_ClassMeta->classid_Num?>"<?if($value_ClassMeta->classid_Num == $value3_ClassMeta->classid_Num):?> selected<?endif?>><?=$value3_ClassMeta->classname_Str?></option>
+                                <?endforeach?>
+                            </select>
+                        <?endforeach?>
+                        </span>
+                    </div>
+                <?endforeach?>
+                <?endif?>
+                <div class="selectLine" fanswoo-selectEachLine>
+                    <span class="floatleft">分類 <span fanswoo-selectEachLineCount></span> ：</span>
+                    <select fanswoo-selectEachLineMaster="class">
+                        <option value="">沒有分類標籤</option>
+                        <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
+                        <option value="<?=$value2_ClassMeta->classid_Num?>"><?=$value2_ClassMeta->classname_Str?></option>
+                        <?endforeach?>
+                    </select>
+                    <span fanswoo-selectEachLineSlave="class">
+                    <?foreach($class2_ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
+                        <select name="classids_Arr[]" fanswoo-selectValue="<?=$value2_ClassMeta->classid_Num?>" fanswoo-selectName="classids_Arr[]" style="display:none;">
+                            <option value="">沒有分類標籤</option>
+                            <?
+                                $test_ClassMetaList = new ObjList();
+                                $test_ClassMetaList->construct_db(array(
+                                    'db_where_Arr' => array(
+                                        'modelname_Str' => 'design'
+                                    ),
+                                    'db_where_or_Arr' => array(
+                                        'classids' => array($value2_ClassMeta->classid_Num)
+                                    ),
+                                    'model_name_Str' => 'ClassMeta',
+                                    'limitstart_Num' => 0,
+                                    'limitcount_Num' => 100
+                                ));
+                            ?>
+                            <?foreach($test_ClassMetaList->obj_Arr as $key3 => $value3_ClassMeta):?>
+                            <option value="<?=$value3_ClassMeta->classid_Num?>"><?=$value3_ClassMeta->classname_Str?></option>
+                            <?endforeach?>
+                        </select>
+                    <?endforeach?>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineLeft width500">
+                <span class="gray">請選擇二級分類及分類標籤，多種分類可以重複選取</span>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 設計項目簡介
             </div>
             <div class="spanLineLeft width300">
