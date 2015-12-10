@@ -319,7 +319,7 @@ $(function(){
                 <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
                 <?if($value_Design->class_ClassMetaList->obj_Arr[0]->class_ClassMetaList->obj_Arr[0]->classname_Str=='系統開發'):?>
                     <div class="checkbox_item">
-                        <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/design/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;" required><?=$value_Design->title_Str?></span></a><br>  
+                        <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/design/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;"><?=$value_Design->title_Str?></span></a><br>  
                     </div>
                 <?endif?>
                 <?endforeach?>
@@ -329,7 +329,7 @@ $(function(){
                 <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
                 <?if($value_Design->class_ClassMetaList->obj_Arr[0]->class_ClassMetaList->obj_Arr[0]->classname_Str=='美術設計'):?>
                     <div class="checkbox_item">
-                        <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/design/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;" required><?=$value_Design->title_Str?></span></a><br>  
+                        <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/design/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;"><?=$value_Design->title_Str?></span></a><br>  
                     </div>
                 <?endif?>
                 <?endforeach?>

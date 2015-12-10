@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 建立日期: 2015-12-08: 18:17:09
+-- 建立日期: 2015-12-10: 14:33:57
 -- 伺服器版本: 5.6.21
 -- PHP 版本: 5.6.3
 
@@ -316,8 +316,8 @@ CREATE TABLE IF NOT EXISTS `fs_project` (
 --
 
 INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_price_receive`, `pay_price_schedule`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `updatetime`, `status`) VALUES
-(528501, 528502, 'test', '528502\r\n528501', 30, '2', '7,6,5,4,3,2,1', '張琬君', '(700)1234567-1234567', 88000, 88000, 100, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2015-12-07 14:19:25', 1),
-(528502, 528501, 'test2', '528501', 30, '4', '2,1', 'Mimi Chang', '(700)1111111-2222222', 36000, 0, 0, '2015-12-07 14:50:00', '付款備註', 1, 0, 1, '2015-12-07 14:34:19', '2015-12-07 15:49:43', 1);
+(528501, 528502, 'test', '528502\r\n528501', 30, '2', '1,2,5,6,7,3,4,21,20', '張琬君', '(700)1234567-1234567', 88000, 88000, 100, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2015-12-10 14:33:23', 1),
+(528502, 528501, 'test2', '528501', 30, '4', '19,18,11,10,1,2,25,24,23,22,21,20', 'Mimi Chang', '(700)1111111-2222222', 36000, 0, 0, '2015-12-07 14:50:00', '付款備註', 1, 0, 1, '2015-12-07 14:34:19', '2015-12-10 14:32:45', 1);
 
 -- --------------------------------------------------------
 
@@ -970,7 +970,9 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('384846170f8876533b422afd06d89ebb', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449547975, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('cbdf19b8475e9a1ea52be3db24240f70', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449548298, 'a:1:{s:9:"user_data";s:0:"";}'),
 ('22bd1248c89cf0bc6a7c57d78049bfbd', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449548302, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
-('c607377ad719d899b8cf0b85a4e6a640', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449565583, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
+('c607377ad719d899b8cf0b85a4e6a640', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449565583, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('f1dcafdec8906c1bd5540cbe3a4b341f', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1449726750, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('95506c5517d9e51d70798ccc80bc6fe3', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1449726750, '');
 
 -- --------------------------------------------------------
 

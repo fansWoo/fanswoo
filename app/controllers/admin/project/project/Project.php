@@ -154,8 +154,14 @@ class Project_Controller extends MY_Controller {
             )
         ));
 
+        $data['project_designids_Arr'] = explode(",", trim($data['Project']->designids_Str));
+
+
         $data['ProjectDesignList'] = new ObjList();
         $data['ProjectDesignList']->construct_db(array(
+            'db_where_or_Arr' => array(
+                'designid' => $data['project_designids_Arr']
+            ),
             'db_orderby_Arr' => array(
                 array('updatetime', 'DESC')
             ),

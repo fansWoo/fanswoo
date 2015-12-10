@@ -39,20 +39,6 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                設計項目類別
-            </div>
-            <div class="spanLineRight">
-                <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
-                <div class="checkbox_item">
-                    <?=$key+1?> . <?=$value_Design->title_Str?>
-                </div>
-                <?endforeach?>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
                 訂購會員
             </div>
             <div class="spanLineLeft width300">
@@ -60,6 +46,63 @@
             </div>
         </div>
     </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案開始日期
+            </div>
+            <div class="spanLineLeft">
+                <?=$Project->setuptime_DateTimeObj->datetime_Str?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案所需時程(天)
+            </div>
+            <div class="spanLineLeft">
+                <?=$Project->working_days_Num?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contentBox allWidth">
+    <h3>設計項目列表</h3>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft width300">
+                <p>系統開發</p>
+                <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
+                <?if($value_Design->class_ClassMetaList->obj_Arr[0]->class_ClassMetaList->obj_Arr[0]->classname_Str=='系統開發'):?>
+                    <?foreach($project_designids_Arr as $key2 => $value_project_designids):?>
+                        <?if($value_Design->designid_Num == $value_project_designids):?>
+                            <?=$key2+1?> . <span style="margin-left:5px;"><?=$value_Design->title_Str?></span><br> 
+                        <?else:?>
+                        <?endif?>
+                    <?endforeach?>
+                <?endif?>
+                <?endforeach?>
+            </div>
+            <div class="spanLineLeft width300">
+                <p>美術設計</p>
+                <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
+                <?if($value_Design->class_ClassMetaList->obj_Arr[0]->class_ClassMetaList->obj_Arr[0]->classname_Str=='美術設計'):?>
+                    <?foreach($project_designids_Arr as $key2 => $value_project_designids):?>
+                        <?if($value_Design->designid_Num == $value_project_designids):?>
+                            <?=$key2+1?> . <span style="margin-left:5px;"><?=$value_Design->title_Str?></span><br>  
+                        <?else:?>
+                        <?endif?>
+                    <?endforeach?>
+                <?endif?>
+                <?endforeach?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contentBox allWidth">
+    <h3>付款資訊</h3>
+    <h4></h4>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -90,30 +133,6 @@
             </div>
         </div>
     </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                專案開始日期
-            </div>
-            <div class="spanLineLeft">
-                <?=$Project->setuptime_DateTimeObj->datetime_Str?>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                專案所需時程(天)
-            </div>
-            <div class="spanLineLeft">
-                <?=$Project->working_days_Num?>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="contentBox allWidth">
-    <h3>付款資訊</h3>
-    <h4></h4>
     <?if($Project->pay_status_Num == 1):?>
     <div class="spanLine">
         <div class="spanStage">
