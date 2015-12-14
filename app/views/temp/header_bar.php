@@ -74,7 +74,7 @@
 	</div>
 	<div class="picLoading"></div>
 	<div class="wrap">
-		<span data-hrefto="" class="logoFixed"></span>
+		<span data-hrefto="<?=base_url()?>" class="logoFixed"></span>
 		<div data-hrefto="contact" class="contactFormHover">
 			線<br>上<br>諮<br>詢<br>/<br>索<br>取<br>報<br>價
 		</div>
@@ -82,17 +82,20 @@
 			<div class="center">
 				<div class="navBar">
 					<div class="box down">
-						<a href="page/about" class="nav<?if($page == 'about'):?> hover<?endif?>">About</a>
-						<a class="nav2" href="page/about">關於我們</a>
+						<a href="<?=base_url()?>" class="nav<?if($page == 'about'):?> hover<?endif?>">About</a>
+						<a class="nav2" href="<?=base_url()?>">關於我們</a>
 						<div class="downbox">
 							<div class="downbox1">
-								<a href="graphic">客製化網站</a>
+								<a href="page/webdesign">客製化網站</a>
+							</div>
+							<div class="downbox1">
+								<a href="wordpress">套版網站</a>
+							</div>
+							<div class="downbox1">
+								<a href="graphic">美術設計</a>
 							</div>
 							<div class="downbox1">
 								<a href="marketing">網路行銷</a>
-							</div>
-							<div class="downbox1">
-								<a href="wordpress">0元套版網站</a>
 							</div>
 							<div class="downbox1" style="border:none;">
 								<a href="server">伺服器主機</a>
@@ -115,35 +118,41 @@
 			</div>
 		</div>
 		<div class="phone_topHeader">
-			<a href="" class="logo_box">
+			<a href="<?=base_url()?>" class="logo_box">
 				<img src="app/img/fanswoo-logo.svg">
 			</a>
 			<div class="toggle">
 				<img src="app/img/phone_toggle.png">
 			</div>
 			<div class="navBar">
-				<a href="page/about" class="box">
+				<a href="<?=base_url()?>" class="box">
 					<div class="item">
 						<p class="nav<?if($page == 'about'):?> hover<?endif?>"><span>A</span>bout</p>
-						<p class="nav2" href="page/about">關於我們</p>
+						<p class="nav2" href="<?=base_url()?>">關於我們</p>
+					</div>
+				</a>
+				<a href="graphic" class="box">
+					<div  class="item">
+						<p href="webdesign" class="nav hover"><span>W</span>ebdesign</p>
+						<p class="nav2" href="graphic">客製化網站</p>
+					</div>
+				</a>
+				<a href="wordpress"  class="box">
+					<div class="item">
+						<p href="wordpress" class="nav hover"><span>W</span>ordpress</p>
+						<p class="nav2" href="wordpress">套版網站</p>
 					</div>
 				</a>
 				<a href="graphic" class="box">
 					<div  class="item">
 						<p href="graphic" class="nav hover"><span>G</span>raphic</p>
-						<p class="nav2" href="graphic">客製化網站</p>
+						<p class="nav2" href="graphic">美術設計</p>
 					</div>
 				</a>
 				<a href="marketing"  class="box">
 					<div class="item">
 						<p href="marketing" class="nav hover"><span>M</span>arketing</p>
 						<p class="nav2" href="marketing">網路行銷</p>
-					</div>
-				</a>
-				<a href="wordpress"  class="box">
-					<div class="item">
-						<p href="wordpress" class="nav hover"><span>W</span>ordpress</p>
-						<p class="nav2" href="wordpress">0元套版網站</p>
 					</div>
 				</a>
 				<a href="server" class="box">

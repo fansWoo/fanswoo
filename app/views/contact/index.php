@@ -81,8 +81,9 @@ $(function(){
 				</div>
 				<div class="stage">
 					<img class="pic" src="app/img/tel.png">
-					<p>業務部 (02)2816-4533 #333</p>
-					<p>傳真機 (02)2816-4538</p>
+					<p>02-5599-6115</p>
+					<p>業務部 #888</p>
+					<p>設計部 #333</p>
 				</div>
 				<div class="stage">
 					<img class="pic" src="app/img/email.png">
