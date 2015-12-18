@@ -74,6 +74,30 @@ class Suggest_Controller extends MY_Controller {
         $data = $this->data;//取得公用數據
 
         $suggestid_Num = $this->input->post('suggestid_Num', TRUE);
+        $projectid_Num = $this->input->post('projectid_Num', TRUE);
+
+        $project_Suggest = new Suggest();
+        $project_Suggest->construct_db(array(
+            'db_where_Arr' => array(
+                'suggestid' => $suggestid_Num
+            )
+        ));
+
+        $Project = new Project();
+        $Project->construct_db(array(
+            'db_where_Arr' => array(
+                'projectid' => $projectid_Num
+            )
+        ));
+
+        $project_permission_uids_Arr = explode(PHP_EOL, trim($Project->permission_uids_UserList->uniqueids_Str));
+
+        $project_User = new User();
+        $project_User->construct_db(array(
+            'db_where_Arr' => array(
+                'uid_Num' => $project_permission_uids_Arr[0]
+            )
+        ));
 
         $this->form_validation->set_rules('answer_Str', '回覆修改內容', 'required');
 
@@ -99,6 +123,34 @@ class Suggest_Controller extends MY_Controller {
                     'updatetime'
                 )
             ));
+
+            //寄出電子郵件通知專案訂購人
+            $email_Str = $project_User->email_Str;
+            $email_name_Str = 'fansWoo';
+            $title_Str = 'fansWoo專案修改建議回覆通知';
+            $suggest_title_Str = $project_Suggest->title_Str;
+
+            $message_Str = '您好：<br><br>我們收到一則專案修改建議回覆<br><br>專案編號為：'.$projectid_Num.
+            '，修改建議標題：'.$suggest_title_Str.'<br><br>請至後台觀看，謝謝<br><br>後台位置：<br>
+            <a href="http://'.$_SERVER['HTTP_HOST'].base_url('admin').'">
+            http://'.$_SERVER['HTTP_HOST'].base_url('admin/').'</a><br><br>'.date('Y-m-d H:i:s');
+
+            $Mailer = new Mailer;
+            $return_message_Str = $Mailer->sendmail($email_Str, $email_name_Str, $title_Str, $message_Str);
+            if($return_message_Str === TRUE)
+            {
+                //寄件成功
+            }
+            else
+            {
+                //送出訊息
+                $this->load->model('Message');
+                $this->Message->show(array(
+                    'message' => 'error(4)：郵件伺服器出錯',
+                    'url' => 'contact'
+                ));
+                return FALSE;
+            }
 
             //送出成功訊息
             $this->load->model('Message');

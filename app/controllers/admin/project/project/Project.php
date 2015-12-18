@@ -102,6 +102,13 @@ class Project_Controller extends MY_Controller {
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));
+
+        $data['admin_User'] = new User();
+        $data['admin_User']->construct_db(array(
+            'db_where_Arr' => array(
+                'uid_Num' => $data['Project']->admin_uid_Num
+            )
+        ));
         
         //global
         $data['global']['style'][] = 'app/css/admin/global.css';
@@ -145,12 +152,19 @@ class Project_Controller extends MY_Controller {
             return FALSE;
         }
 
-        $project_permission_uids_Arr = explode(PHP_EOL, trim($data['Project']->permission_uids_Str) );
+        $project_permission_uids_Arr = explode(PHP_EOL, trim($data['Project']->permission_uids_UserList->uniqueids_Str));
 
         $data['project_User'] = new User();
         $data['project_User']->construct_db(array(
             'db_where_Arr' => array(
                 'uid_Num' => $project_permission_uids_Arr[0]
+            )
+        ));
+
+        $data['admin_User'] = new User();
+        $data['admin_User']->construct_db(array(
+            'db_where_Arr' => array(
+                'uid_Num' => $data['Project']->admin_uid_Num
             )
         ));
 
@@ -212,7 +226,8 @@ class Project_Controller extends MY_Controller {
             //基本post欄位
             $projectid_Num = $this->input->post('projectid_Num', TRUE);
             $name_Str = $this->input->post('name_Str', TRUE);
-            $permission_uids_Str = $this->input->post('permission_uids_Str', TRUE);
+            $admin_uid_Num = $this->input->post('admin_uid_Num', TRUE);
+            $permission_emails_Str = $this->input->post('permission_emails_Str');
             $working_days_Num = $this->input->post('working_days_Num', TRUE);
             $classids_Arr = $this->input->post('classids_Arr', TRUE);
             $designids_Str = $this->input->post('designids_Str[]', TRUE);
@@ -228,7 +243,7 @@ class Project_Controller extends MY_Controller {
             $Project->construct([
                 'projectid_Num' => $projectid_Num,
                 'name_Str' => $name_Str,
-                'permission_uids_Str' => $permission_uids_Str,
+                'admin_uid_Num' => $admin_uid_Num,
                 'working_days_Num' => $working_days_Num,
                 'classids_Arr' => $classids_Arr,
                 'designids_Str' => implode(",",$designids_Str),
@@ -239,9 +254,12 @@ class Project_Controller extends MY_Controller {
                 'project_status_Num' => $project_status_Num,
                 'setuptime_Str' => $setuptime_Str
             ]);
+            $Project->set__permission_uids_UserList(['permission_emails_Str' => $permission_emails_Str]);
+            $Project->set__admin_uid_Num(['admin_uid_Num' => $admin_uid_Num]);
             $Project->update(array(
             'db_update_Arr' => array(
                 'name',
+                'admin_uid',
                 'permission_uids',
                 'working_days',
                 'classids',
@@ -292,7 +310,8 @@ class Project_Controller extends MY_Controller {
         $ProjectFanswoo = new Project();
         $ProjectFanswoo->construct(array(
             'name_Str' => $Project->name_Str,
-            'permission_uids_Str' => $Project->permission_uids_Str,
+            'admin_uid_Num' => $Project->admin_uid_Num,
+            'permission_uids_Str' => $Project->permission_uids_UserList->uniqueids_Str,
             'working_days_Num' => $Project->working_days_Num,
             'classids_Arr' => $Project->class_ClassMetaList->uniqueids_Arr,
             'designids_Str' => $Project->designids_Str,

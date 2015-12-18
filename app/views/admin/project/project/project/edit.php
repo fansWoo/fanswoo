@@ -260,6 +260,16 @@ $(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                專案管理人
+            </div>
+            <div class="spanLineLeft width300">
+                <input type="text" class="text" name="admin_uid_Num" placeholder="請輸入專案管理人email" value="<?=$admin_User->email_Str?>">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 專案開始日期
             </div>
             <div class="spanLineLeft">
@@ -293,7 +303,9 @@ $(function(){
                 會員權限
             </div>
             <div class="spanLineLeft width300">
-                <textarea name="permission_uids_Str" style="height:100px;border: 1px solid #CCC ;"><?=$Project->permission_uids_Str?></textarea>
+                <textarea name="permission_emails_Str" style="height:100px;"><?if($Project->permission_uids_UserList->obj_Arr):?><?foreach( $Project->permission_uids_UserList->obj_Arr as $key => $value_User ):?><?=$value_User->email_Str?>
+
+<?endforeach?><?endif?></textarea>
             </div>
         </div>
         <div class="spanStage">

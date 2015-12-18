@@ -68,6 +68,7 @@
 		<div class="spanLineRight">
             <?if(!empty($Suggest->suggestid_Num)):?><input type="hidden" name="suggestid_Num" value="<?=$Suggest->suggestid_Num?>"><?endif?>
 		    <input type="submit" class="submit" value="<?if(!empty($Suggest->suggestid_Num)):?>儲存變更<?else:?>新增修改建議<?endif?>">
+            <input type="hidden" name="projectid_Num" value="<?=$Suggest->projectid_Num?>">
             <?if(!empty($Suggest->suggestid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?suggestid=<?=$Suggest->suggestid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
 		</div>
 	</div>

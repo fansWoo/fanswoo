@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 建立日期: 2015-12-10: 14:33:57
+-- 建立日期: 2015-12-18: 12:10:48
 -- 伺服器版本: 5.6.21
 -- PHP 版本: 5.6.3
 
@@ -291,6 +291,7 @@ CREATE TABLE IF NOT EXISTS `fs_project` (
   `projectid` mediumint(8) NOT NULL,
   `uid` mediumint(8) NOT NULL,
   `name` char(100) NOT NULL,
+  `admin_uid` mediumint(8) NOT NULL,
   `permission_uids` char(100) NOT NULL,
   `working_days` mediumint(8) NOT NULL,
   `classids` char(100) NOT NULL,
@@ -315,9 +316,9 @@ CREATE TABLE IF NOT EXISTS `fs_project` (
 -- 資料表的匯出資料 `fs_project`
 --
 
-INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_price_receive`, `pay_price_schedule`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `updatetime`, `status`) VALUES
-(528501, 528502, 'test', '528502\r\n528501', 30, '2', '1,2,5,6,7,3,4,21,20', '張琬君', '(700)1234567-1234567', 88000, 88000, 100, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2015-12-10 14:33:23', 1),
-(528502, 528501, 'test2', '528501', 30, '4', '19,18,11,10,1,2,25,24,23,22,21,20', 'Mimi Chang', '(700)1111111-2222222', 36000, 0, 0, '2015-12-07 14:50:00', '付款備註', 1, 0, 1, '2015-12-07 14:34:19', '2015-12-10 14:32:45', 1);
+INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `admin_uid`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_price_receive`, `pay_price_schedule`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `updatetime`, `status`) VALUES
+(528501, 528502, 'TEST專案', 528505, '528505,528502,528501', 30, '2', '9,8,1,2,5,6,7', '張琬君', '(700)1234567-1234567', 88000, 88000, 100, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2015-12-18 11:33:33', 1),
+(528502, 528501, 'test2', 528501, '528502', 30, '4', '19,18,11,10,1,2,25,24,23,22,21,20', 'Mimi Chang', '(700)1111111-2222222', 36000, 0, 0, '2015-12-07 14:50:00', '付款備註', 1, 0, 1, '2015-12-07 14:34:19', '2015-12-17 17:55:00', 1);
 
 -- --------------------------------------------------------
 
@@ -400,8 +401,9 @@ CREATE TABLE IF NOT EXISTS `fs_project_suggest` (
 --
 
 INSERT INTO `fs_project_suggest` (`suggestid`, `projectid`, `uid`, `title`, `content`, `answer`, `suggest_time`, `updatetime`, `suggest_status`, `answer_status`, `status`) VALUES
-(2, 528501, 528501, '修改建議測試2', '建議測試內容', '123', '2015-12-04 18:14:55', '2015-12-07 18:16:51', 1, 1, 1),
-(1, 528501, 528502, '修改建議測試', '測試內容', 'OK', '2015-12-04 18:08:40', '2015-12-04 18:17:56', 1, 3, 1);
+(2, 528501, 528501, '修改建議測試2', '建議測試內容', '123', '2015-12-04 18:14:55', '2015-12-18 11:58:23', 1, 1, 1),
+(1, 528501, 528502, '修改建議測試', '測試內容', 'OK', '2015-12-04 18:08:40', '2015-12-04 18:17:56', 1, 3, 1),
+(3, 528501, 528501, 'SMTP Mail寄信功能', '測試修改建議寄信通知功能', 'OK', '2015-12-18 11:34:45', '2015-12-18 11:59:38', 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -972,7 +974,8 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('22bd1248c89cf0bc6a7c57d78049bfbd', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449548302, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('c607377ad719d899b8cf0b85a4e6a640', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449565583, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('f1dcafdec8906c1bd5540cbe3a4b341f', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1449726750, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
-('95506c5517d9e51d70798ccc80bc6fe3', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1449726750, '');
+('95506c5517d9e51d70798ccc80bc6fe3', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1449726750, ''),
+('f3045d6370c177e07af1147f5c748e3d', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450345278, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
 
 -- --------------------------------------------------------
 
@@ -1170,7 +1173,7 @@ INSERT INTO `fs_user` (`uid`, `email`, `username`, `picids`, `groupids`, `update
 (528504, 'test@fanswoo.com', 'test@fanswoo.com', '', '100', '2015-09-15 22:56:05', 1),
 (528503, 'admin2@fanswoo.com', '一般管理員', '', '3', '2015-08-16 01:24:52', 1),
 (528502, 'admin@fanswoo.com', '總管理員', '', '2', '2015-09-16 01:33:39', 1),
-(528505, 'mimi@fanswoo.com', 'mimi@fanswoo.com', '', '100', '2015-11-13 17:20:42', 1);
+(528505, 'mimi@fanswoo.com', 'mimi@fanswoo.com', '', '2', '2015-12-18 11:32:13', 1);
 
 -- --------------------------------------------------------
 

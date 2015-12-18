@@ -69,12 +69,12 @@ $config['group_purview_Arr'] = array(
 		array('project', 'project', 'classmeta2', 'tablelist'),
 		array('project', 'project', 'suggest', 'edit'),
 		array('project', 'project', 'suggest', 'tablelist'),
-		array('project', 'design', 'design', 'edit'),
-		array('project', 'design', 'design', 'tablelist'),
-		array('project', 'design', 'classmeta', 'edit'),
-		array('project', 'design', 'classmeta', 'tablelist'),
-		array('project', 'design', 'classmeta2', 'edit'),
-		array('project', 'design', 'classmeta2', 'tablelist'),
+		// array('project', 'design', 'design', 'edit'),
+		// array('project', 'design', 'design', 'tablelist'),
+		// array('project', 'design', 'classmeta', 'edit'),
+		// array('project', 'design', 'classmeta', 'tablelist'),
+		// array('project', 'design', 'classmeta2', 'edit'),
+		// array('project', 'design', 'classmeta2', 'tablelist'),
 		array('project', 'user', 'project', 'edit'),
 		array('project', 'user', 'project', 'tablelist'),
 		array('project', 'user', 'design', 'edit'),
@@ -412,32 +412,32 @@ $config['admin_sidebox'] = array(
 						)
 					)
 				),
-				'design' => array(
-					'title' => '設計項目管理',
-					'child3' => array(
-						'design' => array(
-							'title' => '設計項目',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
-							)
-						),
-						'classmeta' => array(
-						 	'title' => '設計項目分類',
-						 	'child4' => array(
-						 		'edit' => array('title' => '編輯'),
-						 		'tablelist' => array('title' => '列表')
-						 	)
-						),
-					 	'classmeta2' => array(
-							'title' => '二級分類',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
-							)
-						)
-					)
-				),
+				// 'design' => array(
+				// 	'title' => '設計項目管理',
+				// 	'child3' => array(
+				// 		'design' => array(
+				// 			'title' => '設計項目',
+				// 			'child4' => array(
+				// 				'edit' => array('title' => '編輯'),
+				// 				'tablelist' => array('title' => '列表')
+				// 			)
+				// 		),
+				// 		'classmeta' => array(
+				// 		 	'title' => '設計項目分類',
+				// 		 	'child4' => array(
+				// 		 		'edit' => array('title' => '編輯'),
+				// 		 		'tablelist' => array('title' => '列表')
+				// 		 	)
+				// 		),
+				// 	 	'classmeta2' => array(
+				// 			'title' => '二級分類',
+				// 			'child4' => array(
+				// 				'edit' => array('title' => '編輯'),
+				// 				'tablelist' => array('title' => '列表')
+				// 			)
+				// 		)
+				// 	)
+				// ),
 				'user' => array(
 					'title' => '我的專案',
 					'child3' => array(

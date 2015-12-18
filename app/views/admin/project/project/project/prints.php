@@ -39,10 +39,10 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                訂購會員
+                專案管理人
             </div>
-            <div class="spanLineLeft width300">
-                <?=$project_User->email_Str?>
+            <div class="spanLineLeft width400">
+                <?=$admin_User->email_Str?>
             </div>
         </div>
     </div>
@@ -59,10 +59,20 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                專案所需時程(天)
+                專案所需時程
             </div>
             <div class="spanLineLeft">
-                <?=$Project->working_days_Num?>
+                <?=$Project->working_days_Num?> 天
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                訂購會員
+            </div>
+            <div class="spanLineLeft width300">
+                <?=$project_User->email_Str?>
             </div>
         </div>
     </div>

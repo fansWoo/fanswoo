@@ -42,12 +42,19 @@ class Project_Controller extends MY_Controller {
             )
         ));
 
-        $project_permission_uids_Arr = explode(PHP_EOL, trim($data['Project']->permission_uids_Str) );
+        $project_permission_uids_Arr = explode(PHP_EOL, trim($data['Project']->permission_uids_UserList->uniqueids_Str));
 
         $data['project_User'] = new User();
         $data['project_User']->construct_db(array(
             'db_where_Arr' => array(
                 'uid_Num' => $project_permission_uids_Arr[0]
+            )
+        ));
+
+        $data['admin_User'] = new User();
+        $data['admin_User']->construct_db(array(
+            'db_where_Arr' => array(
+                'uid_Num' => $data['Project']->admin_uid_Num
             )
         ));
 

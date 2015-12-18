@@ -12,18 +12,27 @@
                 專案編號
             </div>
             <div class="spanLineLeft width500">
-                <?if(!empty($Project->projectid_Num)):?><?=$Project->projectid_Num?><?endif?>
+                <?=$Project->projectid_Num?>
 		    </div>
 		</div>
 	</div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案管理人
+            </div>
+            <div class="spanLineLeft width500">
+                <?=$admin_User->email_Str?>
+            </div>
+        </div>
+    </div>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
                 訂購會員
             </div>
             <div class="spanLineLeft width500">
-                <?if(!empty($project_User->email_Str)):?><?=$project_User->email_Str?><?endif?>
-                （會員編號：<?if(!empty($project_User->uid_Num)):?><?=$project_User->uid_Num?><?endif?>）
+                <?=$project_User->email_Str?>（會員編號：<?=$project_User->uid_Num?>）
 		    </div>
 		</div>
 	</div>
