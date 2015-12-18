@@ -23,6 +23,7 @@ class Project extends ObjDbBase
     public $pay_paytime_DateTimeObj;
     public $setuptime_DateTimeObj;
     public $updatetime_DateTimeObj;
+    public $DesignList;
     public $status_Num = 1;
     public $db_name_Str = 'project';//填寫物件聯繫資料庫之名稱
     public $db_uniqueid_Str = 'projectid';//填寫物件聯繫資料庫之唯一ID
@@ -52,7 +53,6 @@ class Project extends ObjDbBase
 	
 	public function construct($arg)
 	{
-
         $permission_uids_Str = !empty($arg['permission_uids_Str']) ? $arg['permission_uids_Str'] : '' ;
         $permission_emails_Str = !empty($arg['permission_emails_Str']) ? $arg['permission_emails_Str'] : '' ;
         $this->set__permission_uids_UserList([
@@ -90,6 +90,22 @@ class Project extends ObjDbBase
         $this->set('status_Num', $arg['status_Num']);
         $this->set__uid_User(['uid_Num' => $arg['uid_Num']]);
         $this->set__uid_Num(['uid_Num' => $arg['uid_Num']]);
+
+        $projectid_Num = !empty($arg['projectid_Num']) ? $arg['projectid_Num'] : 0;
+        $DesignList = new ObjList();
+        $DesignList->construct_db([
+            'db_where_Arr' => [
+                'projectid' => $projectid_Num
+            ],
+            'db_orderby_Arr' => [
+                'prioritynum' => 'DESC',
+                'designid' => 'DESC'
+            ],
+            'model_name_Str' => 'Design',
+            'limitstart_Num' => 0,
+            'limitcount_Num' => 100
+        ]);
+        $this->DesignList = $DesignList;
         
         return TRUE;
     }

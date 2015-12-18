@@ -62,33 +62,6 @@ class Project_Controller extends MY_Controller {
             'limitcount_Num' => 100
         ));
 
-        $data['ProjectDesignList'] = new ObjList();
-        $data['ProjectDesignList']->construct_db(array(
-            'db_orderby_Arr' => array(
-                array('updatetime', 'DESC')
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'Design',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
-        $data['project_designids_Arr'] = explode(",", trim($data['Project']->designids_Str));
-
-        $data['DesignPriceList'] = new ObjList();
-        $data['DesignPriceList']->construct_db(array(
-            'db_where_or_Arr' => array(
-                'designid' => $data['project_designids_Arr']
-            ),
-            'db_orderby_Arr' => array(
-                array('updatetime', 'DESC')
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'Design',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
         $data['SuggestList'] = new ObjList();
         $data['SuggestList']->construct_db(array(
             'db_where_Arr' => array(
@@ -166,23 +139,6 @@ class Project_Controller extends MY_Controller {
             'db_where_Arr' => array(
                 'uid_Num' => $data['Project']->admin_uid_Num
             )
-        ));
-
-        $data['project_designids_Arr'] = explode(",", trim($data['Project']->designids_Str));
-
-
-        $data['ProjectDesignList'] = new ObjList();
-        $data['ProjectDesignList']->construct_db(array(
-            'db_where_or_Arr' => array(
-                'designid' => $data['project_designids_Arr']
-            ),
-            'db_orderby_Arr' => array(
-                array('updatetime', 'DESC')
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'Design',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
         ));
 
         $data['SuggestList'] = new ObjList();
@@ -274,6 +230,32 @@ class Project_Controller extends MY_Controller {
                 )
             ));
 
+            //計算庫存
+            $designid_NumArr = $this->input->post('designid_NumArr', TRUE);
+            $title_StrArr = $this->input->post('title_StrArr', TRUE);
+            $price_NumArr = $this->input->post('price_NumArr', TRUE);
+            $days_NumArr = $this->input->post('days_NumArr', TRUE);
+            $synopsis_StrArr = $this->input->post('synopsis_StrArr', TRUE);
+
+            $title_StrArr_count_Num = count($title_StrArr);
+            foreach( $title_StrArr as $key => $value_Str)
+            {
+                if( !empty( $value_Str ) )
+                {
+                    $Design = new Design();
+                    $Design->construct([
+                        'designid_Num' => $designid_NumArr[$key],
+                        'projectid_Num' => $Project->projectid_Num,
+                        'title_Str' => $title_StrArr[$key],
+                        'price_Num' => $price_NumArr[$key],
+                        'days_Num' => $days_NumArr[$key],
+                        'synopsis_Str' => $synopsis_StrArr[$key],
+                        'prioritynum_Num' => $title_StrArr_count_Num - $key
+                    ]);
+                    $Design->update();
+                }
+            }
+
             //送出成功訊息
             $this->load->model('Message');
             $this->Message->show(array(
@@ -324,6 +306,21 @@ class Project_Controller extends MY_Controller {
         ));
 
         $ProjectFanswoo->update();
+
+        $design_count_Num = count($Project->DesignList->obj_Arr);
+        foreach($Project->DesignList->obj_Arr as $key => $value_Design)
+        {
+            $Design = new Design();
+            $Design->construct([
+                'projectid_Num' => $ProjectFanswoo->projectid_Num,
+                'title_Str' => $value_Design->title_Str,
+                'price_Num' => $value_Design->price_Num,
+                'days_Num' => $value_Design->days_Num,
+                'synopsis_Str' => $value_Design->synopsis_Str,
+                'prioritynum_Num' => $design_count_Num - $key
+            ]);
+            $Design->update();
+        }
 
         if($ProjectFanswoo->projectid_Num !== NULL)
         {

@@ -324,34 +324,94 @@ $(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                設計項目類別
+                專案設計項目
             </div>
-            <div class="spanLineLeft width300">
-                <p style="margin-left:20px;">系統開發</p>
-                <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
-                <?if($value_Design->class_ClassMetaList->obj_Arr[0]->class_ClassMetaList->obj_Arr[0]->classname_Str=='系統開發'):?>
-                    <div class="checkbox_item">
-                        <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/design/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;"><?=$value_Design->title_Str?></span></a><br>  
-                    </div>
-                <?endif?>
+            <div class="spanLineLeft width600 stock_area">
+                <?if($Project->DesignList->obj_Arr):?>
+                <?foreach($Project->DesignList->obj_Arr as $key => $value_Design):?>
+                <div class="selectLine">
+                    <input type="text" class="text title" style="width:200px;" name="title_StrArr[]" placeholder="名稱" data-value="<?=$value_Design->title_Str?>" value="<?=$value_Design->title_Str?>">
+                    <input type="number" class="text width100 price" name="price_NumArr[]" placeholder="報價" data-value="<?=$value_Design->price_Num?>" value="<?=$value_Design->price_Num?>">
+                    <input type="number" class="text width100 days" name="days_NumArr[]" placeholder="時程" data-value="<?=$value_Design->days_Num?>" value="<?=$value_Design->days_Num?>">
+                    <textarea style="height:100px;" name="synopsis_StrArr[]" placeholder="內容" data-value="<?=$value_Design->synopsis_Str?>"><?=$value_Design->synopsis_Str?></textarea>
+                    <input type="hidden" class="designid" name="designid_NumArr[]" value="<?=$value_Design->designid_Num?>">
+                    <span class="move">移動</span>
+                    <span class="copy">複製</span>
+                    <span class="delete">清除</span>
+                </div>
                 <?endforeach?>
-            </div>
-            <div class="spanLineLeft width300">
-                <p style="margin-left:20px;">美術設計</p>
-                <?foreach($ProjectDesignList->obj_Arr as $key => $value_Design):?>
-                <?if($value_Design->class_ClassMetaList->obj_Arr[0]->class_ClassMetaList->obj_Arr[0]->classname_Str=='美術設計'):?>
-                    <div class="checkbox_item">
-                        <input type="checkbox" class="checkbox" name="designids_Str[]" value="<?=$value_Design->designid_Num?>" <?foreach($project_designids_Arr as $key2 => $value_project_designids):?><?if($value_Design->designid_Num == $value_project_designids):?> checked<?else:?><?endif?><?endforeach?>><a href="admin/<?=$child1_name_Str?>/design/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank" style="color:#003377;"><span style="margin-left:5px;"><?=$value_Design->title_Str?></span></a><br>  
-                    </div>
+                <?else:?>
+                <div class="selectLine">
+                    <input type="text" class="text title" style="width:200px;" name="title_StrArr[]" placeholder="名稱" data-value="" value="">
+                    <input type="number" class="text width100 price" name="price_NumArr[]" placeholder="報價" data-value="" value="">
+                    <input type="number" class="text width100 days" name="days_NumArr[]" placeholder="時程">
+                    <textarea style="height:100px;" name="synopsis_StrArr[]" placeholder="內容" data-value=""></textarea>
+                    <input type="hidden" class="designid" name="designid_NumArr[]" value="">
+                </div>
                 <?endif?>
-                <?endforeach?>
             </div>
+            <div class="selectLine stock_line_clone" style="display: none;">
+                <input type="text" class="text title" style="width:200px;" name="title_StrArr[]" placeholder="名稱" data-value="">
+                <input type="number" class="text width100 price" name="price_NumArr[]" placeholder="報價" data-value="">
+                <input type="number" class="text width100 days" name="days_NumArr[]" placeholder="時程">
+                <textarea style="height:100px;" name="synopsis_StrArr[]" placeholder="內容" data-value=""></textarea>
+                <span class="move">移動</span>
+                <span class="copy">複製</span>
+                <span class="delete">清除</span>
+            </div>
+            <script>
+            $(function(){
+                $( ".stock_area" ).sortable({
+                    handle: ".move"
+                });
+                $('.stock_line_clone').clone().removeClass('stock_line_clone').css('display', 'block').disableSelection().insertAfter('.stock_area .selectLine:last');
+                $(document).on('change', '.stock_area .title', function(){
+                    $(this).attr('data-value', $(this).val());
+                    if( $(".stock_area > .selectLine > .title[data-value='']").size() === 0 )
+                    {
+                        $('.stock_line_clone').clone().removeClass('stock_line_clone').css('display', 'block').disableSelection().insertAfter('.stock_area .selectLine:last');
+                    }
+                });
+                $('.stock_area .copy').disableSelection();
+                $(document).on('click', '.stock_area .copy', function(){
+                    $clone = $(this).parents('.selectLine').clone().insertAfter( $(this).parents('.selectLine') );
+                    $clone.children('.designid').val('');
+                    $clone.children('.title').removeAttr('disabled');
+                    $clone.children('.price').removeAttr('disabled');
+                });
+                $('.stock_area .delete').disableSelection();
+                $(document).on('click', '.stock_area .delete', function(){
+                    var answer = confirm('確定要刪除嗎？');
+                    if ( ! answer){
+                        return false;
+                    }
+                    var designid = $(this).parents('.selectLine').children('.designid').val();
+                    $.ajax({
+                        url: 'api/project/delete_design_item/?designid=' + designid,
+                        error: function(xhr){},
+                        success: function(response){
+                        }
+                    });
+                    if(
+                        $(".stock_area > .selectLine").size() > 2
+                    )
+                    {
+                        $(this).parent('.selectLine').remove();
+                    }
+                    else
+                    {
+                        $(this).parent('.selectLine').children(':input').val('');
+                        $(this).parent('.selectLine').children(':input').attr('data-value', '');
+                    }
+                });
+            });
+            </script>
         </div>
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/design/design/tablelist">管理設計項目類別</a>
+                <p class="gray">請填寫各設計項目的名稱、報價、時程及設計項目內容</p>
             </div>
         </div>
     </div>
