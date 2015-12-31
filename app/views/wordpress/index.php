@@ -1,7 +1,45 @@
 <?=$temp['header_up']?>
 <script src="app/js/smooth_scrollerator.js"></script>
+<script src="app/js/cycle2.js"></script>
 <script>
 $(function(){
+	$(".content3 .slide_pic > .square").cycle({
+		fx      :       "scrollHorz", 
+		//fade
+		//scrollHorz
+		timeout: 4000 ,
+		speed: 1000,
+		manualSpeed: 600,
+		slides: ' > .slide_pic_href',
+		next: '.content3 .next',
+		prev: '.content3 .prev',
+		pager: '.content3 .cycle-pager '
+    });
+	$('.content3').on('swiperight', function(event){
+		$('.content3 .slide_pic > .square .prev').click();
+	});
+	$('.content3').on('swipeleft', function(event){
+		$('.content3 .slide_pic > .square .next').click();
+	});
+	
+});
+</script>
+<script>
+$(function(){
+	
+	
+	
+	var window_width = $(window).width();
+	var window_height = $(window).height();
+			
+		if(window_width > 700){	
+			$('.content1').css('height', window_height);
+			$(window).resize(function(){
+			var window_height = $(window).height();
+			$('.content1').css('height', window_height);
+
+			});	
+	}
 	$(document).scroll(function(){
 		var scroll_top = $(document).scrollTop();
 		if(scroll_top == 0){
@@ -80,33 +118,33 @@ $(function(){
 		<div class="content2">
 			<div class="area">
 				<h1>35萬種版型隨時更換</h1>
-				<p>無論部落客、攝影師、工作室、微型企業，均可從35萬種版型裡面挑選到喜歡的設計</p>
+				<p class="in_p">無論部落客、攝影師、工作室、微型企業，均可從35萬種版型裡面挑選到喜歡的設計</p>
 				<div class="box1">
 						<div class="contantbox">
-							<div class="box" style="background-image:url(app/img/wordpress/contant3_box.png);background-position:center;">
+							<div class="box" style="background-image:url(app/img/wordpress/contant3_box.png);background-position:center; background-size:cover;">
 								<div class="hoverbox">
-									<p>餐廳 | 旅遊 | 音樂 | 娛樂</p>
+									<p class="pc_p">餐廳 | 旅遊 | 音樂 | 娛樂</p>
+									<p class="phone_p">餐廳 ･ 旅遊 <br> 音樂 ･ 娛樂</p>
 								</div>
 							</div>
-							<p></p>
 						</div>	
 						
 						<div class="contantbox">
-							<div class="box" style="background-image:url(app/img/wordpress/contant3_box2.png);background-position:center;">
+							<div class="box" style="background-image:url(app/img/wordpress/contant3_box2.png);background-position:center; background-size:cover;">
 								<div class="hoverbox">
-									<p>運動 | 休閒 | 醫療 | 美容</p>
+									<p class="pc_p">運動 | 休閒 | 醫療 | 美容</p>
+									<p class="phone_p">運動 ･ 休閒 <br> 醫療 ･ 美容</p>
 								</div>
 							</div>
-							<p></p>
 						</div>
 						
 						<div class="contantbox" >
-							<div class="box" style="background-image:url(app/img/wordpress/contant3_box3.png);background-position:center;">
+							<div class="box" style="background-image:url(app/img/wordpress/contant3_box3.png);background-position:center; background-size:cover;">
 								<div class="hoverbox">
-									<p>攝影 | 藝術 | 設計 | 時尚</p>
+									<p class="pc_p">攝影 | 藝術 | 設計 | 時尚</p>
+									<p class="phone_p">攝影 ･ 藝術 <br> 設計 ･ 時尚</p>
 								</div>
 							</div>
-							<p></p>
 						</div>
 				</div>
 
@@ -127,24 +165,63 @@ $(function(){
 		<div class="content3">
 			<div class="area">
 				<div class="box">
-					<img src="app/img/wordpress/contant2_icon.png" width="200">
+					<img src="app/img/wordpress/contant2_icon.png" >
 					<h2>0元設計費</h2>
 					<p>針對微型企業，不需任何設計費、開發費、安裝費</p>
 				</div>
 				<div class="box">
-				<img src="app/img/wordpress/contant2_icon4.png" width="200">
+				<img src="app/img/wordpress/contant2_icon4.png">
 					<h2>5天快速交件</h2>
 					<p>不需客製化設計時間，付款後五天之內即可快速交件</p>
 				</div>
 				<div class="box">
-					<img src="app/img/wordpress/contant2_icon2.png" width="200">
+					<img src="app/img/wordpress/contant2_icon2.png" >
 					<h2>365天客服</h2>
 					<p>由設計師為客戶服務，即時解決使用或設計疑問</p>
 				</div>
 				<div class="box">
-					<img src="app/img/wordpress/contant2_icon3.png" width="200">
+					<img src="app/img/wordpress/contant2_icon3.png">
 					<h2>35萬種版型</h2>
 					<p>為客戶安裝35萬種網站版型，隨時隨地皆可更換</p>
+				</div>
+			</div>
+			<div class="phone_area">
+				<div class="slide_pic_box" >
+					<div class="slide_pic" >
+						<div class="square">
+							<div class="slide_pic_href">
+								<div class="box">
+									<img src="app/img/wordpress/contant2_icon.png" >
+									<h2>0元設計費</h2>
+									<p>針對微型企業，不需任何設計費、開發費、安裝費</p>
+								</div>
+							</div>
+							<div class="slide_pic_href">
+								<div class="box">
+								<img src="app/img/wordpress/contant2_icon4.png">
+									<h2>5天快速交件</h2>
+									<p>不需客製化設計時間，付款後五天之內即可快速交件</p>
+								</div>
+							</div>
+							<div class="slide_pic_href">
+								<div class="box">
+									<img src="app/img/wordpress/contant2_icon2.png" >
+									<h2>365天客服</h2>
+									<p>由設計師為客戶服務，即時解決使用或設計疑問</p>
+								</div>
+							</div>
+							<div class="slide_pic_href">
+								<div class="box">
+									<img src="app/img/wordpress/contant2_icon3.png">
+									<h2>35萬種版型</h2>
+									<p>為客戶安裝35萬種網站版型，隨時隨地皆可更換</p>
+								</div>
+							</div>
+						</div>	
+					</div>
+					<div class="cycle-pager"></div>
+					<div class="next"><img src="app/img/note/arrow_pager.png"></div>
+					<div class="prev"><img src="app/img/note/arrow_pager.png"></div>
 				</div>
 			</div>
 		</div>
