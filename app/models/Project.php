@@ -16,12 +16,14 @@ class Project extends ObjDbBase
     public $pay_price_total_Num = 0;
     public $pay_price_receive_Num = 0;
     public $pay_price_schedule_Num = 0;
+    public $pay_price_schedule2_Num = 0;
     public $pay_remark_Str = '';
     public $pay_status_Num = 0;
     public $paycheck_status_Num = 0;
     public $project_status_Num = 1;
     public $pay_paytime_DateTimeObj;
     public $setuptime_DateTimeObj;
+    public $endtime_DateTimeObj;
     public $updatetime_DateTimeObj;
     public $DesignList;
     public $status_Num = 1;
@@ -41,12 +43,14 @@ class Project extends ObjDbBase
         'pay_price_total' => 'pay_price_total_Num',
         'pay_price_receive' => 'pay_price_receive_Num',
         'pay_price_schedule' => 'pay_price_schedule_Num',
+        'pay_price_schedule2' => 'pay_price_schedule2_Num',
         'pay_remark' => 'pay_remark_Str',
         'pay_status' => 'pay_status_Num',
         'paycheck_status' => 'paycheck_status_Num',
         'project_status' => 'project_status_Num',
         'pay_paytime' => array('pay_paytime_DateTimeObj', 'datetime_Str'),
         'setuptime' => array('setuptime_DateTimeObj', 'datetime_Str'),
+        'endtime' => array('endtime_DateTimeObj', 'datetime_Str'),
         'updatetime' => array('updatetime_DateTimeObj', 'datetime_Str'),
         'status' => 'status_Num'
     ];
@@ -74,6 +78,7 @@ class Project extends ObjDbBase
         $this->set('pay_price_total_Num', $arg['pay_price_total_Num']);
         $this->set('pay_price_receive_Num', $arg['pay_price_receive_Num']);
         $this->set('pay_price_schedule_Num', $arg['pay_price_schedule_Num']);
+        $this->set('pay_price_schedule2_Num', $arg['pay_price_schedule2_Num']);
         $this->set('pay_remark_Str', $arg['pay_remark_Str']);
         $this->set('pay_status_Num', $arg['pay_status_Num']);
         $this->set('paycheck_status_Num', $arg['paycheck_status_Num']);
@@ -83,6 +88,9 @@ class Project extends ObjDbBase
         ], 'DateTimeObj');
         $this->set('setuptime_DateTimeObj', [
             'datetime_Str' => $arg['setuptime_Str']
+        ], 'DateTimeObj');
+        $this->set('endtime_DateTimeObj', [
+            'datetime_Str' => $arg['endtime_Str']
         ], 'DateTimeObj');
         $this->set('updatetime_DateTimeObj', [
             'datetime_Str' => $arg['updatetime_Str']

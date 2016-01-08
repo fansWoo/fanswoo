@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 建立日期: 2015-12-18: 19:43:00
+-- 建立日期: 2016-01-08: 21:21:04
 -- 伺服器版本: 5.6.21
 -- PHP 版本: 5.6.3
 
@@ -138,7 +138,13 @@ CREATE TABLE IF NOT EXISTS `fs_contact` (
 --
 
 INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, `content`, `status_process`, `classtype`, `classtype2`, `address`, `money`, `updatetime`, `status`) VALUES
-(1, 'Mimi', 'mimi@fanswoo.com', '0912345678', 'fanswoo', 'Hello', 1, '程式系統開發', '手機App開發', '台北市重慶北路四段 248 號 3 樓', '15萬元以下', '2015-10-14 16:12:59', 1);
+(1, 'Mimi', 'mimi@fanswoo.com', '0912345678', 'fanswoo', 'Hello', 1, '程式系統開發', '手機App開發', '台北市重慶北路四段 248 號 3 樓', '15萬元以下', '2015-10-14 16:12:59', 1),
+(2, '張琬君', 'mimi@fanswoo.com', '0912345678', 'fansWoo', '123456', 1, '程式系統開發', '手機App開發', '台北市', '15萬以下', '2016-01-08 16:59:05', 1),
+(3, 'Mimi Chang', 'xcv8675@gmail.com', '09-1234-5678', 'Fanswoo', 'gyugblk', 1, '網路行銷', 'Google Adwords', '台北市', '15~25萬', '2016-01-08 16:59:55', 1),
+(4, 'Mimi Chang2', 'xcv8675@gmail.com', '0912345678', 'fanswoo', '435', 1, '伺服器租賃', '雲端主機租賃', '台北市', '25~50萬', '2016-01-08 17:00:38', 1),
+(5, '張琬君', 'mimi@fanswoo.com', '0912345678', 'fansWoo', '123465', 1, '美術設計', 'facebook 粉絲團', '台北市', '50~100萬', '2016-01-08 17:01:40', 1),
+(6, '張琬君', 'mimi@fanswoo.com', '0912345678', 'Fanswoo', '2123', 1, '美術設計', '產品包裝設計', '123', '25~50萬', '2016-01-08 17:02:08', 1),
+(7, '張琬君', 'mimi@fanswoo.com', '0912345678', 'Fanswoo', 'hgnghmhgm', 1, '網路行銷', 'facebook 粉絲團', '台北市', '50~100萬', '2016-01-08 17:02:58', 1);
 
 -- --------------------------------------------------------
 
@@ -279,7 +285,8 @@ CREATE TABLE IF NOT EXISTS `fs_pic` (
 
 INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`, `classids`, `thumb`, `prioritynum`, `updatetime`, `status`) VALUES
 (4, 528501, 'note1.jpg', 'note1.jpg', 49556, 'image/jpeg', '941ad429e9543e57', '', 'w50h50,w300h300,w600h600', 0, '2015-10-14 14:52:51', 1),
-(5, 528501, 'note2.jpg', 'note2.jpg', 226158, 'image/jpeg', '9f56fab9f42c1cd3', '', 'w50h50,w300h300,w600h600', 0, '2015-10-14 14:53:00', 1);
+(5, 528501, 'note2.jpg', 'note2.jpg', 226158, 'image/jpeg', '9f56fab9f42c1cd3', '', 'w50h50,w300h300,w600h600', 0, '2015-10-14 14:53:00', 1),
+(6, 528501, 'MG_5585.jpg', 'MG_5585.jpg', 1811206, 'image/jpeg', '5834ed95fbc9cc38', '', 'w50h50,w300h300,w600h600', 0, '2015-12-30 15:47:05', 1);
 
 -- --------------------------------------------------------
 
@@ -301,12 +308,14 @@ CREATE TABLE IF NOT EXISTS `fs_project` (
   `pay_price_total` mediumint(10) NOT NULL,
   `pay_price_receive` mediumint(10) NOT NULL,
   `pay_price_schedule` mediumint(3) NOT NULL,
+  `pay_price_schedule2` mediumint(3) NOT NULL,
   `pay_paytime` datetime NOT NULL,
   `pay_remark` text NOT NULL,
   `pay_status` int(1) NOT NULL,
   `paycheck_status` int(1) NOT NULL,
   `project_status` int(1) NOT NULL,
   `setuptime` datetime NOT NULL,
+  `endtime` datetime NOT NULL,
   `updatetime` datetime NOT NULL,
   `status` int(1) NOT NULL,
   UNIQUE KEY `projectid` (`projectid`)
@@ -316,9 +325,9 @@ CREATE TABLE IF NOT EXISTS `fs_project` (
 -- 資料表的匯出資料 `fs_project`
 --
 
-INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `admin_uid`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_price_receive`, `pay_price_schedule`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `updatetime`, `status`) VALUES
-(528501, 528502, 'TEST專案', 528505, '528505,528502,528501', 30, '2', '', '張琬君', '(700)1234567-1234567', 88000, 88000, 100, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2015-12-18 19:42:44', 1),
-(528502, 528501, 'test2', 528501, '528502', 30, '4', '19,18,11,10,1,2,25,24,23,22,21,20', 'Mimi Chang', '(700)1111111-2222222', 36000, 0, 0, '2015-12-07 14:50:00', '付款備註', 1, 0, 1, '2015-12-07 14:34:19', '2015-12-17 17:55:00', 1);
+INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `admin_uid`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_price_receive`, `pay_price_schedule`, `pay_price_schedule2`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `endtime`, `updatetime`, `status`) VALUES
+(528501, 528502, 'TEST專案', 528505, '528505,528502,528501', 40, '2', '', '張琬君', '(700)1234567-1234567', 88000, 88000, 100, 0, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2016-01-13 00:00:00', '2016-01-08 21:08:28', 1),
+(528502, 528501, 'test2', 528501, '528502', 60, '4', '', 'Mimi Chang', '(700)1111111-2222222', 36000, 0, 0, 0, '2015-12-07 14:50:00', '付款備註', 1, 0, 3, '2015-12-07 14:34:19', '2016-02-05 14:34:19', '2016-01-08 21:08:13', 1);
 
 -- --------------------------------------------------------
 
@@ -335,6 +344,7 @@ CREATE TABLE IF NOT EXISTS `fs_project_design` (
   `days` mediumint(3) NOT NULL,
   `synopsis` char(200) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
+  `updatetime` datetime NOT NULL,
   `status` int(1) NOT NULL,
   UNIQUE KEY `designid` (`designid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -343,11 +353,15 @@ CREATE TABLE IF NOT EXISTS `fs_project_design` (
 -- 資料表的匯出資料 `fs_project_design`
 --
 
-INSERT INTO `fs_project_design` (`designid`, `projectid`, `title`, `price`, `classname`, `days`, `synopsis`, `prioritynum`, `status`) VALUES
-(1, 528501, 'PHP文章系統', 18000, '', 3, '後台文章管理系統（新增、編輯、列表）', 4, 1),
-(2, 528501, '最新消息頁面美術設計', 18000, '', 3, '前台最新消息頁面美術設計', 6, 1),
-(4, 528501, '首頁頁面美術設計', 18000, '', 3, '前台首頁頁面美術設計', 5, 1),
-(3, 528501, 'PHP廣告系統', 18000, '', 3, '後台廣告管理系統（新增、編輯、列表）', 3, 1);
+INSERT INTO `fs_project_design` (`designid`, `projectid`, `title`, `price`, `classname`, `days`, `synopsis`, `prioritynum`, `updatetime`, `status`) VALUES
+(1, 528501, 'PHP文章系統', 18000, '', 3, '後台文章管理系統（新增、編輯、列表）', 4, '0000-00-00 00:00:00', 1),
+(2, 528501, '最新消息頁面美術設計', 18000, '', 3, '前台最新消息頁面美術設計', 6, '0000-00-00 00:00:00', 1),
+(4, 528501, '首頁頁面美術設計', 18000, '', 3, '前台首頁頁面美術設計', 5, '0000-00-00 00:00:00', 1),
+(3, 528501, 'PHP廣告系統', 18000, '', 3, '後台廣告管理系統（新增、編輯、列表）', 3, '0000-00-00 00:00:00', 1),
+(5, 528504, '最新消息頁面美術設計', 18000, '', 3, '前台最新消息頁面美術設計', 4, '0000-00-00 00:00:00', 1),
+(6, 528504, '首頁頁面美術設計', 18000, '', 3, '前台首頁頁面美術設計', 3, '0000-00-00 00:00:00', 1),
+(7, 528504, 'PHP文章系統', 18000, '', 3, '後台文章管理系統（新增、編輯、列表）', 2, '0000-00-00 00:00:00', 1),
+(8, 528504, 'PHP廣告系統', 18000, '', 3, '後台廣告管理系統（新增、編輯、列表）', 1, '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -949,7 +963,11 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('c607377ad719d899b8cf0b85a4e6a640', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449565583, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('f1dcafdec8906c1bd5540cbe3a4b341f', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1449726750, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('95506c5517d9e51d70798ccc80bc6fe3', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1449726750, ''),
-('f3045d6370c177e07af1147f5c748e3d', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450345278, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
+('f3045d6370c177e07af1147f5c748e3d', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450345278, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('b80473858e803734f4ef75c75d13d91e', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1452248611, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('d53ccb875debbaad642714c89b89aaf6', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452248716, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('f32ba87cc5ca86c5d8c1208f70a8f26c', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1452248984, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('2f7ad055d2b099d9866664e1a0041585', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452249199, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
 
 -- --------------------------------------------------------
 
@@ -1035,6 +1053,10 @@ CREATE TABLE IF NOT EXISTS `fs_shop_order` (
   `pay_paytime` datetime DEFAULT NULL,
   `pay_remark` text,
   `pay_status` int(1) DEFAULT '0',
+  `transport_mode` char(100) NOT NULL,
+  `transport_id` char(30) NOT NULL,
+  `transport_base_price` mediumint(8) NOT NULL,
+  `transport_additional_price` mediumint(8) NOT NULL,
   `coupon_count` mediumint(8) NOT NULL,
   `tradein_count` mediumint(8) NOT NULL,
   `paycheck_status` int(1) DEFAULT '0',
@@ -1051,9 +1073,9 @@ CREATE TABLE IF NOT EXISTS `fs_shop_order` (
 -- 資料表的匯出資料 `fs_shop_order`
 --
 
-INSERT INTO `fs_shop_order` (`orderid`, `uid`, `receive_name`, `receive_phone`, `receive_time`, `receive_address`, `receive_remark`, `pay_paytype`, `pay_sendtype`, `pay_price_total`, `pay_price_freight`, `pay_account`, `pay_name`, `pay_paytime`, `pay_remark`, `pay_status`, `coupon_count`, `tradein_count`, `paycheck_status`, `product_status`, `order_status`, `sendtime`, `setuptime`, `updatetime`, `status`) VALUES
-(528501, 528505, '張琬君', '0912345678', NULL, '台北市', NULL, 'atm', NULL, 0, 0, '', '', '2015-11-20 10:46:00', '', 0, 0, 0, 0, 0, 0, '2015-11-20 10:46:00', '2015-11-20 10:46:00', '2015-11-20 10:46:00', 1),
-(528500, 528505, '張琬君', '0912345678', '', '台北市', '', 'atm', NULL, 0, 0, '(700)1234567-1234567', '張琬君', '2015-11-20 10:40:00', '', 1, 0, 0, 1, 1, 1, '2015-11-20 10:26:03', '2015-11-20 10:26:03', '2015-12-03 16:04:26', 1);
+INSERT INTO `fs_shop_order` (`orderid`, `uid`, `receive_name`, `receive_phone`, `receive_time`, `receive_address`, `receive_remark`, `pay_paytype`, `pay_sendtype`, `pay_price_total`, `pay_price_freight`, `pay_account`, `pay_name`, `pay_paytime`, `pay_remark`, `pay_status`, `transport_mode`, `transport_id`, `transport_base_price`, `transport_additional_price`, `coupon_count`, `tradein_count`, `paycheck_status`, `product_status`, `order_status`, `sendtime`, `setuptime`, `updatetime`, `status`) VALUES
+(528501, 528505, '張琬君', '0912345678', NULL, '台北市', NULL, 'atm', NULL, 0, 0, '', '', '2015-11-20 10:46:00', '', 0, '', '', 0, 0, 0, 0, 0, 0, 0, '2015-11-20 10:46:00', '2015-11-20 10:46:00', '2015-11-20 10:46:00', 1),
+(528500, 528505, '張琬君', '0912345678', '', '台北市', '', 'atm', NULL, 0, 0, '(700)1234567-1234567', '張琬君', '2015-11-20 10:40:00', '', 1, '', '', 0, 0, 0, 0, 1, 1, 1, '2015-11-20 10:26:03', '2015-11-20 10:26:03', '2015-12-03 16:04:26', 1);
 
 -- --------------------------------------------------------
 

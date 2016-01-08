@@ -225,7 +225,7 @@
 <div class="contentBox allWidth">
 	<h3>設計項目列表</h3>
 	<h4>請確認設計項目列表</h4>
-	<div class="spanLineTable">
+	<!-- <div class="spanLineTable">
         <div class="spanLineTableContent">
             <div class="spanLine order tablelist tableTitle">
                 <div class="spanLineLeft width300">
@@ -238,7 +238,6 @@
                     單價
                 </div>
     		</div>
-            <?if(!empty($Project->designids_Str)):?>
             <?foreach($DesignList->obj_Arr as $key => $value_Design):?>
             <div class="spanLine order tablelist">
                 <div class="spanLineLeft width300">
@@ -261,19 +260,7 @@
             </div>
             <?endforeach?>
         </div>
-    </div>
-    <?else:?>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width300" style="color:#027de5">
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-            </div>
-        </div>
-    </div>
-    <?endif?>
+    </div> -->
 </div>
 <?if($Project->project_status_Num == 1):?>
 <?else:?>

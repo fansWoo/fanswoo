@@ -2,6 +2,7 @@
 <script>
 $(function(){
 
+    <?if(0):?>
     $("#pay_price_schedule").text(<?=$Project->pay_price_schedule_Num?>+' %');
     $("#pay_price_schedule_input").val(<?=$Project->pay_price_schedule_Num?>);
 
@@ -152,7 +153,7 @@ $(function(){
         }
 
     });
-
+    <?endif?>
 });
 </script>
 <?=$temp['header_down']?>
@@ -442,11 +443,22 @@ $(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                專案付款進度
+                專案付款進度 (%)
             </div>
             <div class="spanLineLeft">
-                <input id="pay_price_schedule_input" type="hidden" name="pay_price_schedule_Num" value="<?=$Project->pay_price_schedule_Num?>">
-                <span id="pay_price_schedule" style="margin-left:5px;" class="red"></span>
+                <!-- <input id="pay_price_schedule_input" type="hidden" name="pay_price_schedule_Num" value="<?=$Project->pay_price_schedule_Num?>">
+                <span id="pay_price_schedule" style="margin-left:5px;" class="red"></span> -->
+                <input type="number" class="text" min="0" max="100" name="pay_price_schedule_Num" value="<?=$Project->pay_price_schedule_Num?>">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案應支付款 (%)
+            </div>
+            <div class="spanLineLeft">
+                <input type="number" class="text" min="0" max="100" name="pay_price_schedule2_Num" value="<?=$Project->pay_price_schedule2_Num?>">
             </div>
         </div>
     </div>
