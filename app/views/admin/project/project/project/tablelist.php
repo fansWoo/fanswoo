@@ -32,10 +32,10 @@ $(function(){
         			專案名稱
                 </div>
                 <div class="spanLineLeft text width100">
-                    已收款項
+                    專案總金額
                 </div>
                 <div class="spanLineLeft text width100">
-                    專案總金額
+                    已收款項
                 </div>
                 <div class="spanLineLeft text width100">
                     付款進度 (%)
@@ -62,16 +62,14 @@ $(function(){
                         <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_name_Str)?$search_name_Str:''?>" name="search_name_Str" placeholder="請填寫專案名稱">
                     </div>
                     <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_receive_Num)?$search_pay_price_receive_Num:''?>" name="search_pay_price_receive_Num" placeholder="已收款項">
+                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_total_Num)?$search_pay_price_total_Num:''?>" name="search_pay_price_total_Num" placeholder="專案總金額">
                     </div>
                     <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_total_Num)?$search_pay_price_total_Num:''?>" name="search_pay_price_total_Num" placeholder="專案總金額">
+                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_receive_Num)?$search_pay_price_receive_Num:''?>" name="search_pay_price_receive_Num" placeholder="已收款項">
                     </div>
                     <div class="spanLineLeft text width100">
                         <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_schedule_Num)?$search_pay_price_schedule_Num:''?>" name="search_pay_price_schedule_Num" placeholder="付款進度">
                     </div>
-
-
                     <div class="spanLineLeft text width100">
                         <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
                         <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
@@ -123,10 +121,10 @@ $(function(){
                     </a>
                 </div>
                 <div class="spanLineLeft text width100">
-                    NT $<?=$value_Project->pay_price_receive_Num?>
+                    NT $<span class="project_price"><?=$value_Project->pay_price_total_Num?></span>
                 </div>
                 <div class="spanLineLeft text width100">
-                    NT $<span class="project_price"><?=$value_Project->pay_price_total_Num?></span>
+                    NT $<?=$value_Project->pay_price_receive_Num?>
                 </div>
                 <div class="spanLineLeft text width100">
                     <?=$value_Project->pay_price_schedule_Num?> %

@@ -364,7 +364,7 @@ $(function(){
 		<div class="portfolio_box2">
 			<div class="text_box">
 				<img class="title" src="app/img/index/portfolio_box2/index4-08.png">
-				<a href="http://web.fanswoo.com/million_roof/  "  target="_blank" class="portfolio_more">
+				<a href="http://mrpv.org.tw/"  target="_blank" class="portfolio_more">
 					<p>立即前往</p>
 					<img src="app/img/index/arrow.png">
 					<div class="light"></div>
@@ -382,7 +382,7 @@ $(function(){
 			</div>
 			<img class="pc" src="app/img/index/mobile/pc.png">
 			<img class="sun" src="app/img/index/portfolio_box2/sun.png">
-			<a href="http://web.fanswoo.com/million_roof/ "  target="_blank" class="portfolio_more">
+			<a href="http://mrpv.org.tw/"  target="_blank" class="portfolio_more">
 				<p>立即前往</p>
 				<img src="app/img/index/arrow.png">
 			</a>

@@ -1,161 +1,4 @@
 <?=$temp['header_up']?>
-<script>
-$(function(){
-
-    <?if(0):?>
-    $("#pay_price_schedule").text(<?=$Project->pay_price_schedule_Num?>+' %');
-    $("#pay_price_schedule_input").val(<?=$Project->pay_price_schedule_Num?>);
-
-    var schedule = parseInt($("#pay_price_schedule_input").val());
-    if(schedule==100){$("#pay_price_schedule").css('color','green');}
-    else{$("#pay_price_schedule").css('color','red');}
-
-    $("#pay_price_total").change(function(){
-
-        var total = parseInt($("#pay_price_total").val());
-        var receive = parseInt($("#pay_price_receive").val());
-        schedule = ( receive / total ) * 100 ;
-
-        // $("#pay_price_schedule").text(schedule.toFixed(2)+' %');
-        // $("#pay_price_schedule_input").val(schedule.toFixed(2));
-
-        //四捨五入
-        $("#pay_price_schedule").text(Math.round(schedule)+' %');
-        $("#pay_price_schedule_input").val(Math.round(schedule));
-
-        if(total==receive)
-        { 
-            $("#pay_price_schedule").css('color','green');
-        }
-        else
-        { 
-            $("#pay_price_schedule").css('color','red');
-        }
-
-        if(total<receive)
-        {
-            alert("收款金額大於總金額");
-            var receive = $("#pay_price_receive").val(0);
-            $("#pay_price_schedule").text("0 %");
-            $("#pay_price_schedule_input").val("0");
-        }
-
-        var total2 = $("#pay_price_total").val();
-        var receive2 = $("#pay_price_receive").val();
-
-        if(total2==''||receive2=='')
-        {
-            $("#pay_price_schedule").text("0 %");
-        }
-
-    });
-
-    $("#pay_price_total").keyup(function(){
-
-        var total = parseInt($("#pay_price_total").val());
-        var receive = parseInt($("#pay_price_receive").val());
-        schedule = ( receive / total ) * 100 ;
-
-        // $("#pay_price_schedule").text(schedule.toFixed(2)+' %');
-        // $("#pay_price_schedule_input").val(schedule.toFixed(2));
-
-        //四捨五入
-        $("#pay_price_schedule").text(Math.round(schedule)+' %');
-        $("#pay_price_schedule_input").val(Math.round(schedule));
-
-        if(total==receive)
-        { 
-            $("#pay_price_schedule").css('color','green');
-        }
-        else
-        { 
-            $("#pay_price_schedule").css('color','red');
-        }
-
-        var total2 = $("#pay_price_total").val();
-        var receive2 = $("#pay_price_receive").val();
-
-        if(total2==''||receive2=='')
-        {
-            $("#pay_price_schedule").text("0 %");
-        }
-
-    });
-
-    $("#pay_price_receive").change(function(){
-
-        var total = parseInt($("#pay_price_total").val());
-        var receive = parseInt($("#pay_price_receive").val());
-        schedule = ( receive / total ) * 100 ;
-
-        // $("#pay_price_schedule").text(schedule.toFixed(2)+' %');
-        // $("#pay_price_schedule_input").val(schedule.toFixed(2));
-
-        //四捨五入
-        $("#pay_price_schedule").text(Math.round(schedule)+' %');
-        $("#pay_price_schedule_input").val(Math.round(schedule));
-
-        if(total==receive)
-        { 
-            $("#pay_price_schedule").css('color','green');
-        }
-        else
-        { 
-            $("#pay_price_schedule").css('color','red');
-        }
-
-        if(total<receive)
-        {
-            alert("收款金額大於總金額");
-            var receive = $("#pay_price_receive").val(0);
-            $("#pay_price_schedule").text("0 %");
-            $("#pay_price_schedule_input").val("0");
-        }
-
-        var total2 = $("#pay_price_total").val();
-        var receive2 = $("#pay_price_receive").val();
-
-        if(total2==''||receive2=='')
-        {
-            $("#pay_price_schedule").text("0 %");
-        }
-
-    });
-
-    $("#pay_price_receive").keyup(function(){
-
-        var total = parseInt($("#pay_price_total").val());
-        var receive = parseInt($("#pay_price_receive").val());
-        schedule = ( receive / total ) * 100 ;
-
-        // $("#pay_price_schedule").text(schedule.toFixed(2)+' %');
-        // $("#pay_price_schedule_input").val(schedule.toFixed(2));
-
-        //四捨五入
-        $("#pay_price_schedule").text(Math.round(schedule)+' %');
-        $("#pay_price_schedule_input").val(Math.round(schedule));
-
-        if(total==receive)
-        { 
-            $("#pay_price_schedule").css('color','green');
-        }
-        else
-        { 
-            $("#pay_price_schedule").css('color','red');
-        }
-
-        var total2 = $("#pay_price_total").val();
-        var receive2 = $("#pay_price_receive").val();
-
-        if(total2==''||receive2=='')
-        {
-            $("#pay_price_schedule").text("0 %");
-        }
-
-    });
-    <?endif?>
-});
-</script>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
 <h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
@@ -594,6 +437,7 @@ $(function(){
             </div>
         </div>
     </div>
+    <?if(!empty($Project->projectid_Num)):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -604,6 +448,7 @@ $(function(){
             </div>
         </div>
     </div>
+    <?endif?>
     <div class="spanLine spanSubmit">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -612,7 +457,7 @@ $(function(){
                 <?if(!empty($Project->projectid_Num)):?><input type="hidden" name="projectid_Num" value="<?=$Project->projectid_Num?>"><?endif?>
                 <input type="submit" class="submit" value="<?if(!empty($Project->projectid_Num)):?>儲存變更<?else:?>新增專案<?endif?>">
                 <?if(!empty($Project->projectid_Num)):?><a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/project/prints?projectid=<?=$Project->projectid_Num?>" target="_blank"><span class="submit">列印成估價單</span></a><?endif?>
-                <?if(!empty($Project->projectid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?noteid=<?=$Project->projectid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
+                <?if(!empty($Project->projectid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?projectid=<?=$Project->projectid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
             </div>
         </div>
     </div>

@@ -79,6 +79,7 @@ $config['group_purview_Arr'] = array(
 		array('project', 'user', 'project', 'tablelist'),
 		array('project', 'user', 'design', 'edit'),
 		array('project', 'user', 'suggest', 'edit'),
+		array('project', 'sales_target', 'sales_target', 'edit'),
         
 		array('user', 'global', 'global', 'user'),
 		// array('user', 'global', 'global_shop', 'user'),
@@ -446,6 +447,17 @@ $config['admin_sidebox'] = array(
 							'child4' => array(
 								'edit' => array('title' => '編輯'),
 								'tablelist' => array('title' => '列表')
+							)
+						)
+					)
+				),
+				'sales_target' => array(
+					'title' => '業績進度管理',
+					'child3' => array(
+						'sales_target' => array(
+							'title' => '業績進度',
+							'child4' => array(
+								'edit' => array('title' => '編輯')
 							)
 						)
 					)

@@ -229,6 +229,7 @@ class Project_Controller extends MY_Controller {
                 'pay_price_total',
                 'pay_price_receive',
                 'pay_price_schedule',
+                'pay_price_schedule2',
                 'paycheck_status',
                 'project_status',
                 'setuptime',
