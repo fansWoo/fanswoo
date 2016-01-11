@@ -101,11 +101,10 @@ class Project_Controller extends MY_Controller {
 
     public function prints()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->data;
         $data = array_merge($data, $this->AdminModel->get_data(array(
             'child4_name_Str' => 'prints'//管理分類名稱
         )));
-            
         $data['projectid_Num'] = $this->input->get('projectid');
 
         $data['Project'] = new Project();
@@ -154,21 +153,22 @@ class Project_Controller extends MY_Controller {
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));
-        
-        //global
-        $data['global']['style'][] = 'app/css/admin/prints.css';
-        $data['global']['js'][] = 'app/js/admin.js';
-        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
 
-        //temp
-        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
-        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
-        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+        $this->load->library('TcPdfDriver');
+        $this->tcpdfdriver->config([
+            'creator_Str' => $data['Project']->admin_uid_Num,
+            'author_Str' => $data['Project']->admin_uid_Num,
+            'title_Str' => $data['Project']->name_Str,
+            'subject_Str' => '專案估價單',
+            'filename_Str' => $data['Project']->name_Str.'專案估價單'
+        ]);
 
-        //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->tcpdfdriver->add_page();
+        $html_Str = $this->load->view('admin/'.$data['admin_child_url_Str'], $data, TRUE);
+        $this->tcpdfdriver->write_html(['html_Str' => $html_Str]);
+        $this->tcpdfdriver->last_page();
+
+        $this->tcpdfdriver->output();
     }
 
     public function edit_post()

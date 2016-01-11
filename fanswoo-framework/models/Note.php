@@ -13,7 +13,7 @@ class Note extends ObjDbBase {
     public $viewnum_Num = 0;
     public $replynum_Num = 0;
     public $prioritynum_Num = 0;
-    public $updatetime_DateTime = 0;
+    public $updatetime_DateTime;
     public $locale_Str = '';
     public $shelves_status_Num = 2;
     public $comment_CommentList;
