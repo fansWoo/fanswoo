@@ -1,7 +1,9 @@
-*/config/development
-*/config/database.php
-*/logs/log-*.php
-*/logs/!index.html
-*/cache/*
-*/cache/!index.html
-*/cache/!.htaccess
+config/database.php
+config/path.php
+logs/log-*.php
+logs/!index.html
+cache/*
+cache/!index.html
+cache/!.htaccess
+.metadata
+.project

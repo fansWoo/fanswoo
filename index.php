@@ -91,17 +91,6 @@ switch (ENVIRONMENT)
 
 /*
  *---------------------------------------------------------------
- * SYSTEM FOLDER NAME
- *---------------------------------------------------------------
- *
- * This variable must contain the name of your "system" folder.
- * Include the path if the folder is not in the same directory
- * as this file.
- */
-	$system_path = 'codeigniter';
-
-/*
- *---------------------------------------------------------------
  * APPLICATION FOLDER NAME
  *---------------------------------------------------------------
  *
@@ -113,7 +102,23 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = 'app';
+
+	$application_folder = './';
+	define('APPURL', $application_folder);
+
+/*
+ *---------------------------------------------------------------
+ * SYSTEM FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" folder.
+ * Include the path if the folder is not in the same directory
+ * as this file.
+ */
+
+	include_once( realpath(APPURL.'./config/path.php') );
+	$system_path = BASEPATH_ORIGINAL;
+	$fanswoo_framework_path = FSPATH_ORIGINAL;
 
 /*
  *---------------------------------------------------------------
@@ -128,7 +133,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$view_folder = '';
+	$view_folder = '/views/';
 
 /*
  *---------------------------------------------------------------
@@ -143,8 +148,6 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-
-	$fanswoo_framework_path = 'fanswoo-framework';
 
 	if (($_temp = realpath($fanswoo_framework_path)) !== FALSE)
 	{
@@ -160,7 +163,7 @@ switch (ENVIRONMENT)
 	if ( ! is_dir($fanswoo_framework_path))
 	{
 		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		echo 'Your fanswoo-framework folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
 		exit(3); // EXIT_CONFIG
 	}
 
