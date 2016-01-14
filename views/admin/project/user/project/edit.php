@@ -222,59 +222,48 @@
     <?endif?>
     </form>
 </div>
+<?if(!empty($DesignList->obj_Arr)):?>
 <div class="contentBox allWidth">
 	<h3>設計項目列表</h3>
 	<h4>請確認設計項目列表</h4>
 	<div class="spanLineTable">
         <div class="spanLineTableContent">
             <div class="spanLine order tablelist tableTitle">
-                <div class="spanLineLeft width300">
+                <div class="spanLineLeft width200">
                     設計項目
     		    </div>
-                <div class="spanLineLeft width150">
-                    分類標籤
+                <div class="spanLineLeft width300">
+                    設計項目簡介
                 </div>
                 <div class="spanLineLeft width100">
                     單價
                 </div>
+                <div class="spanLineLeft width100">
+                    工作時程
+                </div>
     		</div>
-            <?if(!empty($Project->designids_Str)):?>
             <?foreach($DesignList->obj_Arr as $key => $value_Design):?>
             <div class="spanLine order tablelist">
-                <div class="spanLineLeft width300">
+                <div class="spanLineLeft width200">
                     <a href="admin/<?=$child1_name_Str?>/user/design/edit?designid=<?=$value_Design->designid_Num?>" target="_blank">
                         <?=$value_Design->title_Str?>
                     </a>
                 </div>
-                <div class="spanLineLeft text width150">
-                    <?if(!empty($value_Design->class_ClassMetaList->obj_Arr)):?>
-                    <?foreach($value_Design->class_ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
-                        <?if($key !== 0):?>,<?endif?><?=$value_ClassMeta->classname_Str?>
-                    <?endforeach?>
-                    <?else:?>
-                    <span class="gray">沒有分類標籤</span>
-                    <?endif?>
+                <div class="spanLineLeft width300">
+                    <?=$value_Design->synopsis_Str?>
                 </div>
                 <div class="spanLineLeft width100">
-                    <?=$value_Design->price_Num?>
+                    NT$ <?=$value_Design->price_Num?>
+                </div>
+                <div class="spanLineLeft width100">
+                    <?=$value_Design->days_Num?> days
                 </div>
             </div>
             <?endforeach?>
         </div>
     </div>
-    <?else:?>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width300" style="color:#027de5">
-            </div>
-            <div class="spanLineLeft width100 aligncenter">
-            </div>
-        </div>
-    </div>
-    <?endif?>
 </div>
+<?endif?>
 <?if($Project->project_status_Num == 1):?>
 <?else:?>
 <div class="contentBox allWidth">

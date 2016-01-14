@@ -66,11 +66,6 @@ class Page_Controller extends MY_Controller {
 	        {
 	            $slug_Str = 'index';
 	        }
-
-			//沒有這個頁面
-			if ( ! file_exists('app/views/page/'.$slug_Str.'.php')){
-				show_404();
-			}
 	        
 	        //global
 	    	$data['global']['js'][] = 'script_header_bar_mobile';

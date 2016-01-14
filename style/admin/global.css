@@ -481,6 +481,7 @@ html.agent-ie8 .header .logo {
     overflow-y: hidden;
     overflow-x: auto;
 }
+.achieving_goals { display: none; }
 
 @media screen and (min-width: 1600px){
     .content { min-height: 1200px; }

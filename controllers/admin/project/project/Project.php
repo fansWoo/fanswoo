@@ -101,11 +101,10 @@ class Project_Controller extends MY_Controller {
 
     public function prints()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->data;
         $data = array_merge($data, $this->AdminModel->get_data(array(
             'child4_name_Str' => 'prints'//管理分類名稱
         )));
-            
         $data['projectid_Num'] = $this->input->get('projectid');
 
         $data['Project'] = new Project();
@@ -154,21 +153,22 @@ class Project_Controller extends MY_Controller {
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
         ));
-        
-        //global
-        $data['global']['style'][] = 'app/css/admin/prints.css';
-        $data['global']['js'][] = 'app/js/admin.js';
-        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
 
-        //temp
-        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
-        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
-        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+        $this->load->library('TcPdfDriver');
+        $this->tcpdfdriver->config([
+            'creator_Str' => $data['Project']->admin_uid_Num,
+            'author_Str' => $data['Project']->admin_uid_Num,
+            'title_Str' => $data['Project']->name_Str,
+            'subject_Str' => '專案估價單',
+            'filename_Str' => $data['Project']->name_Str.'專案估價單'
+        ]);
 
-        //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->tcpdfdriver->add_page();
+        $html_Str = $this->load->view('admin/'.$data['admin_child_url_Str'], $data, TRUE);
+        $this->tcpdfdriver->write_html(['html_Str' => $html_Str]);
+        $this->tcpdfdriver->last_page();
+
+        $this->tcpdfdriver->output();
     }
 
     public function edit_post()
@@ -190,9 +190,13 @@ class Project_Controller extends MY_Controller {
             $pay_price_total_Num = $this->input->post('pay_price_total_Num', TRUE);
             $pay_price_receive_Num = $this->input->post('pay_price_receive_Num', TRUE);
             $pay_price_schedule_Num = $this->input->post('pay_price_schedule_Num', TRUE);
+            $pay_price_schedule2_Num = $this->input->post('pay_price_schedule2_Num', TRUE);
             $paycheck_status_Num = $this->input->post('paycheck_status_Num', TRUE);
             $project_status_Num = $this->input->post('project_status_Num', TRUE);
             $setuptime_Str = $this->input->post('setuptime_Str', TRUE);
+            $endtime_Str = $this->input->post('endtime_Str', TRUE);
+
+            $endtime = date('Y-m-d H-i-s',strtotime( $setuptime_Str.'+'.$working_days_Num.'day'));
 
             //建構Project物件，並且更新
             $Project = new Project();
@@ -206,9 +210,11 @@ class Project_Controller extends MY_Controller {
                 'pay_price_total_Num' => $pay_price_total_Num,
                 'pay_price_receive_Num' => $pay_price_receive_Num,
                 'pay_price_schedule_Num' => $pay_price_schedule_Num,
+                'pay_price_schedule2_Num' => $pay_price_schedule2_Num,
                 'paycheck_status_Num' => $paycheck_status_Num,
                 'project_status_Num' => $project_status_Num,
-                'setuptime_Str' => $setuptime_Str
+                'setuptime_Str' => $setuptime_Str,
+                'endtime_Str' => $endtime
             ]);
             $Project->set__permission_uids_UserList(['permission_emails_Str' => $permission_emails_Str]);
             $Project->set__admin_uid_Num(['admin_uid_Num' => $admin_uid_Num]);
@@ -223,9 +229,11 @@ class Project_Controller extends MY_Controller {
                 'pay_price_total',
                 'pay_price_receive',
                 'pay_price_schedule',
+                'pay_price_schedule2',
                 'paycheck_status',
                 'project_status',
                 'setuptime',
+                'endtime',
                 'updatetime'
                 )
             ));
@@ -300,9 +308,11 @@ class Project_Controller extends MY_Controller {
             'pay_price_total_Num' => $Project->pay_price_total_Num,
             // 'pay_price_receive_Num' => $Project->pay_price_receive_Num,
             // 'pay_price_schedule_Num' => $Project->pay_price_schedule_Num,
+            // 'pay_price_schedule2_Num' => $Project->pay_price_schedule2_Num,
             // 'paycheck_status_Num' => $Project->paycheck_status_Num,
             'project_status_Num' => $Project->project_status_Num,
-            'setuptime_Str' => $Project->setuptime_DateTimeObj->datetime_Str
+            'setuptime_Str' => $Project->setuptime_DateTimeObj->datetime_Str,
+            'endtime_Str' => $Project->endtime_DateTimeObj->datetime_Str
         ));
 
         $ProjectFanswoo->update();
@@ -350,6 +360,11 @@ class Project_Controller extends MY_Controller {
         $data['search_projectid_Num'] = $this->input->get('projectid');
         $data['search_name_Str'] = $this->input->get('name');
         $data['search_class_slug_Str'] = $this->input->get('class_slug');
+        $data['search_pay_price_receive_Num'] = $this->input->get('price_receive');
+        $data['search_pay_price_total_Num'] = $this->input->get('price_total');
+        $data['search_pay_price_schedule_Num'] = $this->input->get('price_schedule');
+        $data['search_setuptime_Str'] = $this->input->get('setuptime');
+        $data['search_endtime_Str'] = $this->input->get('endtime');
 
         $limitstart_Num = $this->input->get('limitstart');
         $limitcount_Num = $this->input->get('limitcount');
@@ -365,10 +380,15 @@ class Project_Controller extends MY_Controller {
         $data['ProjectList'] = new ObjList();
         $data['ProjectList']->construct_db(array(
             'db_where_Arr' => array(
-                'projectid' => $data['search_projectid_Num']
+                'projectid' => $data['search_projectid_Num'],
+                'pay_price_receive' => $data['search_pay_price_receive_Num'],
+                'pay_price_total' => $data['search_pay_price_total_Num'],
+                'pay_price_schedule' => $data['search_pay_price_schedule_Num']                
             ),
             'db_where_like_Arr' => array(
-                'name_Str' => $data['search_name_Str']
+                'name_Str' => $data['search_name_Str'],
+                'setuptime' => $data['search_setuptime_Str'],
+                'endtime' => $data['search_endtime_Str'],
             ),
             'db_where_or_Arr' => array(
                 'classids' => array($class_ClassMeta->classid_Num)
@@ -416,6 +436,11 @@ class Project_Controller extends MY_Controller {
         $search_projectid_Num = $this->input->post('search_projectid_Num', TRUE);
         $search_class_slug_Str = $this->input->post('search_class_slug_Str', TRUE);
         $search_name_Str = $this->input->post('search_name_Str', TRUE);
+        $search_pay_price_receive_Num = $this->input->post('search_pay_price_receive_Num', TRUE);
+        $search_pay_price_total_Num = $this->input->post('search_pay_price_total_Num', TRUE);
+        $search_pay_price_schedule_Num = $this->input->post('search_pay_price_schedule_Num', TRUE);
+        $search_setuptime_Str = $this->input->post('search_setuptime_Str', TRUE);
+        $search_endtime_Str = $this->input->post('search_endtime_Str', TRUE);
 
         $url_Str = base_url('admin/project/project/Project/tablelist/?');
 
@@ -432,6 +457,31 @@ class Project_Controller extends MY_Controller {
         if(!empty($search_name_Str))
         {
             $url_Str = $url_Str.'&name='.$search_name_Str;
+        }
+
+        if(!empty($search_pay_price_receive_Num))
+        {
+            $url_Str = $url_Str.'&price_receive='.$search_pay_price_receive_Num;
+        }
+
+        if(!empty($search_pay_price_total_Num))
+        {
+            $url_Str = $url_Str.'&price_total='.$search_pay_price_total_Num;
+        }
+
+        if(!empty($search_pay_price_schedule_Num))
+        {
+            $url_Str = $url_Str.'&price_schedule='.$search_pay_price_schedule_Num;
+        }
+
+        if(!empty($search_setuptime_Str))
+        {
+            $url_Str = $url_Str.'&setuptime='.$search_setuptime_Str;
+        }
+
+        if(!empty($search_endtime_Str))
+        {
+            $url_Str = $url_Str.'&endtime='.$search_endtime_Str;
         }
 
         header("Location: $url_Str");
