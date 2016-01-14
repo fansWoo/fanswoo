@@ -70,17 +70,10 @@ class Page_Controller extends MY_Controller {
 	        //global
 	    	$data['global']['js'][] = 'script_header_bar_mobile';
 	    	
-			$data['global']['style'][] = 'app/css/temp/style.css';
-			$data['global']['style'][] = 'app/css/temp/header_bar.css';
-			$data['global']['style'][] = 'app/css/temp/footer_bar.css';
-	        if($slug_Str == 'index')
-	        {
-				$data['global']['style'][] = 'app/css/page/index.css';
-	        }
-	        else
-	        {
-			  $data['global']['style'][] = 'app/css/page/'.$slug_Str.'.css';
-	        }
+			$data['global']['style'][] = 'temp/style.css';
+			$data['global']['style'][] = 'temp/header_bar.css';
+			$data['global']['style'][] = 'temp/footer_bar.css';
+	        $data['global']['style'][] = 'page/'.$slug_Str.'.css';
 	        
 	        //temp
 			$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

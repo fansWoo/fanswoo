@@ -1,5 +1,5 @@
 <?=$temp['header_up']?>
-<script src="app/js/smooth_scrollerator.js"></script>
+<script src="js/smooth_scrollerator.js"></script>
 <script>
 $(function(){
 	$(document).scroll(function(){
@@ -33,23 +33,23 @@ $(function(){
 			<div class="area">
 				
 				<h1>
-					<img src="app/img/webdesign/content1_bgtext/content1_1.png" class="text_1" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_2.png" class="text_2" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_3.png" class="text_3" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_4.png" class="text_4" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_5.png" class="text_5" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_6.png" class="text_6" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_7.png" class="text_7" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_8.png" class="text_8" width="40"> 
-					<img src="app/img/webdesign/content1_bgtext/content1_9.png" class="text_9" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_10.png" class="text_10" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_11.png" class="text_11" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_12.png" class="text_12" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_13.png" class="text_13" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_14.png" class="text_14" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_15.png" class="text_15" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_16.png" class="text_16" width="60">
-					<img src="app/img/webdesign/content1_bgtext/content1_17.png" class="text_17" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_1.png" class="text_1" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_2.png" class="text_2" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_3.png" class="text_3" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_4.png" class="text_4" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_5.png" class="text_5" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_6.png" class="text_6" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_7.png" class="text_7" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_8.png" class="text_8" width="40"> 
+					<img src="img/webdesign/content1_bgtext/content1_9.png" class="text_9" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_10.png" class="text_10" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_11.png" class="text_11" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_12.png" class="text_12" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_13.png" class="text_13" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_14.png" class="text_14" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_15.png" class="text_15" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_16.png" class="text_16" width="60">
+					<img src="img/webdesign/content1_bgtext/content1_17.png" class="text_17" width="60">
 				
 				
 				</h1>
@@ -61,7 +61,7 @@ $(function(){
 				
 				<div class="box1">
 						<div class="contentbox1" >
-							<div class="box" style="background-image:url(app/img/webdesign/content2_circle2.jpg);background-position:center;">
+							<div class="box" style="background-image:url(img/webdesign/content2_circle2.jpg);background-position:center;">
 								<div class="hoverbox">
 									<h2>行銷力</h2>
 									<p>不僅是做一個網站而已，更以行銷為基礎做設計，為企業製作能夠達到目標的網站</p>
@@ -71,7 +71,7 @@ $(function(){
 						</div>	
 						
 						<div class="contentbox2">
-							<div class="box" style="background-image:url(app/img/webdesign/content2_circle1.jpg);background-position:center;">
+							<div class="box" style="background-image:url(img/webdesign/content2_circle1.jpg);background-position:center;">
 								<div class="hoverbox">
 									<h2>美術力</h2>
 									<p>專業的美術設計師，以強悍的視覺效果為使用者留下深刻的印象</p>
@@ -81,7 +81,7 @@ $(function(){
 						</div>
 						
 						<div class="contentbox3" >
-							<div class="box" style="background-image:url(app/img/webdesign/content2_circle3.jpg);background-position:left;">
+							<div class="box" style="background-image:url(img/webdesign/content2_circle3.jpg);background-position:left;">
 								<div class="hoverbox">
 									<h2>技術力</h2>
 									<p>有了行銷與美術能力，更需要完善的技術能力，才能將創意製作成成品，讓創意並非僅止於空想而已，不只電腦網頁、手機網頁、手機App、各種程式系統，皆能為企業量身訂做。</p>
@@ -91,10 +91,10 @@ $(function(){
 							<p></p>
 							
 						</div>
-						<img src="app/img/webdesign/content2_dot.png" class="dot3">
-						<img src="app/img/webdesign/content2_dot1.png" class="dot2">
-						<img src="app/img/webdesign/content2_dot1.png" class="dot4">
-						<img src="app/img/webdesign/content2_dot.png" class="dot1">
+						<img src="img/webdesign/content2_dot.png" class="dot3">
+						<img src="img/webdesign/content2_dot1.png" class="dot2">
+						<img src="img/webdesign/content2_dot1.png" class="dot4">
+						<img src="img/webdesign/content2_dot.png" class="dot1">
 				</div>
 				<div class="box2">
 					<h1>Web Design</h1>
@@ -231,85 +231,85 @@ $(function(){
 		<div class="content9">
 			<div class="boxcontent">
 				<h4>專案作品</h4>
-				<img src="app/img/webdesign/content2_dot.png" class="dot">
+				<img src="img/webdesign/content2_dot.png" class="dot">
 				<div class="boxarea">
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/candace">
-							<img src="app/img/webdesign/candace.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/candace.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 					    <h2>Candace </h2>
 						<h3>洪秀女名品服飾設計<h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/chid">
-							<img src="app/img/webdesign/cheng.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/cheng.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>成浩設計 </h2>
 						<h3>嘉義頂級室內設計</h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/yyh">
-							<img src="app/img/webdesign/yyh.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/yyh.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>Y.Y.H </h2>
 						<h3>昀諭行專業空氣濾網</h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/eastmansion">
-							<img src="app/img/webdesign/east.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/east.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>EastMansion </h2>
 						<h3>高級歐美家具名品</h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/evpcone">
-							<img src="app/img/webdesign/evp.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/evp.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>EVP C-On </h2>
 						<h3>美商新能動力集團</h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/ipix">
-							<img src="app/img/webdesign/ipix.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/ipix.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>IPIX </h2>
 						<h3>鏡花園 </h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/kantocars">
-							<img src="app/img/webdesign/car.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/car.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>Kantocars </h2>
 						<h3>關東車材 </h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/wantgowant">
-							<img src="app/img/webdesign/want.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/want.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>WantGo  </h2>
 						<h3>旺旺集團購物商城 </h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/basilai">
-							<img src="app/img/webdesign/beer.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/beer.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>BASALAI </h2>
 						<h3>巴斯萊手工鮮釀啤酒</h3>
@@ -317,7 +317,7 @@ $(function(){
 					
 				
 				</div>
-						<img src="app/img/webdesign/content2_dot.png" class="dot">
+						<img src="img/webdesign/content2_dot.png" class="dot">
 						<div data-hrefto="index.php?ac=portfolio" class="enter">More Design</div>
 			</div>
 		</div>
