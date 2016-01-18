@@ -7,15 +7,15 @@
 							</h1>
 							<div class="text">
 								<div class="textArea">
-									<p>(02)2816-4533</p>
+									<p>070-1018-1068</p>
 									<p>業務部 #333</p>
 									<p>設計部 #331</p>
 									<p>企劃部 #330</p>
 								</div>
 								<div class="textArea">
 									<p>上班時間：</p>
-									<p>09:00 - 12:30</p>
-									<p>13:30 - 18:20</p>
+									<p>09:30 - 12:30</p>
+									<p>13:30 - 18:30</p>
 								</div>
 								<div class="textArea">
 									<a href="contact" class="request">索取報價</a>

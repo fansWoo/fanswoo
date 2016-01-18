@@ -4,10 +4,12 @@
 
 <script>
 $(function(){
-		$(window).resize(function(){
-			location.href = '';
-		});
-		$(" .slide_pic > .square").cycle({
+
+	$(window).resize(function(){
+		location.href = '';
+	});
+
+	$(" .slide_pic > .square").cycle({
 				fx      :       "scrollHorz", 
 				//fade
 				//scrollHorz
@@ -18,8 +20,9 @@ $(function(){
 				next: '.next',
 				prev: ' .prev',
 				
-		});
-		$(document).scroll(function(){
+	});
+
+	$(document).scroll(function(){
 			var window_width = $(window).width();
 			var scroll_top = $(document).scrollTop();
 			if(window_width > 1024 && window_width <= 1400){
@@ -140,28 +143,31 @@ $(function(){
 				   
 				}
 			}
-		});
+	});
+
 	var window_height = $(window).height();
 	$('.content_start').css('height', window_height);
 	
 	$(window).resize(function(){
 		var window_height = $(window).height();
 		$('.content_start').css('height', window_height);
-		
 	});
-	$('a[href^=#]').click(function () {
+
+	$('a[href^=#]').click(function(){
 		var speed = 500;
 		var href = $(this).attr("href");
 		var target = $(href == "#" || href == "" ? 'html' : href);
 		var position = target.offset().top;
 		$("html, body").animate({scrollTop: position}, speed, "swing");
-			return false;
+		return false;
 	});
+
 	if($(document).scrollTop() !== 0)
 	{
 		$(document).scrollTop(0);
-		location.href = 'page/index';
+		location.href = '';
 	}
+
 	$(document).scroll(function(){
         var scroll_top = $(document).scrollTop();
         var scroll_top_height = scroll_top + $(window).height();

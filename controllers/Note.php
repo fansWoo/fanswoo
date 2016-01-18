@@ -1,60 +1,6 @@
 <?php
 
 class Note_Controller extends MY_controller {
-    
-	// public function index()
-	// {
-
- //        $data = $this->data;
-        
- //        $this->load->model('note_list_model');
- //        $this->note_list_model->db_construct( array('db_where' => array('uid' => $data['user']['uid']) ) );
- //        $data['note_list'] = $this->note_list_model->get_array();
-	// 	$data['note_other_list'] = $data['note_list'];
-		
- //        //view
-	// 	$data['page'] = 'note';
-        
- //        //global
- //        $data['global']['style'][] = 'app/css/style.css';
- //        $data['global']['style'][] = 'app/css/note.css';
-        
- //        //temp
-	// 	$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-	// 	$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-	// 	$data['temp']['topheader'] = $this->load->view('temp/topheader', $data, TRUE);
-	// 	$data['temp']['footer'] = $this->load->view('temp/footer', $data, TRUE);
-		
-	// 	$this->load->view('note/index', $data);
-	// }
-	
-	// public function view($noteid = 0){
- //        $data = $this->data;
-		
- //        $this->load->model('note_model');
- //        $this->note_model->db_construct( array('db_where' => array('noteid' => $noteid) ) );
- //        $data['note'] = $this->note_model->get_array();
-        
- //        $this->load->model('note_list_model');
- //        $this->note_list_model->db_construct( array('db_where' => array('uid' => $data['user']['uid']) ) );
- //        $data['note_other_list'] = $this->note_list_model->get_array();
-        
- //        //data
-	// 	$data['page'] = 'note';
-        
- //        //global
- //        $data['global']['style'][] = 'app/css/style.css';
- //        $data['global']['style'][] = 'app/css/note.css';
-        
- //        //temp
-	// 	$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-	// 	$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-	// 	$data['temp']['topheader'] = $this->load->view('temp/topheader', $data, TRUE);
-	// 	$data['temp']['footer'] = $this->load->view('temp/footer', $data, TRUE);
-		
-	// 	$this->load->view('note/index', $data);
-
-	// }
 
 	public function index()
     {
@@ -91,8 +37,6 @@ class Note_Controller extends MY_controller {
             'limitcount_Num' => $limitcount_Num
         ));
         $data['page_link'] = $data['new_NoteFieldList']->create_links(array('base_url_Str' => 'note/'));
-
-        // ec($data['new_NoteFieldList']);
         
         $data['ClassMetaList'] = new ObjList();
         $data['ClassMetaList']->construct_db(array(
@@ -105,10 +49,12 @@ class Note_Controller extends MY_controller {
         ));
         
         //global
-		$data['global']['style'][] = 'app/css/temp/style.css';
-		$data['global']['style'][] = 'app/css/temp/header_bar.css';
-		$data['global']['style'][] = 'app/css/temp/footer_bar.css';
-		$data['global']['style'][] = 'app/css/note/index.css';
+		$data['global']['style'][] = 'temp/style.css';
+		$data['global']['style'][] = 'temp/header_bar.css';
+		$data['global']['style'][] = 'temp/footer_bar.css';
+		$data['global']['style'][] = 'note/index.css';
+
+        $data['global']['js'][] = 'smooth_scrollerator.js';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -166,10 +112,12 @@ class Note_Controller extends MY_controller {
         ));
         
         //global
-        $data['global']['style'][] = 'app/css/temp/style.css';
-        $data['global']['style'][] = 'app/css/temp/header_bar.css';
-		$data['global']['style'][] = 'app/css/temp/footer_bar.css';
-        $data['global']['style'][] = 'app/css/note/view.css';
+        $data['global']['style'][] = 'temp/style.css';
+        $data['global']['style'][] = 'temp/header_bar.css';
+		$data['global']['style'][] = 'temp/footer_bar.css';
+        $data['global']['style'][] = 'note/view.css';
+        
+        $data['global']['js'][] = 'smooth_scrollerator.js';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

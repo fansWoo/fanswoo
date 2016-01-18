@@ -19,10 +19,13 @@ class Marketing_Controller extends MY_controller
         $data['previous_url_Str'] = uri_string();
 
         //global
-        $data['global']['style'][] = 'app/css/temp/style.css';
-        $data['global']['style'][] = 'app/css/temp/header_bar.css';
-		$data['global']['style'][] = 'app/css/temp/footer_bar.css';
-        $data['global']['style'][] = 'app/css/marketing/index.css';
+        $data['global']['style'][] = 'temp/style.css';
+        $data['global']['style'][] = 'temp/header_bar.css';
+		$data['global']['style'][] = 'temp/footer_bar.css';
+        $data['global']['style'][] = 'marketing/index.css';
+
+        $data['global']['js'][] = 'smooth_scrollerator.js';
+        $data['global']['js'][] = 'cycle2.js';
             
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

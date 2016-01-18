@@ -17,7 +17,7 @@
 	});
 	</script>
 	<div fanswoo-message_show>
-		<span class="delete"><img src="app/img/admin/delete15x15.png"></span>
+		<span class="delete"><img src="img/admin/delete15x15.png"></span>
 		<?=$global['message_show']['content']?>
 	</div>
 <?endif?>

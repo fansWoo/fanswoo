@@ -1,5 +1,4 @@
 <?=$temp['header_up']?>
-<script src="app/js/smooth_scrollerator.js"></script>
 <?=$temp['header_down']?>
 <?=$temp['header_bar']?>
 		<div class="bg1"></div>

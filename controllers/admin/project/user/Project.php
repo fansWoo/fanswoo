@@ -104,8 +104,8 @@ class Project_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'app/css/admin/global.css';
-        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['style'][] = 'admin/global.css';
+        $data['global']['js'][] = 'admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -191,8 +191,8 @@ class Project_Controller extends MY_Controller {
         $data['admin_sidebox'] = $this->AdminModel->reset_sidebox();
 
         //global
-        $data['global']['style'][] = 'app/css/admin/global.css';
-        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['style'][] = 'admin/global.css';
+        $data['global']['js'][] = 'admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

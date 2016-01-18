@@ -1,6 +1,6 @@
 <?php
 
-class Server_Controller extends MY_controller
+class Webdesign_Controller extends MY_controller
 {
 	public function __construct()
     {
@@ -22,7 +22,7 @@ class Server_Controller extends MY_controller
         $data['global']['style'][] = 'temp/style.css';
         $data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
-        $data['global']['style'][] = 'server/index.css';
+        $data['global']['style'][] = 'webdesign/index.css';
 
         $data['global']['js'][] = 'smooth_scrollerator.js';
         $data['global']['js'][] = 'cycle2.js';
@@ -35,7 +35,7 @@ class Server_Controller extends MY_controller
 		$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('server/index', $data);
+        $this->load->view('webdesign/index', $data);
     }
 
 }

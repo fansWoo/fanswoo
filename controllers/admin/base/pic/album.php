@@ -58,8 +58,8 @@ class Album_Controller extends MY_Controller {
         ));
 
         //global
-        $data['global']['style'][] = 'app/css/admin/global.css';
-        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['style'][] = 'admin/global.css';
+        $data['global']['js'][] = 'admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -204,8 +204,8 @@ class Album_Controller extends MY_Controller {
         $data['class_links'] = $data['class_list_ClassMetaList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
 
         //global
-        $data['global']['style'][] = 'app/css/admin/global.css';
-        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['style'][] = 'admin/global.css';
+        $data['global']['js'][] = 'admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

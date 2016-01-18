@@ -13,7 +13,7 @@
 			<div class="area">
 				<div class="box1">
 						<div class="contentbox1" >
-							<div class="box" style="background-image:url(app/img/mobile/webdesign/content2_circle2.jpg);background-position:center;">
+							<div class="box" style="background-image:url(img/mobile/webdesign/content2_circle2.jpg);background-position:center;">
 								<div class="hoverbox">
 									<h2>行銷力</h2>
 									<p>不僅是做一個網站而已，更以行銷為基礎做設計，為企業製作能夠達到目標的網站</p>
@@ -23,7 +23,7 @@
 						</div>	
 						
 						<div class="contentbox2">
-							<div class="box" style="background-image:url(app/img/mobile/webdesign/content2_circle1.jpg);background-position:center;">
+							<div class="box" style="background-image:url(img/mobile/webdesign/content2_circle1.jpg);background-position:center;">
 								<div class="hoverbox">
 									<h2>美術力</h2>
 									<p>專業的美術設計師，以強悍的視覺效果為使用者留下深刻的印象</p>
@@ -33,7 +33,7 @@
 						</div>
 						
 						<div class="contentbox3" >
-							<div class="box" style="background-image:url(app/img/mobile/webdesign/content2_circle3.jpg);background-position:left;">
+							<div class="box" style="background-image:url(img/mobile/webdesign/content2_circle3.jpg);background-position:left;">
 								<div class="hoverbox">
 									<h2>技術力</h2>
 									<p>有了行銷與美術能力，更需要完善的技術能力，才能將創意製作成成品，讓創意並非僅止於空想而已，不只電腦網頁、手機網頁、手機App、各種程式系統，皆能為企業量身訂做。</p>
@@ -86,7 +86,7 @@
 						<div class="boxCircle">
 						</div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon1.png">
+							<img src="img/mobile/webdesign/content5_icon1.png">
 						</div>
 						<p class="boxTitle">頂尖網頁技術</p>
 						<p>HTML5 + CSS3 最先進的網頁設計技術，取代傳統舊式網頁，呈現完美的瀏覽效果 </p>
@@ -95,7 +95,7 @@
 					
 						<div class="boxCircle"></div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon2.png">
+							<img src="img/mobile/webdesign/content5_icon2.png">
 						</div>
 						<p class="boxTitle">依需求調整預算</p>
 						<p>依照客戶預算做最適合的功能及美術調配，無論預算金額大小皆有對應的服務 </p>
@@ -104,7 +104,7 @@
 						
 						<div class="boxCircle"></div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon3.png">
+							<img src="img/mobile/webdesign/content5_icon3.png">
 						</div>
 						<p class="boxTitle">客製化服務</p>
 						<p>為企業提供完全量身打造的客製化功能及美術效果，抓住使用者的潛在需求</p>
@@ -113,7 +113,7 @@
 						
 						<div class="boxCircle"></div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon4.png">
+							<img src="img/mobile/webdesign/content5_icon4.png">
 						</div>
 						<p class="boxTitle">完美視覺設計</p>
 						<p>由專業的美術設計師、網頁設計師、程式設計師共同製作，創造非同小可的視覺饗宴</p>
@@ -122,7 +122,7 @@
 						
 						<div class="boxCircle"></div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon5.png">
+							<img src="img/mobile/webdesign/content5_icon5.png">
 						</div>
 						<p class="boxTitle">流量統計系統</p>
 						<p>Google Analytics 世界第一流量統計系統，徹底分析每一個使用者的瀏覽狀態及需求 </p>
@@ -131,7 +131,7 @@
 						
 						<div class="boxCircle"></div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon6.png">
+							<img src="img/mobile/webdesign/content5_icon6.png">
 						</div>
 						<p class="boxTitle">多種裝置適用</p>
 						<p>電腦、手機、平板裝置的響應式瀏覽技術，無論何種裝置需求，皆可為客戶選擇性製作</p>
@@ -141,7 +141,7 @@
 						
 						<div class="boxCircle"></div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon7.png">
+							<img src="img/mobile/webdesign/content5_icon7.png">
 						</div>
 						<p class="boxTitle">專人客服</p>
 						<p>提供上班時間的客服專線，供客戶有任何想法或需求時，有立即性的聯繫窗口 </p>
@@ -151,7 +151,7 @@
 						
 						<div class="boxCircle"></div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon8.png">
+							<img src="img/mobile/webdesign/content5_icon8.png">
 						</div>
 						<p class="boxTitle">FB社群外掛</p>
 						<p>只要有需求，即可為客戶設置FB社群外掛，亦可製作FB API等高階功能系統 </p>
@@ -161,7 +161,7 @@
 						
 						<div class="boxCircle"></div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon10.png">
+							<img src="img/mobile/webdesign/content5_icon10.png">
 						</div>
 						<p class="boxTitle">基本SEO設置</p>
 						<p>提供基本SEO設置欄位，為網站在搜尋特定關鍵字時能夠有更高的機率被點擊</p>
@@ -171,7 +171,7 @@
 						
 						<div class="boxCircle"></div>
 						<div class="pic">
-							<img src="app/img/mobile/webdesign/content5_icon9.png">
+							<img src="img/mobile/webdesign/content5_icon9.png">
 						</div>
 						<p class="boxTitle">提供PHP原始碼</p>
 						<p>所有客製化網站皆提供PHP原始碼，不綁住客戶所有權，更保障客戶的使用權利 </p>
@@ -188,15 +188,15 @@
 		<div class="content9">
 			<div class="boxcontent">
 				<h4>專案作品</h4>
-				<img src="app/img/mobile/webdesign/content2_dot.png" class="dot">
+				<img src="img/mobile/webdesign/content2_dot.png" class="dot">
 			
 					
 				<div class="boxarea">
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/candace">
-							<img src="app/img/webdesign/candace.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/candace.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 							
 						</div>
 					    <h2>Candace </h2>
@@ -204,72 +204,72 @@
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/chid">
-							<img src="app/img/webdesign/cheng.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/cheng.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>成浩設計 </h2>
 						<h3>嘉義頂級室內設計</h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/yyh">
-							<img src="app/img/webdesign/yyh.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/yyh.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>Y.Y.H </h2>
 						<h3>昀諭行專業空氣濾網</h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/eastmansion">
-							<img src="app/img/webdesign/east.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/east.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>EastMansion </h2>
 						<h3>高級歐美家具名品</h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/evpcone">
-							<img src="app/img/webdesign/evp.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/evp.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>EVP C-On </h2>
 						<h3>美商新能動力集團</h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/ipix">
-							<img src="app/img/webdesign/ipix.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/ipix.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>IPIX </h2>
 						<h3>鏡花園 </h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/kantocars">
-							<img src="app/img/webdesign/car.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/car.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>Kantocars </h2>
 						<h3>關東車材 </h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/wantgowant">
-							<img src="app/img/webdesign/want.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/want.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>WantGo  </h2>
 						<h3>旺旺集團購物商城 </h3>
 					</div>
 					<div class="box">
 						<div class="picbox" data-hrefto="http://web.fanswoo.com/basial">
-							<img src="app/img/webdesign/beer.jpg">
-							<img src="app/img/webdesign/content9_border.png" class="border">
-							<img src="app/img/webdesign/content9_shadow.png" class="shadow">
+							<img src="img/webdesign/beer.jpg">
+							<img src="img/webdesign/content9_border.png" class="border">
+							<img src="img/webdesign/content9_shadow.png" class="shadow">
 						</div>
 						<h2>BASALAI</h2>
 						<h3>巴斯萊手工鮮釀啤酒</h3>
@@ -277,7 +277,7 @@
 					
 				
 				</div>
-						<img src="app/img/mobile/webdesign/content2_dot.png" class="dot1">
+						<img src="img/mobile/webdesign/content2_dot.png" class="dot1">
 						<div data-hrefto="index.php?ac=portfolio" class="enter">More Design</div>
 			</div>
 		</div>

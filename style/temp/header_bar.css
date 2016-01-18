@@ -22,11 +22,6 @@ body { font-size: 12px; /* Resets 1em to 10px */color: #000; background: #fff ur
 .logoStart.opacity0 { -webkit-animation:fadeOutDown 1s; animation:fadeOutDown 1s; }
 .logoStart img{ width:200px; height:90px; }
 
-.picLoading { display:block; position:fixed; overflow:hidden; left:50%; top:50%; width:300px; height:300px; margin:30px 0 0 -150px; z-index:99999; text-align:center; font-size:16px; color:#555; }
-.picLoading.opacity0 { -webkit-animation:fadeOutDown 1s; animation:fadeOutDown 1s; }
-.picLoadingList { display:none; }
-.picLoadingList2 { display:none; }
-
 .logoFixed { display: block; position:fixed; left:50%; top:0; margin-left:-450px; width:160px; height:60px; padding:0; background: url(../../img/logo.svg) no-repeat 0 10px; text-indent:-9999px; z-index:999999; overflow:hidden; -webkit-animation:p201407240426 3s; animation:p201407240426 3s; }
 @-webkit-keyframes p201407240426{
 	0%{ -webkit-transform: translate(-30px, 0); opacity:0; }
@@ -123,7 +118,6 @@ body.start .index_topHeader.hover{display:block;z-index:111;}
 }
 @media screen and (max-width: 700px){
 	.logoStart{display:none;}
-	.picLoading{display:none;} 
 	.logoFixed {display:none;}
 	.pc_footer {display:none;}
 	.contactFormHover{display:none;}

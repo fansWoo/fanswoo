@@ -53,8 +53,8 @@ class Design_Controller extends MY_Controller {
         }
 
         //global
-        $data['global']['style'][] = 'app/css/admin/global.css';
-        $data['global']['js'][] = 'app/js/admin.js';
+        $data['global']['style'][] = 'admin/global.css';
+        $data['global']['js'][] = 'admin.js';
         $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
 
         //temp

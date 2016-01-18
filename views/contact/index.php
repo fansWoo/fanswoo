@@ -1,5 +1,4 @@
 <?=$temp['header_up']?>
-<script src="app/js/smooth_scrollerator.js"></script>
 <!-- Facebook Conversion Code for 聯繫我們 -->
 <script>(function() {
   var _fbq = window._fbq || (window._fbq = []);
@@ -75,25 +74,25 @@ $(function(){
 				<h2>聯繫 <b>C</b>ontact</h2>
 				<p style="margin-bottom:10px;"><b>立即聯繫我們，讓我們為客戶打造一流品牌形象</b></p>
 				<div class="stage">
-					<img class="pic" src="app/img/time.png">
-					<p>早上 09:00 - 12:30</p>
-					<p>下午 13:30 - 18:20</p>
+					<img class="pic" src="img/time.png">
+					<p>早上 09:30 - 12:30</p>
+					<p>下午 13:30 - 18:30</p>
 				</div>
 				<div class="stage">
-					<img class="pic" src="app/img/tel.png">
-					<p>02-5599-6115</p>
+					<img class="pic" src="img/tel.png">
+					<p>070-1018-1068</p>
 					<p>業務部 #888</p>
 					<p>設計部 #333</p>
 				</div>
 				<div class="stage">
-					<img class="pic" src="app/img/email.png">
+					<img class="pic" src="img/email.png">
 					<p><a href="mailto:service@fanswoo.com">service@fanswoo.com</a></p>
 					<p><a href="mailto:yi@fanswoo.com">yi@fanswoo.com</a></p>
 				</div>
 				<div class="stage">
-					<img class="pic" src="app/img/add.png">
-					 <p>台北市重慶北路四段 248 號 3 樓</p>
-					 <p>3F., No.248, Sec. 4, Chongqing N. Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
+					<img class="pic" src="img/add.png">
+					 <p>台北市大南路 419 號 6 樓</p>
+					 <p>6F., No.419, Danan Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
 				</div>
 			</div>
 		</div>
@@ -199,22 +198,22 @@ $(function(){
 				<h2>聯繫 <b>C</b>ontact</h2>
 				<p  class="title_p"><b>立即聯繫我們，讓我們為客戶打造一流品牌形象</b></p>
 				<div class="stage">
-					<img class="pic" src="app/img/time.png">
+					<img class="pic" src="img/time.png">
 					<p>早上 09:00 - 12:30</p>
 					<p>下午 13:30 - 18:20</p>
 				</div>
 				<div class="stage">
-					<img class="pic" src="app/img/tel.png">
+					<img class="pic" src="img/tel.png">
 					<p>業務部 (02)2816-4533 #333</p>
 					<p>傳真機 (02)2816-4538</p>
 				</div>
 				<div class="stage">
-					<img class="pic" src="app/img/email.png">
+					<img class="pic" src="img/email.png">
 					<p><a href="mailto:service@fanswoo.com">service@fanswoo.com</a></p>
 					<p><a href="mailto:yi@fanswoo.com">yi@fanswoo.com</a></p>
 				</div>
 				<div class="stage">
-					<img class="pic" src="app/img/add.png">
+					<img class="pic" src="img/add.png">
 					 <p class="p">台北市重慶北路四段 248 號 4 樓</p>
 					 <p>3F., No.248, Sec. 4, Chongqing N. Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
 				</div>

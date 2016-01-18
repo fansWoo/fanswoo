@@ -11,7 +11,7 @@ class Recaptcha_Controller extends MY_Controller
 		$this->load->library('form_validation');
         
         //global
-		$data['global']['style'][] = 'app/css/style'.$agent_temp.'.css';
+		$data['global']['style'][] = 'style'.$agent_temp.'.css';
 		$data['global']['style'][] = $page.$agent_temp.'.css';
         
         //temp

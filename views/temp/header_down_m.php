@@ -24,7 +24,7 @@
 <body>
 	<div class="header">
 	  <div class="logoarea">
-		<a href="page/index"><img src="app/img/logoBig.png"  class="logo"></a>
+		<a href="page/index"><img src="img/logoBig.png"  class="logo"></a>
 	  </div> 
 	  <div class="nav">
 		   <div class="in_nav">

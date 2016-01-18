@@ -1,6 +1,4 @@
 <?=$temp['header_up']?>
-<script src="app/js/smooth_scrollerator.js"></script>
-<script src="app/js/cycle2.js"></script>
 <script>
 $(function(){
 	$(window).resize(function(){
@@ -307,7 +305,7 @@ $(function(){
 <div class="content1">
 	<div class="area">
 		<div class="pic1">
-			<img src="app/img/marketing/content1/pic1.png">
+			<img src="img/marketing/content1/pic1.png">
 		</div>
 		<div class="text">
 			<h2>提供世界一流的Google雲端伺服器</h2>
@@ -315,7 +313,7 @@ $(function(){
 			<h2>找到完美解決方案！</h2>	
 		</div>
 		<a href="#content2" class="arrow">
-			<img src="app/img/index/arrow_down.png">	
+			<img src="img/index/arrow_down.png">	
 		</a>
 	</div>
 </div>
@@ -340,19 +338,19 @@ $(function(){
 			</div>
 		</div>
 		<div class="bg">
-			<img src="app/img/marketing/content2/bg1.png" class="one">
-			<img src="app/img/marketing/content2/bg2.png" class="two">
-			<img src="app/img/marketing/content2/bg3.png" class="three">
-			<img src="app/img/marketing/content2/bg4.png" class="four">
-			<img src="app/img/marketing/content2/bg5.png" class="five">
-			<img src="app/img/marketing/content2/bg6.png" class="six">
-			<img src="app/img/marketing/content2/bg7.png" class="seven">
-			<img src="app/img/marketing/content2/bg8.png" class="eight">
-			<img src="app/img/marketing/content2/bg9.png" class="nine">
-			<img src="app/img/marketing/content2/bg10.png" class="ten">
-			<img src="app/img/marketing/content2/bg11.png" class="eleven">
-			<img src="app/img/marketing/content2/bg12.png" class="twelve">
-			<img src="app/img/marketing/content2/bg13.png" class="thirteen">
+			<img src="img/marketing/content2/bg1.png" class="one">
+			<img src="img/marketing/content2/bg2.png" class="two">
+			<img src="img/marketing/content2/bg3.png" class="three">
+			<img src="img/marketing/content2/bg4.png" class="four">
+			<img src="img/marketing/content2/bg5.png" class="five">
+			<img src="img/marketing/content2/bg6.png" class="six">
+			<img src="img/marketing/content2/bg7.png" class="seven">
+			<img src="img/marketing/content2/bg8.png" class="eight">
+			<img src="img/marketing/content2/bg9.png" class="nine">
+			<img src="img/marketing/content2/bg10.png" class="ten">
+			<img src="img/marketing/content2/bg11.png" class="eleven">
+			<img src="img/marketing/content2/bg12.png" class="twelve">
+			<img src="img/marketing/content2/bg13.png" class="thirteen">
 		</div>
 	</div>
 	<div class="phone_area">
@@ -369,14 +367,14 @@ $(function(){
 			</div>
 		</div>
 		<div class="bg">
-			<img src="app/img/marketing/content2/bg.png">
+			<img src="img/marketing/content2/bg.png">
 		</div>
 	</div>
 </div>
 <div class="content3">
 	<div class="area">
 		<div class="title_box">
-			<img src="app/img/marketing/content3/title.png">
+			<img src="img/marketing/content3/title.png">
 			<div class="right_text">	
 				<h1>Facebook<br> 
 				社群行銷的時代！</h1>
@@ -386,20 +384,20 @@ $(function(){
 	
 	<div class="item_area">
 		<div class="line_box1">
-			<img src="app/img/marketing/content3/line_box.png">
+			<img src="img/marketing/content3/line_box.png">
 		</div>
 		<div class="line_box2">
-			<img src="app/img/marketing/content3/line_box.png">
+			<img src="img/marketing/content3/line_box.png">
 		</div>
 		<div class="line_box3">
-			<img src="app/img/marketing/content3/line_long.png">
+			<img src="img/marketing/content3/line_long.png">
 		</div>
 		<div class="item_box one">
 			<div class="pic_box">
-				<img src="app/img/marketing/content3/icon01.png">
+				<img src="img/marketing/content3/icon01.png">
 			</div>
 			<div class="text_box">
-				<img src="app/img/marketing/content3/text01.png">
+				<img src="img/marketing/content3/text01.png">
 				<div class="text">
 					<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
 				</div>
@@ -407,10 +405,10 @@ $(function(){
 		</div>
 		<div class="item_box two">
 			<div class="pic_box">
-				<img src="app/img/marketing/content3/icon02.png">
+				<img src="img/marketing/content3/icon02.png">
 			</div>
 			<div class="text_box">
-				<img src="app/img/marketing/content3/text02.png">
+				<img src="img/marketing/content3/text02.png">
 				<div class="text">
 					<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
 				</div>
@@ -418,10 +416,10 @@ $(function(){
 		</div>
 		<div class="item_box three">
 			<div class="pic_box">
-				<img src="app/img/marketing/content3/icon03.png">
+				<img src="img/marketing/content3/icon03.png">
 			</div>
 			<div class="text_box">
-				<img src="app/img/marketing/content3/text03.png">
+				<img src="img/marketing/content3/text03.png">
 				<div class="text">
 					<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，替您的產品找到最佳效益的廣告配置。</p>
 				</div>
@@ -433,86 +431,86 @@ $(function(){
 <div class="content4">
 	<div class="area">
 		<div class="line">
-			<img src="app/img/marketing/content4/line.png">
+			<img src="img/marketing/content4/line.png">
 		</div>
 		<div class="hover_area01">
 			<div class="start01">
-				<img src="app/img/marketing/content4/pic02.png">
+				<img src="img/marketing/content4/pic02.png">
 			</div>
 			<div class="start02">
-				<img src="app/img/marketing/content4/pic02.png">
+				<img src="img/marketing/content4/pic02.png">
 			</div>
 			<div class="pic01">
-				<img src="app/img/marketing/content4/pic01.png">
+				<img src="img/marketing/content4/pic01.png">
 			</div>
 			<div class="dialog_box one" id="dialog_box_one">
 				<div class="number">
 					<h3><span data-count="56">0</span>%</h3>
 					<p>的用戶表示</p>
 				</div>
-				<img src="app/img/marketing/content4/pic03.png">
+				<img src="img/marketing/content4/pic03.png">
 			</div>
 			<div class="window01">
-				<img src="app/img/marketing/content4/window01.png">
+				<img src="img/marketing/content4/window01.png">
 			</div>
 			<div class="text_area one">
 				<h1>貼文廣告</h1>
 				<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
-				<img src="app/img/marketing/content4/icon01.png">
+				<img src="img/marketing/content4/icon01.png">
 			</div>
 		</div>
 		<div class="hover_area02">	
 			<div class="window02">
-				<img src="app/img/marketing/content4/window02.png">
+				<img src="img/marketing/content4/window02.png">
 			</div>
 			<div class="hand">
-				<img src="app/img/marketing/content4/hand.png">
+				<img src="img/marketing/content4/hand.png">
 			</div>
 			<div class="text_area two">
 				<h1>讚廣告</h1>
 				<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
-				<img src="app/img/marketing/content4/icon02.png">
+				<img src="img/marketing/content4/icon02.png">
 			</div>
 			<div class="dialog_box two" id="dialog_box_two">
 				<div class="number">
 					<h3><span data-count="42">0</span>%</h3>
 					<p>的用戶表示</p>
 				</div>
-				<img src="app/img/marketing/content4/pic04.png">
+				<img src="img/marketing/content4/pic04.png">
 			</div>
 			<div class="dialog_box three" id="dialog_box_three">
 				<div class="number">
 					<h3><span data-count="36">0</span>%</h3>
 					<p>的用戶表示</p>
 				</div>
-				<img src="app/img/marketing/content4/pic05.png">
+				<img src="img/marketing/content4/pic05.png">
 			</div>
 		</div>
 	</div>	
 	<div class="phone_area">
 		<div class="dialog_box01">
-			<img src="app/img/marketing/content4/mobile/dialog_box01.png">
+			<img src="img/marketing/content4/mobile/dialog_box01.png">
 		</div>
 		<div class="dialog_box02">
-			<img src="app/img/marketing/content4/mobile/dialog_box02.png">
+			<img src="img/marketing/content4/mobile/dialog_box02.png">
 		</div>
 		<div class="dialog_box03">
-			<img src="app/img/marketing/content4/mobile/dialog_box03.png">
+			<img src="img/marketing/content4/mobile/dialog_box03.png">
 		</div>
 		<div class="line01">
-			<img src="app/img/marketing/content4/mobile/line01.png">
+			<img src="img/marketing/content4/mobile/line01.png">
 		</div>
 		<div class="line02">
-			<img src="app/img/marketing/content4/mobile/line02.png">
+			<img src="img/marketing/content4/mobile/line02.png">
 		</div>
 		<div class="window01">
-			<img src="app/img/marketing/content4/window01.png">
+			<img src="img/marketing/content4/window01.png">
 		</div>
 		<div class="window02">
-			<img src="app/img/marketing/content4/window02.png">
+			<img src="img/marketing/content4/window02.png">
 		</div>
 		<div class="hand">
-			<img src="app/img/marketing/content4/mobile/hand.png">
+			<img src="img/marketing/content4/mobile/hand.png">
 		</div>
 		<div class="text_box01">
 			<h1>貼文廣告</h1>
@@ -523,18 +521,18 @@ $(function(){
 			<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
 		</div>
 		<div class="pic01">
-			<img src="app/img/marketing/content4/icon01.png">
+			<img src="img/marketing/content4/icon01.png">
 		</div>
 		<div class="pic02">
-			<img src="app/img/marketing/content4/icon02.png">
+			<img src="img/marketing/content4/icon02.png">
 		</div>
 	</div>
 </div>
 <div class="content5">
 	<div class="area">
 		<div class="title_box">
-			<img src="app/img/marketing/content5/title.png" class="pc_title">
-			<img src="app/img/marketing/content5/title2.png" class="phone_title">
+			<img src="img/marketing/content5/title.png" class="pc_title">
+			<img src="img/marketing/content5/title2.png" class="phone_title">
 			<div class="right_text">	
 				<h1>Google<br> 
 				全方位精準行銷</h1>
@@ -543,38 +541,38 @@ $(function(){
 		</div>
 		<div class="item_area">
 			<div class="line_box1">
-				<img src="app/img/marketing/content3/line_box.png">
+				<img src="img/marketing/content3/line_box.png">
 			</div>
 			<div class="line_box2">
-				<img src="app/img/marketing/content3/line_box.png">
+				<img src="img/marketing/content3/line_box.png">
 			</div>
 			<div class="line_box3">
-				<img src="app/img/marketing/content5/line_long.png">
+				<img src="img/marketing/content5/line_long.png">
 			</div>
 			<div class="item_box one">
 				<div class="pic_box">
-					<img src="app/img/marketing/content3/icon01.png">
+					<img src="img/marketing/content3/icon01.png">
 				</div>
 				<div class="text_box ">
-					<img src="app/img/marketing/content5/text01.png">
+					<img src="img/marketing/content5/text01.png">
 					<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
 				</div>
 			</div>
 			<div class="item_box two">
 				<div class="pic_box">
-					<img src="app/img/marketing/content3/icon02.png">
+					<img src="img/marketing/content3/icon02.png">
 				</div>
 				<div class="text_box">
-					<img src="app/img/marketing/content5/text02.png">
+					<img src="img/marketing/content5/text02.png">
 					<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
 				</div>
 			</div>
 			<div class="item_box three">
 				<div class="pic_box">
-					<img src="app/img/marketing/content3/icon03.png">
+					<img src="img/marketing/content3/icon03.png">
 				</div>
 				<div class="text_box">
-					<img src="app/img/marketing/content5/text03.png">
+					<img src="img/marketing/content5/text03.png">
 					<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，替您的產品找到最佳效益的廣告配置。</p>
 				</div>
 			</div>
@@ -591,55 +589,55 @@ $(function(){
 			<p>只要把廣告放上Google聯播網，就會在全台最熱門的網站上曝光，幫您打響知名度幫您打響知名度。</p>
 		</div>
 		<div class="earth">
-			<img src="app/img/marketing/content6/earth.png">
+			<img src="img/marketing/content6/earth.png">
 		</div>
 		<div class="computer">
-			<img src="app/img/marketing/content6/computer.png">
+			<img src="img/marketing/content6/computer.png">
 		</div>
 		<div class="start">
-			<img src="app/img/marketing/content6/start.png">
+			<img src="img/marketing/content6/start.png">
 		</div>
 		<div class="bottom_line01">
-			<img src="app/img/marketing/content6/bottom_line01.png">
+			<img src="img/marketing/content6/bottom_line01.png">
 		</div>
 		<div class="bottom_line02">
-			<img src="app/img/marketing/content6/bottom_line02.png">
+			<img src="img/marketing/content6/bottom_line02.png">
 		</div>
 		<div class="bottom_line03">
-			<img src="app/img/marketing/content6/bottom_line03.png">
+			<img src="img/marketing/content6/bottom_line03.png">
 		</div>
 		<div class="bottom_line04">
-			<img src="app/img/marketing/content6/bottom_line04.png">
+			<img src="img/marketing/content6/bottom_line04.png">
 		</div>
 		<div class="phone_line">
-			<img src="app/img/marketing/content6/mobile/line.png">
+			<img src="img/marketing/content6/mobile/line.png">
 		</div>
 		<div class="phone_line2">
-			<img src="app/img/marketing/content6/mobile/line2.png">
+			<img src="img/marketing/content6/mobile/line2.png">
 		</div>
 		<div class="circle_box one">
-			<img src="app/img/marketing/content6/icon.png">
+			<img src="img/marketing/content6/icon.png">
 			<div class="text">
 				<p>Google的廣告格式</p>
 				<p>可以滿足各種行銷訴求</p>
 			</div>
 		</div>
 		<div class="circle_box two">
-			<img src="app/img/marketing/content6/icon.png">
+			<img src="img/marketing/content6/icon.png">
 			<div class="text">	
 				<p>Google的廣告格式</p>
 				<p>可以滿足各種行銷訴求</p>
 			</div>
 		</div>
 		<div class="circle_box three">
-			<img src="app/img/marketing/content6/icon.png">
+			<img src="img/marketing/content6/icon.png">
 			<div class="text">		
 				<p>Google的廣告格式</p>
 				<p>可以滿足各種行銷訴求</p>
 			</div>
 		</div>
 		<div class="circle_box four">
-			<img src="app/img/marketing/content6/icon.png">
+			<img src="img/marketing/content6/icon.png">
 			<div class="text">		
 				<p>Google的廣告格式</p>
 				<p>可以滿足各種行銷訴求</p>
@@ -654,9 +652,9 @@ $(function(){
 		<div class="center_box">
 			<div class="box">
 				<div class="pic_box">
-					<img src="app/img/marketing/content7/icon01.png" class="pic">
-					<img src="app/img/marketing/content7/pic01.png" class="pic_hover">
-					<img src="app/img/marketing/content7/border.png" class="border">
+					<img src="img/marketing/content7/icon01.png" class="pic">
+					<img src="img/marketing/content7/pic01.png" class="pic_hover">
+					<img src="img/marketing/content7/border.png" class="border">
 				</div>
 				<div class="text">
 					<h2>有效的網路行銷</h2>
@@ -665,14 +663,14 @@ $(function(){
 			</div>
 			<div class="box two">
 				<div class="pic_box">
-					<img src="app/img/marketing/content7/icon02.png" class="pic">
-					<img src="app/img/marketing/content7/pic02.png" class="pic_hover">
-					<img src="app/img/marketing/content7/border.png" class="border">
+					<img src="img/marketing/content7/icon02.png" class="pic">
+					<img src="img/marketing/content7/pic02.png" class="pic_hover">
+					<img src="img/marketing/content7/border.png" class="border">
 					<div class="line01">
-						<img src="app/img/marketing/content7/line.png">
+						<img src="img/marketing/content7/line.png">
 					</div>
 					<div class="line02">
-						<img src="app/img/marketing/content7/line.png">
+						<img src="img/marketing/content7/line.png">
 					</div>
 				</div>
 				<p class="p">導入人潮</p>
@@ -684,9 +682,9 @@ $(function(){
 			</div>
 			<div class="box">
 				<div class="pic_box">
-					<img src="app/img/marketing/content7/icon03.png" class="pic">
-					<img src="app/img/marketing/content7/pic03.png" class="pic_hover">
-					<img src="app/img/marketing/content7/border.png" class="border">
+					<img src="img/marketing/content7/icon03.png" class="pic">
+					<img src="img/marketing/content7/pic03.png" class="pic_hover">
+					<img src="img/marketing/content7/border.png" class="border">
 				</div>
 				<div class="text">
 					<h2>創造正面循環</h2>
@@ -702,17 +700,17 @@ $(function(){
 			<div class="slide_pic" >
 				<div class="square">
 					<div class="slide_pic_href one">
-						<img src="app/img/marketing/content7/mobile/pic01.png">
+						<img src="img/marketing/content7/mobile/pic01.png">
 						<h2>有效的網路行銷</h2>
 						<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
 					</div>
 					<div class="slide_pic_href one">
-						<img src="app/img/marketing/content7/mobile/pic02.png">
+						<img src="img/marketing/content7/mobile/pic02.png">
 						<h2>有效的網路行銷</h2>
 						<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
 					</div>
 					<div class="slide_pic_href one">
-						<img src="app/img/marketing/content7/mobile/pic03.png">
+						<img src="img/marketing/content7/mobile/pic03.png">
 						<h2>有效的網路行銷</h2>
 						<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
 					</div>

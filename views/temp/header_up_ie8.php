@@ -17,4 +17,4 @@
 	<script src="app/js/<?=$value?>.js"></script>
 	<?endforeach?>
 	<?endif?>
-	<link rel="shortcut icon" href="app/img/favicon.ico"></link>
+	<link rel="shortcut icon" href="img/favicon.ico"></link>

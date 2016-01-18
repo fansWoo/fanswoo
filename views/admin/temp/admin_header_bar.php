@@ -155,7 +155,7 @@
         <div class="header_bar_mobile">
         <a href="" class="logo"></a>
             <div class="menu">
-                <img src="app/img/menu.png">
+                <img src="img/menu.png">
             </div>
         </div>
         <div class="header_bar_mobile_content">

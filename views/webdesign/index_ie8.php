@@ -1,33 +1,10 @@
 <?=$temp['header_up']?>
-<script src="js/smooth_scrollerator.js"></script>
-<script>
-$(function(){
-	$(document).scroll(function(){
-		var scroll_top = $(document).scrollTop();
-		if(scroll_top == 0){
-			$('.content2, .content3,  .content5, .content9').removeClass('hover');
-		}
-		else if(scroll_top >= 300 && scroll_top < 1300){
-			$('.content2').addClass('hover');
-		}
-		else if(scroll_top >= 1300 && scroll_top < 2100){
-			$('.content3').addClass('hover');
-		}
-		else if(scroll_top >= 2100 && scroll_top < 2900){
-			$('.content5').addClass('hover');
-		}
-		else if(scroll_top >= 2900 && scroll_top < 3800){
-			$('.content9').addClass('hover');
-		}
-		
-	});
-});
-</script>
+
 <?=$temp['header_down']?>
-<!-- 		<div class="bg1">fansWoo</div>
+		<div class="bg1">fansWoo</div>
 		<div class="bg2">fansWoo</div>
-		<div class="bg3">fansWoo</div> -->
-<?=$temp['header_bar']?>
+		<div class="bg3">fansWoo</div>
+<?=$temp['topheader']?>
         
 		<div class="content1">
 			<div class="area">
@@ -61,7 +38,7 @@ $(function(){
 				
 				<div class="box1">
 						<div class="contentbox1" >
-							<div class="box" style="background-image:url(img/webdesign/content2_circle2.jpg);background-position:center;">
+							<div class="box" style="background-image:url(img/ie8/webdesign/content2_circle2.png);background-position:center;">
 								<div class="hoverbox">
 									<h2>行銷力</h2>
 									<p>不僅是做一個網站而已，更以行銷為基礎做設計，為企業製作能夠達到目標的網站</p>
@@ -69,9 +46,8 @@ $(function(){
 							</div>
 							<p></p>
 						</div>	
-						
 						<div class="contentbox2">
-							<div class="box" style="background-image:url(img/webdesign/content2_circle1.jpg);background-position:center;">
+							<div class="box" style="background-image:url(img/ie8/webdesign/content2_circle1.png);background-position:center;">
 								<div class="hoverbox">
 									<h2>美術力</h2>
 									<p>專業的美術設計師，以強悍的視覺效果為使用者留下深刻的印象</p>
@@ -79,21 +55,18 @@ $(function(){
 							</div>
 							<p></p>
 						</div>
-						
 						<div class="contentbox3" >
-							<div class="box" style="background-image:url(img/webdesign/content2_circle3.jpg);background-position:left;">
+							<div class="box" style="background-image:url(img/ie8/webdesign/content2_circle3.png);background-position:left;">
 								<div class="hoverbox">
 									<h2>技術力</h2>
 									<p>有了行銷與美術能力，更需要完善的技術能力，才能將創意製作成成品，讓創意並非僅止於空想而已，不只電腦網頁、手機網頁、手機App、各種程式系統，皆能為企業量身訂做。</p>
 								</div>
-								
 							</div>
 							<p></p>
-							
 						</div>
 						<img src="img/webdesign/content2_dot.png" class="dot3">
-						<img src="img/webdesign/content2_dot1.png" class="dot2">
-						<img src="img/webdesign/content2_dot1.png" class="dot4">
+						<img src="img/ie8/webdesign/content2_dot2.png" class="dot2">
+						<img src="img/ie8/webdesign/content2_dot1.png" class="dot4">
 						<img src="img/webdesign/content2_dot.png" class="dot1">
 				</div>
 				<div class="box2">
@@ -306,7 +279,7 @@ $(function(){
 						<h3>旺旺集團購物商城 </h3>
 					</div>
 					<div class="box">
-						<div class="picbox" data-hrefto="http://web.fanswoo.com/basilai">
+						<div class="picbox" data-hrefto="http://web.fanswoo.com/basial">
 							<img src="img/webdesign/beer.jpg">
 							<img src="img/webdesign/content9_border.png" class="border">
 							<img src="img/webdesign/content9_shadow.png" class="shadow">
@@ -323,7 +296,6 @@ $(function(){
 		</div>
 		
 		  
-			
+	</div>		
 </div>		
-<?=$temp['footer_bar']?>
-<?=$temp['body_end']?>
+<?=$temp['footer']?>

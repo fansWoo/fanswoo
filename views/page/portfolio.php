@@ -1,5 +1,4 @@
 <?=$temp['header_up']?>
-<script src="app/js/smooth_scrollerator.js"></script>
 <script>
 $(function(){
 	$(window).scroll(function(){
@@ -40,19 +39,19 @@ $(function(){
 		$('.fixedPortfolioContent .content .pic img').attr('src', csrc);
 		if($this.parents('.portfolioPageBg').hasClass('portfolioPageWebsiteBg') == true){
 			$("html,body").animate({scrollTop: 0}, 500, 'swing');
-			$('.fixedPortfolioContent').css({'color':'#222', 'background-image':'url(app/img/bg14.jpg)'});
+			$('.fixedPortfolioContent').css({'color':'#222', 'background-image':'url(img/bg14.jpg)'});
 		}
 		else if($this.parents('.portfolioPageBg').hasClass('portfolioPageCISBg') == true){
 			$("html,body").animate({scrollTop: 1200}, 500, 'swing');
-			$('.fixedPortfolioContent').css({'color':'#222', 'background-image':'url(app/img/bg14.jpg)'});
+			$('.fixedPortfolioContent').css({'color':'#222', 'background-image':'url(img/bg14.jpg)'});
 		}
 		else if($this.parents('.portfolioPageBg').hasClass('portfolioPageGraphicDesignBg') == true){
 			$("html,body").animate({scrollTop: 2400}, 500, 'swing');
-			$('.fixedPortfolioContent').css({'color':'#222', 'background-image':'url(app/img/bg14.jpg)'});
+			$('.fixedPortfolioContent').css({'color':'#222', 'background-image':'url(img/bg14.jpg)'});
 		}
 		else if($this.parents('.portfolioPageBg').hasClass('portfolioPageMarketingBg') == true){
 			$("html,body").animate({scrollTop: 3600}, 500, 'swing');
-			$('.fixedPortfolioContent').css({'color':'#222', 'background-image':'url(app/img/bg14.jpg)'});
+			$('.fixedPortfolioContent').css({'color':'#222', 'background-image':'url(img/bg14.jpg)'});
 		}
 		setTimeout(function(){
 			$('.portfolioPageBg').addClass('hover');
@@ -108,128 +107,128 @@ $(function(){
 				<div class="portfolioPage portfolioPageWebsite">
 					<div class="portfolioLeft">
 						<h2 class="portfolioTitle">Website Design <span class="zhtw">形象、購物網站設計</span></h2>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace" data-csrc="app/img/portfolio/web_1.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace" data-csrc="img/portfolio/web_1.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/portfolio/designSampleCandace.jpg">
+								<img src="img/portfolio/designSampleCandace.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/portfolio/designSampleCandace.jpg">
+								<img src="img/portfolio/designSampleCandace.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Candace 洪秀女名品服飾設計
 							</div>
 							<div class="logo">
-								<img src="app/img/portfolio/designSampleLogoCandace.png">
+								<img src="img/portfolio/designSampleLogoCandace.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/basilai" data-csrc="app/img/portfolio/web_7.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/basilai" data-csrc="img/portfolio/web_7.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/portfolio/beer.jpg">
+								<img src="img/portfolio/beer.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/portfolio/beer.jpg">
+								<img src="img/portfolio/beer.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Basilai 原住民手工鮮釀啤酒
 							</div>
 							<div class="logo">
-								<img src="app/img/portfolio/beer_logo.png">
+								<img src="img/portfolio/beer_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/187french" data-csrc="app/img/portfolio/187_web.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/187french" data-csrc="img/portfolio/187_web.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/portfolio/187.jpg">
+								<img src="img/portfolio/187.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/portfolio/187.jpg">
+								<img src="img/portfolio/187.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								 187 allée française 187巷的法式
 							</div>
 							<div class="logo">
-								<img src="app/img/portfolio/187_logo.png">
+								<img src="img/portfolio/187_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/whenyi" data-csrc="app/img/portfolio/whenyi_web.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/whenyi" data-csrc="img/portfolio/whenyi_web.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/portfolio/whenyi.jpg">
+								<img src="img/portfolio/whenyi.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/portfolio/whenyi.jpg">
+								<img src="img/portfolio/whenyi.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								HUAN YI 寰藝
 							</div>
 							<div class="logo">
-								<img src="app/img/portfolio/whenyi_logo.png">
+								<img src="img/portfolio/whenyi_logo.png">
 							</div>
 						</div>
 					</div>
 					<div class="portfolioContent">
 					</div>
 					<div class="portfolioRight">
-						<div class="portfolioDiv"  data-chref="http://web.fanswoo.com/ipix" data-csrc="app/img/portfolio/web_8.jpg">
+						<div class="portfolioDiv"  data-chref="http://web.fanswoo.com/ipix" data-csrc="img/portfolio/web_8.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/portfolio/ipix.jpg">
+								<img src="img/portfolio/ipix.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/portfolio/ipix.jpg">
+								<img src="img/portfolio/ipix.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								IPIX 鏡花園
 							</div>
 							<div class="logo">
-								<img src="app/img/portfolio/ipix_logo.png">
+								<img src="img/portfolio/ipix_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/million_roof" data-csrc="app/img/portfolio/sun_roof_web.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/million_roof" data-csrc="img/portfolio/sun_roof_web.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/portfolio/sun_roof.jpg">
+								<img src="img/portfolio/sun_roof.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/portfolio/sun_roof.jpg">
+								<img src="img/portfolio/sun_roof.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								 工研院 陽光屋頂百萬座
 							</div>
 							<div class="logo">
-								<img src="app/img/portfolio/sun_roof_logo.png">
+								<img src="img/portfolio/sun_roof_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit" data-csrc="app/img/portfolio/petkit_web.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit" data-csrc="img/portfolio/petkit_web.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/portfolio/petkit.jpg">
+								<img src="img/portfolio/petkit.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/portfolio/petkit.jpg">
+								<img src="img/portfolio/petkit.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Petkit 寵物智能管家
 							</div>
 							<div class="logo">
-								<img src="app/img/portfolio/petkit_logo.png">
+								<img src="img/portfolio/petkit_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/chid" data-csrc="app/img/portfolio/web_4.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/chid" data-csrc="img/portfolio/web_4.jpg">
 							<div class="pic showOriginal">
-								<img src="app/img/portfolio/cheng.jpg">
+								<img src="img/portfolio/cheng.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/portfolio/cheng.jpg">
+								<img src="img/portfolio/cheng.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								 成浩設計 嘉義頂級室內設計
 							</div>
 							<div class="logo">
-								<img src="app/img/portfolio/chenglogo.png">
+								<img src="img/portfolio/chenglogo.png">
 							</div>
 						</div>
 					</div>
@@ -239,19 +238,19 @@ $(function(){
 				<div class="portfolioPage portfolioPageCIS">
 					<div class="portfolioLeft">
 						<h2 class="portfolioTitle">CIS <span class="zhtw">企業識別、LOGO設計</span></h2>
-						<div class="portfolioDiv" data-csrc="app/img/logo/portfoilo_logo_cis1.jpg">
+						<div class="portfolioDiv" data-csrc="img/logo/portfoilo_logo_cis1.jpg">
 							<div class=" box">
 								
-								<img src="app/img/logo/portfoilo_logo1.jpg">
+								<img src="img/logo/portfoilo_logo1.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text1">
 								敘園小館-四川、江浙餐館
 							</div>
 						</div>
-						<div class="portfolioDiv"  data-csrc="app/img/logo/portfoilo_logo_cis2.jpg">
+						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis2.jpg">
 							<div class="box">
-								<img src="app/img/logo/portfoilo_logo2.jpg">
+								<img src="img/logo/portfoilo_logo2.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text1">
@@ -259,9 +258,9 @@ $(function(){
 							</div>
 							
 						</div>
-						<div class="portfolioDiv"  data-csrc="app/img/logo/portfoilo_logo_cis3.jpg">
+						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis3.jpg">
 							<div class="box">
-								<img src="app/img/logo/portfoilo_logo3.jpg">
+								<img src="img/logo/portfoilo_logo3.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text1">
@@ -269,9 +268,9 @@ $(function(){
 							</div>
 						
 						</div>
-						<div class="portfolioDiv"  data-csrc="app/img/logo/portfoilo_logo_cis4.jpg">
+						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis4.jpg">
 							<div class="box">
-								<img src="app/img/logo/portfoilo_logo4.jpg">
+								<img src="img/logo/portfoilo_logo4.jpg">
 							</div>
 						
 							<div class="bg"></div>
@@ -284,9 +283,9 @@ $(function(){
 					<div class="portfolioContent"  >
 					</div>
 					<div class="portfolioRight">
-						<div class="portfolioDiv" data-csrc="app/img/logo/portfoilo_logo_cis5.jpg">
+						<div class="portfolioDiv" data-csrc="img/logo/portfoilo_logo_cis5.jpg">
 							<div class="box">
-								<img src="app/img/logo/portfoilo_logo5.jpg">
+								<img src="img/logo/portfoilo_logo5.jpg">
 							</div>
 							
 							<div class="bg"></div>
@@ -295,9 +294,9 @@ $(function(){
 							</div>
 						
 						</div>
-						<div class="portfolioDiv"  data-csrc="app/img/logo/portfoilo_logo_cis6.jpg">
+						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis6.jpg">
 							<div class="box">
-								<img src="app/img/logo/portfoilo_logo6.jpg">
+								<img src="img/logo/portfoilo_logo6.jpg">
 							</div>
 							<div class="pic showBlur">
 								
@@ -308,9 +307,9 @@ $(function(){
 							</div>
 							
 						</div>
-						<div class="portfolioDiv"  data-csrc="app/img/logo/portfoilo_logo_cis7.jpg">
+						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis7.jpg">
 							<div class="box">
-								<img src="app/img/logo/portfoilo_logo7.jpg">
+								<img src="img/logo/portfoilo_logo7.jpg">
 								<div class="text1">
 									GRID MEDIA 多媒體設計公司
 								</div>
@@ -320,9 +319,9 @@ $(function(){
 							
 							
 						</div>
-						<div class="portfolioDiv"  data-csrc="app/img/logo/portfoilo_logo_cis8.jpg">
+						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis8.jpg">
 							<div class="box">
-								<img src="app/img/logo/portfoilo_logo8.jpg">
+								<img src="img/logo/portfoilo_logo8.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text1">
@@ -339,62 +338,62 @@ $(function(){
 						<h2 class="portfolioTitle">Graphic design <span class="zhtw">視覺、平面設計</span></h2>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="img/designSampleCandace.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="img/designSampleCandace.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Candace 洪秀女名品服飾設計
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoCandace.png">
+								<img src="img/designSampleLogoCandace.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleKantocars.jpg">
+								<img src="img/designSampleKantocars.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleKantocars.jpg">
+								<img src="img/designSampleKantocars.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Kantocars 關東車材
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoKantocars.png">
+								<img src="img/designSampleLogoKantocars.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleKing.jpg">
+								<img src="img/designSampleKing.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleKing.jpg">
+								<img src="img/designSampleKing.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								King 曼谷家具第一品牌
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoKing.png">
+								<img src="img/designSampleLogoKing.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleDeleon.jpg">
+								<img src="img/designSampleDeleon.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleDeleon.jpg">
+								<img src="img/designSampleDeleon.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Deleon 德利昂義式餐廳
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoDeleon.png">
+								<img src="img/designSampleLogoDeleon.png">
 							</div>
 						</div>
 					</div>
@@ -403,62 +402,62 @@ $(function(){
 					<div class="portfolioRight">
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleGxxly.jpg">
+								<img src="img/designSampleGxxly.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleGxxly.jpg">
+								<img src="img/designSampleGxxly.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								新聯陽房地產品牌
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoGxxly.png">
+								<img src="img/designSampleLogoGxxly.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleChuantin.jpg">
+								<img src="img/designSampleChuantin.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleChuantin.jpg">
+								<img src="img/designSampleChuantin.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Chuantin 川霆科技品牌
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoChuantin.png">
+								<img src="img/designSampleLogoChuantin.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="img/designSampleCandace.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="img/designSampleCandace.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Candace 洪秀女名品服飾設計
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoCandace.png">
+								<img src="img/designSampleLogoCandace.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleKantocars.jpg">
+								<img src="img/designSampleKantocars.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleKantocars.jpg">
+								<img src="img/designSampleKantocars.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Kantocars 關東車材
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoKantocars.png">
+								<img src="img/designSampleLogoKantocars.png">
 							</div>
 						</div>
 					</div>
@@ -470,62 +469,62 @@ $(function(){
 						<h2 class="portfolioTitle">Marketing <span class="zhtw">網路、整合行銷專案</span></h2>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="img/designSampleCandace.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="img/designSampleCandace.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Candace 洪秀女名品服飾設計
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoCandace.png">
+								<img src="img/designSampleLogoCandace.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleKantocars.jpg">
+								<img src="img/designSampleKantocars.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleKantocars.jpg">
+								<img src="img/designSampleKantocars.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Kantocars 關東車材
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoKantocars.png">
+								<img src="img/designSampleLogoKantocars.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleKing.jpg">
+								<img src="img/designSampleKing.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleKing.jpg">
+								<img src="img/designSampleKing.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								King 曼谷家具第一品牌
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoKing.png">
+								<img src="img/designSampleLogoKing.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleDeleon.jpg">
+								<img src="img/designSampleDeleon.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleDeleon.jpg">
+								<img src="img/designSampleDeleon.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Deleon 德利昂義式餐廳
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoDeleon.png">
+								<img src="img/designSampleLogoDeleon.png">
 							</div>
 						</div>
 					</div>
@@ -534,62 +533,62 @@ $(function(){
 					<div class="portfolioRight">
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleGxxly.jpg">
+								<img src="img/designSampleGxxly.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleGxxly.jpg">
+								<img src="img/designSampleGxxly.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								新聯陽房地產品牌
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoGxxly.png">
+								<img src="img/designSampleLogoGxxly.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleChuantin.jpg">
+								<img src="img/designSampleChuantin.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleChuantin.jpg">
+								<img src="img/designSampleChuantin.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Chuantin 川霆科技品牌
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoChuantin.png">
+								<img src="img/designSampleLogoChuantin.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="img/designSampleCandace.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleCandace.jpg">
+								<img src="img/designSampleCandace.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Candace 洪秀女名品服飾設計
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoCandace.png">
+								<img src="img/designSampleLogoCandace.png">
 							</div>
 						</div>
 						<div class="portfolioDiv">
 							<div class="pic showOriginal">
-								<img src="app/img/designSampleKantocars.jpg">
+								<img src="img/designSampleKantocars.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="app/img/designSampleKantocars.jpg">
+								<img src="img/designSampleKantocars.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Kantocars 關東車材
 							</div>
 							<div class="logo">
-								<img src="app/img/designSampleLogoKantocars.png">
+								<img src="img/designSampleLogoKantocars.png">
 							</div>
 						</div>
 					</div>

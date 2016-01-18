@@ -39,7 +39,6 @@
 <div class="body">
 	<div class="logoStart"></div>
 	<div class="picLoadingList">
-		<img src="img/logoBig.png">
 		<img src="img/bg5.jpg">
         <?if( isset($page) ):?>
 		<?if($page == 'index'):?>
@@ -86,7 +85,7 @@
 						<a class="nav2" href="<?=base_url()?>">關於我們</a>
 						<div class="downbox">
 							<div class="downbox1">
-								<a href="page/webdesign">客製化網站</a>
+								<a href="webdesign">客製化網站</a>
 							</div>
 							<div class="downbox1">
 								<a href="wordpress">套版網站</a>
@@ -128,43 +127,43 @@
 				<a href="<?=base_url()?>" class="box">
 					<div class="item">
 						<p class="nav<?if($page == 'about'):?> hover<?endif?>"><span>A</span>bout</p>
-						<p class="nav2" href="<?=base_url()?>">關於我們</p>
+						<p class="nav2">關於我們</p>
 					</div>
 				</a>
-				<a href="graphic" class="box">
+				<a href="webdesign" class="box">
 					<div  class="item">
-						<p href="webdesign" class="nav hover"><span>W</span>ebdesign</p>
-						<p class="nav2" href="graphic">客製化網站</p>
+						<p class="nav hover"><span>W</span>ebdesign</p>
+						<p class="nav2">客製化網站</p>
 					</div>
 				</a>
 				<a href="wordpress"  class="box">
 					<div class="item">
-						<p href="wordpress" class="nav hover"><span>W</span>ordpress</p>
-						<p class="nav2" href="wordpress">套版網站</p>
+						<p class="nav hover"><span>W</span>ordpress</p>
+						<p class="nav2">套版網站</p>
 					</div>
 				</a>
 				<a href="graphic" class="box">
 					<div  class="item">
-						<p href="graphic" class="nav hover"><span>G</span>raphic</p>
-						<p class="nav2" href="graphic">美術設計</p>
+						<p class="nav hover"><span>G</span>raphic</p>
+						<p class="nav2">美術設計</p>
 					</div>
 				</a>
 				<a href="marketing"  class="box">
 					<div class="item">
-						<p href="marketing" class="nav hover"><span>M</span>arketing</p>
-						<p class="nav2" href="marketing">網路行銷</p>
+						<p class="nav hover"><span>M</span>arketing</p>
+						<p class="nav2">網路行銷</p>
 					</div>
 				</a>
 				<a href="server" class="box">
 					<div class="item">
-						<p href="server" class="nav hover"><span>S</span>erver</p>
-						<p class="nav2" href="server">伺服器主機</p>
+						<p class="nav hover"><span>S</span>erver</p>
+						<p class="nav2">伺服器主機</p>
 					</div>
 				</a>
 				<a href="note" class="box">
-					<div href="note" class="item">
-						<p href="note" class="nav  hover"><span>N</span>ews</p>
-						<p class="nav2" href="note">最新趨勢</p>
+					<div class="item">
+						<p class="nav hover"><span>N</span>ews</p>
+						<p class="nav2">最新趨勢</p>
 					</div>
 				</a>
 				<a href="page/portfolio" class="box">

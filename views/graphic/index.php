@@ -1,6 +1,4 @@
 <?=$temp['header_up']?>
-<script src="app/js/smooth_scrollerator.js"></script>
-<script src="app/js/cycle2.js"></script>
 <script>
 $(function(){
 	$(window).resize(function(){
@@ -235,7 +233,7 @@ $(function(){
 <div class="content1">
 	<div class="area">
 		<div class="pic1">
-			<img src="app/img/graphic/content1/pic1.png">
+			<img src="img/graphic/content1/pic1.png">
 		</div>
 		<div class="text">
 			<h2>提供世界一流的Google雲端伺服器</h2>
@@ -243,17 +241,17 @@ $(function(){
 			<h2>找到完美解決方案！</h2>	
 		</div>
 		<a href="#content2" class="arrow">
-			<img src="app/img/index/arrow_down.png">	
+			<img src="img/index/arrow_down.png">	
 		</a>
 	</div>
 </div>
 
 <div class="content2" id="content2">
 <div class="bird">
-	<img src="app/img/graphic/content2/bird.png">
+	<img src="img/graphic/content2/bird.png">
 </div>
 <div class="phone_bird">
-	<img src="app/img/graphic/content2/bird.png">
+	<img src="img/graphic/content2/bird.png">
 </div>
 	<div class="area">
 		<div class="text_arae one" id="text_arae_one">
@@ -279,18 +277,18 @@ $(function(){
 		</div>
 		<div class="hand_box">
 			<div class="pic_card_box">
-				<img src="app/img/graphic/content2/pic_card.png" class="card_01">
+				<img src="img/graphic/content2/pic_card.png" class="card_01">
 			</div>
-			<img src="app/img/graphic/content2/hand.png" class="pic_hand">
+			<img src="img/graphic/content2/hand.png" class="pic_hand">
 		</div>
 		<div class="phone_hand_box">
 			<div class="pic_card_box">
-				<img src="app/img/graphic/content2/pic_card.png" class="card_01">
+				<img src="img/graphic/content2/pic_card.png" class="card_01">
 			</div>
-			<img src="app/img/graphic/content2/mobile/hand.png" class="pic_hand">
+			<img src="img/graphic/content2/mobile/hand.png" class="pic_hand">
 		</div>			
 		<div class="house">
-			<img src="app/img/graphic/content2/house.png">
+			<img src="img/graphic/content2/house.png">
 		</div>
 	</div>
 	
@@ -298,7 +296,7 @@ $(function(){
 <div class="content3">
 	<div class="area">
 		<div class=" left_pic">
-			<img src="app/img/graphic/content3/pic.png">
+			<img src="img/graphic/content3/pic.png">
 		</div>
 		<div class="text_box">
 			<h1>以不凡的姿態<br>
@@ -312,7 +310,7 @@ $(function(){
 	</div>
 	<div class="phone_area">
 		<div class=" left_pic">
-			<img src="app/img/graphic/content3/mobile/pic.png">
+			<img src="img/graphic/content3/mobile/pic.png">
 		</div>
 		<div class="text_box">
 			<h1>以不凡的姿態<br>
@@ -331,17 +329,17 @@ $(function(){
 			<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。全球Facebook用戶數已達12億全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出</p>
 		</div>
 		<div class="pic_hand">
-			<img src="app/img/graphic/content4/hand.png">
+			<img src="img/graphic/content4/hand.png">
 		</div>
 		<div class="pic_white">
-			<img src="app/img/graphic/content4/bg2.png">
+			<img src="img/graphic/content4/bg2.png">
 		</div>
 		<div class="pic_color">
-			<img src="app/img/graphic/content4/ddd.png" class="ddd">
-			<img src="app/img/graphic/content4/bg.png" class="color">
+			<img src="img/graphic/content4/ddd.png" class="ddd">
+			<img src="img/graphic/content4/bg.png" class="color">
 		</div>
 		<div class="phone_pic_color">
-			<img src="app/img/graphic/content4/mobile/bg.png">
+			<img src="img/graphic/content4/mobile/bg.png">
 		</div>
 	</div>	
 </div>
@@ -353,19 +351,19 @@ $(function(){
 			<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
 		</div>
 		<div class="bg2">
-			<img src="app/img/graphic/content5/bg2.png">
+			<img src="img/graphic/content5/bg2.png">
 		</div>
 		<div class="bg3">
-			<img src="app/img/graphic/content5/bg3.png">
+			<img src="img/graphic/content5/bg3.png">
 		</div>
 		<div class="glass">
-			<img src="app/img/graphic/content5/glass.png">
+			<img src="img/graphic/content5/glass.png">
 		</div>
 		<div class="watch">
-			<img src="app/img/graphic/content5/watch.png">
+			<img src="img/graphic/content5/watch.png">
 		</div>
 		<div class="border">
-			<img src="app/img/graphic/content5/border.png">
+			<img src="img/graphic/content5/border.png">
 		</div>
 	</div>	
 </div>
