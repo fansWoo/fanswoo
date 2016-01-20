@@ -10,139 +10,138 @@ $(function(){
 	});
 
 	$(" .slide_pic > .square").cycle({
-				fx      :       "scrollHorz", 
-				//fade
-				//scrollHorz
-				timeout: 0 ,
-				speed: 2000,
-				manualSpeed: 600,
-				slides: ' > .slide_pic_href',
-				next: '.next',
-				prev: ' .prev',
+		fx:       "scrollHorz", 
+		//fade
+		//scrollHorz
+		timeout: 0 ,
+		speed: 2000,
+		manualSpeed: 600,
+		slides: ' > .slide_pic_href',
+		next: '.next',
+		prev: ' .prev',
 				
 	});
 
 	$(document).scroll(function(){
-			var window_width = $(window).width();
-			var scroll_top = $(document).scrollTop();
-			if(window_width > 1024 && window_width <= 1400){
-			
-				if(scroll_top == 0){
-					$('.wrapMarketing, .wrapGraphic, .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1 , #pic_move_pic2 , #pic_move_pic3 , #pic_move_pic4' ).removeClass('hover');
+		var window_width = $(window).width();
+		var scroll_top = $(document).scrollTop();
+		if(window_width > 1024 && window_width <= 1400){
+			if(scroll_top == 0){
+				$('.wrapMarketing, .wrapGraphic, .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1 , #pic_move_pic2 , #pic_move_pic3 , #pic_move_pic4' ).removeClass('hover');
 					$('.content1').addClass('hover');
 
-				}
-				if(scroll_top > 4500 && scroll_top < 6700){
-					$('.videoFixed').addClass('hover');
-				}
-				else if(scroll_top  < 4500){
-					$('.videoFixed').removeClass('hover');
-				}
-				else if(scroll_top  > 6700){
-					$('.videoFixed').removeClass('hover');
-				}
-				
-				if(scroll_top >= 1000 && scroll_top < 2000){
-					$('.wrapMarketing').addClass('hover');
-				}
-				else if(scroll_top >= 2000 && scroll_top < 2500){
-					$('.wrapGraphic').addClass('hover');
-				}
-				else if(scroll_top >= 2500 && scroll_top < 3100){
-					$('.wrapProgram').addClass('hover');
-				}
-				else if(scroll_top >= 3100 && scroll_top < 4500){
-					$('.portfolio_box1').addClass('hover');
-				}
-				else if(scroll_top >= 4500 && scroll_top < 5500 ){
-					$('.portfolio_box2').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 5500 && scroll_top < 6500 ){
-					$('.portfolio_box3').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 6500 && scroll_top < 8200 ){
-					$('.portfolio_box4').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 8200 && scroll_top < 9000 ){
-					$('#pic_move_pic1').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 9000 && scroll_top < 9600 ){
-					$('#pic_move_pic2').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 9600 && scroll_top < 10000 ){
-					$('#pic_move_pic3').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 10000){
-					$('#pic_move_pic4').addClass('hover');
-				   
-				}
 			}
+			if(scroll_top > 4500 && scroll_top < 6700){
+				$('.videoFixed').addClass('hover');
+			}
+			else if(scroll_top  < 4500)
+			{
+				$('.videoFixed').removeClass('hover');
+			}
+			else if(scroll_top  > 6700)
+			{
+				$('.videoFixed').removeClass('hover');
+			}
+				
+			if(scroll_top >= 1000 && scroll_top < 2000)
+			{
+				$('.wrapMarketing').addClass('hover');
+			}
+			else if(scroll_top >= 2000 && scroll_top < 2500)
+			{
+				$('.wrapGraphic').addClass('hover');
+			}
+			else if(scroll_top >= 2500 && scroll_top < 3100)
+			{
+				$('.wrapProgram').addClass('hover');
+			}
+			else if(scroll_top >= 3100 && scroll_top < 4500)
+			{
+				$('.portfolio_box1').addClass('hover');
+			}
+			else if(scroll_top >= 4500 && scroll_top < 5500 )
+			{
+				$('.portfolio_box2').addClass('hover'); 
+			}
+			else if(scroll_top >= 5500 && scroll_top < 6500 )
+			{
+				$('.portfolio_box3').addClass('hover');
+			}
+			else if(scroll_top >= 6500 && scroll_top < 8200 )
+			{
+				$('.portfolio_box4').addClass('hover');
+			}
+			else if(scroll_top >= 8200 && scroll_top < 9000 )
+			{
+				$('#pic_move_pic1').addClass('hover');
+			}
+			else if(scroll_top >= 9000 && scroll_top < 9600 )
+			{
+				$('#pic_move_pic2').addClass('hover');
+			}
+			else if(scroll_top >= 9600 && scroll_top < 10000 )
+			{
+				$('#pic_move_pic3').addClass('hover');
+			}
+			else if(scroll_top >= 10000)
+			{
+				$('#pic_move_pic4').addClass('hover');
+			}
+		}
 	
-			if(window_width >= 1400){
+		if(window_width >= 1400){
 				
-				if(scroll_top > 4500 && scroll_top < 8500){
-					$('.videoFixed').addClass('hover');
-				}
-				else if(scroll_top  <= 4500){
-					$('.videoFixed').removeClass('hover');
-				}
-				else if(scroll_top  >= 8500){
-					$('.videoFixed').removeClass('hover');
-				}
-
-				if(scroll_top == 0){
-					$('.wrapMarketing, .wrapGraphic, .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1 , #pic_move_pic2 , #pic_move_pic3 , #pic_move_pic4' ).removeClass('hover');
-					$('.content1').addClass('hover');
-
-				}
-
-				if(scroll_top >= 1000 && scroll_top < 2000){
-					$('.wrapMarketing').addClass('hover');
-				}
-				else if(scroll_top >= 2000 && scroll_top < 2500){
-					$('.wrapGraphic').addClass('hover');
-				}
-				else if(scroll_top >= 2500 && scroll_top < 3100){
-					$('.wrapProgram').addClass('hover');
-				}
-				else if(scroll_top >= 3100 && scroll_top < 4500){
-					$('.portfolio_box1').addClass('hover');
-				}
-				else if(scroll_top >= 4500 && scroll_top < 5500 ){
-					$('.portfolio_box2').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 5500 && scroll_top < 6500 ){
-					$('.portfolio_box3').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 6500 && scroll_top < 8200 ){
-					$('.portfolio_box4').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 8200 && scroll_top < 9000 ){
-					$('#pic_move_pic1').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 9000 && scroll_top < 9600 ){
-					$('#pic_move_pic2').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 9600 && scroll_top < 10000 ){
-					$('#pic_move_pic3').addClass('hover');
-				   
-				}
-				else if(scroll_top >= 10000){
-					$('#pic_move_pic4').addClass('hover');
-				   
-				}
+			if(scroll_top > 4500 && scroll_top < 8500){
+				$('.videoFixed').addClass('hover');
 			}
+			else if(scroll_top  <= 4500){
+				$('.videoFixed').removeClass('hover');
+			}
+			else if(scroll_top  >= 8500){
+				$('.videoFixed').removeClass('hover');
+			}
+
+			if(scroll_top == 0){
+				$('.wrapMarketing, .wrapGraphic, .wrapProgram , .portfolio_box1 , .portfolio_box2 , .portfolio_box3 , .portfolio_box4 , #pic_move_pic1 , #pic_move_pic2 , #pic_move_pic3 , #pic_move_pic4' ).removeClass('hover');
+				$('.content1').addClass('hover');
+
+			}
+
+			if(scroll_top >= 1000 && scroll_top < 2000){
+				$('.wrapMarketing').addClass('hover');
+			}
+			else if(scroll_top >= 2000 && scroll_top < 2500){
+				$('.wrapGraphic').addClass('hover');
+			}
+			else if(scroll_top >= 2500 && scroll_top < 3100){
+				$('.wrapProgram').addClass('hover');
+			}
+			else if(scroll_top >= 3100 && scroll_top < 4500){
+				$('.portfolio_box1').addClass('hover');
+			}
+			else if(scroll_top >= 4500 && scroll_top < 5500 ){
+				$('.portfolio_box2').addClass('hover');			   
+			}
+			else if(scroll_top >= 5500 && scroll_top < 6500 ){
+				$('.portfolio_box3').addClass('hover');				   
+			}
+			else if(scroll_top >= 6500 && scroll_top < 7100 ){
+				$('.portfolio_box4').addClass('hover'); 
+			}
+			else if(scroll_top >= 7100 && scroll_top < 7300 ){
+				$('#pic_move_pic1').addClass('hover');
+			}
+			else if(scroll_top >= 7300 && scroll_top < 7600 ){
+				$('#pic_move_pic2').addClass('hover');
+			}
+			else if(scroll_top >= 7600 && scroll_top < 8000 ){
+				$('#pic_move_pic3').addClass('hover');
+			}
+			else if(scroll_top >= 8000){
+				$('#pic_move_pic4').addClass('hover');
+				   
+			}
+		}
 	});
 
 	var window_height = $(window).height();
@@ -161,12 +160,6 @@ $(function(){
 		$("html, body").animate({scrollTop: position}, speed, "swing");
 		return false;
 	});
-
-	if($(document).scrollTop() !== 0)
-	{
-		$(document).scrollTop(0);
-		location.href = '';
-	}
 
 	$(document).scroll(function(){
         var scroll_top = $(document).scrollTop();
@@ -223,6 +216,7 @@ $(function(){
 
 			}
 
+			//最下方的橫移
 			var content_bottom_top = $('.content_bottom').offset().top;
 			var content_bottom_height_all = $('.content_bottom').heightAll();
 
@@ -244,6 +238,14 @@ $(function(){
 			}
 		}
     });
+
+	setTimeout(function(){
+		if( $(document).scrollTop() !== 0 )
+		{
+			$(document).scrollTop(0);
+			location.href = '';
+		}
+	}, 500);
 });
 </script>
 <?=$temp['header_down']?>
@@ -272,9 +274,24 @@ $(function(){
 		<div class="wrapper">
 			<nav>
 				<div class="menu">
-					<span class="li"><span class="title2"><a href="page/about">關於我們</a></span><span class="title1">About</span></span>
-					<span class="li"><span class="title2"><a href="page/portfolio">經典作品</a></span><span class="title1">Portfolio</span></span>
-					<span class="li"><span class="title2"><a href="server">服務項目</a></span><span class="title1">Service</span></span>
+					<span class="li">
+						<span class="title2">
+							<a href="note" target="_blank">最新趨勢</a>
+						</span>
+						<span class="title1">News</span>
+					</span>
+					<span class="li">
+						<span class="title2">
+							<a href="page/portfolio" target="_blank">經典作品</a>
+						</span>
+						<span class="title1">Portfolio</span>
+					</span>
+					<span class="li">
+						<span class="title2">
+							<a href="contact" target="_blank">聯繫我們</a>
+						</span>
+						<span class="title1">Contact</span>
+					</span>
 				</div>
 				<a href="#wrapMarketing"><img src="img/index/arrow_down.png" class="arrow"></a>	
 			</nav>
@@ -419,14 +436,14 @@ $(function(){
 			<img src="img/index/portfolio_box4/pad.png" class="pad">
 			<img src="img/index/portfolio_box4/text1.png" class="text1">
 			<img src="img/index/portfolio_box4/text2.png" class="text2">
-			<a href="http://candace.asia/" target="_blank"  class="portfolio_more">
+			<a href="http://web.fanswoo.com/candace/" target="_blank"  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="img/index/arrow.png">
 			</a>
 		</div>
 		<div class="phone_portfolio_box4">
 			<img src="img/index/mobile/bg2.png" class="bg">
-			<a href="http://candace.asia/" target="_blank"  class="portfolio_more">
+			<a href="http://web.fanswoo.com/candace/" target="_blank"  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="img/index/arrow.png">
 			</a>
@@ -611,19 +628,6 @@ $(function(){
 						</div>
 						<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
 					</div>
-					<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page -->
-					<script type="text/javascript">
-					/* <![CDATA[ */
-					var google_conversion_id = 1037100439;
-					var google_conversion_language = "en";
-					var google_conversion_format = "3";
-					var google_conversion_color = "ffffff";
-					var google_conversion_label = "54GrCKiolVYQl8vD7gM";
-					var google_remarketing_only = false;
-					/* ]]> */
-					</script>
-					<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
-					<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
 				</div>
 			</div>
 		</div>
