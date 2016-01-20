@@ -69,8 +69,6 @@ $config['group_purview_Arr'] = array(
 		array('project', 'project', 'classmeta2', 'tablelist'),
 		array('project', 'project', 'suggest', 'edit'),
 		array('project', 'project', 'suggest', 'tablelist'),
-		array('project', 'project', 'worktask', 'edit'),
-		array('project', 'project', 'worktask', 'tablelist'),
 		// array('project', 'design', 'design', 'edit'),
 		// array('project', 'design', 'design', 'tablelist'),
 		// array('project', 'design', 'classmeta', 'edit'),
@@ -81,6 +79,11 @@ $config['group_purview_Arr'] = array(
 		array('project', 'user', 'project', 'tablelist'),
 		array('project', 'user', 'design', 'edit'),
 		array('project', 'user', 'suggest', 'edit'),
+		array('project', 'worktask', 'worktask', 'edit'),
+		array('project', 'worktask', 'worktask', 'tablelist'),
+		array('project', 'worktask', 'worktask', 'calendar'),
+		array('project', 'worktask', 'classmeta', 'edit'),
+		array('project', 'worktask', 'classmeta', 'tablelist'),
 		array('project', 'sales_target', 'sales_target', 'edit'),
         
 		array('user', 'global', 'global', 'user'),
@@ -467,11 +470,19 @@ $config['admin_sidebox'] = array(
 				'worktask' => array(
 					'title' => '工作任務',
 					'child3' => array(
-						'sales_target' => array(
+						'worktask' => array(
 							'title' => '工作任務',
 							'child4' => array(
 								'edit' => array('title' => '編輯'),
-								'edit' => array('title' => '列表')
+								'tablelist' => array('title' => '任務列表'),
+								'calendar' => array('title' => '任務日曆')
+							)
+						),
+						'classmeta' => array(
+							'title' => '任務分類',
+							'child4' => array(
+								'edit' => array('title' => '編輯'),
+								'tablelist' => array('title' => '列表')
 							)
 						)
 					)
