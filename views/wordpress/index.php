@@ -1,6 +1,4 @@
 <?=$temp['header_up']?>
-<script src="js/smooth_scrollerator.js"></script>
-<script src="js/cycle2.js"></script>
 <script>
 $(function(){
 	$(".content3 .slide_pic > .square").cycle({

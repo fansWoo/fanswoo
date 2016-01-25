@@ -1,6 +1,6 @@
 <?=$temp['header_up']?>
-<script src="<?=base_url(APPURL.'js/smooth_scrollerator.js')?>"></script>
-<script src="<?=base_url(APPURL.'js/cycle2.js')?>"></script>
+<script src="<?=base_url(APPURL.'js/tool/smooth_scrollerator.js')?>"></script>
+<script src="<?=base_url(APPURL.'js/tool/cycle2.js')?>"></script>
 
 <script>
 $(function(){
@@ -262,7 +262,7 @@ $(function(){
 		<div class="brush">fansWoo</div>
 		<div class="textHome">
 			<h2>品牌故事 <b>S</b>tory</h2>
-			<p>我們堅持服務有品味的頂級客戶，以獨家研發的<b class="blue">fanScript</b>技術，以質感超脫的設計感融入<b class="orange">網頁設計</b>作品，幫助客戶打造一百分的品牌形象！</p>
+			<p>我們堅持服務有品味的頂級客戶，建立質感超脫的<b class="orange">網站、APP</b>，並以獨家研發的<b class="blue">fansWoo-framework</b>技術，幫助客戶打造一百分的品牌形象！</p>
 		</div>
 		<div class="textContactBg"></div>
 		<div class="oneRightBox">
@@ -324,8 +324,7 @@ $(function(){
 			<h3>MATTERS NEED ATTENTION</h3>
 			<div class="leftContent">
 				<div class="textArea">
-					<p>預算不足的企業<span class="orange">千萬別相信數萬元的客製化網站</span>！真正的客製化網站是由美術設計師、網頁設計師、程式設計師共同設計的，一個月下來的設計成本最少十萬元以上，而幾萬元的專案連設計師的薪水都不夠付，只能拿套版軟體換幾張圖片充當客製化網站。</p>
-					<p>為杜絕黑心設計公司欺騙消費者，我們不僅為企業設計<span class="blue">真正的客製化網站</span>，而且還<span class="red">免費提供擁有數十萬種版型的套版軟體</span>供小型企業使用，使用者僅需負擔主機費用，不需支付任何設計費，讓小型企業得以用最低成本擁有簡易網站。</p>
+					<p>預算不足的企業<span class="red">千萬別相信數萬元的客製化網站</span>！真正的客製化網站是由美術設計師、網頁設計師、程式設計師共同設計的，一個月下來的設計成本最少<span class="blue">十萬元以上</span>，而幾萬元的專案連設計師的薪水都不夠付，只能使用套版軟體換幾張圖片充當客製化網站。</p>
 				</div>
 				<div class="textArea en">
 					<h3>架設網站前一定要問清楚的事項！</h3>
@@ -339,7 +338,7 @@ $(function(){
 	<div class="wrapGraphic">
 		<div class="wrapContent">
 			<h4>Customized</h4>
-			<h2>真正為企業客製化的網站</h2>
+			<h2>真正客製化的網站及APP</h2>
 			<h3>TRULY CUSTOMIZED FOR THE ENTERPRISE</h3>
 			<div class="leftContent">
 				<div class="textArea">
@@ -364,8 +363,8 @@ $(function(){
 			<h3>IN THE CENTER OF THE SYSTEM DEVELOPMENT LIFE</h3>
 			<div class="leftContent">
 				<div class="textArea">
-					<p>您知道嗎？全世界有78%的網站都是賠錢貨！因為設計不良的網站不只無法帶動業績提升，還會造成揮之不去的負面形象！</p>
-					<p>想要透過網路贏得消費者的青睞，除了<span class="orange">高質感的網站</span>，還需要專業的<span class="red">網路行銷</span>作推廣，我們提供一條龍式的服務，舉凡網頁設計、LOGO設計、產品包裝設計、海報設計、程式設計、手機程式設計、伺服器租賃、網路行銷皆可無縫接軌，幫助企業獲得成功的品牌形象。</p>
+					<p>您知道嗎？<span class="red">全世界有78%的網站都是賠錢貨</span>！因為設計不良的網站不只無法帶動業績提升，還會造成揮之不去的負面形象！</p>
+					<p>想要贏得消費者的青睞，除了<span class="blue">高質感的網站和APP</span>，還需要專業的<span class="orange">網路行銷</span>作推廣，我們提供一條龍式的服務，舉凡網頁設計、CIS設計、LOGO設計、程式設計、手機APP開發、伺服器租賃、網路行銷皆可無縫接軌，幫助企業獲得成功的品牌形象。</p>
 				</div>
 			</div>
 		</div>

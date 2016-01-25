@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <textarea cols="80" id="content_Str" name="content_Str" rows="10"><?=$PagerField->content_Html?></textarea>
-                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
+                <script src="js/tool/ckeditor/ckeditor.js"></script>
                 <script>
                     CKEDITOR.replace( 'content_Str', {
                         toolbar: 'html'

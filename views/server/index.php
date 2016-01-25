@@ -48,16 +48,16 @@ $(function(){
 		else if(scroll_top >= 1200 && scroll_top < 2000){
 			$('.content3').addClass('hover');
 		}
-		else if(scroll_top >= 2000 && scroll_top < 2900){
-			$('.content4').addClass('hover');
-		}
-		else if(scroll_top >= 2900 && scroll_top < 3600){
+		// else if(scroll_top >= 2000 && scroll_top < 2900){
+		// 	$('.content4').addClass('hover');
+		// }
+		else if(scroll_top >= 2000 && scroll_top < 2700){
 			$('.content5').addClass('hover');
 		}
-		else if(scroll_top >= 3600 && scroll_top < 4350){
+		else if(scroll_top >= 2700 && scroll_top < 3450){
 			$('.content6').addClass('hover');
 		}
-		else if(scroll_top >=4350 && scroll_top <5000){
+		else if(scroll_top >=3450 && scroll_top <4100){
 			$('.content7').addClass('hover');
 		}
 		
@@ -358,7 +358,7 @@ $(function(){
 		</div>
 	</div>
 </div>
-<div class="content4">
+<div class="content4" style="display:none;">
 	<div class="area">
 		<div class="title">
 			<img src="img/server/content4/text.png">

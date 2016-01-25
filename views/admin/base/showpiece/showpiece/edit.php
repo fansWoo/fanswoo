@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 <textarea cols="80" id="content" name="content_Str" rows="10"><?=$showpiece_Showpiece->content_Html?></textarea>
-                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
+                <script src="js/tool/ckeditor/ckeditor.js"></script>
                 <script>
                     CKEDITOR.replace( 'content', {
                         toolbar: 'html'
@@ -203,7 +203,7 @@
                     </div>
                 </div>
                 <textarea cols="80" id="content_specification" name="content_specification_Str" rows="10"><?=$showpiece_Showpiece->content_specification_Html?></textarea>
-                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
+                <script src="js/tool/ckeditor/ckeditor.js"></script>
                 <script>
                     CKEDITOR.replace( 'content_specification', {
                         toolbar: 'html'

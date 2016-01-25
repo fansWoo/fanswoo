@@ -236,9 +236,9 @@ $(function(){
 			<img src="img/graphic/content1/pic1.png">
 		</div>
 		<div class="text">
-			<h2>提供世界一流的Google雲端伺服器</h2>
-			<h2>為企業網站、購物網站和網路平台</h2>	
-			<h2>找到完美解決方案！</h2>	
+			<h2>讓經驗豐富的設計團隊</h2>
+			<h2>以不同凡響的姿態注入生命力</h2>	
+			<h2>創造印象深刻的視覺饗宴</h2>	
 		</div>
 		<a href="#content2" class="arrow">
 			<img src="img/index/arrow_down.png">	
@@ -256,13 +256,17 @@ $(function(){
 	<div class="area">
 		<div class="text_arae one" id="text_arae_one">
 			<div class="title">
-				<h1>設計緣起</h1>
-				<h2>為什麼環保產業要用綠色作為主色？<br>
-				為什麼XXXXXX？</h2>
+				<h1>設計之根</h1>
+				<h2>
+					為什麼環保產業要用綠色作為主色？
+					<br>
+					為什麼選用紅燈作交通警示燈？
+				</h2>
 			</div>
 			<div class="text">
-				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
-				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕。</p>
+				<p>設計的根本並非一張好看的圖或是漂亮的包裝，更應該融入產品本身，但現有的設計風氣卻時常忽略產品本身的特性，導致設計方向的錯誤。</p>
+				<br>
+				<p>我們<span class="red">以科學化的分析作為設計根據</span>，利用人性對顏色的暗示、對形狀的印象為基礎，令產品更加符合業主的需求，以達到設計之所以需要設計的真正意義。</p>
 			</div>
 		</div>
 		<div class="text_arae two" id="text_arae_two">
@@ -271,7 +275,7 @@ $(function(){
 				<h2>CIS企業識別設計、LOGO設計</h2>
 			</div>
 			<div class="text">
-				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
+				<p>一套好的CIS企業識別系統能夠帶給目標族群深刻的印象，</p>
 				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕。</p>
 			</div>
 		</div>

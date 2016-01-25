@@ -54,7 +54,7 @@ class Note_Controller extends MY_controller {
 		$data['global']['style'][] = 'temp/footer_bar.css';
 		$data['global']['style'][] = 'note/index.css';
 
-        $data['global']['js'][] = 'smooth_scrollerator.js';
+        $data['global']['js'][] = 'tool/smooth_scrollerator.js';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -117,7 +117,7 @@ class Note_Controller extends MY_controller {
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'note/view.css';
         
-        $data['global']['js'][] = 'smooth_scrollerator.js';
+        $data['global']['js'][] = 'tool/smooth_scrollerator.js';
         
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

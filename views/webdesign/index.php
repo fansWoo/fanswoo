@@ -1,5 +1,4 @@
 <?=$temp['header_up']?>
-<script src="js/smooth_scrollerator.js"></script>
 <script>
 $(function(){
 	$(document).scroll(function(){

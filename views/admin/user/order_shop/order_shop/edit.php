@@ -122,8 +122,8 @@ $(function(){
                 <?if($OrderShop->pay_status_Num == 1):?>
                 <?=$OrderShop->pay_paytime_DateTimeObj->datetime_Str?>
                 <?else:?>
-                <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
-                <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
+                <script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
+                <link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
                 <script>
                 $(function(){
                     $('#pay_paytime_Str').datetimepicker({

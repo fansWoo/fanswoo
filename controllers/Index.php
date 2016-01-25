@@ -4,6 +4,8 @@ class Index_Controller extends MY_Controller
 
     public function index()
     {
+    	$data = $this->data;
+
 	    //global
 		$data['global']['style'][] = 'temp/style.css';
 		$data['global']['style'][] = 'temp/header_bar.css';

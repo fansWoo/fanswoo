@@ -333,8 +333,8 @@ $(function(){
                 貨物寄出時間
             </div>
             <div class="spanLineLeft">
-                <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
-                <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
+                <script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
+                <link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
                 <script>
                 $(function(){
                     $('#sendtime_Str').datetimepicker({

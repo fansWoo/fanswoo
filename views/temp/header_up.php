@@ -17,7 +17,6 @@
 	<script src="<?=base_url(APPURL.'js/jquery-ui-1.11.4.custom/jquery-ui.js')?>"></script>
 	<link rel="stylesheet" type="text/css" href="<?=base_url(APPURL.'js/jquery-ui-1.11.4.custom/jquery-ui.css')?>"></link>
 	<script src="<?=base_url(APPURL.'js/fanswoo-1.3.1.js')?>"></script>
-	<script src="<?=base_url(APPURL.'js/global.js')?>"></script>
 	<?foreach( (array) $global['js'] as $value):?>
 	<script src="<?=base_url(APPURL.'js/'.$value)?>"></script>
 	<?endforeach?>

@@ -24,8 +24,8 @@ class Marketing_Controller extends MY_controller
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'marketing/index.css';
 
-        $data['global']['js'][] = 'smooth_scrollerator.js';
-        $data['global']['js'][] = 'cycle2.js';
+        $data['global']['js'][] = 'tool/smooth_scrollerator.js';
+        $data['global']['js'][] = 'tool/cycle2.js';
             
         //temp
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

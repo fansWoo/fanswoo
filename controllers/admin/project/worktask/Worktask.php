@@ -22,6 +22,8 @@ class Worktask_Controller extends MY_Controller {
             header('Location: '.$url);
         }
 
+        $this->data['global']['js'] = [];
+
         $this->load->helper('form');
         $this->load->library('form_validation');
     }
@@ -44,7 +46,7 @@ class Worktask_Controller extends MY_Controller {
         //global
         $data['global']['style'][] = 'admin/global.css';
         $data['global']['js'][] = 'admin.js';
-        $data['global']['js'][] = 'fanswoo-framework/js/jquery.form.js';
+        $data['global']['js'][] = 'tool/jquery.form.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);

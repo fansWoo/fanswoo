@@ -49,7 +49,52 @@ $(function(){
 
         return Deferred.promise();
     }
+    //圖片管理多選刪除
+    $(function(){
+        $(".spanLineTable .pic_block .hover_box").each(function(key, value){
+            $(".spanLineTable .pic_block .hover_box").eq(key).click(function() {
+                if($('.spanLineTable .pic_block .piclist').eq(key).hasClass('border') == true)
+                {
+                    $(".spanLineTable .pic_block .pic_check").eq(key).prop("checked",false);
+                    $(".spanLineTable .pic_block .pic_check").eq(key).attr("checked",false);
+                    $('.spanLineTable .pic_block .piclist').eq(key).removeClass('border');
+                }
+                else
+                {
+                    $(".spanLineTable .pic_block .pic_check").eq(key).prop("checked",true);
+                    $(".spanLineTable .pic_block .pic_check").eq(key).attr("checked",true);
+                    $('.spanLineTable .pic_block .piclist').eq(key).addClass('border');
+                }
+            });
+        });
+    });
+    //列表批量刪除 - 全選checkbox
+    $("#check_all").click(function() {
+       if($(this).prop("checked"))
+       {
+         $(".spanLineLeft.checkbox .check").each(function() {
+             $(this).prop("checked", true);
+         });
+       }
+       else
+       {
+         $(".spanLineLeft.checkbox .check").each(function() {
+             $(this).prop("checked", false);
+         });
+       }
 
+    });
+
+    $(".spanLineLeft.checkbox .check").click(function() {
+        if($(this).prop("checked"))
+        {
+            $("#check_all").prop("checked", false);
+        }
+        else
+        {
+            $("#check_all").prop("checked", false);
+        }
+    });
     $(document).on('click', '.sidebox h2', function () {
         if ($(this).parent('.sidebox').hasClass('hover')) {
             $(this).parent('.sidebox').removeClass('hover');
@@ -89,7 +134,6 @@ $(function(){
             var lineleft_width = $(this).widthAll();
             total_lineleft_width = total_lineleft_width + lineleft_width;
         });
-            console.log(total_lineleft_width);
         $(this).width(total_lineleft_width);
         $(".spanLineTableContent").width(total_lineleft_width);
     });
@@ -123,9 +167,11 @@ $(function(){
 
                     $("html").append("<form fanswoo-pic_upload_form method='post' enctype='multipart/form-data' style='display: none;'></form>");
                     $("[fanswoo-pic_upload_ajax]:eq(" + key + ") [fanswoo-pic_upload_ajax_input]").appendTo("[fanswoo-pic_upload_form]");
+
+                    var upload_status = $("[fanswoo-pic_upload_ajax]:eq(" + key + ")").attr('fanswoo-upload_status');
                     $("[fanswoo-pic_upload_form]").ajaxSubmit({
                         type:'post',
-                        url: "api/pic/upload_pic",    
+                        url: "api/pic/upload_pic/?upload_status=" + upload_status,    
                         beforeSubmit: function(){
                             $("[fanswoo-pic_upload_ajax]:eq(" + key + ") [fanswoo-pic_upload_ajax_message]").text("圖片上傳中...");
                         },
@@ -278,6 +324,34 @@ $(function(){
     });
     $(document).on('click', '[fanswoo-input_copy]', function(){
         $(this).select();
+    });
+
+
+    //admin開啟AJAX視窗
+    $(document).on('click', '[fanswoo-ajax_window_href]', function(){
+        var url = $(this).attr('[fanswoo-ajax_window_href]');
+        if( is_mobile)
+        {
+            $.ajax({
+                url: url,
+                error: function(xhr){},
+                success: function(response){
+                    var window_height = $(window).height();
+                    window_height * 80 / 100;
+                    // $('.div').css('display', 'block');
+                    // $(response).insert('.div');
+                }
+            });
+        }
+        else
+        {
+            location.href = url;
+        }
+    });
+
+    //admin開啟AJAX視窗
+    $(document).on('click', '[fanswoo-ajax_window_close]', function(){
+        // $('.div').css('display', 'none');
     });
 
 });

@@ -1,5 +1,5 @@
-    <link rel="stylesheet" type="text/css" href="app/js/scrollbar/jquery.mCustomScrollbar.css">
-    <script src="app/js/scrollbar/jquery.mCustomScrollbar.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/tool/scrollbar/jquery.mCustomScrollbar.css">
+    <script src="js/tool/scrollbar/jquery.mCustomScrollbar.min.js"></script>
 
     <script>
     $(function(){

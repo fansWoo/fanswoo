@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <textarea cols="80" id="content_Str" name="content_Str" rows="10"><?=$NoteField->content_Html?></textarea>
-                <script src="fanswoo-framework/js/ckeditor/ckeditor.js"></script>
+                <script src="js/tool/ckeditor/ckeditor.js"></script>
                 <script>
                     CKEDITOR.replace( 'content_Str', {
                         toolbar: 'html'
@@ -140,8 +140,8 @@
                 文章新增時間
             </div>
             <div class="spanLineLeft">
-                <script src="fanswoo-framework/js/jquery-ui-timepicker-addon/script.js"></script>
-                <link rel="stylesheet" type="text/css" href="fanswoo-framework/js/jquery-ui-timepicker-addon/style.css"></link>
+                <script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
+                <link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
                 <script>
                 $(function(){
                     $('#updatetime_Str').datetimepicker({
