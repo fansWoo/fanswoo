@@ -67,23 +67,23 @@ $(function(){
 			{
 				$('.portfolio_box3').addClass('hover');
 			}
-			else if(scroll_top >= 6500 && scroll_top < 8200 )
+			else if(scroll_top >= 6500 && scroll_top < 7200 )
 			{
 				$('.portfolio_box4').addClass('hover');
 			}
-			else if(scroll_top >= 8200 && scroll_top < 9000 )
+			else if(scroll_top >= 7200 && scroll_top < 8000 )
 			{
 				$('#pic_move_pic1').addClass('hover');
 			}
-			else if(scroll_top >= 9000 && scroll_top < 9600 )
+			else if(scroll_top >= 8000 && scroll_top < 8600 )
 			{
 				$('#pic_move_pic2').addClass('hover');
 			}
-			else if(scroll_top >= 9600 && scroll_top < 10000 )
-			{
-				$('#pic_move_pic3').addClass('hover');
-			}
-			else if(scroll_top >= 10000)
+			// else if(scroll_top >= 8600 && scroll_top < 9000 )
+			// {
+			// 	$('#pic_move_pic3').addClass('hover');
+			// }
+			else if(scroll_top >= 8600)
 			{
 				$('#pic_move_pic4').addClass('hover');
 			}
@@ -457,10 +457,10 @@ $(function(){
 		<div class="service">
 			<div class="text_box">
 				<h1>RWD客製化網站</h1>
-				<h2>打造真正提升業績的網站</h2>
-				<p>想要提升企業形象及產品銷售量
-					<br>更要避免製作導致負面形象的網站！</p>
-				<a href="marketing"  class="more">
+				<h2>打造一個真正能提升業績的網站</h2>
+				<p>迅速提升企業形象及產品銷售量
+					<br>避免製作導致負面形象的網站！</p>
+				<a href="webdesign" target="_blank" class="more">
 					<p>了解更多</p>
 					<img src="img/index/arrow.png">
 					<div class="light"></div>
@@ -474,7 +474,7 @@ $(function(){
 				<h2>CIS企業識別、LOGO設計</h2>
 				<p>經驗豐富的設計團隊
 					<br>以不凡的設計注入非凡的生命</p>
-				<a href="marketing"  class="more">
+				<a href="graphic" target="_blank" class="more">
 					<p>了解更多</p>
 					<img src="img/index/arrow.png">
 					<div class="light"></div>
@@ -488,7 +488,7 @@ $(function(){
 				<h2>Facebook、Google、Instagram</h2>
 				<p>透過Big Data建立行銷大數據
 				<br>幫助網站及APP增加來客數</p>
-				<a href="graphic"  class="more">
+				<a href="marketing" target="_blank" class="more">
 					<p>了解更多</p>
 					<img src="img/index/arrow.png">
 					<div class="light"></div>
@@ -496,13 +496,13 @@ $(function(){
 			</div>
 			<img src="img/index/fixed_table/pic3.png" class="pic">
 		</div>
-		<div class="pic_move pic3" id="pic_move_pic3">
+		<div class="pic_move pic3" id="pic_move_pic3" style="display:none;">
 			<div class="text_box">
-				<h1>網路行銷</h1>
+				<h1>手機APP</h1>
 				<h2>Facebook、Google、Instagram</h2>
 				<p>透過Big Data建立行銷大數據
 				<br>幫助網站及APP增加來客數</p>
-				<a href="wordpress"  class="more">
+				<a href="marketing" target="_blank" class="more">
 					<p>了解更多</p>
 					<img src="img/index/arrow.png">
 					<div class="light"></div>
@@ -516,7 +516,7 @@ $(function(){
 				<h2>Google SSD雲端主機</h2>
 				<p>交由專業程式設計團隊開發
 				<br>無論iOS、android、webapp皆可製作</p>
-				<a href="server"  class="more">
+				<a href="server" target="_blank" class="more">
 					<p>了解更多</p>
 					<img src="img/index/arrow.png">
 					<div class="light"></div>
@@ -538,9 +538,9 @@ $(function(){
 					<div class="slide_pic_href one">
 						<div class="text">
 							<h1>RWD客製化網站</h1>
-							<h2>打造真正提升業績的網站</h2>
-							<p class="in_p">想要提升企業形象及產品銷售量
-								<br>更要避免製作導致負面形象的網站！</p>
+							<h2>打造一個真正能提升業績的網站</h2>
+							<p class="in_p">迅速提升企業形象及產品銷售量
+								<br>避免製作導致負面形象的網站！</p>
 							<a href="graphic"  class="more">
 								<p>了解更多</p>
 								<img src="img/index/arrow.png">
