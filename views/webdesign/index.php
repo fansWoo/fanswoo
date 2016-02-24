@@ -1,54 +1,55 @@
 <?=$temp['header_up']?>
 <script>
 $(function(){
-	$(document).scroll(function(){
-		var scroll_top = $(document).scrollTop();
-		if(scroll_top == 0){
-			$('.content2, .content3,  .content5, .content9').removeClass('hover');
-		}
-		else if(scroll_top >= 300 && scroll_top < 1300){
-			$('.content2').addClass('hover');
-		}
-		else if(scroll_top >= 1300 && scroll_top < 2100){
-			$('.content3').addClass('hover');
-		}
-		else if(scroll_top >= 2100 && scroll_top < 2900){
-			$('.content5').addClass('hover');
-		}
-		else if(scroll_top >= 2900 && scroll_top < 3800){
-			$('.content9').addClass('hover');
-		}
-		
-	});
+	
+	var window_width = $(window).width();
+	var window_height = $(window).height();
+	if(window_width > 700 ){
+		$(document).scroll(function(){
+			var scroll_top = $(document).scrollTop();
+			if(scroll_top == 0){
+				$('.content2, .content3,  .content5, .content9').removeClass('hover');
+			}
+			else if(scroll_top >= 300 && scroll_top < 1300){
+				$('.content2').addClass('hover');
+			}
+			else if(scroll_top >= 1300 && scroll_top < 2100){
+				$('.content3').addClass('hover');
+			}
+			else if(scroll_top >= 2100 && scroll_top < 2900){
+				$('.content5').addClass('hover');
+			}
+			else if(scroll_top >= 2900 && scroll_top < 3800){
+				$('.content9').addClass('hover');
+			}
+			
+		});
+	}
 });
 </script>
 <?=$temp['header_down']?>
 <?=$temp['header_bar']?>
 		<div class="content1">
 			<div class="area">
-				
 				<h1>
-					<img src="img/webdesign/content1_bgtext/content1_1.png" class="text_1" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_2.png" class="text_2" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_3.png" class="text_3" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_4.png" class="text_4" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_5.png" class="text_5" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_6.png" class="text_6" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_7.png" class="text_7" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_8.png" class="text_8" width="40"> 
-					<img src="img/webdesign/content1_bgtext/content1_9.png" class="text_9" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_10.png" class="text_10" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_11.png" class="text_11" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_12.png" class="text_12" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_13.png" class="text_13" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_14.png" class="text_14" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_15.png" class="text_15" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_16.png" class="text_16" width="60">
-					<img src="img/webdesign/content1_bgtext/content1_17.png" class="text_17" width="60">
-				
-				
+					<img src="img/webdesign/content1_bgtext/content1_1.png" class="text_1">
+					<img src="img/webdesign/content1_bgtext/content1_2.png" class="text_2">
+					<img src="img/webdesign/content1_bgtext/content1_3.png" class="text_3">
+					<img src="img/webdesign/content1_bgtext/content1_4.png" class="text_4">
+					<img src="img/webdesign/content1_bgtext/content1_5.png" class="text_5">
+					<img src="img/webdesign/content1_bgtext/content1_6.png" class="text_6">
+					<img src="img/webdesign/content1_bgtext/content1_7.png" class="text_7">
+					<img src="img/webdesign/content1_bgtext/content1_8.png" class="text_8"> 
+					<img src="img/webdesign/content1_bgtext/content1_9.png" class="text_9">
+					<img src="img/webdesign/content1_bgtext/content1_10.png" class="text_10">
+					<img src="img/webdesign/content1_bgtext/content1_11.png" class="text_11">
+					<img src="img/webdesign/content1_bgtext/content1_12.png" class="text_12">
+					<img src="img/webdesign/content1_bgtext/content1_13.png" class="text_13">
+					<img src="img/webdesign/content1_bgtext/content1_14.png" class="text_14">
+					<img src="img/webdesign/content1_bgtext/content1_15.png" class="text_15">
+					<img src="img/webdesign/content1_bgtext/content1_16.png" class="text_16">
+					<img src="img/webdesign/content1_bgtext/content1_17.png" class="text_17">
 				</h1>
-				
 			</div>
 		</div>
 		<div class="content2">
@@ -312,8 +313,8 @@ $(function(){
 					
 				
 				</div>
-						<img src="img/webdesign/content2_dot.png" class="dot">
-						<div data-hrefto="index.php?ac=portfolio" class="enter">More Design</div>
+				<img src="img/webdesign/content2_dot.png" class="dot">
+				<!--<div data-hrefto="index.php?ac=portfolio" class="enter">More Design</div>-->
 			</div>
 		</div>
 		

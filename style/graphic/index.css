@@ -480,7 +480,8 @@ h2{font-size:24px;letter-spacing:2px;}
 .content9  .textContactForm .textContactFormContent { width:700px;overflow:hidden;}
 .content9  .textContactForm .textContactFormContent .rightBox {width:350px;float:right; }
 .content9  .textContactForm .textContactFormContent .rightBox textarea{ width:310px;height:280px;border-radius:3px;border:1px solid #7C7C7C; background:rgba(255,255,255,0.6);padding:15px;font-size:14px;letter-spacing:2px; }
-.content9  .textContactForm .textContactFormContent .contactSubmit {background:#FF4F80; color:#FFF; cursor:pointer; border-radius:5px; width:100px; height:40px; -webkit-transition: all 1s; transition: all 1s; border-bottom:3px solid #B03B7B;display:block;margin:40px auto;font-size:14px; letter-spacing:3px; clear:both; }
+.content9  .textContactForm .textContactFormContent .contactSubmit {background:#FF4F80; color:#FFF; cursor:pointer; border-radius:5px; width:100px; height:40px;border:0px; border-bottom:3px solid #B03B7B;display:block;margin:40px auto;font-size:16px; letter-spacing:3px; clear:both; }
+.content9  .textContactForm .textContactFormContent .contactSubmit:active{background:#ff1858;}
 .content9  .textContactForm .textContactFormContent .leftBox {width:320px; margin-bottom:15px;float:left;  margin-bottom:30px;}
 .content9  .textContactForm .textContactFormContent .leftBox .area { font-size:14px;width:100%;display:block;overflow:hidden; margin-bottom:8px;}
 .content9  .textContactForm .textContactFormContent .leftBox .area.phone{display:none;}

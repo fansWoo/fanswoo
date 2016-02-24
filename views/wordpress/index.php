@@ -22,13 +22,10 @@ $(function(){
 </script>
 <script>
 $(function(){
-	
-	
-	
 	var window_width = $(window).width();
 	var window_height = $(window).height();
 			
-		if(window_width > 700){	
+		if(window_width > 1024 ){	
 			$('.content1').css('height', window_height);
 			$(window).resize(function(){
 			var window_height = $(window).height();
@@ -36,33 +33,36 @@ $(function(){
 
 			});	
 	}
+	if(window_width > 700 ){	
 	$(document).scroll(function(){
-		var scroll_top = $(document).scrollTop();
-		if(scroll_top == 0){
-			$('.content2, .content3, .content4, .content5, .content6, .content7, .content8,' ).removeClass('hover');
-		}
-		else if(scroll_top >= 300 && scroll_top < 1100){
-			$('.content2').addClass('hover');
-		}
-		else if(scroll_top >= 1100 && scroll_top < 1900){
-			$('.content3').addClass('hover');
-		}
-		else if(scroll_top >= 1900 && scroll_top < 2600){
-			$('.content4').addClass('hover');
-		}
-		else if(scroll_top >= 2600 && scroll_top < 3800){
-			$('.content5').addClass('hover');
-		}
-		else if(scroll_top >= 3800 && scroll_top < 4500){
-			$('.content6').addClass('hover');
-		}
-		else if(scroll_top >= 4500 && scroll_top < 5500){
-			$('.content7').addClass('hover');
-		}
-		else if(scroll_top >= 5500){
-			$('.content8').addClass('hover');
-		}
-	});
+			var scroll_top = $(document).scrollTop();
+			if(scroll_top == 0){
+				$('.content2, .content3, .content4, .content5, .content6, .content7, .content8,' ).removeClass('hover');
+			}
+			else if(scroll_top >= 300 && scroll_top < 1100){
+				$('.content2').addClass('hover');
+			}
+			else if(scroll_top >= 1100 && scroll_top < 1900){
+				$('.content3').addClass('hover');
+			}
+			else if(scroll_top >= 1900 && scroll_top < 2600){
+				$('.content4').addClass('hover');
+			}
+			else if(scroll_top >= 2600 && scroll_top < 3800){
+				$('.content5').addClass('hover');
+			}
+			else if(scroll_top >= 3800 && scroll_top < 4500){
+				$('.content6').addClass('hover');
+			}
+			else if(scroll_top >= 4500 && scroll_top < 5500){
+				$('.content7').addClass('hover');
+			}
+			else if(scroll_top >= 5500){
+				$('.content8').addClass('hover');
+			}
+		});
+	}
+	
 	//計算總金額
 	$(document).ready(function() {
 
@@ -98,7 +98,32 @@ $(function(){
 			$("#price").val(v1);
         });
 	});
+	
+	
+	if( is_mobile() == false )
+	{
+		  $(window).resize(function(){
+			location.href = location ;
+		});//alert("不是 使用手機瀏覽(ipad)。")
+	} 
+	
 });
+
+function is_mobile() { 
+	 if( navigator.userAgent.match(/Android/i)
+	 || navigator.userAgent.match(/webOS/i)
+	 || navigator.userAgent.match(/iPhone/i)
+	 || navigator.userAgent.match(/iPad/i)
+	 || navigator.userAgent.match(/iPod/i)
+	 || navigator.userAgent.match(/BlackBerry/i)
+	 || navigator.userAgent.match(/Windows Phone/i)
+	 ){
+		return true;
+	  }
+	 else {
+		return false;
+	  }
+}	
 </script>
 <?=$temp['header_down']?>
 <?=$temp['header_bar']?>
@@ -290,24 +315,23 @@ $(function(){
 					<img src="img/wordpress/contant6_text3.png" class="title2">
 					<img src="img/wordpress/contant6_text5.png" class="line">
 				</div>
-				
-				 <img src="img/wordpress/contant6_bg.png" class="keyboard">
-					<p class="p1">
-						<img src="img/wordpress/contant6_dot.png" class="dot1">	預算不足的企業千萬別相信數萬元的客製化網站！真正的客製化網站是由美術設計師、網頁設計師、程式設計師共同設計的，一個月下來的設計成本最少十萬元以上，而幾萬元的專案連設計師的薪水都不夠付，只能拿套版軟體換幾張圖片充當客製化網站。
-					</p>
-					<p class="p2">
-						<img src="img/wordpress/contant6_dot.png" class="dot2">	為杜絕黑心設計公司欺騙消費者，我們不僅為企業設計真正的客製化網站，還免費提供擁有 35 萬種版型的套版軟體供微型企業使用，僅需負擔主機費，不需支付任何設計費，讓微型企業得以用最低成本擁有簡易網站。
-					</p>
+				<div class="p1">
+					預算不足的企業千萬別相信數萬元的客製化網站！真正的客製化網站是由美術設計師、網頁設計師、程式設計師共同設計的，一個月下來的設計成本最少十萬元以上，而幾萬元的專案連設計師的薪水都不夠付，只能拿套版軟體換幾張圖片充當客製化網站。
+					<img src="img/wordpress/contant6_dot.png" class="dot1">	
+				</div>
+				<div class="p2">
+					<img src="img/wordpress/contant6_dot.png" class="dot2">	為杜絕黑心設計公司欺騙消費者，我們不僅為企業設計真正的客製化網站，還免費提供擁有 35 萬種版型的套版軟體供微型企業使用，僅需負擔主機費，不需支付任何設計費，讓微型企業得以用最低成本擁有簡易網站。
+				</div>
 			</div>
+			<img src="img/wordpress/contant6_bg.png" class="keyboard">
 		</div>
 		<div class="content7">
 			<div class="area">
 				<h1>WordPress專用主機</h1>
-				
 				<div class="box">
 					<img src="img/wordpress/contant7_pic1.png" class="pic">
 					<div class="itemDiv">
-						<div class="item" style="height:70px; line-height:80px;font-size:30px;font-weight:500;letter-spacing:5px;color:#f7911d; border:none;">微型主機</div>
+						<div class="item title">微型主機</div>
 						<img src="img/wordpress/contant7_line1.png" class="line">
 						<div class="item">35萬種版型</div>
 						<div class="item">圖文頁數無限頁</div>
@@ -322,7 +346,7 @@ $(function(){
 				<div class="box box2">
 					<img src="img/wordpress/contant7_pic2.png" class="pic">
 					<div class="itemDiv">
-						<div class="item" style="height:70px; line-height:80px;font-size:30px;font-weight:500;letter-spacing:5px;color:#f7911d; border:none;">標準主機</div>
+						<div class="item title">標準主機</div>
 						<img src="img/wordpress/contant7_line2.png" class="line">
 						<div class="item">35萬種版型</div>
 						<div class="item">圖文頁數無限頁</div>
@@ -337,7 +361,7 @@ $(function(){
 				<div class="box">
 					<img src="img/wordpress/contant7_pic3.png" class="pic">
 					<div class="itemDiv">
-						<div class="item" style="height:70px; line-height:80px;font-size:30px;font-weight:500;letter-spacing:5px;color:#f7911d; border:none;">專業主機</div>
+						<div class="item title">專業主機</div>
 						<img src="img/wordpress/contant7_line3.png" class="line">
 						<div class="item">35萬種版型</div>
 						<div class="item">圖文頁數無限頁</div>
@@ -354,7 +378,6 @@ $(function(){
 		<div class="content8">
 			<div class="boxContant">
 				<h4>各方案基本內容</h4>
-				<p></p>
 				<div class="boxarea">
 					<div class="box">
 						<img src="img/wordpress/contant8_icon1.png">
