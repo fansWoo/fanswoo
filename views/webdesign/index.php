@@ -77,7 +77,7 @@ $(function(){
 						</div>
 						
 						<div class="contentbox3" >
-							<div class="box" style="background-image:url(img/webdesign/content2_circle3.jpg);background-position:left;">
+							<div class="box" style="background-image:url(img/webdesign/content2_circle3.jpg);background-position:center;">
 								<div class="hoverbox">
 									<h2>技術力</h2>
 									<p>有了行銷與美術能力，更需要完善的技術能力，才能將創意製作成成品，讓創意並非僅止於空想而已，不只電腦網頁、手機網頁、手機App、各種程式系統，皆能為企業量身訂做。</p>
