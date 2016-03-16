@@ -168,10 +168,12 @@ $(function(){
 						<span>您的預算：</span>
 						<select class="money" name="money_Str" required>
 							<option value="">請選擇預算</option>
-							<option value="15萬以下">15萬以下</option>
-							<option value="15~25萬">15~25萬</option>
-							<option value="25~50萬">25~50萬</option>
-							<option value="50~100萬">50~100萬</option>
+							<!-- <option value="25 萬元以下">25 萬元以下</option> -->
+							<option value="25 萬元 ~ 50 萬元">25 萬元 ~ 50 萬元</option>
+							<option value="50 萬元 ~ 100 萬元">50 萬元 ~ 100 萬元</option>
+							<option value="100 萬元 ~ 150 萬元">100 萬元 ~ 150 萬元</option>
+							<option value="150 萬元 ~ 200 萬元">150 萬元 ~ 200 萬元</option>
+							<option value="200 萬元以上">200 萬元以上</option>
 						</select>
 					</div>
 				</div>
