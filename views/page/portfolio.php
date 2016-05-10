@@ -106,20 +106,35 @@ $(function(){
 			<div class="portfolioPageBg portfolioPageWebsiteBg">
 				<div class="portfolioPage portfolioPageWebsite">
 					<div class="portfolioLeft">
-						<h2 class="portfolioTitle">Website Design <span class="zhtw">形象、購物網站設計</span></h2>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace" data-csrc="img/portfolio/web_1.jpg">
+						<h2 class="portfolioTitle">Website Design <span class="zhtw">RWD形象網站</span></h2>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yens/" data-csrc="img/portfolio0510/Yens.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/designSampleCandace.jpg">
+								<img src="img/portfolio0510/1-yens.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/designSampleCandace.jpg">
+								<img src="img/portfolio0510/1-yens.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								Candace 洪秀女名品服飾設計
+								YENS 元家日式料理
 							</div>
 							<div class="logo">
-								<img src="img/portfolio/designSampleLogoCandace.png">
+								<img src="img/portfolio0510/yens_logo.png">
+							</div>
+						</div>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/hcmedi/" data-csrc="img/portfolio0510/HCMedi.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/3-hcmedi.png">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio0510/3-hcmedi.png">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								HCMedi 心誠美行動醫療
+							</div>
+							<div class="logo">
+								<img src="img/portfolio0510/hcmedi_logo.png">
 							</div>
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/basilai" data-csrc="img/portfolio/web_7.jpg">
@@ -137,58 +152,28 @@ $(function(){
 								<img src="img/portfolio/beer_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/187french" data-csrc="img/portfolio/187_web.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/tomato/" data-csrc="img/portfolio0510/tomato.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/187.jpg">
+								<img src="img/portfolio0510/7-tomato.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/187.jpg">
+								<img src="img/portfolio0510/7-tomato.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								 187 allée française 187巷的法式
+								Tomato 番茄娛樂
 							</div>
 							<div class="logo">
-								<img src="img/portfolio/187_logo.png">
-							</div>
-						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/whenyi" data-csrc="img/portfolio/whenyi_web.jpg">
-							<div class="pic showOriginal">
-								<img src="img/portfolio/whenyi.jpg">
-							</div>
-							<div class="pic showBlur">
-								<img src="img/portfolio/whenyi.jpg">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								HUAN YI 寰藝
-							</div>
-							<div class="logo">
-								<img src="img/portfolio/whenyi_logo.png">
+								<img src="img/portfolio0510/tomato_logo.png">
 							</div>
 						</div>
 					</div>
 					<div class="portfolioContent">
 					</div>
 					<div class="portfolioRight">
-						<div class="portfolioDiv"  data-chref="http://web.fanswoo.com/ipix" data-csrc="img/portfolio/web_8.jpg">
-							<div class="pic showOriginal">
-								<img src="img/portfolio/ipix.jpg">
-							</div>
-							<div class="pic showBlur">
-								<img src="img/portfolio/ipix.jpg">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								IPIX 鏡花園
-							</div>
-							<div class="logo">
-								<img src="img/portfolio/ipix_logo.png">
-							</div>
-						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/million_roof" data-csrc="img/portfolio/sun_roof_web.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/sun_roof.jpg">
+								<img src="img/portfolio0510/2-million-roof.png">
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/sun_roof.jpg">
@@ -201,133 +186,181 @@ $(function(){
 								<img src="img/portfolio/sun_roof_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit" data-csrc="img/portfolio/petkit_web.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/alchema/" data-csrc="img/portfolio0510/Alchema.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/petkit.jpg">
+								<img src="img/portfolio0510/4-alchema.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/petkit.jpg">
+								<img src="img/portfolio0510/4-alchema.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								Petkit 寵物智能管家
+								 Alchema 專業釀酒機
 							</div>
 							<div class="logo">
-								<img src="img/portfolio/petkit_logo.png">
+								<img src="img/portfolio0510/alchema_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/chid" data-csrc="img/portfolio/web_4.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace" data-csrc="img/portfolio/web_1.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/cheng.jpg">
+								<img src="img/portfolio/designSampleCandace.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/cheng.jpg">
+								<img src="img/portfolio/designSampleCandace.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								 成浩設計 嘉義頂級室內設計
+								Candace 洪秀女名品服飾設計
 							</div>
 							<div class="logo">
-								<img src="img/portfolio/chenglogo.png">
+								<img src="img/portfolio/designSampleLogoCandace.png">
+							</div>
+						</div>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/hicer" data-csrc="img/portfolio0510/8-hicer.png">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/8-hicer.png">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio0510/8-hicer.png">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								 Hicer 立鑽材質開發
+							</div>
+							<div class="logo">
+								<img src="img/portfolio0510/hicer_logo.png">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="portfolioPageBg portfolioPageCISBg" style="">
+			<div class="portfolioPageBg portfolioPageCISBg">
 				<div class="portfolioPage portfolioPageCIS">
 					<div class="portfolioLeft">
-						<h2 class="portfolioTitle">CIS <span class="zhtw">企業識別、LOGO設計</span></h2>
-						<div class="portfolioDiv" data-csrc="img/logo/portfoilo_logo_cis1.jpg">
-							<div class=" box">
-								
-								<img src="img/logo/portfoilo_logo1.jpg">
+						<h2 class="portfolioTitle">Electronic Commerce <span class="zhtw">購物網站、ERP</span></h2>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/dobby/" data-csrc="img/portfolio0510/Dobby.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/1-dobby.png">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio0510/1-dobby.png">
 							</div>
 							<div class="bg"></div>
-							<div class="text1">
-								敘園小館-四川、江浙餐館
+							<div class="text">
+								Dobby 精緻糕點
+							</div>
+							<div class="logo">
+								<img src="img/portfolio0510/dobby_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis2.jpg">
-							<div class="box">
-								<img src="img/logo/portfoilo_logo2.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/ipix/" data-csrc="img/portfolio0510/ipix.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/3-ipix.jpg">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio0510/3-ipix.jpg">
 							</div>
 							<div class="bg"></div>
-							<div class="text1">
-								TOADAR CHATENET 遊戲開發
+							<div class="text">
+								IPIX鏡花園
 							</div>
-							
+							<div class="logo">
+								<img src="img/portfolio0510/ipix_logo.png">
+							</div>
 						</div>
-						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis3.jpg">
-							<div class="box">
-								<img src="img/logo/portfoilo_logo3.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/whenyi/" data-csrc="img/portfolio0510/Huanyi.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/5-whenyi.jpg">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio0510/5-whenyi.jpg">
 							</div>
 							<div class="bg"></div>
-							<div class="text1">
-								MiZZo 彩妝公司
+							<div class="text">
+								WhenYi 寰藝美容藥妝
 							</div>
-						
+							<div class="logo">
+								<img src="img/portfolio0510/huanyi_logo.png">
+							</div>
 						</div>
-						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis4.jpg">
-							<div class="box">
-								<img src="img/logo/portfoilo_logo4.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/solnine/" data-csrc="img/portfolio0510/solnine.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/7-solnine.png">
 							</div>
-						
+							<div class="pic showBlur">
+								<img src="img/portfolio0510/7-solnine.png">
+							</div>
 							<div class="bg"></div>
-							<div class="text1">
-								LOOSHI'S 甜點小舖
+							<div class="text">
+								Solnine
 							</div>
-							
+							<div class="logo">
+								<img src="img/portfolio0510/solnine_logo.png">
+							</div>
 						</div>
 					</div>
 					<div class="portfolioContent"  >
 					</div>
 					<div class="portfolioRight">
-						<div class="portfolioDiv" data-csrc="img/logo/portfoilo_logo_cis5.jpg">
-							<div class="box">
-								<img src="img/logo/portfoilo_logo5.jpg">
-							</div>
-							
-							<div class="bg"></div>
-							<div class="text1">
-								beauta 網路女性服飾
-							</div>
-						
-						</div>
-						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis6.jpg">
-							<div class="box">
-								<img src="img/logo/portfoilo_logo6.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/paris_strawberry/" data-csrc="img/portfolio0510/Paris.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/2-paris-strawberry.png">
 							</div>
 							<div class="pic showBlur">
-								
+								<img src="img/portfolio0510/2-paris-strawberry.png">
 							</div>
 							<div class="bg"></div>
-							<div class="text1">
-								極鮮日式料理
+							<div class="text">
+								Paris
 							</div>
-							
+							<div class="logo">
+								<img src="img/portfolio0510/paris_logo.png">
+							</div>
 						</div>
-						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis7.jpg">
-							<div class="box">
-								<img src="img/logo/portfoilo_logo7.jpg">
-								<div class="text1">
-									GRID MEDIA 多媒體設計公司
-								</div>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/nxstgirl/" data-csrc="img/portfolio0510/nxstgirl.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/4-nxstgirl.png">
 							</div>
-					
+							<div class="pic showBlur">
+								<img src="img/portfolio0510/4-nxstgirl.png">
+							</div>
 							<div class="bg"></div>
-							
-							
+							<div class="text">
+								NxstGirl
+							</div>
+							<div class="logo">
+								<img src="img/portfolio0510/nxstgirl_logo.png">
+							</div>
 						</div>
-						<div class="portfolioDiv"  data-csrc="img/logo/portfoilo_logo_cis8.jpg">
-							<div class="box">
-								<img src="img/logo/portfoilo_logo8.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit/" data-csrc="img/portfolio0510/petkit.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/6-petkit.jpg">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio0510/6-petkit.jpg">
 							</div>
 							<div class="bg"></div>
-							<div class="text1">
-								Georgia 私立喬治亞幼兒園
+							<div class="text">
+								PetKit 寵物智能管家
 							</div>
-							
+							<div class="logo">
+								<img src="img/portfolio0510/petkit_logo.png">
+							</div>
+						</div>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/187french/" data-csrc="img/portfolio0510/187.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio0510/8-187.jpg">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio0510/8-187.jpg">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								187French 法式糕點
+							</div>
+							<div class="logo">
+								<img src="img/portfolio0510/187_logo.png">
+							</div>
 						</div>
 					</div>
 				</div>
