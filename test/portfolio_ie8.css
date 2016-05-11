@@ -1,0 +1,65 @@
+body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
+
+.bodyPagePortfolio { display:none;  }
+.bodyPagePortfolio { display:block; }
+.bodyPagePortfolio .portfolioLeft { float:left; padding-top:120px; width:360px; margin-right:20px; overflow:hidden; }
+.bodyPagePortfolio .portfolioRight { float:right; padding-top:160px; width:360px; overflow:hidden; }
+.bodyPagePortfolio .portfolioDiv2 { width:360px; height:210px; background:#000; margin:0 0 20px 0; overflow:hidden; position:relative; cursor:pointer; }
+.bodyPagePortfolio .portfolioDiv2 .pic.showOriginal { position:absolute; width:360px; height:210px; opacity:1;  z-index:1; overflow:hidden; }
+.bodyPagePortfolio .portfolioDiv2:hover .pic.showOriginal { opacity:0; }
+.bodyPagePortfolio .portfolioDiv2 .pic.showOriginal img { width:360px; }
+.bodyPagePortfolio .portfolioDiv2 .pic.showBlur { display:block; position:absolute; width:360px; height:210px; }
+.bodyPagePortfolio .portfolioDiv2:hover .pic.showBlur { opacity:1; }
+.bodyPagePortfolio .portfolioDiv2 .pic.showBlur img { width:360px; }
+.bodyPagePortfolio .portfolioDiv2 .bg { display:none; position:absolute; width:360px; height:210px;  z-index:3; overflow:hidden;background-image:url(../img/ie8/portfolio.png);    }
+.bodyPagePortfolio .portfolioDiv2:hover .bg {display:block; }
+.bodyPagePortfolio .portfolioDiv2 .text { display:none; position:absolute; width:100%;bottom:0; color:#FFF; width:360px; text-align:center; letter-spacing:2px;font-size:14px; padding:5px; height:20px; line-height:20px; transition:opacity 1s; -webkit-transition:opacity 1s; z-index:4; }
+.bodyPagePortfolio .portfolioDiv2:hover .text { display:block; }
+
+.bodyPagePortfolio .portfolioDiv2 .logo { display:none; position:absolute;width:180px; height:180px; left:90px; top:5px; z-index:4; }
+.bodyPagePortfolio .portfolioDiv2:hover .logo { display:block; }
+
+.bodyPagePortfolio .portfolioDiv2 .logo img { width:180px; }
+
+.bodyPagePortfolio .portfolioDiv { width:360px; height:210px; background:#000; margin:0 0 20px 0; overflow:hidden; position:relative; cursor:pointer; }
+.bodyPagePortfolio .portfolioDiv .text1{ display:none;position:absolute; top:80px; left:0px;width:360px; height:50px;color:#fff; z-index:9; line-height:50px; text-align:center;overflow:hidden; letter-spacing:5px; font-size:14px; background-image:url(../img/ie8/portfolio2.png); }
+.bodyPagePortfolio .portfolioDiv:hover .text1{ display:block;}
+
+.bodyPagePortfolio .portfolioTitle { display:block; font-weight:900; height:20px; font-size:20px; line-height:20px; border-left:5px solid #333; color:#333; margin-bottom:20px; padding-left:8px; }
+.bodyPagePortfolio .portfolioTitle .zhtw { font-size:12px; color:#333; padding-left:10px; font-weight:500; }
+.bodyPagePortfolio .portfolioPageCISBg .portfolioTitle,
+.bodyPagePortfolio .portfolioPageMarketingBg .portfolioTitle { border-color: #000; color:#000; }
+.bodyPagePortfolio .portfolioPageCISBg .portfolioTitle .zhtw ,
+.bodyPagePortfolio .portfolioPageMarketingBg .portfolioTitle .zhtw { color:#000; }
+
+.bodyPagePortfolio .portfolioPageWebsiteBg { height:1400px; }
+.bodyPagePortfolio .portfolioPageCISBg { height:1400px; background:url(../img/bg14.jpg) 50% 50% ; background-size:cover; }
+.bodyPagePortfolio .portfolioPageGraphicDesignBg { height:1500px; background:url(../img/bg10.jpg) 50% 50% ; background-size:cover; }
+.bodyPagePortfolio .portfolioPageMarketingBg { height:1500px; background:url(../img/bg13.jpg) 50% 50% ; background-size:cover; }
+.bodyPagePortfolio .portfolioPageBg .portfolioPageWebsite,
+.bodyPagePortfolio .portfolioPageBg .portfolioPageCIS,
+.bodyPagePortfolio .portfolioPageBg .portfolioPageGraphicDesign,
+.bodyPagePortfolio .portfolioPageBg .portfolioPageMarketing { position:absolute; padding:0; width:740px; margin-left:-420px; left:50%; overflow:hidden; }
+
+.bodyPagePortfolio .portfolioPageBg.hover .portfolioPage { width:1700px;}
+
+.bodyPagePortfolio .portfolioPageBg.nohover .portfolioPage { width:740px; }
+
+.bodyPagePortfolio .portfolioPageBg .portfolioContent { float:left; width:0; height:1500px; overflow:hidden; }
+.bodyPagePortfolio .portfolioPageBg.hover .portfolioContent { width:940px; }
+
+.bodyPagePortfolio .portfolioPageBg.nohover .portfolioContent { width:0; margin-right:0;}
+
+.fixedPortfolioContent { display:none; }
+.fixedPortfolioContent { display:none; position:fixed; left:50%; margin:0 0 0 -440px; width:940px; height:1000px; z-index:98; background-position:0 0; overflow:hidden; }
+.fixedPortfolioContent.opacity1 { display:block; animation:p201404100901 2s; -webkit-animation:p201404100901 2s; }
+.fixedPortfolioContent .content { width:860px; padding:100px 0 0 40px; overflow:hidden; }
+.fixedPortfolioContent .content .pic { display:block; width:840px; padding:10px; height:430px; background:#FFF; margin-bottom:10px; overflow:hidden; }
+.fixedPortfolioContent .content .pic img { width:840px; height:430px; }
+.fixedPortfolioContent .content .ahref { display:block; float:right; margin-right:10px; background: rgba(0, 0, 0, 0.5); padding:5px 20px; border-radius:5px; color:#FFF; font-size:15px; }
+.fixedNoClickLeft { display:block; position:fixed; left:50%; margin-left:-1390px; width:950px; height:1000px; background:#FFF; opacity:0; z-index:98; }
+.fixedNoClickLeft.opacity1 { opacity:0.9; }
+.fixedNoClickRight { display:block; position:fixed; left:50%; margin-left:500px; width:950px; height:1000px; background:#FFF; opacity:0; z-index:98;}
+.fixedNoClickRight.opacity1 { opacity:0.9; }
+.fixedNoClick { display:none; position:fixed; left:0; width:1900px; height:1600px; background:#FFF; opacity:0; z-index:98; }
+.fixedNoClick.displayblock { display:block; }
