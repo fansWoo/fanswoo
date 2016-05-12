@@ -107,42 +107,42 @@ $(function(){
 				<div class="portfolioPage portfolioPageWebsite">
 					<div class="portfolioLeft">
 						<h2 class="portfolioTitle">Website Design <span class="zhtw">RWD形象網站</span></h2>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yens/" data-csrc="img/portfolio0510/Yens.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yens/" data-csrc="img/portfolio/Yens.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/1-yens.png">
+								<img src="img/portfolio/1-yens.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/1-yens.png">
+								<img src="img/portfolio/1-yens.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								YENS 元家日式料理
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/yens_logo.png">
+								<img src="img/portfolio/yens_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/hcmedi/" data-csrc="img/portfolio0510/HCMedi.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/hcmedi/" data-csrc="img/portfolio/HCMedi.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/3-hcmedi.png">
+								<img src="img/portfolio/3-hcmedi.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/3-hcmedi.png">
+								<img src="img/portfolio/3-hcmedi.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								HCMedi 心誠美行動醫療
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/hcmedi_logo.png">
+								<img src="img/portfolio/hcmedi_logo.png">
 							</div>
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/basilai" data-csrc="img/portfolio/web_7.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/beer.jpg">
+								<img src="img/portfolio/5-beer.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/beer.jpg">
+								<img src="img/portfolio/5-beer.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
@@ -152,19 +152,19 @@ $(function(){
 								<img src="img/portfolio/beer_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/tomato/" data-csrc="img/portfolio0510/tomato.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/tomato/" data-csrc="img/portfolio/tomato.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/7-tomato.png">
+								<img src="img/portfolio/7-tomato.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/7-tomato.png">
+								<img src="img/portfolio/7-tomato.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Tomato 番茄娛樂
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/tomato_logo.png">
+								<img src="img/portfolio/tomato_logo.png">
 							</div>
 						</div>
 					</div>
@@ -173,7 +173,7 @@ $(function(){
 					<div class="portfolioRight">
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/million_roof" data-csrc="img/portfolio/sun_roof_web.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/2-million-roof.png">
+								<img src="img/portfolio/2-million-roof.png">
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/sun_roof.jpg">
@@ -186,27 +186,27 @@ $(function(){
 								<img src="img/portfolio/sun_roof_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://goo.gl/RGVLkD" data-csrc="img/portfolio0510/Alchema.jpg">
+						<div class="portfolioDiv" data-chref="http://goo.gl/RGVLkD" data-csrc="img/portfolio/Alchema.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/4-alchema.png">
+								<img src="img/portfolio/4-alchema.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/4-alchema.png">
+								<img src="img/portfolio/4-alchema.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								 Alchema 專業釀酒機
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/alchema_logo.png">
+								<img src="img/portfolio/alchema_logo.png">
 							</div>
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace" data-csrc="img/portfolio/web_1.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/designSampleCandace.jpg">
+								<img src="img/portfolio/6-designSampleCandace.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/designSampleCandace.jpg">
+								<img src="img/portfolio/6-designSampleCandace.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
@@ -216,19 +216,19 @@ $(function(){
 								<img src="img/portfolio/designSampleLogoCandace.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/hicer" data-csrc="img/portfolio0510/Hicer.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/hicer" data-csrc="img/portfolio/Hicer.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/8-hicer.png">
+								<img src="img/portfolio/8-hicer.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/8-hicer.png">
+								<img src="img/portfolio/8-hicer.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								 Hicer 立鑽材質開發
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/hicer_logo.png">
+								<img src="img/portfolio/hicer_logo.png">
 							</div>
 						</div>
 					</div>
@@ -238,128 +238,128 @@ $(function(){
 				<div class="portfolioPage portfolioPageCIS">
 					<div class="portfolioLeft">
 						<h2 class="portfolioTitle">Electronic Commerce <span class="zhtw">購物網站、ERP</span></h2>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/dobby/" data-csrc="img/portfolio0510/Dobby.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/dobby/" data-csrc="img/portfolio/Dobby.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/1-dobby.png">
+								<img src="img/portfolio/1-dobby.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/1-dobby.png">
+								<img src="img/portfolio/1-dobby.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Dobby 精緻糕點
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/dobby_logo.png">
+								<img src="img/portfolio/dobby_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/ipix/" data-csrc="img/portfolio0510/ipix.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/ipix/" data-csrc="img/portfolio/ipix.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/3-ipix.jpg">
+								<img src="img/portfolio/3-ipix.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/3-ipix.jpg">
+								<img src="img/portfolio/3-ipix.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								IPIX鏡花園
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/ipix_logo.png">
+								<img src="img/portfolio/ipix_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/whenyi/" data-csrc="img/portfolio0510/Huanyi.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/whenyi/" data-csrc="img/portfolio/Huanyi.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/5-whenyi.jpg">
+								<img src="img/portfolio/5-whenyi.jpg">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/5-whenyi.jpg">
+								<img src="img/portfolio/5-whenyi.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								WhenYi 寰藝美容藥妝
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/huanyi_logo.png">
+								<img src="img/portfolio/huanyi_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/solnine/" data-csrc="img/portfolio0510/solnine.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/solnine/" data-csrc="img/portfolio/solnine.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/7-solnine.png">
+								<img src="img/portfolio/7-solnine.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/7-solnine.png">
+								<img src="img/portfolio/7-solnine.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								Solnine
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/solnine_logo.png">
+								<img src="img/portfolio/solnine_logo.png">
 							</div>
 						</div>
 					</div>
 					<div class="portfolioContent"  >
 					</div>
 					<div class="portfolioRight">
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/paris_strawberry/" data-csrc="img/portfolio0510/Paris.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/paris_strawberry/" data-csrc="img/portfolio/Paris.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/2-paris-strawberry.png">
+								<img src="img/portfolio/2-paris-strawberry.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/2-paris-strawberry.png">
+								<img src="img/portfolio/2-paris-strawberry.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								Paris
+								Paris Strawberry 巴黎草莓國際彩妝
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/paris_logo.png">
+								<img src="img/portfolio/paris_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/nxstgirl/" data-csrc="img/portfolio0510/nxstgirl.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/nxstgirl/" data-csrc="img/portfolio/nxstgirl.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/4-nxstgirl.png">
+								<img src="img/portfolio/4-nxstgirl.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/4-nxstgirl.png">
+								<img src="img/portfolio/4-nxstgirl.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								NxstGirl
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/nxstgirl_logo.png">
+								<img src="img/portfolio/nxstgirl_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit/" data-csrc="img/portfolio0510/petkit.jpg">
+						<div class="portfolioDiv" data-chref="http://www.taiwanbaseball.com.tw/" data-csrc="img/portfolio/tb_web.png">
 							<div class="pic showOriginal">
-								<img src="img/portfolio0510/6-petkit.jpg">
+								<img src="img/portfolio/tb.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio0510/6-petkit.jpg">
+								<img src="img/portfolio/tb.png">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								Taiwan Baseball
+							</div>
+							<div class="logo">
+								<img src="img/portfolio/tb_logo.png">
+							</div>
+						</div>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit/" data-csrc="img/portfolio/petkit.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio/6-petkit.jpg">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio/6-petkit.jpg">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
 								PetKit 寵物智能管家
 							</div>
 							<div class="logo">
-								<img src="img/portfolio0510/petkit_logo.png">
-							</div>
-						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/187french/" data-csrc="img/portfolio0510/187.jpg">
-							<div class="pic showOriginal">
-								<img src="img/portfolio0510/8-187.jpg">
-							</div>
-							<div class="pic showBlur">
-								<img src="img/portfolio0510/8-187.jpg">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								187French 法式糕點
-							</div>
-							<div class="logo">
-								<img src="img/portfolio0510/187_logo.png">
+								<img src="img/portfolio/petkit_logo.png">
 							</div>
 						</div>
 					</div>
