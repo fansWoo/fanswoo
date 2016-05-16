@@ -283,6 +283,21 @@ $(function(){
 								<img src="img/portfolio/huanyi_logo.png">
 							</div>
 						</div>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/assari/" data-csrc="img/portfolio/assari.png">
+							<div class="pic showOriginal">
+								<img src="img/portfolio/assari_pic.jpg">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio/assari_pic.jpg">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								Assari 鑫億家俱
+							</div>
+							<div class="logo">
+								<img src="img/portfolio/assari_logo.png">
+							</div>
+						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/solnine/" data-csrc="img/portfolio/solnine.jpg">
 							<div class="pic showOriginal">
 								<img src="img/portfolio/7-solnine.png">
@@ -360,6 +375,21 @@ $(function(){
 							</div>
 							<div class="logo">
 								<img src="img/portfolio/petkit_logo.png">
+							</div>
+						</div>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit/" data-csrc="img/portfolio/187.jpg">
+							<div class="pic showOriginal">
+								<img src="img/portfolio/8-187.jpg">
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio/8-187.jpg">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								187精緻甜點
+							</div>
+							<div class="logo">
+								<img src="img/portfolio/187_logo.png">
 							</div>
 						</div>
 					</div>
