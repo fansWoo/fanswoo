@@ -75,7 +75,7 @@
 						</div>
 					</div>
 				<div class="footerBottom">
-					© 2014 <a href="">fansWoo</a> All Rights Reserved. Design By <a href="">瘋沃科技</a>
+					© 2016 <a href="">fansWoo</a> All Rights Reserved. Design By <a href="">瘋沃科技</a>
 				</div>
 			</div>
 		</div>

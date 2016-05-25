@@ -6,7 +6,7 @@
 		<p class="title2">RWD形象網站</p>
 		<div class="box">
 			<a href="http://web.fanswoo.com/yens/"><img src="img/portfolio/1-yens.png" class="webimg"></a>
-			<p>YENS 元家日式料理</p>
+			<p>Yens 元家水產食品集</p>
 		</div>
 		<div class="box">
 			<a href="http://web.fanswoo.com/hcmedi/"><img src="img/portfolio/3-hcmedi.png" class="webimg"></a>
@@ -57,7 +57,7 @@
 		</div>
 		<div class="box">
 			<a href="http://web.fanswoo.com/solnine/"><img src="img/portfolio/7-solnine.png" class="webimg"></a>
-			<p>Solnine</p>
+			<p>Solnine 旭浩科技</p>
 		</div>
 		<div class="box">
 			<a href="http://web.fanswoo.com/paris_strawberry/"><img src="img/portfolio/2-paris-strawberry.png" class="webimg"></a>

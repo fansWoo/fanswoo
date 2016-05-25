@@ -4,7 +4,7 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 .bodyPagePortfolio { display:block;width:100%;position:relative;overflow:hidden; }
 .bodyPagePortfolio .portfolioLeft { float:left; padding-top:120px; width:360px; margin-right:20px; overflow:hidden; }
 .bodyPagePortfolio .portfolioRight { float:right; padding-top:160px; width:360px; overflow:hidden; }
-.bodyPagePortfolio .portfolioDiv { width:360px; height:210px; background:#000; margin:0 0 20px 0; overflow:hidden; position:relative; cursor:pointer; }
+.bodyPagePortfolio .portfolioDiv { width:360px; height:210px; background:#000; margin:0 0 20px 0; overflow:hidden; position:relative; cursor:pointer; box-shadow:1px 1px 10px #666; }
 .bodyPagePortfolio .portfolioDiv .pic.showOriginal { position:absolute; width:360px; height:210px; opacity:1; transition:opacity 1s; -webkit-transition:opacity 1s; z-index:1; overflow:hidden; }
 .bodyPagePortfolio .portfolioDiv:hover .pic.showOriginal { opacity:0; }
 .bodyPagePortfolio .portfolioDiv .pic.showOriginal img { width:360px; }

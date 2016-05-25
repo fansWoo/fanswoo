@@ -116,7 +116,7 @@ $(function(){
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								YENS 元家日式料理
+								Yens 元家水產食品集
 							</div>
 							<div class="logo">
 								<img src="img/portfolio/yens_logo.png">
@@ -307,7 +307,7 @@ $(function(){
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								Solnine
+								Solnine 旭浩科技
 							</div>
 							<div class="logo">
 								<img src="img/portfolio/solnine_logo.png">
