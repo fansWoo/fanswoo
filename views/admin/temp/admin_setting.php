@@ -8,7 +8,7 @@
     <h4><?=$value_arr['subtitle']?></h4>
     <?php echo form_open_multipart($global['form_open']) ?>
     <?foreach($value_arr['child'] as $key2 => $value2_arr):?>
-	<div class="spanLine">
+    <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 <?=$value2_arr['title']?>
@@ -41,7 +41,7 @@
                         placeholder="<?=$value2_arr['placeholder']?>"
                         value="<?=$SettingList->obj_arr[$value2_arr['name']]->value?>"
                         <?if(
-                            ising($value2_arr['set_rules']) &&
+                            is_string($value2_arr['set_rules']) &&
                             stristr($value2_arr['set_rules'], 'required') ||
                             !empty($value2_arr['set_rules']['required'])
                         ):?>
@@ -130,9 +130,9 @@
             </div>
         </div>
         <?endif?>
-	</div>
+    </div>
     <?endforeach?>
-	<div class="spanLine spanSubmit">
+    <div class="spanLine spanSubmit">
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
@@ -141,8 +141,8 @@
                 <input type="submit" fanswoo-ajax_submit class="submit" value="儲存設置">
             </div>
         </div>
-	</div>
-	</form>
+    </div>
+    </form>
 </div>
 <?endforeach?>
 <?=$temp['admin_footer_bar']?>
