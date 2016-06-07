@@ -9,17 +9,20 @@
 		<?=form_open('user/login_post')?>
 			<div class="paragraph">
 				<p>會員電子郵件：</p>
-				<p><input type="text" name="email_Str" placeholder="請輸入您的電子郵件"></p>
+				<p><input type="text" name="email" placeholder="請輸入您的電子郵件"></p>
 			</div>
 			<div class="paragraph">
 				<p>會員密碼：</p>
-				<p><input type="password" name="password_Str" placeholder="請輸入您的密碼"></p>
+				<p><input type="password" name="password" placeholder="請輸入您的密碼"></p>
 			</div>
 			<div class="paragraph">
 				<label class="rememberme"><input type="checkbox" checked="true">保持登入狀態</label>
 				<input type="submit" value="確認送出">
 			</div>
-			<input type="hidden" name="url_Str" value="<?=$url_Str?>">
+			<?if( !empty( $no_rewrite ) ):?>
+			<input type="hidden" name="no_rewrite" value="true">
+			<?endif?>
+			<input type="hidden" name="url" value="<?=$url?>">
 		</form>
 	</div>
 	<div class="userBoxOther">

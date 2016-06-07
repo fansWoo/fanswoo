@@ -8,7 +8,7 @@
 	<meta name="keywords" content="<?=$value?>">
 	<?endforeach?>
 	<?endif?>
-	<base href="<?=prep_url($_SERVER['HTTP_HOST'].base_url())?>" />
+	<base href="//<?=$_SERVER['HTTP_HOST'].base_url()?>" />
 	<script src="app/js/jquery-1.7.1.min.js"></script>
 	<script src="app/js/jquery-ui-1.8.23.custom.min.js"></script>
 	<script src="app/js/fanScript-1.3.0.js"></script>

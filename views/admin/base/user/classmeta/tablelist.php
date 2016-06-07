@@ -1,41 +1,41 @@
 <?=$temp['header_up']?>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
+<h2><?=$child2_title?> - <?=$child3_title?></h2>
 <div class="contentBox contentTablelist allWidth">
-    <h3><?=$child3_title_Str?> > <?=$child4_title_Str?></h3>
-    <h4>請選擇欲修改之<?=$child3_title_Str?></h4>
+    <h3><?=$child3_title?> > <?=$child4_title?></h3>
+    <h4>請選擇欲修改之<?=$child3_title?></h4>
     <?if(0):?>
     <div class="spanLine noneBg">
         <div class="spanLineLeft">
-            <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit" class="button">新增<?=$child3_title_Str?></a>
+            <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit" class="button">新增<?=$child3_title?></a>
         </div>
     </div>
     <?endif?>
-	<div class="spanLineTable">
+    <div class="spanLineTable">
         <div class="spanLineTableContent">
             <div class="spanLine tablelist tableTitle">
-                <div class="spanLineLeft text width300">
-        			分類名稱
+                <div class="spanLineLeft text width200">
+                    會員群組名稱
                 </div>
                 <div class="spanLineLeft text width150">
                     編輯操作
                 </div>
             </div>
-            <?if(!empty($UserGroupList->obj_Arr)):?>
-            <?foreach($UserGroupList->obj_Arr as $key => $value_UserGroup):?>
+            <?if(!empty($UserGroupList->obj_arr)):?>
+            <?foreach($UserGroupList->obj_arr as $key => $value_UserGroup):?>
             <div class="spanLine tablelist">
-                <div class="spanLineLeft text width300">
-                    <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/user/tablelist/?group_groupid=<?=$value_UserGroup->groupid_Num?>"><?=$value_UserGroup->groupname_Str?></a>
+                <div class="spanLineLeft text width200">
+                    <?=$value_UserGroup->groupname?>
                 </div>
                 <div class="spanLineLeft width150 tablelistMenu">
-                    <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/user/tablelist/?group_groupid=<?=$value_UserGroup->groupid_Num?>">查看會員</a>
+                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/user/tablelist/?group_groupid=<?=$value_UserGroup->groupid?>">查看會員</a>
                     <?if(0):?>
-                    <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/edit/?slug=<?=$value_UserGroup->groupid_Num?>">編輯</a>
-                    <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除這個標籤？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?classid=<?=$value_UserGroup->groupid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
+                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?groupid=<?=$value_UserGroup->groupid?>">編輯</a>
+                    <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除這個標籤？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?groupid=<?=$value_UserGroup->groupid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
                     <?endif?>
                 </div>
-        	</div>
+            </div>
             <?endforeach?>
             <?else:?>
             <div class="spanLine">

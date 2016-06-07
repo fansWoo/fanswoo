@@ -1045,10 +1045,7 @@ $(document).on('click.cycle', '[data-cycle-cmd]', function(e) {
     var command = el.data('cycle-cmd');
     var context = el.data('cycle-context') || '.cycle-slideshow';
     $(context).cycle(command, el.data('cycle-arg'));
-});
-
-
-})(jQuery);
+});})(jQuery);
 
 /*! hash plugin for Cycle2;  version: 20130905 */
 (function($) {
@@ -1362,10 +1359,7 @@ $(document).on( 'cycle-update-view', function( e, opts, slideOpts, currSlide ) {
         prev.addClass( cls ).prop( 'disabled', true );
     else
         prev.removeClass( cls ).prop( 'disabled', false );
-});
-
-
-$(document).on( 'cycle-destroyed', function( e, opts ) {
+});$(document).on( 'cycle-destroyed', function( e, opts ) {
     opts.API.getComponent( 'prev' ).off( opts.nextEvent );
     opts.API.getComponent( 'next' ).off( opts.prevEvent );
     opts.container.off( 'swipeleft.cycle swiperight.cycle swipeLeft.cycle swipeRight.cycle swipeUp.cycle swipeDown.cycle' );
@@ -1422,9 +1416,6 @@ $(document).on( 'cycle-pre-initialize', function( e, opts ) {
                 slides.pop();
         }
     }
-
-
-
     if ( prepareTxFn ) {
         API.prepareTx = function( manual, fwd ) {
             var index, slide;

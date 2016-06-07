@@ -173,10 +173,7 @@ $.fn.ajaxSubmit = function(options) {
 
 	// fire 'notify' event
 	this.trigger('form-submit-notify', [this, options]);
-	return this;
-
-
-	// private function for handling file uploads (hat tip to YAHOO!)
+	return this;	// private function for handling file uploads (hat tip to YAHOO!)
 	function fileUpload() {
 		var form = $form[0];
 

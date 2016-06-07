@@ -1,25 +1,9 @@
 <?=$temp['header_up']?>
-<script src="<?=base_url(APPURL.'js/tool/smooth_scrollerator.js')?>"></script>
-<script src="<?=base_url(APPURL.'js/tool/cycle2.js')?>"></script>
-
 <script>
-$(function(){
+Temp.ready(function(){
 
 	$(window).resize(function(){
 		location.href = '';
-	});
-
-	$(" .slide_pic > .square").cycle({
-		fx:       "scrollHorz", 
-		//fade
-		//scrollHorz
-		timeout: 0 ,
-		speed: 2000,
-		manualSpeed: 600,
-		slides: ' > .slide_pic_href',
-		next: '.next',
-		prev: ' .prev',
-				
 	});
 
 	$(document).scroll(function(){
@@ -152,7 +136,7 @@ $(function(){
 		$('.content_start').css('height', window_height);
 	});
 
-	$('a[href^=#]').click(function(){
+	$(document).on('click', "a[href^='#']", function(){
 		var speed = 500;
 		var href = $(this).attr("href");
 		var target = $(href == "#" || href == "" ? 'html' : href);

@@ -2,60 +2,79 @@
 
 class Note_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'base';
-    protected $child2_name_Str = 'note';
-    protected $child3_name_Str = 'note';
-
     public function __construct()
     {
         parent::__construct();
+
         $data = $this->data;
 
+        $data['usergroupid_UserGroup'] = $data['User']->group_UserGroupList->obj_arr[0]->groupid;
+        
+        $this->data = $data;
+
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function edit()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
             
-        $noteid_Num = $this->input->get('noteid');
+        $noteid = $this->input->get('noteid');
 
-        $data['NoteField'] = new NoteField();
-        $data['NoteField']->construct_db(array(
-            'db_where_Arr' => array(
-                'note.noteid' => $noteid_Num
-            )
-        ));
+        if(empty($noteid))
+        {
+            $data['NoteField'] = new NoteField([
+                'db_where_arr' => [
+                    'note.noteid' => $noteid
+                ]
+            ]);
+        }
+        else
+        {
+            $Note = new Note([
+                'db_where_arr' => [
+                    'noteid' => $noteid
+                ]
+            ]);
 
-        $data['NoteClassMetaList'] = new ObjList();
-        $data['NoteClassMetaList']->construct_db(array(
-            'db_where_Arr' => [
-                'modelname' => 'note'
-            ],
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
+            if( $Note->noteid == 0 )
+            {
+                header('Location: '.base_url('admin/base/note/note/edit'));
+            }
+            else
+            {
+                $data['NoteField'] = new NoteField([
+                    'db_where_arr' => [
+                        'note.noteid' => $noteid
+                    ]
+                ]);
+            }
+        }
 
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
-        $data['global']['js'][] = 'tool/jquery.form.js';
+        if($data['usergroupid_UserGroup'] >= 100)
+        {
+            $data['NoteClassMetaList'] = new ObjList([
+                'db_where_arr' => [
+                    'modelname' => 'note',
+                    'uid' => $data['User']->uid
+                ],
+                'model_name' => 'ClassMeta',
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
+        }
+        else
+        {
+            $data['NoteClassMetaList'] = new ObjList([
+                'db_where_arr' => [
+                    'modelname' => 'note'
+                ],
+                'model_name' => 'ClassMeta',
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
+        }
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -65,119 +84,166 @@ class Note_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function edit_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $this->form_validation->set_rules('title_Str', '文章標題', 'required');
-        $this->form_validation->set_rules('content_Str', '文章內容', 'required');
-        
-        $noteid_Num = $this->input->post('noteid_Num', TRUE);
+        $noteid = $this->input->post('noteid', TRUE);
+        $title = $this->input->post('title', TRUE, '文章標題', 'required');
+        $slug = $this->input->post('slug', TRUE);
+        $classids_arr = $this->input->post('classids_arr', TRUE);
+        $content = $this->input->post('content', FALSE, '文章內容', 'required');
+        $prioritynum = $this->input->post('prioritynum', TRUE);
+        $updatetime = $this->input->post('updatetime', TRUE);
+        $picids_arr = $this->input->post('picids_arr');
+        $shelves_status = $this->input->post('shelves_status', TRUE);
+        $show_bln = $this->input->post('show_bln', TRUE);
+        if ( !$this->form_validation->check() ) return FALSE;
 
-        if ($this->form_validation->run() !== FALSE)
+        if(!empty($show_bln))
         {
-            //基本post欄位
-            $title_Str = $this->input->post('title_Str', TRUE);
-            $classids_Arr = $this->input->post('classids_Arr', TRUE);
-            $content_Str = $this->input->post('content_Str');
-            $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
-            $updatetime_Str = $this->input->post('updatetime_Str', TRUE);
-            $picids_Arr = $this->input->post('picids_Arr');
+            $shelves_status = 2;
+        }
 
-            //建構Note物件，並且更新
-            $NoteField = new NoteField();
-            $NoteField->construct([
-                'noteid_Num' => $noteid_Num,
-                'title_Str' => $title_Str,
-                'classids_Arr' => $classids_Arr,
-                'content_Str' => $content_Str,
-                'picids_Arr' => $picids_Arr,
-                'prioritynum_Num' => $prioritynum_Num,
-                'updatetime_Str' => $updatetime_Str,
-                'modelname_Str' => 'note'
-            ]);
-            $NoteField->update();
+        //建構Note物件，並且更新
+        $NoteField = new NoteField([
+            'noteid' => $noteid,
+            'title' => $title,
+            'slug' => $slug,
+            'classids_arr' => $classids_arr,
+            'content' => $content,
+            'picids_arr' => $picids_arr,
+            'prioritynum' => $prioritynum,
+            'updatetime' => $updatetime,
+            'shelves_status' => $shelves_status,
+            'modelname' => 'note'
+        ]);
+        $NoteField->update();
 
+        if( !empty($show_bln) )
+        {
             //送出成功訊息
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/base/note/note/tablelist/'
-            ));
+            $this->Message->show([
+                'message' => '草稿預覽中...',
+                'url' => 'note/'.$NoteField->slug
+            ]);
         }
         else
         {
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
+            //送出成功訊息
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => 'admin/base/note/note/edit/?noteid='.$noteid_Num
-            ));
+            $this->Message->show([
+                'message' => '設定成功',
+                'url' => 'admin/base/note/note/tablelist/'
+            ]);
         }
     }
 
     public function tablelist()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['search_noteid_Num'] = $this->input->get('noteid');
-        $data['search_title_Str'] = $this->input->get('title');
-        $data['search_class_slug_Str'] = $this->input->get('class_slug');
+        $data['search_noteid'] = $this->input->get('noteid');
+        $data['search_title'] = $this->input->get('title');
+        $data['search_uid'] = $this->input->get('uid');
+        $data['search_class_slug'] = $this->input->get('class_slug');
+        $data['search_shelves_status'] = $this->input->get('shelves_status');
 
-        $limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 20;
+        //預設顯示已發表文章
+        if(empty($data['search_shelves_status']))
+        {
+            $data['search_shelves_status'] = 1;
+        }
 
-        $class_ClassMeta = new ClassMeta();
-        $class_ClassMeta->construct_db(array(
-            'db_where_Arr' => array(
-                'slug' => $data['search_class_slug_Str']
-            )
-        ));
+        $limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $data['NoteList'] = new ObjList();
-        $data['NoteList']->construct_db(array(
-            'db_where_Arr' => array(
-                'modelname' => 'note',
-                'noteid' => $data['search_noteid_Num']
-            ),
-            'db_where_like_Arr' => array(
-                'title_Str' => $data['search_title_Str']
-            ),
-            'db_where_or_Arr' => array(
-                'classids' => array($class_ClassMeta->classid_Num)
-            ),
-            'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'Note',
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
-        ));
-        $data['page_link'] = $data['NoteList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
+        $class_ClassMeta = new ClassMeta([
+            'db_where_arr' => [
+                'slug' => $data['search_class_slug']
+            ]
+        ]);
 
-        $data['NoteClassMetaList'] = new ObjList();
-        $data['NoteClassMetaList']->construct_db(array(
-            'db_where_Arr' => [
-                'modelname' => 'note'
-            ],
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
+        if($data['usergroupid_UserGroup'] >= 100)
+        {
+            $data['NoteList'] = new ObjList([
+                'db_where_arr' => [
+                    'modelname' => 'note',
+                    'noteid' => $data['search_noteid'],
+                    'shelves_status' => $data['search_shelves_status'],
+                    'uid' => $data['User']->uid
+                ],
+                'db_where_like_arr' => [
+                    'title' => $data['search_title']
+                ],
+                'db_where_or_arr' => [
+                    'classids' => [$class_ClassMeta->classid]
+                ],
+                'db_orderby_arr' => [
+                    'prioritynum' => 'DESC',
+                    'updatetime' => 'DESC'
+                ],
+                'db_where_deletenull_bln' => TRUE,
+                'model_name' => 'Note',
+                'limitstart' => $limitstart,
+                'limitcount' => $limitcount
+            ]);
+        }
+        else
+        {
+            $data['NoteList'] = new ObjList([
+                'db_where_arr' => [
+                    'modelname' => 'note',
+                    'noteid' => $data['search_noteid'],
+                    'shelves_status' => $data['search_shelves_status'],
+                    'uid' => $data['search_uid']
+                ],
+                'db_where_like_arr' => [
+                    'title' => $data['search_title']
+                ],
+                'db_where_or_arr' => [
+                    'classids' => [$class_ClassMeta->classid]
+                ],
+                'db_orderby_arr' => [
+                    'prioritynum' => 'DESC',
+                    'updatetime' => 'DESC'
+                ],
+                'db_where_deletenull_bln' => TRUE,
+                'model_name' => 'Note',
+                'limitstart' => $limitstart,
+                'limitcount' => $limitcount
+            ]);
+        }
+        $data['page_link'] = $data['NoteList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+        if($data['usergroupid_UserGroup'] >= 100)
+        {
+            $data['NoteClassMetaList'] = new ObjList([
+                'db_where_arr' => [
+                    'modelname' => 'note',
+                    'uid' => $data['User']->uid
+                ],
+                'model_name' => 'ClassMeta',
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
+        }
+        else
+        {
+            $data['NoteClassMetaList'] = new ObjList([
+                'db_where_arr' => [
+                    'modelname' => 'note'
+                ],
+                'model_name' => 'ClassMeta',
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
+        }
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -187,66 +253,127 @@ class Note_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 
     }
 
     public function tablelist_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_noteid_Num = $this->input->post('search_noteid_Num', TRUE);
-        $search_class_slug_Str = $this->input->post('search_class_slug_Str', TRUE);
-        $search_title_Str = $this->input->post('search_title_Str', TRUE);
+        $search_noteid = $this->input->post('search_noteid', TRUE);
+        $search_class_slug = $this->input->post('search_class_slug', TRUE);
+        $search_title = $this->input->post('search_title', TRUE);
+        $search_uid = $this->input->post('search_uid', TRUE);
+        $search_shelves_status = $this->input->post('search_shelves_status', TRUE);
 
-        $url_Str = base_url('admin/base/note/note/tablelist/?');
+        $url = 'admin/base/note/note/tablelist/?';
 
-        if(!empty($search_noteid_Num))
+        if(!empty($search_noteid))
         {
-            $url_Str = $url_Str.'&noteid='.$search_noteid_Num;
+            $url = $url.'&noteid='.$search_noteid;
         }
 
-        if(!empty($search_class_slug_Str))
+        if(!empty($search_class_slug))
         {
-            $url_Str = $url_Str.'&class_slug='.$search_class_slug_Str;
+            $url = $url.'&class_slug='.$search_class_slug;
         }
 
-        if(!empty($search_title_Str))
+        if(!empty($search_title))
         {
-            $url_Str = $url_Str.'&title='.$search_title_Str;
+            $url = $url.'&title='.$search_title;
         }
 
-        header("Location: $url_Str");
+        if(!empty($search_shelves_status))
+        {
+            $url = $url.'&shelves_status='.$search_shelves_status;
+        }
+        
+        if(!empty($search_uid))
+        {
+            $url = $url.'&uid='.$search_uid;
+        }
+
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
     }
 
     public function delete()
     {
-        $hash_Str = $this->input->get('hash');
-        $noteid_Num = $this->input->get('noteid');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $Note = new Note();
-            $Note->construct(array('noteid_Num' => $noteid_Num));
-            $Note->delete();
+            $NoteField = new NoteField([
+                'noteid' => $this->input->get('noteid')
+            ]);
+            $NoteField->delete();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
                 'url' => 'admin/base/note/note/tablelist'
-            ));
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
                 'url' => 'admin/base/note/note/tablelist'
-            ));
+            ]);
         }
     }
 
+    public function delete_batch_post()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $noteid_arr = $this->input->post('noteid_arr[]');
+
+        //CSRF過濾
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
+        {
+            if(!empty($noteid_arr))
+            {
+                foreach($noteid_arr as $key => $noteid)
+                {
+                    $NoteField = new NoteField([
+                        'noteid' => $noteid
+                    ]);
+                    $NoteField->delete();
+                }
+            }
+            else
+            {
+                $this->load->model('Message');
+                $this->Message->show([
+                    'message' => '未選擇要刪除的文章'
+                ]);
+                return TRUE;
+            }
+
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '刪除成功',
+                'url' => 'admin/base/note/note/tablelist'
+            ]);
+            return TRUE;
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/base/note/note/tablelist'
+            ]);
+            return TRUE;
+        }
+    }
 }
 
 ?>

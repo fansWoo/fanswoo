@@ -16,10 +16,10 @@ class Graphic_Controller extends MY_controller
     {
         $data = $this->data;
 
-        $data['previous_url_Str'] = uri_string();
+        $data['previous_url'] = uriing();
 
         //global
-        $data['global']['style'][] = 'temp/style.css';
+        $data['global']['style'][] = 'temp/global.css';
         $data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'graphic/index.css';

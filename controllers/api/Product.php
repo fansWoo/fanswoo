@@ -6,18 +6,18 @@ class Product_Controller extends MY_Controller {
 	{
         $data = $this->data;
 
-        $stockid_Num = $this->input->get('stockid');
+        $stockid = $this->input->get('stockid');
 
-        if( empty($data['User']->uid_Num) )
+        if( empty($data['User']->uid) )
         {
             echo '操作權限不足';
             return FALSE;
         }
 		
-		if( !empty($stockid_Num) )
+		if( !empty($stockid) )
         {
             $StockProductShop = new StockProductShop();
-            $StockProductShop->construct(['stockid_Num' => $stockid_Num]);
+            $StockProductShop->construct(['stockid' => $stockid]);
             $StockProductShop->delete();
             return TRUE;
 		}

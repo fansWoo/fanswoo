@@ -2,60 +2,36 @@
 
 class Contact_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'base';
-    protected $child2_name_Str = 'contact';
-    protected $child3_name_Str = 'contact';
-
     public function __construct()
     {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function edit()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
             
-        $contactid_Num = $this->input->get('contactid');
+        $contactid = $this->input->get('contactid');
 
-        if(empty($contactid_Num))
+        if(empty($contactid))
         {
             //送出成功訊息
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '請選擇欲編輯的聯繫單',
                 'url' => 'admin/base/contact/contact/tablelist'
-            ));
+            ]);
             return FALSE;
         }
 
-        $data['Contact'] = new ContactFanswoo();
-        $data['Contact']->construct_db(array(
-            'db_where_Arr' => array(
-                'contactid_Num' => $contactid_Num
-            )
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+        $data['Contact'] = new Contact([
+            'db_where_arr' => [
+                'contactid' => $contactid
+            ]
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -65,75 +41,66 @@ class Contact_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function edit_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //基本post欄位
-        $contactid_Num = $this->input->post('contactid_Num', TRUE);
-        $status_process_Num = $this->input->post('status_process_Num');
+        $contactid = $this->input->post('contactid', TRUE);
+        $status_process = $this->input->post('status_process');
 
         //建構Contact物件，並且更新
-        $Contact = new ContactFanswoo();
-        $Contact->construct(array(
-            'contactid_Num' => $contactid_Num,
-            'status_process_Num' => $status_process_Num
-        ));
-        $Contact->update(array(
-            'db_update_Arr' => ['status_process']
-        ));
+        $Contact = new Contact([
+            'contactid' => $contactid,
+            'status_process' => $status_process
+        ]);
+        $Contact->update([
+            'db_update_arr' => ['status_process']
+        ]);
 
         //送出成功訊息
         $this->load->model('Message');
-        $this->Message->show(array(
+        $this->Message->show([
             'message' => '設定成功',
             'url' => 'admin/base/contact/contact/tablelist'
-        ));
+        ]);
     }
 
     public function tablelist()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['search_contactid_Num'] = $this->input->get('contactid');
-        $data['search_username_Str'] = $this->input->get('username');
-        $data['search_status_process_Num'] = $this->input->get('status_process');
+        $data['search_contactid'] = $this->input->get('contactid');
+        $data['search_username'] = $this->input->get('username');
+        $data['search_status_process'] = $this->input->get('status_process');
 
-        $limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 20;
+        $limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $data['ContactList'] = new ObjList();
-        $data['ContactList']->construct_db(array(
-            'db_where_Arr' => array(
-                'contactid' => $data['search_contactid_Num'],
-                'status_process' => $data['search_status_process_Num']
-            ),
-            'db_where_like_Arr' => array(
-                'username_Str' => $data['search_username_Str']
-            ),
-            'db_where_or_Arr' => array(
-                'classids' => array($class_ClassMeta->classid_Num)
-            ),
-            'db_orderby_Arr' => array(
-                array('contactid', 'DESC')
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'ContactFanswoo',
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
-        ));
-        $data['page_links'] = $data['ContactList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+        $data['ContactList'] = new ObjList([
+            'db_where_arr' => [
+                'contactid' => $data['search_contactid'],
+                'status_process' => $data['search_status_process']
+            ],
+            'db_where_like_arr' => [
+                'username' => $data['search_username']
+            ],
+            'db_where_or_arr' => [
+                'classids' => [ $class_ClassMeta->classid ]
+            ],
+            'db_orderby_arr' => [
+                'contactid' => 'DESC'
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'Contact',
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+        ]);
+        $data['page_links'] = $data['ContactList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -143,64 +110,116 @@ class Contact_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 
     }
 
     public function tablelist_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_contactid_Num = $this->input->post('search_contactid_Num', TRUE);
-        $search_status_process_Num = $this->input->post('search_status_process_Num', TRUE);
-        $search_username_Str = $this->input->post('search_username_Str', TRUE);
+        $search_contactid = $this->input->post('search_contactid', TRUE);
+        $search_status_process = $this->input->post('search_status_process', TRUE);
+        $search_username = $this->input->post('search_username', TRUE);
 
-        $url_Str = base_url('admin/base/contact/contact/tablelist/?');
+        $url = 'admin/base/contact/contact/tablelist/?';
 
-        if(!empty($search_contactid_Num))
+        if(!empty($search_contactid))
         {
-            $url_Str = $url_Str.'&contactid='.$search_contactid_Num;
+            $url = $url.'&contactid='.$search_contactid;
         }
 
-        if(!empty($search_status_process_Num))
+        if(!empty($search_status_process))
         {
-            $url_Str = $url_Str.'&status_process='.$search_status_process_Num;
+            $url = $url.'&status_process='.$search_status_process;
         }
 
-        if(!empty($search_username_Str))
+        if(!empty($search_username))
         {
-            $url_Str = $url_Str.'&username='.$search_username_Str;
+            $url = $url.'&username='.$search_username;
         }
 
-        header("Location: $url_Str");
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
     }
 
     public function delete()
     {
-        $hash_Str = $this->input->get('hash');
-        $contactid_Num = $this->input->get('contactid');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if($this->input->get('hash') == $this->security->get_csrf_hash())
         {
-            $Contact = new ContactFanswoo();
-            $Contact->construct(array('contactid_Num' => $contactid_Num));
+            $Contact = new Contact([
+                'contactid' => $this->input->get('contactid')
+            ]);
             $Contact->delete();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
                 'url' => 'admin/base/contact/contact/tablelist'
-            ));
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
                 'url' => 'admin/base/contact/contact/tablelist'
-            ));
+            ]);
         }
     }
 
+    public function delete_batch_post()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $contactid_arr = $this->input->post('contactid_arr[]');
+
+        //CSRF過濾
+        if($this->input->get('hash') == $this->security->get_csrf_hash())
+        {
+            if(!empty($contactid_arr))
+            {
+                foreach($contactid_arr as $key => $value_contact)
+                {
+                    $Contact = new Contact([
+                        'contactid' => $value_contact
+                    ]);
+                    $Contact->delete();
+                }
+            }
+            else
+            {
+                $this->load->model('Message');
+                $this->Message->show([
+                    'message' => '未選擇要刪除的聯繫單'
+                ]);
+                return TRUE;
+            }
+
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '刪除成功',
+                'url' => 'admin/base/contact/contact/tablelist'
+            ]);
+            return TRUE;
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/base/contact/contact/tablelist'
+            ]);
+            return TRUE;
+        }
+    }
 }
+
+?>

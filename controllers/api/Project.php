@@ -6,18 +6,18 @@ class Project_Controller extends MY_Controller {
 	{
         $data = $this->data;
 
-        $designid_Num = $this->input->get('designid');
+        $designid = $this->input->get('designid');
 
-        if( empty($data['User']->uid_Num) )
+        if( empty($data['User']->uid) )
         {
             echo '操作權限不足';
             return FALSE;
         }
 		
-		if( !empty($designid_Num) )
+		if( !empty($designid) )
         {
             $Design = new Design();
-            $Design->construct(['designid_Num' => $designid_Num]);
+            $Design->construct(['designid' => $designid]);
             $Design->delete();
             return TRUE;
 		}

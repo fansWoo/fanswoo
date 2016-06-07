@@ -19,8 +19,6 @@ $(function(){
 	});
 	
 });
-</script>
-<script>
 $(function(){
 	var window_width = $(window).width();
 	var window_height = $(window).height();
@@ -437,23 +435,23 @@ function is_mobile() {
 				<?php echo form_open("Wordpress/order_submit/")?>
 				<div class="leftBox">
 					<div class="area">
-						<p>您的姓名</p><input type="text" class="name" name="username_Str" placeholder="請填寫您的姓名" required>
+						<p>您的姓名</p><input type="text" class="name" name="username" placeholder="請填寫您的姓名" required>
 					</div>
 					<div class="area">
-						<p>公司名稱</p><input type="text" class="company" name="company_Str" placeholder="請填寫公司名稱" required>
+						<p>公司名稱</p><input type="text" class="company" name="company" placeholder="請填寫公司名稱" required>
 					</div>	
 					<div class="area">
-						<p>聯繫電話</p><input type="text" class="telphone" name="phone_Str" placeholder="請填寫聯繫電話" required>
+						<p>聯繫電話</p><input type="text" class="telphone" name="phone" placeholder="請填寫聯繫電話" required>
 					</div>
 					<div class="area">	
-						<p>電子郵件</p><input type="text" class="email" name="email_Str" placeholder="請填寫電子郵件" required>
+						<p>電子郵件</p><input type="text" class="email" name="email" placeholder="請填寫電子郵件" required>
 					</div>
 					<div class="area">		
-						<p>公司地址</p><input type="text" class="address" name="address_Str" placeholder="請填寫公司地址" required>
+						<p>公司地址</p><input type="text" class="address" name="address" placeholder="請填寫公司地址" required>
 					</div>
 					<div class="area">
 						<p>主機類型</p>
-						<select class="need" id="classtype" name="classtype_Str" required>
+						<select class="need" id="classtype" name="classtype" required>
 							<option value="0">請選擇wordpress主機類型</option>
 							<option value="微型主機">微型主機</option>
 							<option value="標準主機">標準主機</option>
@@ -461,17 +459,17 @@ function is_mobile() {
 						</select>
 					</div>
 					<div class="area">
-						<p>訂購期限</p><input type="number" min="1" max="80" id="years" class="address" name="years_Num" placeholder="請填寫訂購期限(年)" required>
+						<p>訂購期限</p><input type="number" min="1" max="80" id="years" class="address" name="years" placeholder="請填寫訂購期限(年)" required>
 					</div>
 					<div class="area">
-						<p>總金額</p><input id="price" name="price_Num" readonly>
+						<p>總金額</p><input id="price" name="price" readonly>
 					</div>
 				</div>
 				<div class="rightBox">
-					<textarea name="content_Str" placeholder="我還想補充..."></textarea>
+					<textarea name="content" placeholder="我還想補充..."></textarea>
 				</div>
 				<input type="submit" value="申請" class="contactSubmit" name="contactSubmit">
-				<input type="hidden" name="previous_url_Str" value="<?=$previous_url_Str?>">
+				<input type="hidden" name="previous_url" value="<?=$previous_url?>">
 				</form>
 			</div>
 			<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page -->

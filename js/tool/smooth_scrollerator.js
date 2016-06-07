@@ -100,10 +100,7 @@ function init() {
     body.style.backgroundAttachment = "scroll";
     html.style.backgroundAttachment = "scroll";
   }
-}
-
-
-/************************************************
+}/************************************************
  * SCROLLING
  ************************************************/
 
@@ -211,10 +208,7 @@ function scrollArray(elem, left, top, delay) {
   // start a new queue of actions
   requestFrame(step, elem, 0);
   pending = true;
-}
-
-
-/***********************************************
+}/***********************************************
  * EVENTS
  ***********************************************/
 
@@ -337,10 +331,7 @@ function keydown(event) {
  */
 function mousedown(event) {
   activeElement = event.target;
-}
-
-
-/***********************************************
+}/***********************************************
  * OVERFLOW
  ***********************************************/
 
@@ -380,10 +371,7 @@ function overflowingAncestor(el) {
       }
     }
   } while (el = el.parentNode);
-}
-
-
-/***********************************************
+}/***********************************************
  * HELPERS
  ***********************************************/
 

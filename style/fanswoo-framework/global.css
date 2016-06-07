@@ -1,4 +1,4 @@
-*{ font-family: 'Noto Sans CJK TC', LiHei Pro, "儷黑體", sans-serif; }
+*{ font-family: 'Noto Sans CJK TC', LiHei Pro, "儷黑體", sans-serif; -webkit-tap-highlight-color:rgba(0,0,0,0); }
 html.agent-ie * { font-family: LiHei Pro, "儷黑體", sans-serif; }
 body,
 h1,
@@ -189,5 +189,34 @@ textarea:focus {
 input {
     vertical-align: middle;
 }
-
+i { font-style: normal;  }
+body { overflow-x: hidden; }
 [fanswoo-clone] { display: none; }
+
+[fanswoo-ajax_submit_wrap] { position: relative; overflow: hidden; }
+[fanswoo-ajax_submit_loading] { display: block; position: absolute; left: 50%; top: 50%; border: 3px solid #3a3; border-right: 5px solid #CCC;  border-bottom: 5px solid #DDD; height: 20px; width: 20px; border-radius: 50%; animation: ajax_submit_loading 1s infinite linear; z-index: 99999999; }
+
+@keyframes ajax_submit_loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    70% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+
+body{ position: relative; }
+
+.temp_page_load_animate { animation: temp_page_load_animate 0.1s; }
+@keyframes temp_page_load_animate {
+    0% {
+        transform: translate(0, 20px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}

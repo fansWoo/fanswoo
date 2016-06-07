@@ -16,10 +16,10 @@ class Wordpress_Controller extends MY_controller
     {
         $data = $this->data;
 
-        $data['previous_url_Str'] = uri_string();
+        $data['previous_url'] = uriing();
 
         //global
-        $data['global']['style'][] = 'temp/style.css';
+        $data['global']['style'][] = 'temp/global.css';
         $data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'wordpress/index.css';
@@ -40,72 +40,72 @@ class Wordpress_Controller extends MY_controller
 
     public function order_submit()
     {
-        $data['previous_url_Str'] = uri_string();
+        $data['previous_url'] = uriing();
 
-        $this->form_validation->set_rules('username_Str', '您的姓名', 'required');
-        $this->form_validation->set_rules('company_Str', '公司名稱', 'required');
-        $this->form_validation->set_rules('phone_Str', '聯繫電話', 'required');
-        $this->form_validation->set_rules('email_Str', '電子郵件', 'required');
-        $this->form_validation->set_rules('address_Str', '公司地址', 'required');
-        $this->form_validation->set_rules('classtype_Str', '主機類型', 'required');
-        $this->form_validation->set_rules('years_Num', '訂購期限', 'required');
-        $this->form_validation->set_rules('price_Num', '總金額', 'required');
+        $this->form_validation->set_rules('username', '您的姓名', 'required');
+        $this->form_validation->set_rules('company', '公司名稱', 'required');
+        $this->form_validation->set_rules('phone', '聯繫電話', 'required');
+        $this->form_validation->set_rules('email', '電子郵件', 'required');
+        $this->form_validation->set_rules('address', '公司地址', 'required');
+        $this->form_validation->set_rules('classtype', '主機類型', 'required');
+        $this->form_validation->set_rules('years', '訂購期限', 'required');
+        $this->form_validation->set_rules('price', '總金額', 'required');
 
         if ($this->form_validation->run() !== FALSE)
         {
             //基本post欄位
-            $username_Str = $this->input->post('username_Str', TRUE);
-            $company_Str = $this->input->post('company_Str', TRUE);
-            $phone_Str = $this->input->post('phone_Str', TRUE);
-            $email_Str = $this->input->post('email_Str', TRUE);
-            $address_Str = $this->input->post('address_Str', TRUE);
-            $content_Str = $this->input->post('content_Str', TRUE);
-            $classtype_Str = $this->input->post('classtype_Str', TRUE);
-            $years_Num = $this->input->post('years_Num', TRUE);
-            $price_Num = $this->input->post('price_Num', TRUE);
+            $username = $this->input->post('username', TRUE);
+            $company = $this->input->post('company', TRUE);
+            $phone = $this->input->post('phone', TRUE);
+            $email = $this->input->post('email', TRUE);
+            $address = $this->input->post('address', TRUE);
+            $content = $this->input->post('content', TRUE);
+            $classtype = $this->input->post('classtype', TRUE);
+            $years = $this->input->post('years', TRUE);
+            $price = $this->input->post('price', TRUE);
 
             //註冊會員帳號
-            $password_Str = substr(md5(rand(32767, 65534) + $this->config->item('timenow')), 0, 8);
+            $password = substr(md5(rand(32767, 65534) + $this->config->item('timenow')), 0, 8);
             
             $User = new User();
             $User->construct_db(array(
-                'db_where_Arr' => [
-                    'email' => $email_Str
+                'db_where_arr' => [
+                    'email' => $email
                 ]
             ));
-            if(empty($User->uid_Num))
+            if(empty($User->uid))
             {
                 $User = new User();
                 $register_status = $User->register(array(
-                    'email_Str' => $email_Str,
-                    'password_Str' => $password_Str,
-                    'password2_Str' => $password_Str
+                    'email' => $email,
+                    'password' => $password,
+                    'password2' => $password
                 ));
                 if($register_status === TRUE)
                 {
                     //寄出電子郵件表示註冊成功，以及登入帳號密碼
 
-                    $website_name_Str = 'FANSWOO';
-                    $email_name_Str = 'FANSWOO';
-                    $title_Str = $website_name_Str.' - 申請套版網站成功通知';
+                    $website_name = 'FANSWOO';
+                    $email_name = 'FANSWOO';
+                    $title = $website_name.' - 申請套版網站成功通知';
 
-                    $message_Str = '您好：<br><br>我們收到您申請的訂購通知，特地發送信件予您通知<br><br>註冊帳號：'.$email_Str.'<br>註冊密碼：'.$password_Str.'
+                    $message = '您好：<br><br>我們收到您申請的訂購通知，特地發送信件予您通知<br><br>註冊帳號：'.$email.'<br>註冊密碼：'.$password.'
                     <br><br>訂購詳細內容為：
-                    <br>客戶姓名： '.$username_Str.
-                    '<br>公司名稱： '.$company_Str.
-                    '<br>聯繫電話： '.$phone_Str.
-                    '<br>電子郵件： '.$email_Str.
-                    '<br>公司地址： '.$address_Str.
-                    '<br>主機類型： '.$classtype_Str.
-                    '<br>訂購期限： '.$years_Num.
-                    '年<br>總共金額： NT$'.$price_Num.
-                    '<br>需求內容： '.$content_Str.
+                    <br>客戶姓名： '.$username.
+                    '<br>公司名稱： '.$company.
+                    '<br>聯繫電話： '.$phone.
+                    '<br>電子郵件： '.$email.
+                    '<br>公司地址： '.$address.
+                    '<br>主機類型： '.$classtype.
+                    '<br>訂購期限： '.$years.
+                    '年<br>總共金額： NT$'.$price.
+                    '<br>需求內容： '.$content.
                     '<br>申請時間：'.date('Y-m-d H:i:s').
                     '<br><br>請登入後台網址修改您的新密碼，<br>請於完成ATM轉帳或匯款後於後台填寫付款資訊<br><br>訂單管理後台位置：<br><a href="http://'.$_SERVER['HTTP_HOST'].base_url().'admin/user/order_shop/order_shop/tablelist">http://'.$_SERVER['HTTP_HOST'].base_url().'admin/user/order_shop/order_shop/tablelist</a>';
 
                     $Mailer = new Mailer;
-                    $return_message_Str = $Mailer->sendmail($email_Str, $email_name_Str, $title_Str, $message_Str);
-                    if($return_message_Str === TRUE)
+                    $return_message = $Mailer->sendmail($email, $email_name, $title, $message);
+                    if($return_message === TRUE)
                     {
                     }
                     else
@@ -133,26 +133,26 @@ class Wordpress_Controller extends MY_controller
             else
             {
                 //寄出電子郵件表示訂購成功
-                $website_name_Str = 'FANSWOO';
-                $email_name_Str = 'FANSWOO';
-                $title_Str = $website_name_Str.' - 申請套版網站成功通知';
+                $website_name = 'FANSWOO';
+                $email_name = 'FANSWOO';
+                $title = $website_name.' - 申請套版網站成功通知';
 
-                $message_Str = '您好：<br><br>我們收到您申請的訂購通知，特地發送信件予您通知<br><br>您的訂購帳號：'.$email_Str.'
+                $message = '您好：<br><br>我們收到您申請的訂購通知，特地發送信件予您通知<br><br>您的訂購帳號：'.$email.'
                 <br><br>訂購詳細內容為：
-                <br>客戶姓名： '.$username_Str.
-                '<br>公司名稱： '.$company_Str.
-                '<br>聯繫電話： '.$phone_Str.
-                '<br>電子郵件： '.$email_Str.
-                '<br>公司地址： '.$address_Str.
-                '<br>主機類型： '.$classtype_Str.
-                '<br>訂購期限： '.$years_Num.
-                '年<br>總共金額： NT$'.$price_Num.
-                '<br>需求內容： '.$content_Str.
+                <br>客戶姓名： '.$username.
+                '<br>公司名稱： '.$company.
+                '<br>聯繫電話： '.$phone.
+                '<br>電子郵件： '.$email.
+                '<br>公司地址： '.$address.
+                '<br>主機類型： '.$classtype.
+                '<br>訂購期限： '.$years.
+                '年<br>總共金額： NT$'.$price.
+                '<br>需求內容： '.$content.
                 '<br><br>請於完成ATM轉帳或匯款後於後台填寫付款資訊<br><br>訂單管理後台位置：<br><a href="http://'.$_SERVER['HTTP_HOST'].base_url().'admin/user/order_shop/order_shop/tablelist">http://'.$_SERVER['HTTP_HOST'].base_url().'admin/user/order_shop/order_shop/tablelist</a><br><br>申請時間：'.date('Y-m-d H:i:s');
 
                 $Mailer = new Mailer;
-                $return_message_Str = $Mailer->sendmail($email_Str, $email_name_Str, $title_Str, $message_Str);
-                if($return_message_Str === TRUE)
+                $return_message = $Mailer->sendmail($email, $email_name, $title, $message);
+                if($return_message === TRUE)
                 {
                 }
                 else
@@ -170,30 +170,30 @@ class Wordpress_Controller extends MY_controller
             //寄出電子郵件給管理者
             $Setting = new Setting();
             $Setting->construct_db([
-                'db_where_Arr' => [
-                    'keyword_Str' => 'smtp_email'
+                'db_where_arr' => [
+                    'keyword' => 'smtp_email'
                 ]
             ]);
 
-            $smtp_email_Str = $Setting->value_Str;
-            $email_name_Str = 'fanswoo';
-            $title_Str = $company_Str.'的'.$username_Str.'申請了套版網站';
-            $message_Str = '您好，我們收到套版網站的申請<br>
-            <br>客戶姓名： '.$username_Str.
-            '<br>公司名稱： '.$company_Str.
-            '<br>聯繫電話： '.$phone_Str.
-            '<br>電子郵件： '.$email_Str.
-            '<br>公司地址： '.$address_Str.
-            '<br>主機類型： '.$classtype_Str.
-            '<br>訂購期限： '.$years_Num.
-            '年<br>總共金額： NT$'.$price_Num.
-            '<br>需求內容： '.$content_Str.
+            $smtp_email = $Setting->value;
+            $email_name = 'fanswoo';
+            $title = $company.'的'.$username.'申請了套版網站';
+            $message = '您好，我們收到套版網站的申請<br>
+            <br>客戶姓名： '.$username.
+            '<br>公司名稱： '.$company.
+            '<br>聯繫電話： '.$phone.
+            '<br>電子郵件： '.$email.
+            '<br>公司地址： '.$address.
+            '<br>主機類型： '.$classtype.
+            '<br>訂購期限： '.$years.
+            '年<br>總共金額： NT$'.$price.
+            '<br>需求內容： '.$content.
             '<br><br>申請時間：'.date('Y-m-d H:i:s').
             '<br><br>後台位置：<a href="http://'.$_SERVER['HTTP_HOST'].base_url().'admin">http://'.$_SERVER['HTTP_HOST'].base_url().'admin</a><br>';
 
             $Mailer = new Mailer;
-            $return_message_Str = $Mailer->sendmail($smtp_email_Str, $email_name_Str, $title_Str, $message_Str);
-            if($return_message_Str === TRUE)
+            $return_message = $Mailer->sendmail($smtp_email, $email_name, $title, $message);
+            if($return_message === TRUE)
             {
                 //寄件成功
             }
@@ -203,7 +203,7 @@ class Wordpress_Controller extends MY_controller
                 $this->load->model('Message');
                 $this->Message->show(array(
                     'message' => 'error(4)：下單失敗，郵件伺服器出錯，請電話與我們聯繫，謝謝',
-                    'url' => $previous_url_Str
+                    'url' => $previous_url
                 ));
                 return FALSE;
             }
@@ -211,37 +211,37 @@ class Wordpress_Controller extends MY_controller
             //建構訂單
             $OrderShop = new OrderShop();
             $OrderShop->construct(array(
-                'uid_Num' => $User->uid_Num,
-                'order_status_Num' => -1,//建構中的訂單
-                'status_Num' => 1
+                'uid' => $User->uid,
+                'order_status' => -1,//建構中的訂單
+                'status' => 1
             ));
             $OrderShop->update();
             
-            $OrderShop->receive_name_Str = $username_Str;
-            $OrderShop->receive_address_Str = $address_Str;
-            $OrderShop->receive_phone_Str = $phone_Str;
-            $OrderShop->receive_time_Str = $receive_time_Str;
-            $OrderShop->receive_remark_Str = $receive_remark_Str;
-            $OrderShop->pay_paytype_Str = 'atm';
-            $OrderShop->order_status_Num = 0;
+            $OrderShop->receive_name = $username;
+            $OrderShop->receive_address = $address;
+            $OrderShop->receive_phone = $phone;
+            $OrderShop->receive_time = $receive_time;
+            $OrderShop->receive_remark = $receive_remark;
+            $OrderShop->pay_paytype = 'atm';
+            $OrderShop->order_status = 0;
 
             $OrderShop->update();
 
             //建構WordpressOrder物件，並且更新
             $WordpressOrder = new WordpressOrder();
             $WordpressOrder->construct(array(
-                'username_Str' => $username_Str,
-                'orderid_Num' => $OrderShop->orderid_Num,
-                'uid_Num' => $User->uid_Num,
-                'company_Str' => $company_Str,
-                'phone_Str' => $phone_Str,
-                'email_Str' => $email_Str,
-                'address_Str' => $address_Str,
-                'content_Str' => $content_Str,
-                'classtype_Str' => $classtype_Str,
-                'years_Num' => $years_Num,
-                'price_Num' => $price_Num,
-                'status_process_Num' => 1
+                'username' => $username,
+                'orderid' => $OrderShop->orderid,
+                'uid' => $User->uid,
+                'company' => $company,
+                'phone' => $phone,
+                'email' => $email,
+                'address' => $address,
+                'content' => $content,
+                'classtype' => $classtype,
+                'years' => $years,
+                'price' => $price,
+                'status_process' => 1
             ));
             $WordpressOrder->update();
 
@@ -254,12 +254,12 @@ class Wordpress_Controller extends MY_controller
         }
         else
         {
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
+            $validation_errors = validation_errors();
+            $validation_errors = !empty($validation_errors) ? $validation_errors : '設定錯誤' ;
             $this->load->model('Message');
             $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => $previous_url_Str
+                'message' => $validation_errors,
+                'url' => $previous_url
             ));
         }
     }

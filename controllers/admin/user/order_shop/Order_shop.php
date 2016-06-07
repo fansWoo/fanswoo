@@ -2,73 +2,53 @@
 
 class Order_shop_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'user';
-    protected $child2_name_Str = 'order_shop';
-    protected $child3_name_Str = 'order_shop';
-
     public function __construct()
     {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function edit()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
             
-        $orderid_Num = $this->input->get('orderid');
+        $orderid = $this->input->get('orderid');
 
-        $data['OrderShop'] = new OrderShop();
-        $data['OrderShop']->construct_db(array(
-            'db_where_Arr' => array(
-                'orderid_Num' => $orderid_Num
-            )
-        ));
+        $data['OrderShop'] = new OrderShop([
+            'db_where_arr' => [
+                'orderid' => $orderid
+            ]
+        ]);
 
-        $data['WordpressOrder'] = new WordpressOrder();
-        $data['WordpressOrder']->construct_db(array(
-            'db_where_Arr' => array(
-                'orderid_Num' => $orderid_Num
-            )
-        ));
-
-        $data['transfer_SettingList'] = new SettingList();
-        $data['transfer_SettingList']->construct_db([
-            'db_where_Arr' => [
+        $data['transfer_SettingList'] = new SettingList([
+            'db_where_arr' => [
                 'modelname' => 'shop_transfer'
             ]
         ]);
 
-        if(empty($data['OrderShop']->orderid_Num))
+        $data['Transport'] = new Transport([
+            'db_where_arr' => [
+                'name' => $data['OrderShop']->transport_mode
+            ]
+        ]);
+
+        if(empty($data['OrderShop']->orderid))
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '請先選擇欲修改的訂單',
                 'url' => 'admin/user/order_shop/order_shop/tablelist'
-            ));
+            ]);
             return FALSE;
         }
 
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+        $data['order_User'] = new User([
+            'db_where_arr' => [
+                'uid' => $data['OrderShop']->uid
+            ]
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -78,106 +58,111 @@ class Order_shop_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function edit_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $orderid_Num = $this->input->post('orderid_Num', TRUE);
+        $orderid = $this->input->post('orderid', TRUE);
+
+        $OrderShop = new OrderShop([
+            'db_where_arr' => [
+                'orderid' => $orderid
+            ]
+        ]);
 
         //基本post欄位
-        $pay_account_Str = $this->input->post('pay_account_Str', TRUE);
-        $pay_name_Str = $this->input->post('pay_name_Str', TRUE);
-        $pay_paytime_Str = $this->input->post('pay_paytime_Str', TRUE);
-        $pay_remark_Str = $this->input->post('pay_remark_Str', TRUE);
-        $content_Str = $this->input->post('content_Str', TRUE);
+        $pay_account = $this->input->post('pay_account', TRUE);
+        $pay_name = $this->input->post('pay_name', TRUE);
+        $pay_paytime = $this->input->post('pay_paytime', TRUE);
+        $pay_remark = $this->input->post('pay_remark', TRUE);
+        $content = $this->input->post('content', TRUE);
 
-        if( !empty($pay_account_Str) && !empty($pay_name_Str) && !empty($pay_paytime_Str) )
+        if($OrderShop->pay_paytype == 'atm')
+        {
+            $pay_account = $this->input->post('pay_account', TRUE, '轉帳帳號', 'required');
+            $pay_name = $this->input->post('pay_name', TRUE, '轉帳人姓名', 'required');
+            $pay_paytime = $this->input->post('pay_paytime', TRUE, '轉帳時間', 'required');
+        }
+
+        if( !$this->form_validation->check() ) return FALSE;
+        
+        if($OrderShop->pay_paytype == 'atm')
         {
             //建構OrderShop物件，並且更新
-            $OrderShop = new OrderShop();
-            $OrderShop->construct(array(
-                'orderid_Num' => $orderid_Num,
-                'pay_account_Str' => $pay_account_Str,
-                'pay_name_Str' => $pay_name_Str,
-                'pay_paytime_Str' => $pay_paytime_Str,
-                'pay_remark_Str' => $pay_remark_Str,
-                'pay_status_Num' => 1
-            ));
-            $OrderShop->update(array(
-                'db_update_Arr' => array(
+            $OrderShop = new OrderShop([
+                'orderid' => $orderid,
+                'pay_account' => $pay_account,
+                'pay_name' => $pay_name,
+                'pay_paytime' => $pay_paytime,
+                'pay_remark' => $pay_remark,
+                'pay_status' => 1
+            ]);
+            $OrderShop->update([
+                'db_update_arr' => [
                     'pay_account',
                     'pay_name',
                     'pay_paytime',
                     'pay_remark',
                     'pay_status'
-                )
-            ));
+                ]
+            ]);
         }
 
-        if( !empty($content_Str) )
+        if( !empty($content) )
         {
-            $Comment = new Comment;
-            $Comment->construct([
-                'uid_Num' => $data['User']->uid_Num,
-                'typename_Str' => 'order',
-                'id_Num' => $orderid_Num,
-                'content_Str' => $content_Str
+            $Comment = new Comment([
+                'uid' => $data['User']->uid,
+                'typename' => 'order',
+                'id' => $orderid,
+                'content' => $content
             ]);
             $Comment->update();
         }
 
         //送出成功訊息
         $this->load->model('Message');
-        $this->Message->show(array(
+        $this->Message->show([
             'message' => '設定成功',
             'url' => 'admin/user/order_shop/order_shop/tablelist'
-        ));
+        ]);
     }
 
     public function tablelist()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['search_orderid_Num'] = $this->input->get('orderid');
-        $data['search_title_Str'] = $this->input->get('title');
-        $data['search_class_slug_Str'] = $this->input->get('class_slug');
+        $data['search_orderid'] = $this->input->get('orderid');
+        $data['search_title'] = $this->input->get('title');
+        $data['search_class_slug'] = $this->input->get('class_slug');
 
-        $limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 20;
+        $limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $data['OrderShopList'] = new ObjList();
-        $data['OrderShopList']->construct_db(array(
-            'db_where_Arr' => array(
-                'uid' => $data['User']->uid_Num,
-                'orderid' => $data['search_orderid_Num'],
+        $data['OrderShopList'] = new ObjList([
+            'db_where_arr' => [
+                'uid' => $data['User']->uid,
+                'orderid' => $data['search_orderid'],
                 'order_status !=' => -1
-            ),
-            'db_where_like_Arr' => array(
-                'title' => $data['search_title_Str']
-            ),
-            'db_orderby_Arr' => array(
-                array('orderid', 'DESC')
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'OrderShop',
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
-        ));
-        $data['page_links'] = $data['OrderShopList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
+            ],
+            'db_where_like_arr' => [
+                'title' => $data['search_title']
+            ],
+            'db_orderby_arr' => [
+                'orderid' => 'DESC'
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'OrderShop',
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+        ]);
+        $data['page_links'] = $data['OrderShopList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
         //view data設定
         $data['admin_sidebox'] = $this->AdminModel->reset_sidebox();
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -187,38 +172,41 @@ class Order_shop_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 
     }
 
     public function tablelist_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_orderid_Num = $this->input->post('search_orderid_Num', TRUE);
-        $search_class_slug_Str = $this->input->post('search_class_slug_Str', TRUE);
-        $search_title_Str = $this->input->post('search_title_Str', TRUE);
+        $search_orderid = $this->input->post('search_orderid', TRUE);
+        $search_class_slug = $this->input->post('search_class_slug', TRUE);
+        $search_title = $this->input->post('search_title', TRUE);
 
-        $url_Str = base_url('admin/shop/product_shop/product/tablelist/?');
+        $url = 'admin/shop/product_shop/product/tablelist/?';
 
-        if(!empty($search_orderid_Num))
+        if(!empty($search_orderid))
         {
-            $url_Str = $url_Str.'&orderid='.$search_orderid_Num;
+            $url = $url.'&orderid='.$search_orderid;
         }
 
-        if(!empty($search_class_slug_Str))
+        if(!empty($search_class_slug))
         {
-            $url_Str = $url_Str.'&class_slug='.$search_class_slug_Str;
+            $url = $url.'&class_slug='.$search_class_slug;
         }
 
-        if(!empty($search_title_Str))
+        if(!empty($search_title))
         {
-            $url_Str = $url_Str.'&title='.$search_title_Str;
+            $url = $url.'&title='.$search_title;
         }
 
-        header("Location: $url_Str");
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
     }
-
 }
 
 ?>

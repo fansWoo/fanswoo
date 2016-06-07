@@ -8,7 +8,7 @@ class Contact_Controller extends MY_controller
 
         $SettingList = new SettingList();
         $SettingList->construct_db(array(
-            'db_where_Arr' => array(
+            'db_where_arr' => array(
                 'modelname' => ''
             )
         ));
@@ -23,10 +23,10 @@ class Contact_Controller extends MY_controller
     {
         $data = $this->data;
 
-        $data['previous_url_Str'] = uri_string();
+        $data['previous_url'] = $_SERVER['PHP_SELF'];
 
         //global
-        $data['global']['style'][] = 'temp/style.css';
+        $data['global']['style'][] = 'temp/global.css';
         $data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'contact/index.css';
@@ -46,74 +46,74 @@ class Contact_Controller extends MY_controller
 
     public function contact_post()
     {   
-        $previous_url_Str = $this->input->post('previous_url_Str');
+        $previous_url = $this->input->post('previous_url');
 
-        $this->form_validation->set_rules('username_Str', '您的姓名', 'required');
-        $this->form_validation->set_rules('company_Str', '公司名稱', 'required');
-        $this->form_validation->set_rules('phone_Str', '聯繫電話', 'required');
-        $this->form_validation->set_rules('email_Str', '電子郵件', 'required');
-        $this->form_validation->set_rules('address_Str', '公司地址', 'required');
-        // $this->form_validation->set_rules('content_Str', '聯繫內容', 'required');
-        $this->form_validation->set_rules('classtype_Str', '詢問項目', 'required');
-        // $this->form_validation->set_rules('classtype2_Str', '主要項目', 'required');
-        $this->form_validation->set_rules('money_Str', '預算', 'required');
+        $this->form_validation->set_rules('username', '您的姓名', 'required');
+        $this->form_validation->set_rules('company', '公司名稱', 'required');
+        $this->form_validation->set_rules('phone', '聯繫電話', 'required');
+        $this->form_validation->set_rules('email', '電子郵件', 'required');
+        $this->form_validation->set_rules('address', '公司地址', 'required');
+        // $this->form_validation->set_rules('content', '聯繫內容', 'required');
+        $this->form_validation->set_rules('classtype', '詢問項目', 'required');
+        // $this->form_validation->set_rules('classtype2', '主要項目', 'required');
+        $this->form_validation->set_rules('money', '預算', 'required');
 
         if ($this->form_validation->run() !== FALSE)
         {
             //基本post欄位
-            $username_Str = $this->input->post('username_Str', TRUE);
-            $company_Str = $this->input->post('company_Str', TRUE);
-            $phone_Str = $this->input->post('phone_Str', TRUE);
-            $email_Str = $this->input->post('email_Str', TRUE);
-            $address_Str = $this->input->post('address_Str', TRUE);
-            $content_Str = $this->input->post('content_Str', TRUE);
-            $classtype_Str = $this->input->post('classtype_Str', TRUE);
-            $classtype2_Str = $this->input->post('classtype2_Str', TRUE);
-            $money_Str = $this->input->post('money_Str', TRUE);
+            $username = $this->input->post('username', TRUE);
+            $company = $this->input->post('company', TRUE);
+            $phone = $this->input->post('phone', TRUE);
+            $email = $this->input->post('email', TRUE);
+            $address = $this->input->post('address', TRUE);
+            $content = $this->input->post('content', TRUE);
+            $classtype = $this->input->post('classtype', TRUE);
+            $classtype2 = $this->input->post('classtype2', TRUE);
+            $money = $this->input->post('money', TRUE);
 
             //建構Contact物件，並且更新
             $Contact = new ContactFanswoo();
             $Contact->construct(array(
-                'username_Str' => $username_Str,
-                'company_Str' => $company_Str,
-                'phone_Str' => $phone_Str,
-                'email_Str' => $email_Str,
-                'address_Str' => $address_Str,
-                'content_Str' => $content_Str,
-                'classtype_Str' => $classtype_Str,
-                'classtype2_Str' => $classtype2_Str,
-                'money_Str' => $money_Str,
-                'status_process_Num' => 1
+                'username' => $username,
+                'company' => $company,
+                'phone' => $phone,
+                'email' => $email,
+                'address' => $address,
+                'content' => $content,
+                'classtype' => $classtype,
+                'classtype2' => $classtype2,
+                'money' => $money,
+                'status_process' => 1
             ));
             $Contact->update();
 
             //寄出電子郵件
             $Setting = new Setting();
             $Setting->construct_db([
-                'db_where_Arr' => [
-                    'keyword_Str' => 'smtp_email'
+                'db_where_arr' => [
+                    'keyword' => 'smtp_email'
                 ]
             ]);
 
-            $email_Str = $Setting->value_Str;
-            $email_name_Str = 'fanswoo';
-            $title_Str = $company_Str.'的'.$username_Str.'有一封瘋沃科技的需求單';
-            $message_Str = '您好，我們收到一封聯繫單<br>
-            <br>客戶姓名： '.$username_Str.
-            '<br>公司名稱： '.$company_Str.
-            '<br>聯繫電話： '.$phone_Str.
-            '<br>電子郵件： '.$email_Str.
-            '<br>聯繫地址： '.$address_Str.
-            '<br>詢問項目： '.$classtype_Str.
-            '<br>項目細節： '.$classtype2_Str.
-            '<br>客戶預算： '.$money_Str.
-            '<br>需求內容： '.$content_Str.
+            $email = $Setting->value;
+            $email_name = 'fanswoo';
+            $title = $company.'的'.$username.'有一封瘋沃科技的需求單';
+            $message = '您好，我們收到一封聯繫單<br>
+            <br>客戶姓名： '.$username.
+            '<br>公司名稱： '.$company.
+            '<br>聯繫電話： '.$phone.
+            '<br>電子郵件： '.$email.
+            '<br>聯繫地址： '.$address.
+            '<br>詢問項目： '.$classtype.
+            '<br>項目細節： '.$classtype2.
+            '<br>客戶預算： '.$money.
+            '<br>需求內容： '.$content.
             '<br><br>填寫時間：'.date('Y-m-d H:i:s').
             '<br><br>後台位置：<a href="http://'.$_SERVER['HTTP_HOST'].base_url().'admin">http://'.$_SERVER['HTTP_HOST'].base_url().'admin</a><br>';
 
             $Mailer = new Mailer;
-            $return_message_Str = $Mailer->sendmail($email_Str, $email_name_Str, $title_Str, $message_Str);
-            if($return_message_Str === TRUE)
+            $return_message = $Mailer->sendmail($email, $email_name, $title, $message);
+            if($return_message === TRUE)
             {
                 //寄件成功
             }
@@ -123,7 +123,7 @@ class Contact_Controller extends MY_controller
                 $this->load->model('Message');
                 $this->Message->show(array(
                     'message' => 'error(4)：Mail Server Error',
-                    'url' => $previous_url_Str
+                    'url' => $previous_url
                 ));
                 return FALSE;
             }
@@ -132,17 +132,17 @@ class Contact_Controller extends MY_controller
             $this->load->model('Message');
             $this->Message->show(array(
                 'message' => 'Setting Success',
-                'url' => $previous_url_Str
+                'url' => $previous_url
             ));
         }
         else
         {
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : 'Setting Error' ;
+            $validation_errors = validation_errors();
+            $validation_errors = !empty($validation_errors) ? $validation_errors : 'Setting Error' ;
             $this->load->model('Message');
             $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => $previous_url_Str
+                'message' => $validation_errors,
+                'url' => $previous_url
             ));
         }
     }

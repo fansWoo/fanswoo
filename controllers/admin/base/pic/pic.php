@@ -2,78 +2,55 @@
 
 class Pic_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'base';
-    protected $child2_name_Str = 'pic';
-    protected $child3_name_Str = 'pic';
-    
-	public function __construct()
-	{
+    public function __construct()
+    {
         parent::__construct();
+
         $data = $this->data;
 
+        $data['usergroupid_UserGroup'] = $data['User']->group_UserGroupList->obj_arr[0]->groupid;
+        
+        $this->data = $data;
+
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-	}
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
+    }
 	
 	public function edit()
 	{
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $picid_Num = $this->input->get('picid');
+        $picid = $this->input->get('picid');
             
-        $data['PicObj'] = new PicObj();
-        $data['PicObj']->construct_db(array(
-        	'db_where_Arr' => array(
-        		'picid_Num' => $picid_Num
-        	)
-        ));
+        $data['PicObj'] = new PicObj([
+        	'db_where_arr' => [
+        		'picid' => $picid
+        	]
+        ]);
 
-        $data['UserGroup_Num'] = $data['User']->group_UserGroupList->obj_Arr[0]->groupid_Num;
-
-        if($data['UserGroup_Num'] == 100)
+        if($data['usergroupid_UserGroup'] >= 100)
         {   
-            $data['ClassMetaList'] = new ObjList();
-            $data['ClassMetaList']->construct_db(array(
-            	'db_where_Arr' => array(
-            		'uid_Str' => $data['User']->uid_Num,
-            		'modelname' => 'pic'
-            	),
-                'model_name_Str' => 'ClassMeta',
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
-            ));
+            $data['ClassMetaList'] = new ObjList([
+                'db_where_arr' => [
+                    'uid' => $data['User']->uid,
+                    'modelname' => 'pic'
+                ],
+                'model_name' => 'ClassMeta',
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
         }
         else
         {
-            $data['ClassMetaList'] = new ObjList();
-            $data['ClassMetaList']->construct_db(array(
-                'db_where_Arr' => array(
+            $data['ClassMetaList'] = new ObjList([
+                'db_where_arr' => [
                     'modelname' => 'pic'
-                ),
-                'model_name_Str' => 'ClassMeta',
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
-            ));
+                ],
+                'model_name' => 'ClassMeta',
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
         }
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
-        $data['global']['js'][] = 'tool/jquery.form.js';
             
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -83,220 +60,206 @@ class Pic_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 	}
 
 	public function edit_post()
 	{
-        $picids_Arr = $this->input->post('picids_Arr');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-		$picid_Num = $this->input->post('picid_Num');
-        $classids_Arr = $this->input->post('classids_Arr');
+        $picids_arr = $this->input->post('picids_arr');
+		$picid = $this->input->post('picid');
+        $classids_arr = $this->input->post('classids_arr');
 
-		if(!empty($picid_Num))
+		if(!empty($picid))
 		{
-		    $PicObj = new PicObj();
-		    $PicObj->construct_db(array(
-		    	'db_where_Arr' => array(
-		        	'picid_Num' => $picid_Num
-		        )
-		    ));
+		    $PicObj = new PicObj([
+		    	'db_where_arr' => [
+		        	'picid' => $picid
+		        ]
+		    ]);
             $PicObj->class_ClassMetaList = new ObjList();
-            $PicObj->class_ClassMetaList->construct_db(array(
-                'db_where_or_Arr' => array(
-                    'classid' => $classids_Arr
-                ),
-                'db_from_Str' => 'class',
-                'model_name_Str' => 'ClassMeta',
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
-            ));
+            $PicObj->class_ClassMetaList->construct_db([
+                'db_where_or_arr' => [
+                    'classid' => $classids_arr
+                ],
+                'db_from' => 'class',
+                'model_name' => 'ClassMeta',
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
             $PicObj->updatetime_DateTime = new DateTimeObj();
 		    $PicObj->updatetime_DateTime->construct();
+            if(!empty($classids_arr[0]))
+            {
+                $PicObj->upload_status = 1;
+            }
+            else
+            {
+                $PicObj->upload_status = 2;
+            }
 		    $PicObj->update();
 
-            if( !empty($comment_content_Str) )
+            if( !empty($comment_content) )
             {
-                $Comment = new Comment;
-                $Comment->construct([
-                    'uid_Num' => $data['User']->uid_Num,
-                    'typename_Str' => 'pic',
-                    'id_Num' => $PicObj->picid_Num,
-                    'content_Str' => $comment_content_Str
+                $Comment = new Comment([
+                    'uid' => $data['User']->uid,
+                    'typename' => 'pic',
+                    'id' => $PicObj->picid,
+                    'content' => $comment_content
                 ]);
                 $Comment->update();
             }
 
 			$this->load->model('Message');
-			$this->Message->show(array(
+			$this->Message->show([
 			    'message' => '設定成功',
 			    'url' => 'admin/base/pic/pic/tablelist'
-			));
+			]);
 		}
-		else if( !empty($picids_Arr) )
+		else if( !empty($picids_arr) )
 		{
 		    $PicObjList = new ObjList;
             $PicObjList->construct_db([
-                'db_where_or_Arr' => [
-                    'picid' => $picids_Arr
+                'db_where_or_arr' => [
+                    'picid' => $picids_arr
                 ],
-                'model_name_Str' => 'PicObj',
-                'db_orderby_Arr' => [
+                'model_name' => 'PicObj',
+                'db_orderby_arr' => [
                     ['prioritynum', 'DESC'],
                     ['updatetime', 'DESC']
                 ],
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
+                'limitstart' => 0,
+                'limitcount' => 100
             ]);
 
-            foreach($PicObjList->obj_Arr as $key => $value_PicObj)
+            if(!empty($classids_arr))
             {
-                $value_PicObj->set('class_ClassMetaList', [
-                    'classids_Arr' => $classids_Arr
-                ], 'ClassMetaList');
-                $value_PicObj->update();
+                foreach($PicObjList->obj_arr as $key => $value_PicObj)
+                {
+                    $value_PicObj->set('class_ClassMetaList', [
+                        'classids_arr' => $classids_arr
+                    ], 'ClassMetaList');
+                    // $value_PicObj->upload_status = 1;
+                    $value_PicObj->update();
+                }
             }
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '設定成功',
                 'url' => 'admin/base/pic/pic/tablelist'
-            ));
+            ]);
 		}
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '未知的錯誤',
                 'url' => 'admin/base/pic/pic/tablelist'
-            ));
+            ]);
         }
 
 	}
 	
 	public function tablelist()
 	{
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-		$limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = empty($limitcount_Num) ? 20 : $limitcount_Num;
-        $limitcount_Num = $limitcount_Num > 100 ? 100 : $limitcount_Num;
+		$limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 30;
 
-        $data['search_class_slug_Str'] = $this->input->get('class_slug');
-        $data['search_title_Str'] = $this->input->get('title');
-        $data['search_picid_Num'] = $this->input->get('picid');
-        $data['search_username_Str'] = $this->input->get('username');
+        $data['search_class_slug'] = $this->input->get('class_slug');
+        $data['search_title'] = $this->input->get('title');
+        $data['search_picid'] = $this->input->get('picid');
+        $data['search_uid'] = $this->input->get('uid');
 
-        $class_ClassMeta = new ClassMeta();
-        $class_ClassMeta->construct_db(array(
-            'db_where_Arr' => array(
-                'slug_Str' => $data['search_class_slug_Str']
-            ),
-            'db_where_deletenull_Bln' => FALSE
-        ));
+        $class_ClassMeta = new ClassMeta([
+            'db_where_arr' => [
+                'slug' => $data['search_class_slug']
+            ],
+            'db_where_deletenull_bln' => FALSE
+        ]);
 
-        $User = new User();
-        $User->construct_db(array(
-            'db_where_Arr' => array(
-                'username' => $data['search_username_Str']
-            )
-        ));
+        $construct_arr = [
+            'db_where_arr' => [
+                'picid' => $data['search_picid'],
+                'upload_status !=' => 3
+            ],
+            'db_where_like_arr' => [
+                'title' => $data['search_title']
+            ],
+            'db_where_or_arr' => [
+                'classids' => [$class_ClassMeta->classid]
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'PicObj',
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
+            ],
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+        ];
 
-        $data['UserGroup_Num'] = $data['User']->group_UserGroupList->obj_Arr[0]->groupid_Num;
-
-        if($data['UserGroup_Num'] == 100)
+        //搜尋upload_status=2的待分類圖片
+        if( $data['search_class_slug'] == 'unclassified' )
         {
-            $data['piclist_PicList'] = new ObjList;
-            $data['piclist_PicList']->construct_db(array(
-                'db_where_Arr' => array(
-                    'picid_Num' => $data['search_picid_Num'],
-                    'uid_Num' => $data['User']->uid_Num,
-                ),
-                'db_where_like_Arr' => array(
-                    'title_Str' => $data['search_title_Str']
-                ),
-                'db_where_or_Arr' => array(
-                    'classids_Str' => array($class_ClassMeta->classid_Num)
-                ),
-                'db_where_deletenull_Bln' => TRUE,
-                'model_name_Str' => 'PicObj',
-                'db_orderby_Arr' => array(
-                    'prioritynum' => 'DESC',
-                    'updatetime' => 'DESC'
-                ),
-                'limitstart_Num' => $limitstart_Num,
-                'limitcount_Num' => $limitcount_Num
-          	));
+            $construct_arr['db_where_arr']['upload_status'] = 2;
+        }
+        //搜尋upload_status=3的隱藏圖片
+        else if( $data['search_class_slug'] == 'hidden' )
+        {
+            $construct_arr['db_where_arr']['upload_status'] = 3;
+        }
+
+        if($data['usergroupid_UserGroup'] >= 100)
+        {
+            $construct_arr['db_where_arr']['uid'] = $data['User']->uid;
         }
         else
         {
-            $data['piclist_PicList'] = new ObjList;
-            $data['piclist_PicList']->construct_db(array(
-                'db_where_Arr' => array(
-                    'picid_Num' => $data['search_picid_Num'],
-                    'uid_Num' => $User->uid_Num,
-                ),
-                'db_where_like_Arr' => array(
-                    'title_Str' => $data['search_title_Str']
-                ),
-                'db_where_or_Arr' => array(
-                    'classids_Str' => array($class_ClassMeta->classid_Num)
-                ),
-                'db_where_deletenull_Bln' => TRUE,
-                'model_name_Str' => 'PicObj',
-                'db_orderby_Arr' => array(
+            $construct_arr['db_where_arr']['uid'] = $data['search_uid'];
+        }
+
+        $data['piclist_PicList'] = new ObjList($construct_arr);
+        $data['pic_links'] = $data['piclist_PicList']->create_links(['base_url' => "admin/base/pic/pic/tablelist/?class_slug=$data[search_class_slug]"]);
+
+        if($data['usergroupid_UserGroup'] >= 100)
+        {
+            $data['pic_ClassMetaList'] = new ObjList([
+                'db_where_arr' => [
+                    'uid' => $data['User']->uid,
+                    'modelname' => 'pic'
+                ],
+                'db_where_deletenull_bln' => TRUE,
+                'model_name' => 'ClassMeta',
+                'db_orderby_arr' => [
                     'prioritynum' => 'DESC',
                     'updatetime' => 'DESC'
-                ),
-                'limitstart_Num' => $limitstart_Num,
-                'limitcount_Num' => $limitcount_Num
-            ));
-        }
-        $data['pic_links'] = $data['piclist_PicList']->create_links(array('base_url_Str' => "admin/base/pic/pic/tablelist/?class_slug=$data[search_class_slug_Str]"));
-
-        if($data['UserGroup_Num'] == 100)
-        {
-            $data['pic_ClassMetaList'] = $this->load->model('ObjList', nrnum());
-            $data['pic_ClassMetaList']->construct_db(array(
-                'db_where_Arr' => array(
-                    'uid_Num' => $data['User']->uid_Num,
-                    'modelname' => 'pic'
-                ),
-                'db_where_deletenull_Bln' => TRUE,
-                'model_name_Str' => 'ClassMeta',
-                'db_orderby_Arr' => array(
-                    array('prioritynum', 'DESC'),
-                    array('updatetime', 'DESC')
-                ),
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
-            ));
+                ],
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
         }
         else
         {
-            $data['pic_ClassMetaList'] = $this->load->model('ObjList', nrnum());
-            $data['pic_ClassMetaList']->construct_db(array(
-                'db_where_Arr' => array(
-                    'modelname' => 'pic'
-                ),
-                'db_where_deletenull_Bln' => TRUE,
-                'model_name_Str' => 'ClassMeta',
-                'db_orderby_Arr' => array(
-                    array('prioritynum', 'DESC'),
-                    array('updatetime', 'DESC')
-                ),
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
-            ));
+            $data['pic_ClassMetaList'] = new ObjList([
+                'db_where_arr' => [
+                    'modelname' => 'pic',
+                    'uid' => $data['search_uid']
+                ],
+                'db_where_deletenull_bln' => TRUE,
+                'model_name' => 'ClassMeta',
+                'db_orderby_arr' => [
+                    'prioritynum' => 'DESC',
+                    'updatetime' => 'DESC'
+                ],
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
         }
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
             
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -306,73 +269,121 @@ class Pic_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 	}
 
     public function tablelist_post()
     {
-        $data = $this->data;
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_picid_Num = $this->input->post('search_picid_Num', TRUE);
-        $search_title_Str = $this->input->post('search_title_Str', TRUE);
-        $search_class_slug_Str = $this->input->post('search_class_slug_Str', TRUE);
-        $search_username_Str = $this->input->post('search_username_Str', TRUE);
+        $search_picid = $this->input->post('search_picid', TRUE);
+        $search_title = $this->input->post('search_title', TRUE);
+        $search_class_slug = $this->input->post('search_class_slug', TRUE);
+        $search_uid = $this->input->post('search_uid', TRUE);
 
-        $url_Str = base_url('admin/base/pic/pic/tablelist/?');
+        $url = 'admin/base/pic/pic/tablelist/?';
 
-        if(!empty($search_picid_Num))
+        if(!empty($search_picid))
         {
-            $url_Str = $url_Str.'&picid='.$search_picid_Num;
+            $url = $url.'&picid='.$search_picid;
         }
 
-        if(!empty($search_title_Str))
+        if(!empty($search_title))
         {
-            $url_Str = $url_Str.'&title='.$search_title_Str;
+            $url = $url.'&title='.$search_title;
         }
 
-        if(!empty($search_class_slug_Str))
+        if(!empty($search_class_slug))
         {
-            $url_Str = $url_Str.'&class_slug='.$search_class_slug_Str;
+            $url = $url.'&class_slug='.$search_class_slug;
         }
 
-        if(!empty($search_username_Str))
+        if(!empty($search_uid))
         {
-            $url_Str = $url_Str.'&username='.$search_username_Str;
+            $url = $url.'&uid='.$search_uid;
         }
-
-        header("Location: $url_Str");
+        
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => $url
+        ]);
     }
-	
+
     public function delete()
     {
-        $hash_Str = $this->input->get('hash');
-        $picid_Num = $this->input->get('picid');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $PicObj = new PicObj();
-            $PicObj->construct(array(
-            	'picid_Num' => $picid_Num
-            ));
+            $PicObj = new PicObj([
+                'picid' => $this->input->get('picid')
+            ]);
             $PicObj->delete();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
-	        	'url' => 'admin/base/pic/pic/tablelist'
-            ));
+                'url' => 'admin/base/pic/pic/tablelist'
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '刪除失敗',
-	        	'url' => 'admin/base/pic/pic/tablelist'
-            ));
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/base/pic/pic/tablelist'
+            ]);
         }
     }
 
+    public function delete_batch_post()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $picid_arr = $this->input->post('picid_arr[]');
+
+        //CSRF過濾
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
+        {
+            if(!empty($picid_arr))
+            {
+                foreach($picid_arr as $key => $picid)
+                {
+                    $PicObj = new PicObj([
+                        'picid' => $picid
+                    ]);
+                    $PicObj->delete();
+                }
+            }
+            else
+            {
+                $this->load->model('Message');
+                $this->Message->show([
+                    'message' => '未選擇要刪除的圖片'
+                ]);
+                return TRUE;
+            }
+
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '刪除成功',
+                'url' => 'admin/base/pic/pic/tablelist'
+            ]);
+            return TRUE;
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/base/pic/pic/tablelist'
+            ]);
+            return TRUE;
+        }
+    }
 }
 
 ?>

@@ -6,50 +6,49 @@ class Note_Controller extends MY_controller {
     {
         $data = $this->data;
 
-        $limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 10;
+        $limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 10;
 
-        $search_class_slug_Str = $this->input->get('class_slug');
+        $search_class_slug = $this->input->get('class_slug');
         $class_ClassMeta = new ClassMeta();
         $class_ClassMeta->construct_db(array(
-            'db_where_Arr' => array(
-                'slug' => $search_class_slug_Str
+            'db_where_arr' => array(
+                'slug' => $search_class_slug
             )
         ));
         
-        $data['new_NoteFieldList'] = new ObjList();
-        $data['new_NoteFieldList']->construct_db(array(
-            'db_where_Arr' => array(
+        $data['new_NoteFieldList'] = new ObjList(array(
+            'db_where_arr' => array(
                 'modelname' => 'note'
             ),
-            'db_where_or_Arr' => array(
-                'classids' => array($class_ClassMeta->classid_Num)
+            'db_where_or_arr' => array(
+                'classids' => array($class_ClassMeta->classid)
             ),
-            'model_name_Str' => 'NoteField',
-            'db_orderby_Arr' => array(
+            'model_name' => 'NoteField',
+            'db_orderby_arr' => array(
                 array('prioritynum', 'DESC'),
                 array('updatetime', 'DESC')
             ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'NoteField',
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'NoteField',
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
         ));
-        $data['page_link'] = $data['new_NoteFieldList']->create_links(array('base_url_Str' => 'note/'));
+        $data['page_link'] = $data['new_NoteFieldList']->create_links(array('base_url' => 'note/'));
         
         $data['ClassMetaList'] = new ObjList();
         $data['ClassMetaList']->construct_db(array(
-            'db_where_Arr' => array(
+            'db_where_arr' => array(
                 'modelname' => 'note'
             ),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
         ));
         
         //global
-		$data['global']['style'][] = 'temp/style.css';
+		$data['global']['style'][] = 'temp/global.css';
 		$data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
 		$data['global']['style'][] = 'note/index.css';
@@ -67,11 +66,11 @@ class Note_Controller extends MY_controller {
 		$this->load->view('note/index', $data);
 	}
 
-    public function view($noteid_Num)
+    public function view($noteid)
     {
         $data = $this->data;
 
-        if(empty($noteid_Num))
+        if(empty($noteid))
         {
             $this->load->model('Message');
             $this->Message->show(array('message' => '連結輸入錯誤', 'url' => 'note'));
@@ -80,39 +79,39 @@ class Note_Controller extends MY_controller {
         
         $data['ClassMetaList'] = new ObjList();
         $data['ClassMetaList']->construct_db(array(
-            'db_where_Arr' => array(
+            'db_where_arr' => array(
                 'modelname' => 'note'
             ),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
         ));
         
         $data['new_NoteFieldList'] = new ObjList();
         $data['new_NoteFieldList']->construct_db(array(
-            'db_where_Arr' => array(
+            'db_where_arr' => array(
                 'modelname' => 'note'
             ),
-            'model_name_Str' => 'NoteField',
-            'db_orderby_Arr' => array(
+            'model_name' => 'NoteField',
+            'db_orderby_arr' => array(
                 array('prioritynum', 'DESC'),
                 array('updatetime', 'DESC')
             ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'NoteField',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 5
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'NoteField',
+            'limitstart' => 0,
+            'limitcount' => 5
         ));
 
         $data['NoteField'] = new NoteField();
         $data['NoteField']->construct_db(array(
-            'db_where_Arr' => array(
-                'note.noteid' => $noteid_Num
+            'db_where_arr' => array(
+                'note.noteid' => $noteid
             )
         ));
         
         //global
-        $data['global']['style'][] = 'temp/style.css';
+        $data['global']['style'][] = 'temp/global.css';
         $data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'note/view.css';

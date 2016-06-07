@@ -9,18 +9,18 @@ class Language_controller extends MY_Controller{
 
     public function index()
     {
-        $change_Str = $this->input->get('change');
-        $back_url_Str = $this->input->get('back_url');
+        $change = $this->input->get('change');
+        $back_url = $this->input->get('back_url');
 
         $this->i18n->prevent_auto();
-        $this->i18n->set_current_locale($change_Str);
+        $this->i18n->set_current_locale($change);
 
-        if(empty($back_url_Str))
+        if(empty($back_url))
         {
-            $back_url_Str = base_url();
+            $back_url = base_url();
         }
 
-        header("Location: $back_url_Str");
+        header("Location: $back_url");
     }
 
 }

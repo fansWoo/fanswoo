@@ -14,15 +14,9 @@
 	else {
 		factory(jQuery);
 	}
-})(function($) {
-
-
-var API_BASE = 'https://www.googleapis.com/calendar/v3/calendars';
+})(function($) {var API_BASE = 'https://www.googleapis.com/calendar/v3/calendars';
 var FC = $.fullCalendar;
-var applyAll = FC.applyAll;
-
-
-FC.sourceNormalizers.push(function(sourceOptions) {
+var applyAll = FC.applyAll;FC.sourceNormalizers.push(function(sourceOptions) {
 	var googleCalendarId = sourceOptions.googleCalendarId;
 	var url = sourceOptions.url;
 	var match;
@@ -46,10 +40,7 @@ FC.sourceNormalizers.push(function(sourceOptions) {
 		if (googleCalendarId) {
 			sourceOptions.googleCalendarId = googleCalendarId;
 		}
-	}
-
-
-	if (googleCalendarId) { // is this a Google Calendar?
+	}	if (googleCalendarId) { // is this a Google Calendar?
 
 		// make each Google Calendar source uneditable by default
 		if (sourceOptions.editable == null) {
@@ -61,17 +52,11 @@ FC.sourceNormalizers.push(function(sourceOptions) {
 		// This hack is obsolete since 2.2.3, but keep it so this plugin file is compatible with old versions.
 		sourceOptions.url = googleCalendarId;
 	}
-});
-
-
-FC.sourceFetchers.push(function(sourceOptions, start, end, timezone) {
+});FC.sourceFetchers.push(function(sourceOptions, start, end, timezone) {
 	if (sourceOptions.googleCalendarId) {
 		return transformOptions(sourceOptions, start, end, timezone, this); // `this` is the calendar
 	}
-});
-
-
-function transformOptions(sourceOptions, start, end, timezone, calendar) {
+});function transformOptions(sourceOptions, start, end, timezone, calendar) {
 	var url = API_BASE + '/' + encodeURIComponent(sourceOptions.googleCalendarId) + '/events?callback=?'; // jsonp
 	var apiKey = sourceOptions.googleCalendarApiKey || calendar.options.googleCalendarApiKey;
 	var success = sourceOptions.success;
@@ -165,16 +150,10 @@ function transformOptions(sourceOptions, start, end, timezone, calendar) {
 			return events;
 		}
 	});
-}
-
-
-// Injects a string like "arg=value" into the querystring of a URL
+}// Injects a string like "arg=value" into the querystring of a URL
 function injectQsComponent(url, component) {
 	// inject it after the querystring but before the fragment
 	return url.replace(/(\?.*?)?(#|$)/, function(whole, qs, hash) {
 		return (qs ? qs + '&' : '?') + component + hash;
 	});
-}
-
-
-});
+}});

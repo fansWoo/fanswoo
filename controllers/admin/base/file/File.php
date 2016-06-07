@@ -2,61 +2,35 @@
 
 class File_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'base';
-    protected $child2_name_Str = 'file';
-    protected $child3_name_Str = 'file';
-    
-	public function __construct()
-	{
+    public function __construct()
+    {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-	}
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
+    }
 	
 	public function edit()
 	{
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $fileid_Num = $this->input->get('fileid');
+        $fileid = $this->input->get('fileid');
             
-        $data['FileObj'] = new FileObj();
-        $data['FileObj']->construct_db(array(
-        	'db_where_Arr' => array(
-        		'fileid_Num' => $fileid_Num
-        	)
-        ));
+        $data['FileObj'] = new FileObj([
+        	'db_where_arr' => [
+        		'fileid' => $fileid
+        	]
+        ]);
             
-        $data['ClassMetaList'] = new ObjList();
-        $data['ClassMetaList']->construct_db(array(
-        	'db_where_Arr' => array(
-        		'uid_Str' => $data['User']->uid_Num,
+        $data['ClassMetaList'] = new ObjList([
+        	'db_where_arr' => [
+        		'uid' => $data['User']->uid,
         		'modelname' => 'file'
-        	),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
-        $data['global']['js'][] = 'tool/jquery.form.js';
+        	],
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
             
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -66,156 +40,146 @@ class File_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 	}
 
 	public function edit_post()
 	{
-        $fileids_Arr = $this->input->post('fileids_Arr');
-		$fileid_Num = $this->input->post('fileid_Num');
-        $classids_Arr = $this->input->post('classids_Arr');
-        $permission_emails_Str = $this->input->post('permission_emails_Str');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-		if(!empty($fileid_Num))
+        $fileids_arr = $this->input->post('fileids_arr');
+		$fileid = $this->input->post('fileid');
+        $classids_arr = $this->input->post('classids_arr');
+        $permission_emails = $this->input->post('permission_emails');
+
+		if(!empty($fileid))
 		{
-		    $FileObj = new FileObj();
-		    $FileObj->construct_db(array(
-		    	'db_where_Arr' => array(
-		        	'fileid_Num' => $fileid_Num,
-		        )
-		    ));
+		    $FileObj = new FileObj([
+		    	'db_where_arr' => [
+		        	'fileid' => $fileid,
+		        ]
+		    ]);
 
-            $FileObj->set__permission_uids_UserList(['permission_emails_Str' => $permission_emails_Str]);
+            $FileObj->set__permission_uids_UserList(['permission_emails' => $permission_emails]);
 
             $FileObj->class_ClassMetaList = new ObjList();
-            $FileObj->class_ClassMetaList->construct_db(array(
-                'db_where_or_Arr' => array(
-                    'classid' => $classids_Arr
-                ),
-                'db_from_Str' => 'class',
-                'model_name_Str' => 'ClassMeta',
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
-            ));
+            $FileObj->class_ClassMetaList->construct_db([
+                'db_where_or_arr' => [
+                    'classid' => $classids_arr
+                ],
+                'db_from' => 'class',
+                'model_name' => 'ClassMeta',
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
             $FileObj->updatetime_DateTime = new DateTimeObj();
 		    $FileObj->updatetime_DateTime->construct();
 		    $FileObj->update();
 
-			$this->load->model('Message');
-			$this->Message->show(array(
-			    'message' => '設定成功',
-			    'url' => 'admin/base/file/file/tablelist'
-			));
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '設定成功',
+                'url' => 'admin/base/file/file/tablelist'
+            ]);
 		}
-		else if( !empty($fileids_Arr) )
+		else if( !empty($fileids_arr) )
 		{
-		    $FileObjList = new ObjList;
+            $FileObjList = new ObjList;
             $FileObjList->construct_db([
-                'db_where_or_Arr' => [
-                    'fileid' => $fileids_Arr
+                'db_where_or_arr' => [
+                    'fileid' => $fileids_arr
                 ],
-                'model_name_Str' => 'FileObj',
-                'db_orderby_Arr' => [
-                    ['prioritynum', 'DESC'],
-                    ['updatetime', 'DESC']
+                'db_orderby_arr' => [
+                    'prioritynum' => 'DESC',
+                    'updatetime' => 'DESC'
                 ],
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
+                'model_name' => 'FileObj',
+                'limitstart' => 0,
+                'limitcount' => 100
             ]);
 
-            foreach($FileObjList->obj_Arr as $key => $value_FileObj)
+            foreach($FileObjList->obj_arr as $key => $value_FileObj)
             {
                 $value_FileObj->set('class_ClassMetaList', [
-                    'classids_Arr' => $classids_Arr
+                    'classids_arr' => $classids_arr
                 ], 'ClassMetaList');
-                $value_FileObj->set__permission_uids_UserList(['permission_emails_Str' => $permission_emails_Str]);
+                $value_FileObj->set__permission_uids_UserList(['permission_emails' => $permission_emails]);
                 $value_FileObj->update();
             }
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '設定成功',
                 'url' => 'admin/base/file/file/tablelist'
-            ));
+            ]);
 		}
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '未知的錯誤',
                 'url' => 'admin/base/file/file/tablelist'
-            ));
+            ]);
         }
 
 	}
 	
 	public function tablelist()
 	{
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-		$limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = empty($limitcount_Num) ? 20 : $limitcount_Num;
-        $limitcount_Num = $limitcount_Num > 100 ? 100 : $limitcount_Num;
+		$limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $data['search_class_slug_Str'] = $this->input->get('class_slug');
-        $data['search_title_Str'] = $this->input->get('title');
-        $data['search_fileid_Num'] = $this->input->get('fileid');
+        $data['search_class_slug'] = $this->input->get('class_slug');
+        $data['search_title'] = $this->input->get('title');
+        $data['search_fileid'] = $this->input->get('fileid');
 
-        $class_ClassMeta = new ClassMeta();
-        $class_ClassMeta->construct_db(array(
-            'db_where_Arr' => array(
-                'uid_Str' => $data['User']->uid_Num,
-                'slug_Str' => $data['search_class_slug_Str']
-            ),
-            'db_where_deletenull_Bln' => FALSE
-        ));
+        $class_ClassMeta = new ClassMeta([
+            'db_where_arr' => [
+                'uid' => $data['User']->uid,
+                'slug' => $data['search_class_slug']
+            ],
+            'db_where_deletenull_bln' => FALSE
+        ]);
 
-        $data['filelist_FileList'] = new ObjList;
-        $data['filelist_FileList']->construct_db(array(
-            'db_where_Arr' => array(
-                'fileid_Num' => $data['search_fileid_Num'],
-                'uid_Num' => $data['User']->uid_Num,
-            ),
-            'db_where_like_Arr' => array(
-                'title_Str' => $data['search_title_Str']
-            ),
-            'db_where_or_Arr' => array(
-                'classids_Str' => array($class_ClassMeta->classid_Num)
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'FileObj',
-            'db_orderby_Arr' => array(
+        $data['filelist_FileList'] = new ObjList([
+            'db_where_arr' => [
+                'fileid' => $data['search_fileid'],
+                'uid' => $data['User']->uid,
+            ],
+            'db_where_like_arr' => [
+                'title' => $data['search_title']
+            ],
+            'db_where_or_arr' => [
+                'classids' => [$class_ClassMeta->classid]
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'FileObj',
+            'db_orderby_arr' => [
                 'prioritynum' => 'DESC',
                 'updatetime' => 'DESC'
-            ),
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
-      	));
-        $data['file_links'] = $data['filelist_FileList']->create_links(array('base_url_Str' => "admin/base/file/file/tablelist/?class_slug=$data[search_class_slug_Str]"));
+            ],
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+      	]);
+        $data['file_links'] = $data['filelist_FileList']->create_links(['base_url' => "admin/base/file/file/tablelist/?class_slug=$data[search_class_slug]"]);
 
-        $data['file_ClassMetaList'] = $this->load->model('ObjList', nrnum());
-        $data['file_ClassMetaList']->construct_db(array(
-            'db_where_Arr' => array(
-                'uid_Num' => $data['User']->uid_Num,
+        $data['file_ClassMetaList'] =  new ObjList([
+            'db_where_arr' => [
+                'uid' => $data['User']->uid,
                 'modelname' => 'file'
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'ClassMeta',
-            'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
-            ),
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'ClassMeta',
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
+            ],
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
             
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -225,99 +189,115 @@ class File_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 	}
 
     public function tablelist_post()
     {
-        $data = $this->data;
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_fileid_Num = $this->input->post('search_fileid_Num', TRUE);
-        $search_title_Str = $this->input->post('search_title_Str', TRUE);
-        $search_class_slug_Str = $this->input->post('search_class_slug_Str', TRUE);
+        $search_fileid = $this->input->post('search_fileid', TRUE);
+        $search_title = $this->input->post('search_title', TRUE);
+        $search_class_slug = $this->input->post('search_class_slug', TRUE);
 
-        $url_Str = base_url('admin/base/file/file/tablelist/?');
+        $url = 'admin/base/file/file/tablelist/?';
 
-        if(!empty($search_fileid_Num))
+        if(!empty($search_fileid))
         {
-            $url_Str = $url_Str.'&fileid='.$search_fileid_Num;
+            $url = $url.'&fileid='.$search_fileid;
         }
 
-        if(!empty($search_title_Str))
+        if(!empty($search_title))
         {
-            $url_Str = $url_Str.'&title='.$search_title_Str;
+            $url = $url.'&title='.$search_title;
         }
 
-        if(!empty($search_class_slug_Str))
+        if(!empty($search_class_slug))
         {
-            $url_Str = $url_Str.'&class_slug='.$search_class_slug_Str;
+            $url = $url.'&class_slug='.$search_class_slug;
         }
 
-        header("Location: $url_Str");
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
     }
-	
+
     public function delete()
     {
-        $hash_Str = $this->input->get('hash');
-        $fileid_Num = $this->input->get('fileid');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $FileObj = new FileObj();
-            $FileObj->construct(array(
-            	'fileid_Num' => $fileid_Num
-            ));
+            $FileObj = new FileObj([
+                'fileid' => $this->input->get('fileid')
+            ]);
             $FileObj->delete();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
-	        	'url' => 'admin/base/file/file/tablelist'
-            ));
+                'url' => 'admin/base/file/file/tablelist'
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '刪除失敗',
-	        	'url' => 'admin/base/file/file/tablelist'
-            ));
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/base/file/file/tablelist'
+            ]);
         }
     }
 
-    public function destroy()
+    public function delete_batch_post()
     {
-        $hash_Str = $this->input->get('hash');
-        $fileid_Num = $this->input->get('fileid');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $fileid_arr = $this->input->post('fileid_arr[]');
 
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if($this->input->get('hash') == $this->security->get_csrf_hash())
         {
-            $FileObj = new FileObj();
-            $FileObj->construct_db([
-                'db_where_Arr' => [
-                    'fileid' => $fileid_Num
-                ]
-            ]);
-            $FileObj->destroy();
+            if(!empty($fileid_arr))
+            {
+                foreach($fileid_arr as $key => $fileid)
+                {
+                    $FileObj = new FileObj([
+                        'fileid' => $fileid
+                    ]);
+                    $FileObj->delete();
+                }
+            }
+            else
+            {
+                $this->load->model('Message');
+                $this->Message->show([
+                    'message' => '未選擇要刪除的常見問題'
+                ]);
+                return TRUE;
+            }
 
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '銷毀成功',
+            $this->Message->show([
+                'message' => '刪除成功',
                 'url' => 'admin/base/file/file/tablelist'
-            ));
+            ]);
+            return TRUE;
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '銷毀失敗',
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
                 'url' => 'admin/base/file/file/tablelist'
-            ));
+            ]);
+            return TRUE;
         }
     }
-
 }
 
 ?>

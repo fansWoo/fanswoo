@@ -3,184 +3,184 @@
 class Project extends ObjDbBase
 {
 
-    public $projectid_Num = 0;
-    public $uid_Num = 0;
-    public $name_Str = '';
-    public $admin_uid_Num = '';
+    public $projectid = 0;
+    public $uid = 0;
+    public $name = '';
+    public $admin_uid = '';
     public $permission_uids_UserList = '';
-    public $working_days_Num = 0;
+    public $working_days = 0;
     public $class_ClassMetaList;
-    public $designids_Str = '';
-    public $pay_name_Str = '';
-    public $pay_account_Str = '';
-    public $pay_price_total_Num = 0;
-    public $pay_price_receive_Num = 0;
-    public $pay_price_schedule_Num = 0;
-    public $pay_price_schedule2_Num = 0;
-    public $pay_remark_Str = '';
-    public $pay_status_Num = 0;
-    public $paycheck_status_Num = 0;
-    public $project_status_Num = 1;
+    public $designids = '';
+    public $pay_name = '';
+    public $pay_account = '';
+    public $pay_price_total = 0;
+    public $pay_price_receive = 0;
+    public $pay_price_schedule = 0;
+    public $pay_price_schedule2 = 0;
+    public $pay_remark = '';
+    public $pay_status = 0;
+    public $paycheck_status = 0;
+    public $project_status = 1;
     public $pay_paytime_DateTimeObj;
     public $setuptime_DateTimeObj;
     public $endtime_DateTimeObj;
     public $updatetime_DateTimeObj;
     public $DesignList;
-    public $status_Num = 1;
-    public $db_name_Str = 'project';//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid_Str = 'projectid';//填寫物件聯繫資料庫之唯一ID
-    public $db_field_Arr = [//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'projectid' => 'projectid_Num',
-        'uid' => 'uid_Num',
-        'name' => 'name_Str',
-        'admin_uid' => 'admin_uid_Num',
-        'permission_uids' => ['permission_uids_UserList', 'uniqueids_Str'],
-        'working_days' => 'working_days_Num',
-        'classids' => array('class_ClassMetaList', 'uniqueids_Str'),
-        'designids' => 'designids_Str',
-        'pay_name' => 'pay_name_Str',
-        'pay_account' => 'pay_account_Str',
-        'pay_price_total' => 'pay_price_total_Num',
-        'pay_price_receive' => 'pay_price_receive_Num',
-        'pay_price_schedule' => 'pay_price_schedule_Num',
-        'pay_price_schedule2' => 'pay_price_schedule2_Num',
-        'pay_remark' => 'pay_remark_Str',
-        'pay_status' => 'pay_status_Num',
-        'paycheck_status' => 'paycheck_status_Num',
-        'project_status' => 'project_status_Num',
-        'pay_paytime' => array('pay_paytime_DateTimeObj', 'datetime_Str'),
-        'setuptime' => array('setuptime_DateTimeObj', 'datetime_Str'),
-        'endtime' => array('endtime_DateTimeObj', 'datetime_Str'),
-        'updatetime' => array('updatetime_DateTimeObj', 'datetime_Str'),
-        'status' => 'status_Num'
+    public $status = 1;
+    public $db_name = 'project';//填寫物件聯繫資料庫之名稱
+    public $db_uniqueid = 'projectid';//填寫物件聯繫資料庫之唯一ID
+    public $db_field_arr = [//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
+        'projectid' => 'projectid',
+        'uid' => 'uid',
+        'name' => 'name',
+        'admin_uid' => 'admin_uid',
+        'permission_uids' => ['permission_uids_UserList', 'uniqueids'],
+        'working_days' => 'working_days',
+        'classids' => array('class_ClassMetaList', 'uniqueids'),
+        'designids' => 'designids',
+        'pay_name' => 'pay_name',
+        'pay_account' => 'pay_account',
+        'pay_price_total' => 'pay_price_total',
+        'pay_price_receive' => 'pay_price_receive',
+        'pay_price_schedule' => 'pay_price_schedule',
+        'pay_price_schedule2' => 'pay_price_schedule2',
+        'pay_remark' => 'pay_remark',
+        'pay_status' => 'pay_status',
+        'paycheck_status' => 'paycheck_status',
+        'project_status' => 'project_status',
+        'pay_paytime' => array('pay_paytime_DateTimeObj', 'datetime'),
+        'setuptime' => array('setuptime_DateTimeObj', 'datetime'),
+        'endtime' => array('endtime_DateTimeObj', 'datetime'),
+        'updatetime' => array('updatetime_DateTimeObj', 'datetime'),
+        'status' => 'status'
     ];
 	
-	public function construct($arg)
+	public function construct($arg = [])
 	{
-        $permission_uids_Str = !empty($arg['permission_uids_Str']) ? $arg['permission_uids_Str'] : '' ;
-        $permission_emails_Str = !empty($arg['permission_emails_Str']) ? $arg['permission_emails_Str'] : '' ;
+        $permission_uids = !empty($arg['permission_uids']) ? $arg['permission_uids'] : '' ;
+        $permission_emails = !empty($arg['permission_emails']) ? $arg['permission_emails'] : '' ;
         $this->set__permission_uids_UserList([
-            'permission_uids_Str' => $permission_uids_Str,
-            'permission_emails_Str' => $permission_emails_Str
+            'permission_uids' => $permission_uids,
+            'permission_emails' => $permission_emails
         ]);
-        $this->set('projectid_Num', $arg['projectid_Num']);
-        $this->set('uid_Num', $arg['uid_Num']);
-        $this->set('name_Str', $arg['name_Str']);
-        $this->set('admin_uid_Num', $arg['admin_uid_Num']);
-        $this->set('working_days_Num', $arg['working_days_Num']);
+        $this->set('projectid', $arg['projectid']);
+        $this->set('uid', $arg['uid']);
+        $this->set('name', $arg['name']);
+        $this->set('admin_uid', $arg['admin_uid']);
+        $this->set('working_days', $arg['working_days']);
         $this->set('class_ClassMetaList', [
-            'classids_Str' => $arg['classids_Str'],
-            'classids_Arr' => $arg['classids_Arr']
+            'classids' => $arg['classids'],
+            'classids_arr' => $arg['classids_arr']
         ], 'ClassMetaList');
-        $this->set('designids_Str', $arg['designids_Str']);
-        $this->set('pay_name_Str', $arg['pay_name_Str']);
-        $this->set('pay_account_Str', $arg['pay_account_Str']);
-        $this->set('pay_price_total_Num', $arg['pay_price_total_Num']);
-        $this->set('pay_price_receive_Num', $arg['pay_price_receive_Num']);
-        $this->set('pay_price_schedule_Num', $arg['pay_price_schedule_Num']);
-        $this->set('pay_price_schedule2_Num', $arg['pay_price_schedule2_Num']);
-        $this->set('pay_remark_Str', $arg['pay_remark_Str']);
-        $this->set('pay_status_Num', $arg['pay_status_Num']);
-        $this->set('paycheck_status_Num', $arg['paycheck_status_Num']);
-        $this->set('project_status_Num', $arg['project_status_Num']);
+        $this->set('designids', $arg['designids']);
+        $this->set('pay_name', $arg['pay_name']);
+        $this->set('pay_account', $arg['pay_account']);
+        $this->set('pay_price_total', $arg['pay_price_total']);
+        $this->set('pay_price_receive', $arg['pay_price_receive']);
+        $this->set('pay_price_schedule', $arg['pay_price_schedule']);
+        $this->set('pay_price_schedule2', $arg['pay_price_schedule2']);
+        $this->set('pay_remark', $arg['pay_remark']);
+        $this->set('pay_status', $arg['pay_status']);
+        $this->set('paycheck_status', $arg['paycheck_status']);
+        $this->set('project_status', $arg['project_status']);
         $this->set('pay_paytime_DateTimeObj', [
-            'datetime_Str' => $arg['pay_paytime_Str']
+            'datetime' => $arg['pay_paytime']
         ], 'DateTimeObj');
         $this->set('setuptime_DateTimeObj', [
-            'datetime_Str' => $arg['setuptime_Str']
+            'datetime' => $arg['setuptime']
         ], 'DateTimeObj');
         $this->set('endtime_DateTimeObj', [
-            'datetime_Str' => $arg['endtime_Str']
+            'datetime' => $arg['endtime']
         ], 'DateTimeObj');
         $this->set('updatetime_DateTimeObj', [
-            'datetime_Str' => $arg['updatetime_Str']
+            'datetime' => $arg['updatetime']
         ], 'DateTimeObj');
-        $this->set('status_Num', $arg['status_Num']);
-        $this->set__uid_User(['uid_Num' => $arg['uid_Num']]);
-        $this->set__uid_Num(['uid_Num' => $arg['uid_Num']]);
+        $this->set('status', $arg['status']);
+        $this->set__uid_User(['uid' => $arg['uid']]);
+        $this->set__uid(['uid' => $arg['uid']]);
 
-        $projectid_Num = !empty($arg['projectid_Num']) ? $arg['projectid_Num'] : 0;
+        $projectid = !empty($arg['projectid']) ? $arg['projectid'] : 0;
         $DesignList = new ObjList();
         $DesignList->construct_db([
-            'db_where_Arr' => [
-                'projectid' => $projectid_Num
+            'db_where_arr' => [
+                'projectid' => $projectid
             ],
-            'db_orderby_Arr' => [
+            'db_orderby_arr' => [
                 'prioritynum' => 'DESC',
                 'designid' => 'DESC'
             ],
-            'model_name_Str' => 'Design',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
+            'model_name' => 'Design',
+            'limitstart' => 0,
+            'limitcount' => 100
         ]);
         $this->DesignList = $DesignList;
         
         return TRUE;
     }
 
-    public function set__admin_uid_Num()
+    public function set__admin_uid()
     {
 
-        if(!empty($this->admin_uid_Num) )
+        if(!empty($this->admin_uid) )
         {
             $data['User'] = new User();
             $data['User']->construct_db(array(
-                'db_where_Arr' => array(
-                    'email_Str' => $this->admin_uid_Num
+                'db_where_arr' => array(
+                    'email' => $this->admin_uid
                 )
             ));
 
-            $admin_uid_Num = $data['User']->uid_Num;
+            $admin_uid = $data['User']->uid;
         }
         else
         {
-            $admin_uid_Num = '';
+            $admin_uid = '';
         }
-        $this->admin_uid_Num = $admin_uid_Num;
+        $this->admin_uid = $admin_uid;
     }
 
     public function set__permission_uids_UserList($arg)
     {
-        if( !empty($arg['permission_uids_Str']) )
+        if( !empty($arg['permission_uids']) )
         {
-            $permission_uids_Arr = explode(',', $arg['permission_uids_Str']);
+            $permission_uids_arr = explode(',', $arg['permission_uids']);
             $UserList = new ObjList();
             $UserList->construct_db([
-                'db_where_or_Arr' => [
-                    'uid' => $permission_uids_Arr
+                'db_where_or_arr' => [
+                    'uid' => $permission_uids_arr
                 ],
-                'model_name_Str' => 'User',
-                'db_orderby_Arr' => [
-                    'uid' => $permission_uids_Arr
+                'model_name' => 'User',
+                'db_orderby_arr' => [
+                    'uid' => $permission_uids_arr
                 ],
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
+                'limitstart' => 0,
+                'limitcount' => 100
             ]);
         }
-        else if( !empty($arg['permission_emails_Str']) )
+        else if( !empty($arg['permission_emails']) )
         {
-            $permission_emails_Arr = explode(PHP_EOL, $arg['permission_emails_Str']);
+            $permission_emails_arr = explode(PHP_EOL, $arg['permission_emails']);
             $UserList = new ObjList();
             $UserList->construct_db([
-                'db_where_or_Arr' => [
-                    'email' => $permission_emails_Arr
+                'db_where_or_arr' => [
+                    'email' => $permission_emails_arr
                 ],
-                'model_name_Str' => 'User',
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
+                'model_name' => 'User',
+                'limitstart' => 0,
+                'limitcount' => 100
             ]);
 
-            $UserList->uniqueids_Arr = [];
-            foreach($UserList->obj_Arr as $key => $value_User)
+            $UserList->uniqueids_arr = [];
+            foreach($UserList->obj_arr as $key => $value_User)
             {
-                $array_search_Num = array_search( $value_User->email_Str, $permission_emails_Arr );
-                if( $array_search_Num !== FALSE )
+                $array_search = array_search( $value_User->email, $permission_emails_arr );
+                if( $array_search !== FALSE )
                 {
-                    $UserList->uniqueids_Arr[$array_search_Num] = $value_User->uid_Num;
+                    $UserList->uniqueids_arr[$array_search] = $value_User->uid;
                 }
             }
-            ksort($UserList->uniqueids_Arr);
-            $UserList->uniqueids_Str = implode(',', $UserList->uniqueids_Arr);
+            ksort($UserList->uniqueids_arr);
+            $UserList->uniqueids = implode(',', $UserList->uniqueids_arr);
         }
         else
         {

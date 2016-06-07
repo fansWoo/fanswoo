@@ -1,132 +1,14 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-//會員群組權限管理，紀錄每個groupid的會員能夠使用那些功能
-$config['group_purview_Arr'] = array(
-	'1' => array(//系統管理員，看得到所有系統及所有管理員
-	),
-	'2' => array(//總管理員，看得到除了系統管理員以外的所有管理員
-		array('base', 'global', 'global', 'common'),
-		array('base', 'global', 'global', 'email'),
-		array('base', 'global', 'global', 'seo'),
-		array('base', 'global', 'global', 'plugin'),
-		// array('base', 'advertising', 'advertising', 'edit'),
-		// array('base', 'advertising', 'advertising', 'tablelist'),
-		// array('base', 'advertising', 'classmeta', 'edit'),
-		// array('base', 'advertising', 'classmeta', 'tablelist'),
-		array('base', 'pic', 'pic', 'edit'),
-		array('base', 'pic', 'pic', 'tablelist'),
-		array('base', 'pic', 'album', 'edit'),
-		array('base', 'pic', 'album', 'tablelist'),
-		array('base', 'file', 'file', 'edit'),
-		array('base', 'file', 'file', 'tablelist'),
-		array('base', 'file', 'classmeta', 'edit'),
-		array('base', 'file', 'classmeta', 'tablelist'),
-		array('base', 'note', 'note', 'edit'),
-		array('base', 'note', 'note', 'tablelist'),
-		array('base', 'note', 'classmeta', 'edit'),
-		array('base', 'note', 'classmeta', 'tablelist'),
-		array('base', 'user', 'user', 'edit'),
-		array('base', 'user', 'user', 'tablelist'),
-		// array('base', 'user', 'user_shop', 'edit'),
-		// array('base', 'user', 'user_shop', 'tablelist'),
-		// array('base', 'user', 'classmeta', 'edit'),
-		// array('base', 'user', 'classmeta', 'tablelist'),
-		// array('base', 'pager', 'pager', 'edit'),
-		// array('base', 'pager', 'pager', 'tablelist'),
-		// array('base', 'pager', 'classmeta', 'edit'),
-		// array('base', 'pager', 'classmeta', 'tablelist'),
-		// array('base', 'pager', 'classmeta2', 'edit'),
-		// array('base', 'pager', 'classmeta2', 'tablelist'),
-		// array('base', 'showpiece', 'showpiece', 'edit'),
-		// array('base', 'showpiece', 'showpiece', 'tablelist'),
-		// array('base', 'showpiece', 'classmeta', 'edit'),
-		// array('base', 'showpiece', 'classmeta', 'tablelist'),
-		// array('base', 'showpiece', 'classmeta2', 'edit'),
-		// array('base', 'showpiece', 'classmeta2', 'tablelist'),
-		array('base', 'contact', 'contact', 'edit'),
-		array('base', 'contact', 'contact', 'tablelist'),
-
-		// array('shop', 'store', 'global', 'hot'),
-		// array('shop', 'store', 'global', 'tradein'),
-		// array('shop', 'store', 'global', 'coupon'),
-		// array('shop', 'store', 'global', 'transfer'),
-		// array('shop', 'product', 'product', 'edit'),
-		// array('shop', 'product', 'product', 'tablelist'),
-		// array('shop', 'product', 'classmeta', 'edit'),
-		// array('shop', 'product', 'classmeta', 'tablelist'),
-		// array('shop', 'product', 'classmeta2', 'edit'),
-		// array('shop', 'product', 'classmeta2', 'tablelist'),
-		// array('shop', 'product', 'set', 'set'),
-		array('shop', 'order_shop', 'order_shop', 'edit'),
-		array('shop', 'order_shop', 'order_shop', 'tablelist'),
-
-		array('project', 'project', 'project', 'edit'),
-		array('project', 'project', 'project', 'tablelist'),
-		array('project', 'project', 'project', 'prints'),
-		array('project', 'project', 'classmeta', 'edit'),
-		array('project', 'project', 'classmeta', 'tablelist'),
-		array('project', 'project', 'classmeta2', 'edit'),
-		array('project', 'project', 'classmeta2', 'tablelist'),
-		array('project', 'project', 'suggest', 'edit'),
-		array('project', 'project', 'suggest', 'tablelist'),
-		// array('project', 'design', 'design', 'edit'),
-		// array('project', 'design', 'design', 'tablelist'),
-		// array('project', 'design', 'classmeta', 'edit'),
-		// array('project', 'design', 'classmeta', 'tablelist'),
-		// array('project', 'design', 'classmeta2', 'edit'),
-		// array('project', 'design', 'classmeta2', 'tablelist'),
-		array('project', 'user', 'project', 'edit'),
-		array('project', 'user', 'project', 'tablelist'),
-		array('project', 'user', 'design', 'edit'),
-		array('project', 'user', 'suggest', 'edit'),
-		array('project', 'worktask', 'worktask', 'edit'),
-		array('project', 'worktask', 'worktask', 'tablelist'),
-		array('project', 'worktask', 'worktask', 'calendar'),
-		array('project', 'worktask', 'classmeta', 'edit'),
-		array('project', 'worktask', 'classmeta', 'tablelist'),
-		array('project', 'sales_target', 'sales_target', 'edit'),
-        
-		array('user', 'global', 'global', 'user'),
-		// array('user', 'global', 'global_shop', 'user'),
-		array('user', 'order_shop', 'order_shop', 'edit'),
-		array('user', 'order_shop', 'order_shop', 'tablelist')
-	),
-	'3' => array(//一般管理員，只看得到自己
-		array('base', 'user', 'user', 'edit'),
-		array('base', 'user', 'user', 'tablelist'),
-		// array('base', 'user', 'user_shop', 'edit'),
-		// array('base', 'user', 'user_shop', 'tablelist'),
-		// array('base', 'user', 'classmeta', 'edit'),
-		// array('base', 'user', 'classmeta', 'tablelist'),
-
-		array('project', 'user', 'project', 'edit'),
-		array('project', 'user', 'project', 'tablelist'),
-		array('project', 'user', 'design', 'edit'),
-		array('project', 'user', 'suggest', 'edit'),
-        
-		array('user', 'global', 'global', 'user'),
-		// array('user', 'global', 'global_shop', 'user'),
-		array('user', 'order_shop', 'order_shop', 'edit'),
-		array('user', 'order_shop', 'order_shop', 'tablelist')
-	),
-	'100' => array(//一般會員
-		array('project', 'user', 'project', 'edit'),
-		array('project', 'user', 'project', 'tablelist'),
-		array('project', 'user', 'design', 'edit'),
-		array('project', 'user', 'suggest', 'edit'),
-
-		array('user', 'global', 'global', 'user'),
-		// array('user', 'global', 'global_shop', 'user'),
-		array('user', 'order_shop', 'order_shop', 'edit'),
-		array('user', 'order_shop', 'order_shop', 'tablelist')
-	),
-	'101' => array(//進階會員
-		array('user', 'global', 'global', 'user'),
-		// array('user', 'global', 'global_shop', 'user'),
-		// array('user', 'order_shop', 'order_shop', 'edit'),
-		// array('user', 'order_shop', 'order_shop', 'tablelist')
-	)
-);
+//登入後台預設頁面
+//預設頁面應避免設置無登入權限的頁面，否則將被強制登出
+$config['default_page'] = [
+	1 => 'admin/base/global/global/global_setting',
+	2 => 'admin/base/global/global/global_setting',
+	3 => 'admin/base/global/global/global_setting',
+	100 => 'admin/user/global/global/user',
+	101 => 'admin/user/global/global/user'
+];
 
 //後台架構
 $config['admin_sidebox'] = array(
@@ -139,40 +21,80 @@ $config['admin_sidebox'] = array(
 						'global' => array(
 							'title' => '全域',
 							'child4' => array(
-								'common' => array('title' => '基本設置'),
-                                'email' => array('title' => '郵件設置'),
-								'seo' => array('title' => 'SEO標籤'),
-								'plugin' =>array('title' => '第三方外掛')
+								// 'common' => [
+								// 	'title' => '網站總覽',
+								// 	'purview_groupids' => [2]
+								// ],
+                                'global_setting' => [
+                                	'title' => '全域設置',
+									'purview_groupids' => [2]
+                                ],
+                                'website_content' => [
+                                	'title' => '網站內容',
+									'purview_groupids' => [2]
+                                ]
+							)
+						),
+						'website_meta' => [
+							'title' => '網站標籤',
+							'child4' => [
+								'seo' => [
+									'title' => 'SEO標籤',
+									'purview_groupids' => [2]
+								],
+								'plugin' => [
+									'title' => '第三方外掛',
+									'purview_groupids' => [2]
+								]
+							]
+						]
+					)
+				),
+				'page_setting' => array(
+					'title' => '全域分頁',
+					'child3' => array(
+						'page_setting' => array(
+							'title' => '全域分頁',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
 				),
-				// 'webcontent' => array(
-				// 	'title' => '內容管理',
-				// 	'child3' => array(
-				// 		'webcontent' => array(
-				// 			'title' => '內容',
-				// 			'child4' => array(
-				// 				'edit' => array('title' => '首頁內容')
-				// 			)
-				// 		)
-				// 	)
-				// ),
 				'advertising' => array(
 					'title' => '廣告管理',
 					'child3' => array(
 						'advertising' => array(
 							'title' => '廣告',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'classmeta' => array(
-							'title' => '廣告分類',
+							'title' => '分類標籤',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
@@ -183,15 +105,54 @@ $config['admin_sidebox'] = array(
 						'note' => array(
 							'title' => '文章',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'classmeta' => array(
 							'title' => '分類標籤',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'set' => array(
+							'title' => '文章系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
+							)
+						)
+					)
+				),
+				'comment' => array(
+					'title' => '留言管理',
+					'child3' => array(
+						'comment' => array(
+							'title' => '留言',
+							'child4' => array(
+								'edit' => array(
+									'title' => '查看',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
@@ -202,15 +163,36 @@ $config['admin_sidebox'] = array(
 						'pic' => array(
 							'title' => '圖片',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'album' => array(
 							'title' => '分類標籤',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'set' => array(
+							'title' => '圖片系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
@@ -221,41 +203,89 @@ $config['admin_sidebox'] = array(
 						'file' => array(
 							'title' => '檔案',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'classmeta' => array(
 							'title' => '分類標籤',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'set' => array(
+							'title' => '檔案系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
 				),
 				'showpiece' => array(
-					'title' => '產品展示',
+					'title' => '商品展示',
 					'child3' => array(
 						'showpiece' => array(
-							'title' => '產品',
+							'title' => '商品',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'classmeta' => array(
-							'title' => '產品分類',
+							'title' => '分類標籤',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'classmeta2' => array(
 							'title' => '二級分類',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'set' => array(
+							'title' => '商品系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
@@ -266,22 +296,49 @@ $config['admin_sidebox'] = array(
 						'user' => array(
 							'title' => '會員',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'user_shop' => array(
 							'title' => '會員',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'classmeta' => array(
 							'title' => '會員群組',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [1]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'set' => array(
+							'title' => '會員系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
@@ -292,36 +349,118 @@ $config['admin_sidebox'] = array(
 				 		'pager' => array(
 				 			'title' => '頁面',
 				 			'child4' => array(
-				 				'edit' => array('title' => '編輯'),
-				 				'tablelist' => array('title' => '列表')
+				 				'edit' => array(
+				 					'title' => '編輯',
+									'purview_groupids' => [2]
+				 				),
+				 				'tablelist' => array(
+				 					'title' => '列表',
+									'purview_groupids' => [2]
+				 				)
 				 			)
 				 		),
 				 		'classmeta' => array(
 				 			'title' => '頁籤分類',
 				 			'child4' => array(
-				 				'edit' => array('title' => '編輯'),
-				 				'tablelist' => array('title' => '列表')
+				 				'edit' => array(
+				 					'title' => '編輯',
+									'purview_groupids' => [2]
+				 				),
+				 				'tablelist' => array(
+				 					'title' => '列表',
+									'purview_groupids' => [2]
+				 				)
 				 			)
 				 		),
 				 		'classmeta2' => array(
 				 			'title' => '二級頁籤',
 				 			'child4' => array(
-				 				'edit' => array('title' => '編輯'),
-				 				'tablelist' => array('title' => '列表')
+				 				'edit' => array(
+				 					'title' => '編輯',
+									'purview_groupids' => [2]
+				 				),
+				 				'tablelist' => array(
+				 					'title' => '列表',
+									'purview_groupids' => [2]
+				 				)
 				 			)
-				 		)
+				 		),
+				 		'set' => array(
+							'title' => '動態頁面系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
+							)
+						)
 				 	)
 				 ),
+				'faq' => array(
+					'title' => '常見問題',
+					'child3' => array(
+						'faq' => array(
+							'title' => '常見問題',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'classmeta' => array(
+							'title' => '分類標籤',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'set' => array(
+							'title' => '常見問題系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
+							)
+						)
+					)
+				),
 				'contact' => array(
 				 	'title' => '聯繫單',
 				 	'child3' => array(
 				 		'contact' => array(
 				 			'title' => '聯繫單',
 				 			'child4' => array(
-				 				'edit' => array('title' => '編輯'),
-				 				'tablelist' => array('title' => '列表')
+				 				'edit' => array(
+				 					'title' => '編輯',
+									'purview_groupids' => [2]
+				 				),
+				 				'tablelist' => array(
+				 					'title' => '列表',
+									'purview_groupids' => [2]
+				 				)
 				 			)
-				 		)
+				 		),
+				 		'set' => array(
+							'title' => '聯繫單系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
+							)
+						)
 				 	)
 				 )
 			)
@@ -335,10 +474,22 @@ $config['admin_sidebox'] = array(
 						'global' => array(
 							'title' => '全域',
 							'child4' => array(
-								'hot' => array('title' => '熱銷商品'),
-								'tradein' => array('title' => '滿額優惠'),
-								'coupon' => array('title' => '折扣金規則'),
-								'transfer' => array('title' => '轉帳帳號')
+								'hot' => array(
+									'title' => '熱銷商品',
+									'purview_groupids' => [2]
+								),
+								'tradein' => array(
+									'title' => '滿額優惠',
+									'purview_groupids' => [2]
+								),
+								'coupon' => array(
+									'title' => '折扣金規則',
+									'purview_groupids' => [2]
+								),
+								'transfer' => array(
+									'title' => '轉帳帳號',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
@@ -349,40 +500,112 @@ $config['admin_sidebox'] = array(
 						'product' => array(
 							'title' => '產品',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'classmeta' => array(
-							'title' => '產品分類',
+							'title' => '分類標籤',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'classmeta2' => array(
 							'title' => '二級分類',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'set' => array(
 							'title' => '產品系統',
 							'child4' => array(
-								'set' => array('title' => '設置')
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
+							)
+						)
+					)
+				),
+				'gift' => array(
+					'title' => '贈品管理',
+					'child3' => array(
+						'gift' => array(
+							'title' => '贈品',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						)
+					)
+				),
+				'transport' => array(
+					'title' => '運費管理',
+					'child3' => array(
+						'transport' => array(
+							'title' => '運輸方式',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
 				),
 				'order_shop' => array(
-					'title' => 'Wordpress 訂單',
+					'title' => '訂單管理',
 					'child3' => array(
 						'order_shop' => array(
-							'title' => 'Wordpress 訂單',
+							'title' => '訂單',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'set' => array(
+							'title' => '訂單系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
@@ -392,28 +615,99 @@ $config['admin_sidebox'] = array(
 		'project' => array(
 			'title' => '專案系統',
 			'child2' => array(
+				'my_project' => array(
+					'title' => '我的專案',
+					'child3' => array(
+						'project' => array(
+							'title' => '我的專案',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [100]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [100]
+								)
+							)
+						)
+					)
+				),
 				'project' => array(
 					'title' => '專案管理',
 					'child3' => array(
 						'project' => array(
 							'title' => '專案',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						),
 						'classmeta' => array(
 						 	'title' => '專案分類',
 						 	'child4' => array(
-						 		'edit' => array('title' => '編輯'),
-						 		'tablelist' => array('title' => '列表')
+						 		'edit' => array(
+						 			'title' => '編輯',
+									'purview_groupids' => [2]
+						 		),
+						 		'tablelist' => array(
+						 			'title' => '列表',
+									'purview_groupids' => [2]
+						 		)
 						 	)
 						),
 					 	'classmeta2' => array(
 							'title' => '二級分類',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						)
+					)
+				),
+				'worktask' => array(
+					'title' => '工作任務',
+					'child3' => array(
+						'worktask' => array(
+							'title' => '工作任務',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '任務列表',
+									'purview_groupids' => [2]
+								),
+								'calendar' => array(
+									'title' => '任務日曆',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'classmeta' => array(
+							'title' => '任務分類',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
@@ -444,49 +738,24 @@ $config['admin_sidebox'] = array(
 				// 		)
 				// 	)
 				// ),
-				'user' => array(
-					'title' => '我的專案',
-					'child3' => array(
-						'project' => array(
-							'title' => '我的專案',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
-							)
-						)
-					)
-				),
 				'sales_target' => array(
 					'title' => '業績進度管理',
 					'child3' => array(
 						'sales_target' => array(
 							'title' => '業績進度',
 							'child4' => array(
-								'edit' => array('title' => '編輯')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
 							)
 						)
 					)
-				),
-				'worktask' => array(
-					'title' => '工作任務',
-					'child3' => array(
-						'worktask' => array(
-							'title' => '工作任務',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '任務列表'),
-								'calendar' => array('title' => '任務日曆')
-							)
-						),
-						'classmeta' => array(
-							'title' => '任務分類',
-							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
-							)
-						)
-					)
-				),
+				)
 			)
 		),
 		'user' => array(
@@ -495,16 +764,22 @@ $config['admin_sidebox'] = array(
 				'global' => array(
 					'title' => '帳號資料',
 					'child3' => array(
-						'global' => array(//本功能為一般網站時開啟
-							'title' => '全域',
-							'child4' => array(
-								'user' => array('title' => '會員資料')
-							)
-						),
+						// 'global' => array(//本功能為一般網站時開啟
+						// 	'title' => '全域',
+						// 	'child4' => array(
+						// 		'user' => array(
+						// 			'title' => '會員資料',
+						// 			'purview_groupids' => [2, 100]
+						// 		)
+						// 	)
+						// ),
 						'global_shop' => array(//本選項為購物網站時才開啟，具會員購物資料填寫功能
 							'title' => '全域',
 							'child4' => array(
-								'user' => array('title' => '會員資料')
+								'user' => array(
+									'title' => '會員資料',
+									'purview_groupids' => [2, 100]
+								)
 							)
 						)
 					)
@@ -513,10 +788,16 @@ $config['admin_sidebox'] = array(
 					'title' => '我的訂單',
 					'child3' => array(
 						'order_shop' => array(
-							'title' => 'Wordpress 訂單',
+							'title' => '訂單',
 							'child4' => array(
-								'edit' => array('title' => '編輯'),
-								'tablelist' => array('title' => '列表')
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2, 100]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2, 100]
+								)
 							)
 						)
 					)

@@ -1,11 +1,11 @@
 <?=$temp['header_up']?>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
+<h2><?=$child2_title?> - <?=$child3_title?></h2>
 <div class="contentBox allWidth">
     <h3>首頁熱門產品管理</h3>
     <h4>請填寫首頁熱門產品之PID編號</h4>
-    <?php echo form_open_multipart("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
+    <?php echo form_open_multipart("admin/$child1_name/$child2_name/$child3_name/{$child4_name}_post/") ?>
 	<div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">

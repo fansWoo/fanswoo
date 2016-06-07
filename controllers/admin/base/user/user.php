@@ -2,82 +2,62 @@
 
 class User_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'base';
-    protected $child2_name_Str = 'user';
-    protected $child3_name_Str = 'user';
-
     public function __construct()
     {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function edit()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
             
-        $uid_Num = $this->input->get('uid');
+        $uid = $this->input->get('uid');
 
-        $data['user_UserFieldShop'] = new UserFieldShop();
-        $data['user_UserFieldShop']->construct_db(array(
-            'db_where_Arr' => array(
-                'user.uid' => $uid_Num
-            )
-        ));
+        $data['user_UserFieldShop'] = new UserFieldShop([
+            'db_where_arr' => [
+                'user.uid' => $uid
+            ]
+        ]);
 
         if(
-            !empty( $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr ) &&
-            in_array( 1, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
-            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
-            !empty( $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr ) &&
-            in_array( 2, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
-            !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
-            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
-            !empty( $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr ) &&
-            in_array( 3, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
-            !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
-            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
+            !empty( $data['user_UserFieldShop']->group_UserGroupList->uniqueids_arr ) &&
+            in_array( 1, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_arr) ||
+            !empty( $data['user_UserFieldShop']->group_UserGroupList->uniqueids_arr ) &&
+            in_array( 2, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 2, $data['User']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_arr) ||
+            !empty( $data['user_UserFieldShop']->group_UserGroupList->uniqueids_arr ) &&
+            in_array( 3, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 2, $data['User']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_arr)
         )
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '不可以編輯權限更高的管理員',
                 'url' => 'admin/base/user/user/tablelist'
-            ));
+            ]);
             return FALSE;
         }
         
         //權限判斷
         if(
-            in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
+            in_array( 1, $data['User']->group_UserGroupList->uniqueids_arr)
         )
         {
         }
         else if(
-            in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr)
+            in_array( 2, $data['User']->group_UserGroupList->uniqueids_arr)
         )
         {
             $groupids_1_purview = 1;
         }
         else if(
-            in_array( 3, $data['User']->group_UserGroupList->uniqueids_Arr)
+            in_array( 3, $data['User']->group_UserGroupList->uniqueids_arr)
         )
         {
             $groupids_1_purview = 1;
@@ -85,22 +65,17 @@ class User_Controller extends MY_Controller {
             $groupids_3_purview = 3;
         }
 
-        $data['UserGroupList'] = new ObjList();
-        $data['UserGroupList']->construct_db(array(
-            'db_where_Arr' => array(
+        $data['UserGroupList'] = new ObjList([
+            'db_where_arr' => [
                 'groupid !=' => $groupids_1_purview,
                 'groupid != ' => $groupids_2_purview,
                 'groupid !=  ' => $groupids_3_purview
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'UserGroup',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'UserGroup',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -110,233 +85,189 @@ class User_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function edit_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $this->form_validation->set_rules('username_Str', '會員名稱', 'required');
-        $uid_Num = $this->input->post('uid_Num', TRUE);
+        //基本post欄位
+        $uid = $this->input->post('uid', TRUE);
+        $groupids_arr = $this->input->post('groupids_arr', TRUE);
+        $username = $this->input->post('username', TRUE, '會員名稱', 'required');
+        if ($this->form_validation->check() == FALSE) return FALSE;
 
-        if ($this->form_validation->run() !== FALSE)
+        $data['user_UserFieldShop'] = new UserFieldShop([
+            'db_where_arr' => [
+                'user.uid' => $uid
+            ]
+        ]);
+
+        //權限判斷
+        if( 
+            in_array( 1, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_arr) ||
+            in_array( 2, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 2, $data['User']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_arr) ||
+            in_array( 3, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 2, $data['User']->group_UserGroupList->uniqueids_arr) &&
+            !in_array( 1, $data['User']->group_UserGroupList->uniqueids_arr)
+        )
         {
-            $data['user_UserFieldShop'] = new UserFieldShop();
-            $data['user_UserFieldShop']->construct_db(array(
-                'db_where_Arr' => array(
-                    'user.uid' => $uid_Num
-                )
-            ));
-
-            //權限判斷
-            if( 
-                in_array( 1, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
-                !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
-                in_array( 2, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
-                !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
-                !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr) ||
-                in_array( 3, $data['user_UserFieldShop']->group_UserGroupList->uniqueids_Arr) &&
-                !in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr) &&
-                !in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
-            )
-            {
-                $this->load->model('Message');
-                $this->Message->show(array(
-                    'message' => '不可以編輯權限更高的管理員',
-                    'url' => 'admin/base/user/user/tablelist'
-                ));
-                return FALSE;
-            }
-
-            //基本post欄位
-            $username_Str = $this->input->post('username_Str', TRUE);
-            $groupids_Arr = $this->input->post('groupids_Arr', TRUE);
-
-            //建構User物件，並且更新
-            $UserFieldShop = new UserFieldShop();
-            $UserFieldShop->construct(array(
-                'uid_Num' => $uid_Num,
-                'username_Str' => $username_Str
-            ));
-            
-            //建立UserGroupList物件
-            check_comma_array($groupids_Str, $groupids_Arr);
-            $UserFieldShop->group_UserGroupList = new ObjList;
-            $UserFieldShop->group_UserGroupList->construct_db(array(
-                'db_where_or_Arr' => array(
-                    'groupid_Num' => $groupids_Arr
-                ),
-                'model_name_Str' => 'UserGroup',
-                'limitstart_Num' => 0,
-                'limitcount_Num' => 100
-            ));
-
-            $UserFieldShop->update(array(
-                'db_update_Arr' => array(
-                    'user.username', 'user.updatetime', 'user.groupids'
-                )
-            ));
-
-            //送出成功訊息
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/base/user/user/edit/?uid='.$uid_Num
-            ));
+            $this->Message->show([
+                'message' => '不可以編輯權限更高的管理員',
+                'url' => 'admin/base/user/user/tablelist'
+            ]);
+            return FALSE;
         }
-        else
-        {
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => 'admin/base/user/user/edit/?uid='.$uid_Num
-            ));
-        }
+
+        //建構User物件，並且更新
+        $UserFieldShop = new UserFieldShop([
+            'uid' => $uid,
+            'username' => $username
+        ]);
+        
+        //建立UserGroupList物件
+        check_comma_array($groupids, $groupids_arr);
+        $UserFieldShop->group_UserGroupList = new ObjList([
+            'db_where_or_arr' => [
+                'groupid' => $groupids_arr
+            ],
+            'model_name' => 'UserGroup',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
+
+        $UserFieldShop->update([
+            'db_update_arr' => [
+                'user.username', 'user.updatetime', 'user.groupids'
+            ]
+        ]);
+
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => 'admin/base/user/user/edit/?uid='.$uid
+        ]);
     }
 
     public function edit_adduser_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
         
-        $this->form_validation->set_rules('email_Str', 'email', 'required');
-        $this->form_validation->set_rules('password_Str', '密碼', 'required');
-        $this->form_validation->set_rules('password2_Str', '確認密碼', 'required');
-        
-        if ($this->form_validation->run() !== FALSE)
+        //基本post欄位
+        $email = $this->input->post('email', TRUE, 'email', 'required');
+        $password = $this->input->post('password', TRUE, '密碼', 'required');
+        $password2 = $this->input->post('password2', TRUE, '確認密碼', 'required');
+        if ($this->form_validation->check() == FALSE) return FALSE;
+
+        $User = new User();
+        $register_status = $User->add([
+            'email' => $email,
+            'password' => $password,
+            'password2' => $password2
+        ]);
+
+        if($register_status === TRUE)
         {
-            $email_Str = $this->input->post('email_Str', TRUE);
-            $password_Str = $this->input->post('password_Str', TRUE);
-            $password2_Str = $this->input->post('password2_Str', TRUE);
-
-            $User = new User();
-            $register_status = $User->add(array(
-                'email_Str' => $email_Str,
-                'password_Str' => $password_Str,
-                'password2_Str' => $password2_Str
-            ));
-
-            if($register_status === TRUE)
-            {
-                $url_Str = 'admin/base/user/user/tablelist';
-                $message_Str = "註冊成功";
-                
-                $this->load->model('Message');
-                $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
-            }
-            else
-            {
-                $url_Str = 'admin/base/user/user/tablelist';
-                $message_Str = $register_status;
-                
-                $this->load->model('Message');
-                $this->Message->show(array('message' => $message_Str, 'url' => $url_Str));
-            }
+            $url = 'admin/base/user/user/tablelist';
+            $message = "註冊成功";
+            
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => $message,
+                'url' => $url
+            ]);
         }
         else
         {
-            $url_Str = 'admin/base/user/user/tablelist';
-            $message = validation_errors();
+            $url = 'admin/base/user/user/edit';
+            $message = $register_status;
             
             $this->load->model('Message');
-            $this->Message->show(array('message' => $message, 'url' => $url_Str));
+            $this->Message->show([
+                'message' => $message,
+                'url' => $url
+            ]);
         }
     }
 
     public function edit_changepassword_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $this->form_validation->set_rules('password_Str', '會員密碼', 'required');
-        $this->form_validation->set_rules('password2_Str', '會員密碼', 'required');
-        $uid_Num = $this->input->post('uid_Num', TRUE);
+        //基本post欄位
+        $uid = $this->input->post('uid', TRUE);
+        $password = $this->input->post('password', TRUE, '會員密碼', 'required');
+        $password2 = $this->input->post('password2', TRUE, '會員密碼', 'required');
+        if ($this->form_validation->check() == FALSE) return FALSE;
 
-        if ($this->form_validation->run() !== FALSE)
+        //建構User物件，並且更新
+        $User = new User([
+            'uid' => $uid
+        ]);
+        $change_status_bln = $User->change_password([
+            'password' => $password,
+            'password2' => $password2
+        ]);
+
+        if($change_status_bln === TRUE)
         {
-            //基本post欄位
-            $password_Str = $this->input->post('password_Str', TRUE);
-            $password2_Str = $this->input->post('password2_Str', TRUE);
-
-            //建構User物件，並且更新
-            $User = new User();
-            $User->construct(array(
-                'uid_Num' => $uid_Num
-            ));
-            $change_status_Bln = $User->change_password(array(
-                'password_Str' => $password_Str,
-                'password2_Str' => $password2_Str
-            ));
-
-            if($change_status_Bln === TRUE)
-            {
-                //送出成功訊息
-                $this->load->model('Message');
-                $this->Message->show(array(
-                    'message' => '密碼變更成功',
-                    'url' => 'admin/base/user/user/edit/?uid='.$uid_Num
-                ));
-            }
-            else
-            {
-                //送出成功訊息
-                $this->load->model('Message');
-                $this->Message->show(array(
-                    'message' => $change_status_Bln,
-                    'url' => 'admin/base/user/user/edit/?uid='.$uid_Num
-                ));
-            }
+            //送出成功訊息
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '密碼變更成功',
+                'url' => 'admin/base/user/user/edit/?uid='.$uid
+            ]);
         }
         else
         {
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
+            //送出成功訊息
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => 'admin/base/user/user/edit/?uid='.$uid_Num
-            ));
+            $this->Message->show([
+                'message' => $change_status_bln,
+                'url' => 'admin/base/user/user/edit/?uid='.$uid
+            ]);
         }
     }
 
     public function tablelist()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['search_uid_Num'] = $this->input->get('uid');
-        $data['search_username_Str'] = $this->input->get('username');
-        $data['search_email_Str'] = $this->input->get('email');
-        $data['search_group_groupid_Num'] = $this->input->get('group_groupid');
+        $data['search_uid'] = $this->input->get('uid');
+        $data['search_username'] = $this->input->get('username');
+        $data['search_email'] = $this->input->get('email');
+        $data['search_group_groupid'] = $this->input->get('group_groupid');
 
-        $limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 20;
+        $limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $UserGroup = new UserGroup();
-        $UserGroup->construct_db(array(
-            'db_where_Arr' => array(
-                'groupid_Num' => $data['search_group_groupid_Num']
-            )
-        ));
+        $UserGroup = new UserGroup([
+            'db_where_arr' => [
+                'groupid' => $data['search_group_groupid']
+            ]
+        ]);
         
         //權限判斷
         if(
-            in_array( 1, $data['User']->group_UserGroupList->uniqueids_Arr)
+            in_array( 1, $data['User']->group_UserGroupList->uniqueids_arr)
         )
         {
         }
         else if(
-            in_array( 2, $data['User']->group_UserGroupList->uniqueids_Arr)
+            in_array( 2, $data['User']->group_UserGroupList->uniqueids_arr)
         )
         {
             $groupids_1_purview = 1;
         }
         else if(
-            in_array( 3, $data['User']->group_UserGroupList->uniqueids_Arr)
+            in_array( 3, $data['User']->group_UserGroupList->uniqueids_arr)
         )
         {
             $groupids_1_purview = 1;
@@ -344,48 +275,42 @@ class User_Controller extends MY_Controller {
             $groupids_3_purview = 3;
         }
 
-        $data['user_UserList'] = new ObjList();
-        $data['user_UserList']->construct_db(array(
-            'db_where_Arr' => array(
-                'uid' => $data['search_uid_Num'],
+        $data['user_UserList'] = new ObjList([
+            'db_where_arr' => [
+                'uid' => $data['search_uid'],
                 'groupids !=' => $groupids_1_purview,
                 'groupids != ' => $groupids_2_purview,
                 'groupids !=  ' => $groupids_3_purview
-            ),
-            'db_where_like_Arr' => array(
-                'username' => $data['search_username_Str'],
-                'email' => $data['search_email_Str']
-            ),
-            'db_where_or_Arr' => array(
-                'groupids' => array($UserGroup->groupid_Num)
-            ),
-            'db_orderby_Arr' => array(
-                array('updatetime', 'DESC'),
-                array('uid', 'DESC')
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'User',
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
-        ));
-        $data['product_links'] = $data['user_UserList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
+            ],
+            'db_where_like_arr' => [
+                'username' => $data['search_username'],
+                'email' => $data['search_email']
+            ],
+            'db_where_or_arr' => [
+                'groupids' => [$UserGroup->groupid]
+            ],
+            'db_orderby_arr' => [
+                'updatetime' => 'DESC',
+                'uid' => 'DESC'
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'User',
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+        ]);
+        $data['product_links'] = $data['user_UserList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
-        $data['UserGroupList'] = new ObjList();
-        $data['UserGroupList']->construct_db(array(
-            'db_where_Arr' => array(
+        $data['UserGroupList'] = new ObjList([
+            'db_where_arr' => [
                 'groupid !=' => $groupids_1_purview,
                 'groupid != ' => $groupids_2_purview,
                 'groupid !=  ' => $groupids_3_purview
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'UserGroup',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'UserGroup',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -395,69 +320,120 @@ class User_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 
     }
 
     public function tablelist_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_uid_Num = $this->input->post('search_uid_Num', TRUE);
-        $search_username_Str = $this->input->post('search_username_Str', TRUE);
-        $search_email_Str = $this->input->post('search_email_Str', TRUE);
-        $search_group_groupid_Num = $this->input->post('search_group_groupid_Num', TRUE);
+        $search_uid = $this->input->post('search_uid', TRUE);
+        $search_username = $this->input->post('search_username', TRUE);
+        $search_email = $this->input->post('search_email', TRUE);
+        $search_group_groupid = $this->input->post('search_group_groupid', TRUE);
 
-        $url_Str = base_url('admin/base/user/user/tablelist/?');
+        $url = 'admin/base/user/user/tablelist/?';
 
-        if(!empty($search_uid_Num))
+        if(!empty($search_uid))
         {
-            $url_Str = $url_Str.'&uid='.$search_uid_Num;
+            $url = $url.'&uid='.$search_uid;
         }
 
-        if(!empty($search_username_Str))
+        if(!empty($search_username))
         {
-            $url_Str = $url_Str.'&username='.$search_username_Str;
+            $url = $url.'&username='.$search_username;
         }
 
-        if(!empty($search_email_Str))
+        if(!empty($search_email))
         {
-            $url_Str = $url_Str.'&email='.$search_email_Str;
+            $url = $url.'&email='.$search_email;
         }
 
-        if(!empty($search_group_groupid_Num))
+        if(!empty($search_group_groupid))
         {
-            $url_Str = $url_Str.'&group_groupid='.$search_group_groupid_Num;
+            $url = $url.'&group_groupid='.$search_group_groupid;
         }
 
-        header("Location: $url_Str");
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => $url
+        ]);
     }
 
     public function delete()
     {
-        $hash_Str = $this->input->get('hash');
-        $uid_Num = $this->input->get('uid');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $user_User = new UserFieldShop();
-            $user_User->construct(array('uid_Num' => $uid_Num));
-            $user_User->delete();
+            $User = new UserFieldShop([
+                'uid' => $this->input->get('uid')
+            ]);
+            $User->delete();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
                 'url' => 'admin/base/user/user/tablelist'
-            ));
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
                 'url' => 'admin/base/user/user/tablelist'
-            ));
+            ]);
+        }
+    }
+
+    public function delete_batch_post()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $uid_arr = $this->input->post('uid_arr[]');
+
+        //CSRF過濾
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
+        {
+            if(!empty($uid_arr))
+            {
+                foreach($uid_arr as $key => $uid)
+                {
+                    $User = new UserFieldShop([
+                        'uid' => $uid
+                    ]);
+                    $User->delete();
+                }
+            }
+            else
+            {
+                $this->load->model('Message');
+                $this->Message->show([
+                    'message' => '未選擇要刪除的會員'
+                ]);
+                return TRUE;
+            }
+
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '刪除成功',
+                'url' => 'admin/base/user/user/tablelist'
+            ]);
+            return TRUE;
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/base/user/user/tablelist'
+            ]);
+            return TRUE;
         }
     }
 }

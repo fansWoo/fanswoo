@@ -2,46 +2,22 @@
 
 class Set_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'shop';
-    protected $child2_name_Str = 'product';
-    protected $child3_name_Str = 'set';
-
     public function __construct()
     {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if(empty($data['User']->uid_Num))
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-            return FALSE;
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function set()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'set'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //待建立
         //設定產品庫存規格A的名稱
         //設定產品庫存規格A的勾選單(這個規格是產品顏色，並且需要顯示色碼)
         //設定產品庫存規格B的名稱
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -51,54 +27,124 @@ class Set_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function set_post()
     {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        //待建立
+        //設定產品庫存規格A的名稱
+        //設定產品庫存規格A的勾選單(這個規格是產品顏色，並且需要顯示色碼)
+        //設定產品庫存規格B的名稱
+    }
 
-        $this->form_validation->set_rules('website_title_name', '網站標題名稱', 'required');
+    public function set_destroy_post()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        if ($this->form_validation->run() === TRUE)
+        $ProductShopList = new ObjList([
+            'db_where_arr' => [
+                'status' => -1,
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'ProductShop',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
+        foreach ($ProductShopList->obj_arr as $key => $value_product)
         {
-            $website_title_name = $this->input->post('website_title_name', TRUE);
-            $website_title_introduction = $this->input->post('website_title_introduction', TRUE);
+            $ProductShop = new ProductShop([
+                'db_where_arr' => [
+                    'productid' => $value_product->productid,
+                    'status' => -1
+                ]
+            ]);
+            foreach ($ProductShop->pic_PicObjList->obj_arr as $key => $value_pic)
+            {
+                $PicObj = new PicObj([
+                    'db_where_arr' => [
+                        'picid' => $value_pic->picid
+                    ]
+                ]);
+                $PicObj->destroy();
+            }
+            $ProductShop->destroy();
 
-            $SettingList = new SettingList();
-            $SettingList->construct(array(
-                'construct_Arr' => array(
-                    array(
-                        'keyword_Str' => 'website_title_name',
-                        'value_Str' => $website_title_name
-                    ),
-                    array(
-                        'keyword_Str' => 'website_title_introduction',
-                        'value_Str' => $website_title_introduction
-                    )
-                )
-            ));
-            $SettingList->update(array());
+            $StockProductShopList = new ObjList([
+                'db_where_arr' => [
+                    'productid' => $ProductShop->productid
+                ],
+                'db_where_deletenull_bln' => TRUE,
+                'model_name' => 'StockProductShop',
+                'limitstart' => 0,
+                'limitcount' => 100
+            ]);
+            foreach ($StockProductShopList->obj_arr as $key => $value_stockproduct)
+            {
+                $StockProductShop = new StockProductShop([
+                    'stockid' => $value_stockproduct->stockid
+                ]);
+                $StockProductShop->destroy();
+            }
+        }
 
-            //送出成功訊息
+        if(!empty($ProductShopList->obj_arr))
+        {
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/base/global/global/common'
-            ));
+            $this->Message->show([
+                'message' => '銷毀成功',
+                'url' => 'admin/shop/product/set/set'
+            ]);
         }
         else
         {
-            //送出失敗訊息
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => 'admin/base/global/global/common'
-            ));
+            $this->Message->show([
+                'message' => '已無可銷毀的項目',
+                'url' => 'admin/shop/product/set/set'
+            ]);
         }
     }
 
+    public function set_recovery_post()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $ProductShopList = new ObjList([
+            'db_where_arr' => [
+                'status' => -1,
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'ProductShop',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
+        foreach ($ProductShopList->obj_arr as $key => $value_product)
+        {
+            $ProductShop = new ProductShop([
+                'productid' => $value_product->productid
+            ]);
+            $ProductShop->recovery();
+        }
+
+        if(!empty($ProductShopList->obj_arr))
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '復原成功',
+                'url' => 'admin/shop/product/set/set'
+            ]);
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '已無可復原的項目',
+                'url' => 'admin/shop/product/set/set'
+            ]);
+        }
+    }
 }
 
 ?>

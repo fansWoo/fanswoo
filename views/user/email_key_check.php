@@ -10,7 +10,7 @@
 		<?=form_open('user/forgetpsw_post')?>
 			<div class="paragraph">
 				<p>電子郵件：</p>
-				<p><input type="email" name="email_Str" placeholder="請輸入您的電子郵件"></p>
+				<p><input type="email" name="email" placeholder="請輸入您的電子郵件"></p>
 			</div>
 			<div class="paragraph">
 				<input type="submit" value="確認送出">

@@ -1,11 +1,8 @@
 <?=$temp['header_up']?>
-<link href='js/tool/fullcalendar/fullcalendar.css' rel='stylesheet' />
-<link href='js/tool/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
-<script src='js/tool/fullcalendar/moment.min.js'></script>
-<script src='js/tool/fullcalendar/fullcalendar.min.js'></script>
-<script src='js/tool/fullcalendar/gcal.js'></script>
+<link href='style/tool/fullcalendar/fullcalendar.css' rel='stylesheet' />
+<link href='style/tool/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
 <script>
-$(document).ready(function() {
+Temp.ready(function() {
     $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
@@ -96,7 +93,7 @@ $(document).ready(function() {
 </style>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2><?=$child2_title_Str?> - <?=$child4_title_Str?></h2>
+<h2><?=$child2_title?> - <?=$child4_title?></h2>
 <div class="contentBox contentTablelist allWidth">
 	<div class="calendarContent">
         <div id='loading'>loading...</div>

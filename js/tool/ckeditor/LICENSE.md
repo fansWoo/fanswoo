@@ -52,10 +52,7 @@ The following libraries are included in CKEditor under the SIL Open Font License
 The following libraries are included in CKEditor under the BSD-3 License (see Appendix F):
 
 * highlight.js (included in the `codesnippet` plugin) - Copyright (c) 2006, Ivan Sagalaev.
-* YUI Library (included in the `uicolor` plugin) - Copyright (c) 2009, Yahoo! Inc.
-
-
-Trademarks
+* YUI Library (included in the `uicolor` plugin) - Copyright (c) 2009, Yahoo! Inc.Trademarks
 ----------
 
 CKEditor is a trademark of CKSource - Frederico Knabben. All other brand

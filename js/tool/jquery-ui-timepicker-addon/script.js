@@ -1281,10 +1281,7 @@
 				}
 				if (order.z !== -1 && treg[order.z] !== undefined) {
 					resTime.timezone = $.timepicker.timezoneOffsetNumber(treg[order.z]);
-				}
-
-
-				return resTime;
+				}				return resTime;
 			}
 			return false;
 		};// end strictParse

@@ -1,7 +1,4 @@
-Font license info
-
-
-## Font Awesome
+Font license info## Font Awesome
 
    Copyright (C) 2012 by Dave Gandy
 

@@ -1,18 +1,52 @@
 <?=$temp['header_up']?>
+<script src="js/tool/ckeditor/ckeditor.js"></script>
+<script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
+<link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css">
+<script>
+Temp.ready(function(){
+    //加載點了超連結以後的頁面以及動畫效果
+    $("a[href^='admin/base/note/note/tablelist']").temp_load_page({
+        url: 'admin/base/note/note/tablelist',
+        now_body_animate: 'temp_page_load_animate',
+        next_body_animate: 'temp_page_load_animate',
+        func: function(){
+        }
+    });
+
+    $("a[href^='admin/base/note/classmeta/tablelist']").temp_load_page({
+        url: 'admin/base/note/classmeta/tablelist',
+        now_body_animate: 'temp_page_load_animate',
+        next_body_animate: 'temp_page_load_animate',
+        func: function(){
+        }
+    });
+
+    //加載 HTML 編輯器
+    CKEDITOR.replace( 'content', {
+        toolbar: 'html'
+    });
+
+    //加載日期編輯器
+    $('#updatetime').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'HH:mm:ss'
+    });
+});
+</script>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
+<h2>{{child2_title}} - {{child3_title}}</h2>
 <div class="contentBox allWidth">
-    <h3><?=$child3_title_Str?> > <?if(!empty($NoteField->noteid_Num)):?>編輯<?else:?>新增<?endif?></h3>
-    <h4>請填寫<?=$child3_title_Str?>之詳細資訊</h4>
-    <?php echo form_open_multipart("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
+    <h3><?=$child3_title?> > <?if(!empty($NoteField->noteid)):?>編輯<?else:?>新增<?endif?></h3>
+    <h4>請填寫<?=$child3_title?>之詳細資訊</h4>
+    <?php echo form_open_multipart("admin/$child1_name/$child2_name/$child3_name/{$child4_name}_post/") ?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                文章名稱
+                文章標題
             </div>
             <div class="spanLineLeft width500">
-                <input type="text" class="text" name="title_Str" placeholder="請輸入文章名稱" value="<?=$NoteField->title_Str?>">
+                <input type="text" class="text" name="title" placeholder="請輸入文章名稱" value="<?=$NoteField->title?>" required>
             </div>
         </div>
     </div>
@@ -22,7 +56,7 @@
                 文章代碼
             </div>
             <div class="spanLineLeft width500">
-                <input type="text" class="text" name="slug_Str" placeholder="文章代碼" value="<?=$NoteField->slug_Str?>">
+                <input type="text" class="text" name="slug" placeholder="文章代碼" value="<?=$NoteField->slug?>">
             </div>
         </div>
         <div class="spanStage">
@@ -40,21 +74,21 @@
                 分類標籤
             </div>
             <div class="spanLineLeft width300">
-                <?if(!empty($NoteField->class_ClassMetaList->obj_Arr)):?>
+                <?if(!empty($NoteField->class_ClassMetaList->obj_arr)):?>
                 <div>
-                    <select name="classids_Arr[]">
+                    <select name="classids_arr[]">
                         <option value="">沒有分類標籤</option>
-                        <?foreach($NoteClassMetaList->obj_Arr as $key2 => $value2_NoteClass):?>
-                        <option value="<?=$value2_NoteClass->classid_Num?>"<?if($NoteField->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_NoteClass->classid_Num):?> selected<?endif?>><?=$value2_NoteClass->classname_Str?></option>
+                        <?foreach($NoteClassMetaList->obj_arr as $key2 => $value2_NoteClass):?>
+                        <option value="<?=$value2_NoteClass->classid?>"<?if($NoteField->class_ClassMetaList->obj_arr[0]->classid == $value2_NoteClass->classid):?> selected<?endif?>><?=$value2_NoteClass->classname?></option>
                         <?endforeach?>
                     </select>
                 </div>
                 <?else:?>
                 <div>
-                    <select name="classids_Arr[]">
+                    <select name="classids_arr[]">
                         <option value="">沒有分類標籤</option>
-                        <?foreach($NoteClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
-                        <option value="<?=$value_ClassMeta->classid_Num?>"><?=$value_ClassMeta->classname_Str?></option>
+                        <?foreach($NoteClassMetaList->obj_arr as $key => $value_ClassMeta):?>
+                        <option value="<?=$value_ClassMeta->classid?>"><?=$value_ClassMeta->classname?></option>
                         <?endforeach?>
                     </select>
                 </div>
@@ -65,7 +99,7 @@
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/classmeta/tablelist">管理分類標籤</a>
+                <a href="admin/<?=$child1_name?>/<?=$child2_name?>/classmeta/tablelist">管理分類標籤</a>
             </div>
         </div>
     </div>
@@ -75,7 +109,7 @@
                 文章預覽圖
             </div>
             <div class="spanLineRight">
-                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div fanswoo-pic_upload_ajax fanswoo-upload_status="hidden">上傳更多圖片</div>
                 <div class="picidUploadList" fanswoo-piclist>
                     <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
                         <div class="pic"><img src="" fanswoo-picid_img></div>
@@ -83,17 +117,17 @@
                             <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly /></div>
                             <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
                         </div>
-                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]">
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_arr[]">
                     </div>
-                    <?if(!empty($NoteField->pic_PicObjList->obj_Arr)):?>
-                    <?foreach($NoteField->pic_PicObjList->obj_Arr as $key => $value_PicObj):?>
-                    <div fanswoo-picid="<?=$value_PicObj->picid_Num?>" class="picidUploadLi">
-                        <div class="pic"><img src="<?=$value_PicObj->path_Arr['w50h50']?>" fanswoo-picid_img></div>
+                    <?if(!empty($NoteField->pic_PicObjList->obj_arr)):?>
+                    <?foreach($NoteField->pic_PicObjList->obj_arr as $key => $value_PicObj):?>
+                    <div fanswoo-picid="<?=$value_PicObj->picid?>" class="picidUploadLi">
+                        <div class="pic"><img src="<?=$value_PicObj->path_arr['w50h50']?>" fanswoo-picid_img></div>
                         <div class="other">
-                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly value="<?=$value_PicObj->path_Arr['w0h0']?>" /></div>
+                            <div class="pic_copy"><input type="text" fanswoo-picid_path_input fanswoo-input_copy readonly value="<?=$value_PicObj->path_arr['w0h0']?>" /></div>
                             <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
                         </div>
-                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]" value="<?=$value_PicObj->picid_Num?>">
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_arr[]" value="<?=$value_PicObj->picid?>">
                     </div>
                     <?endforeach?>
                     <?endif?>
@@ -111,10 +145,10 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                文章簡介
+                文章內容
             </div>
             <div class="spanLineRight">
-                <div fanswoo-pic_upload_ajax>上傳更多圖片</div>
+                <div fanswoo-pic_upload_ajax fanswoo-upload_status="unclassified">上傳更多圖片</div>
                 <div class="picidUploadList" fanswoo-piclist>
                     <div fanswoo-picid class="picidUploadLi" fanswoo-clone>
                         <div class="pic"><img src="" fanswoo-picid_img></div>
@@ -124,13 +158,7 @@
                         </div>
                     </div>
                 </div>
-                <textarea cols="80" id="content_Str" name="content_Str" rows="10"><?=$NoteField->content_Html?></textarea>
-                <script src="js/tool/ckeditor/ckeditor.js"></script>
-                <script>
-                    CKEDITOR.replace( 'content_Str', {
-                        toolbar: 'html'
-                    });
-                </script>
+                <textarea cols="80" id="content" name="content" rows="10" required ><?=$NoteField->content_Html?></textarea>
             </div>
         </div>
     </div>
@@ -139,18 +167,8 @@
             <div class="spanLineLeft">
                 文章新增時間
             </div>
-            <div class="spanLineLeft">
-                <script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
-                <link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
-                <script>
-                $(function(){
-                    $('#updatetime_Str').datetimepicker({
-                        dateFormat: 'yy-mm-dd',
-                        timeFormat: 'HH:mm:ss'
-                    });
-                });
-                </script>
-                <input type="text" id="updatetime_Str" class="text" name="updatetime_Str" value="<?=$NoteField->updatetime_DateTime->datetime_Str?>">
+            <div class="spanLineLeft"></link>
+                <input type="text" id="updatetime" class="text" name="updatetime" value="<?=$NoteField->updatetime_DateTime->datetime?>">
             </div>
         </div>
     </div>
@@ -160,9 +178,9 @@
                  文章發表狀態
             </div>
             <div class="spanLineLeft">
-                <select name="shelves_status_Num">
-                    <option value="2"<?if($NoteField->shelves_status_Num == 2):?> selected<?endif?>>未發表</option>
-                    <option value="1"<?if($NoteField->shelves_status_Num == 1):?> selected<?endif?>>已發表</option>
+                <select name="shelves_status">
+                    <option value="1"<?if($NoteField->shelves_status == 1):?> selected<?endif?>>已發表</option>
+                    <option value="2"<?if($NoteField->shelves_status == 2):?> selected<?endif?>>未發表</option>
                 </select>
             </div>
         </div>
@@ -173,7 +191,7 @@
                 優先排序指數
             </div>
             <div class="spanLineLeft">
-                <input type="number" class="text width100" name="prioritynum_Num" min="0" value="<?=$NoteField->prioritynum_Num?>">
+                <input type="number" class="text width100" name="prioritynum" min="0" value="<?=$NoteField->prioritynum?>">
             </div>
         </div>
         <div class="spanStage">
@@ -184,49 +202,37 @@
             </div>
         </div>
     </div>
+    <?if(0):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 瀏覽數
             </div>
             <div class="spanLineLeft">
-                <?=$NoteField->viewnum_Num?>
+                <?=$NoteField->viewnum?>
             </div>
         </div>
     </div>
-    <?if(0):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 回應數
             </div>
             <div class="spanLineLeft">
-                <?=$NoteField->viewnum_Num?>
+                <?=$NoteField->viewnum?>
             </div>
         </div>
     </div>
-    <?endif?>
-    <?if(!empty($NoteField->noteid_Num)):?>
-    <!-- <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                更新日期
-            </div>
-            <div class="spanLineLeft">
-                <?=$NoteField->updatetime_DateTime->datetime_Str?>
-            </div>
-        </div>
-    </div>-->
     <?endif?>
     <div class="spanLine spanSubmit">
         <div class="spanStage">
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
-                <?if(!empty($NoteField->noteid_Num)):?><input type="hidden" name="noteid_Num" value="<?=$NoteField->noteid_Num?>"><?endif?>
-                <input type="submit" class="submit" value="<?if(!empty($NoteField->noteid_Num)):?>儲存變更<?else:?>新增文章<?endif?>">
-                <input type="submit" class="submit" name="show_Bln" value="存成草稿並預覽">
-                <?if(!empty($NoteField->noteid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?noteid=<?=$NoteField->noteid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
+                <?if(!empty($NoteField->noteid)):?><input type="hidden" name="noteid" value="<?=$NoteField->noteid?>"><?endif?>
+                <input type="submit" class="submit" value="<?if(!empty($NoteField->noteid)):?>儲存變更<?else:?>新增文章<?endif?>">
+                <input type="submit" class="submit" name="show_bln" value="存成草稿並預覽">
+                <?if(!empty($NoteField->noteid)):?><span class="submit gray" onClick="fanswoo.check_href_action('刪除後將進入回收空間，確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?noteid=<?=$NoteField->noteid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title?></span><?endif?>
             </div>
         </div>
     </div>

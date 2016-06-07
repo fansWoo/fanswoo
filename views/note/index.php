@@ -1,4 +1,15 @@
 <?=$temp['header_up']?>
+<script>
+Temp.ready(function(){
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=275778529183085";
+			fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+});
+</script>
 <?=$temp['header_down']?>
 <?=$temp['header_bar']?>
 		<div class="bg1"></div>
@@ -6,31 +17,31 @@
 		<div class="bg3"></div>
 		<div class="textHotNews">
 			<h2>熱門文章</h2>
-			<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteFieldList):?>
-				<a href="note/view/<?=$value_NoteFieldList->noteid_Num?>"><?=$value_NoteFieldList->title_Str?></a>
+			<?foreach($new_NoteFieldList->obj_arr as $key => $value_NoteFieldList):?>
+				<a href="note/view/<?=$value_NoteFieldList->noteid?>"><?=$value_NoteFieldList->title?></a>
 			<?endforeach?>
 		</div>
 		<div class="newsContent">
 			<h2 class="newsTitle">趨勢 <b>N</b>ews</h2>
 			<h3><b>設計創作、市場行銷、企業管理、科技資訊</b></h3>
-				<?foreach($new_NoteFieldList->obj_Arr as $key => $value_NoteFieldList):?>
+				<?foreach($new_NoteFieldList->obj_arr as $key => $value_NoteFieldList):?>
 				<div class="stage">
-					<h3 class="title"><a href="note/view/<?=$value_NoteFieldList->noteid_Num?>"><?=$value_NoteFieldList->title_Str?></a></h3>
+					<h3 class="title"><a href="note/view/<?=$value_NoteFieldList->noteid?>"><?=$value_NoteFieldList->title?></a></h3>
 					<p class="title2"><a href="" fanScript-hrefNone class="author">Sacriley Yang</a>
-						<?=$value_NoteFieldList->updatetime_DateTime->getdate_Arr['year']?>.
-						<?=$value_NoteFieldList->updatetime_DateTime->getdate_Arr['mon']?>.
-						<?=$value_NoteFieldList ->updatetime_DateTime->getdate_Arr['mday']?>
+						<?=$value_NoteFieldList->updatetime_DateTime->getdate_arr['year']?>.
+						<?=$value_NoteFieldList->updatetime_DateTime->getdate_arr['mon']?>.
+						<?=$value_NoteFieldList ->updatetime_DateTime->getdate_arr['mday']?>
 					</p>
-					<?if($value_NoteFieldList->pic_PicObjList->obj_Arr[0]->path_Arr['w0h0'] !== NULL):?>
-						<a href="note/view/<?=$value_NoteFieldList->noteid_Num?>" class="pic">
-							<img src="<?=$value_NoteFieldList->pic_PicObjList->obj_Arr[0]->path_Arr['w0h0']?>">
+					<?if($value_NoteFieldList->pic_PicObjList->obj_arr[0]->path_arr['w0h0'] !== NULL):?>
+						<a href="note/view/<?=$value_NoteFieldList->noteid?>" class="pic">
+							<img src="<?=$value_NoteFieldList->pic_PicObjList->obj_arr[0]->path_arr['w0h0']?>">
 						</a>
 					<?endif?>
 					<div class="message">
 						<?=mb_substr(strip_tags($value_NoteFieldList->content_Html), 0, 100, 'utf-8')?>
 					</div>
 					<iframe src="http://www.facebook.com/widgets/like.php?href=http://www.facebook.com/fanswoo.my&show_faces=true" scrolling="no" frameborder="0" allowTransparency="true" style="border:none;overflow:hidden;width:500px; height:65px;"></iframe>
-					<p>（<a href="note/view/<?=$value_NoteFieldList->noteid_Num?>">繼續閱讀...</a>）</p>
+					<p>（<a href="note/view/<?=$value_NoteFieldList->noteid?>">繼續閱讀...</a>）</p>
 				</div>
 				<?endforeach?>
 				<?if(0):?>
@@ -45,15 +56,6 @@
 				<div class="commentList">
 					<h3>留言討論</h3>
 					<div id="fb-root"></div>
-					<script>
-					(function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (d.getElementById(id)) return;
-							js = d.createElement(s); js.id = id;
-							js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=275778529183085";
-							fjs.parentNode.insertBefore(js, fjs);
-					}(document, 'script', 'facebook-jssdk'));
-					</script>
 					<div class="fb-comments" data-href="http://web.fanswoo.com/business/note/view/<?=$note['noteid']?>" data-width="520"></div>
 				</div>
 				<?endif?>

@@ -3,9 +3,15 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
+<<<<<<< HEAD
+-- 建立日期: 2016-06-07: 14:38:51
+-- 伺服器版本: 10.1.10-MariaDB
+-- PHP 版本: 7.0.4
+=======
 -- 建立日期: 2016-01-09: 00:27:30
 -- 伺服器版本: 5.6.24
 -- PHP 版本: 5.6.8
+>>>>>>> origin/develop
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -40,6 +46,8 @@ CREATE TABLE IF NOT EXISTS `fs_advertising` (
   UNIQUE KEY `advertisingid` (`advertisingid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
+=======
 --
 -- 資料表的匯出資料 `fs_advertising`
 --
@@ -52,6 +60,7 @@ INSERT INTO `fs_advertising` (`advertisingid`, `uid`, `title`, `href`, `content`
 (528505, 528501, 'dfsdfsdfsd', 'fdsf', 'sdfdsf', '', '', 0, '2015-07-09 02:27:17', 1),
 (528506, 528501, 'vv', 'vvvvvvvvvvvv', '', '', '', 0, '2015-07-09 02:27:41', 1);
 
+>>>>>>> origin/develop
 -- --------------------------------------------------------
 
 --
@@ -82,7 +91,327 @@ INSERT INTO `fs_browsing_log` (`browsing_logid`, `uid`, `real_ip`, `proxy_ip`, `
 (1, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/contact/contact/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-09 07:25:50', 1),
 (2, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/contact/contact/edit', '{"contactid":"18"}', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-09 07:26:00', 1),
 (3, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/contact/contact/edit_post', '[]', '{"status_process_Num":"2","contactid_Num":"18"}', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nhttp://localhost\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like', 'zh-TW', '2016-01-09 07:26:07', 1),
+<<<<<<< HEAD
+(4, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/contact/contact/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-09 07:26:07', 1),
+(5, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/contact/contact/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-09 14:02:08', 1),
+(6, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/contact/contact/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-09 16:17:19', 1),
+(7, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/contact/contact/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-09 17:22:33', 1),
+(8, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'note/4', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-12 15:33:21', 1),
+(9, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-12 15:33:23', 1),
+(10, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-12 15:33:24', 1),
+(11, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-12 15:33:24', 1),
+(12, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/seo', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-12 15:33:33', 1),
+(13, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/product/product/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-12 15:37:03', 1),
+(14, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'api/global/get_upload_max_size', '[]', '[]', 'localhost\r\nkeep-alive\r\n*/*\r\nXMLHttpRequest\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36\r\nhttp://localhost/fanswoo-framework/admin/sho', 'zh-TW', '2016-01-12 15:37:04', 1),
+(15, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'api/global/get_upload_max_size', '[]', '[]', 'localhost\r\nkeep-alive\r\n*/*\r\nXMLHttpRequest\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36\r\nhttp://localhost/fanswoo-framework/admin/sho', 'zh-TW', '2016-01-12 15:37:04', 1),
+(16, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'api/global/get_upload_max_size', '[]', '[]', 'localhost\r\nkeep-alive\r\n*/*\r\nXMLHttpRequest\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36\r\nhttp://localhost/fanswoo-framework/admin/sho', 'zh-TW', '2016-01-12 15:37:05', 1),
+(17, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'api/pic/upload_pic', '{"upload_status":"hidden"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nhttp://localhost\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like', 'zh-TW', '2016-01-12 15:37:52', 1),
+(18, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 16:39:28', 1),
+(19, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 16:39:29', 1),
+(20, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 16:39:29', 1),
+(21, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 16:40:49', 1),
+(22, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 16:40:50', 1),
+(23, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"abc"}', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 16:40:56', 1),
+(24, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"<script>alert(''test'')<\\/script>"}', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 16:41:17', 1),
+(25, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":""}', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 16:41:33', 1),
+(26, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 16:41:48', 1),
+(27, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 16:42:13', 1),
+(28, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 16:42:15', 1),
+(29, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 16:42:16', 1),
+(30, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 16:42:16', 1),
+(31, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 16:42:16', 1),
+(32, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 16:42:17', 1),
+(33, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\n', 'zh-TW', '2016-01-13 16:42:48', 1),
+(34, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:43:03', 1),
+(35, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(i hack you)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:43:16', 1),
+(36, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(ihackyou)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:43:23', 1),
+(37, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(ihackyou)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:43:25', 1),
+(38, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"alert(''hey'')"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:44:19', 1),
+(39, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(ihackyou)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:46:10', 1),
+(40, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(ihackyou)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:46:11', 1),
+(41, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(i hack you)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:46:25', 1),
+(42, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(i hack you)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:46:36', 1),
+(43, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(i hack you)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:46:37', 1),
+(44, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:46:41', 1),
+(45, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '{"test":"2<sCrIpT>alert(72875)<\\/sCrIpT>"}', '[]', 'text/html, application/xhtml+xml, image/jxr, */*\r\nzh-Hant-TW,zh-Hant;q=0.5\r\nMozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; MAMIJS; rv:11.0) like Gecko\r\ngzip, deflate\r\nlocalhost\r\nKeep-Alive\r\nfs_sess', 'zh-TW', '2016-01-13 16:46:48', 1),
+(46, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:08:58', 1),
+(47, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:08:59', 1),
+(48, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:09:14', 1),
+(49, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:09:14', 1),
+(50, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:09:16', 1),
+(51, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 17:09:22', 1),
+(52, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'product', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:10:45', 1),
+(53, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'order', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:11:03', 1),
+(54, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'order/cartlist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:11:03', 1),
+(55, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:30:46', 1),
+(56, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:30:46', 1),
+(57, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:30:50', 1),
+(58, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'api/global/get_upload_max_size', '[]', '[]', 'localhost\r\nkeep-alive\r\n*/*\r\nXMLHttpRequest\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36\r\nhttp://localhost/fanswoo-framework/admin/bas', 'zh-TW', '2016-01-13 17:30:50', 1),
+(59, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'api/pic/upload_pic', '{"upload_status":"undefined"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nhttp://localhost\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like', 'zh-TW', '2016-01-13 17:31:03', 1),
+(60, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/edit_post', '[]', '{"picids_Arr":["8",""],"classids_Arr":["528610"]}', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nhttp://localhost\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like', 'zh-TW', '2016-01-13 17:31:29', 1),
+(61, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 17:31:30', 1),
+(62, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/delete_list', '[]', '{"picid_Arr":["2","1"]}', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nhttp://localhost\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like', 'zh-TW', '2016-01-13 17:31:56', 1),
+(63, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 17:31:56', 1),
+(64, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/edit', '{"picid":"5"}', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:32:31', 1),
+(65, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:32:37', 1),
+(66, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:32:40', 1),
+(67, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/edit', '{"picid":"5"}', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:32:45', 1),
+(68, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/delete', '{"picid":"5","hash":""}', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:32:50', 1),
+(69, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:32:51', 1),
+(70, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:34:59', 1),
+(71, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'api/global/get_upload_max_size', '[]', '[]', 'localhost\r\nkeep-alive\r\n*/*\r\nXMLHttpRequest\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36\r\nhttp://localhost/fanswoo-framework/admin/bas', 'zh-TW', '2016-01-13 17:35:00', 1),
+(72, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:35:25', 1),
+(73, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:35:26', 1),
+(74, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'api/pic/upload_pic', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:35:28', 1),
+(75, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:51:26', 1),
+(76, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:51:26', 1),
+(77, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/set/set', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:51:30', 1),
+(78, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 17:51:35', 1),
+(79, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 17:51:42', 1),
+(80, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 17:59:26', 1),
+(81, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/comment/comment/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 19:08:56', 1),
+(82, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/note/note/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 19:09:01', 1),
+(83, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:45:16', 1),
+(84, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:45:45', 1),
+(85, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:45:52', 1),
+(86, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:46:55', 1),
+(87, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:51:43', 1),
+(88, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:51:45', 1),
+(89, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:55:35', 1),
+(90, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:56:21', 1),
+(91, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:56:23', 1),
+(92, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:56:23', 1),
+(93, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:56:28', 1),
+(94, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:57:50', 1),
+(95, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:19', 1),
+(96, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:20', 1),
+(97, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:23', 1),
+(98, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:23', 1),
+(99, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:24', 1),
+(100, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:33', 1),
+(101, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:57', 1),
+(102, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:58', 1),
+(103, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:59', 1),
+(104, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:58:59', 1),
+(105, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 19:59:10', 1),
+(106, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:00:00', 1),
+(107, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:07:01', 1),
+(108, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:07:02', 1),
+(109, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:07:52', 1),
+(110, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:08:30', 1),
+(111, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:08:50', 1),
+(112, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:08:55', 1),
+(113, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:08:59', 1),
+(114, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:09:26', 1),
+(115, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:09:43', 1),
+(116, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:10:10', 1),
+(117, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:11:42', 1),
+(118, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:11:43', 1),
+(119, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:11:47', 1),
+(120, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:11:49', 1),
+(121, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:13:12', 1),
+(122, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:13:14', 1),
+(123, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:13:23', 1),
+(124, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:14:15', 1),
+(125, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:14:18', 1),
+(126, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-13 20:15:38', 1),
+(127, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:15:40', 1),
+(128, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:21:03', 1),
+(129, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:31:43', 1),
+(130, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:31:45', 1),
+(131, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:32:23', 1),
+(132, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:32:24', 1),
+(133, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:32:45', 1),
+(134, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:33:20', 1),
+(135, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:34:45', 1),
+(136, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:36:28', 1),
+(137, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:36:32', 1),
+(138, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:36:32', 1),
+(139, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:37:19', 1),
+(140, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:47:31', 1),
+(141, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:47:32', 1),
+(142, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:49:12', 1),
+(143, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:49:13', 1),
+(144, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:49:28', 1),
+(145, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:49:29', 1),
+(146, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:54:25', 1),
+(147, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:55:03', 1),
+(148, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 20:55:04', 1),
+(149, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 21:43:19', 1),
+(150, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 21:55:45', 1),
+(151, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-13 22:09:31', 1),
+(152, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 10:42:56', 1);
+INSERT INTO `fs_browsing_log` (`browsing_logid`, `uid`, `real_ip`, `proxy_ip`, `mac_addr`, `url`, `get_message`, `post_message`, `header_message`, `locale`, `updatetime`, `status`) VALUES
+(153, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 10:52:00', 1),
+(154, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 10:52:03', 1),
+(155, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 11:30:16', 1),
+(156, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 11:39:36', 1),
+(157, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 14:30:42', 1),
+(158, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 14:30:43', 1),
+(159, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 14:30:57', 1),
+(160, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 14:30:58', 1),
+(161, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 14:31:15', 1),
+(162, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 14:32:09', 1),
+(163, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 14:49:06', 1),
+(164, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:04:52', 1),
+(165, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:08:45', 1),
+(166, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:10:43', 1),
+(167, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:10:44', 1),
+(168, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:16:06', 1),
+(169, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:17:57', 1),
+(170, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:18:10', 1),
+(171, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:18:13', 1),
+(172, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:18:26', 1),
+(173, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:22:07', 1),
+(174, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:22:09', 1),
+(175, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:22:16', 1),
+(176, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:22:18', 1),
+(177, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:22:21', 1),
+(178, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:22:27', 1),
+(179, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:23:13', 1),
+(180, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:23:15', 1),
+(181, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:23:46', 1),
+(182, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:23:47', 1),
+(183, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:23:50', 1),
+(184, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:24:00', 1),
+(185, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:24:22', 1),
+(186, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:25:04', 1),
+(187, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:25:07', 1),
+(188, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:25:44', 1),
+(189, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:29:08', 1),
+(190, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:29:14', 1),
+(191, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user/logout', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:29:14', 1),
+(192, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user/login', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:29:14', 1),
+(193, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:31:18', 1),
+(194, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:33:01', 1),
+(195, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:33:03', 1),
+(196, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:33:06', 1),
+(197, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:34:22', 1),
+(198, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 15:34:26', 1),
+(199, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:37:13', 1),
+(200, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:37:16', 1),
+(201, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:37:18', 1),
+(202, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 15:39:40', 1),
+(203, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 16:00:53', 1),
+(204, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-14 16:01:03', 1),
+(205, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-14 16:03:35', 1),
+(206, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 00:36:53', 1),
+(207, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-15 00:38:04', 1),
+(208, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-15 01:04:49', 1),
+(209, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 01:05:26', 1),
+(210, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 01:06:51', 1),
+(211, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-15 01:41:18', 1),
+(212, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 01:43:45', 1),
+(213, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 01:45:21', 1),
+(214, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 01:45:23', 1),
+(215, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 01:47:18', 1),
+(216, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 01:48:58', 1),
+(217, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 01:53:24', 1),
+(218, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-15 01:53:27', 1),
+(219, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-15 14:16:18', 1),
+(220, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user/logout', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-15 14:16:19', 1),
+(221, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user/login', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-15 14:16:19', 1),
+(222, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user/login_post', '[]', '{"email_Str":"admin@fanswoo.com","password_Str":"12345678","url_Str":""}', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nhttp://localhost\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like', 'zh-TW', '2016-01-15 14:16:26', 1),
+(223, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 14:16:26', 1),
+(224, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-15 14:16:26', 1),
+(225, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/store/global/hot', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-15 14:16:44', 1),
+(226, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/store/global/coupon', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 S', 'zh-TW', '2016-01-15 14:16:57', 1),
+(227, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 18:38:03', 1),
+(228, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 18:44:01', 1),
+(229, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 18:45:26', 1),
+(230, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'note', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 18:46:04', 1),
+(231, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'note', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 18:49:42', 1),
+(232, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 18:52:54', 1),
+(233, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user/login', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 18:52:54', 1),
+(234, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user/login_post', '[]', '{"email_Str":"admin@fanswoo.com","password_Str":"12345678","url_Str":""}', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\nhttp://localhost\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like', 'zh-TW', '2016-01-18 18:52:56', 1),
+(235, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 18:52:57', 1),
+(236, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 18:52:57', 1),
+(237, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 18:53:35', 1),
+(238, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 18:53:39', 1),
+(239, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:08:23', 1),
+(240, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/store/global/tradein', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:08:28', 1),
+(241, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/store/global/tradein', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:08:29', 1),
+(242, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:08:31', 1),
+(243, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:08:33', 1),
+(244, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:08:34', 1),
+(245, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:08:36', 1),
+(246, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:08:37', 1),
+(247, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:08:38', 1),
+(248, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:08:41', 1),
+(249, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:08:42', 1),
+(250, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:08:42', 1),
+(251, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:10:17', 1),
+(252, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:10:30', 1),
+(253, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:10:32', 1),
+(254, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:10:35', 1),
+(255, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:10:35', 1),
+(256, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:10:40', 1),
+(257, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:10:41', 1),
+(258, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:13:12', 1),
+(259, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:13:13', 1),
+(260, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:13:14', 1),
+(261, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:13:16', 1),
+(262, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:13:16', 1),
+(263, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:13:17', 1),
+(264, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:13:18', 1),
+(265, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:14:29', 1),
+(266, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:14:30', 1),
+(267, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:14:30', 1),
+(268, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:14:32', 1),
+(269, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:14:33', 1),
+(270, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:14:34', 1),
+(271, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nno-cache\r\nno-cache\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Ch', 'zh-TW', '2016-01-18 19:14:37', 1),
+(272, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:14:39', 1),
+(273, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:14:39', 1),
+(274, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:15:40', 1),
+(275, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:15:43', 1),
+(276, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:15:43', 1),
+(277, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/set/set', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:15:45', 1),
+(278, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:15:48', 1),
+(279, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:15:50', 1),
+(280, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:15:50', 1),
+(281, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-18 19:16:40', 1),
+(282, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:16:41', 1),
+(283, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:16:42', 1),
+(284, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/set/set', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:16:51', 1),
+(285, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:16:52', 1),
+(286, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/edit', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:16:54', 1),
+(287, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:16:54', 1),
+(288, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/product/product/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:16:57', 1),
+(289, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/product/set/set', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:16:59', 1),
+(290, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/advertising/advertising/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:17:06', 1),
+(291, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/pic/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:17:09', 1),
+(292, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/album/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:17:11', 1),
+(293, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pic/set/set', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:17:13', 1),
+(294, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/file/file/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:17:16', 1),
+(295, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/store/global/tradein', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-18 19:17:22', 1),
+(296, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:20', 1),
+(297, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/global/global/common', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:21', 1),
+(298, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/note/note/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:24', 1),
+(299, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/comment/comment/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:29', 1),
+(300, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/showpiece/set/set', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:33', 1),
+(301, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/pager/set/set', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:40', 1),
+(302, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/showpiece/set/set', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:48', 1),
+(303, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/contact/contact/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:51', 1);
+INSERT INTO `fs_browsing_log` (`browsing_logid`, `uid`, `real_ip`, `proxy_ip`, `mac_addr`, `url`, `get_message`, `post_message`, `header_message`, `locale`, `updatetime`, `status`) VALUES
+(304, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/transport/transport/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:55', 1),
+(305, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/set/set', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:31:59', 1),
+(306, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/shop/order_shop/order_shop/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:32:01', 1),
+(307, 528502, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/user/global/global_shop/user', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 S', 'zh-TW', '2016-01-20 19:32:05', 1),
+(308, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/project/user/project/edit', '{"projectid":"528502"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-20 19:48:51', 1),
+(309, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-20 19:48:52', 1),
+(310, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user/logout', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-20 19:48:52', 1),
+(311, 0, '::1', '::1', '44-8A-5B-6F-B7-4A', 'user/login', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-20 19:48:53', 1),
+(312, NULL, '::1', '::1', '20-47-47-76-A6-51', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0', '', NULL, 1),
+(313, NULL, '::1', '::1', '20-47-47-76-A6-51', '', '{"url":"admin"}', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0', '', NULL, 1),
+(314, NULL, '::1', '::1', '20-47-47-76-A6-51', '', '[]', '{"email":"admin@fanswoo.com","password":"12345678","url":"admin","fs_ajax_post":"true"}', 'localhost\r\nkeep-alive\r\n*/*\r\nhttp://localhost\r\nXMLHttpRequest\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36\r\nhttp://localhost/fanswoo/u', '', NULL, 1),
+(315, NULL, '::1', '::1', '20-47-47-76-A6-51', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 S', '', NULL, 1),
+(316, NULL, '::1', '::1', '20-47-47-76-A6-51', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 S', '', NULL, 1),
+(317, NULL, '::1', '::1', '20-47-47-76-A6-51', '', '[]', '[]', 'localhost\r\nkeep-alive\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 S', '', NULL, 1),
+(318, NULL, '::1', '::1', '20-47-47-76-A6-51', '', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0', '', NULL, 1);
+=======
 (4, 528501, '::1', '::1', '44-8A-5B-6F-B7-4A', 'admin/base/contact/contact/tablelist', '[]', '[]', 'localhost\r\nkeep-alive\r\nmax-age=0\r\ntext/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n1\r\nMozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0', 'zh-TW', '2016-01-09 07:26:07', 1);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -111,6 +440,14 @@ CREATE TABLE IF NOT EXISTS `fs_class` (
 --
 
 INSERT INTO `fs_class` (`classid`, `classname`, `slug`, `content`, `uid`, `amountnum`, `modelname`, `classids`, `prioritynum`, `updatetime`, `locale`, `status`) VALUES
+<<<<<<< HEAD
+(1, 'A級形象網站', 'a035b87f', '', 528502, 0, 'project', '5', 0, '2015-12-04 14:32:09', 'zh-TW', 1),
+(2, 'A+級形象網站', '8f1225c7', '', 528502, 0, 'project', '5', 0, '2015-12-04 14:32:05', 'zh-TW', 1),
+(3, 'A級購物網站', '2a1069c2', '', 528502, 0, 'project', '6', 0, '2015-12-04 14:32:02', 'zh-TW', 1),
+(4, 'A+級購物網站', 'f495dcfe', '', 528502, 0, 'project', '6', 0, '2015-12-04 14:31:57', 'zh-TW', 1),
+(5, '形象網站', 'bfe2f174', '', 528501, 0, 'project_class2', '', 0, '2015-12-04 14:26:06', 'zh-TW', 1),
+(6, '購物網站', 'bafb9971', '', 528501, 0, 'project_class2', '', 0, '2015-12-04 14:26:12', 'zh-TW', 1);
+=======
 (528501, '網頁設計', '528501', '', 528501, 0, '', '', 0, '0000-00-00 00:00:00', '', 1),
 (528502, 'test2', 'test2', '', 528501, 0, 'showroom_roomclass', '', 0, '0000-00-00 00:00:00', '', 1),
 (528508, 'test', '528508', '', 528501, 0, 'showroom_styleclass', '', 0, '0000-00-00 00:00:00', '', 1),
@@ -216,6 +553,7 @@ INSERT INTO `fs_class` (`classid`, `classname`, `slug`, `content`, `uid`, `amoun
 (528610, '瘋沃科技', '72ac9e63', '', 528501, 0, 'pic', '', 0, '2015-11-03 09:23:32', 'zh-TW', 1),
 (528611, '一般會員', 'b8e64df4', '', 528504, 0, 'pic', '', 0, '2015-11-03 09:24:13', 'zh-TW', 1),
 (528612, '管理員', 'be7ea7c2', '', 528502, 0, 'pic', '', 0, '2015-11-03 09:25:29', 'zh-TW', 1);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -240,6 +578,12 @@ CREATE TABLE IF NOT EXISTS `fs_comment` (
 --
 
 INSERT INTO `fs_comment` (`commentid`, `uid`, `typename`, `id`, `title`, `content`, `updatetime`, `status`) VALUES
+<<<<<<< HEAD
+(1, 528501, 'order', 1, '', 'hello', '2015-11-20 10:38:01', 1),
+(2, 528505, 'order', 1, '', 'hi', '2015-11-20 10:42:13', 1),
+(3, 528501, 'project', 5, '', 'test1', '2015-12-03 16:22:52', 1),
+(4, 528501, 'project', 5, '', 'test2', '2015-12-03 16:27:05', 1);
+=======
 (1, 528501, 'order', 528549, 'test', 'testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestsssssssssss', '2015-09-22 04:57:14', 1),
 (2, 528501, 'order', 528549, NULL, 'rrrr', '2015-09-22 05:22:59', 1),
 (3, 528501, 'order', 528543, NULL, '', '2015-09-22 05:46:50', 1),
@@ -260,6 +604,7 @@ INSERT INTO `fs_comment` (`commentid`, `uid`, `typename`, `id`, `title`, `conten
 (18, 528501, 'pic', 7, '', '564', '2015-10-21 18:20:22', 1),
 (20, 528502, 'pic', 7, '', '123', '2015-11-03 09:26:16', 1),
 (21, 528504, 'pic', 7, '', '若您輸入單號正確，卻查詢不到包裹狀態，有可能是因為資料尚在處理中，請稍候再試。', '2015-11-04 09:26:34', 1);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -270,12 +615,23 @@ INSERT INTO `fs_comment` (`commentid`, `uid`, `typename`, `id`, `title`, `conten
 CREATE TABLE IF NOT EXISTS `fs_contact` (
   `contactid` mediumint(8) NOT NULL,
   `username` char(100) NOT NULL,
+<<<<<<< HEAD
+  `email` char(100) NOT NULL,
+  `phone` char(100) NOT NULL,
+=======
   `email` char(100) CHARACTER SET latin1 NOT NULL,
   `phone` char(100) CHARACTER SET latin1 NOT NULL,
+>>>>>>> origin/develop
   `company` char(100) NOT NULL,
   `content` text NOT NULL,
   `status_process` int(11) NOT NULL,
   `classtype` char(100) NOT NULL,
+<<<<<<< HEAD
+  `classtype2` char(100) NOT NULL,
+  `address` char(100) NOT NULL,
+  `money` char(100) NOT NULL,
+=======
+>>>>>>> origin/develop
   `updatetime` datetime NOT NULL,
   `status` int(1) NOT NULL,
   UNIQUE KEY `contactid` (`contactid`)
@@ -285,11 +641,16 @@ CREATE TABLE IF NOT EXISTS `fs_contact` (
 -- 資料表的匯出資料 `fs_contact`
 --
 
+<<<<<<< HEAD
+INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, `content`, `status_process`, `classtype`, `classtype2`, `address`, `money`, `updatetime`, `status`) VALUES
+(1, 'Mimi', 'mimi@fanswoo.com', '0912345678', 'fanswoo', 'Hello', 1, '程式系統開發', '手機App開發', '台北市重慶北路四段 248 號 3 樓', '15萬元以下', '2015-10-14 16:12:59', 1);
+=======
 INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, `content`, `status_process`, `classtype`, `updatetime`, `status`) VALUES
 (15, '張琬君', 'mimi@fanswoo.com', '0912345678', '', '您好，有問題想要詢問\r\n關於英士彩繪筆的顏色及規格...', 2, '問題詢問', '2015-08-14 05:17:09', 1),
 (16, '張琬君', 'mimi@fanswoo.com', '0912345678', '', '測試問題聯繫編輯處理狀態', 1, '問題詢問', '2015-08-14 06:09:53', 1),
 (17, '張琬君', 'mimi@fanswoo.com', '02-2256-5698', '', '測試問題聯繫編輯處理狀態', 2, '其它聯繫', '2015-08-14 06:11:22', 1),
 (18, 'Mimi Chang', 'mimi@fanswoo.com', '02-2222-2222', '', '測試～～～', 2, '品項試用', '2015-08-14 06:17:24', 1);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -314,6 +675,8 @@ CREATE TABLE IF NOT EXISTS `fs_file` (
   PRIMARY KEY (`fileid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+<<<<<<< HEAD
+=======
 --
 -- 資料表的匯出資料 `fs_file`
 --
@@ -322,6 +685,7 @@ INSERT INTO `fs_file` (`fileid`, `uid`, `title`, `filename`, `size`, `type`, `md
 (1, 528501, 'index_bg1.png', 'index_bg1.png', 1403387, 'image/png', '59686eb35e40ea04', '', '', '', 0, '2015-12-03 10:53:39', 1),
 (2, 528501, 'MG_5585.jpg', 'MG_5585.jpg', 1811206, 'image/jpeg', '6522318b0b8df876', '', '', '', 0, '2015-12-30 16:30:34', 1);
 
+>>>>>>> origin/develop
 -- --------------------------------------------------------
 
 --
@@ -352,10 +716,15 @@ CREATE TABLE IF NOT EXISTS `fs_note` (
 --
 
 INSERT INTO `fs_note` (`noteid`, `uid`, `title`, `username`, `slug`, `picids`, `classids`, `modelname`, `viewnum`, `replynum`, `prioritynum`, `updatetime`, `locale`, `shelves_status`, `status`) VALUES
+<<<<<<< HEAD
+(528501, 528501, '網頁設計的價差為什麼這麼大？在花錢買教訓之前，先瞭解台灣網頁設計的市場現況', '', '', '4', '', 'note', 0, 0, 0, '2015-07-09 02:23:26', 'zh-TW', 1, 1),
+(528502, 528501, '誰說投資一定要花錢？不花錢的投資才是真正的投資', '', '', '5', '', 'note', 0, 0, 0, '2015-07-09 02:25:20', 'zh-TW', 1, 1);
+=======
 (1, 528502, 'Evernote 會成為下一隻倒下的獨角獸嗎？', '', '', '', '', 'note', 0, 0, 0, '2015-08-24 01:50:26', 'en-US', 1, 1),
 (2, 528501, '系統測試', '', 'd0294213', '', '528518', 'note', 0, 0, 0, '2015-10-10 04:43:48', 'zh-TW', 1, 1),
 (3, 528502, '測試', '', '8b7f1bd1', '', '528608', 'note', 0, 0, 0, '2015-11-02 17:10:02', 'zh-TW', 1, 1),
 (4, 528504, '一般會員測試文章', '', 'bfeb5c81', '', '528609', 'note', 0, 0, 0, '2015-11-02 17:44:37', 'zh-TW', 1, 1);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -374,10 +743,15 @@ CREATE TABLE IF NOT EXISTS `fs_note_field` (
 --
 
 INSERT INTO `fs_note_field` (`noteid`, `content`) VALUES
+<<<<<<< HEAD
+(528501, '<img src="http://news.xinhuanet.com/finance/2010-02/05/xinsrc_4420207051423171232418.jpg" style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; border: 0px; width: 520px; max-height: 520px; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" /><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">網路開店真的那麼簡單？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">很多業者都以為架設網路商店很簡單，只要網路商店開張了，自然就會有訂單流進來，直到購物網站架設好了，才發現購物網站竟然只有少少的訂單，是購物網站不好做嗎？當然不是，是業者對網路的行銷模式和經營經驗不足。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">其實開一間購物網站與開一間實體店面是一樣的道理，若是租了一間在深山裡、無人知曉的店面，每個月的人流肯定很稀疏，但若是一間每個月20萬元租在台北市西門町的實體店面，每個月自然有大量的人流，網路開店也是同理，在網路上架設一間網路商店，就如同開一間實體店面一般，只要網站每個月撥出一定的行銷預算，就會有一定的人流，而且網路上的人流比起實體店面的人流更容易創造，網路商店的行銷預算性價比也較實體店面更高，但絕不是想像中的「只要架設購物網站就有訂單」那麼簡單。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">網路上的免費開店平台真的是零成本嗎？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">有些人認為架設購物網站是零成本的生意，雖然架設購物網站的成本相對實體店面要低得多，但抱持著零成本的心態經營，是絕對不會有好收穫的，網路上有不少號稱零成本的開店平台，但這些號稱零成本的平台仍然需要收取廣告費、交易費、空間費等費用，而在這種免費平台中販售產品的業者，若是沒有每個月花費少則數千元、多則數十萬元的廣告費用，那麼消費者要搜尋到未付廣告費的產品，就像是在大海裡撈針，產品永遠石沉大海、乏人問津。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">因此只要稍有知名度的企業，多是選擇開發獨立的購物網站，而非與一群競爭激烈的個人店家在免費的購物平台攪和，擁有獨立的會員系統是一項重要的因素，對於業者來說，花了大筆廣告預算好不容易觸及到的消費者，不該僅有一次性的消費，而必須盡可能留下會員資料，並以電子報、社群功能等使消費者重複購物，為購物網站後續產生更多持續性的獲利。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">除了擁有獨立的會員系統、獨立的金流系統以外，最重要的是免費平台僅有平台的使用權，而非擁有該平台的所有權，因此就算花費大筆鈔票真的在免費平台上做出了口碑，後續想要架設自己的購物網站，就像是擺路邊攤的攤販改為店面經營一樣，一旦轉換平台便會流失大量既有的消費者，且會員資料必須全部從零開始累積，為了省錢而使用免費平台，反而在省錢的過程中繞了一大圈。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">架設購物網站會有哪些費用？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">開設網路商店在初期會花到的費用有購物網站的開發費用、網路行銷費用、人員薪資等等，而開發一個購物網站就像是為一間實體店面裝潢一樣，購物網站的設計好壞，有非常大的比例影響到一個消費者的購物決定，也進而影響到購物網站的營業收入，雖然開發一個功能齊全的獨立購物網站，至少需要二十萬元以上的開發預算，且若是希望購物網站具有質感或是與眾不同的系統設計，更會因為業者的需求，可能花上幾十萬元、上百萬元以上的價格。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">坊間仍有業者喊出開發費用只要十萬元以下的獨立購物網站，但這些號稱十萬元以下的購物網站，絕大多數都是假的獨立購物網站，這些購物網站看似擁有不同的外觀，然而對於網站資料庫、會員系統等卻沒有所有權，一切資料和所有權等重要的權力仍然在開發公司手上。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">除了購物網站的開發成本，另一個影響購物網站成敗的重要因素則是網路行銷，網路行銷的預算隨業者的行銷策略會有不同的成本，通常以購買廣告刊版、關鍵字廣告而有不等的費用，也有的業者以舉辦活動搭配贈品的方式行銷，而網路行銷講求的是創意，只要能利用創意吸引消費者的注意力，即使僅有少少的行銷預算，也有可能為購物網站創造一夕之間爆紅的可能性。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">比起實體店面，購物網站的優勢在哪裡？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">庫存壓力：實體店面&gt;購物網站（大至小）</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">消費者觸及率：購物網站&gt;實體店面（多至少）</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">行銷工具：購物網站&gt;實體店面（多至少）</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">統計資料：購物網站&gt;實體店面（多至少）</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">電子商務這種東西看似簡單，卻又有不少智慧藏在裡頭，比起實體店面，購物網站少了實體店面的庫存壓力，甚至一個購物網站就能夠觸及世界各地的消費者，除了不會受到區域性的限制，在行銷工具的操作選擇上也更多，而且還能透過更多的科學統計，來計算消費者的來客率和購買轉換率，比起實體店面還是有相當大的優勢，但要如何正確的操作這些資源，就要仰賴業者能否確實瞭解網路產業的相關資訊，時時刻刻將資訊保持在最尖端，才能確保不被變化快速的網路市場給淘汰。</span>'),
+(528502, '<img src="http://www.artdes.monash.edu.au/design/assets/design_courses_communication.jpg" style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; border: 0px; width: 520px; max-height: 520px; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" /><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">投資必備的條件是金錢？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">在這個升職加薪不易的年代，我們都知道光是上班賺錢、存錢是很難達到財務自由的，而投資則是致富最好的管道之一，但許多人提及「投資」這個名詞時，想到的總是「投資不是我玩得起的」因為「需要很多錢」，然而投資最重要的條件真的是錢嗎？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">根據美國的統計，中樂透獲得大筆獎金的樂透富翁，平均在五年以內會把獎金花光，而且許多人的生活反而變得比中樂透之前更糟糕，先不論這些樂透富翁到底是怎麼花錢的，在這個統計之中最值得注意的應該是「為什麼一般人留不住大筆的樂透獎金？」，因為這些中樂透的樂透富翁，並不具備投資理財的知識和心理素質，他們總是搞不清楚投資和支出的差別，也分不出機會和風險的差異性，即使理財專員告知他們可能賺錢的投資機會，他們也不具備辨識機會和風險的能力，還可能弄巧成拙，錯把風險當作機會、把支出當作投資，最後當然就是大筆大筆的把鈔票全部消耗殆盡了。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">不花錢也可以投資嗎？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">如果手上沒有現金投資別人的公司，若是具備足夠的知識、經驗、人脈，即使不需要任何金錢也可以投資，只要擁有足夠的能力，不但不必投資別人的公司，甚至還可以讓別人抱著鈔票投資自己的公司，當然前提是必須具備讓人信任這間公司的條件，例如：一款創新的產品、一個獨家的技術、一份具潛力的創業企劃書。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">任何投資都是有風險的，也因為比別人多承擔了風險，才會有豐厚的報酬，雖然投資者不可能將風險控制為零，但厲害的投資者卻能透過知識、經驗、人脈了解每一個投資的風險高低，並且把投資風險控制在容許的範圍內，因此我們能說，投資賺不賺錢，最重要的重點並不在於「手上有多少錢」，而是在於「專業能力」和「投資眼光的精準度」。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">[size=150]投資別人之前，必須先投資自己[/size]</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">投資並非僅指金融證券、房地產上的有形體的投資，真正的投資應該在於知識、經驗、人脈上的無形投資，只有累積足夠的知識、經驗和人脈，才有可能透過投資賺錢，甚至讓人們跟著自己投資。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">人生是一條不斷面臨投資選擇的岔路，當我們選擇閱讀的書籍時屬於知識的投資，當我們在做每一件不同的工作時是經驗的投資，當我們在跟不同的朋友握手的時候則是人脈的投資，首先拋開「投資不是我玩得起的」的觀念，在腦海中劃出一條屬於自己的、清晰的道路，時時刻刻告訴自己「現在我做的事，決定我五年以後過的生活」，想要在未來的某一天能夠獲得財務自由，不但要走出自己的舒適圈，還要勇敢的投資自己。</span>');
+=======
 (1, '<img alt="" src="http://8e57487048d92f1d4381-b1cf9e400bde416ba8b02c6592a8690c.r16.cf2.rackcdn.com/f6deb66688f4eaac564865afcd504d3d.jpg" style="width: 400px; height: 320px;" /><br />\r\n<br />\r\nEvernote會倒掉？怎麼可能？<br />\r\n<br />\r\n這家公司2012年時就已經進入獨角獸聚樂部，口碑很好，付費率不錯，海外市場風生水起&hellip;&hellip;<br />\r\n<br />\r\n但即使如此，聰明的投資人還是在2012年下半年，拋售了Evernote的股份，用真金白銀投了票。最近，36氪還從矽谷的投資人那得到消息，Evernote正在拋售老股，估值在15到20億美元左右，但無人問津。如果你仔細觀察，就會發現Evernote已經很久沒有怎麼發聲了，周圍也有不少人正在棄用Evernote的服務，只是記筆記的話，<br />\r\n<br />\r\n在手機端的使用體驗實在太重了。還沒有解開工具類app商業化謎題的Evernote，也許就真成了那只倒下的獨角獸。'),
 (2, '系統測試'),
 (3, 'Hello'),
 (4, 'Hello');
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -402,6 +776,8 @@ CREATE TABLE IF NOT EXISTS `fs_pager` (
   PRIMARY KEY (`pagerid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
+=======
 --
 -- 資料表的匯出資料 `fs_pager`
 --
@@ -413,6 +789,7 @@ INSERT INTO `fs_pager` (`pagerid`, `uid`, `username`, `title`, `slug`, `href`, `
 (4, 528502, '', 'ccc', '02fa247a', '', '', 0, 0, 0, '2015-10-10 04:54:19', 'en-US', 1),
 (5, 528502, '', 'ddd', 'fc226743', '', '', 0, 0, 0, '2015-10-10 04:58:38', 'en-US', 1);
 
+>>>>>>> origin/develop
 -- --------------------------------------------------------
 
 --
@@ -425,6 +802,8 @@ CREATE TABLE IF NOT EXISTS `fs_pager_field` (
   PRIMARY KEY (`pagerid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
+=======
 --
 -- 資料表的匯出資料 `fs_pager_field`
 --
@@ -436,6 +815,7 @@ INSERT INTO `fs_pager_field` (`pagerid`, `content`) VALUES
 (4, 'sss'),
 (5, 'ddd');
 
+>>>>>>> origin/develop
 -- --------------------------------------------------------
 
 --
@@ -455,7 +835,10 @@ CREATE TABLE IF NOT EXISTS `fs_pic` (
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
   `status` int(1) NOT NULL,
+<<<<<<< HEAD
+=======
   `upload_status` int(1) NOT NULL,
+>>>>>>> origin/develop
   UNIQUE KEY `picid` (`picid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -463,12 +846,119 @@ CREATE TABLE IF NOT EXISTS `fs_pic` (
 -- 資料表的匯出資料 `fs_pic`
 --
 
+<<<<<<< HEAD
+INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`, `classids`, `thumb`, `prioritynum`, `updatetime`, `status`) VALUES
+(4, 528501, 'note1.jpg', 'note1.jpg', 49556, 'image/jpeg', '941ad429e9543e57', '', 'w50h50,w300h300,w600h600', 0, '2015-10-14 14:52:51', 1),
+(5, 528501, 'note2.jpg', 'note2.jpg', 226158, 'image/jpeg', '9f56fab9f42c1cd3', '', 'w50h50,w300h300,w600h600', 0, '2015-10-14 14:53:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_project`
+--
+
+CREATE TABLE IF NOT EXISTS `fs_project` (
+  `projectid` mediumint(8) NOT NULL,
+  `uid` mediumint(8) NOT NULL,
+  `name` char(100) NOT NULL,
+  `admin_uid` mediumint(8) NOT NULL,
+  `permission_uids` char(100) NOT NULL,
+  `working_days` mediumint(8) NOT NULL,
+  `classids` char(100) NOT NULL,
+  `designids` char(200) NOT NULL,
+  `pay_name` char(32) NOT NULL,
+  `pay_account` char(50) NOT NULL,
+  `pay_price_total` mediumint(10) NOT NULL,
+  `pay_price_receive` mediumint(10) NOT NULL,
+  `pay_price_schedule` mediumint(3) NOT NULL,
+  `pay_price_schedule2` mediumint(3) NOT NULL,
+  `pay_paytime` datetime NOT NULL,
+  `pay_remark` text NOT NULL,
+  `pay_status` int(1) NOT NULL,
+  `paycheck_status` int(1) NOT NULL,
+  `project_status` int(1) NOT NULL,
+  `setuptime` datetime NOT NULL,
+  `endtime` datetime NOT NULL,
+  `updatetime` datetime NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `projectid` (`projectid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_project`
+--
+
+INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `admin_uid`, `permission_uids`, `working_days`, `classids`, `designids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_price_receive`, `pay_price_schedule`, `pay_price_schedule2`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `endtime`, `updatetime`, `status`) VALUES
+(528501, 528502, 'TEST專案', 528505, '528505,528502,528501', 40, '2', '', '張琬君', '(700)1234567-1234567', 88000, 88000, 100, 0, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-04 00:00:00', '2016-01-13 00:00:00', '2016-01-08 21:08:28', 1),
+(528502, 528501, 'test2', 528501, '528501', 60, '4', '', 'Mimi Chang', '(700)1111111-2222222', 36000, 12000, 33, 20, '2015-12-07 14:50:00', '付款備註', 1, 0, 1, '2015-12-07 14:34:19', '2016-02-05 14:34:19', '2016-01-11 17:46:44', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_project_design`
+--
+
+CREATE TABLE IF NOT EXISTS `fs_project_design` (
+  `designid` mediumint(8) NOT NULL,
+  `projectid` mediumint(8) NOT NULL,
+  `title` char(50) NOT NULL,
+  `price` mediumint(10) NOT NULL,
+  `classname` char(200) NOT NULL,
+  `days` mediumint(3) NOT NULL,
+  `synopsis` char(200) NOT NULL,
+  `prioritynum` mediumint(8) NOT NULL,
+  `updatetime` datetime NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `designid` (`designid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_project_design`
+--
+
+INSERT INTO `fs_project_design` (`designid`, `projectid`, `title`, `price`, `classname`, `days`, `synopsis`, `prioritynum`, `updatetime`, `status`) VALUES
+(1, 528501, 'PHP文章系統', 18000, '', 3, '後台文章管理系統（新增、編輯、列表）', 4, '0000-00-00 00:00:00', 1),
+(2, 528501, '最新消息頁面美術設計', 18000, '', 3, '前台最新消息頁面美術設計', 6, '0000-00-00 00:00:00', 1),
+(4, 528501, '首頁頁面美術設計', 18000, '', 3, '前台首頁頁面美術設計', 5, '0000-00-00 00:00:00', 1),
+(3, 528501, 'PHP廣告系統', 18000, '', 3, '後台廣告管理系統（新增、編輯、列表）', 3, '0000-00-00 00:00:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_project_suggest`
+--
+
+CREATE TABLE IF NOT EXISTS `fs_project_suggest` (
+  `suggestid` mediumint(8) NOT NULL,
+  `projectid` mediumint(8) NOT NULL,
+  `uid` mediumint(8) NOT NULL,
+  `title` char(50) NOT NULL,
+  `content` char(200) NOT NULL,
+  `answer` char(200) NOT NULL,
+  `suggest_time` datetime NOT NULL,
+  `updatetime` datetime NOT NULL,
+  `suggest_status` int(1) NOT NULL,
+  `answer_status` int(1) NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `suggestid` (`suggestid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_project_suggest`
+--
+
+INSERT INTO `fs_project_suggest` (`suggestid`, `projectid`, `uid`, `title`, `content`, `answer`, `suggest_time`, `updatetime`, `suggest_status`, `answer_status`, `status`) VALUES
+(2, 528501, 528501, '修改建議測試2', '建議測試內容', '123', '2015-12-04 18:14:55', '2015-12-18 11:58:23', 1, 1, 1),
+(1, 528501, 528502, '修改建議測試', '測試內容', 'OK', '2015-12-04 18:08:40', '2015-12-04 18:17:56', 1, 3, 1),
+(3, 528501, 528501, 'SMTP Mail寄信功能', '測試修改建議寄信通知功能', 'OK', '2015-12-18 11:34:45', '2015-12-18 11:59:38', 1, 3, 1);
+=======
 INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`, `classids`, `thumb`, `prioritynum`, `updatetime`, `status`, `upload_status`) VALUES
 (5, 528501, 'Star.jpg', '20140529143104_6602.jpg', 196546, 'image/jpeg', '23f263b65e350425', '', 'w50h50,w300h300,w600h600', 0, '2016-01-06 18:44:30', 1, 2),
 (4, 528501, '未命名.png', '未命名.png', 70849, 'image/png', '04e1c6f5d1581670', '528610', 'w50h50,w300h300,w600h600', 0, '2016-01-05 18:33:17', 1, 1),
 (1, 528501, '20140529143104.jpg', '20140529143104_6602.jpg', 196546, 'image/jpeg', 'eacf9e4427a4707f', '', 'w50h50,w300h300,w600h600', 0, '2016-01-05 16:04:17', 1, 2),
 (2, 528501, '401123.jpg', '401123.jpg', 612977, 'image/jpeg', '4aca63208c873b6b', '', 'w50h50,w300h300,w600h600', 0, '2016-01-05 16:11:58', 1, 2),
 (3, 528501, '29.gif', '29.gif', 463217, 'image/gif', '18ebf9d914dc87d9', '', 'w50h50,w300h300,w600h600', 0, '2016-01-05 16:12:26', 1, 2);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -999,6 +1489,57 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('b851cfe3c4e14eefcbf64f8d4d94d982', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444414391, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
 ('c4155a24aed7bb287151be3b2aa02a8a', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444422575, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
 ('869fb7f995abe27e0dad671df9f0f77e', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444480306, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+<<<<<<< HEAD
+('6df19f8ccf558d45eca795e6df82f5e2', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444615776, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('4082f453709fa480df4c64cd0be5f934', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444639741, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('b8f4dda4385dbe2218b61be9bb1b4632', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444642894, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('78c0a84db946fe59a7846757bc04526e', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444715480, ''),
+('fb6dcd4fec797f290076508666cb7436', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444716181, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('b1dc22151cd618d298451ef2a94cf658', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1444812449, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('d449c636f1d9d94a91fbf155c8f3ae96', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444812560, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('bde2a2b42d047dde117f2577f8e80f06', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1444813076, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('8c60395236efacb364443bd7f4acbaa2', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36', 1444813140, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('be746f2ac39485a07b932896811e60ce', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447406257, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('ab4afbf46f10666b4f5f5def0b20b484', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447407179, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528506";}'),
+('9f5ac9b4cedec5e0bed56d98bb34dacb', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1447907839, 'a:1:{s:9:"user_data";s:0:"";}'),
+('e3e334a4060554d21b7607d64a591332', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449122268, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('f73d9636c9ccc5985e415c553c9fac01', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449122626, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('d28c7f1907cd2acb3e4fc1455c50cc83', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449123314, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('e133b4bf86700f7f18054b220f0f13bb', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449124005, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('4044a6fbe4b91dbcd17ce2b523bfdbcd', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449124491, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('7bd73ed32bd8a33fe7575318b3082a9d', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449124653, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('36320acd9cb6c577b670e2c1b1480d41', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449124661, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('03920eac733fd6a48407ed39820b40a9', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449125148, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('67cd5b82155b50c24b41773a5ecb34e2', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449126039, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('fe386328c510952ea57757d6ae49b3cd', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449126082, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('1e1fc03a2ac695567f726045a10c9de4', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile', 1449132843, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('b40449c25711fc94bebe0df8617ce808', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449134050, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";}'),
+('355b92cf0ba98ea80c6bf9f2765b974a', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449223981, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('c249528d1c6e724bb33661da909751e6', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449224006, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('c569f1a9dfbb45e1117ce8c5c4e659f0', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449467525, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('dfa9b96f131dcb8c983b67f467f03a0c', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449467670, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('47ba191f7c22f70f8a3ed3d820108658', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; MASBJS; rv:11.0) like Gecko', 1449475216, ''),
+('ec08970c9ea849eb9aced512ee45fae2', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/534.57.2 (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2', 1449475378, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('2523a5491389a6e5d509590bbd16b204', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449542019, 'a:1:{s:9:"user_data";s:0:"";}'),
+('b0fa4d59f18ff53b53e49c8bb2ee4b72', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449542023, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('f7799f77d4467e989eee0e30ca4f7b08', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449542616, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('92d1a6385f18801fb541634a0e313613', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449542638, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('1c0062009362a6a0fe8593bd4edd39a5', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449547713, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('384846170f8876533b422afd06d89ebb', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449547975, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('cbdf19b8475e9a1ea52be3db24240f70', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1449548298, 'a:1:{s:9:"user_data";s:0:"";}'),
+('22bd1248c89cf0bc6a7c57d78049bfbd', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449548302, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('c607377ad719d899b8cf0b85a4e6a640', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36', 1449565583, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('f1dcafdec8906c1bd5540cbe3a4b341f', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1449726750, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('95506c5517d9e51d70798ccc80bc6fe3', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36', 1449726750, ''),
+('f3045d6370c177e07af1147f5c748e3d', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1450345278, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('b80473858e803734f4ef75c75d13d91e', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1452248611, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('d53ccb875debbaad642714c89b89aaf6', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452248716, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('f32ba87cc5ca86c5d8c1208f70a8f26c', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1452248984, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('2f7ad055d2b099d9866664e1a0041585', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452249199, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('a0324427ef773e860296c86c638e9731', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452501900, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
+('f878d82203299587adb92e207f793684', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36', 1453290403, 'a:1:{s:9:"user_data";s:0:"";}'),
+('08f6ede97b984375250626d866c1134b', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36', 1465303013, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:7:"project";s:17:"last_admin_child3";s:7:"project";s:17:"last_admin_child4";s:4:"edit";}');
+=======
 ('f01594b70945c50f32a84c814c3217ec', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36', 1445248299, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('b81ebcf4878a27d1f462b450b3037d52', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; MASBJS; rv:11.0) like Gecko', 1445480225, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('f292aace75101e2f5e1a582b648c0b86', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; MASBJS; rv:11.0) like Gecko', 1445486965, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
@@ -1033,6 +1574,7 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('70d29929fe56658fdd8d50ae0b66be7f', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345', 1452078756, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('13ec41c773e900e9a1f0b2ee5fbdb1e7', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452078815, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}'),
 ('5c6b38f8eb2133a4e107d756f6baa115', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 1452286853, 'a:2:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528501";}');
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -1062,6 +1604,34 @@ INSERT INTO `fs_setting` (`settingid`, `keyword`, `value`, `modelname`, `locale`
 (5, 'website_name', 'fansWoo website', '', 'en-US', 1),
 (6, 'website_logo', 'fansWoo website', '', 'en-US', 1),
 (7, 'website_metatag', 's', '', 'en-US', 1),
+<<<<<<< HEAD
+(8, 'smtp_account', 'mimi@fanswoo.com', 'smtp', 'zh-TW', 1),
+(9, 'smtp_email', 'mimi@fanswoo.com', 'smtp', 'zh-TW', 1),
+(10, 'smtp_password', 'qwe33117785200', 'smtp', 'zh-TW', 1),
+(11, 'smtp_host', 'smtp.gmail.com', 'smtp', 'zh-TW', 1),
+(12, 'smtp_username', 'fansWoo 瘋沃科技', 'smtp', 'zh-TW', 1),
+(13, 'smtp_ssl_checkbox', '1', 'smtp', 'zh-TW', 1),
+(14, 'bank_code', '中國信託（銀行代號：700）', 'shop_transfer', 'zh-TW', 1),
+(15, 'bank_account', '123-456-789-000', 'shop_transfer', 'zh-TW', 1),
+(16, 'bank_account_name', 'Fanswoo', 'shop_transfer', 'zh-TW', 1),
+(17, 'bank_account_remark', '', 'shop_transfer', 'zh-TW', 1),
+(18, 'website_name', 'fansWoo 瘋沃科技', '', 'zh-TW', 1),
+(19, 'website_logo', 'img/favicon.ico', '', 'zh-TW', 1),
+(20, 'website_email', 'service@fanswoo.com', '', 'zh-TW', 1),
+(21, 'website_metatag', '網頁設計、fansWoo design,網頁設計,網站設計,網頁設計公司,台北網頁設計,瘋沃網頁設計\r\n中小型企業形象網站網頁設計瘋沃科技網頁設計公司提供最優質的網頁設計、網站架設、多媒體網頁設計等多項服務. 我們的客戶來自於各行各業，以最全面性的服務來滿足您對於網頁設計的需求', '', 'zh-TW', 1),
+(22, 'sales_target_Jan', '', 'sales_target', 'zh-TW', 1),
+(23, 'sales_target_Feb', '', 'sales_target', 'zh-TW', 1),
+(24, 'sales_target_Mar', '', 'sales_target', 'zh-TW', 1),
+(25, 'sales_target_Apr', '', 'sales_target', 'zh-TW', 1),
+(26, 'sales_target_May', '', 'sales_target', 'zh-TW', 1),
+(27, 'sales_target_Jun', '', 'sales_target', 'zh-TW', 1),
+(28, 'sales_target_Jul', '', 'sales_target', 'zh-TW', 1),
+(29, 'sales_target_Aug', '', 'sales_target', 'zh-TW', 1),
+(30, 'sales_target_Sep', '', 'sales_target', 'zh-TW', 1),
+(31, 'sales_target_Oct', '', 'sales_target', 'zh-TW', 1),
+(32, 'sales_target_Nov', '', 'sales_target', 'zh-TW', 1),
+(33, 'sales_target_Dec', '200000', 'sales_target', 'zh-TW', 1);
+=======
 (8, 'bank_code', '中國信託（銀行代號：700）', 'shop_transfer', 'zh-TW', 1),
 (9, 'bank_account', '123-456-789-000', 'shop_transfer', 'zh-TW', 1),
 (10, 'bank_account_name', '瘋沃科技有限公司', 'shop_transfer', 'zh-TW', 1),
@@ -1084,6 +1654,7 @@ INSERT INTO `fs_setting` (`settingid`, `keyword`, `value`, `modelname`, `locale`
 (27, 'smtp_host', 'smtp.gmail.com', 'smtp', 'zh-TW', 1),
 (28, 'smtp_username', 'fanswoo', 'smtp', 'zh-TW', 1),
 (29, 'smtp_ssl_checkbox', '1', 'smtp', 'zh-TW', 1);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -1103,6 +1674,8 @@ CREATE TABLE IF NOT EXISTS `fs_shop_cart` (
   UNIQUE KEY `cartid` (`cartid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
+=======
 --
 -- 資料表的匯出資料 `fs_shop_cart`
 --
@@ -1233,6 +1806,7 @@ INSERT INTO `fs_shop_cart` (`cartid`, `orderid`, `productid`, `stockid`, `uid`, 
 (528623, 528552, 528502, 6, 528502, 1000, 5, 1),
 (528624, 528553, 528502, 6, 528502, 1000, 5, 1);
 
+>>>>>>> origin/develop
 -- --------------------------------------------------------
 
 --
@@ -1277,6 +1851,10 @@ CREATE TABLE IF NOT EXISTS `fs_shop_order` (
 --
 
 INSERT INTO `fs_shop_order` (`orderid`, `uid`, `receive_name`, `receive_phone`, `receive_time`, `receive_address`, `receive_remark`, `pay_paytype`, `pay_sendtype`, `pay_price_total`, `pay_price_freight`, `pay_account`, `pay_name`, `pay_paytime`, `pay_remark`, `pay_status`, `transport_mode`, `transport_id`, `transport_base_price`, `transport_additional_price`, `coupon_count`, `tradein_count`, `paycheck_status`, `product_status`, `order_status`, `sendtime`, `setuptime`, `updatetime`, `status`) VALUES
+<<<<<<< HEAD
+(528501, 528505, '張琬君', '0912345678', NULL, '台北市', NULL, 'atm', NULL, 0, 0, '', '', '2015-11-20 10:46:00', '', 0, '', '', 0, 0, 0, 0, 0, 0, 0, '2015-11-20 10:46:00', '2015-11-20 10:46:00', '2015-11-20 10:46:00', 1),
+(528500, 528505, '張琬君', '0912345678', '', '台北市', '', 'atm', NULL, 0, 0, '(700)1234567-1234567', '張琬君', '2015-11-20 10:40:00', '', 1, '', '', 0, 0, 0, 0, 1, 1, 1, '2015-11-20 10:26:03', '2015-11-20 10:26:03', '2015-12-03 16:04:26', 1);
+=======
 (528501, 528503, '123dfgfdgfdg', '0', '0', '', '', '', '', 0, 0, '', '', '0000-00-00 00:00:00', '', 0, '', '', 0, 0, 0, 0, 0, 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
 (528502, 528503, '楊義', '0917465550', 'night', '台北市', '備註', 'ATM', '', 5550, 0, 'test', 'test', '0000-00-00 00:00:00', 'test', 0, '', '', 0, 0, 0, 0, 1, 1, 1, '2015-04-20 16:44:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1),
 (528503, 528503, 'kkk', 'test', 'morning', 'test', 'test', '', '', 100, 0, '', '', '0000-00-00 00:00:00', '', 0, '', '', 0, 0, 0, 0, 1, 1, 1, '2015-03-22 18:41:06', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1),
@@ -1475,6 +2053,7 @@ INSERT INTO `fs_showpiece` (`showpieceid`, `uid`, `name`, `price`, `classids`, `
 (528507, 528501, 'test', 0, '', '', '', '', '', 0, '2015-04-29 13:43:19', 1),
 (528508, 528501, 'test', 0, '', '', '', '', '', 0, '2015-04-29 13:43:47', 1),
 (528509, 528501, 'test', 0, '', '', '', '', '', 0, '2015-08-24 06:48:38', 1);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -1502,10 +2081,14 @@ INSERT INTO `fs_user` (`uid`, `email`, `username`, `picids`, `groupids`, `update
 (528504, 'test@fanswoo.com', 'test@fanswoo.com', '', '100', '2015-09-15 22:56:05', 1),
 (528503, 'admin2@fanswoo.com', '一般管理員', '', '3', '2015-08-16 01:24:52', 1),
 (528502, 'admin@fanswoo.com', '總管理員', '', '2', '2015-09-16 01:33:39', 1),
+<<<<<<< HEAD
+(528505, 'mimi@fanswoo.com', 'mimi@fanswoo.com', '', '2', '2015-12-18 11:32:13', 1);
+=======
 (528505, 'mimi@fanswoo.com', 'mimi@fanswoo.com', '', '100', '2015-10-21 14:23:12', 1),
 (528506, 'mimi2@fanswoo.com', 'mimi2@fanswoo.com', '', '100', '2015-10-21 14:24:11', -1),
 (528507, 'mimi3@fanswoo.com', 'mimi3@fanswoo.com', '', '100', '2015-10-21 14:29:05', -1),
 (528508, 'mimi4@fanswoo.com', 'mimi4@fanswoo.com', '', '3', '2015-10-21 14:38:57', 1);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -1531,10 +2114,14 @@ INSERT INTO `fs_user_field_shop` (`uid`, `receive_name`, `receive_phone`, `recei
 (528502, '', '', '', 5),
 (528504, 'test', '123', 'rrr', 454),
 (528503, '', '', '', 0),
+<<<<<<< HEAD
+(528505, '', '', '', 0);
+=======
 (528505, '', '', '', 0),
 (528506, '', '', '', 0),
 (528507, '', '', '', 0),
 (528508, '', '', '', 0);
+>>>>>>> origin/develop
 
 -- --------------------------------------------------------
 
@@ -1587,10 +2174,46 @@ INSERT INTO `fs_user_verification` (`uid`, `email`, `password`, `password_salt`,
 (528503, 'admin2@fanswoo.com', 'b2b5410b5f94eea7feff94aab7ba763e', 'f3ab44', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528502, 'admin@fanswoo.com', 'caf77603f131efe6b052eba84f65ff9d', 'db5afb', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528504, 'test@fanswoo.com', '4476e1b3311ef7703d03d8b7ec4d503c', '4da76f', '12345678', '', '0000-00-00 00:00:00', 0, 0),
+<<<<<<< HEAD
+(528505, 'mimi@fanswoo.com', '7b4147d7a28f8b61543b9dffd42f702c', '842bb8', '12345678', '', '0000-00-00 00:00:00', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_wordpress_order`
+--
+
+CREATE TABLE IF NOT EXISTS `fs_wordpress_order` (
+  `wordpress_orderid` mediumint(8) NOT NULL,
+  `orderid` mediumint(8) NOT NULL,
+  `uid` mediumint(8) NOT NULL,
+  `username` char(100) NOT NULL,
+  `email` char(100) NOT NULL,
+  `phone` char(100) NOT NULL,
+  `company` char(100) NOT NULL,
+  `content` text NOT NULL,
+  `classtype` char(100) NOT NULL,
+  `address` char(100) NOT NULL,
+  `years` mediumint(2) NOT NULL,
+  `price` mediumint(8) NOT NULL,
+  `updatetime` datetime NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `orderid` (`wordpress_orderid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_wordpress_order`
+--
+
+INSERT INTO `fs_wordpress_order` (`wordpress_orderid`, `orderid`, `uid`, `username`, `email`, `phone`, `company`, `content`, `classtype`, `address`, `years`, `price`, `updatetime`, `status`) VALUES
+(528500, 528500, 528505, '張琬君', 'mimi@fanswoo.com', '0912345678', 'Fanswoo', '', '微型主機', '台北市', 2, 16800, '2015-11-20 10:26:03', 1),
+(528501, 528501, 528505, '張琬君', 'mimi@fanswoo.com', '0912345678', 'Fanswoo', '', '標準主機', '台北市', 3, 54000, '2015-11-20 10:46:00', 1);
+=======
 (528505, 'mimi@fanswoo.com', '5762e5810ea97dee585a85f00ebc671c', 'a1f858', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528506, 'mimi2@fanswoo.com', 'fc5089e9569b393419ce23886eb56584', 'd16087', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528507, 'mimi3@fanswoo.com', 'b7c6354d6dc4a79ab49db3bb9d0453d1', '393f7d', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528508, 'mimi4@fanswoo.com', 'acc0e3fe1d3076fd0f79ccc574e13d17', '6cbad8', '12345678', '', '0000-00-00 00:00:00', 0, 0);
+>>>>>>> origin/develop
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

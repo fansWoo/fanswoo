@@ -10,16 +10,22 @@
 		<?=form_open('user/register_post')?>
 			<div class="paragraph">
 				<p>會員電子郵件：</p>
-				<p><input type="text" name="email_Str" placeholder="請輸入您的電子郵件"></p>
+				<p><input type="text" name="email" placeholder="請輸入您的電子郵件"></p>
 			</div>
 			<div class="paragraph">
 				<p>會員密碼：</p>
-				<p><input type="password" name="password_Str" placeholder="請輸入您的密碼"></p>
+				<p><input type="password" name="password" placeholder="請輸入您的密碼"></p>
 			</div>
 			<div class="paragraph">
 				<p>確認密碼：</p>
-				<p><input type="password" name="password2_Str" placeholder="請再次輸入密碼"></p>
+				<p><input type="password" name="password2" placeholder="請再次輸入密碼"></p>
 			</div>
+			<?if( !empty($google_recaptcha_Setting->value) ):?>
+			<div class="paragraph" style=" margin-bottom: 20px;">
+				<script src='https://www.google.com/recaptcha/api.js'></script>
+				<div class="g-recaptcha" style=" transform:scale(1.12); transform-origin:0 0;" data-sitekey="6LfvihsTAAAAAITvx4rzebY3WfyWjDbUfMyBBTMQ"></div>
+			</div>
+			<?endif?>
 			<div class="paragraph">
 				<input type="submit" value="確認送出">
 			</div>

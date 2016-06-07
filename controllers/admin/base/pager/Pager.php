@@ -2,70 +2,67 @@
 
 class Pager_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'base';
-    protected $child2_name_Str = 'pager';
-    protected $child3_name_Str = 'pager';
-
     public function __construct()
     {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function edit()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
             
-        $pagerid_Num = $this->input->get('pagerid');
+        $pagerid = $this->input->get('pagerid');
 
-        $data['PagerField'] = new PagerField();
-        $data['PagerField']->construct_db(array(
-            'db_where_Arr' => array(
-                'pager.pagerid' => $pagerid_Num
-            )
-        ));
+        if(empty($pagerid))
+        {
+            $data['PagerField'] = new PagerField([
+                'db_where_arr' => [
+                    'pager.pagerid' => $pagerid
+                ]
+            ]);
+        }
+        else
+        {
+            $Pager = new Pager([
+                'db_where_arr' => [
+                    'pagerid' => $pagerid
+                ]
+            ]);
 
-        $data['PagerClassMetaList'] = new ObjList();
-        $data['PagerClassMetaList']->construct_db(array(
-            'db_where_Arr' => [
+            if( $Pager->pagerid == 0 )
+            {
+                header('Location: '.base_url('admin/base/pager/pager/edit'));
+            }
+            else
+            {
+                $data['PagerField'] = new PagerField([
+                    'db_where_arr' => [
+                        'pager.pagerid' => $pagerid
+                    ]
+                ]);
+            }
+        }
+
+        $data['PagerClassMetaList'] = new ObjList([
+            'db_where_arr' => [
                 'modelname' => 'pager'
             ],
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
 
-        $data['class_ClassMetaList'] = new ObjList();
-        $data['class_ClassMetaList']->construct_db(array(
-            'db_where_Arr' => array(
-                'modelname_Str' => 'pager2'
-            ),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
-        $data['global']['js'][] = 'tool/jquery.form.js';
+        $data['class_ClassMetaList'] = new ObjList([
+            'db_where_arr' => [
+                'modelname' => 'pager2'
+            ],
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -75,123 +72,97 @@ class Pager_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function edit_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $this->form_validation->set_rules('title_Str', '頁面標題', 'required');
-        
-        $pagerid_Num = $this->input->post('pagerid_Num', TRUE);
+        //基本post欄位
+        $pagerid = $this->input->post('pagerid', TRUE);
+        $title = $this->input->post('title', TRUE, '頁面標題', 'required');
+        $slug = $this->input->post('slug', TRUE);
+        $href = $this->input->post('href', TRUE);
+        $target = $this->input->post('target', TRUE);
+        $classids_arr = $this->input->post('classids_arr', TRUE);
+        $content = $this->input->post('content');
+        $prioritynum = $this->input->post('prioritynum', TRUE);
+        if ($this->form_validation->check() == FALSE) return FALSE;
 
-        if ($this->form_validation->run() !== FALSE)
+        if(!empty($target))
         {
-            //基本post欄位
-            $title_Str = $this->input->post('title_Str', TRUE);
-            $slug_Str = $this->input->post('slug_Str', TRUE);
-            $href_Str = $this->input->post('href_Str', TRUE);
-            $target_Num = $this->input->post('target_Num', TRUE);
-            $classids_Arr = $this->input->post('classids_Arr', TRUE);
-            $content_Str = $this->input->post('content_Str');
-            $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
-
-            if(!empty($target_Num))
-            {
-                $target_Num = 1;
-            }
-
-            //建構Pager物件，並且更新
-            $PagerField = new PagerField();
-            $PagerField->construct(array(
-                'pagerid_Num' => $pagerid_Num,
-                'title_Str' => $title_Str,
-                'slug_Str' => $slug_Str,
-                'href_Str' => $href_Str,
-                'target_Num' => $target_Num,
-                'classids_Arr' => $classids_Arr,
-                'content_Str' => $content_Str,
-                'prioritynum_Num' => $prioritynum_Num
-            ));
-            $PagerField->update();
-
-            //送出成功訊息
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/base/pager/pager/tablelist/'
-            ));
+            $target = 1;
         }
-        else
-        {
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => 'admin/base/pager/pager/edit/?pagerid='.$pagerid_Num
-            ));
-        }
+
+        //建構Pager物件，並且更新
+        $PagerField = new PagerField([
+            'pagerid' => $pagerid,
+            'title' => $title,
+            'slug' => $slug,
+            'href' => $href,
+            'target' => $target,
+            'classids_arr' => $classids_arr,
+            'content' => $content,
+            'prioritynum' => $prioritynum
+        ]);
+        $PagerField->update();
+
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => 'admin/base/pager/pager/tablelist/'
+        ]);
     }
 
     public function tablelist()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['search_pagerid_Num'] = $this->input->get('pagerid');
-        $data['search_title_Str'] = $this->input->get('title');
-        $data['search_class_slug_Str'] = $this->input->get('class_slug');
+        $data['search_pagerid'] = $this->input->get('pagerid');
+        $data['search_title'] = $this->input->get('title');
+        $data['search_class_slug'] = $this->input->get('class_slug');
 
-        $limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 20;
+        $limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $class_ClassMeta = new ClassMeta();
-        $class_ClassMeta->construct_db(array(
-            'db_where_Arr' => array(
-                'slug' => $data['search_class_slug_Str']
-            )
-        ));
+        $class_ClassMeta = new ClassMeta([
+            'db_where_arr' => [
+                'slug' => $data['search_class_slug']
+            ]
+        ]);
 
-        $data['PagerList'] = new ObjList();
-        $data['PagerList']->construct_db(array(
-            'db_where_Arr' => array(
-                'pagerid' => $data['search_pagerid_Num']
-            ),
-            'db_where_like_Arr' => array(
-                'title_Str' => $data['search_title_Str']
-            ),
-            'db_where_or_Arr' => array(
-                'classids' => array($class_ClassMeta->classid_Num)
-            ),
-            'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('updatetime', 'DESC')
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'Pager',
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
-        ));
-        $data['page_link'] = $data['PagerList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
+        $data['PagerList'] = new ObjList([
+            'db_where_arr' => [
+                'pagerid' => $data['search_pagerid']
+            ],
+            'db_where_like_arr' => [
+                'title' => $data['search_title']
+            ],
+            'db_where_or_arr' => [
+                'classids' => [$class_ClassMeta->classid]
+            ],
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'Pager',
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+        ]);
+        $data['page_link'] = $data['PagerList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
-        $data['PagerClassMetaList'] = new ObjList();
-        $data['PagerClassMetaList']->construct_db(array(
-            'db_where_Arr' => [
+        $data['PagerClassMetaList'] = new ObjList([
+            'db_where_arr' => [
                 'modelname' => 'pager'
             ],
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -201,66 +172,116 @@ class Pager_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 
     }
 
     public function tablelist_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_pagerid_Num = $this->input->post('search_pagerid_Num', TRUE);
-        $search_class_slug_Str = $this->input->post('search_class_slug_Str', TRUE);
-        $search_title_Str = $this->input->post('search_title_Str', TRUE);
+        $search_pagerid = $this->input->post('search_pagerid', TRUE);
+        $search_class_slug = $this->input->post('search_class_slug', TRUE);
+        $search_title = $this->input->post('search_title', TRUE);
 
-        $url_Str = base_url('admin/base/pager/pager/tablelist/?');
+        $url = 'admin/base/pager/pager/tablelist/?';
 
-        if(!empty($search_pagerid_Num))
+        if(!empty($search_pagerid))
         {
-            $url_Str = $url_Str.'&pagerid='.$search_pagerid_Num;
+            $url = $url.'&pagerid='.$search_pagerid;
         }
 
-        if(!empty($search_class_slug_Str))
+        if(!empty($search_class_slug))
         {
-            $url_Str = $url_Str.'&class_slug='.$search_class_slug_Str;
+            $url = $url.'&class_slug='.$search_class_slug;
         }
 
-        if(!empty($search_title_Str))
+        if(!empty($search_title))
         {
-            $url_Str = $url_Str.'&title='.$search_title_Str;
+            $url = $url.'&title='.$search_title;
         }
 
-        header("Location: $url_Str");
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => $url
+        ]);
     }
 
     public function delete()
     {
-        $hash_Str = $this->input->get('hash');
-        $pagerid_Num = $this->input->get('pagerid');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $Pager = new Pager();
-            $Pager->construct(array('pagerid_Num' => $pagerid_Num));
-            $Pager->delete();
+            $PagerField = new PagerField([
+                'pagerid' => $this->input->get('pagerid')
+            ]);
+            $PagerField->delete();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
                 'url' => 'admin/base/pager/pager/tablelist'
-            ));
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
                 'url' => 'admin/base/pager/pager/tablelist'
-            ));
+            ]);
         }
     }
 
+    public function delete_batch_post()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $pagerid_arr = $this->input->post('pagerid_arr[]');
+
+        //CSRF過濾
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
+        {
+            if(!empty($pagerid_arr))
+            {
+                foreach($pagerid_arr as $key => $pagerid)
+                {
+                    $PagerField = new PagerField([
+                        'pagerid' => $pagerid
+                    ]);
+                    $PagerField->delete();
+                }
+            }
+            else
+            {
+                $this->load->model('Message');
+                $this->Message->show([
+                    'message' => '未選擇要刪除的動態頁面'
+                ]);
+                return TRUE;
+            }
+
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '刪除成功',
+                'url' => 'admin/base/pager/pager/tablelist'
+            ]);
+            return TRUE;
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/base/pager/pager/tablelist'
+            ]);
+            return TRUE;
+        }
+    }
 }
 
 ?>

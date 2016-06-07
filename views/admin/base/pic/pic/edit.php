@@ -1,12 +1,34 @@
 <?=$temp['header_up']?>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2>圖片管理 - 新增圖片</h2>
+<h2><?=$child2_title?> - <?=$child3_title?></h2>
 <div class="contentBox allWidth">
-	<h3>新增圖片</h3>
-	<h4>請填寫欲新增之圖片資訊</h4>
-    <?php echo form_open_multipart("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
-    <?if(empty($PicObj->picid_Num)):?>
+	<h3><?=$child3_title?> > <?if(!empty($PicObj->picid)):?>編輯<?else:?>新增<?endif?></h3>
+    <h4>請填寫<?=$child3_title?>之詳細資訊</h4>
+    <?php echo form_open_multipart("admin/$child1_name/$child2_name/$child3_name/{$child4_name}_post/")?>
+    <?if(!empty($PicObj->picid)):?>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                圖片標題
+            </div>
+            <div class="spanLineLeft">
+                <?=$PicObj->title?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                圖片擁有人
+            </div>
+            <div class="spanLineLeft">
+                <?=$PicObj->uid_User->email?>
+            </div>
+        </div>
+    </div>
+    <?endif?>
+    <?if(empty($PicObj->picid)):?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
@@ -21,7 +43,7 @@
                             <div class="pic_copy"><input type="text" fanswoo-input_copy readonly /></div>
                             <div fanswoo-pic_delete class="pic_delete">刪除圖片</div>
                         </div>
-                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_Arr[]">
+                        <input type="hidden" fanswoo-picid_input_hidden_picid name="picids_arr[]">
                     </div>
                 </div>
 		    </div>
@@ -34,7 +56,7 @@
                 圖片預覽
             </div>
             <div class="spanLineLeft width500">
-                <img src="<?if(!empty($PicObj->path_Arr['w300h300'])):?><?=$PicObj->path_Arr['w300h300']?><?endif?>">
+                <img style="max-width:500px;" src="<?if(!empty($PicObj->path_arr['w0h0'])):?><?=$PicObj->path_arr['w0h0']?><?endif?>">
 		    </div>
 		</div>
 	</div>
@@ -44,10 +66,10 @@
                 圖片網址
             </div>
             <div class="spanLineLeft width500">
-                <input type="text" value="<?=$PicObj->path_Arr['w0h0']?>" fanswoo-input_copy readonly>
+                <input type="text" value="<?=$PicObj->path_arr['w0h0']?>" fanswoo-input_copy readonly style="width:95%;">
                 <br>
-                <a href="<?=$PicObj->path_Arr['w0h0']?>" target="_blank">
-                    <?=$PicObj->path_Arr['w0h0']?>
+                <a href="<?=$PicObj->path_arr['w0h0']?>" target="_blank">
+                    <?=$PicObj->path_arr['w0h0']?>
                 </a>
 		    </div>
 		</div>
@@ -59,21 +81,21 @@
                 分類標籤
             </div>
             <div class="spanLineLeft width300">
-                <?if(!empty($PicObj->class_ClassMetaList->obj_Arr)):?>
+                <?if(!empty($PicObj->class_ClassMetaList->obj_arr)):?>
                 <div>
-                    <select name="classids_Arr[]">
+                    <select name="classids_arr[]">
                         <option value="">沒有分類標籤</option>
-                        <?foreach($ClassMetaList->obj_Arr as $key2 => $value2_ClassMeta):?>
-                        <option value="<?=$value2_ClassMeta->classid_Num?>"<?if($PicObj->class_ClassMetaList->obj_Arr[0]->classid_Num == $value2_ClassMeta->classid_Num):?> selected<?endif?>><?=$value2_ClassMeta->classname_Str?></option>
+                        <?foreach($ClassMetaList->obj_arr as $key2 => $value2_ClassMeta):?>
+                        <option value="<?=$value2_ClassMeta->classid?>"<?if($PicObj->class_ClassMetaList->obj_arr[0]->classid == $value2_ClassMeta->classid):?> selected<?endif?>><?=$value2_ClassMeta->classname?></option>
                         <?endforeach?>
                     </select>
                 </div>
                 <?else:?>
                 <div>
-                    <select name="classids_Arr[]">
+                    <select name="classids_arr[]">
                         <option value="">沒有分類標籤</option>
-                        <?foreach($ClassMetaList->obj_Arr as $key => $value_ClassMeta):?>
-                        <option value="<?=$value_ClassMeta->classid_Num?>"><?=$value_ClassMeta->classname_Str?></option>
+                        <?foreach($ClassMetaList->obj_arr as $key => $value_ClassMeta):?>
+                        <option value="<?=$value_ClassMeta->classid?>"><?=$value_ClassMeta->classname?></option>
                         <?endforeach?>
                     </select>
                 </div>
@@ -84,18 +106,18 @@
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/album/tablelist">管理分類標籤</a>
+                <a href="admin/<?=$child1_name?>/<?=$child2_name?>/album/tablelist">管理分類標籤</a>
             </div>
         </div>
     </div>
-    <?if(!empty($PicObj->picid_Num)):?>
+    <?if(!empty($PicObj->picid)):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 更新日期
             </div>
             <div class="spanLineLeft">
-                <?=$PicObj->updatetime_DateTime->datetime_Str?>
+                <?=$PicObj->updatetime_DateTime->datetime?>
             </div>
         </div>
     </div>
@@ -105,9 +127,9 @@
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
-                <?if(!empty($PicObj->picid_Num)):?><input type="hidden" name="picid_Num" value="<?=$PicObj->picid_Num?>"><?endif?>
+                <?if(!empty($PicObj->picid)):?><input type="hidden" name="picid" value="<?=$PicObj->picid?>"><?endif?>
                 <input type="submit" class="submit" value="儲存變更">
-                <?if(!empty($PicObj->picid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?picid=<?=$PicObj->picid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
+                <?if(!empty($PicObj->picid)):?><span class="submit gray" onClick="fanswoo.check_href_action('刪除後將進入回收空間，確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?picid=<?=$PicObj->picid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title?></span><?endif?>
             </div>
         </div>
 	</div>

@@ -49,7 +49,7 @@ $(function(){
 			$('.content9 .choose_box').removeClass('hover');
 			$('.content9 h4').removeClass('hover');
 			$('.content9 .choose_box[data-bgname=' + bgname + '] ').addClass('hover');
-			$('.content9 .choose_box[data-bgname=' + bgname + '] input').attr('name', 'money_Str');
+			$('.content9 .choose_box[data-bgname=' + bgname + '] input').attr('name', 'money');
 			$('.content9 h4[data-bgname=' + bgname + ']').addClass('hover');	
 		});
 		if(window_width > 500 && window_width <= 1400){			
@@ -257,7 +257,7 @@ $(function(){
 			});		
 		}
 	
-	$('a[href^=#]').click(function () {
+	$(document).on('click', "a[href^='#']", function(){
 		var speed = 500;
 		var href = $(this).attr("href");
 		var target = $(href == "#" || href == "" ? 'html' : href);
@@ -293,7 +293,7 @@ $(function(){
 		$('.need_child').css('display', 'none');
 		$('.need_child').addClass('displaynone');
 		$('.need_child[data-selected=' + selected + ']').css('display', 'block');
-		$('.need_child[data-selected=' + selected + ']').attr('name', 'classtype2_Str');
+		$('.need_child[data-selected=' + selected + ']').attr('name', 'classtype2');
 		$('.need_child option').removeAttr('selected');
 		$('.need_child[data-selected=' + selected + '] option:first').attr('selected', true);
 	});
@@ -735,23 +735,23 @@ $(function(){
 				<?php echo form_open("Contact/contact_post/")?>
 				<div class="leftBox">
 					<div class="area">
-						<p>您的姓名</p><input type="text" class="name" name="username_Str" placeholder="請填寫您的姓名" required>
+						<p>您的姓名</p><input type="text" class="name" name="username" placeholder="請填寫您的姓名" required>
 					</div>
 					<div class="area">
-						<p>公司名稱</p><input type="text" class="company" name="company_Str" placeholder="請填寫公司名稱" required>
+						<p>公司名稱</p><input type="text" class="company" name="company" placeholder="請填寫公司名稱" required>
 					</div>	
 					<div class="area">
-						<p>聯繫電話</p><input type="text" class="telphone" name="phone_Str" placeholder="請填寫聯繫電話" required>
+						<p>聯繫電話</p><input type="text" class="telphone" name="phone" placeholder="請填寫聯繫電話" required>
 					</div>
 					<div class="area">	
-						<p>電子郵件</p><input type="text" class="email" name="email_Str" placeholder="請填寫電子郵件" required>
+						<p>電子郵件</p><input type="text" class="email" name="email" placeholder="請填寫電子郵件" required>
 					</div>
 					<div class="area">		
-						<p>公司地址</p><input type="text" class="address" name="address_Str" placeholder="請填寫公司地址" required>
+						<p>公司地址</p><input type="text" class="address" name="address" placeholder="請填寫公司地址" required>
 					</div>
 					<div class="area">
 						<p>詢問項目</p>
-						<select class="need" name="classtype_Str" required>
+						<select class="need" name="classtype" required>
 							<option value="">請選擇詢問項目</option>
 							<option value="網站開發">網站開發</option>
 							<option value="程式系統開發">程式系統開發</option>
@@ -798,7 +798,7 @@ $(function(){
 					</div>
 					<div class="area phone">
 						<span>您的預算：</span>
-						<select class="money" name="money_Str">
+						<select class="money" name="money">
 							<option value="">請選擇預算</option>
 							<option value="15萬以下">15萬以下</option>
 							<option value="15~25萬">15~25萬</option>
@@ -811,7 +811,7 @@ $(function(){
 					</div>
 				</div>
 				<div class="rightBox">
-					<textarea name="content_Str" placeholder="我還想補充..."></textarea>
+					<textarea name="content" placeholder="我還想補充..."></textarea>
 				</div>
 				<div class="price_choose">
 					<p>預算選擇</p>
@@ -842,7 +842,7 @@ $(function(){
 					</div>
 				</div>
 					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
-					<input type="hidden" name="previous_url_Str" value="<?=$previous_url_Str?>">
+					<input type="hidden" name="previous_url" value="<?=$previous_url?>">
 				</form>
 			</div>
 			<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page -->

@@ -1,28 +1,28 @@
 <?=$temp['header_up']?>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2><?=$child2_title_Str?> - <?=$child3_title_Str?></h2>
+<h2><?=$child2_title?> - <?=$child3_title?></h2>
 <div class="contentBox allWidth">
-    <h3><?=$child3_title_Str?> > <?if(!empty($Contact->contactid_Num)):?>編輯<?else:?>新增<?endif?></h3>
-	<h4>請填寫<?=$child3_title_Str?>之詳細資訊</h4>
-	<?php echo form_open_multipart("admin/$child1_name_Str/$child2_name_Str/$child3_name_Str/{$child4_name_Str}_post/") ?>
+    <h3><?=$child3_title?> > <?if(!empty($Contact->contactid)):?>編輯<?else:?>新增<?endif?></h3>
+	<h4>請填寫<?=$child3_title?>之詳細資訊</h4>
+	<?php echo form_open_multipart("admin/$child1_name/$child2_name/$child3_name/{$child4_name}_post/") ?>
 	<div class="spanLine">
 	    <div class="spanStage">
             <div class="spanLineLeft">
                 聯繫人名稱
             </div>
             <div class="spanLineLeft width500">
-                <?=$Contact->username_Str?>
+                <?=$Contact->username?>
 		    </div>
 		</div>
 	</div>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                公司名稱
+                電子郵件
             </div>
             <div class="spanLineLeft width500">
-                <?=$Contact->company_Str?>
+                <?=$Contact->email?>
             </div>
         </div>
     </div>
@@ -32,57 +32,17 @@
                 聯繫電話
             </div>
             <div class="spanLineLeft width500">
-                <?=$Contact->phone_Str?>
+                <?=$Contact->phone?>
             </div>
         </div>
     </div>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                電子郵件
+                詢問類別
             </div>
             <div class="spanLineLeft width500">
-                <?=$Contact->email_Str?>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                公司地址
-            </div>
-            <div class="spanLineLeft width500">
-                <?=$Contact->address_Str?>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                詢問項目
-            </div>
-            <div class="spanLineLeft width500">
-                <?=$Contact->classtype_Str?>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                主要項目
-            </div>
-            <div class="spanLineLeft width500">
-                <?=$Contact->classtype2_Str?>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                預算
-            </div>
-            <div class="spanLineLeft width500">
-                <?=$Contact->money_Str?>
+                <?=$Contact->classtype?>
             </div>
         </div>
     </div>
@@ -92,7 +52,7 @@
                 聯繫內容
             </div>
             <div class="spanLineLeft width500">
-                <?=$Contact->content_Str?>
+                <?=$Contact->content?>
             </div>
         </div>
     </div>
@@ -102,21 +62,21 @@
                 聯繫狀態
             </div>
             <div class="spanLineLeft width500">
-                <select name="status_process_Num">
-                    <option value="1"<?if($Contact->status_process_Num == 1):?> selected<?endif?>>未處理</option>
-                    <option value="2"<?if($Contact->status_process_Num == 2):?> selected<?endif?>>已處理</option>
+                <select name="status_process">
+                    <option value="1"<?if($Contact->status_process == 1):?> selected<?endif?>>未處理</option>
+                    <option value="2"<?if($Contact->status_process == 2):?> selected<?endif?>>已處理</option>
                 </select>
             </div>
         </div>
     </div>
-    <?if(!empty($Contact->contactid_Num)):?>
+    <?if(!empty($Contact->contactid)):?>
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 聯繫日期
             </div>
             <div class="spanLineLeft">
-                <?=$Contact->updatetime_DateTime->datetime_Str?>
+                <?=$Contact->updatetime_DateTime->datetime?>
             </div>
         </div>
     </div>
@@ -126,9 +86,9 @@
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
-                <?if(!empty($Contact->contactid_Num)):?><input type="hidden" name="contactid_Num" value="<?=$Contact->contactid_Num?>"><?endif?>
-                <input type="submit" class="submit" value="<?if(!empty($Contact->contactid_Num)):?>儲存變更<?else:?>新增產品<?endif?>">
-                <?if(!empty($Contact->contactid_Num)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name_Str?>/<?=$child2_name_Str?>/<?=$child3_name_Str?>/delete/?contactid=<?=$Contact->contactid_Num?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title_Str?></span><?endif?>
+                <?if(!empty($Contact->contactid)):?><input type="hidden" name="contactid" value="<?=$Contact->contactid?>"><?endif?>
+                <input type="submit" class="submit" value="<?if(!empty($Contact->contactid)):?>儲存變更<?else:?>新增產品<?endif?>">
+                <?if(!empty($Contact->contactid)):?><span class="submit gray" onClick="fanswoo.check_href_action('刪除後將進入回收空間，確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?contactid=<?=$Contact->contactid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title?></span><?endif?>
             </div>
         </div>
 	</div>

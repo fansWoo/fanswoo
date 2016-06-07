@@ -2,56 +2,29 @@
 
 class Classmeta_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'base';
-    protected $child2_name_Str = 'advertising';
-    protected $child3_name_Str = 'classmeta';
-
     public function __construct()
     {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function edit()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        //引入GET數值
-        $classid_Num = $this->input->get('classid');
-        $slug_Str = $this->input->get('slug');
+        $classid = $this->input->get('classid');
+        $slug = $this->input->get('slug');
 
         //初始化ClassMeta
-        $data['ClassMeta'] = new ClassMeta();
-        $data['ClassMeta']->construct_db(array(
-            'db_where_Arr' => array(
-                'classid_Num' => $classid_Num,
-                'slug_Str' => $slug_Str
-            ),
-            'db_where_deletenull_Bln' => TRUE
-        ));
-
-        // ec($data['ClassMeta']);
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+        $data['ClassMeta'] = new ClassMeta([
+            'db_where_arr' => [
+                'classid' => $classid,
+                'slug' => $slug
+            ],
+            'db_where_deletenull_bln' => TRUE
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -61,77 +34,64 @@ class Classmeta_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function edit_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $this->form_validation->set_rules('classname_Str', 'classname_Str', 'required');
+        $classid = $this->input->post('classid', TRUE);
+        $classname = $this->input->post('classname', TRUE, '分類名稱', 'required');
+        $slug = $this->input->post('slug', TRUE);
+        $content = $this->input->post('content', TRUE);
+        $prioritynum = $this->input->post('prioritynum', TRUE);
+        if( !$this->form_validation->check() ) return FALSE;
 
+        $class_ClassMeta = new ClassMeta([
+            'classid' => $classid,
+            'classname' => $classname,
+            'slug' => $slug,
+            'content' => $content,
+            'prioritynum' => $prioritynum,
+            'modelname' => 'advertising'
+        ]);
+        $class_ClassMeta->update();
 
-        if ($this->form_validation->run() !== FALSE)
-        {
-            $classid_Num = $this->input->post('classid_Num', TRUE);
-            $classname_Str = $this->input->post('classname_Str', TRUE);
-            $slug_Str = $this->input->post('slug_Str', TRUE);
-            $content_Str = $this->input->post('content_Str', TRUE);
-            $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
-
-            $class_ClassMeta = new ClassMeta();
-            $class_ClassMeta->construct(array(
-                'classid_Num' => $classid_Num,
-                'classname_Str' => $classname_Str,
-                'slug_Str' => $slug_Str,
-                'content_Str' => $content_Str,
-                'prioritynum_Num' => $prioritynum_Num,
-                'modelname_Str' => 'advertising'
-            ));
-            $class_ClassMeta->update(array());
-
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/base/advertising/classmeta/tablelist'
-            ));
-        }
-        else
-        {
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => validation_errors(),
-                'url' => 'admin/base/advertising/classmeta/tablelist'
-            ));
-        }
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => 'admin/base/advertising/classmeta/tablelist'
+        ]);
     }
 
     public function tablelist()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 20;
+        $data['search_classname'] = $this->input->get('classname');
+        $data['search_slug'] = $this->input->get('slug');
 
-        $data['AdvertisingClassList'] = new ObjList();
-        $data['AdvertisingClassList']->construct_db(array(
-            'db_where_Arr' => [
-                'modelname' => 'advertising'
+        $limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
+
+        $data['AdvertisingClassList'] = new ObjList([
+            'db_where_arr' => [
+                'modelname' => 'advertising',
+                'classname' => $data['search_classname'],
+                'slug' => $data['search_slug']
             ],
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
-        ));
-        $data['class_links'] = $data['AdvertisingClassList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+                'classid' => 'ASC'
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'ClassMeta',
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+        ]);
+        $data['class_links'] = $data['AdvertisingClassList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -141,63 +101,68 @@ class Classmeta_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function tablelist_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_classname_Str = $this->input->post('search_classname_Str', TRUE);
-        $search_slug_Str = $this->input->post('search_slug_Str', TRUE);
-        $search_username_Str = $this->input->post('search_username_Str', TRUE);
+        $search_classname = $this->input->post('search_classname', TRUE);
+        $search_slug = $this->input->post('search_slug', TRUE);
+        $search_username = $this->input->post('search_username', TRUE);
 
-        $url_Str = base_url('admin/base/note/classmeta/tablelist/?');
+        $url = 'admin/base/advertising/classmeta/tablelist/?';
 
-        if(!empty($search_classname_Str))
+        if(!empty($search_classname))
         {
-            $url_Str = $url_Str.'&classname='.$search_classname_Str;
+            $url = $url.'&classname='.$search_classname;
         }
 
-        if(!empty($search_slug_Str))
+        if(!empty($search_slug))
         {
-            $url_Str = $url_Str.'&slug='.$search_slug_Str;
+            $url = $url.'&slug='.$search_slug;
         }
 
-        if(!empty($search_username_Str))
+        if(!empty($search_username))
         {
-            $url_Str = $url_Str.'&username='.$search_username_Str;
+            $url = $url.'&username='.$search_username;
         }
 
-        header("Location: $url_Str");
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
     }
 
     public function delete()
     {
-        $hash_Str = $this->input->get('hash');
-        $classid_Num = $this->input->get('classid');
-
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if($this->input->get('hash') == $this->security->get_csrf_hash())
         {
-            $class_ClassMeta = new ClassMeta();
-            $class_ClassMeta->construct(array('classid_Num' => $classid_Num));
-            $class_ClassMeta->delete();
+            $class_ClassMeta = new ClassMeta([
+                'classid' => $this->input->get('classid')
+            ]);
+            $class_ClassMeta->destroy();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
                 'url' => 'admin/base/advertising/classmeta/tablelist/'
-            ));
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
                 'url' => 'admin/base/advertising/classmeta/tablelist/'
-            ));
+            ]);
         }
     }
-
 }
+
+?>

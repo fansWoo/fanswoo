@@ -10,19 +10,19 @@
 		<?=form_open('user/resetpsw_post')?>
 			<div class="paragraph">
 				<p>電子郵件帳號：</p>
-				<p><input type="text" name="email_Str" placeholder="請輸入您的電子信箱帳號" value="<?if(!empty($email_Str)):?><?=$email_Str?><?endif?>"></p>
+				<p><input type="text" name="email" placeholder="請輸入您的電子信箱帳號" value="<?if(!empty($email)):?><?=$email?><?endif?>"></p>
 			</div>
 			<div class="paragraph">
 				<p>信箱驗證碼：</p>
-				<p><input type="text" name="change_email_key_Str" placeholder="請輸入您的信箱驗證碼" value="<?if(!empty($change_email_key_Str)):?><?=$change_email_key_Str?><?endif?>"></p>
+				<p><input type="text" name="change_email_key" placeholder="請輸入您的信箱驗證碼" value="<?if(!empty($change_email_key)):?><?=$change_email_key?><?endif?>"></p>
 			</div>
 			<div class="paragraph">
 				<p>輸入新密碼：</p>
-				<p><input type="password" name="password_Str" placeholder="請輸入您的新密碼"></p>
+				<p><input type="password" name="password" placeholder="請輸入您的新密碼"></p>
 			</div>
 			<div class="paragraph">
 				<p>重複新密碼：</p>
-				<p><input type="password" name="password2_Str" placeholder="請重新輸入您的密碼"></p>
+				<p><input type="password" name="password2" placeholder="請重新輸入您的密碼"></p>
 			</div>
 			<div class="paragraph">
 				<input type="submit" value="確認送出">

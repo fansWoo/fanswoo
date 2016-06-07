@@ -7,7 +7,7 @@ class Index_Controller extends MY_Controller
     	$data = $this->data;
 
 	    //global
-		$data['global']['style'][] = 'temp/style.css';
+		$data['global']['style'][] = 'temp/global.css';
 		$data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
 	    $data['global']['style'][] = 'index.css';

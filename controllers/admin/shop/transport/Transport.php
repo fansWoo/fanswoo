@@ -2,50 +2,25 @@
 
 class Transport_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'shop';
-    protected $child2_name_Str = 'transport';
-    protected $child3_name_Str = 'transport';
-
     public function __construct()
     {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function edit()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
             
-        $transportid_Num = $this->input->get('transportid');
+        $transportid = $this->input->get('transportid');
 
-        $data['transport'] = new Transport();
-        $data['transport']->construct_db(array(
-            'db_where_Arr' => array(
-                'transportid_Num' => $transportid_Num
-            )
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
-        $data['global']['js'][] = 'tool/jquery.form.js';
+        $data['Transport'] = new Transport([
+            'db_where_arr' => [
+                'transportid' => $transportid
+            ]
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -55,118 +30,92 @@ class Transport_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function edit_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $this->form_validation->set_rules('name_Str', '運輸名稱', 'required');
-        $this->form_validation->set_rules('company_Str', '運輸公司', 'required');
+        //基本post欄位
+        $transportid = $this->input->post('transportid', TRUE);
+        $name = $this->input->post('name', TRUE, '運輸名稱', 'required');
+        $company = $this->input->post('company', TRUE, '運輸公司', 'required');
+        $url = $this->input->post('url', TRUE, '輸查貨網址', 'required');
+        $base_price = $this->input->post('base_price', TRUE);
+        $additional_price = $this->input->post('additional_price', TRUE);
+        $prioritynum = $this->input->post('prioritynum', TRUE);
+        if ($this->form_validation->check() == FALSE) return FALSE;
 
-        $transportid_Num = $this->input->post('transportid_Num', TRUE);
+        //檢測不能重複上傳
+        $Transport = new Transport([
+            'db_where_arr' => [
+                'transportid !=' => $transportid,
+                'name' => $name
+            ]
+        ]);
 
-        if ($this->form_validation->run() !== FALSE)
+        if(!empty($Transport->transportid))
         {
-            //基本post欄位
-            $name_Str = $this->input->post('name_Str', TRUE);
-            $company_Str = $this->input->post('company_Str', TRUE);
-            $url_Str = $this->input->post('url_Str', TRUE);
-            $base_price_Num = $this->input->post('base_price_Num', TRUE);
-            $additional_price_Num = $this->input->post('additional_price_Num', TRUE);
-            $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
-
-            //檢測不能重複上傳
-            $transport = new Transport();
-            $transport->construct_db(array(
-                'db_where_Arr' => array(
-                    'transportid_Num !=' => $transportid_Num,
-                    'name_Str' => $name_Str
-                )
-            ));
-
-            if(!empty($transport->transportid_Num))
-            {
-                $this->load->model('Message');
-                $this->Message->show(array(
-                    'message' => '不可重複上傳相同名字的運輸方式',
-                    'url' => 'admin/shop/transport/transport/tablelist'
-                ));
-                return FALSE;
-            }
-
-            //建構Transport物件，並且更新
-            $transport = new Transport();
-            $transport->construct(array(
-                'transportid_Num' => $transportid_Num,
-                'name_Str' => $name_Str,
-                'company_Str' => $company_Str,
-                'url_Str' => $url_Str,
-                'base_price_Num' => $base_price_Num,
-                'additional_price_Num' => $additional_price_Num,
-                'prioritynum_Num' => $prioritynum_Num
-            ));
-            $transport->update();
-
-            //送出成功訊息
             $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
+            $this->Message->show([
+                'message' => '不可重複上傳相同名字的運輸方式',
                 'url' => 'admin/shop/transport/transport/tablelist'
-            ));
+            ]);
+            return FALSE;
         }
-        else
-        {
-            $validation_errors_Str = validation_errors();
-            $validation_errors_Str = !empty($validation_errors_Str) ? $validation_errors_Str : '設定錯誤' ;
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => $validation_errors_Str,
-                'url' => 'admin/shop/transport/transport/edit/?transportid='.$transportid_Num
-            ));
-        }
+
+        //建構Transport物件，並且更新
+        $Transport = new Transport([
+            'transportid' => $transportid,
+            'name' => $name,
+            'company' => $company,
+            'url' => $url,
+            'base_price' => $base_price,
+            'additional_price' => $additional_price,
+            'prioritynum' => $prioritynum
+        ]);
+        $Transport->update();
+
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => 'admin/shop/transport/transport/tablelist'
+        ]);
     }
 
     public function tablelist()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['search_transportid_Num'] = $this->input->get('transportid');
-        $data['search_name_Str'] = $this->input->get('name');
-        $data['search_company_Str'] = $this->input->get('company');
+        $data['search_transportid'] = $this->input->get('transportid');
+        $data['search_name'] = $this->input->get('name');
+        $data['search_company'] = $this->input->get('company');
 
-        $limitstart_Num = $this->input->get('limitstart');
-        $limitcount_Num = $this->input->get('limitcount');
-        $limitcount_Num = !empty($limitcount_Num) ? $limitcount_Num : 20;
+        $limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $data['transportList'] = new ObjList();
-        $data['transportList']->construct_db(array(
-            'db_where_Arr' => array(
-                'transportid_Num' => $data['search_transportid_Num']
-            ),
-            'db_where_like_Arr' => array(
-                'name_Str' => $data['search_name_Str'],
-                'company_Str' => $data['search_company_Str']
-            ),
-            'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('transportid', 'DESC')
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'model_name_Str' => 'Transport',
-            'limitstart_Num' => $limitstart_Num,
-            'limitcount_Num' => $limitcount_Num
-        ));
+        $data['TransportList'] = new ObjList([
+            'db_where_arr' => [
+                'transportid' => $data['search_transportid']
+            ],
+            'db_where_like_arr' => [
+                'name' => $data['search_name'],
+                'company' => $data['search_company']
+            ],
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+                'transportid' => 'DESC'
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'Transport',
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+        ]);
 
-        $data['page_links'] = $data['transportList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+        $data['page_links'] = $data['TransportList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -176,66 +125,72 @@ class Transport_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
 
     }
 
     public function tablelist_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_transportid_Num = $this->input->post('search_transportid_Num', TRUE);
-        $search_name_Str = $this->input->post('search_name_Str', TRUE);
-        $search_company_Str = $this->input->post('search_company_Str', TRUE);
+        $search_transportid = $this->input->post('search_transportid', TRUE);
+        $search_name = $this->input->post('search_name', TRUE);
+        $search_company = $this->input->post('search_company', TRUE);
 
-        $url_Str = base_url('admin/shop/transport/transport/tablelist/?');
+        $url = 'admin/shop/transport/transport/tablelist/?';
 
-        if(!empty($search_transportid_Num))
+        if(!empty($search_transportid))
         {
-            $url_Str = $url_Str.'&transportid='.$search_transportid_Num;
+            $url = $url.'&transportid='.$search_transportid;
         }
 
-        if(!empty($search_name_Str))
+        if(!empty($search_name))
         {
-            $url_Str = $url_Str.'&name='.$search_name_Str;
+            $url = $url.'&name='.$search_name;
         }
 
-        if(!empty($search_company_Str))
+        if(!empty($search_company))
         {
-            $url_Str = $url_Str.'&company='.$search_company_Str;
+            $url = $url.'&company='.$search_company;
         }
 
-        header("Location: $url_Str");
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
     }
 
     public function delete()
     {
-        $hash_Str = $this->input->get('hash');
-        $transportid_Num = $this->input->get('transportid');
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $hash = $this->input->get('hash');
+        $transportid = $this->input->get('transportid');
 
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if($hash == $this->security->get_csrf_hash())
         {
-            $transport = new Transport();
-            $transport->construct(array('transportid_Num' => $transportid_Num));
-            $transport->delete();
+            $Transport = new Transport([
+                'transportid' => $transportid
+            ]);
+            $Transport->destroy();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
                 'url' => 'admin/shop/transport/transport/tablelist'
-            ));
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
                 'url' => 'admin/shop/transport/transport/tablelist'
-            ));
+            ]);
         }
     }
-
 }
 
 ?>

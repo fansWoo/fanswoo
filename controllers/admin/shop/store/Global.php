@@ -2,48 +2,24 @@
 
 class Global_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'shop';
-    protected $child2_name_Str = 'store';
-    protected $child3_name_Str = 'global';
-
     public function __construct()
     {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function hot()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'hot'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $shop_hot_product_Setting = new Setting();
-        $shop_hot_product_Setting->construct_db([
-            'db_where_Arr' => [
+        $shop_hot_product_Setting = new Setting([
+            'db_where_arr' => [
                 'keyword' => 'shop_hot_product'
             ]
         ]);
-        $data['global']['shop_hot_product'] = $shop_hot_product_Setting->value_Str;
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+        $data['global']['shop_hot_product'] = $shop_hot_product_Setting->value;
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -53,21 +29,21 @@ class Global_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function hot_post()
     {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         $shop_hot_product = $this->input->post('shop_hot_product', TRUE);
 
-        $SettingList = new SettingList();
-        $SettingList->construct([
-            'construct_Arr' => [
+        $SettingList = new SettingList([
+            'construct_arr' => [
                 [
-                    'keyword_Str' => 'shop_hot_product',
-                    'value_Str' => $shop_hot_product,
-                    'modelname_Str' => 'shop'
+                    'keyword' => 'shop_hot_product',
+                    'value' => $shop_hot_product,
+                    'modelname' => 'shop'
                 ]
             ]
         ]);
@@ -75,30 +51,22 @@ class Global_Controller extends MY_Controller {
 
         //送出成功訊息
         $this->load->model('Message');
-        $this->Message->show(array(
+        $this->Message->show([
             'message' => '設定成功',
             'url' => 'admin/shop/store/global/hot'
-        ));
+        ]);
     }
 
     public function coupon()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'coupon'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['coupon_SettingList'] = new SettingList();
-        $data['coupon_SettingList']->construct_db([
-            'db_where_Arr' => [
+        $data['coupon_SettingList'] = new SettingList([
+            'db_where_arr' => [
                 'modelname' => 'shop_coupon'
             ]
         ]);
 
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
-
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
         $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
@@ -107,26 +75,27 @@ class Global_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function coupon_rule_post()
     {
-        $shop_rule_use_coupon_count_Num = $this->input->post('shop_rule_use_coupon_count_Num', TRUE);
-        $shop_rule_use_get_coupon_count_Num = $this->input->post('shop_rule_use_get_coupon_count_Num', TRUE);
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $SettingList = new SettingList();
-        $SettingList->construct([
-            'construct_Arr' => [
+        $shop_rule_use_coupon_count = $this->input->post('shop_rule_use_coupon_count', TRUE);
+        $shop_rule_use_get_coupon_count = $this->input->post('shop_rule_use_get_coupon_count', TRUE);
+
+        $SettingList = new SettingList([
+            'construct_arr' => [
                 [
-                    'keyword_Str' => 'shop_rule_use_coupon_count',
-                    'value_Str' => $shop_rule_use_coupon_count_Num,
-                    'modelname_Str' => 'shop_coupon'
+                    'keyword' => 'shop_rule_use_coupon_count',
+                    'value' => $shop_rule_use_coupon_count,
+                    'modelname' => 'shop_coupon'
                 ],
                 [
-                    'keyword_Str' => 'shop_rule_use_get_coupon_count',
-                    'value_Str' => $shop_rule_use_get_coupon_count_Num,
-                    'modelname_Str' => 'shop_coupon'
+                    'keyword' => 'shop_rule_use_get_coupon_count',
+                    'value' => $shop_rule_use_get_coupon_count,
+                    'modelname' => 'shop_coupon'
                 ]
             ]
         ]);
@@ -134,35 +103,36 @@ class Global_Controller extends MY_Controller {
 
         //送出成功訊息
         $this->load->model('Message');
-        $this->Message->show(array(
+        $this->Message->show([
             'message' => '設定成功',
             'url' => 'admin/shop/store/global/coupon'
-        ));
+        ]);
     }
 
     public function coupon_get_post()
     {
-        $shop_user_register_get_coupon_count_Num = $this->input->post('shop_user_register_get_coupon_count_Num', TRUE);
-        $shop_rule_coupon_count_Num = $this->input->post('shop_rule_coupon_count_Num', TRUE);
-        $shop_rule_get_coupon_count_Num = $this->input->post('shop_rule_get_coupon_count_Num', TRUE);
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $SettingList = new SettingList();
-        $SettingList->construct([
-            'construct_Arr' => [
+        $shop_user_register_get_coupon_count = $this->input->post('shop_user_register_get_coupon_count', TRUE);
+        $shop_rule_coupon_count = $this->input->post('shop_rule_coupon_count', TRUE);
+        $shop_rule_get_coupon_count = $this->input->post('shop_rule_get_coupon_count', TRUE);
+
+        $SettingList = new SettingList([
+            'construct_arr' => [
                 [
-                    'keyword_Str' => 'shop_user_register_get_coupon_count',
-                    'value_Str' => $shop_user_register_get_coupon_count_Num,
-                    'modelname_Str' => 'shop_coupon'
+                    'keyword' => 'shop_user_register_get_coupon_count',
+                    'value' => $shop_user_register_get_coupon_count,
+                    'modelname' => 'shop_coupon'
                 ],
                 [
-                    'keyword_Str' => 'shop_rule_coupon_count',
-                    'value_Str' => $shop_rule_coupon_count_Num,
-                    'modelname_Str' => 'shop_coupon'
+                    'keyword' => 'shop_rule_coupon_count',
+                    'value' => $shop_rule_coupon_count,
+                    'modelname' => 'shop_coupon'
                 ],
                 [
-                    'keyword_Str' => 'shop_rule_get_coupon_count',
-                    'value_Str' => $shop_rule_get_coupon_count_Num,
-                    'modelname_Str' => 'shop_coupon'
+                    'keyword' => 'shop_rule_get_coupon_count',
+                    'value' => $shop_rule_get_coupon_count,
+                    'modelname' => 'shop_coupon'
                 ]
             ]
         ]);
@@ -170,30 +140,22 @@ class Global_Controller extends MY_Controller {
 
         //送出成功訊息
         $this->load->model('Message');
-        $this->Message->show(array(
+        $this->Message->show([
             'message' => '設定成功',
             'url' => 'admin/shop/store/global/coupon'
-        ));
+        ]);
     }
 
     public function tradein()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tradein'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['tradein_SettingList'] = new SettingList();
-        $data['tradein_SettingList']->construct_db([
-            'db_where_Arr' => [
+        $data['tradein_SettingList'] = new SettingList([
+            'db_where_arr' => [
                 'modelname' => 'shop_tradein'
             ]
         ]);
 
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
-
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
         $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
@@ -202,50 +164,51 @@ class Global_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function tradein_post()
     {
-        $shop_rule_use_tradein_money_Num = $this->input->post('shop_rule_use_tradein_money_Num', TRUE);
-        $shop_rule_get_tradein_money_Num = $this->input->post('shop_rule_get_tradein_money_Num', TRUE);
-        $shop_rule_get_tradein_money_type_Str = $this->input->post('shop_rule_get_tradein_money_type_Str', TRUE);
-        $shop_rule_use_tradein_count_Num = $this->input->post('shop_rule_use_tradein_count_Num', TRUE);
-        $shop_rule_get_tradein_count_Num = $this->input->post('shop_rule_get_tradein_count_Num', TRUE);
-        $shop_rule_get_tradein_count_type_Str = $this->input->post('shop_rule_get_tradein_count_type_Str', TRUE);
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $shop_rule_use_tradein_money = $this->input->post('shop_rule_use_tradein_money', TRUE);
+        $shop_rule_get_tradein_money = $this->input->post('shop_rule_get_tradein_money', TRUE);
+        $shop_rule_get_tradein_money_type = $this->input->post('shop_rule_get_tradein_money_type', TRUE);
+        $shop_rule_use_tradein_count = $this->input->post('shop_rule_use_tradein_count', TRUE);
+        $shop_rule_get_tradein_count = $this->input->post('shop_rule_get_tradein_count', TRUE);
+        $shop_rule_get_tradein_count_type = $this->input->post('shop_rule_get_tradein_count_type', TRUE);
 
-        $SettingList = new SettingList();
-        $SettingList->construct([
-            'construct_Arr' => [
+        $SettingList = new SettingList([
+            'construct_arr' => [
                 [
-                    'keyword_Str' => 'shop_rule_use_tradein_money',
-                    'value_Str' => $shop_rule_use_tradein_money_Num,
-                    'modelname_Str' => 'shop_tradein'
+                    'keyword' => 'shop_rule_use_tradein_money',
+                    'value' => $shop_rule_use_tradein_money,
+                    'modelname' => 'shop_tradein'
                 ],
                 [
-                    'keyword_Str' => 'shop_rule_get_tradein_money',
-                    'value_Str' => $shop_rule_get_tradein_money_Num,
-                    'modelname_Str' => 'shop_tradein'
+                    'keyword' => 'shop_rule_get_tradein_money',
+                    'value' => $shop_rule_get_tradein_money,
+                    'modelname' => 'shop_tradein'
                 ],
                 [
-                    'keyword_Str' => 'shop_rule_get_tradein_money_type',
-                    'value_Str' => $shop_rule_get_tradein_money_type_Str,
-                    'modelname_Str' => 'shop_tradein'
+                    'keyword' => 'shop_rule_get_tradein_money_type',
+                    'value' => $shop_rule_get_tradein_money_type,
+                    'modelname' => 'shop_tradein'
                 ],
                 [
-                    'keyword_Str' => 'shop_rule_use_tradein_count',
-                    'value_Str' => $shop_rule_use_tradein_count_Num,
-                    'modelname_Str' => 'shop_tradein'
+                    'keyword' => 'shop_rule_use_tradein_count',
+                    'value' => $shop_rule_use_tradein_count,
+                    'modelname' => 'shop_tradein'
                 ],
                 [
-                    'keyword_Str' => 'shop_rule_get_tradein_count',
-                    'value_Str' => $shop_rule_get_tradein_count_Num,
-                    'modelname_Str' => 'shop_tradein'
+                    'keyword' => 'shop_rule_get_tradein_count',
+                    'value' => $shop_rule_get_tradein_count,
+                    'modelname' => 'shop_tradein'
                 ],
                 [
-                    'keyword_Str' => 'shop_rule_get_tradein_count_type',
-                    'value_Str' => $shop_rule_get_tradein_count_type_Str,
-                    'modelname_Str' => 'shop_tradein'
+                    'keyword' => 'shop_rule_get_tradein_count_type',
+                    'value' => $shop_rule_get_tradein_count_type,
+                    'modelname' => 'shop_tradein'
                 ]
             ]
         ]);
@@ -253,29 +216,21 @@ class Global_Controller extends MY_Controller {
 
         //送出成功訊息
         $this->load->model('Message');
-        $this->Message->show(array(
+        $this->Message->show([
             'message' => '設定成功',
             'url' => 'admin/shop/store/global/tradein'
-        ));
+        ]);
     }
 
     public function transfer()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'transfer'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['transfer_SettingList'] = new SettingList();
-        $data['transfer_SettingList']->construct_db([
-            'db_where_Arr' => [
+        $data['transfer_SettingList'] = new SettingList([
+            'db_where_arr' => [
                 'modelname' => 'shop_transfer'
             ]
         ]);
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -285,39 +240,39 @@ class Global_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function transfer_post()
     {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $bank_code_Str = $this->input->post('bank_code_Str', TRUE);
-        $bank_account_Str = $this->input->post('bank_account_Str', TRUE);
-        $bank_account_name_Str = $this->input->post('bank_account_name_Str', TRUE);
-        $bank_account_remark_Str = $this->input->post('bank_account_remark_Str', TRUE);
+        $bank_code = $this->input->post('bank_code', TRUE);
+        $bank_account = $this->input->post('bank_account', TRUE);
+        $bank_account_name = $this->input->post('bank_account_name', TRUE);
+        $bank_account_remark = $this->input->post('bank_account_remark', TRUE);
 
-        $SettingList = new SettingList();
-        $SettingList->construct([
-            'construct_Arr' => [
+        $SettingList = new SettingList([
+            'construct_arr' => [
                 [
-                    'keyword_Str' => 'bank_code',
-                    'value_Str' => $bank_code_Str,
-                    'modelname_Str' => 'shop_transfer'
+                    'keyword' => 'bank_code',
+                    'value' => $bank_code,
+                    'modelname' => 'shop_transfer'
                 ],
                 [
-                    'keyword_Str' => 'bank_account',
-                    'value_Str' => $bank_account_Str,
-                    'modelname_Str' => 'shop_transfer'
+                    'keyword' => 'bank_account',
+                    'value' => $bank_account,
+                    'modelname' => 'shop_transfer'
                 ],
                 [
-                    'keyword_Str' => 'bank_account_name',
-                    'value_Str' => $bank_account_name_Str,
-                    'modelname_Str' => 'shop_transfer'
+                    'keyword' => 'bank_account_name',
+                    'value' => $bank_account_name,
+                    'modelname' => 'shop_transfer'
                 ],
                 [
-                    'keyword_Str' => 'bank_account_remark',
-                    'value_Str' => $bank_account_remark_Str,
-                    'modelname_Str' => 'shop_transfer'
+                    'keyword' => 'bank_account_remark',
+                    'value' => $bank_account_remark,
+                    'modelname' => 'shop_transfer'
                 ]
 
             ]
@@ -326,10 +281,10 @@ class Global_Controller extends MY_Controller {
 
         //送出成功訊息
         $this->load->model('Message');
-        $this->Message->show(array(
+        $this->Message->show([
             'message' => '設定成功',
             'url' => 'admin/shop/store/global/transfer'
-        ));
+        ]);
     }
 }
 

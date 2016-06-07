@@ -4,7 +4,7 @@ class File_Controller extends MY_Controller {
 
     public function upload_file()
     {
-        $response_Arr = [];
+        $response_arr = [];
 
         $fileids_FilesArr = $this->input->file('fileids_FilesArr');
         foreach($fileids_FilesArr['name'] as $key => $value)
@@ -14,36 +14,36 @@ class File_Controller extends MY_Controller {
                 $file_FileObj = new FileObj();
                 $file_FileObj->construct(array(
                     'filefile_FileArr' => getfile_from_files(array(
-                        'files_Arr' => $fileids_FilesArr,
-                        'key_Str' => $key
+                        'files_arr' => $fileids_FilesArr,
+                        'key' => $key
                     )),
-                    // 'thumb_Str' => 'w50h50,w300h300,w600h600'
+                    // 'thumb' => 'w50h50,w300h300,w600h600'
                 ));
                 $file_upload_Return = $file_FileObj->upload();
                 if( $file_upload_Return === TRUE )
                 {
-                    $file_Arr[] = $file_FileObj;
+                    $file_arr[] = $file_FileObj;
                 }
                 else if ( $file_upload_Return === FALSE)
                 {
-                    $response_Arr['status'] = 'false';
-                    $response_Arr['error_message'] = '未知的錯誤';
-                    echo json_encode($response_Arr);
+                    $response_arr['status'] = 'false';
+                    $response_arr['error_message'] = '未知的錯誤';
+                    echo json_encode($response_arr);
                     return TRUE;
                 }
                 else
                 {
-                    $response_Arr['status'] = 'false';
-                    $response_Arr['error_message'] = $file_upload_Return;
-                    echo json_encode($response_Arr);
+                    $response_arr['status'] = 'false';
+                    $response_arr['error_message'] = $file_upload_Return;
+                    echo json_encode($response_arr);
                     return TRUE;
                 }
             }
         }
-        $response_Arr['status'] = 'true';
-        $response_Arr['error_message'] = '上傳成功';
-        $response_Arr['file_Arr'] = $file_Arr;
-        echo json_encode($response_Arr);
+        $response_arr['status'] = 'true';
+        $response_arr['error_message'] = '上傳成功';
+        $response_arr['file_arr'] = $file_arr;
+        echo json_encode($response_arr);
         return TRUE;
     }
     
@@ -55,7 +55,7 @@ class File_Controller extends MY_Controller {
         if( !empty($fileid) )
         {
             $FileObj = new FileObj();
-            $FileObj->construct(array('fileid_Num' => $fileid));
+            $FileObj->construct(array('fileid' => $fileid));
             $FileObj->delete();
             return TRUE;
         }
@@ -73,26 +73,26 @@ class File_Controller extends MY_Controller {
         {
             $FileObj = new FileObj();
             $FileObj->construct_db([
-                'db_where_Arr' => [
+                'db_where_arr' => [
                     'fileid' => $fileid
                 ]
             ]);
             
-            if( empty($FileObj->fileid_Num) )
+            if( empty($FileObj->fileid) )
             {
                 echo '檔案不存在';
                 return FALSE;
             }
 
             if(
-                $data['User']->uid_Num == $FileObj->uid_Num ||
-                in_array( $data['User']->uid_Num, $FileObj->permission_uids_UserList->uniqueids_Arr )
+                $data['User']->uid == $FileObj->uid ||
+                in_array( $data['User']->uid, $FileObj->permission_uids_UserList->uniqueids_arr )
             )
             {
 
-                $file_name = $FileObj->filename_Str;
+                $file_name = $FileObj->filename;
 
-                $file_path = $FileObj->file_path_Str;
+                $file_path = $FileObj->file_path;
                 $file_size = filesize($file_path);
 
                 header('Pragma: public');

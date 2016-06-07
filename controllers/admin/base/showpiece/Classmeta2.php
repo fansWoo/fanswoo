@@ -2,56 +2,32 @@
 
 class Classmeta2_Controller extends MY_Controller {
 
-    protected $child1_name_Str = 'base';
-    protected $child2_name_Str = 'showpiece';
-    protected $child3_name_Str = 'classmeta2';
-
     public function __construct()
     {
         parent::__construct();
-        $data = $this->data;
 
         $this->load->model('AdminModel');
-        $this->AdminModel->child1_name_Str = $this->child1_name_Str;
-        $this->AdminModel->child2_name_Str = $this->child2_name_Str;
-        $this->AdminModel->child3_name_Str = $this->child3_name_Str;
-
-        if($data['User']->uid_Num == '')
-        {
-            $url = base_url('user/login/?url=admin');
-            header('Location: '.$url);
-        }
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->AdminModel->construct(['data' => $this->data, 'file' => __FILE__ ]);
     }
 
     public function edit()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'edit'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //引入GET數值
-        $classid_Num = $this->input->get('classid');
-        $slug_Str = $this->input->get('slug');
+        $classid = $this->input->get('classid');
+        $slug = $this->input->get('slug');
 
         $uid = $this->session->userdata('uid');
 
         //初始化ClassMeta
-        $data['class_ClassMeta'] = new ClassMeta();
-        $data['class_ClassMeta']->construct_db(array(
-            'db_where_Arr' => array(
-                'classid_Num' => $classid_Num,
-                'slug_Str' => $slug_Str
-            ),
-            'db_where_deletenull_Bln' => TRUE
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+        $data['class_ClassMeta'] = new ClassMeta([
+            'db_where_arr' => [
+                'classid' => $classid,
+                'slug' => $slug
+            ],
+            'db_where_deletenull_bln' => TRUE
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -61,110 +37,86 @@ class Classmeta2_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function edit_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $this->form_validation->set_rules('classname_Str', 'classname_Str', 'required');
+        $classid = $this->input->post('classid', TRUE);
+        $classname = $this->input->post('classname', TRUE, '分類名稱', 'required');
+        $slug = $this->input->post('slug', TRUE);
+        $content = $this->input->post('content', TRUE);
+        $prioritynum = $this->input->post('prioritynum', TRUE);
+        if ($this->form_validation->check() == FALSE) return FALSE;
 
-        if ($this->form_validation->run() !== FALSE)
-        {
-            $classid_Num = $this->input->post('classid_Num', TRUE);
-            $classname_Str = $this->input->post('classname_Str', TRUE);
-            $slug_Str = $this->input->post('slug_Str', TRUE);
-            $content_Str = $this->input->post('content_Str', TRUE);
-            $prioritynum_Num = $this->input->post('prioritynum_Num', TRUE);
+        $class_ClassMeta = new ClassMeta([
+            'classid' => $classid,
+            'classname' => $classname,
+            'slug' => $slug,
+            'content' => $content,
+            'prioritynum' => $prioritynum,
+            'modelname' => 'showpiece_class2'
+        ]);
+        $class_ClassMeta->update();
 
-            $class_ClassMeta = new ClassMeta();
-            $class_ClassMeta->construct(array(
-                'classid_Num' => $classid_Num,
-                'classname_Str' => $classname_Str,
-                'slug_Str' => $slug_Str,
-                'content_Str' => $content_Str,
-                'prioritynum_Num' => $prioritynum_Num,
-                'modelname_Str' => 'showpiece_class2'
-            ));
-            $class_ClassMeta->update(array());
-
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/base/showpiece/classmeta2/tablelist'
-            ));
-        }
-        else
-        {
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => validation_errors(),
-                'url' => 'admin/base/showpiece/classmeta2/tablelist'
-            ));
-        }
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => 'admin/base/showpiece/classmeta2/tablelist'
+        ]);
     }
 
     public function tablelist()
     {
-        $data = $this->data;//取得公用數據
-        $data = array_merge($data, $this->AdminModel->get_data(array(
-            'child4_name_Str' => 'tablelist'//管理分類名稱
-        )));
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
         $limitstart = $this->input->get('limitstart');
         $limitcount = $this->input->get('limitcount');
-        $limitcount = empty($limitcount) ? 20 : $limitcount;
-        $limitcount = $limitcount > 100 ? 100 : $limitcount;
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $data['search_classname_Str'] = $this->input->get('classname');
-        $data['search_slug_Str'] = $this->input->get('slug');
-        $data['search_class2_slug_Str'] = $this->input->get('class2_slug');
+        $data['search_classname'] = $this->input->get('classname');
+        $data['search_slug'] = $this->input->get('slug');
+        $data['search_class2_slug'] = $this->input->get('class2_slug');
 
-        $class_ClassMeta = new ClassMeta();
-        $class_ClassMeta->construct_db(array(
-            'db_where_Arr' => array(
-                'slug_Str' => $data['search_class2_slug_Str']
-            )
-        ));
+        $class_ClassMeta = new ClassMeta([
+            'db_where_arr' => [
+                'slug' => $data['search_class2_slug']
+            ]
+        ]);
 
-        $data['class_list_ClassMetaList'] = new ObjList();
-        $data['class_list_ClassMetaList']->construct_db(array(
-            'db_where_Arr' => array(
-                'modelname_Str' => 'showpiece_class2',
-                'slug_Str' => $data['search_slug_Str']
-            ),
-            'db_where_like_Arr' => array(
-                'classname_Str' => $data['search_classname_Str']
-            ),
-            'db_where_or_Arr' => array(
-                'classids' => array($class_ClassMeta->classid_Num)
-            ),
-            'db_where_deletenull_Bln' => TRUE,
-            'db_orderby_Arr' => array(
-                array('prioritynum', 'DESC'),
-                array('classid', 'DESC')
-            ),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-        $data['class_links'] = $data['class_list_ClassMetaList']->create_links(array('base_url_Str' => 'admin/'.$data['child1_name_Str'].'/'.$data['child2_name_Str'].'/'.$data['child3_name_Str'].'/'.$data['child4_name_Str']));
+        $data['class_list_ClassMetaList'] = new ObjList([
+            'db_where_arr' => [
+                'modelname' => 'showpiece_class2',
+                'slug' => $data['search_slug']
+            ],
+            'db_where_like_arr' => [
+                'classname' => $data['search_classname']
+            ],
+            'db_where_or_arr' => [
+                'classids' => [$class_ClassMeta->classid]
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+                'classid' => 'DESC'
+            ],
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
+        $data['class_links'] = $data['class_list_ClassMetaList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
         
         //建立class2_ClassMetaList
-        $data['class2_ClassMetaList'] = new ObjList();
-        $data['class2_ClassMetaList']->construct_db(array(
-            'db_where_Arr' => array(
-                'modelname_Str' => 'showpiece'
-            ),
-            'model_name_Str' => 'ClassMeta',
-            'limitstart_Num' => 0,
-            'limitcount_Num' => 100
-        ));
-
-        //global
-        $data['global']['style'][] = 'admin/global.css';
-        $data['global']['js'][] = 'admin.js';
+        $data['class2_ClassMetaList'] = new ObjList([
+            'db_where_arr' => [
+                'modelname' => 'showpiece'
+            ],
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -174,65 +126,68 @@ class Classmeta2_Controller extends MY_Controller {
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url_Str'], $data);
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
     public function tablelist_post()
     {
-        $data = $this->data;//取得公用數據
+        $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_slug_Str = $this->input->post('search_slug_Str', TRUE);
-        $search_classname_Str = $this->input->post('search_classname_Str', TRUE);
-        $search_class2_class_slug_Str = $this->input->post('search_class2_class_slug_Str', TRUE);
+        $search_slug = $this->input->post('search_slug', TRUE);
+        $search_classname = $this->input->post('search_classname', TRUE);
+        $search_class2_class_slug = $this->input->post('search_class2_class_slug', TRUE);
 
-        $url_Str = base_url('admin/base/showpiece/classmeta2/tablelist/?');
+        $url = 'admin/base/showpiece/classmeta2/tablelist/?';
 
-        if(!empty($search_slug_Str))
+        if(!empty($search_slug))
         {
-            $url_Str = $url_Str.'&slug='.$search_slug_Str;
+            $url = $url.'&slug='.$search_slug;
         }
 
-        if(!empty($search_classname_Str))
+        if(!empty($search_classname))
         {
-            $url_Str = $url_Str.'&classname='.$search_classname_Str;
+            $url = $url.'&classname='.$search_classname;
         }
 
-        if(!empty($search_class2_class_slug_Str))
+        if(!empty($search_class2_class_slug))
         {
-            $url_Str = $url_Str.'&class2_slug='.$search_class2_class_slug_Str;
+            $url = $url.'&class2_slug='.$search_class2_class_slug;
         }
 
-        header("Location: $url_Str");
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
     }
 
-    public function delete($classid = 0, $hash = '')
+    public function delete()
     {
-        $hash_Str = $this->input->get('hash');
-        $classid_Num = $this->input->get('classid');
-
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
         //CSRF過濾
-        if($hash_Str == $this->security->get_csrf_hash())
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $ClassMeta = new ClassMeta();
-            $ClassMeta->construct(array('classid_Num' => $classid_Num));
-            $ClassMeta->delete();
+            $ClassMeta = new ClassMeta([
+                'classid' => $this->input->get('classid')
+            ]);
+            $ClassMeta->destroy();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
                 'url' => 'admin/base/showpiece/classmeta2/tablelist'
-            ));
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
                 'url' => 'admin/base/showpiece/classmeta2/tablelist'
-            ));
+            ]);
         }
     }
-
 }
 
 ?>

@@ -55,7 +55,7 @@ $(function(){
 		$('.need_child').css('display', 'none');
 		$('.need_child').addClass('displaynone');
 		$('.need_child[data-selected=' + selected + ']').css('display', 'block');
-		$('.need_child[data-selected=' + selected + ']').attr('name', 'classtype2_Str');
+		$('.need_child[data-selected=' + selected + ']').attr('name', 'classtype2');
 		$('.need_child option').removeAttr('selected');
 		$('.need_child[data-selected=' + selected + '] option:first').attr('selected', true);
 	});
@@ -102,21 +102,21 @@ $(function(){
 				<?=form_open("contact/contact_post")?>
 				<div class="rightBox">
 					<!--<?=validation_errors()?>-->
-					<p>您的姓名：<input type="text" class="name" name="username_Str" placeholder="請填寫您的姓名" required></p>
-					<p>公司名稱：<input type="text" class="company" name="company_Str" placeholder="請填寫公司名稱" required></p>
-					<p>聯繫電話：<input type="tel" class="telphone" name="phone_Str" placeholder="請填寫聯繫電話" required></p>
-					<p>電子郵件：<input type="email" class="email" name="email_Str" placeholder="請填寫電子郵件" required></p>
-					<p>公司地址：<input type="text" class="address" name="address_Str" placeholder="請填寫公司地址" required></p>
-					<textarea name="content_Str"></textarea>
+					<p>您的姓名：<input type="text" class="name" name="username" placeholder="請填寫您的姓名" required></p>
+					<p>公司名稱：<input type="text" class="company" name="company" placeholder="請填寫公司名稱" required></p>
+					<p>聯繫電話：<input type="tel" class="telphone" name="phone" placeholder="請填寫聯繫電話" required></p>
+					<p>電子郵件：<input type="email" class="email" name="email" placeholder="請填寫電子郵件" required></p>
+					<p>公司地址：<input type="text" class="address" name="address" placeholder="請填寫公司地址" required></p>
+					<textarea name="content"></textarea>
 					<p>本公司設計案件較多，為盡早處理您的專案，請提前詢問及索取報價資訊。</p>
 					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
-					<input type="hidden" name="previous_url_Str" value="<?=$previous_url_Str?>">
+					<input type="hidden" name="previous_url" value="<?=$previous_url?>">
 				</div>
 				<div class="leftBox">
 					<h2>線上諮詢 / 索取報價</h2>
 					<div class="area">
 						<span>詢問項目：</span>
-						<select class="need" name="classtype_Str" required>
+						<select class="need" name="classtype" required>
 							<option value="">請選擇詢問項目</option>
 							<option value="網站開發">網站開發</option>
 							<option value="程式系統開發">程式系統開發</option>
@@ -166,7 +166,7 @@ $(function(){
 							預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價
 						</div>
 						<span>您的預算：</span>
-						<select class="money" name="money_Str" required>
+						<select class="money" name="money" required>
 							<option value="">請選擇預算</option>
 							<!-- <option value="25 萬元以下">25 萬元以下</option> -->
 							<option value="25 萬元 ~ 50 萬元">25 萬元 ~ 50 萬元</option>
