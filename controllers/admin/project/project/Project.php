@@ -76,99 +76,23 @@ class Project_Controller extends MY_Controller {
         $this->load->view('admin/'.$data['admin_child_url'], $data);
     }
 
-    public function prints()
-    {
-        $data = $this->AdminModel->get_data(__FUNCTION__);
-
-        $data['projectid'] = $this->input->get('projectid');
-
-        $data['Project'] = new Project();
-        $data['Project']->construct_db(array(
-            'db_where_arr' => array(
-                'projectid' => $data['projectid']
-            )
-        ));
-        
-        if(empty($data['Project']->projectid))
-        {
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '請先選擇欲列印的專案',
-                'url' => 'admin/project/project/project/tablelist'
-            ));
-            return FALSE;
-        }
-
-        $project_permission_uids_arr = explode(PHP_EOL, trim($data['Project']->permission_uids_UserList->uniqueids));
-
-        $data['project_User'] = new User();
-        $data['project_User']->construct_db(array(
-            'db_where_arr' => array(
-                'uid' => $project_permission_uids_arr[0]
-            )
-        ));
-
-        $data['admin_User'] = new User();
-        $data['admin_User']->construct_db(array(
-            'db_where_arr' => array(
-                'uid' => $data['Project']->admin_uid
-            )
-        ));
-
-        $data['SuggestList'] = new ObjList();
-        $data['SuggestList']->construct_db(array(
-            'db_where_arr' => array(
-                'projectid' => $data['projectid']
-            ),
-            'db_orderby_arr' => array(
-                array('suggestid', 'ASC')
-            ),
-            'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Suggest',
-            'limitstart' => 0,
-            'limitcount' => 100
-        ));
-
-        $this->load->library('TcPdfDriver');
-        $this->tcpdfdriver->config([
-            'creator' => $data['Project']->admin_uid,
-            'author' => $data['Project']->admin_uid,
-            'title' => $data['Project']->name,
-            'subject' => '專案估價單',
-            'filename' => $data['Project']->name.'專案估價單'
-        ]);
-
-        $this->tcpdfdriver->add_page();
-        $html = $this->load->view('admin/'.$data['admin_child_url'], $data, TRUE);
-        $this->tcpdfdriver->write_html(['html' => $html]);
-        $this->tcpdfdriver->last_page();
-
-        $this->tcpdfdriver->output();
-    }
-
     public function edit_post()
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
-
-        $this->form_validation->set_rules('name', '專案名稱', 'required');
-        if( !$this->form_validation->check() ) return FALSE;
         
         //基本post欄位
         $projectid = $this->input->post('projectid', TRUE);
-        $name = $this->input->post('name', TRUE);
-        $admin_uid = $this->input->post('admin_uid', TRUE);
-        $permission_emails = $this->input->post('permission_emails');
+        $name = $this->input->post('name', TRUE, '專案名稱', 'required');
+        $customer_emails = $this->input->post('customer_emails', TRUE);
+        $admin_emails = $this->input->post('admin_emails', TRUE);
+        $permission_emails = $this->input->post('permission_emails', TRUE);
         $working_days = $this->input->post('working_days', TRUE);
         $classids_arr = $this->input->post('classids_arr', TRUE);
-        $designids = (array) $this->input->post('designids[]', TRUE);
-        $pay_price_total = $this->input->post('pay_price_total', TRUE);
-        $pay_price_receive = $this->input->post('pay_price_receive', TRUE);
-        $pay_price_schedule = $this->input->post('pay_price_schedule', TRUE);
-        $pay_price_schedule2 = $this->input->post('pay_price_schedule2', TRUE);
-        $paycheck_status = $this->input->post('paycheck_status', TRUE);
         $project_status = $this->input->post('project_status', TRUE);
         $setuptime = $this->input->post('setuptime', TRUE);
         $endtime = $this->input->post('endtime', TRUE);
+
+        if( !$this->form_validation->check() ) return FALSE;
 
         $endtime = date('Y-m-d H-i-s',strtotime( $setuptime.'+'.$working_days.'day'));
 
@@ -176,46 +100,73 @@ class Project_Controller extends MY_Controller {
         $Project = new Project([
             'projectid' => $projectid,
             'name' => $name,
-            'admin_uid' => $admin_uid,
             'working_days' => $working_days,
             'classids_arr' => $classids_arr,
-            'designids' => implode(",",$designids),
-            'pay_price_total' => $pay_price_total,
-            'pay_price_receive' => $pay_price_receive,
-            'pay_price_schedule' => $pay_price_schedule,
-            'pay_price_schedule2' => $pay_price_schedule2,
+            'permission_emails' => $permission_emails,
+            'admin_emails' => $admin_emails,
+            'customer_emails' => $customer_emails,
             'paycheck_status' => $paycheck_status,
             'project_status' => $project_status,
             'setuptime' => $setuptime,
             'endtime' => $endtime
         ]);
-        $Project->set__permission_uids_UserList(['permission_emails' => $permission_emails]);
-        $Project->set__admin_uid(['admin_uid' => $admin_uid]);
         $Project->update(array(
-        'db_update_arr' => array(
-            'name',
-            'admin_uid',
-            'permission_uids',
-            'working_days',
-            'classids',
-            'designids',
-            'pay_price_total',
-            'pay_price_receive',
-            'pay_price_schedule',
-            'pay_price_schedule2',
-            'paycheck_status',
-            'project_status',
-            'setuptime',
-            'endtime',
-            'updatetime'
+            'db_update_arr' => array(
+                'name',
+                'admin_uids',
+                'customer_uids',
+                'permission_uids',
+                'working_days',
+                'classids',
+                'project_status',
+                'setuptime',
+                'endtime',
+                'updatetime'
             )
         ));
 
         //送出成功訊息
         $this->load->model('Message');
         $this->Message->show([
-            'message' => '設定成功',
-            'url' => 'admin/project/project/project/tablelist'
+            'message' => '設定成功'
+        ]);
+    }
+
+    public function edit_price_post()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+
+        //基本post欄位
+        $projectid = $this->input->post('projectid', TRUE);
+        $pay_price_total = $this->input->post('pay_price_total', TRUE);
+        $pay_price_receive = $this->input->post('pay_price_receive', TRUE);
+        $pay_price_bad_debt = $this->input->post('pay_price_bad_debt', TRUE);
+        $paycheck_status = $this->input->post('paycheck_status', TRUE);
+
+        if( !$this->form_validation->check() ) return FALSE;
+        
+
+        //建構Project物件，並且更新
+        $Project = new Project([
+            'projectid' => $projectid,
+            'pay_price_total' => $pay_price_total,
+            'pay_price_receive' => $pay_price_receive,
+            'pay_price_bad_debt' => $pay_price_bad_debt,
+            'paycheck_status' => $paycheck_status
+        ]);
+        $Project->update(array(
+        'db_update_arr' => array(
+            'pay_price_total',
+            'pay_price_receive',
+            'pay_price_bad_debt',
+            'paycheck_status'
+            )
+        ));
+
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功'
         ]);
     }
 
@@ -270,10 +221,6 @@ class Project_Controller extends MY_Controller {
             'classids_arr' => $Project->class_ClassMetaList->uniqueids_arr,
             'designids' => $Project->designids,
             'pay_price_total' => $Project->pay_price_total,
-            // 'pay_price_receive' => $Project->pay_price_receive,
-            // 'pay_price_schedule' => $Project->pay_price_schedule,
-            // 'pay_price_schedule2' => $Project->pay_price_schedule2,
-            // 'paycheck_status' => $Project->paycheck_status,
             'project_status' => $Project->project_status,
             'setuptime' => $Project->setuptime_DateTimeObj->datetime,
             'endtime' => $Project->endtime_DateTimeObj->datetime

@@ -1,142 +1,86 @@
 <?=$temp['header_up']?>
 <script>
-$(function(){
-    //專案金額加總計算
-    var project_price_total = 0;
-    $(".project_price").each(function(key, value){
-        project_price_total += parseInt($(".project_price").eq(key).text());
+Temp.ready(function(){
+    $(document).on('click', ':button#delete', function(event){
+        if( confirm('刪除後將進入回收空間，確定要刪除嗎？') )
+        {
+            $(':submit#delete').click();
+        }
     });
-    $("#project_price_total").text(project_price_total);
 });
 </script>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
 <h2><?=$child2_title?> - <?=$child3_title?></h2>
 <div class="contentBox contentTablelist allWidth">
-	<h3><?=$child3_title?> > <?=$child4_title?></h3>
-	<h4>請選擇欲修改之<?=$child3_title?></h4>
-	<div class="spanLine noneBg">
+    <h3><?=$child3_title?> > <?=$child4_title?></h3>
+    <h4>請選擇欲修改之<?=$child3_title?></h4>
+    <div class="spanLine noneBg">
         <div class="spanLineLeft">
-			<a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit" class="button">新增<?=$child3_title?></a>
+            <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit" class="button">新增<?=$child3_title?></a>
         </div>
-	</div>
-	<div class="spanLineTable">
-        <p style="margin:5px 10px; 0 0;">專案金額加總：NT $<span id="project_price_total"></span></p>
+    </div>
+    <div class="spanLineTable">
         <div class="spanLineTableContent">
             <div class="spanLine tablelist tableTitle">
+                <?if(!empty($FaqList->obj_arr)):?>
+                <div class="spanLineLeft checkbox"></div>
+                <?endif?>
                 <div class="spanLineLeft text width100">
-        			專案ID
+                    常見問題 ID
                 </div>
-                <div class="spanLineLeft text width300">
-        			專案名稱
-                </div>
-                <div class="spanLineLeft text width100">
-                    專案總金額
-                </div>
-                <div class="spanLineLeft text width100">
-                    已收款項
-                </div>
-                <div class="spanLineLeft text width100">
-                    付款進度 (%)
-                </div>
-                <div class="spanLineLeft text width100">
-                    開始日期
-                </div>
-                <div class="spanLineLeft text width100">
-                    結束日期
+                <div class="spanLineLeft text width500">
+                    問題標題
                 </div>
                 <div class="spanLineLeft text width150">
-                    專案分類標籤
+                    分類標籤
                 </div>
                 <div class="spanLineLeft text width150">
                     編輯操作
                 </div>
-        	</div>
+            </div>
             <div class="spanLine tablelist">
                 <?php echo form_open("admin/$child1_name/$child2_name/$child3_name/{$child4_name}_post/") ?>
-                    <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_projectid)?$search_projectid:''?>" name="search_projectid" placeholder="請填寫ID">
+                    <?if(!empty($FaqList->obj_arr)):?>
+                    <div class="spanLineLeft checkbox">
+                        <input type="checkbox" id="check_all">
                     </div>
-                    <div class="spanLineLeft text width300">
-                        <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_name)?$search_name:''?>" name="search_name" placeholder="請填寫專案名稱">
-                    </div>
+                    <?endif?>
                     <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_total)?$search_pay_price_total:''?>" name="search_pay_price_total" placeholder="專案總金額">
+                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_faqid)?$search_faqid:''?>" name="search_faqid" placeholder="請填寫ID">
                     </div>
-                    <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_receive)?$search_pay_price_receive:''?>" name="search_pay_price_receive" placeholder="已收款項">
-                    </div>
-                    <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_schedule)?$search_pay_price_schedule:''?>" name="search_pay_price_schedule" placeholder="付款進度">
-                    </div>
-                    <div class="spanLineLeft text width100">
-                        <script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
-                        <link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
-                        <script>
-                        $(function(){
-                            $('#setuptime').datetimepicker({
-                                dateFormat: 'yy-mm-dd',
-                                timeFormat: ''
-                            });
-                        });
-                        </script>
-                        <input type="text" id="setuptime" class="text" style="margin-left:-6px;" value="<?=!empty($search_setuptime)?$search_setuptime:''?>" name="search_setuptime" placeholder="開始日期">
-                    </div>
-                    <div class="spanLineLeft text width100">
-                        <script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
-                        <link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
-                        <script>
-                        $(function(){
-                            $('#endtime').datetimepicker({
-                                dateFormat: 'yy-mm-dd',
-                                timeFormat: ''
-                            });
-                        });
-                        </script>
-                        <input type="text" id="endtime" class="text" style="margin-left:-6px;" value="<?=!empty($search_endtime)?$search_endtime:''?>" name="search_endtime" placeholder="結束日期">
+                    <div class="spanLineLeft text width500">
+                        <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title)?$search_title:''?>" name="search_title" placeholder="請填寫問題標題">
                     </div>
                     <div class="spanLineLeft text width150">
                         <select name="search_class_slug" style="margin-left:-6px;">
                             <option value="">不透過分類標籤篩選</option>
-                            <?foreach($ProjectClassMetaList->obj_arr as $key => $value_ClassMeta):?>
+                            <?foreach($FaqClassMetaList->obj_arr as $key => $value_ClassMeta):?>
                             <option value="<?=$value_ClassMeta->slug?>"<?if(!empty($search_class_slug) && $search_class_slug == $value_ClassMeta->slug) echo ' selected'?>><?=$value_ClassMeta->classname?></option>
                             <?endforeach?>
                         </select>
                     </div>
                     <div class="spanLineLeft text width150">
-                        <input type="submit" class="button" style="height: 30px; margin-left:-6px;" value="篩選">
+                        <input type="submit" class="button" style="height: 30px;" value="篩選">
                     </div>
                 </form>
             </div>
-            <?if(!empty($ProjectList->obj_arr)):?>
-            <?foreach($ProjectList->obj_arr as $key => $value_Project):?>
+            <?if(!empty($FaqList->obj_arr)):?>
+            <?php echo form_open("admin/$child1_name/$child2_name/$child3_name/delete_batch_post/") ?>
+            <?foreach($FaqList->obj_arr as $key => $value_Faq):?>
             <div class="spanLine tablelist">
-                <div class="spanLineLeft text width100">
-                    <?=$value_Project->projectid?>
-                </div>
-                <div class="spanLineLeft text width300">
-                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?projectid=<?=$value_Project->projectid?>">
-                        <?=$value_Project->name?>
-                    </a>
+                <div class="spanLineLeft checkbox">
+                    <input type="checkbox" name="faqid_arr[]" value="<?=$value_Faq->faqid?>" class="check">
                 </div>
                 <div class="spanLineLeft text width100">
-                    NT $<span class="project_price"><?=$value_Project->pay_price_total?></span>
+                    <?=$value_Faq->faqid?>
                 </div>
-                <div class="spanLineLeft text width100">
-                    NT $<?=$value_Project->pay_price_receive?>
-                </div>
-                <div class="spanLineLeft text width100">
-                    <?=$value_Project->pay_price_schedule?> %
-                </div>
-                <div class="spanLineLeft text width100">
-                    <?=$value_Project->setuptime_DateTimeObj->inputtime_date?>
-                </div>
-                <div class="spanLineLeft text width100">
-                   <?=$value_Project->endtime_DateTimeObj->inputtime_date?>
+                <div class="spanLineLeft text width500">
+                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?faqid=<?=$value_Faq->faqid?>"><?=$value_Faq->title?></a>
                 </div>
                 <div class="spanLineLeft text width150">
-                    <?if(!empty($value_Project->class_ClassMetaList->obj_arr)):?>
-                    <?foreach($value_Project->class_ClassMetaList->obj_arr as $key => $value_ClassMeta):?>
+                    <?if(!empty($value_Faq->class_ClassMetaList->obj_arr)):?>
+                    <?foreach($value_Faq->class_ClassMetaList->obj_arr as $key => $value_ClassMeta):?>
                         <?if($key !== 0):?>,<?endif?><?=$value_ClassMeta->classname?>
                     <?endforeach?>
                     <?else:?>
@@ -144,12 +88,13 @@ $(function(){
                     <?endif?>
                 </div>
                 <div class="spanLineLeft width150 tablelistMenu">
-                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?projectid=<?=$value_Project->projectid?>">編輯</a>
-                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/copy/?projectid=<?=$value_Project->projectid?>">複製</a>
-                    <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?projectid=<?=$value_Project->projectid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
+                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?faqid=<?=$value_Faq->faqid?>">編輯</a>
+                    <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?faqid=<?=$value_Faq->faqid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
                 </div>
-        	</div>
+            </div>
             <?endforeach?>
+            <input type="submit" id="delete" class="button" style="display:none;">
+            </form>
             <?else:?>
             <div class="spanLine">
                 <div class="spanLineLeft text width500">
@@ -159,6 +104,11 @@ $(function(){
             <?endif?>
         </div>
     </div>
+    <?if(!empty($FaqList->obj_arr[0]->faqid)):?>
+    <div class="batch_deletion">
+        <input type="button" class="button" id="delete" style="height: 32px;" value="批量刪除">
+    </div>
+    <?endif?>
     <div class="pageLink"><?=$page_link?></div>
 </div>
 <?=$temp['admin_footer_bar']?>

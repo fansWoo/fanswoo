@@ -14,16 +14,22 @@ class Worktask_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
             
-        $worktaskid = $this->input->get('worktaskid');
+        $faqid = $this->input->get('faqid');
 
-        $data['Worktask'] = new Worktask([
+        $data['FaqField'] = new FaqField([
             'db_where_arr' => [
-                'worktaskid' => $worktaskid
+                'faq.faqid' => $faqid
             ]
         ]);
-        
-        //global
-        $data['global']['js'][] = 'tool/jquery.form.js';
+
+        $data['FaqClassMetaList'] = new ObjList([
+            'db_where_arr' => [
+                'modelname' => 'faq'
+            ],
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -40,262 +46,83 @@ class Worktask_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $this->form_validation->set_rules('name', '專案名稱', 'required');
-        
-        if ($this->form_validation->run() !== FALSE)
-        {
-            //基本post欄位
-            $projectid = $this->input->post('projectid', TRUE);
-            $name = $this->input->post('name', TRUE);
-            $admin_uid = $this->input->post('admin_uid', TRUE);
-            $permission_emails = $this->input->post('permission_emails');
-            $working_days = $this->input->post('working_days', TRUE);
-            $classids_arr = $this->input->post('classids_arr', TRUE);
-            $designids = $this->input->post('designids[]', TRUE);
-            $pay_price_total = $this->input->post('pay_price_total', TRUE);
-            $pay_price_receive = $this->input->post('pay_price_receive', TRUE);
-            $pay_price_schedule = $this->input->post('pay_price_schedule', TRUE);
-            $pay_price_schedule2 = $this->input->post('pay_price_schedule2', TRUE);
-            $paycheck_status = $this->input->post('paycheck_status', TRUE);
-            $project_status = $this->input->post('project_status', TRUE);
-            $setuptime = $this->input->post('setuptime', TRUE);
-            $endtime = $this->input->post('endtime', TRUE);
+        //基本post欄位
+        $faqid = $this->input->post('faqid', TRUE);
+        $title = $this->input->post('title', TRUE, '問題標題', 'required');
+        $classids_arr = $this->input->post('classids_arr', TRUE);
+        $content = $this->input->post('content', FALSE, '回答內容', 'required');
+        $prioritynum = $this->input->post('prioritynum', TRUE);
+        $updatetime = $this->input->post('updatetime', TRUE);
+        if( !$this->form_validation->check() ) return FALSE;
 
-            $endtime = date('Y-m-d H-i-s',strtotime( $setuptime.'+'.$working_days.'day'));
+        //建構Faq物件，並且更新
+        $FaqField = new FaqField([
+            'faqid' => $faqid,
+            'title' => $title,
+            'classids_arr' => $classids_arr,
+            'content' => $content,
+            'prioritynum' => $prioritynum,
+            'updatetime' => $updatetime,
+            'modelname' => 'faq'
+        ]);
+        $FaqField->update();
 
-            //建構Project物件，並且更新
-            $Project = new Project();
-            $Project->construct([
-                'projectid' => $projectid,
-                'name' => $name,
-                'admin_uid' => $admin_uid,
-                'working_days' => $working_days,
-                'classids_arr' => $classids_arr,
-                'designids' => implode(",",$designids),
-                'pay_price_total' => $pay_price_total,
-                'pay_price_receive' => $pay_price_receive,
-                'pay_price_schedule' => $pay_price_schedule,
-                'pay_price_schedule2' => $pay_price_schedule2,
-                'paycheck_status' => $paycheck_status,
-                'project_status' => $project_status,
-                'setuptime' => $setuptime,
-                'endtime' => $endtime
-            ]);
-            $Project->set__permission_uids_UserList(['permission_emails' => $permission_emails]);
-            $Project->set__admin_uid(['admin_uid' => $admin_uid]);
-            $Project->update(array(
-            'db_update_arr' => array(
-                'name',
-                'admin_uid',
-                'permission_uids',
-                'working_days',
-                'classids',
-                'designids',
-                'pay_price_total',
-                'pay_price_receive',
-                'pay_price_schedule',
-                'pay_price_schedule2',
-                'paycheck_status',
-                'project_status',
-                'setuptime',
-                'endtime',
-                'updatetime'
-                )
-            ));
-
-            //計算庫存
-            $designidArr = $this->input->post('designidArr', TRUE);
-            $titleArr = $this->input->post('titleArr', TRUE);
-            $priceArr = $this->input->post('priceArr', TRUE);
-            $daysArr = $this->input->post('daysArr', TRUE);
-            $synopsisArr = $this->input->post('synopsisArr', TRUE);
-
-            $titleArr_count = count($titleArr);
-            foreach( $titleArr as $key => $value)
-            {
-                if( !empty( $value ) )
-                {
-                    $Design = new Design();
-                    $Design->construct([
-                        'designid' => $designidArr[$key],
-                        'projectid' => $Project->projectid,
-                        'title' => $titleArr[$key],
-                        'price' => $priceArr[$key],
-                        'days' => $daysArr[$key],
-                        'synopsis' => $synopsisArr[$key],
-                        'prioritynum' => $titleArr_count - $key
-                    ]);
-                    $Design->update();
-                }
-            }
-
-            //送出成功訊息
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/project/project/project/tablelist/'
-            ));
-        }
-        else
-        {
-            $validation_errors = validation_errors();
-            $validation_errors = !empty($validation_errors) ? $validation_errors : '設定錯誤' ;
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => $validation_errors,
-                'url' => 'admin/project/project/project/edit/?projectid='.$projectid
-            ));
-        }
-    }
-
-    public function copy()
-    {
-        $data = $this->AdminModel->get_data(__FUNCTION__);
-
-        $projectid = $this->input->get('projectid');
-
-        $Project = new Project();
-        $Project->construct_db(array(
-            'db_where_arr' => array(
-                'projectid' => $projectid
-            )
-        ));
-
-        //建構ProjectFanswoo物件，並且更新
-        $ProjectFanswoo = new Project();
-        $ProjectFanswoo->construct(array(
-            'name' => $Project->name,
-            'admin_uid' => $Project->admin_uid,
-            'permission_uids' => $Project->permission_uids_UserList->uniqueids,
-            'working_days' => $Project->working_days,
-            'classids_arr' => $Project->class_ClassMetaList->uniqueids_arr,
-            'designids' => $Project->designids,
-            'pay_price_total' => $Project->pay_price_total,
-            // 'pay_price_receive' => $Project->pay_price_receive,
-            // 'pay_price_schedule' => $Project->pay_price_schedule,
-            // 'pay_price_schedule2' => $Project->pay_price_schedule2,
-            // 'paycheck_status' => $Project->paycheck_status,
-            'project_status' => $Project->project_status,
-            'setuptime' => $Project->setuptime_DateTimeObj->datetime,
-            'endtime' => $Project->endtime_DateTimeObj->datetime
-        ));
-
-        $ProjectFanswoo->update();
-
-        $design_count = count($Project->DesignList->obj_arr);
-        foreach($Project->DesignList->obj_arr as $key => $value_Design)
-        {
-            $Design = new Design();
-            $Design->construct([
-                'projectid' => $ProjectFanswoo->projectid,
-                'title' => $value_Design->title,
-                'price' => $value_Design->price,
-                'days' => $value_Design->days,
-                'synopsis' => $value_Design->synopsis,
-                'prioritynum' => $design_count - $key
-            ]);
-            $Design->update();
-        }
-
-        if($ProjectFanswoo->projectid !== NULL)
-        {
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '複製成功',
-                'url' => 'admin/project/project/project/tablelist'
-            ));
-        }
-        else
-        {
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '複製失敗',
-                'url' => 'admin/project/project/project/tablelist'
-            ));
-        }
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => 'admin/base/faq/faq/tablelist/'
+        ]);
     }
 
     public function tablelist()
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['search_projectid'] = $this->input->get('projectid');
-        $data['search_name'] = $this->input->get('name');
+        $data['search_faqid'] = $this->input->get('faqid');
+        $data['search_title'] = $this->input->get('title');
         $data['search_class_slug'] = $this->input->get('class_slug');
-        $data['search_pay_price_receive'] = $this->input->get('price_receive');
-        $data['search_pay_price_total'] = $this->input->get('price_total');
-        $data['search_pay_price_schedule'] = $this->input->get('price_schedule');
-        $data['search_setuptime'] = $this->input->get('setuptime');
-        $data['search_endtime'] = $this->input->get('endtime');
 
         $limitstart = $this->input->get('limitstart');
         $limitcount = $this->input->get('limitcount');
         $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $class_ClassMeta = new ClassMeta();
-        $class_ClassMeta->construct_db(array(
-            'db_where_arr' => array(
+        $class_ClassMeta = new ClassMeta([
+            'db_where_arr' => [
                 'slug' => $data['search_class_slug']
-            )
-        ));
+            ]
+        ]);
 
-        $data['ProjectList'] = new ObjList();
-        $data['ProjectList']->construct_db(array(
-            'db_where_arr' => array(
-                'projectid' => $data['search_projectid'],
-                'pay_price_receive' => $data['search_pay_price_receive'],
-                'pay_price_total' => $data['search_pay_price_total'],
-                'pay_price_schedule' => $data['search_pay_price_schedule']                
-            ),
-            'db_where_like_arr' => array(
-                'name' => $data['search_name'],
-                'setuptime' => $data['search_setuptime'],
-                'endtime' => $data['search_endtime'],
-            ),
-            'db_where_or_arr' => array(
-                'classids' => array($class_ClassMeta->classid)
-            ),
-            'db_orderby_arr' => array(
-                array('updatetime', 'DESC')
-            ),
+        $data['FaqList'] = new ObjList([
+            'db_where_arr' => [
+                'modelname' => 'faq',
+                'faqid' => $data['search_faqid']
+            ],
+            'db_where_like_arr' => [
+                'title' => $data['search_title']
+            ],
+            'db_where_or_arr' => [
+                'classids' => [$class_ClassMeta->classid]
+            ],
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
+            ],
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Project',
+            'model_name' => 'Faq',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
-        ));
-        $data['page_link'] = $data['ProjectList']->create_links(array('base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']));
+        ]);
+        $data['page_link'] = $data['FaqList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
-        $data['ProjectClassMetaList'] = new ObjList();
-        $data['ProjectClassMetaList']->construct_db(array(
+        $data['FaqClassMetaList'] = new ObjList([
             'db_where_arr' => [
-                'modelname' => 'project'
+                'modelname' => 'faq'
             ],
             'model_name' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
-        ));
-
-        //temp
-        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
-        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
-        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
-
-        //輸出模板
-        $this->load->view('admin/'.$data['admin_child_url'], $data);
-
-    }
-
-    public function calendar()
-    {
-        $data = $this->AdminModel->get_data(__FUNCTION__);
-        
-        //global
-        $data['global']['js'][] = 'tool/jquery.form.js';
-        $data['global']['js'][] = 'tool/fullcalendar/moment.min.js';
-        $data['global']['js'][] = 'tool/fullcalendar/fullcalendar.min.js';
-        $data['global']['js'][] = 'tool/fullcalendar/gcal.js';
+        ]);
 
         //temp
         $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
@@ -313,20 +140,15 @@ class Worktask_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_projectid = $this->input->post('search_projectid', TRUE);
+        $search_faqid = $this->input->post('search_faqid', TRUE);
         $search_class_slug = $this->input->post('search_class_slug', TRUE);
-        $search_name = $this->input->post('search_name', TRUE);
-        $search_pay_price_receive = $this->input->post('search_pay_price_receive', TRUE);
-        $search_pay_price_total = $this->input->post('search_pay_price_total', TRUE);
-        $search_pay_price_schedule = $this->input->post('search_pay_price_schedule', TRUE);
-        $search_setuptime = $this->input->post('search_setuptime', TRUE);
-        $search_endtime = $this->input->post('search_endtime', TRUE);
+        $search_title = $this->input->post('search_title', TRUE);
 
-        $url = base_url('admin/project/project/Project/tablelist/?');
+        $url = 'admin/base/faq/faq/tablelist/?';
 
-        if(!empty($search_projectid))
+        if(!empty($search_faqid))
         {
-            $url = $url.'&projectid='.$search_projectid;
+            $url = $url.'&faqid='.$search_faqid;
         }
 
         if(!empty($search_class_slug))
@@ -334,66 +156,91 @@ class Worktask_Controller extends MY_Controller {
             $url = $url.'&class_slug='.$search_class_slug;
         }
 
-        if(!empty($search_name))
+        if(!empty($search_title))
         {
-            $url = $url.'&name='.$search_name;
+            $url = $url.'&title='.$search_title;
         }
 
-        if(!empty($search_pay_price_receive))
-        {
-            $url = $url.'&price_receive='.$search_pay_price_receive;
-        }
-
-        if(!empty($search_pay_price_total))
-        {
-            $url = $url.'&price_total='.$search_pay_price_total;
-        }
-
-        if(!empty($search_pay_price_schedule))
-        {
-            $url = $url.'&price_schedule='.$search_pay_price_schedule;
-        }
-
-        if(!empty($search_setuptime))
-        {
-            $url = $url.'&setuptime='.$search_setuptime;
-        }
-
-        if(!empty($search_endtime))
-        {
-            $url = $url.'&endtime='.$search_endtime;
-        }
-
-        header("Location: $url");
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
     }
 
     public function delete()
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
-        
-        $hash = $this->input->get('hash');
-        $projectid = $this->input->get('projectid');
 
         //CSRF過濾
-        if($hash == $this->security->get_csrf_hash())
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $Project = new Project();
-            $Project->construct(array('projectid' => $projectid));
-            $Project->delete();
+            $FaqField = new FaqField([
+                'faqid' => $this->input->get('faqid')
+            ]);
+            $FaqField->delete();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
-                'url' => 'admin/project/project/project/tablelist'
-            ));
+                'url' => 'admin/base/faq/faq/tablelist'
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/project/project/project/tablelist'
-            ));
+                'url' => 'admin/base/faq/faq/tablelist'
+            ]);
+        }
+    }
+
+    public function delete_batch_post()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        $faqid_arr = $this->input->post('faqid_arr[]');
+
+        if( empty($faqid_arr) )
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '未選擇要刪除的常見問題'
+            ]);
+            return TRUE;
+        }
+
+        //CSRF過濾
+        if($this->input->get('hash') == $this->security->get_csrf_hash())
+        {
+            if(!empty($faqid_arr))
+            {
+                foreach($faqid_arr as $key => $faqid)
+                {
+                    $FaqField = new FaqField([
+                        'faqid' => $faqid
+                    ]);
+                    $FaqField->delete();
+                }
+            }
+
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '刪除成功',
+                'url' => 'admin/base/faq/faq/tablelist'
+            ]);
+            return TRUE;
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/base/faq/faq/tablelist'
+            ]);
+            return TRUE;
         }
     }
 }

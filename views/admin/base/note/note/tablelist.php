@@ -47,14 +47,14 @@ Temp.ready(function(){
         search_ajax();
     });
 
-    $("a[href^='admin/base/note/note/edit']").temp_load_page({
-        url: 'admin/base/note/note/edit',
-        now_body_animate: 'temp_page_load_animate',
-        next_body_animate: 'temp_page_load_animate',
-        func: function(){
-            clearInterval(search_time);
-        }
-    });
+    // $("a[href^='admin/base/note/note/edit']").temp_load_page({
+    //     url: 'admin/base/note/note/edit',
+    //     now_body_animate: 'temp_page_load_animate',
+    //     next_body_animate: 'temp_page_load_animate',
+    //     func: function(){
+    //         clearInterval(search_time);
+    //     }
+    // });
 
     $(document).on('click', ':button#delete', function(event){
         if( confirm('刪除後將進入回收空間，確定要刪除嗎？') )

@@ -5,21 +5,21 @@
 <script>
 Temp.ready(function(){
     //加載點了超連結以後的頁面以及動畫效果
-    $("a[href^='admin/base/note/note/tablelist']").temp_load_page({
-        url: 'admin/base/note/note/tablelist',
-        now_body_animate: 'temp_page_load_animate',
-        next_body_animate: 'temp_page_load_animate',
-        func: function(){
-        }
-    });
+    // $("a[href^='admin/base/note/note/tablelist']").temp_load_page({
+    //     url: 'admin/base/note/note/tablelist',
+    //     now_body_animate: 'temp_page_load_animate',
+    //     next_body_animate: 'temp_page_load_animate',
+    //     func: function(){
+    //     }
+    // });
 
-    $("a[href^='admin/base/note/classmeta/tablelist']").temp_load_page({
-        url: 'admin/base/note/classmeta/tablelist',
-        now_body_animate: 'temp_page_load_animate',
-        next_body_animate: 'temp_page_load_animate',
-        func: function(){
-        }
-    });
+    // $("a[href^='admin/base/note/classmeta/tablelist']").temp_load_page({
+    //     url: 'admin/base/note/classmeta/tablelist',
+    //     now_body_animate: 'temp_page_load_animate',
+    //     next_body_animate: 'temp_page_load_animate',
+    //     func: function(){
+    //     }
+    // });
 
     //加載 HTML 編輯器
     CKEDITOR.replace( 'content', {
@@ -35,7 +35,7 @@ Temp.ready(function(){
 </script>
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
-<h2>{{child2_title}} - {{child3_title}}</h2>
+<h2><?=$child2_title?> - <?=$child3_title?></h2>
 <div class="contentBox allWidth">
     <h3><?=$child3_title?> > <?if(!empty($NoteField->noteid)):?>編輯<?else:?>新增<?endif?></h3>
     <h4>請填寫<?=$child3_title?>之詳細資訊</h4>
