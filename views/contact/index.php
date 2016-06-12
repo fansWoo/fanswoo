@@ -1,22 +1,20 @@
 <?=$temp['header_up']?>
-<!-- Facebook Conversion Code for 聯繫我們 -->
-<script>(function() {
-  var _fbq = window._fbq || (window._fbq = []);
-  if (!_fbq.loaded) {
-    var fbds = document.createElement('script');
-    fbds.async = true;
-    fbds.src = '//connect.facebook.net/en_US/fbds.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(fbds, s);
-    _fbq.loaded = true;
-  }
-})();
-window._fbq = window._fbq || [];
-window._fbq.push(['track', '6020797556140', {'value':'0.00','currency':'TWD'}]);
-</script>
-<noscript style="display:none;"><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6020797556140&amp;cd[value]=0.00&amp;cd[currency]=TWD&amp;noscript=1" /></noscript>
 <script>
-$(function(){
+Temp.ready(function(){
+	(function() {
+	  var _fbq = window._fbq || (window._fbq = []);
+	  if (!_fbq.loaded) {
+	    var fbds = document.createElement('script');
+	    fbds.async = true;
+	    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(fbds, s);
+	    _fbq.loaded = true;
+	  }
+	})();
+	window._fbq = window._fbq || [];
+	window._fbq.push(['track', '6020797556140', {'value':'0.00','currency':'TWD'}]);
+
 	$(window).resize(function(){
 		location.href = ' contact ';
 	});
@@ -54,13 +52,25 @@ $(function(){
 		var selected = $(this).val();
 		$('.need_child').css('display', 'none');
 		$('.need_child').addClass('displaynone');
-		$('.need_child[data-selected=' + selected + ']').css('display', 'block');
-		$('.need_child[data-selected=' + selected + ']').attr('name', 'classtype2');
+		$(".need_child[data-selected='" + selected + "']").css('display', 'block');
+		$(".need_child[data-selected='" + selected + "']").attr('name', 'classtype2');
 		$('.need_child option').removeAttr('selected');
-		$('.need_child[data-selected=' + selected + '] option:first').attr('selected', true);
+		$(".need_child[data-selected='" + selected + "'] option:first").attr('selected', true);
 	});
+
+
+	/* <![CDATA[ */
+	var google_conversion_id = 1037100439;
+	var google_conversion_language = "en";
+	var google_conversion_format = "3";
+	var google_conversion_color = "ffffff";
+	var google_conversion_label = "54GrCKiolVYQl8vD7gM";
+	var google_remarketing_only = false;
+	/* ]]> */
 });
 </script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
+<noscript style="display:none;"><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6020797556140&amp;cd[value]=0.00&amp;cd[currency]=TWD&amp;noscript=1" /></noscript>
 <?=$temp['header_down']?>
 	<div class="pencil">fansWoo</div>
 	<div class="plane">fansWoo</div>
@@ -179,18 +189,6 @@ $(function(){
 				</div>
 				</form>
 			</div>
-			<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page -->
-			<script type="text/javascript">
-			/* <![CDATA[ */
-			var google_conversion_id = 1037100439;
-			var google_conversion_language = "en";
-			var google_conversion_format = "3";
-			var google_conversion_color = "ffffff";
-			var google_conversion_label = "54GrCKiolVYQl8vD7gM";
-			var google_remarketing_only = false;
-			/* ]]> */
-			</script>
-			<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
 			<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
 		</div>
 	</div>
@@ -301,18 +299,6 @@ $(function(){
 				</div>
 				</form>
 			</div>
-			<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page -->
-			<script type="text/javascript">
-			/* <![CDATA[ */
-			var google_conversion_id = 1037100439;
-			var google_conversion_language = "en";
-			var google_conversion_format = "3";
-			var google_conversion_color = "ffffff";
-			var google_conversion_label = "54GrCKiolVYQl8vD7gM";
-			var google_remarketing_only = false;
-			/* ]]> */
-			</script>
-			<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
 			<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
 		</div>
 	</div>

@@ -1,11 +1,22 @@
 <?=$temp['header_up']?>
 <script>
-$(function(){
+Temp.ready(function(){
+
+    $('#start_time').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'HH:mm:ss'
+    });
+
+    $('#end_time').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'HH:mm:ss'
+    });
     //專案金額加總計算
     var project_price_total = 0;
     $(".project_price").each(function(key, value){
         project_price_total += parseInt($(".project_price").eq(key).text());
     });
+
     $("#project_price_total").text(project_price_total);
 });
 </script>
@@ -70,30 +81,14 @@ $(function(){
                         <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_schedule)?$search_pay_price_schedule:''?>" name="search_pay_price_schedule" placeholder="付款進度">
                     </div>
                     <div class="spanLineLeft text width100">
-                        <script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
-                        <link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
-                        <script>
-                        $(function(){
-                            $('#setuptime').datetimepicker({
-                                dateFormat: 'yy-mm-dd',
-                                timeFormat: ''
-                            });
-                        });
-                        </script>
-                        <input type="text" id="setuptime" class="text" style="margin-left:-6px;" value="<?=!empty($search_setuptime)?$search_setuptime:''?>" name="search_setuptime" placeholder="開始日期">
+                        <script src="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/script.js"></script>
+                        <link rel="stylesheet" type="text/css" href="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/style.css"></link>
+                        <input type="text" id="start_time" class="text" style="margin-left:-6px;" value="<?=!empty($search_setuptime)?$search_setuptime:''?>" name="search_start_time" placeholder="開始日期">
                     </div>
                     <div class="spanLineLeft text width100">
-                        <script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
-                        <link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
-                        <script>
-                        $(function(){
-                            $('#endtime').datetimepicker({
-                                dateFormat: 'yy-mm-dd',
-                                timeFormat: ''
-                            });
-                        });
-                        </script>
-                        <input type="text" id="endtime" class="text" style="margin-left:-6px;" value="<?=!empty($search_endtime)?$search_endtime:''?>" name="search_endtime" placeholder="結束日期">
+                        <script src="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/script.js"></script>
+                        <link rel="stylesheet" type="text/css" href="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/style.css"></link>
+                        <input type="text" id="end_time" class="text" style="margin-left:-6px;" value="<?=!empty($search_endtime)?$search_endtime:''?>" name="search_end_time" placeholder="結束日期">
                     </div>
                     <div class="spanLineLeft text width150">
                         <select name="search_class_slug" style="margin-left:-6px;">

@@ -1,6 +1,6 @@
 <?=$temp['header_up']?>
-<link href='style/tool/fullcalendar/fullcalendar.css' rel='stylesheet' />
-<link href='style/tool/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<link href='js/tool/fullcalendar/fullcalendar.css' rel='stylesheet' />
+<link href='js/tool/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
 <script>
 Temp.ready(function() {
     $('#calendar').fullCalendar({

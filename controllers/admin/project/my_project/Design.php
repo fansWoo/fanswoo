@@ -33,16 +33,6 @@ class Design_Controller extends MY_Controller {
             return FALSE;
         }
 
-        //global
-        $data['global']['js'][] = 'tool/jquery.form.js';
-
-        //temp
-        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
-        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
-        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
-
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
     }

@@ -1,6 +1,4 @@
 <?=$temp['header_up']?>
-<script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
-<link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
 <script>
 Temp.ready(function(){
     $('#setuptime').datetimepicker({

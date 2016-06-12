@@ -44,41 +44,6 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                二級分類
-            </div>
-            <div class="spanLineLeft width300">
-                <?if(!empty($class_ClassMeta->class_ClassMetaList->obj_arr)):?>
-                <div>
-                    <select name="classids_arr[]">
-                        <option value="">沒有分類標籤</option>
-                        <?foreach($class2_ClassMetaList->obj_arr as $key2 => $value2_ClassMeta):?>
-                        <option value="<?=$value2_ClassMeta->classid?>"<?if($class_ClassMeta->class_ClassMetaList->obj_arr[0]->classid == $value2_ClassMeta->classid):?> selected<?endif?>><?=$value2_ClassMeta->classname?></option>
-                        <?endforeach?>
-                    </select>
-                </div>
-                <?else:?>
-                <div>
-                    <select name="classids_arr[]">
-                        <option value="">沒有分類標籤</option>
-                        <?foreach($class2_ClassMetaList->obj_arr as $key => $value_ClassMeta):?>
-                        <option value="<?=$value_ClassMeta->classid?>"><?=$value_ClassMeta->classname?></option>
-                        <?endforeach?>
-                    </select>
-                </div>
-                <?endif?>
-            </div>
-        </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <a href="admin/<?=$child1_name?>/<?=$child2_name?>/classmeta2/tablelist">管理二級分類</a>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
                 分類簡介
             </div>
             <div class="spanLineLeft width400">

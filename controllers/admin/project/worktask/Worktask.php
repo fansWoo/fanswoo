@@ -14,29 +14,35 @@ class Worktask_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
             
-        $faqid = $this->input->get('faqid');
+        $worktaskid = $this->input->get('worktaskid');
 
-        $data['FaqField'] = new FaqField([
+        $data['Worktask'] = new Worktask([
             'db_where_arr' => [
-                'faq.faqid' => $faqid
+                'worktaskid' => $worktaskid
             ]
         ]);
 
-        $data['FaqClassMetaList'] = new ObjList([
+        $data['WorktaskClassMetaList'] = new ObjList([
             'db_where_arr' => [
-                'modelname' => 'faq'
+                'modelname' => 'worktask'
             ],
             'model_name' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
 
-        //temp
-        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
-        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
-        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+        $data['ProjectList'] = new ObjList([
+            'db_where_arr' => [
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'Project',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
+
+        $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
+        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
+        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/style.css';
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
@@ -47,31 +53,39 @@ class Worktask_Controller extends MY_Controller {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
         //基本post欄位
-        $faqid = $this->input->post('faqid', TRUE);
-        $title = $this->input->post('title', TRUE, '問題標題', 'required');
-        $classids_arr = $this->input->post('classids_arr', TRUE);
-        $content = $this->input->post('content', FALSE, '回答內容', 'required');
+        $worktaskid = $this->input->post('worktaskid', TRUE);
+        $title = $this->input->post('title', TRUE, '任務名稱', 'required');
+        $projectid = $this->input->post('projectid', TRUE, '專案名稱', 'required');
+        $classids = $this->input->post('classids', TRUE, '任務分類', 'required');
+        $estimate_hour = $this->input->post('estimate_hour', TRUE, '預估時數');
+        $use_hour = $this->input->post('use_hour', TRUE, '耗用時數');
+        $content = $this->input->post('content', FALSE, '任務內容');
+        $start_time = $this->input->post('start_time', TRUE, '起始時間');
+        $end_time = $this->input->post('end_time', TRUE, '結束時間');
         $prioritynum = $this->input->post('prioritynum', TRUE);
-        $updatetime = $this->input->post('updatetime', TRUE);
+
         if( !$this->form_validation->check() ) return FALSE;
 
-        //建構Faq物件，並且更新
-        $FaqField = new FaqField([
-            'faqid' => $faqid,
+        //建構Worktask物件，並且更新
+        $Worktask = new Worktask([
+            'worktaskid' => $worktaskid,
             'title' => $title,
-            'classids_arr' => $classids_arr,
+            'projectid' => $projectid,
+            'classids' => $classids,
+            'estimate_hour' => $estimate_hour,
+            'use_hour' => $use_hour,
+            'start_time' => $start_time,
+            'end_time' => $end_time,
             'content' => $content,
-            'prioritynum' => $prioritynum,
-            'updatetime' => $updatetime,
-            'modelname' => 'faq'
+            'prioritynum' => $prioritynum
         ]);
-        $FaqField->update();
+        $Worktask->update();
 
         //送出成功訊息
         $this->load->model('Message');
         $this->Message->show([
             'message' => '設定成功',
-            'url' => 'admin/base/faq/faq/tablelist/'
+            'url' => 'admin/project/worktask/worktask/tablelist/'
         ]);
     }
 
@@ -79,7 +93,7 @@ class Worktask_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $data['search_faqid'] = $this->input->get('faqid');
+        $data['search_worktaskid'] = $this->input->get('worktaskid');
         $data['search_title'] = $this->input->get('title');
         $data['search_class_slug'] = $this->input->get('class_slug');
 
@@ -93,43 +107,34 @@ class Worktask_Controller extends MY_Controller {
             ]
         ]);
 
-        $data['FaqList'] = new ObjList([
+        $data['WorktaskList'] = new ObjList([
             'db_where_arr' => [
-                'modelname' => 'faq',
-                'faqid' => $data['search_faqid']
+                'worktaskid' => $data['search_worktaskid']
             ],
             'db_where_like_arr' => [
                 'title' => $data['search_title']
             ],
             'db_where_or_arr' => [
-                'classids' => [$class_ClassMeta->classid]
+                'classid' => [$class_ClassMeta->classid]
             ],
             'db_orderby_arr' => [
                 'prioritynum' => 'DESC',
-                'updatetime' => 'DESC'
             ],
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Faq',
+            'model_name' => 'Worktask',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
         ]);
-        $data['page_link'] = $data['FaqList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
+        $data['page_link'] = $data['WorktaskList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
-        $data['FaqClassMetaList'] = new ObjList([
+        $data['WorktaskClassMetaList'] = new ObjList([
             'db_where_arr' => [
-                'modelname' => 'faq'
+                'modelname' => 'worktask'
             ],
             'model_name' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
-
-        //temp
-        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
-        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
-        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
@@ -140,15 +145,15 @@ class Worktask_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_faqid = $this->input->post('search_faqid', TRUE);
+        $search_worktaskid = $this->input->post('search_worktaskid', TRUE);
         $search_class_slug = $this->input->post('search_class_slug', TRUE);
         $search_title = $this->input->post('search_title', TRUE);
 
-        $url = 'admin/base/faq/faq/tablelist/?';
+        $url = 'admin/base/worktask/worktask/tablelist/?';
 
-        if(!empty($search_faqid))
+        if(!empty($search_worktaskid))
         {
-            $url = $url.'&faqid='.$search_faqid;
+            $url = $url.'&worktaskid='.$search_worktaskid;
         }
 
         if(!empty($search_class_slug))
@@ -169,6 +174,20 @@ class Worktask_Controller extends MY_Controller {
         ]);
     }
 
+    public function calendar()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+        
+        //global
+        $data['global']['js'][] = 'tool/fullcalendar/moment.min.js';
+        $data['global']['js'][] = 'tool/fullcalendar/fullcalendar.min.js';
+        $data['global']['js'][] = 'tool/fullcalendar/gcal.js';
+
+        //輸出模板
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
+
+    }
+
     public function delete()
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
@@ -176,15 +195,15 @@ class Worktask_Controller extends MY_Controller {
         //CSRF過濾
         if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $FaqField = new FaqField([
-                'faqid' => $this->input->get('faqid')
+            $worktask = new worktask([
+                'worktaskid' => $this->input->get('worktaskid')
             ]);
-            $FaqField->delete();
+            $worktask->delete();
 
             $this->load->model('Message');
             $this->Message->show([
                 'message' => '刪除成功',
-                'url' => 'admin/base/faq/faq/tablelist'
+                'url' => 'admin/base/worktask/worktask/tablelist'
             ]);
         }
         else
@@ -192,7 +211,7 @@ class Worktask_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/base/faq/faq/tablelist'
+                'url' => 'admin/base/worktask/worktask/tablelist'
             ]);
         }
     }
@@ -201,9 +220,9 @@ class Worktask_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
         
-        $faqid_arr = $this->input->post('faqid_arr[]');
+        $worktaskid_arr = $this->input->post('worktaskid_arr[]');
 
-        if( empty($faqid_arr) )
+        if( empty($worktaskid_arr) )
         {
             $this->load->model('Message');
             $this->Message->show([
@@ -215,21 +234,21 @@ class Worktask_Controller extends MY_Controller {
         //CSRF過濾
         if($this->input->get('hash') == $this->security->get_csrf_hash())
         {
-            if(!empty($faqid_arr))
+            if(!empty($worktaskid_arr))
             {
-                foreach($faqid_arr as $key => $faqid)
+                foreach($worktaskid_arr as $key => $worktaskid)
                 {
-                    $FaqField = new FaqField([
-                        'faqid' => $faqid
+                    $worktask = new worktask([
+                        'worktaskid' => $worktaskid
                     ]);
-                    $FaqField->delete();
+                    $worktask->delete();
                 }
             }
 
             $this->load->model('Message');
             $this->Message->show([
                 'message' => '刪除成功',
-                'url' => 'admin/base/faq/faq/tablelist'
+                'url' => 'admin/base/worktask/worktask/tablelist'
             ]);
             return TRUE;
         }
@@ -238,7 +257,7 @@ class Worktask_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/base/faq/faq/tablelist'
+                'url' => 'admin/base/worktask/worktask/tablelist'
             ]);
             return TRUE;
         }

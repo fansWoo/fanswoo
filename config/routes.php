@@ -61,8 +61,7 @@ $route['page/(:num)'] = "page/view/$1";
 $route['page/slug/(:any)'] = "page/view/$1";
 $route['pager/(:num)'] = "page/view/$1";
 $route['pager/slug/(:any)'] = "page/view/$1";
-$route['note/(:num)'] = "note/view/$1";
-$route['note/slug/(:any)'] = "note/view/$1";
+$route['note/(:any)'] = "note/view/$1";
 $route['pdf/(:num)'] = "pdf/view/$1";
 $route['pdf/slug/(:any)'] = "pdf/view/$1";
 $route['pic/(:num)'] = "pic/view/$1";
@@ -71,6 +70,11 @@ $route['showpiece/(:num)'] = "showpiece/view/$1";
 $route['showpiece/slug/(:any)'] = "showpiece/view/$1";
 $route['space/(:num)'] = "space/view/$1";
 $route['space/slug/(:any)'] = "space/view/$1";
+
+//讀取檔案
+$route['js/(.*)'] = "api/read_file/js/$1";
+$route['style/(.*)'] = "api/read_file/style/$1";
+$route['img/(.*)'] = "api/read_file/img/$1";
 
 
 /* End of file routes.php */

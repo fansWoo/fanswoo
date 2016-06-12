@@ -14,39 +14,17 @@ class Classmeta_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        //引入GET數值
         $classid = $this->input->get('classid');
         $slug = $this->input->get('slug');
 
-        $uid = $this->session->userdata('uid');
-
         //初始化ClassMeta
-        $data['class_ClassMeta'] = new ClassMeta();
-        $data['class_ClassMeta']->construct_db(array(
-            'db_where_arr' => array(
+        $data['class_ClassMeta'] = new ClassMeta([
+            'db_where_arr' => [
                 'classid' => $classid,
                 'slug' => $slug
-            ),
+            ],
             'db_where_deletenull_bln' => TRUE
-        ));
-        
-        //建立class2_ClassMetaList
-        $data['class2_ClassMetaList'] = new ObjList();
-        $data['class2_ClassMetaList']->construct_db(array(
-            'db_where_arr' => array(
-                'modelname' => 'project_class2'
-            ),
-            'model_name' => 'ClassMeta',
-            'limitstart' => 0,
-            'limitcount' => 100
-        ));
-
-        //temp
-        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
-        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
-        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+        ]);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
@@ -56,41 +34,29 @@ class Classmeta_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $this->form_validation->set_rules('classname', 'classname', 'required');
+        $classid = $this->input->post('classid', TRUE);
+        $classname = $this->input->post('classname', TRUE, '分類名稱', 'required');
+        $slug = $this->input->post('slug', TRUE);
+        $content = $this->input->post('content', TRUE);
+        $prioritynum = $this->input->post('prioritynum', TRUE);
+        if( !$this->form_validation->check() ) return FALSE;
+                
+        $ClassMeta = new ClassMeta([
+            'classid' => $classid,
+            'classname' => $classname,
+            'slug' => $slug,
+            'content' => $content,
+            'prioritynum' => $prioritynum,
+            'modelname' => 'worktask'
+        ]);
+        $ClassMeta->update();
 
-        if ($this->form_validation->run() !== FALSE)
-        {
-            $classid = $this->input->post('classid', TRUE);
-            $classname = $this->input->post('classname', TRUE);
-            $slug = $this->input->post('slug', TRUE);
-            $classids_arr = $this->input->post('classids_arr', TRUE);
-            $prioritynum = $this->input->post('prioritynum', TRUE);
-
-            $class_ClassMeta = new ClassMeta();
-            $class_ClassMeta->construct(array(
-                'classid' => $classid,
-                'classname' => $classname,
-                'slug' => $slug,
-                'classids_arr' => $classids_arr,
-                'prioritynum' => $prioritynum,
-                'modelname' => 'project'
-            ));
-            $class_ClassMeta->update(array());
-
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => '設定成功',
-                'url' => 'admin/project/project/classmeta/tablelist'
-            ));
-        }
-        else
-        {
-            $this->load->model('Message');
-            $this->Message->show(array(
-                'message' => validation_errors(),
-                'url' => 'admin/project/project/classmeta/tablelist'
-            ));
-        }
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '設定成功',
+            'url' => 'admin/project/worktask/classmeta/tablelist'
+        ]);
     }
 
     public function tablelist()
@@ -104,26 +70,15 @@ class Classmeta_Controller extends MY_Controller {
 
         $data['search_classname'] = $this->input->get('classname');
         $data['search_slug'] = $this->input->get('slug');
-        $data['search_class2_slug'] = $this->input->get('class2_slug');
-
-        $class_ClassMeta = new ClassMeta();
-        $class_ClassMeta->construct_db(array(
-            'db_where_arr' => array(
-                'slug' => $data['search_class2_slug']
-            )
-        ));
 
         $data['class_list_ClassMetaList'] = new ObjList();
         $data['class_list_ClassMetaList']->construct_db(array(
             'db_where_arr' => array(
-                'modelname' => 'project',
+                'modelname' => 'worktask',
                 'slug' => $data['search_slug']
             ),
             'db_where_like_arr' => array(
                 'classname' => $data['search_classname']
-            ),
-            'db_where_or_arr' => array(
-                'classids' => array($class_ClassMeta->classid)
             ),
             'db_where_deletenull_bln' => TRUE,
             'db_orderby_arr' => array(
@@ -146,13 +101,6 @@ class Classmeta_Controller extends MY_Controller {
             'limitstart' => 0,
             'limitcount' => 100
         ));
-
-        //temp
-        $data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-        $data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-        $data['temp']['admin_header_bar'] = $this->load->view('admin/temp/admin_header_bar', $data, TRUE);
-        $data['temp']['admin_footer_bar'] = $this->load->view('admin/temp/admin_footer_bar', $data, TRUE);
-        $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);

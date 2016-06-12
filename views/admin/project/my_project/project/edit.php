@@ -143,8 +143,8 @@
             </div>
             <div class="spanLineLeft">
                 <?if($Project->paycheck_status == 0):?>
-                    <script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
-                        <link rel="stylesheet" type="text/css" href="js/tool/jquery-ui-timepicker-addon/style.css"></link>
+                    <script src="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/script.js"></script>
+                        <link rel="stylesheet" type="text/css" href="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/style.css"></link>
                         <script>
                         $(function(){
                             $('#pay_paytime').datetimepicker({

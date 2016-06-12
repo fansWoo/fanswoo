@@ -11,7 +11,6 @@ class Project extends ObjDbBase
     public $permission_uids_UserList = '';
     public $working_days = 0;
     public $class_ClassMetaList;
-    public $designids = '';
     public $pay_name = '';
     public $pay_account = '';
     public $pay_price_total = 0;
