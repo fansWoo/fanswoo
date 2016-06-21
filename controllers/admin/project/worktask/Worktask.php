@@ -177,6 +177,60 @@ class Worktask_Controller extends MY_Controller {
     public function calendar()
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
+
+        $data['search_worktaskid'] = $this->input->get('worktaskid');
+        $data['search_title'] = $this->input->get('title');
+        $data['search_class_slug'] = $this->input->get('class_slug');
+
+        $limitstart = $this->input->get('limitstart');
+        $limitcount = $this->input->get('limitcount');
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
+
+        $class_ClassMeta = new ClassMeta([
+            'db_where_arr' => [
+                'slug' => $data['search_class_slug']
+            ]
+        ]);
+
+        $WorktaskList = new ObjList([
+            'db_where_arr' => [
+                'worktaskid' => $data['search_worktaskid']
+            ],
+            'db_where_like_arr' => [
+                'title' => $data['search_title']
+            ],
+            'db_where_or_arr' => [
+                'classid' => [$class_ClassMeta->classid]
+            ],
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'Worktask',
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+        ]);
+
+        $worktask_arr = [];
+        foreach( (array) $WorktaskList->obj_arr as $key => $value_Worktask )
+        {
+            $worktask_arr[$key]['title'] = $value_Worktask->title;
+            $worktask_arr[$key]['start'] = date("Y-m-d", strtotime( $value_Worktask->start_time_DateTime->inputtime_date ) );
+            $worktask_arr[$key]['end'] = date("Y-m-d", strtotime("+1 Day", strtotime( $value_Worktask->end_time_DateTime->inputtime_date ) ) );
+            $worktask_arr[$key]['id'] = $value_Worktask->worktaskid;
+            $worktask_arr[$key]['color'] = 'yellow';
+            $worktask_arr[$key]['textColor'] = 'black';
+        }
+        $data['worktask_json'] = json_encode( $worktask_arr );
+
+        $data['WorktaskClassMetaList'] = new ObjList([
+            'db_where_arr' => [
+                'modelname' => 'worktask'
+            ],
+            'model_name' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
         
         //global
         $data['global']['js'][] = 'tool/fullcalendar/moment.min.js';

@@ -9,6 +9,7 @@ Temp.ready(function() {
             center: 'title',
             right: 'month,basicWeek'
         },
+        firstDay: 1,
         selectable: true,
         selectHelper: true,
         select: function(start, end) {
@@ -46,25 +47,26 @@ Temp.ready(function() {
         loading: function(bool) {
             $('#loading').toggle(bool);
         },
-        defaultDate: '2016-01-12',
+        // defaultDate: '2016-01-12',
         editable: true,
         // eventLimit: true, // allow "more" link when too many events
-        events: [
-            {
-                title: 'All Day Event',
-                start: '2016-01-01',
-                color: 'yellow',
-                textColor: 'black',
-                id: 123
-            },
-            {
-                title: 'All Day Event2',
-                start: '2016-01-02',
-                color: 'yellow',
-                textColor: 'black',
-                id: 124
-            }
-        ],
+        events: <?=$worktask_json?>,
+        // events: [
+        //     {
+        //         title: 'All Day Event',
+        //         start: '2016-01-01',
+        //         color: 'yellow',
+        //         textColor: 'black',
+        //         id: 123
+        //     },
+        //     {
+        //         title: 'All Day Event2',
+        //         start: '2016-01-02',
+        //         color: 'yellow',
+        //         textColor: 'black',
+        //         id: 124
+        //     }
+        // ],
         //合併載入google行事曆
         // googleCalendarApiKey: 'AIzaSyAdJkMAiXkiMMuzV0Hy6d0VIEQDxr4U3pc',
         // eventSources: [
