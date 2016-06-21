@@ -164,6 +164,19 @@ Temp.ready(function(){
             </div>
         </div>
     </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                執行狀態
+            </div>
+            <div class="spanLineLeft">
+                <select name="work_status">
+                    <option value="0"<?if($Worktask->work_status == 0):?> selected<?endif?>>未完成</option>
+                    <option value="1"<?if($Worktask->work_status == 1):?> selected<?endif?>>已完成</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="spanLine spanSubmit">
         <div class="spanStage">
             <div class="spanLineLeft">

@@ -13,6 +13,7 @@ class Worktask extends ObjDbBase
     public $start_time_DateTime;
     public $end_time_DateTime;
     public $prioritynum = 0;
+    public $work_status = 1;
     public $status = 1;
     public $db_name = 'project_worktask';//填寫物件聯繫資料庫之名稱
     public $db_uniqueid = 'worktaskid';//填寫物件聯繫資料庫之唯一ID
@@ -27,6 +28,7 @@ class Worktask extends ObjDbBase
         'start_time' => array('start_time_DateTime', 'datetime'),
         'end_time' => array('end_time_DateTime', 'datetime'),
         'prioritynum' => 'prioritynum',
+        'work_status' => 'work_status',
         'status' => 'status'
     );
 	
@@ -42,6 +44,7 @@ class Worktask extends ObjDbBase
         $this->set('estimate_hour', $arg['estimate_hour']);
         $this->set('use_hour', $arg['use_hour']);
         $this->set('prioritynum', $arg['prioritynum']);
+        $this->set('work_status', $arg['work_status']);
         $this->set('start_time_DateTime', [
             'datetime' => $arg['start_time'],
             'inputtime_date' => $arg['start_inputtime_date'],

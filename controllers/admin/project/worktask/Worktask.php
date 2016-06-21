@@ -63,6 +63,8 @@ class Worktask_Controller extends MY_Controller {
         $start_time = $this->input->post('start_time', TRUE, '起始時間');
         $end_time = $this->input->post('end_time', TRUE, '結束時間');
         $prioritynum = $this->input->post('prioritynum', TRUE);
+        $work_status = $this->input->post('work_status', TRUE);
+        $post_from = $this->input->post('post_from', TRUE);
 
         if( !$this->form_validation->check() ) return FALSE;
 
@@ -77,16 +79,28 @@ class Worktask_Controller extends MY_Controller {
             'start_time' => $start_time,
             'end_time' => $end_time,
             'content' => $content,
+            'work_status' => $work_status,
             'prioritynum' => $prioritynum
         ]);
         $Worktask->update();
 
-        //送出成功訊息
-        $this->load->model('Message');
-        $this->Message->show([
-            'message' => '設定成功',
-            'url' => 'admin/project/worktask/worktask/tablelist/'
-        ]);
+        if( $post_from == 'calendar')
+        {
+            //送出成功訊息
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '設定成功'
+            ]);
+        }
+        else
+        {
+            //送出成功訊息
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '設定成功',
+                'url' => 'admin/project/worktask/worktask/tablelist/'
+            ]);
+        }
     }
 
     public function tablelist()
@@ -214,12 +228,30 @@ class Worktask_Controller extends MY_Controller {
         $worktask_arr = [];
         foreach( (array) $WorktaskList->obj_arr as $key => $value_Worktask )
         {
+            $worktask_arr[$key]['id'] = $value_Worktask->worktaskid;
+            $worktask_arr[$key]['worktaskid'] = $value_Worktask->worktaskid;
             $worktask_arr[$key]['title'] = $value_Worktask->title;
+            $worktask_arr[$key]['content'] = $value_Worktask->content_Html;
+            $worktask_arr[$key]['estimate_hour'] = $value_Worktask->estimate_hour;
+            $worktask_arr[$key]['use_hour'] = $value_Worktask->use_hour;
+            $worktask_arr[$key]['classids'] = $value_Worktask->class_ClassMetaList->obj_arr[0]->classid;
+            $worktask_arr[$key]['projectid'] = $value_Worktask->projectid;
+
+            $worktask_arr[$key]['start_time'] = date("Y-m-d h:i:s", strtotime( $value_Worktask->start_time_DateTime->inputtime_date ) );
+            $worktask_arr[$key]['end_time'] = date("Y-m-d h:i:s", strtotime("+1 Day", strtotime( $value_Worktask->end_time_DateTime->inputtime_date ) ) );
             $worktask_arr[$key]['start'] = date("Y-m-d", strtotime( $value_Worktask->start_time_DateTime->inputtime_date ) );
             $worktask_arr[$key]['end'] = date("Y-m-d", strtotime("+1 Day", strtotime( $value_Worktask->end_time_DateTime->inputtime_date ) ) );
-            $worktask_arr[$key]['id'] = $value_Worktask->worktaskid;
-            $worktask_arr[$key]['color'] = 'yellow';
-            $worktask_arr[$key]['textColor'] = 'black';
+            $worktask_arr[$key]['work_status'] = $value_Worktask->work_status;
+            if( $value_Worktask->work_status == 0)
+            {
+                $worktask_arr[$key]['color'] = '#F691B2';
+                $worktask_arr[$key]['textColor'] = 'black';
+            }
+            else
+            {
+                $worktask_arr[$key]['color'] = '#dcf1db';
+                $worktask_arr[$key]['textColor'] = 'black';
+            }
         }
         $data['worktask_json'] = json_encode( $worktask_arr );
 
@@ -231,8 +263,20 @@ class Worktask_Controller extends MY_Controller {
             'limitstart' => 0,
             'limitcount' => 100
         ]);
+
+        $data['ProjectList'] = new ObjList([
+            'db_where_arr' => [
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'model_name' => 'Project',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
         
         //global
+        $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
+        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
+        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/style.css';
         $data['global']['js'][] = 'tool/fullcalendar/moment.min.js';
         $data['global']['js'][] = 'tool/fullcalendar/fullcalendar.min.js';
         $data['global']['js'][] = 'tool/fullcalendar/gcal.js';
