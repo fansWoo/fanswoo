@@ -13,11 +13,9 @@ Temp.ready(function() {
         selectable: true,
         selectHelper: true,
         select: function(start, end) {
-            console.log(start);
-            console.log(end);
             $clone = $('.fixed_window').clone();
-            $('.fixed_window_close_bg').fadeIn(100);
-            $clone.insertBefore(".fixed_window").addClass('display').fadeIn(100);
+            $('.fixed_window_close_bg').css('display', 'block');;
+            $clone.insertBefore(".fixed_window").addClass('display').css('display', 'block');;
 
             $clone.find('#start_time').val( start._d.getFullYear() + '-' + (start._d.getMonth() + 1) + '-' + start._d.getDate() + ' 00:00:00' );
             $clone.find('#end_time').val( end._d.getFullYear() + '-' + (end._d.getMonth() + 1) + '-' + ( end._d.getDate() - 1) + ' 00:00:00' );
@@ -35,31 +33,18 @@ Temp.ready(function() {
                 dateFormat: 'yy-mm-dd',
                 timeFormat: 'HH:mm:ss'
             });
-            // var title = prompt('Event Title:');
-            // var eventData;
-            // if (title) {
-            //     eventData = {
-            //         title: title,
-            //         start: start,
-            //         end: end
-            //     };
-            //     $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-            // }
-            // $('#calendar').fullCalendar('unselect');
         },
         eventClick: function(event) {
             // opens events in a popup window
-            console.log(event);
             $clone = $('.fixed_window').clone();
-            $('.fixed_window_close_bg').fadeIn(100);
-            $clone.insertBefore(".fixed_window").addClass('display').fadeIn(100);
-
+            $('.fixed_window_close_bg').css('display', 'block');;
+            $clone.insertBefore(".fixed_window").addClass('display').css('display', 'block');;
 
             $clone.find('#worktaskid').val( event.worktaskid );
             $clone.find('#title').val( event.title );
             $clone.find('#content').val( event.content );
-            $clone.find('#start_time').val( event.start_time );
-            $clone.find('#end_time').val( event.end_time );
+            $clone.find('#start_time').val( event.start._d.getFullYear() + '-' + (event.start._d.getMonth() + 1) + '-' + ( event.start._d.getDate() ) + ' 00:00:00' );
+            $clone.find('#end_time').val( event.end._d.getFullYear() + '-' + (event.end._d.getMonth() + 1) + '-' + ( event.end._d.getDate() - 1) + ' 00:00:00' );
             $clone.find('#estimate_hour').val( event.estimate_hour );
             $clone.find('#use_hour').val( event.use_hour );
             $clone.find("#projectid > option[value='" + event.projectid + "']").prop('selected', true);
@@ -83,10 +68,10 @@ Temp.ready(function() {
             return false;
         },
         eventDragStop: function( event, jsEvent, ui, view ) {
-            alert('event:drag //這時候利用 AJAX 修改開始日期');
+            console.log('event:drag //這時候利用 AJAX 修改開始日期');
         },
         eventResizeStop: function( event, jsEvent, ui, view ) {
-            alert('event:resize //這時候利用 AJAX 修改結束日期');
+            console.log('event:resize //這時候利用 AJAX 修改結束日期');
         },
         editable: true,
         <?if( !empty($worktask_json) ):?>
@@ -129,11 +114,100 @@ Temp.ready(function() {
     });
 
     $(document).on('click', '[fanswoo-window_close]', function(){
-        $('.fixed_window_close_bg').fadeOut(100);
-        $('.fixed_window.display').fadeOut(100);
+        $('.fixed_window_close_bg').css('display', 'none');
+        $('.fixed_window.display').css('display', 'none');
         setTimeout(function(){
             $('.fixed_window.display').remove();
         }, 100);
+    });
+
+    $(document).on('click', '[fanswoo-worktask_delete]', function(){
+        var worktaskid = $(this).parents(".fixed_window").find("#worktaskid").val();
+
+        var answer = confirm('確定要刪除嗎？');
+        if (answer){
+
+            $.ajax({
+                url: $('base').attr('href') + 'admin/project/worktask/worktask/delete/?dont_change_page=1&worktaskid=' + worktaskid + '&hash=<?=$this->security->get_csrf_hash()?>',
+                type: 'GET'
+            })
+            .done(function(response){
+                fanswoo.message_show(
+                    '刪除成功',
+                    2
+                );
+                $('#calendar').fullCalendar('removeEvents', worktaskid);
+                $fixed_window = $('.fixed_window.worktask_form :submit').parents('.fixed_window');
+                $fixed_window.find('[fanswoo-window_close]').click();
+            })
+        　　.fail(function(response){
+                fanswoo.message_show(
+                    'AJAX傳輸錯誤...',
+                    2
+                );
+            });
+
+        }
+    });
+
+    $('.fixed_window.worktask_form :submit').ajax_submit({
+        ajax_before_function: function(){
+            $fixed_window = $('.fixed_window.worktask_form :submit').parents('.fixed_window');
+
+            var start_time_Date = new Date( $fixed_window.find('#start_time').val() );
+            $fixed_window.find('#start_time').val( start_time_Date.getFullYear() + '-' + (start_time_Date.getMonth() + 1) + '-' + start_time_Date.getDate() + ' 00:00:00' );
+
+            var end_time_Date = new Date( $fixed_window.find('#end_time').val() );
+            $fixed_window.find('#end_time').val( end_time_Date.getFullYear() + '-' + (end_time_Date.getMonth() + 1) + '-' + ( end_time_Date.getDate() + 1) + ' 00:00:00' );
+            // console.log( $fixed_window.find('#start_time').val() );
+            // console.log( $fixed_window.find('#end_time').val() );
+        },
+        ajax_response_function: function(response){
+            $fixed_window = $('.fixed_window.worktask_form :submit').parents('.fixed_window');
+            $fixed_window.find('[fanswoo-window_close]').click();
+
+            var worktaskid = response.worktaskid;
+            var title = $fixed_window.find('#title').val();
+            var work_status = $fixed_window.find('#work_status').val();
+
+            var start_time_Date = new Date( $fixed_window.find('#start_time').val() );
+            start_time_Date = new Date(start_time_Date.getFullYear() + '-' + (start_time_Date.getMonth() + 1) + '-' + (start_time_Date.getDate() + 1) + ' 00:00:00' );
+
+            var end_time_Date = new Date( $fixed_window.find('#end_time').val() );
+            end_time_Date = new Date( end_time_Date.getFullYear() + '-' + (end_time_Date.getMonth() + 1) + '-' + ( end_time_Date.getDate() + 1) + ' 00:00:00' );
+
+            var start = start_time_Date.toISOString();
+            var end = end_time_Date.toISOString();
+
+            if( work_status == 0)
+            {
+                var color = '#F691B2';
+                var textColor = 'black';
+            }
+            else if( work_status == 1)
+            {
+                var color = '#dcf1db';
+                var textColor = 'black';
+            }
+            else if( work_status == 2)
+            {
+                var color = '#F5F5F5';
+                var textColor = '#AAA';
+            }
+
+            var event_data = {
+                id: worktaskid,
+                worktaskid: worktaskid,
+                title: title,
+                start: start,
+                end: end,
+                allDay: true,
+                color: color,
+                textColor: textColor
+            };
+            $('#calendar').fullCalendar('renderEvent', event_data, true); // stick? = true
+            $('#calendar').fullCalendar('unselect');
+        }
     });
 
 });
@@ -142,12 +216,13 @@ Temp.ready(function() {
 <?=$temp['admin_header_bar']?>
 <h2><?=$child2_title?> - <?=$child4_title?></h2>
 <div class="fixed_window_close_bg"></div>
-<div class="fixed_window">
+<div class="fixed_window worktask_form">
     <?php echo form_open_multipart("admin/$child1_name/$child2_name/$child3_name/edit_post/") ?>
     <div class="fixed_window_title">任務設置</div>
     <div class="fixed_window_end">
         <span class="gray" fanswoo-window_close>取消</span>
         <a class="gray" href="">詳細資訊</a>
+        <span class="red" fanswoo-worktask_delete>刪除任務</span>
         <input type="submit" value="儲存任務">
     </div>
     <div class="fixed_window_content">
@@ -244,12 +319,13 @@ Temp.ready(function() {
         <div class="spanLine">
             <div class="spanStage">
                 <div class="spanLineLeft">
-                    耗用時數
+                    執行狀態
                 </div>
                 <div class="spanLineRight">
                     <select id="work_status" name="work_status">
-                        <option value="0">未完成</option>
-                        <option value="1">已完成</option>
+                        <option value="0">任務未完成</option>
+                        <option value="1">任務完成，主管檢核中</option>
+                        <option value="2">任務完成，主管審核通過</option>
                     </select>
                 </div>
             </div>
@@ -260,6 +336,18 @@ Temp.ready(function() {
     </form>
 </div>
 <div class="contentBox contentTablelist allWidth">
+    <div style="margin-bottom: 10px;">
+        <select>
+            <option>尚未選擇任務被分派人</option>
+            <option value="528501">楊翊（ yi@fanswoo.com ）</option>
+            <option value="528501">楊翊（ yi@fanswoo.com ）</option>
+        </select>
+        <select>
+            <option>尚未選擇專案</option>
+            <option value="528501">Alchema</option>
+            <option value="528501">Alchema</option>
+        </select>
+    </div>
 	<div class="calendarContent">
         <div id='calendar'></div>
     </div>

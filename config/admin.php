@@ -628,6 +628,10 @@ $config['admin_sidebox'] = array(
 								'tablelist' => array(
 									'title' => '列表',
 									'purview_groupids' => [2]
+								),
+								'gantt' => array(
+									'title' => '甘特圖',
+									'purview_groupids' => [2]
 								)
 							)
 						),

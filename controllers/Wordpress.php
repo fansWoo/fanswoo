@@ -16,7 +16,7 @@ class Wordpress_Controller extends MY_controller
     {
         $data = $this->data;
 
-        $data['previous_url'] = uriing();
+        $data['previous_url'] = base_url($_SERVER['REQUEST_URI']);
 
         //global
         $data['global']['style'][] = 'temp/global.css';
@@ -40,7 +40,7 @@ class Wordpress_Controller extends MY_controller
 
     public function order_submit()
     {
-        $data['previous_url'] = uriing();
+        $data['previous_url'] = base_url($_SERVER['REQUEST_URI']);
 
         $this->form_validation->set_rules('username', '您的姓名', 'required');
         $this->form_validation->set_rules('company', '公司名稱', 'required');

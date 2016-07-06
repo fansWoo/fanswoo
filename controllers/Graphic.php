@@ -16,7 +16,7 @@ class Graphic_Controller extends MY_controller
     {
         $data = $this->data;
 
-        $data['previous_url'] = uriing();
+        $data['previous_url'] = base_url($_SERVER['REQUEST_URI']);
 
         //global
         $data['global']['style'][] = 'temp/global.css';

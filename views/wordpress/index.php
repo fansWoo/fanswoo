@@ -252,7 +252,7 @@ function is_mobile() {
 				<p>24 小時任意更改風格</p>
 				<p>100% 使用者自由度</p>
 				<p>0 元架站免收設計費</p>
-				<p>最低每月只需 500 元主機費</p>
+				<p>最低每年只需 8000 元主機費</p>
 				<p>.</p>
 				<p>.</p>
 				<p>.</p>
@@ -338,7 +338,7 @@ function is_mobile() {
 						<div class="item"><span class="big">2M</span>或<span class="big">1T</span>共用頻寬</div>
 						<div class="item"><span class="big">無限</span>IP</div>
 						<div class="item">0元設計費</div>
-						<h3>NT$ <span class="big">700元</span> /月</h3>
+						<h3>NT$ <span class="big">8000元</span> /年</h3>
 					</div>
 				</div>
 				<div class="box box2">
@@ -353,7 +353,7 @@ function is_mobile() {
 						<div class="item"><span class="big">5M</span>或<span class="big">1T</span>共用頻寬</div>
 						<div class="item"><span class="big">無限</span>IP</div>
 						<div class="item">0元設計費</div>
-						<h3>NT$ <span class="big">1500元</span> /月</h3>
+						<h3>NT$ <span class="big">18000元</span> /年</h3>
 					</div>
 				</div>
 				<div class="box">
@@ -368,7 +368,7 @@ function is_mobile() {
 						<div class="item"><span class="big">10M</span>或<span class="big">1T</span>共用頻寬</div>
 						<div class="item"><span class="big">無限</span>IP</div>
 						<div class="item">0元設計費</div>
-						<h3>NT$ <span class="big">3200元</span> /月</h3>
+						<h3>NT$ <span class="big">38000元</span> /年</h3>
 					</div>
 				</div>
 			</div>

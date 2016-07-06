@@ -171,8 +171,9 @@ Temp.ready(function(){
             </div>
             <div class="spanLineLeft">
                 <select name="work_status">
-                    <option value="0"<?if($Worktask->work_status == 0):?> selected<?endif?>>未完成</option>
-                    <option value="1"<?if($Worktask->work_status == 1):?> selected<?endif?>>已完成</option>
+                    <option value="0"<?if($Worktask->work_status == 0):?> selected<?endif?>>任務未完成</option>
+                    <option value="1"<?if($Worktask->work_status == 1):?> selected<?endif?>>任務完成，主管檢核中</option>
+                    <option value="2"<?if($Worktask->work_status == 2):?> selected<?endif?>>任務完成，主管審核通過</option>
                 </select>
             </div>
         </div>

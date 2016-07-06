@@ -89,7 +89,10 @@ class Worktask_Controller extends MY_Controller {
             //送出成功訊息
             $this->load->model('Message');
             $this->Message->show([
-                'message' => '設定成功'
+                'message' => '設定成功',
+                'response' => [
+                    'worktaskid' => $Worktask->worktaskid
+                ]
             ]);
         }
         else
@@ -247,10 +250,15 @@ class Worktask_Controller extends MY_Controller {
                 $worktask_arr[$key]['color'] = '#F691B2';
                 $worktask_arr[$key]['textColor'] = 'black';
             }
-            else
+            else if( $value_Worktask->work_status == 1)
             {
                 $worktask_arr[$key]['color'] = '#dcf1db';
                 $worktask_arr[$key]['textColor'] = 'black';
+            }
+            else if( $value_Worktask->work_status == 2)
+            {
+                $worktask_arr[$key]['color'] = '#F5F5F5';
+                $worktask_arr[$key]['textColor'] = '#AAA';
             }
         }
         $data['worktask_json'] = json_encode( $worktask_arr );
@@ -290,6 +298,13 @@ class Worktask_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
+        $url = FALSE;
+        $dont_change_page = $this->input->get('dont_change_page');
+        if( empty( $dont_change_page ) )
+        {
+            $url = 'admin/base/worktask/worktask/tablelist';
+        }
+
         //CSRF過濾
         if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
@@ -301,7 +316,7 @@ class Worktask_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show([
                 'message' => '刪除成功',
-                'url' => 'admin/base/worktask/worktask/tablelist'
+                'url' => $url
             ]);
         }
         else
@@ -309,7 +324,7 @@ class Worktask_Controller extends MY_Controller {
             $this->load->model('Message');
             $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/base/worktask/worktask/tablelist'
+                'url' => $url
             ]);
         }
     }
