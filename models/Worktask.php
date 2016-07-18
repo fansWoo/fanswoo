@@ -10,6 +10,7 @@ class Worktask extends ObjDbBase
     public $class_ClassMetaList;
     public $estimate_hour = 0;
     public $use_hour = 0;
+    public $uid_User;
     public $start_time_DateTime;
     public $end_time_DateTime;
     public $prioritynum = 0;
@@ -22,6 +23,7 @@ class Worktask extends ObjDbBase
         'projectid' => 'projectid',
         'title' => 'title',
         'content' => 'content_Html',
+        'uid' => ['uid_User', 'uid'],
         'classids' => ['class_ClassMetaList', 'uniqueids'],
         'estimate_hour' => 'estimate_hour',
         'use_hour' => 'use_hour',
@@ -59,6 +61,7 @@ class Worktask extends ObjDbBase
             'inputtime_date' => $arg['start_inputtime_date'],
             'inputtime_time' => $arg['start_inputtime_time']
         ], 'DateTimeObj');
+        $this->set__uid_User(['uid' => $arg['uid']]);
         $this->set__status(['status' => $arg['status']]);
         
         return TRUE;

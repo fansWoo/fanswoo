@@ -272,59 +272,59 @@ $config['admin_sidebox'] = array(
 				// 		)
 				// 	)
 				// ),
-				// 'user' => array(
-				// 	'title' => '會員管理',
-				// 	'child3' => array(
-				// 		'user' => array(
-				// 			'title' => '會員',
-				// 			'child4' => array(
-				// 				'edit' => array(
-				// 					'title' => '編輯',
-				// 					'purview_groupids' => [2]
-				// 				),
-				// 				'tablelist' => array(
-				// 					'title' => '列表',
-				// 					'purview_groupids' => [2]
-				// 				)
-				// 			)
-				// 		),
-				// 		'user_shop' => array(
-				// 			'title' => '會員',
-				// 			'child4' => array(
-				// 				'edit' => array(
-				// 					'title' => '編輯',
-				// 					'purview_groupids' => [2]
-				// 				),
-				// 				'tablelist' => array(
-				// 					'title' => '列表',
-				// 					'purview_groupids' => [2]
-				// 				)
-				// 			)
-				// 		),
-				// 		'classmeta' => array(
-				// 			'title' => '會員群組',
-				// 			'child4' => array(
-				// 				'edit' => array(
-				// 					'title' => '編輯',
-				// 					'purview_groupids' => [1]
-				// 				),
-				// 				'tablelist' => array(
-				// 					'title' => '列表',
-				// 					'purview_groupids' => [2]
-				// 				)
-				// 			)
-				// 		),
-				// 		'set' => array(
-				// 			'title' => '會員系統',
-				// 			'child4' => array(
-				// 				'set' => array(
-				// 					'title' => '設置',
-				// 					'purview_groupids' => [2]
-				// 				)
-				// 			)
-				// 		)
-				// 	)
-				// ),
+				'user' => array(
+					'title' => '會員管理',
+					'child3' => array(
+						'user' => array(
+							'title' => '會員',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						// 'user_shop' => array(
+						// 	'title' => '會員',
+						// 	'child4' => array(
+						// 		'edit' => array(
+						// 			'title' => '編輯',
+						// 			'purview_groupids' => [2]
+						// 		),
+						// 		'tablelist' => array(
+						// 			'title' => '列表',
+						// 			'purview_groupids' => [2]
+						// 		)
+						// 	)
+						// ),
+						'classmeta' => array(
+							'title' => '會員群組',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [1]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'set' => array(
+							'title' => '會員系統',
+							'child4' => array(
+								'set' => array(
+									'title' => '設置',
+									'purview_groupids' => [2]
+								)
+							)
+						)
+					)
+				),
 				// 'pager' => array(
 				//  	'title' => '動態頁面',
 				//  	'child3' => array(
@@ -680,6 +680,10 @@ $config['admin_sidebox'] = array(
 								'calendar' => array(
 									'title' => '任務日曆',
 									'purview_groupids' => [2]
+								),
+								'worktask_list_json' => array(
+									'purview_groupids' => [2],
+									'sidebar_hidden' => TRUE
 								)
 							)
 						),

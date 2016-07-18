@@ -107,6 +107,41 @@ Temp.ready(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                任務執行人
+            </div>
+            <div class="spanLineLeft width300">
+                <?if(!empty($Worktask->uid_User->uid)):?>
+                <div>
+                    <select name="uid">
+                        <option value="">尚未選擇任務執行人</option>
+                        <?foreach($UserList->obj_arr as $key => $value_User):?>
+                        <option value="<?=$value_User->uid?>"<?if($Worktask->uid_User->uid == $value_User->uid):?> selected<?endif?>><?=$value_User->username?></option>
+                        <?endforeach?>
+                    </select>
+                </div>
+                <?else:?>
+                <div>
+                    <select name="uid">
+                        <option value="">尚未選擇任務執行人</option>
+                        <?foreach($UserList->obj_arr as $key => $value_User):?>
+                        <option value="<?=$value_User->uid?>"><?=$value_User->username?></option>
+                        <?endforeach?>
+                    </select>
+                </div>
+                <?endif?>
+            </div>
+        </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineLeft width500">
+                <a href="admin/base/user/user/tablelist">管理任務執行人</a>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 任務內容
             </div>
             <div class="spanLineRight">
@@ -169,7 +204,7 @@ Temp.ready(function(){
             <div class="spanLineLeft">
                 執行狀態
             </div>
-            <div class="spanLineLeft">
+            <div class="spanLineLeft width300">
                 <select name="work_status">
                     <option value="0"<?if($Worktask->work_status == 0):?> selected<?endif?>>任務未完成</option>
                     <option value="1"<?if($Worktask->work_status == 1):?> selected<?endif?>>任務完成，主管檢核中</option>
