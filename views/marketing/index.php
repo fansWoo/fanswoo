@@ -609,28 +609,28 @@ $(function(){
 		<div class="circle_box one">
 			<img src="img/marketing/content6/icon.png">
 			<div class="text">
-				<p>鎖定目標客群</p>
+				<h4>鎖定目標客群</h4>
 				<p>根據企業需求，把廣告送到你想送的客人面前，直擊目標客群。</p>
 			</div>
 		</div>
 		<div class="circle_box two">
-			<img src="img/marketing/content6/icon.png">
+			<img src="img/marketing/content6/icon1.png">
 			<div class="text">	
-				<p>廣告形式多元</p>
+				<h4>廣告形式多元</h4>
 				<p>廣告可以文字、圖像、影片、互動式多媒體格式呈現，滿足客戶的新鮮感。</p>
 			</div>
 		</div>
 		<div class="circle_box three">
-			<img src="img/marketing/content6/icon.png">
+			<img src="img/marketing/content6/icon2.png">
 			<div class="text">		
-				<p>評估廣告效益</p>
+				<h4>評估廣告效益</h4>
 				<p>查看哪些廣告獲得最多點擊，隨時調整，發揮廣告最大效益。</p>
 			</div>
 		</div>
 		<div class="circle_box four">
-			<img src="img/marketing/content6/icon.png">
+			<img src="img/marketing/content6/icon3.png">
 			<div class="text">		
-				<p>依照成效收費</p>
+				<h4>依照成效收費</h4>
 				<p>海量曝光完全免費，只有在消費者點擊廣告時您才需要付費。</p>
 			</div>
 		</div>
