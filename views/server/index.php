@@ -219,9 +219,7 @@ $(function(){
 					</div>
 					<div class="item"><p>硬碟容量</p></div>
 					<div class="item"><p>流量</p></div>
-					<div class="item"><p>共用頻寬</p></div>
-					<div class="item"><p>XXXX</p></div>
-					<div class="item"><p>XXXX</p></div>
+					<div class="item"><p>頻寬</p></div>
 				</div>
 			</div>
 			<div class="box">
@@ -233,12 +231,10 @@ $(function(){
 					<div class="item"><p>10G SSD </p></div>
 					<div class="item"><p>40G / 400G</p></div>
 					<div class="item"><p>2M / 1T</p></div>
-					<div class="item"><p>XXX</p></div>
-					<div class="item"><p>XXX</p></div>
 				</div>
 			</div>
 			<div class="box">
-				<img src="img/server/content3/pic1.png" class="type">
+				<img src="img/server/content3/pic2.png" class="type">
 				<div class="item_box">
 					<div class="price">
 						<p>NT$<span>18,000 </span>/年</p>
@@ -246,12 +242,10 @@ $(function(){
 					<div class="item"><p>20G SSD </p></div>
 					<div class="item"><p>80G / 800G</p></div>
 					<div class="item"><p>5M / 1T</p></div>
-					<div class="item"><p>XXX</p></div>
-					<div class="item"><p>XXX</p></div>
 				</div>
 			</div>
 			<div class="box">
-				<img src="img/server/content3/pic1.png" class="type">
+				<img src="img/server/content3/pic3.png" class="type">
 				<div class="item_box">
 					<div class="price">
 						<p>NT$<span>38,000 </span>/年</p>
@@ -259,8 +253,6 @@ $(function(){
 					<div class="item"><p>40G SSD</p></div>
 					<div class="item"><p>120G / 1200G</p></div>
 					<div class="item"><p>10M / 1T</p></div>
-					<div class="item"><p>XXX</p></div>
-					<div class="item"><p>XXX</p></div>
 				</div>
 			</div>
 		</div>
@@ -289,14 +281,6 @@ $(function(){
 					<p>頻寬</p>
 					<p>2M/1T</p> 
 				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
 			</div>
 		</div>
 		<div class="box">
@@ -317,14 +301,6 @@ $(function(){
 					<p>頻寬</p>
 					<p>2M/1T</p> 
 				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
 			</div>
 		</div>
 		<div class="box">
@@ -344,14 +320,6 @@ $(function(){
 				<div class="item">
 					<p>頻寬</p>
 					<p>2M/1T</p> 
-				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
 				</div>
 			</div>
 		</div>
@@ -400,8 +368,6 @@ $(function(){
 					<div class="item"><p>硬碟容量</p></div>
 					<div class="item"><p>流量</p></div>
 					<div class="item"><p>頻寬</p></div>
-					<div class="item"><p>XXXX</p></div>
-					<div class="item"><p>XXXX</p></div>
 				</div>
 			</div>
 			<div class="box">
@@ -413,12 +379,10 @@ $(function(){
 					<div class="item"><p>200G SSD </p></div>
 					<div class="item"><p>2T</p></div>
 					<div class="item"><p>頻寬</p></div>
-					<div class="item"><p>XXX</p></div>
-					<div class="item"><p>XXX</p></div>
 				</div>
 			</div>
 			<div class="box">
-				<img src="img/server/content6/pic1.png" class="type">
+				<img src="img/server/content6/pic2.png" class="type">
 				<div class="item_box">
 					<div class="price">
 						<p>NT$<span>15,800</span>/年</p>
@@ -426,12 +390,10 @@ $(function(){
 					<div class="item"><p>400G SSD </p></div>
 					<div class="item"><p>4T</p></div>
 					<div class="item"><p>無限頻寬</p></div>
-					<div class="item"><p>XXX</p></div>
-					<div class="item"><p>XXX</p></div>
 				</div>
 			</div>
 			<div class="box">
-				<img src="img/server/content6/pic1.png" class="type">
+				<img src="img/server/content6/pic3.png" class="type">
 				<div class="item_box">
 					<div class="price">
 						<p>NT$<span>31,800</span>/年</p>
@@ -439,8 +401,6 @@ $(function(){
 					<div class="item"><p>800G SSD</p></div>
 					<div class="item"><p>8T</p></div>
 					<div class="item"><p>無限頻寬</p></div>
-					<div class="item"><p>XXX</p></div>
-					<div class="item"><p>XXX</p></div>
 				</div>
 			</div>
 		</div>
@@ -469,14 +429,6 @@ $(function(){
 					<p>頻寬</p>
 					<p>無限頻寬</p> 
 				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
 			</div>
 		</div>
 		<div class="box">
@@ -497,14 +449,6 @@ $(function(){
 					<p>頻寬</p>
 					<p>無限頻寬</p> 
 				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
 			</div>
 		</div>
 		<div class="box">
@@ -524,14 +468,6 @@ $(function(){
 				<div class="item">
 					<p>頻寬</p>
 					<p>無限頻寬</p> 
-				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
-				</div>
-				<div class="item">
-					<p>XXXX</p>
-					<p>XXX</p> 	
 				</div>
 			</div>
 		</div>

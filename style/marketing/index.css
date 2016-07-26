@@ -105,7 +105,7 @@ html.agent-ie .content1{ width:100%;height:1000px; background:url(../../img/mark
 .content2 .area .text_arae{ width:600px;position:absolute;left:50%;top:50%;margin-left:-450px; margin-top:-200px;color:#595757;z-index:6;}
 .content2 .area .text_arae .title{display:none;width:600px; margin-bottom:25px;}
 .content2 .area .text_arae .text{display:none;width:400px; margin-bottom:20px;}
-.content2 .area .text_arae .text.short{width:220px; }
+.content2 .area .text_arae .text.short{width:335px; }
 .content2 .area .text_arae .text p{}
 .content2.hover .area .text_arae .title{ display:block;-webkit-animation:p201507210205 1s;animation: p201507210205 1s;}
 .content2.hover .area .text_arae .text{display:block;-webkit-animation:p201507210205 1.5s;animation: p201507210205 1.5s;}
@@ -235,7 +235,7 @@ html.agent-ie .content3{ width:100%; height:795px;background:url(../../img/marke
 .content3  .item_area{width:410px;margin:45px auto;position:relative;}
 .content3  .item_area .line_box1{opacity:0;width:8px;height:22px;position:absolute;top:105px;left:60px;overflow:hidden;}
 .content3  .item_area .line_box1 img{width:8px;}
-.content3  .item_area .line_box2{opacity:0;width:8px;height:22px;position:absolute;top:235px;left:60px;transform:scaleX(-1);-webkit-transform:scaleX(-1);overflow:hidden;}
+.content3  .item_area .line_box2{opacity:0;width:8px;height:55px;position:absolute;top:235px;left:60px;transform:scaleX(-1);-webkit-transform:scaleX(-1);overflow:hidden;}
 .content3  .item_area .line_box2 img{width:8px;}
 .content3  .item_area .line_box3{width:830px;position:absolute;top:355px;left:50%;margin-left:-150px;overflow:hidden;transition:0.1s;-webkit-transition:0.1s;z-index:66;}
 .content3  .item_area .line_box3 img{width:100%;}
@@ -517,28 +517,27 @@ html.agent-ie .content4{ width:100%; height:1200px; background:url(../../img/mar
 
 .content5{ width:100%; height:800px; background:url(../../img/marketing/content5/bg.png) center left fixed; background-size:cover; }
 html.agent-ie .content5{ width:100%; height:800px; background:url(../../img/marketing/content5/bg.png) center left ; background-size:cover; }
-.content5 .area{width:620px;height:800px;position:absolute;right:0px;background-color:#1e834c;}
-.content5 .area .title_box{width:490px; margin:50px auto 60px  auto; position:relative;}
+.content5 .area{width:680px;height:800px;position:absolute;right:0px;background-color:#1e834c;}
+.content5 .area .title_box{width:550px; margin:50px auto 60px  auto; position:relative;}
 .content5 .area .title_box img{display:block;width:210px;height:276px;float:right;position:absolute;top:-52px; right:0px;}
 .content5 .area .title_box .pc_title{display:block;}
 .content5 .area .title_box .phone_title{display:none;}
-.content5 .area .title_box .right_text{display:block;float:left;width:315px;margin-top:40px; margin-bottom:10px;}
+.content5 .area .title_box .right_text{display:block;float:left;width:315px;margin-top:5px; margin-bottom:10px;}
 .content5 .area .title_box .right_text h1{color:#fff; }
-.content5 .area .title_box p{clear:both;color:#fff;width:280px;display:block;}
-
-.content5 .area .item_area{width:410px;margin:35px auto;position:absolute; top:240px; left:50%; margin-left:-220px;}
-.content5 .area .item_area .line_box1{opacity:0;width:8px;height:22px;position:absolute;top:135px;left:60px;overflow:hidden;}
+.content5 .area .title_box p{clear:both;color:#fff;width:350px;display:block;}
+.content5 .area .item_area{width:480px;margin:40px auto;position:absolute; top:240px; left:50%; margin-left:-225px;}
+.content5 .area .item_area .line_box1{opacity:0;width:8px;height:20px;position:absolute;top:143px;left:60px;overflow:hidden;}
 .content5 .area .item_area .line_box1 img{width:8px;}
-.content5 .area .item_area .line_box2{opacity:0;width:8px;height:22px;position:absolute;top:265px;left:60px;transform:scaleX(-1);-webkit-transform:scaleX(-1);overflow:hidden; }
+.content5 .area .item_area .line_box2{opacity:0;width:8px;height:40px;position:absolute;top:290px;left:60px;transform:scaleX(-1);-webkit-transform:scaleX(-1);overflow:hidden; }
 .content5 .area .item_area .line_box2 img{width:8px;}
-.content5 .area .item_area .line_box3{width:848px;position:absolute;top:395px;left:50%;margin-left:-790px;overflow:hidden;transition:0.1s;-webkit-transition:0.1s;}
+.content5 .area .item_area .line_box3{width:848px;position:absolute;top:460px;left:50%;margin-left:-822px;overflow:hidden;transition:0.1s;-webkit-transition:0.1s;}
 .content5 .area .item_area .line_box3 img{width:100%;}
 .content5 .area .item_area .item_box{width:100%;margin:30px auto;overflow:hidden; }
 .content5 .area .item_area .item_box .pic_box{opacity:0;width:100px;float:left; margin-left:10px;}
 .content5 .area .item_area .item_box .pic_box img{width:100%;}
-.content5 .area .item_area .item_box .text_box{opacity:0;float:right;width:280px;}
+.content5 .area .item_area .item_box .text_box{opacity:0;float:right;width:330px;}
 .content5 .area .item_area .item_box .text_box img{width:220px; margin-bottom:0px;}
-.content5 .area .item_area .item_box .text_box p{color:#fff;}
+.content5 .area .item_area .item_box .text_box p{color:#fff; font-size:12px;}
 .content5.hover .item_area .item_box.one .pic_box{opacity:1;-webkit-animation:item_box 1s;animation: item_box 1s;}
 .content5.hover .item_area .item_box.one .text_box{opacity:1;-webkit-animation:line_short 1s;animation: line_short 1s;}
 .content5.hover .item_area .item_box.two .pic_box{opacity:1;-webkit-animation:item_box 1.2s;animation: item_box 1.2s;}
@@ -614,7 +613,7 @@ html.agent-ie .content6{ width:100%; height:1150px; background:url(../../img/mar
 .content6 .area p{color:#595757;display:block;}
 .content6 .area .text_area{opacity:0;position:absolute;width:450px;left:50%;margin-left:-430px; top:50%; margin-top:-350px;}
 .content6 .area .text_area p{color:#595757;width:320px;text-align:right;float:right; margin-right:30px;}
-.content6 .area .text_area h1{margin-bottom:20px;}
+.content6 .area .text_area h1{margin-bottom:20px; text-align:right; margin-right: 26px;}
 .content6.hover .area .text_area{opacity:1;-webkit-animation:text_area 2s;animation: text_area 2s;}
 .content6 .area .earth{display:none;position:absolute;width:220px;left:50%;top:50%; margin-top:-150px; margin-left:50px;}
 .content6 .area .earth.hover{display:block;-webkit-animation:a201505281736 0.8s;animation:a201505281736 0.8s; }

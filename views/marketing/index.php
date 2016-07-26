@@ -325,16 +325,10 @@ $(function(){
 				如何透過Big Data創造2倍收益？</h1>
 			</div>
 			<div class="text">
-				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一</p>
-				<p>千四百萬。Facebook的廣告能夠用更低的成</p>
-				<p>本滾出源源不絕的訂單。全球Facebook</p>
-				<p>用戶數已達12億，台灣覆蓋高達一</p>
-				<p>全球Facebook用戶數已達12億，</p>
-				<p>千四百萬。Facebook的廣告能</p>
-				<p>夠用更低的成本滾的訂單。</p>
+				<p>藍海戰略當道，企業以品牌及專業為盾，將價值創新作為行銷策略。但同時，網際網路加快了企業在藍<br>海裡的淘金速度，要避免在洪流中被快速汰替，<br>唯有快、狠、準的鎖定目標眾，才能以有限的<br>廣告預算創造無限商機。
 			</div>
 			<div class="text short">
-				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
+				<p>Big Data將使用者行為匯流，透過分析及後台雲端計算，洞察用戶行為，預測商品、金流及物流，透過會說話的數據，讓您永遠走在使用者前端，精準滿足使用者需求，創造<br>2倍以上的收益，再寫如Amazon及Mint.com的傳奇。</p>
 			</div>
 		</div>
 		<div class="bg">
@@ -360,9 +354,9 @@ $(function(){
 				如何透過Big Data創造2倍收益？</h1>
 			</div>
 			<div class="text">
-				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾的訂單。
+				<p>藍海戰略當道，企業以品牌及專業為盾，將價值創新作為行銷策略。但同時，網際網路加快了企業在藍海裡的淘金速度，要避免在洪流中被快速汰替，唯有快、狠、準的鎖定目標眾，才能以有限的廣告預算創造無限商機。
 				</p>
-				<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。
+				<p>Big Data將使用者行為匯流，透過分析及後台雲端計算，洞察用戶行為，預測商品、金流及物流，透過會說話的數據，讓您永遠走在使用者前端，精準滿足使用者需求，創造2倍以上的收益，再寫如Amazon及Mint.com的傳奇。
 				</p>
 			</div>
 		</div>
@@ -379,7 +373,7 @@ $(function(){
 				<h1>Facebook<br> 
 				社群行銷的時代！</h1>
 			</div>
-			<p>全球Facebook用戶數已達12億，台灣覆蓋高達一千四百萬。Facebook的廣告能夠用更低的成本滾出源源不絕的訂單。</p>
+			<p>全球Facebook用戶量已達16億，單日造訪數更突破十億大關，沒有門檻的大餅人人爭，造成臉書廣告費用日益升高。但，只要用對方法，就能夠以最低廉的成本，在 Facebook上滾出源源不絕的訂單。</p>
 		</div>
 	
 	<div class="item_area">
@@ -410,7 +404,7 @@ $(function(){
 			<div class="text_box">
 				<img src="img/marketing/content3/text02.png">
 				<div class="text">
-					<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
+					<p>47%的媒體互動發生在行動裝置上，行動上網人口更高達20億。Facebook 的廣告在任何螢幕尺寸上都以全螢幕展示，讓您走在跨螢時代尖端，掌握所有商機。</p>
 				</div>
 			</div>
 		</div>
@@ -455,7 +449,7 @@ $(function(){
 			</div>
 			<div class="text_area one">
 				<h1>貼文廣告</h1>
-				<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
+				<p>不論以行動裝置或電腦瀏覽，全版的貼文廣告，閱讀動線絕對是視覺焦點，讓您100%抓緊使用者目光。</p>
 				<img src="img/marketing/content4/icon01.png">
 			</div>
 		</div>
@@ -468,7 +462,7 @@ $(function(){
 			</div>
 			<div class="text_area two">
 				<h1>讚廣告</h1>
-				<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益的廣告配置。</p>
+				<p>最多只需要6個人，你就能認識世界上任何一個人。知道朋友跟朋友的朋友在Facebook上關注什麼，能讓企業得到更多人的青睞跟信任，讓更多人為你的企業說讚！</p>
 				<img src="img/marketing/content4/icon02.png">
 			</div>
 			<div class="dialog_box two" id="dialog_box_two">
@@ -537,7 +531,7 @@ $(function(){
 				<h1>Google<br> 
 				全方位精準行銷</h1>
 			</div>
-			<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，一定能替您的產品找到最佳效益。</p>
+			<p>不是投入廣告預算就能創造廣告效益！台灣搜尋引擎龍頭Google，每月有1080萬位不重複的訪客，單日搜尋次數更高達10億次以上。甚至讓客戶網站在搜尋引擎上做出關鍵字優化，讓企業爬升搜尋首頁，進而增加80%以上點擊率，更讓您針對潛在客戶再行銷。</p>
 		</div>
 		<div class="item_area">
 			<div class="line_box1">
@@ -555,7 +549,7 @@ $(function(){
 				</div>
 				<div class="text_box ">
 					<img src="img/marketing/content5/text01.png">
-					<p>Facebook能達到91%的目標設定精準度，遠高於其他業者的27%，幫助您精準找出高轉換的目標群眾。</p>
+					<p>Google搜尋介面「上三右八」的關鍵字廣告，要怎麼樣才能讓客戶印象深刻進而點擊網站？精準投放網頁關鍵字，讓搜尋引擎最佳化，買主不自動上門都很難！</p>
 				</div>
 			</div>
 			<div class="item_box two">
@@ -564,7 +558,7 @@ $(function(){
 				</div>
 				<div class="text_box">
 					<img src="img/marketing/content5/text02.png">
-					<p>47%的媒體互動發生在行動裝置上，Facebook 的廣告在任何螢幕尺寸上都是全螢幕展示。</p>
+					<p>您知道對您的企業最有興趣的消費者是哪群人嗎？Google將使用者分成29種興趣類別，依據消費者搜尋行為和歷史軌跡，針對不同屬性的用戶派送合適的廣告。找到目標客群，把廣告預算花在刀口上，讓您發送廣告不再亂槍打鳥、虛耗預算！</p>
 				</div>
 			</div>
 			<div class="item_box three">
@@ -573,7 +567,7 @@ $(function(){
 				</div>
 				<div class="text_box">
 					<img src="img/marketing/content5/text03.png">
-					<p>Facebook多樣的廣告格式可以滿足各種行銷訴求，替您的產品找到最佳效益的廣告配置。</p>
+					<p>96%的使用者第一次到訪「任何」網站都不會當次轉換，我們記錄到訪過網站的來客，針對想下單但還沒下單的潛在客戶再行銷，讓您的廣告無時無刻、如影隨形出現在客戶身旁，加深品牌印象，提高轉換率，擄獲客戶的心！</p>
 				</div>
 			</div>
 		</div>
@@ -582,11 +576,8 @@ $(function(){
 <div class="content6">
 	<div class="area">
 		<div class="text_area">
-			<h1>全球的網站都幫您打品牌</h1>
-			<p>您使用YouTube觀賞影片嗎？您上天下的網站看新聞嗎？您上露天拍賣找商品嗎？</p>
-			<p>
-			這些網站其實都是Google多媒體聯播網的一員。Google在台灣有超過兩萬個合作網站，是台灣最大網路廣告播送平台，每天曝光超過2億次！</p>
-			<p>只要把廣告放上Google聯播網，就會在全台最熱門的網站上曝光，幫您打響知名度幫您打響知名度。</p>
+			<h1>全球的網站都幫您的<br>品牌做廣告</h1>
+			<p>您常在YouTube 看影片嗎？常在蘋果日報看新聞嗎？這些熟悉的網站，全都是Google內容聯播網的一員。Google內容聯播網，涵蓋了全台超過兩萬個網站、接觸90%以上的網路使用者，一天曝光超過兩億次！透過廣告聯播，一網打盡不同領域、不同性質的的潛在客戶。</p>
 		</div>
 		<div class="earth">
 			<img src="img/marketing/content6/earth.png">
@@ -618,29 +609,29 @@ $(function(){
 		<div class="circle_box one">
 			<img src="img/marketing/content6/icon.png">
 			<div class="text">
-				<p>Google的廣告格式</p>
-				<p>可以滿足各種行銷訴求</p>
+				<p>鎖定目標客群</p>
+				<p>根據企業需求，把廣告送到你想送的客人面前，直擊目標客群。</p>
 			</div>
 		</div>
 		<div class="circle_box two">
 			<img src="img/marketing/content6/icon.png">
 			<div class="text">	
-				<p>Google的廣告格式</p>
-				<p>可以滿足各種行銷訴求</p>
+				<p>廣告形式多元</p>
+				<p>廣告可以文字、圖像、影片、互動式多媒體格式呈現，滿足客戶的新鮮感。</p>
 			</div>
 		</div>
 		<div class="circle_box three">
 			<img src="img/marketing/content6/icon.png">
 			<div class="text">		
-				<p>Google的廣告格式</p>
-				<p>可以滿足各種行銷訴求</p>
+				<p>評估廣告效益</p>
+				<p>查看哪些廣告獲得最多點擊，隨時調整，發揮廣告最大效益。</p>
 			</div>
 		</div>
 		<div class="circle_box four">
 			<img src="img/marketing/content6/icon.png">
 			<div class="text">		
-				<p>Google的廣告格式</p>
-				<p>可以滿足各種行銷訴求</p>
+				<p>依照成效收費</p>
+				<p>海量曝光完全免費，只有在消費者點擊廣告時您才需要付費。</p>
 			</div>
 		</div>
 	</div>	
@@ -658,7 +649,7 @@ $(function(){
 				</div>
 				<div class="text">
 					<h2>有效的網路行銷</h2>
-					<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+					<p>網路行銷並不是把商品放上官網，就會有源源不絕的客戶，必須使用對的行銷策略，將有效流量導進網站，為企業創造更多機會。</p>
 				</div>
 			</div>
 			<div class="box two">
@@ -677,7 +668,7 @@ $(function(){
 				<p class="p">轉換成訂單</p>
 				<div class="text">
 					<h2>網站UI/UX設計</h2>
-					<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+					<p>網站設計的好壞直接影響跳出率，在意使用者介面、注重使用者體驗的網站，能讓消費者瀏覽時為您在網站中打造的貼心設計驚呼連連，因為這是他們操作過最人性化的網站。</p>
 				</div>
 			</div>
 			<div class="box">
@@ -688,7 +679,7 @@ $(function(){
 				</div>
 				<div class="text">
 					<h2>創造正面循環</h2>
-					<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+					<p>量身打造的客製化網頁及行銷策略，能提升企業知名度，吸引更多人流及金流，為企業帶來前所未有的效益。</p>
 				</div>	
 			</div>
 		</div>
@@ -702,17 +693,17 @@ $(function(){
 					<div class="slide_pic_href one">
 						<img src="img/marketing/content7/mobile/pic01.png">
 						<h2>有效的網路行銷</h2>
-						<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+						<p>網路行銷並不是把商品放上官網，就會有源源不絕的客戶，必須使用對的行銷策略，將有效流量導進網站，為企業創造更多機會。</p>
 					</div>
 					<div class="slide_pic_href one">
 						<img src="img/marketing/content7/mobile/pic02.png">
-						<h2>有效的網路行銷</h2>
-						<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+						<h2>網站UI/UX設計</h2>
+						<p>網站設計的好壞直接影響跳出率，在意使用者介面、注重使用者體驗的網站，能讓消費者瀏覽時為您在網站中打造的貼心設計驚呼連連，因為這是他們操作過最人性化的網站。</p>
 					</div>
 					<div class="slide_pic_href one">
 						<img src="img/marketing/content7/mobile/pic03.png">
-						<h2>有效的網路行銷</h2>
-						<p>完全客製化設計及系統，量身訂做獨一無二的風格網頁。完全客製化、設計及系統，量身訂做獨。完全客製化、設計及系統，量身訂做獨。</p>
+						<h2>創造正面循環</h2>
+						<p>量身打造的客製化網頁及行銷策略，能提升企業知名度，吸引更多人流及金流，為企業帶來前所未有的效益。</p>
 					</div>
 				</div>	
 			</div>
