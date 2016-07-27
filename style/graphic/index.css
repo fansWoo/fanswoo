@@ -201,12 +201,12 @@ h2{font-size:24px;letter-spacing:2px;}
 	.content2 .phone_bird img{width:100%;}
 	.content2 .bird img{width:100%;} 
 	.content2 .area { width:100%;height:1550px;position:relative;}
-	.content2 .area .text_arae{ width:320px;}
-	.content2 .area .text_arae .title{width:320px; margin-bottom:20px;}
-	.content2 .area .text_arae .text{width:320px; margin-bottom:15px;}
+	.content2 .area .text_arae{ width:270px;}
+	.content2 .area .text_arae .title{width:270px; margin-bottom:20px;}
+	.content2 .area .text_arae .text{width:270px; margin-bottom:15px;}
 	.content2 .area .text_arae .text p{}
-	.content2 .area .text_arae.one{display:block;margin-left: -150px; margin-top:-590px;} 
-	.content2 .area .text_arae.two{display:block;margin-left:-150px; margin-top:270px;} 
+	.content2 .area .text_arae.one{display:block;margin-left: -135px; margin-top:-590px;} 
+	.content2 .area .text_arae.two{display:block;margin-left:-135px; margin-top:270px;} 
 	.content2.hover .area .hand_box{display:none;}
 	.content2.hover .area .hand_box{display:none;}
 	.content2 .area .phone_hand_box{display:block;width:350px;position:absolute;right:0px;bottom:515px;z-index:2;}
@@ -279,9 +279,9 @@ h2{font-size:24px;letter-spacing:2px;}
 	.content3  {width:100%; height:680px;background:url(../../img/graphic/content3/mobile/bg.png) center center; background-size:cover;background-attachment:auto;background-position:auto;position:relative;}
 	.content3 .area{display:none;}
 	.content3 .phone_area{display:block;}
-	.content3 .phone_area .left_pic{width:200px;position:absolute;z-index:9;left:50%;margin-left:-170px; bottom:-35px;} 
-	.content3 .phone_area .left_pic img{width:100%;float:}
-	.content3 .phone_area  .text_box{color:#fff;width:300px;position:absolute;left:50%; top:50%; margin-top:-270px;margin-left:-150px;z-index:3;}
+	.content3 .phone_area .left_pic{width:140px;position:absolute;z-index:9;left:50%;margin-left:-142px; bottom:-59px;} 
+	.content3 .phone_area .left_pic img{width:100%;}
+	.content3 .phone_area  .text_box{color:#fff;width:270px;position:absolute;left:50%; top:50%; margin-top:-270px;margin-left:-135px;z-index:3;}
 	.content3 .phone_area  .text_box h1{margin-bottom:15px;opacity:1;text-align:right;}
 	.content3 .phone_area  .text_box h2{margin-bottom:15px;text-align:right;}
 	.content3 .phone_area  .text_box p{margin-bottom:10px;opacity:1;}
@@ -357,7 +357,7 @@ h2{font-size:24px;letter-spacing:2px;}
 	.content4 .area{width:100%;height:800px;margin:0px auto;position:relative;}
 	.content4 .area .pic_white{display:none;}
 	.content4 .area .pic_color{display:none;}
-	.content4 .area .phone_pic_color{display:block;position:absolute;left:0px;bottom:-5px;width:100%;}
+	.content4 .area .phone_pic_color{display:block;position:absolute;left:0px;bottom:-50px;width:100%;}
 	.content4 .area .phone_pic_color img{width:100%;}
 	.content4 .area .pic_hand{width:150px;position:absolute;right:-50px;top:200px;transform:translateY(-170px) rotate(10deg);-webkit-transform:translateY(-170px) rotate(10deg);transition:1s;-webkit-transition:1s;z-index:10;}
 	.content4 .area .pic_hand img{width:100%;position:relative;z-index:10;}

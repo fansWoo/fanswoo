@@ -531,7 +531,7 @@ $(function(){
 				<h1>Google<br> 
 				全方位精準行銷</h1>
 			</div>
-			<p>不是投入廣告預算就能創造廣告效益！台灣搜尋引擎龍頭Google，每月有1080萬位不重複的訪客，單日搜尋次數更高達10億次以上。甚至讓客戶網站在搜尋引擎上做出關鍵字優化，讓企業爬升搜尋首頁，進而增加80%以上點擊率，更讓您針對潛在客戶再行銷。</p>
+			<p>Google每個月有1080萬位不重複的訪客，單日搜尋次數更高達10億次以上，要在網海戰脫穎而出，絕對不是狂投廣告預算就能達標！</p>
 		</div>
 		<div class="item_area">
 			<div class="line_box1">
@@ -545,29 +545,29 @@ $(function(){
 			</div>
 			<div class="item_box one">
 				<div class="pic_box">
-					<img src="img/marketing/content3/icon01.png">
+					<img src="img/marketing/content3/icon04.png">
 				</div>
 				<div class="text_box ">
 					<img src="img/marketing/content5/text01.png">
-					<p>Google搜尋介面「上三右八」的關鍵字廣告，要怎麼樣才能讓客戶印象深刻進而點擊網站？精準投放網頁關鍵字，讓搜尋引擎最佳化，買主不自動上門都很難！</p>
+					<p>要怎麼樣才能在Google搜尋上讓客戶印象深刻？精準投放網頁關鍵字，讓搜尋引擎最佳化，買主不自動上門都很難！</p>
 				</div>
 			</div>
 			<div class="item_box two">
 				<div class="pic_box">
-					<img src="img/marketing/content3/icon02.png">
+					<img src="img/marketing/content3/icon05.png">
 				</div>
 				<div class="text_box">
 					<img src="img/marketing/content5/text02.png">
-					<p>您知道對您的企業最有興趣的消費者是哪群人嗎？Google將使用者分成29種興趣類別，依據消費者搜尋行為和歷史軌跡，針對不同屬性的用戶派送合適的廣告。找到目標客群，把廣告預算花在刀口上，讓您發送廣告不再亂槍打鳥、虛耗預算！</p>
+					<p>您知道對您的企業最有興趣的消費者是哪群人嗎？Google依據消費者搜尋行為和歷史軌跡，針對不同屬性的用戶派送合適的廣告。找到目標客群，把廣告預算花在刀口上，讓您不再虛耗廣告預算！</p>
 				</div>
 			</div>
 			<div class="item_box three">
 				<div class="pic_box">
-					<img src="img/marketing/content3/icon03.png">
+					<img src="img/marketing/content3/icon06.png">
 				</div>
 				<div class="text_box">
 					<img src="img/marketing/content5/text03.png">
-					<p>96%的使用者第一次到訪「任何」網站都不會當次轉換，我們記錄到訪過網站的來客，針對想下單但還沒下單的潛在客戶再行銷，讓您的廣告無時無刻、如影隨形出現在客戶身旁，加深品牌印象，提高轉換率，擄獲客戶的心！</p>
+					<p>96%的使用者第一次到訪「任何」網站都不會當次轉換，我們記錄曾到訪網站的來客，針對潛在客戶再行銷，讓您的廣告無時無刻、如影隨形出現在客戶身旁，加深品牌印象，提高轉換率！</p>
 				</div>
 			</div>
 		</div>
