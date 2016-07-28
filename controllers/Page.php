@@ -38,7 +38,7 @@ class Page_Controller extends MY_Controller {
 	                array('prioritynum', 'DESC'),
 	                array('pagerid', 'DESC')
 	            ),
-	            'model_name' => 'Pager',
+	            'obj_class' => 'Pager',
 	            'limitstart' => 0,
 	            'limitcount' => 100
 	        ));

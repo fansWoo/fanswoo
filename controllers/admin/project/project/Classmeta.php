@@ -36,7 +36,7 @@ class Classmeta_Controller extends MY_Controller {
             'db_where_arr' => array(
                 'modelname' => 'project_class2'
             ),
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ));
@@ -110,20 +110,16 @@ class Classmeta_Controller extends MY_Controller {
         $data['class_list_ClassMetaList']->construct_db(array(
             'db_where_arr' => array(
                 'modelname' => 'project',
-                'slug' => $data['search_slug']
-            ),
-            'db_where_like_arr' => array(
-                'classname' => $data['search_classname']
-            ),
-            'db_where_or_arr' => array(
-                'classids' => array($class_ClassMeta->classid)
+                'slug' => $data['search_slug'],
+                'classname like' => $data['search_classname'],
+                'classids find' => array($class_ClassMeta->classid)
             ),
             'db_where_deletenull_bln' => TRUE,
             'db_orderby_arr' => array(
                 array('prioritynum', 'DESC'),
                 array('classid', 'DESC')
             ),
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ));
@@ -135,7 +131,7 @@ class Classmeta_Controller extends MY_Controller {
             'db_where_arr' => array(
                 'modelname' => 'project_class2'
             ),
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ));

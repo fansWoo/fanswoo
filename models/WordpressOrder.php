@@ -17,7 +17,7 @@ class WordpressOrder extends ObjDbBase
     public $status_process = 0;
     public $updatetime_DateTime;
     public $status = 1;
-    public $db_name = 'fs_wordpress_order';//填寫物件聯繫資料庫之名稱
+    public $db_name_arr = ['wordpress_order'];//填寫物件聯繫資料庫之名稱
     public $db_uniqueid = 'wordpress_orderid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'wordpress_orderid' => 'wordpress_orderid',

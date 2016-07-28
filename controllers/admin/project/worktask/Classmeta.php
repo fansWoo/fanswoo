@@ -85,7 +85,7 @@ class Classmeta_Controller extends MY_Controller {
                 array('prioritynum', 'DESC'),
                 array('classid', 'DESC')
             ),
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ));
@@ -97,7 +97,7 @@ class Classmeta_Controller extends MY_Controller {
             'db_where_arr' => array(
                 'modelname' => 'project_class2'
             ),
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ));

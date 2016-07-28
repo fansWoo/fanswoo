@@ -47,12 +47,10 @@ Temp.ready(function(){
                                         $test_ClassMetaList = new ObjList();
                                         $test_ClassMetaList->construct_db(array(
                                             'db_where_arr' => array(
-                                                'modelname' => 'project'
+                                                'modelname' => 'project',
+                                                'classids in' => array($value2_ClassMeta->classid)
                                             ),
-                                            'db_where_or_arr' => array(
-                                                'classids' => array($value2_ClassMeta->classid)
-                                            ),
-                                            'model_name' => 'ClassMeta',
+                                            'obj_class' => 'ClassMeta',
                                             'limitstart' => 0,
                                             'limitcount' => 100
                                         ));
@@ -81,12 +79,10 @@ Temp.ready(function(){
                                     $test_ClassMetaList = new ObjList();
                                     $test_ClassMetaList->construct_db(array(
                                         'db_where_arr' => array(
-                                            'modelname' => 'project'
+                                            'modelname' => 'project',
+                                            'classids in' => array($value2_ClassMeta->classid)
                                         ),
-                                        'db_where_or_arr' => array(
-                                            'classids' => array($value2_ClassMeta->classid)
-                                        ),
-                                        'model_name' => 'ClassMeta',
+                                        'obj_class' => 'ClassMeta',
                                         'limitstart' => 0,
                                         'limitcount' => 100
                                     ));

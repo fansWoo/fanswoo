@@ -16,7 +16,7 @@ class Worktask extends ObjDbBase
     public $prioritynum = 0;
     public $work_status = 1;
     public $status = 1;
-    public $db_name = 'project_worktask';//填寫物件聯繫資料庫之名稱
+    public $db_name_arr = ['project_worktask'];//填寫物件聯繫資料庫之名稱
     public $db_uniqueid = 'worktaskid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'worktaskid' => 'worktaskid',

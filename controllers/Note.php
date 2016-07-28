@@ -20,18 +20,16 @@ class Note_Controller extends MY_controller {
         
         $data['new_NoteFieldList'] = new ObjList(array(
             'db_where_arr' => array(
-                'modelname' => 'note'
+                'modelname' => 'note',
+                'classids find' => $class_ClassMeta->classid
             ),
-            'db_where_or_arr' => array(
-                'classids' => array($class_ClassMeta->classid)
-            ),
-            'model_name' => 'NoteField',
+            'obj_class' => 'NoteField',
             'db_orderby_arr' => array(
                 array('prioritynum', 'DESC'),
                 array('updatetime', 'DESC')
             ),
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'NoteField',
+            'obj_class' => 'NoteField',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
         ));
@@ -42,7 +40,7 @@ class Note_Controller extends MY_controller {
             'db_where_arr' => array(
                 'modelname' => 'note'
             ),
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ));
@@ -82,7 +80,7 @@ class Note_Controller extends MY_controller {
             'db_where_arr' => array(
                 'modelname' => 'note'
             ),
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ));
@@ -92,13 +90,13 @@ class Note_Controller extends MY_controller {
             'db_where_arr' => array(
                 'modelname' => 'note'
             ),
-            'model_name' => 'NoteField',
+            'obj_class' => 'NoteField',
             'db_orderby_arr' => array(
                 array('prioritynum', 'DESC'),
                 array('updatetime', 'DESC')
             ),
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'NoteField',
+            'obj_class' => 'NoteField',
             'limitstart' => 0,
             'limitcount' => 5
         ));

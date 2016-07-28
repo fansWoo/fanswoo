@@ -65,7 +65,7 @@ class Project_Controller extends MY_Controller {
                 array('updatetime', 'DESC')
             ),
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Design',
+            'obj_class' => 'Design',
             'limitstart' => 0,
             'limitcount' => 100
         ));
@@ -79,7 +79,7 @@ class Project_Controller extends MY_Controller {
                 array('suggestid', 'ASC')
             ),
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Suggest',
+            'obj_class' => 'Suggest',
             'limitstart' => 0,
             'limitcount' => 100
         ));
@@ -147,7 +147,7 @@ class Project_Controller extends MY_Controller {
                 array('projectid', 'DESC')
             ),
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Project',
+            'obj_class' => 'Project',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
         ]);

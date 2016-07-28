@@ -26,7 +26,7 @@ class Project extends ObjDbBase
     public $endtime_DateTimeObj;
     public $updatetime_DateTimeObj;
     public $status = 1;
-    public $db_name = 'project';//填寫物件聯繫資料庫之名稱
+    public $db_name_arr = ['project'];//填寫物件聯繫資料庫之名稱
     public $db_uniqueid = 'projectid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_arr = [//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'projectid' => 'projectid',
@@ -129,10 +129,10 @@ class Project extends ObjDbBase
             $uids_arr = explode(',', $arg['uids']);
             $UserList = new ObjList();
             $UserList->construct_db([
-                'db_where_or_arr' => [
-                    'uid' => $uids_arr
+                'db_where_arr' => [
+                    'uid in' => $uids_arr
                 ],
-                'model_name' => 'User',
+                'obj_class' => 'User',
                 'db_orderby_arr' => [
                     'uid' => $uids_arr
                 ],
@@ -144,10 +144,10 @@ class Project extends ObjDbBase
         {
             $emails_arr = explode_php_eol( $arg['emails'] );
             $UserList = new ObjList([
-                'db_where_or_arr' => [
-                    'email' => $emails_arr
+                'db_where_arr' => [
+                    'email in' => $emails_arr
                 ],
-                'model_name' => 'User',
+                'obj_class' => 'User',
                 'limitstart' => 0,
                 'limitcount' => 100
             ]);
@@ -166,10 +166,10 @@ class Project extends ObjDbBase
             $uids_arr = explode(',', $arg['uids']);
             $UserList = new ObjList();
             $UserList->construct_db([
-                'db_where_or_arr' => [
-                    'uid' => $uids_arr
+                'db_where_arr' => [
+                    'uid in' => $uids_arr
                 ],
-                'model_name' => 'User',
+                'obj_class' => 'User',
                 'db_orderby_arr' => [
                     'uid' => $uids_arr
                 ],
@@ -181,10 +181,10 @@ class Project extends ObjDbBase
         {
             $emails_arr = explode_php_eol( $arg['emails'] );
             $UserList = new ObjList([
-                'db_where_or_arr' => [
-                    'email' => $emails_arr
+                'db_where_arr' => [
+                    'email in' => $emails_arr
                 ],
-                'model_name' => 'User',
+                'obj_class' => 'User',
                 'limitstart' => 0,
                 'limitcount' => 100
             ]);
@@ -203,10 +203,10 @@ class Project extends ObjDbBase
             $uids_arr = explode(',', $arg['uids']);
             $UserList = new ObjList();
             $UserList->construct_db([
-                'db_where_or_arr' => [
-                    'uid' => $uids_arr
+                'db_where_arr' => [
+                    'uid in' => $uids_arr
                 ],
-                'model_name' => 'User',
+                'obj_class' => 'User',
                 'db_orderby_arr' => [
                     'uid' => $uids_arr
                 ],
@@ -218,10 +218,10 @@ class Project extends ObjDbBase
         {
             $emails_arr = explode_php_eol( $arg['emails'] );
             $UserList = new ObjList([
-                'db_where_or_arr' => [
-                    'email' => $emails_arr
+                'db_where_arr' => [
+                    'email in' => $emails_arr
                 ],
-                'model_name' => 'User',
+                'obj_class' => 'User',
                 'limitstart' => 0,
                 'limitcount' => 100
             ]);

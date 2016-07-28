@@ -26,7 +26,7 @@ class Project_Controller extends MY_Controller {
             'db_where_arr' => array(
                 'modelname' => 'project'
             ),
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
@@ -36,7 +36,7 @@ class Project_Controller extends MY_Controller {
             'db_where_arr' => array(
                 'modelname' => 'project_class2'
             ),
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ));
@@ -50,7 +50,7 @@ class Project_Controller extends MY_Controller {
                 array('suggestid', 'ASC')
             ),
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Suggest',
+            'obj_class' => 'Suggest',
             'limitstart' => 0,
             'limitcount' => 100
         ));
@@ -284,21 +284,17 @@ class Project_Controller extends MY_Controller {
                 'projectid' => $data['search_projectid'],
                 'pay_price_receive' => $data['search_pay_price_receive'],
                 'pay_price_total' => $data['search_pay_price_total'],
-                'pay_price_schedule' => $data['search_pay_price_schedule']                
-            ),
-            'db_where_like_arr' => array(
-                'name' => $data['search_name'],
-                'setuptime' => $data['search_setuptime'],
-                'endtime' => $data['search_endtime'],
-            ),
-            'db_where_or_arr' => array(
-                'classids' => array($class_ClassMeta->classid)
+                'pay_price_schedule' => $data['search_pay_price_schedule'],
+                'name like' => $data['search_name'],
+                'setuptime like' => $data['search_setuptime'],
+                'endtime like' => $data['search_endtime'],
+                'classids find' => array($class_ClassMeta->classid)
             ),
             'db_orderby_arr' => array(
                 array('updatetime', 'DESC')
             ),
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Project',
+            'obj_class' => 'Project',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
         ));
@@ -309,7 +305,7 @@ class Project_Controller extends MY_Controller {
             'db_where_arr' => [
                 'modelname' => 'project'
             ],
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ));

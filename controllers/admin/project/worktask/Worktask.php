@@ -24,7 +24,7 @@ class Worktask_Controller extends MY_Controller {
 
         $data['UserList'] = new ObjList([
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'User',
+            'obj_class' => 'User',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
@@ -33,7 +33,7 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
                 'modelname' => 'worktask'
             ],
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
@@ -42,7 +42,7 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
             ],
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Project',
+            'obj_class' => 'Project',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
@@ -143,19 +143,15 @@ class Worktask_Controller extends MY_Controller {
 
         $data['WorktaskList'] = new ObjList([
             'db_where_arr' => [
-                'worktaskid' => $data['search_worktaskid']
-            ],
-            'db_where_like_arr' => [
-                'title' => $data['search_title']
-            ],
-            'db_where_or_arr' => [
-                'classid' => [$class_ClassMeta->classid]
+                'worktaskid' => $data['search_worktaskid'],
+                'title like' => $data['search_title'],
+                'classid' => $class_ClassMeta->classid
             ],
             'db_orderby_arr' => [
                 'prioritynum' => 'DESC',
             ],
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Worktask',
+            'obj_class' => 'Worktask',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
         ]);
@@ -165,7 +161,7 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
                 'modelname' => 'worktask'
             ],
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
@@ -216,30 +212,30 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
                 'modelname' => 'worktask'
             ],
-            'model_name' => 'ClassMeta',
+            'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
 
         $data['ProjectList'] = new ObjList([
-            'db_where_or_arr' => [
-                'uid' => [$data['User']->uid],
-                'admin_uids' => [$data['User']->uid],
-                'permission_uids' => [$data['User']->uid]
+            'db_where_arr' => [
+                'uid' => $data['User']->uid,
+                'admin_uids find' => $data['User']->uid,
+                'permission_uids find' => $data['User']->uid
             ],
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Project',
+            'obj_class' => 'Project',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
 
         $admin_ProjectList = new ObjList([
-            'db_where_or_arr' => [
-                'uid' => [$data['User']->uid],
-                'admin_uids' => [$data['User']->uid]
+            'db_where_arr' => [
+                'uid' => $data['User']->uid,
+                'admin_uids find' => $data['User']->uid
             ],
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Project',
+            'obj_class' => 'Project',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
@@ -259,11 +255,11 @@ class Worktask_Controller extends MY_Controller {
         $permission_uid_arr[] = $data['User']->uid;
 
         $data['UserList'] = new ObjList([
-            'db_where_or_arr' => [
-                'uid' => $permission_uid_arr
+            'db_where_arr' => [
+                'uid in' => $permission_uid_arr
             ],
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'User',
+            'obj_class' => 'User',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
@@ -295,12 +291,12 @@ class Worktask_Controller extends MY_Controller {
         if( empty( $uid ) )
         {
             $admin_ProjectList = new ObjList([
-                'db_where_or_arr' => [
-                    'uid' => [$data['User']->uid],
-                    'admin_uids' => [$data['User']->uid]
+                'db_where_arr' => [
+                    'uid' => $data['User']->uid,
+                    'admin_uids find' => $data['User']->uid
                 ],
                 'db_where_deletenull_bln' => TRUE,
-                'model_name' => 'Project',
+                'obj_class' => 'Project',
                 'limitstart' => 0,
                 'limitcount' => 100
             ]);
@@ -333,13 +329,13 @@ class Worktask_Controller extends MY_Controller {
         {
 
             $ProjectList = new ObjList([
-                'db_where_or_arr' => [
-                    'uid' => [$data['User']->uid],
-                    'admin_uids' => [$data['User']->uid],
-                    'permission_uids' => [$data['User']->uid]
+                'db_where_arr' => [
+                    'uid' => $data['User']->uid,
+                    'admin_uids find' => $data['User']->uid,
+                    'permission_uids find' => $data['User']->uid
                 ],
                 'db_where_deletenull_bln' => TRUE,
-                'model_name' => 'Project',
+                'obj_class' => 'Project',
                 'limitstart' => 0,
                 'limitcount' => 100
             ]);
@@ -370,7 +366,7 @@ class Worktask_Controller extends MY_Controller {
                 'projectid' => $permission_uid_arr
             ],
             'db_where_deletenull_bln' => TRUE,
-            'model_name' => 'Worktask',
+            'obj_class' => 'Worktask',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
