@@ -237,8 +237,12 @@ class Worktask_Controller extends MY_Controller {
 
         $admin_ProjectList = new ObjList([
             'db_where_arr' => [
-                'uid' => $data['User']->uid,
-                'admin_uids find' => $data['User']->uid
+                [
+                    'uid' => $data['User']->uid
+                ],
+                [
+                    'admin_uids find' => $data['User']->uid
+                ]
             ],
             'db_where_deletenull_bln' => TRUE,
             'obj_class' => 'Project',
@@ -262,7 +266,7 @@ class Worktask_Controller extends MY_Controller {
 
         $data['UserList'] = new ObjList([
             'db_where_arr' => [
-                // 'uid in' => $permission_uid_arr
+                'uid in' => $permission_uid_arr
             ],
             'db_where_deletenull_bln' => TRUE,
             'obj_class' => 'User',

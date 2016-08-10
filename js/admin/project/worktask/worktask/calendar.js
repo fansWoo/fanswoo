@@ -80,6 +80,8 @@ Temp.ready(function() {
 
             $clone.find('#start_time').val( start._d.getFullYear() + '-' + (start._d.getMonth() + 1) + '-' + start._d.getDate() + ' 00:00:00' );
             $clone.find('#end_time').val( end._d.getFullYear() + '-' + (end._d.getMonth() + 1) + '-' + ( end._d.getDate() - 1) + ' 00:00:00' );
+            $clone.find("#projectid > option[value='" + $("#search_projectid").val() + "']").prop('selected', true);
+            $clone.find("#uid > option[value='" + $("#search_uid").val() + "']").prop('selected', true);
 
             CKEDITOR.replace( 'content', {
                 toolbar: 'basic',
