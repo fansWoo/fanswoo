@@ -219,9 +219,15 @@ class Worktask_Controller extends MY_Controller {
 
         $data['ProjectList'] = new ObjList([
             'db_where_arr' => [
-                'uid' => $data['User']->uid,
-                'admin_uids find' => $data['User']->uid,
-                'permission_uids find' => $data['User']->uid
+                [
+                    'uid' => $data['User']->uid
+                ],
+                [
+                    'admin_uids find' => $data['User']->uid
+                ],
+                [
+                    'permission_uids find' => $data['User']->uid
+                ]
             ],
             'db_where_deletenull_bln' => TRUE,
             'obj_class' => 'Project',
@@ -256,13 +262,15 @@ class Worktask_Controller extends MY_Controller {
 
         $data['UserList'] = new ObjList([
             'db_where_arr' => [
-                'uid in' => $permission_uid_arr
+                // 'uid in' => $permission_uid_arr
             ],
             'db_where_deletenull_bln' => TRUE,
             'obj_class' => 'User',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
+
+        // ec($data['UserList']);
         
         //global
         $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
@@ -292,8 +300,12 @@ class Worktask_Controller extends MY_Controller {
         {
             $admin_ProjectList = new ObjList([
                 'db_where_arr' => [
-                    'uid' => $data['User']->uid,
-                    'admin_uids find' => $data['User']->uid
+                    [
+                        'uid' => $data['User']->uid
+                    ],
+                    [
+                        'admin_uids find' => $data['User']->uid
+                    ]
                 ],
                 'db_where_deletenull_bln' => TRUE,
                 'obj_class' => 'Project',
@@ -330,9 +342,15 @@ class Worktask_Controller extends MY_Controller {
 
             $ProjectList = new ObjList([
                 'db_where_arr' => [
-                    'uid' => $data['User']->uid,
-                    'admin_uids find' => $data['User']->uid,
-                    'permission_uids find' => $data['User']->uid
+                    [
+                        'uid' => $data['User']->uid
+                    ],
+                    [
+                        'admin_uids find' => $data['User']->uid
+                    ],
+                    [
+                        'permission_uids find' => $data['User']->uid
+                    ]
                 ],
                 'db_where_deletenull_bln' => TRUE,
                 'obj_class' => 'Project',
@@ -362,8 +380,8 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
                 'start_time >' => $timenow_month_start,
                 'end_time <' => $timenow_month_end,
-                'uid' => $permission_uid_arr,
-                'projectid' => $permission_uid_arr
+                'uid in' => $permission_uid_arr,
+                'projectid in' => $projectid_arr
             ],
             'db_where_deletenull_bln' => TRUE,
             'obj_class' => 'Worktask',
@@ -406,7 +424,7 @@ class Worktask_Controller extends MY_Controller {
             }
         }
 
-        ec($worktask_arr);
+        // ec($uid, $projectid, $worktask_arr);
         $worktask_json = json_encode( $worktask_arr );
         echo $worktask_json;
     }
