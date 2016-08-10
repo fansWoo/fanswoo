@@ -108,26 +108,7 @@ Temp.ready(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                客戶 email
-            </div>
-            <div class="spanLineLeft width300">
-                <textarea name="customer_emails" style="height:100px;"><?if($Project->customer_uids_UserList->obj_arr):?><?foreach( $Project->customer_uids_UserList->obj_arr as $key => $value_User ):?><?=$value_User->email?>
-
-<?endforeach?><?endif?></textarea>
-            </div>
-        </div>
-        <div class="spanStage">
-            <div class="spanLineLeft">
-            </div>
-            <div class="spanLineLeft width500">
-                <span class="gray">請填寫擁有查看此專案系統權限之客戶 email，每個 email 一行</span>
-            </div>
-        </div>
-    </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                專案經理 email
+                專案主管 email
             </div>
             <div class="spanLineLeft width300">
                 <textarea name="admin_emails" style="height:100px;"><?if($Project->admin_uids_UserList->obj_arr):?><?foreach( $Project->admin_uids_UserList->obj_arr as $key => $value_User ):?><?=$value_User->email?>
@@ -139,7 +120,7 @@ Temp.ready(function(){
             <div class="spanLineLeft">
             </div>
             <div class="spanLineLeft width500">
-                <span class="gray">請填寫擁有查看此專案系統權限之專案經理 email ，每個 email 一行</span>
+                <span class="gray">請填寫擁有查看此專案系統權限之專案主管 email ，每個 email 一行</span>
             </div>
         </div>
     </div>
@@ -159,6 +140,25 @@ Temp.ready(function(){
             </div>
             <div class="spanLineLeft width500">
                 <span class="gray">請填寫擁有查看此專案系統權限之專案執行人 email ，每個 email 一行</span>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                專案觀察人 email
+            </div>
+            <div class="spanLineLeft width300">
+                <textarea name="customer_emails" style="height:100px;"><?if($Project->customer_uids_UserList->obj_arr):?><?foreach( $Project->customer_uids_UserList->obj_arr as $key => $value_User ):?><?=$value_User->email?>
+
+<?endforeach?><?endif?></textarea>
+            </div>
+        </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineLeft width500">
+                <span class="gray">請填寫擁有查看此專案系統權限之專案觀察人 email，每個 email 一行</span>
             </div>
         </div>
     </div>

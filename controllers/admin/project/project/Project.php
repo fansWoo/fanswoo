@@ -118,6 +118,38 @@ class Project_Controller extends MY_Controller {
             )
         ));
 
+        //清空所有權限不存在於這個專案內的任務
+        $WorktaskList = new ObjList([
+            'db_where_arr' => [
+                [
+                    'projectid' => $projectid,
+                    'uid !=' => $Project->uid
+                ],
+                [
+                    'projectid' => $projectid,
+                    'uid not in' => $Project->admin_uids_UserList->uniqueids_arr
+                ],
+                [
+                    'projectid' => $projectid,
+                    'uid not in' => $Project->customer_uids_UserList->uniqueids_arr
+                ],
+                [
+                    'projectid' => $projectid,
+                    'uid not in' => $Project->permission_uids_UserList->uniqueids_arr
+                ]
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'obj_class' => 'Worktask',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
+
+        foreach( $WorktaskList->obj_arr as $key => $value_Worktask)
+        {
+            $value_Worktask->projectid = 0;
+            $value_Worktask->update();
+        }
+
         //送出成功訊息
         $this->load->model('Message');
         $this->Message->show([
