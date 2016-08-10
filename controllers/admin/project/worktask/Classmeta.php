@@ -75,10 +75,8 @@ class Classmeta_Controller extends MY_Controller {
         $data['class_list_ClassMetaList']->construct_db(array(
             'db_where_arr' => array(
                 'modelname' => 'worktask',
-                'slug' => $data['search_slug']
-            ),
-            'db_where_like_arr' => array(
-                'classname' => $data['search_classname']
+                'slug' => $data['search_slug'],
+                'classname like' => $data['search_classname']
             ),
             'db_where_deletenull_bln' => TRUE,
             'db_orderby_arr' => array(
