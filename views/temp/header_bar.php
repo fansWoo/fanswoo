@@ -1,40 +1,44 @@
 <script>(function() {
-	var _fbq = window._fbq || (window._fbq = []);
-	if (!_fbq.loaded) {
-	var fbds = document.createElement('script');
-	fbds.async = true;
-	fbds.src = '//connect.facebook.net/en_US/fbds.js';
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(fbds, s);
-	_fbq.loaded = true;
-	}
-	_fbq.push(['addPixelId', '694153537333853']);
-	})();
-	window._fbq = window._fbq || [];
-	window._fbq.push(['track', 'PixelInitialized', {}]);
-	</script>
-	<noscript>
-		<img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=694153537333853&amp;ev=PixelInitialized" />
-	</noscript>
+var _fbq = window._fbq || (window._fbq = []);
+if (!_fbq.loaded) {
+var fbds = document.createElement('script');
+fbds.async = true;
+fbds.src = '//connect.facebook.net/en_US/fbds.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(fbds, s);
+_fbq.loaded = true;
+}
+_fbq.push(['addPixelId', '694153537333853']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+
+$(window).scroll(function(){
+	var wrap_height = $(window).height();
+	$('.weap').css('height', wrap_height);
+});
+</script>
+<noscript>
+	<img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=694153537333853&amp;ev=PixelInitialized" />
+</noscript>
 <script type="text/javascript">
-		$(document).ready(function() {
-			$(".toggle").click(function() {
-				$(this).toggleClass("active");
-				$(" .phone_topHeader .navBar").slideToggle();
-			});
+	$(document).ready(function() {
+		$(".toggle").click(function() {
+			$(this).toggleClass("active");
+			$(" .phone_topHeader .navBar").slideToggle();
+		});	
+	});
+	//$(document).on('click', '.toggle', function() {
+			//if($('..phone_topHeader .navBar').hasClass('active') == true)
+			//{
+			//	$('..phone_topHeader .navBar').removeClass("active");
+			//}
+			//else
+			//{
+			//	$('..phone_topHeader .navBar').addClass("active");
+			//}
 			
-		});
-		//$(document).on('click', '.toggle', function() {
-				//if($('..phone_topHeader .navBar').hasClass('active') == true)
-				//{
-				//	$('..phone_topHeader .navBar').removeClass("active");
-				//}
-				//else
-				//{
-				//	$('..phone_topHeader .navBar').addClass("active");
-				//}
-				
-				//});
+			//});
 </script>
 <div class="body">
 	<div class="logoStart"></div>
@@ -180,3 +184,4 @@
 				</a>
 			</div>
 		</div>
+		<a href="scroll_top" class="scroll_top"  fanswoo-hrefNone><img src="img/top.png"></a>

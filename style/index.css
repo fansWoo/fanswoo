@@ -344,7 +344,7 @@ body.start .content_start.unhover .oneRightBox{ animation: none; -webkit-transit
 /*美術素描稿*/
 .wrapMarketing {width: 100%;height: 1000px;overflow: hidden;background: url(../img/index/bg_table.jpg) 50% 50% fixed;background-size:cover;z-index:3;}
 .wrapMarketing .wrapContent {position: relative; width: 950px;padding: 100px 20px;margin: 0 auto;}
-.wrapMarketing .wrapContent h2 {display: block;text-align: center;font-size: 40px;}
+.wrapMarketing .wrapContent h2 {display: block;text-align: center;font-size: 40px; letter-spacing:9px;}
 .wrapMarketing .wrapContent h3 {display: block;text-align: center;font-size: 20px;}
 .wrapMarketing .wrapContent h4 {display: block;text-align: center;font-size: 12px; letter-spacing: 5px;border-bottom: 1px solid #999; padding-bottom: 20px;margin-bottom: 20px;}
 .wrapMarketing .wrapContent .leftContent {width: 450px;margin-top: 150px;padding: 50px 50px 20px;margin: 0 auto;background: ;
@@ -447,7 +447,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	.content_portfolio {position: relative;  z-index: 1;}
 	.content_portfolio .top_title { display:block;position: absolute; left: 50%; width: 790px; margin-left: -385px; z-index: 2; }
 	.content_portfolio .portfolio_box1{width:100%;min-height: 1295px;position: relative;}
-	.content_portfolio .portfolio_box1 .bg1 {  width: 100%;margin-top:100px; }
+	.content_portfolio .portfolio_box1 .bg1 {  width: 100%;margin-top:150px; }
 	.content_portfolio .portfolio_box1 .cloudy{position: absolute;left:50%;margin-left:-50%;top:50%;margin-top:-400px;z-index:6;}	
 }
 @media screen and ( max-width:1399px ) and (min-width: 1024px) {
@@ -491,17 +491,17 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 .content_portfolio  .portfolio_box2{width:100%;height:700px;position: relative;z-index:99; background:#fff;}
 .content_portfolio  .portfolio_box2 .pc{display:block;width:750px;position:absolute;left:50%;margin-left:50px;z-index:2;}
 .content_portfolio  .portfolio_box2 .sun{width:406px;position: absolute;left:50%; margin-left:-750px;top:200px;z-index:8;}
-.content_portfolio  .portfolio_box2 .cloudy{width:95%;position: absolute;left:50%;margin-left:-45%;top:50%; margin-top:240px;z-index:3;}
+.content_portfolio  .portfolio_box2 .cloudy{width:95%;position: absolute;left:50%;margin-left:-45%;top:50%; margin-top:240px;z-index:3; margin-top:-380px;}
 .content_portfolio  .portfolio_box2 .text_box{display:block;width:400px;position: absolute;left:50%;z-index:8;}
 .content_portfolio  .portfolio_box2 .text_box a{display:block;}
 .content_portfolio  .portfolio_box2 .text_box .title{width:380px; margin-bottom:20px;z-index:8;}
 .content_portfolio  .portfolio_box2 .title2{position:absolute;left:50%;top:50%;z-index:8;}	
 .phone_portfolio_box2{display:none;}
 @media screen and (min-width: 1400px){
-	.content_portfolio  .portfolio_box2{height:700px;margin-top:150px;}
+	.content_portfolio  .portfolio_box2 {height:700px;margin-top:92px;}
 	.content_portfolio  .portfolio_box2 .pc{display:block;width:900px;position:absolute;left:50%;margin-left:50px; margin-top:-250px;}
 	.content_portfolio  .portfolio_box2 .sun{width:506px;position: absolute;left:50%; margin-left:-900px;top:-120px;}
-	.content_portfolio  .portfolio_box2 .cloudy{width:95%;position: absolute;left:50%;margin-left:-45%;top:50%; margin-top:0px;}
+	.content_portfolio  .portfolio_box2 .cloudy{width:95%;position: absolute;left:50%;margin-left:-45%;top:50%; margin-top:0px; margin-top:-380px; }
 	.content_portfolio  .portfolio_box2 .text_box{display:block;width:500px;position: absolute;left:50%;margin-left:-500px; margin-top:110px;}
 	.content_portfolio  .portfolio_box2 .text_box a{display:block;}
 	.content_portfolio  .portfolio_box2 .text_box .title{width:480px; margin-bottom:20px;}
@@ -523,10 +523,10 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 
 
 @media screen and (max-width:1024px) and ( min-width: 700px) {
-	.content_portfolio  .portfolio_box2{width:100%;height:auto;position: relative; padding-bottom:50px;height:400px; background:#fff;}
+	.content_portfolio  .portfolio_box2{width:100%;height:auto;position: relative; padding-bottom:50px;height:500px; background:#fff;}
 	.content_portfolio  .portfolio_box2 .pc{display:block;width:600px;position:absolute;left:50%;margin-left:50px; margin-top:-180px;}
 	.content_portfolio  .portfolio_box2 .sun{width:300px;position: absolute;left:50%; margin-left:-600px;top:-50px;}
-	.content_portfolio  .portfolio_box2 .cloudy{margin-left:-40%;top:50%; margin-top:-100px;}
+	.content_portfolio  .portfolio_box2 .cloudy{margin-left:-40%;top:50%; margin-top:40px;}
 	.content_portfolio  .portfolio_box2 .text_box{margin-left:-340px; margin-top:60px;}
 	.content_portfolio  .portfolio_box2 .text_box a{display:block;}
 	.content_portfolio  .portfolio_box2 .text_box .title{width:380px; margin-bottom:20px;}
@@ -584,7 +584,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	
 }
 @media screen and ( max-width:1024px ) and (min-width: 960px) {
-	.content_portfolio  .portfolio_box3 {margin-top:0px; width:100%;height:auto;position: relative; padding-bottom:10px;z-index:6;}
+	.content_portfolio  .portfolio_box3 {margin-top:-123px; width:100%;height:auto;position: relative; padding-bottom:10px;z-index:6;}
 	.content_portfolio  .portfolio_box3 .bg2{display:none;width:100%;}
 	.content_portfolio  .portfolio_box3 .pad_bg2{display:block;width:100%;}
 	.content_portfolio  .portfolio_box3 .text_box{width:400px;position:absolute;left:50%;margin-left:-70px;top:50%; margin-top:-180px;}
@@ -676,7 +676,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	.content_portfolio  .portfolio_box4 .pad{position:absolute;width:450px;left:50%;margin-left:20px;top:50%;margin-top:-150px;z-index:3;}
 	.content_portfolio  .portfolio_box4 .text1{position:absolute;width:650px;left:50%;margin-left:-325px;top:50%;margin-top:-250px;z-index:3;}
 	.content_portfolio  .portfolio_box4 .text2{position:absolute;width:300px;left:50%;margin-left:-325px;top:50%;margin-top:-130px;z-index:3;}
-	.content_portfolio  .portfolio_box4  .portfolio_more{position: absolute;left:50%;margin-left:-200px;top:355px;z-index:99;}
+	.content_portfolio  .portfolio_box4  .portfolio_more{position: absolute;left:50%;margin-left:-230px;top:380px;z-index:99;}
 
 
 }
@@ -777,8 +777,8 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 
 @media screen and (min-width: 1800px){
 	.content_bottom { height:3500px; overflow: hidden;}
-	.content_bottom .service { display:none; position: fixed; top:50%;width:800px; margin-top:-210px; margin-left: 3500px;z-index:3; }
-	.content_bottom .pic_move.pic1 { margin-left: 4600px;}
+	.content_bottom .service { display:none; position: fixed; top:50%;width:800px; margin-top:-210px; margin-left:3000px;z-index:3; }
+	.content_bottom .pic_move.pic1 { margin-left: 4300px;}
 	.content_bottom .pic_move.pic2 { margin-left: 5600px;margin-top:-30px; }
 	.content_bottom .pic_move.pic3 { margin-left: 6750px;margin-top:0px; }
 	.content_bottom .pic_move.pic4 { margin-left: 7600px;margin-top:0px; }
@@ -829,7 +829,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href.one .pic{width:550px;left:50%;margin-left:-210px;top:50%; margin-top:-220px; }
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href.one .text{width:450px;position:absolute;left:50%;margin-left:-350px; top:50%;margin-top:-300px;}
-	.phone_slide_pic_box .slide_pic .square .slide_pic_href.two .pic{width:550px;left:50%;margin-left:-105px;top:50%; margin-top:-300px; }
+	.phone_slide_pic_box .slide_pic .square .slide_pic_href.two .pic{width:450px;left:50%;margin-left:-75px;top:50%; margin-top:-250px; }
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href.two .text{width:450px;position:absolute;left:50%;margin-left:-350px; top:50%;margin-top:-300px;}
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href.three .pic{width:600px;left:50%;margin-left:-300px;top:50%; margin-top:-100px; }
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href.three .text{width:600px;position:absolute;left:50%;margin-left:-200px; top:50%;margin-top:-340px;}
@@ -877,11 +877,12 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href  .pic{position:absolute;width:100%; margin-bottom:10px;}
 	
-	.phone_slide_pic_box .slide_pic .square .slide_pic_href.one .pic{width:400px;left:50%;margin-left:-200px;top:50%; margin-top:-120px; }
+	.phone_slide_pic_box .slide_pic .square .slide_pic_href.one .pic{width:300px;left:50%;margin-left:-200px;top:50%; margin-top:-120px; }
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href.two .pic{width:320px;left:50%;margin-left:-165px;top:50%; margin-top:-180px; }
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href.three .pic{width:350px;left:50%;margin-left:-175px;top:50%; margin-top:-80px; }
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href.four .pic{width:310px;left:50%;margin-left:-155px;top:50%; margin-top:-100px; }
 	.phone_slide_pic_box .slide_pic .square .slide_pic_href.five .pic{width:250px;left:50%;margin-left:-125px;top:50%; margin-top:-160px; }
+
 	
 	.phone_slide_pic_box .cycle-pager{display:none;text-align:center;position:relative;z-index:9999;}
 	.phone_slide_pic_box .cycle-pager span{ width:30px;font-size:40px;color:#dbdcdc;line-height:50px; height:30px; padding:5px;cursor:pointer; }

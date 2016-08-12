@@ -1,4 +1,5 @@
 <?=$temp['header_up']?>
+<script src="js/tool/cycle2.js"></script>
 <script>
 Temp.ready(function(){
 
@@ -175,6 +176,9 @@ Temp.ready(function(){
 			$('.logoFixed').addClass('hover');
 			$('.index_topHeader').removeClass('unhover');
 			$('.logoFixed').removeClass('unhover');
+			$('.scroll_top').addClass('hover');
+			$('.scroll_top').removeClass('unhover');
+
 		}
 		else if(scroll_top <= 500)
 		{
@@ -182,6 +186,7 @@ Temp.ready(function(){
 			$('.index_topHeader').addClass('unhover');
 			$('.logoFixed').addClass('unhover');
 			$('.logoFixed').addClass('hover');
+			$('.scroll_top').addClass('unhover');
 			
         }	
 		
@@ -189,15 +194,20 @@ Temp.ready(function(){
 		if(window_width >= 960){
 			var content_portfolio_top = $('.content_portfolio').offset().top;
 			var content_portfolio_height_all = $('.content_portfolio').heightAll();
+			var cloudy = $('.content_portfolio').heightAll();
 			var scroll_top_height = scroll_top + $(window).height();
 			 var scroll_top = $(document).scrollTop();
+
+			 //cloudy
 			
 			if(scroll_top_height >= content_portfolio_top && scroll_top < content_portfolio_top + content_portfolio_height_all)
 			{
 				var s1 = (scroll_top_height - content_portfolio_top) / 5;
 				var s2 = (scroll_top_height - content_portfolio_top) / 5;
+				var s3 = (scroll_top_height - content_portfolio_top) / 5;
 
 				$('.content_portfolio .bg1').css('transform', 'translate(0, ' + s1 + 'px)');
+				$('.content_portfolio .cloudy').css('transform', 'translate(0, ' + s3 + 'px)');
 				/* $('.content_portfolio .portfolio_box3').css('transform', 'translate(0, ' + s1 + 'px)'); */
 
 			}
@@ -232,6 +242,33 @@ Temp.ready(function(){
 			location.href = '';
 		}
 	}, 500);
+
+	$('a[href=scrollnote]').click(function () {
+		var speed = 500;
+		var position = $('.wrapContent').offset().top;
+	  	$("html, body").animate({scrollTop: position}, speed, "swing");
+	});
+	$('a[href=scrollportfolio]').click(function () {
+		var speed = 1000;
+		var position = $('.content_portfolio').offset().top;
+	  	$("html, body").animate({scrollTop: position}, speed, "swing");
+	});
+	$('a[href=scrollcontact]').click(function () {
+		var speed = 1500;
+		var position = $('.content_bottom').offset().top;
+	  	$("html, body").animate({scrollTop: position}, speed, "swing");
+	});
+	$('a[href=scrollabout]').click(function () {
+		var speed = 1500;
+		var position = $('.phone_content_bottom').offset().top;
+	  	$("html, body").animate({scrollTop: position}, speed, "swing");
+	});
+	$('a[href=scroll_top]').click(function () {
+		var speed = 1000;
+		var position = $('.wrap').offset().top;
+	  	$("html, body").animate({scrollTop: position}, speed, "swing");
+	});
+
 });
 </script>
 <?=$temp['header_down']?>
@@ -262,21 +299,21 @@ Temp.ready(function(){
 				<div class="menu">
 					<span class="li">
 						<span class="title2">
-							<a href="note" target="_blank">最新趨勢</a>
+							<a href="scrollnote" fanswoo-hrefNone>最新趨勢</a>
 						</span>
-						<span class="title1">News</span>
+						<a href="scrollnote" fanswoo-hrefNone class="title1">News</a>
 					</span>
 					<span class="li">
 						<span class="title2">
-							<a href="page/portfolio" target="_blank">經典作品</a>
+							<a href="scrollportfolio" fanswoo-hrefNone>經典作品</a>
 						</span>
-						<span class="title1">Portfolio</span>
+						<a href="scrollportfolio" fanswoo-hrefNone class="title1">Portfolio</a>
 					</span>
 					<span class="li">
 						<span class="title2">
-							<a href="contact" target="_blank">聯繫我們</a>
+							<a href="scrollcontact" fanswoo-hrefNone>服務項目</a>
 						</span>
-						<span class="title1">Contact</span>
+						<a href="scrollcontact" fanswoo-hrefNone class="title1">Service</a>
 					</span>
 				</div>
 				<a href="#wrapMarketing"><img src="img/index/arrow_down.png" class="arrow"></a>	
@@ -289,9 +326,9 @@ Temp.ready(function(){
 			<div class="logo"></div>
 			<div class="nav">
 				<div class="menu">
-					<span class="li"><span class="title2"><a href="page/about">關於我們</a></span><span class="title1">About</span></span>
-					<span class="li"><span class="title2"><a href="page/portfolio">經典作品</a></span><span class="title1">Portfolio</span></span>
-					<span class="li"><span class="title2"><a href="server">服務項目</a></span><span class="title1">Service</span></span>
+					<span class="li"><span class="title2"><a href="scrollnote" fanswoo-hrefNone>最新趨勢</a></span><span class="title1">About</span></span>
+					<span class="li"><span class="title2"><a href="scrollportfolio" fanswoo-hrefNone>經典作品</a></span><span class="title1">Portfolio</span></span>
+					<span class="li"><span class="title2"><a href="scrollabout" fanswoo-hrefNone>服務項目</a></span><span class="title1">Service</span></span>
 				</div>
 				<a href="#wrapMarketing">
 					<div class="arrow">
@@ -443,7 +480,7 @@ Temp.ready(function(){
 				<h1>RWD客製化網站</h1>
 				<h2>打造一個真正能提升業績的網站</h2>
 				<p>迅速提升企業形象及產品銷售量
-					<br>避免製作導致負面形象的網站！</p>
+				<br>避免製作導致負面形象的網站！</p>
 				<a href="webdesign" target="_blank" class="more">
 					<p>了解更多</p>
 					<img src="img/index/arrow.png">
@@ -519,73 +556,85 @@ Temp.ready(function(){
 		<div class="phone_slide_pic_box" >
 			<div class="slide_pic" >
 				<div class="square">
-					<div class="slide_pic_href one">
-						<div class="text">
-							<h1>RWD客製化網站</h1>
-							<h2>打造一個真正能提升業績的網站</h2>
-							<p class="in_p">迅速提升企業形象及產品銷售量
-								<br>避免製作導致負面形象的網站！</p>
-							<a href="graphic"  class="more">
-								<p>了解更多</p>
-								<img src="img/index/arrow.png">
-								<div class="light"></div>
-							</a>	
-						</div>
-							
-						<img src="img/index/fixed_table/pic1.png" class="pic">
-						
-					</div>
-					<div class="slide_pic_href two">
-						<div class="text">
-							<h1>美術設計</h1>
-							<h2>CIS企業識別、LOGO設計</h2>
-							<p class="in_p">經驗豐富的設計團隊<br>以不凡的設計注入非凡的生命</p>
-							<a href="marketing"  class="more">
-								<p>了解更多</p>
-								<img src="img/index/arrow.png">
-								<div class="light"></div>
-							</a>
-						</div>
-						<img src="img/index/fixed_table/pic2.png" class="pic">
-					</div>
-					<div class="slide_pic_href three">
-						<div class="text">
-							<h1>網路行銷</h1>
-							<h2>Facebook、Google、Instagram</h2>
-							<p class="in_p">透過Big Data建立行銷大數據<br>幫助網站及APP增加來客數</p>
-							<a href="graphic"  class="more">
-								<p>了解更多</p>
-								<img src="img/index/arrow.png">
-								<div class="light"></div>
-							</a>
-						</div>
-						<img src="img/index/fixed_table/pic3.png" class="pic">
-					</div>
-					<div class="slide_pic_href four">
-						<div class="text">
-							<h1>網路行銷</h1>
-							<h2>Facebook、Google、Instagram</h2>
-							<p class="in_p">透過Big Data建立行銷大數據<br>幫助網站及APP增加來客數</p>
-							<a href="wordpress"  class="more">
-								<p>了解更多</p>
-								<img src="img/index/arrow.png">
-								<div class="light"></div>
-							</a>
-						</div>
-						<img src="img/index/fixed_table/pic4.png" class="pic">
-					</div>
-					<div class="slide_pic_href five">
-						<div class="text">
-							<h1>伺服器租賃</h1>
-							<h2>Google SSD雲端主機</h2>
-							<p class="in_p">交由專業程式設計團隊開發<br>無論iOS、android、webapp皆可製作</p>
-							<a href="server"  class="more">
-								<p>了解更多</p>
-								<img src="img/index/arrow.png">
-								<div class="light"></div>
-							</a>
-						</div>
-						<img src="img/index/fixed_table/pic5.png" class="pic">
+
+					<div class="ad_s">			
+						<div class="cycle-slideshow"
+							data-cycle-slides="> .slide_pic_href" 
+							data-cycle-swipe=true
+							data-cycle-swipe-fx=scrollHorz
+							data-cycle-fx=scrollHorz
+							data-cycle-timeout=6000
+							data-cycle-prev="img.prev "
+							data-cycle-next="img.next "
+							data-cycle-pause-on-hover="true"
+							>
+							<div class="slide_pic_href one">
+								<div class="text">
+									<h1>RWD客製化網站</h1>
+									<h2>打造一個真正能提升業績的網站</h2>
+									<p class="in_p">迅速提升企業形象及產品銷售量
+										<br>避免製作導致負面形象的網站！</p>
+									<a href="graphic"  class="more">
+										<p>了解更多</p>
+										<img src="img/index/arrow.png">
+										<div class="light"></div>
+									</a>	
+								</div>	
+								<img src="img/index/fixed_table/pic1.png" class="pic">	
+							</div>
+							<div class="slide_pic_href two">
+								<div class="text">
+									<h1>美術設計</h1>
+									<h2>CIS企業識別、LOGO設計</h2>
+									<p class="in_p">經驗豐富的設計團隊<br>以不凡的設計注入非凡的生命</p>
+									<a href="marketing"  class="more">
+										<p>了解更多</p>
+										<img src="img/index/arrow.png">
+										<div class="light"></div>
+									</a>
+								</div>
+								<img src="img/index/fixed_table/pic2.png" class="pic">
+							</div>
+							<div class="slide_pic_href three">
+								<div class="text">
+									<h1>網路行銷</h1>
+									<h2>Facebook、Google、Instagram</h2>
+									<p class="in_p">透過Big Data建立行銷大數據<br>幫助網站及APP增加來客數</p>
+									<a href="graphic"  class="more">
+										<p>了解更多</p>
+										<img src="img/index/arrow.png">
+										<div class="light"></div>
+									</a>
+								</div>
+								<img src="img/index/fixed_table/pic3.png" class="pic">
+							</div>
+							<div class="slide_pic_href four">
+								<div class="text">
+									<h1>網路行銷</h1>
+									<h2>Facebook、Google、Instagram</h2>
+									<p class="in_p">透過Big Data建立行銷大數據<br>幫助網站及APP增加來客數</p>
+									<a href="wordpress"  class="more">
+										<p>了解更多</p>
+										<img src="img/index/arrow.png">
+										<div class="light"></div>
+									</a>
+								</div>
+								<img src="img/index/fixed_table/pic4.png" class="pic">
+							</div>
+							<div class="slide_pic_href five">
+								<div class="text">
+									<h1>伺服器租賃</h1>
+									<h2>Google SSD雲端主機</h2>
+									<p class="in_p">交由專業程式設計團隊開發<br>無論iOS、android、webapp皆可製作</p>
+									<a href="server"  class="more">
+										<p>了解更多</p>
+										<img src="img/index/arrow.png">
+										<div class="light"></div>
+									</a>
+								</div>
+								<img src="img/index/fixed_table/pic5.png" class="pic">
+							</div>
+						</div>	
 					</div>
 				</div>	
 			</div>

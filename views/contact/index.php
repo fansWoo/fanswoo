@@ -56,7 +56,15 @@ Temp.ready(function(){
 		$(".need_child[data-selected='" + selected + "']").attr('name', 'classtype2');
 		$('.need_child option').removeAttr('selected');
 		$(".need_child[data-selected='" + selected + "'] option:first").attr('selected', true);
+
+		$('.money').css('display', 'none');
+		$('.money').addClass('displaynone');
+		$(".money[data-selected='" + selected + "']").css('display', 'block');
+		$(".money[data-selected='" + selected + "']").attr('name', 'classtype2');
+		$('.money option').removeAttr('selected');
+		$(".money[data-selected='" + selected + "'] option:first").attr('selected', true);
 	});
+
 
 
 	/* <![CDATA[ */
@@ -176,14 +184,43 @@ Temp.ready(function(){
 							預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價
 						</div>
 						<span>您的預算：</span>
-						<select class="money" name="money" required>
+						<select class="money">
+							<option value="先選擇主要項目">先選擇主要項目</option>
+						</select>
+						<select class="money one" data-selected="網站開發" name="money"  style="display:none;" > <!-- 形象網站 -->
 							<option value="">請選擇預算</option>
-							<!-- <option value="25 萬元以下">25 萬元以下</option> -->
-							<option value="25 萬元 ~ 50 萬元">25 萬元 ~ 50 萬元</option>
-							<option value="50 萬元 ~ 100 萬元">50 萬元 ~ 100 萬元</option>
-							<option value="100 萬元 ~ 150 萬元">100 萬元 ~ 150 萬元</option>
-							<option value="150 萬元 ~ 200 萬元">150 萬元 ~ 200 萬元</option>
-							<option value="200 萬元以上">200 萬元以上</option>
+							<option value="25 萬元 ~ 50 萬元">25~50萬 >>> 感到耳目一新</option>
+							<option value="50 萬元 ~ 100 萬元">50~100萬 >>> 印象非常深刻</option>
+							<option value="100 萬元 ~ 150 萬元">100~200萬 >>> 加上多種功能</option>
+							<option value="150 萬元 ~ 200 萬元">200萬以上 >>> 前所未見的設計</option>
+						</select>
+						<select class="money three" data-selected="程式系統開發" name="money"  style="display:none;"> <!-- APP程式開發 -->
+							<option value="">請選擇預算</option>
+							<option value="25 萬元 ~ 50 萬元">50~100萬 >>> 簡易客製化 Web App</option>
+							<option value="50 萬元 ~ 100 萬元">100~200萬 >>> 簡易客製化 Hybrid App</option>
+							<option value="100 萬元 ~ 150 萬元">200~300萬 >>> 簡易客製化 Native App</option>
+							<option value="150 萬元 ~ 200 萬元">300萬以上 >>> 高難度客製化 Native App</option>
+						</select>
+						<select class="money two" data-selected="美術設計" name="money"  style="display:none;"> <!-- 購物網站、網路平台 -->
+							<option value="">請選擇預算</option>
+							<option value="25 萬元 ~ 50 萬元">35~70萬 >>> 客製化風格設計</option>
+							<option value="50 萬元 ~ 100 萬元">70~150萬 >>> 少量客製化系統</option>
+							<option value="100 萬元 ~ 150 萬元">150~300萬 >>> 大量客製化系統</option>
+							<option value="150 萬元 ~ 200 萬元">300萬以上 >>> 高難度的系統</option>
+						</select>
+						<select class="money four" data-selected="網路行銷" name="money"  style="display:none;">  <!-- 粉絲團、Google、網路行銷 -->
+							<option value="">請選擇預算</option>
+							<option value="25 萬元 ~ 50 萬元">10萬/月 >>> 一般曝光</option>
+							<option value="50 萬元 ~ 100 萬元">20萬/月 >>> 精準曝光</option>
+							<option value="100 萬元 ~ 150 萬元">50萬/月 >>> 高強度曝光</option>
+							<option value="150 萬元 ~ 200 萬元">100萬/月 >>> 包覆性曝光</option>
+						</select>
+						<select class="money five" data-selected="伺服器租賃" name="money"  style="display:none;">  <!-- 伺服器租賃 -->
+							<option value="">請選擇預算</option>
+							<option value="25 萬元 ~ 50 萬元">8000/年 >>> 微型主機</option>
+							<option value="50 萬元 ~ 100 萬元">18000/年 >>> 一般主機</option>
+							<option value="100 萬元 ~ 150 萬元">38000/年 >>> 商務主機</option>
+							<option value="150 萬元 ~ 200 萬元">依流量代管 >>> 客製化主機</option>
 						</select>
 					</div>
 				</div>
@@ -273,17 +310,48 @@ Temp.ready(function(){
 						</select>
 					</div>
 					<div class="area">
-						<span>您的預算：</span>
-						<select class="money" name="money">
-							<option value="">請選擇預算</option>
-							<option value="15萬以下">15萬以下</option>
-							<option value="15~25萬">15~25萬</option>
-							<option value="25~50萬">25~50萬</option>
-							<option value="50~100萬">50~100萬</option>
-						</select>
 						<div class="textContactFormMoneyFixed">
 							預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價
 						</div>
+						<span>您的預算：</span>
+						<select class="money">
+							<option value="先選擇主要項目">先選擇主要項目</option>
+						</select>
+						<select class="money one" data-selected="網站開發" name="money"  style="display:none;" > <!-- 形象網站 -->
+							<option value="">請選擇預算</option>
+							<option value="25 萬元 ~ 50 萬元">25~50萬 >>> 感到耳目一新</option>
+							<option value="50 萬元 ~ 100 萬元">50~100萬 >>> 印象非常深刻</option>
+							<option value="100 萬元 ~ 150 萬元">100~200萬 >>> 加上多種功能</option>
+							<option value="150 萬元 ~ 200 萬元">200萬以上 >>> 前所未見的設計</option>
+						</select>
+						<select class="money three" data-selected="程式系統開發" name="money"  style="display:none;"> <!-- APP程式開發 -->
+							<option value="">請選擇預算</option>
+							<option value="25 萬元 ~ 50 萬元">50~100萬 >>> 簡易客製化 Web App</option>
+							<option value="50 萬元 ~ 100 萬元">100~200萬 >>> 簡易客製化 Hybrid App</option>
+							<option value="100 萬元 ~ 150 萬元">200~300萬 >>> 簡易客製化 Native App</option>
+							<option value="150 萬元 ~ 200 萬元">300萬以上 >>> 高難度客製化 Native App</option>
+						</select>
+						<select class="money two" data-selected="美術設計" name="money"  style="display:none;"> <!-- 購物網站、網路平台 -->
+							<option value="">請選擇預算</option>
+							<option value="25 萬元 ~ 50 萬元">35~70萬 >>> 客製化風格設計</option>
+							<option value="50 萬元 ~ 100 萬元">70~150萬 >>> 少量客製化系統</option>
+							<option value="100 萬元 ~ 150 萬元">150~300萬 >>> 大量客製化系統</option>
+							<option value="150 萬元 ~ 200 萬元">300萬以上 >>> 高難度的系統</option>
+						</select>
+						<select class="money four" data-selected="網路行銷" name="money"  style="display:none;">  <!-- 粉絲團、Google、網路行銷 -->
+							<option value="">請選擇預算</option>
+							<option value="25 萬元 ~ 50 萬元">10萬/月 >>> 一般曝光</option>
+							<option value="50 萬元 ~ 100 萬元">20萬/月 >>> 精準曝光</option>
+							<option value="100 萬元 ~ 150 萬元">50萬/月 >>> 高強度曝光</option>
+							<option value="150 萬元 ~ 200 萬元">100萬/月 >>> 包覆性曝光</option>
+						</select>
+						<select class="money five" data-selected="伺服器租賃" name="money"  style="display:none;">  <!-- 伺服器租賃 -->
+							<option value="">請選擇預算</option>
+							<option value="25 萬元 ~ 50 萬元">8000/年 >>> 微型主機</option>
+							<option value="50 萬元 ~ 100 萬元">18000/年 >>> 一般主機</option>
+							<option value="100 萬元 ~ 150 萬元">38000/年 >>> 商務主機</option>
+							<option value="150 萬元 ~ 200 萬元">依流量代管 >>> 客製化主機</option>
+						</select>
 					</div>
 				</div>
 				<div class="rightBox">
