@@ -303,6 +303,8 @@ body.start .content_start.unhover .oneRightBox{ animation: none; -webkit-transit
 }
 
 @media screen and (max-width: 959px) and (min-width:700px){
+	.content_start .wrapper nav .menu .li.ser01 { display:none; }
+	.content_start .wrapper nav .menu .li.ser02 { display:block; }
 	.wrapper{width:180px; height:100%; margin-left:-90px; }
 	.wrapper nav{margin-left:-90px;}	
 	.content_start .logo { margin-left:-440px; width:140px; }
