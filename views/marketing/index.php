@@ -287,7 +287,7 @@ $(function(){
 	$(document).on('focus', '.textContactForm.hover .need', function(){
 		$('.textContactForm.hover .need').change();
 	});
-		
+	
 	$(document).on('change', '.textContactForm.hover .need', function(){
 		var selected = $(this).val();
 		$('.need_child').css('display', 'none');
@@ -851,7 +851,7 @@ $(function(){
 				<div class="rightBox">
 					<textarea name="content" placeholder="我還想補充..."></textarea>
 				</div>
-				<div class="price_choose one" data-selected="網站開發">
+<!-- 				<div class="price_choose one" data-selected="先選擇主要項目" style="display:none;">
 					<p>預算選擇</p>
 					<div class="choose_area">
 						<div class="choose_box" data-bgname="text1">
@@ -878,7 +878,7 @@ $(function(){
 							<h4 data-bgname="text4">先選擇主要項目</h4>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="price_choose" data-selected="網站開發" style="display:none;">
 					<p>預算選擇</p>
 					<div class="choose_area">

@@ -258,6 +258,13 @@ Temp.ready(function(){
 		var position = $('.content_bottom').offset().top;
 	  	$("html, body").animate({scrollTop: position}, speed, "swing");
 	});
+
+	$('a[href=scrolltodown]').click(function () {  //700-1024
+		var speed = 1500;
+		var position = $('.phone_content_bottom').offset().top;
+	  	$("html, body").animate({scrollTop: position}, speed, "swing");
+	});
+
 	$('a[href=scrollabout]').click(function () {
 		var speed = 1500;
 		var position = $('.phone_content_bottom').offset().top;
@@ -309,9 +316,15 @@ Temp.ready(function(){
 						</span>
 						<a href="scrollportfolio" fanswoo-hrefNone class="title1">Portfolio</a>
 					</span>
-					<span class="li">
+					<span class="li ser01">
 						<span class="title2">
 							<a href="scrollcontact" fanswoo-hrefNone>服務項目</a>
+						</span>
+						<a href="scrollcontact" fanswoo-hrefNone class="title1">Service</a>
+					</span>
+					<span class="li ser02">
+						<span class="title2">
+							<a href="scrolltodown" fanswoo-hrefNone>服務項目</a>
 						</span>
 						<a href="scrollcontact" fanswoo-hrefNone class="title1">Service</a>
 					</span>
@@ -517,7 +530,7 @@ Temp.ready(function(){
 			</div>
 			<img src="img/index/fixed_table/pic3.png" class="pic">
 		</div>
-		<div class="pic_move pic3" id="pic_move_pic3" style="display:none;">
+		<div class="pic_move pic3" id="pic_move_pic3" style="display:block;">
 			<div class="text_box">
 				<h1>手機APP</h1>
 				<h2>Facebook、Google、Instagram</h2>
