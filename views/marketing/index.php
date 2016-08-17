@@ -275,44 +275,6 @@ $(function(){
 			}, 90);
 		}
 	}
-
-	$(document).on('mouseenter', '.textContactForm', function(){
-		$('.textContactForm').addClass('hover');
-		$('.textContact').addClass('hidden');
-	});
-	$(document).on('focus', '.textContactForm.hover .need, .textContactForm.hover .need_child, .textContactForm.hover .money', function(){
-		$(this).find("option[value='']").remove();
-	});
-	
-	$(document).on('focus', '.textContactForm.hover .need', function(){
-		$('.textContactForm.hover .need').change();
-	});
-	
-	$(document).on('change', '.textContactForm.hover .need', function(){
-		var selected = $(this).val();
-		$('.need_child').css('display', 'none');
-		$('.need_child').addClass('displaynone');
-		$('.need_child[data-selected=' + selected + ']').css('display', 'block');
-		$('.need_child[data-selected=' + selected + ']').attr('name', 'classtype2');
-		$('.need_child option').removeAttr('selected');
-		$('.need_child[data-selected=' + selected + '] option:first').attr('selected', true);
-
-		$('.price_choose').css('display', 'none');
-		$('.price_choose').addClass('displaynone');
-		$('.price_choose[data-selected=' + selected + ']').css('display', 'block');
-		$('.price_choose[data-selected=' + selected + ']').attr('name', 'classtype2');
-		$('.price_choose option').removeAttr('selected');
-		$('.price_choose[data-selected=' + selected + '] option:first').attr('selected', true);
-
-		$('.money').css('display', 'none');
-		$('.money').addClass('displaynone');
-		$('.money[data-selected=' + selected + ']').css('display', 'block');
-		$('.money[data-selected=' + selected + ']').attr('name', 'classtype2');
-		$('.money option').removeAttr('selected');
-		$('.money[data-selected=' + selected + '] option:first').attr('selected', true);
-
-
-	});
 	
 });
 </script>
@@ -740,330 +702,58 @@ $(function(){
 		<div class="textContactForm">
 			<div class="textContactFormContent">
 				<?php echo form_open("Contact/contact_post/")?>
-				<div class="leftBox">
-					<div class="area">
-						<p>您的姓名</p><input type="text" class="name" name="username" placeholder="請填寫您的姓名" required>
-					</div>
-					<div class="area">
-						<p>公司名稱</p><input type="text" class="company" name="company" placeholder="請填寫公司名稱" required>
-					</div>	
-					<div class="area">
-						<p>聯繫電話</p><input type="text" class="telphone" name="phone" placeholder="請填寫聯繫電話" required>
-					</div>
-					<div class="area">	
-						<p>電子郵件</p><input type="text" class="email" name="email" placeholder="請填寫電子郵件" required>
-					</div>
-					<div class="area">		
-						<p>公司地址</p><input type="text" class="address" name="address" placeholder="請填寫公司地址" required>
-					</div>
-					<div class="area">
-						<p>詢問項目</p>
-						<select class="need" name="classtype" required>
-							<option value="">請選擇詢問項目</option>
-							<option value="網站開發">網站開發</option>
-							<option value="程式系統開發">程式系統開發</option>
-							<option value="美術設計">美術設計</option>
-							<option value="網路行銷">網路行銷</option>
-							<option value="伺服器租賃">伺服器租賃</option>
-							<option value="其它問題">其它問題</option>
-						</select>
-					</div>
-					<div class="area">
-						<p>項目細節</p>
-						<select class="need_child">
-							<option value="先選擇主要項目">先選擇主要項目</option>
-						</select>
-						<select class="need_child" data-selected="網站開發" style="display:none;">
-							<option value="形象網站設計">形象網站設計</option>
-							<option value="0元套版網站">0元套版網站</option>
-							<option value="購物網站開發">購物網站開發</option>
-							<option value="網路平台開發">網路平台開發</option>
-						</select>
-						<select class="need_child" data-selected="程式系統開發" style="display:none;">
-							<option value="程式系統開發">程式系統開發</option>
-							<option value="手機App開發">手機App開發</option>
-						</select>
-						<select class="need_child" data-selected="美術設計" style="display:none;">
-							<option value="LOGO/CIS 設計">LOGO/CIS 設計</option>
-							<option value="平面設計">平面設計</option>
-							<option value="產品包裝設計">產品包裝設計</option>
-						</select>
-						<select class="need_child" data-selected="網路行銷" style="display:none;">
-							<option value="facebook 粉絲團">facebook 粉絲團</option>
-							<option value="Google Adwords">Google Adwords</option>
-							<option value="網路行銷企劃">網路行銷企劃</option>
-						</select>
-						<select class="need_child" data-selected="伺服器租賃" style="display:none;">
-							<option value="虛擬伺服器租賃">虛擬伺服器租賃</option>
-							<option value="雲端主機租賃">雲端主機租賃</option>
-							<option value="電子信箱主機租賃">電子信箱主機租賃</option>
-							<option value="Google Apps設定">Google Apps設定</option>
-						</select>
-						<select class="need_child" data-selected="其它問題" style="display:none;">
-							<option value="其它問題">其它問題</option>
-						</select>
-					</div>
-					<div class="area phone">
-						<span>您的預算：</span>
-						<select class="money">
-							<option value="先選擇主要項目">先選擇主要項目</option>
-						</select>
-						<select class="money one" data-selected="網站開發" name="money"  style="display:none;" > <!-- 形象網站 -->
-							<option value="">請選擇預算</option>
-							<option value="25 萬元 ~ 50 萬元">25~50萬 >>> 感到耳目一新</option>
-							<option value="50 萬元 ~ 100 萬元">50~100萬 >>> 印象非常深刻</option>
-							<option value="100 萬元 ~ 150 萬元">100~200萬 >>> 加上多種功能</option>
-							<option value="150 萬元 ~ 200 萬元">200萬以上 >>> 前所未見的設計</option>
-						</select>
-						<select class="money three" data-selected="程式系統開發" name="money"  style="display:none;"> <!-- APP程式開發 -->
-							<option value="">請選擇預算</option>
-							<option value="25 萬元 ~ 50 萬元">50~100萬 >>> 簡易客製化 Web App</option>
-							<option value="50 萬元 ~ 100 萬元">100~200萬 >>> 簡易客製化 Hybrid App</option>
-							<option value="100 萬元 ~ 150 萬元">200~300萬 >>> 簡易客製化 Native App</option>
-							<option value="150 萬元 ~ 200 萬元">300萬以上 >>> 高難度客製化 Native App</option>
-						</select>
-						<select class="money two" data-selected="美術設計" name="money"  style="display:none;"> <!-- 購物網站、網路平台 -->
-							<option value="">請選擇預算</option>
-							<option value="25 萬元 ~ 50 萬元">35~70萬 >>> 客製化風格設計</option>
-							<option value="50 萬元 ~ 100 萬元">70~150萬 >>> 少量客製化系統</option>
-							<option value="100 萬元 ~ 150 萬元">150~300萬 >>> 大量客製化系統</option>
-							<option value="150 萬元 ~ 200 萬元">300萬以上 >>> 高難度的系統</option>
-						</select>
-						<select class="money four" data-selected="網路行銷" name="money"  style="display:none;">  <!-- 粉絲團、Google、網路行銷 -->
-							<option value="">請選擇預算</option>
-							<option value="25 萬元 ~ 50 萬元">10萬/月 >>> 一般曝光</option>
-							<option value="50 萬元 ~ 100 萬元">20萬/月 >>> 精準曝光</option>
-							<option value="100 萬元 ~ 150 萬元">50萬/月 >>> 高強度曝光</option>
-							<option value="150 萬元 ~ 200 萬元">100萬/月 >>> 包覆性曝光</option>
-						</select>
-						<select class="money five" data-selected="伺服器租賃" name="money"  style="display:none;">  <!-- 伺服器租賃 -->
-							<option value="">請選擇預算</option>
-							<option value="25 萬元 ~ 50 萬元">8000/年 >>> 微型主機</option>
-							<option value="50 萬元 ~ 100 萬元">18000/年 >>> 一般主機</option>
-							<option value="100 萬元 ~ 150 萬元">38000/年 >>> 商務主機</option>
-							<option value="150 萬元 ~ 200 萬元">依流量代管 >>> 客製化主機</option>
-						</select>
-						<div class="textContactFormMoneyFixed">
-							<span>預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價</span>
+					<div class="leftBox">
+						<div class="area">
+							<p>您的姓名</p><input type="text" class="name" name="username" placeholder="請填寫您的姓名" required>
+						</div>
+						<div class="area">
+							<p>公司名稱</p><input type="text" class="company" name="company" placeholder="請填寫公司名稱" required>
+						</div>	
+						<div class="area">
+							<p>聯繫電話</p><input type="text" class="telphone" name="phone" placeholder="請填寫聯繫電話" required>
+						</div>
+						<div class="area">	
+							<p>電子郵件</p><input type="text" class="email" name="email" placeholder="請填寫電子郵件" required>
+						</div>
+						<div class="area">		
+							<p>公司地址</p><input type="text" class="address" name="address" placeholder="請填寫公司地址" required>
+						</div>
+						<div class="area">
+							<p>詢問項目</p>
+							<select class="need" name="classtype" required>
+								<option value="請先選擇主要詢問項目">請先選擇主要詢問項目</option>
+							</select>
+						</div>
+						<div class="area">
+							<p>項目細節</p>
+							<select class="need_child">
+								<option value="請先選擇主要詢問項目">請先選擇主要詢問項目</option>
+							</select>
+						</div>
+						<div class="area phone">
+							<span>您的預算：</span>
+							<select class="money">
+							</select>
+							<div class="textContactFormMoneyFixed">
+								<span>預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="rightBox">
-					<textarea name="content" placeholder="我還想補充..."></textarea>
-				</div>
-<!-- 				<div class="price_choose one" data-selected="先選擇主要項目" style="display:none;">
-					<p>預算選擇</p>
-					<div class="choose_area">
-						<div class="choose_box" data-bgname="text1">
-							<h3>25~50萬</h3>
-							<div class="circle"><input type="hidden" value="15萬以下"></div>
-							<h4 data-bgname="text1">先選擇主要項目</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text2">
-							<h3>50~100萬</h3>
-							<div class="circle"><input type="hidden" value="15~25萬"></div>
-							<h4 data-bgname="text2">先選擇主要項目</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text3">
-							<h3>100~200萬</h3>
-							<div class="circle"><input type="hidden" value="25~50萬"></div>
-							<h4 data-bgname="text3">先選擇主要項目</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text4">
-							<h3>200萬以上</h3>
-							<div class="circle"><input type="hidden" value="50~100萬"></div>
-							<h4 data-bgname="text4">先選擇主要項目</h4>
-						</div>
+					<div class="rightBox">
+						<textarea name="content" placeholder="我還想補充..."></textarea>
 					</div>
-				</div> -->
-				<div class="price_choose" data-selected="網站開發" style="display:none;">
-					<p>預算選擇</p>
-					<div class="choose_area">
-						<div class="choose_box" data-bgname="text1">
-							<h3>25~50萬</h3>
-							<div class="circle"><input type="hidden" value="15萬以下"></div>
-							<h4 data-bgname="text1">感到耳目一新</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text2">
-							<h3>50~100萬</h3>
-							<div class="circle"><input type="hidden" value="15~25萬"></div>
-							<h4 data-bgname="text2">印象非常深刻</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text3">
-							<h3>100~200萬</h3>
-							<div class="circle"><input type="hidden" value="25~50萬"></div>
-							<h4 data-bgname="text3">加上多種功能</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text4">
-							<h3>200萬以上</h3>
-							<div class="circle"><input type="hidden" value="50~100萬"></div>
-							<h4 data-bgname="text4">前所未見的設計</h4>
-						</div>
+					<div class="price_choose" style="display: none;">
 					</div>
-				</div>
-				<div class="price_choose" data-selected="程式系統開發" style="display:none;">
-					<p>預算選擇</p>
-					<div class="choose_area">
-						<div class="choose_box" data-bgname="text1">
-							<h3>50~100萬</h3>
-							<div class="circle"><input type="hidden" value="15萬以下"></div>
-							<h4 data-bgname="text1">簡易客製化 Web App</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text2">
-							<h3>100~200萬</h3>
-							<div class="circle"><input type="hidden" value="15~25萬"></div>
-							<h4 data-bgname="text2">簡易客製化 Hybrid App</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text3">
-							<h3>200~300萬</h3>
-							<div class="circle"><input type="hidden" value="25~50萬"></div>
-							<h4 data-bgname="text3">簡易客製化 Native App</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text4">
-							<h3>300萬以上</h3>
-							<div class="circle"><input type="hidden" value="50~100萬"></div>
-							<h4 data-bgname="text4">高難度客製化 Native App</h4>
-						</div>
+					<div class="choose_box_copy" style=" display: none;">
+						<h3>預算</h3>
+						<div class="circle"><input type="hidden" name="budget_range" value="15萬以下"></div>
+						<h4 data-bgname="text1">文字</h4>
 					</div>
-				</div>
-				<div class="price_choose" data-selected="美術設計" style="display:none;">
-					<p>預算選擇</p>
-					<div class="choose_area">
-						<div class="choose_box" data-bgname="text1">
-							<h3>35~70萬</h3>
-							<div class="circle"><input type="hidden" value="15萬以下"></div>
-							<h4 data-bgname="text1">客製化風格設計</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text2">
-							<h3>70~150萬</h3>
-							<div class="circle"><input type="hidden" value="15~25萬"></div>
-							<h4 data-bgname="text2">少量客製化系統</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text3">
-							<h3>150~300萬</h3>
-							<div class="circle"><input type="hidden" value="25~50萬"></div>
-							<h4 data-bgname="text3">大量客製化系統</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text4">
-							<h3>300萬以上</h3>
-							<div class="circle"><input type="hidden" value="50~100萬"></div>
-							<h4 data-bgname="text4">高難度的系統</h4>
-						</div>
-					</div>
-				</div>
-				<div class="price_choose" data-selected="網路行銷" style="display:none;">
-					<p>預算選擇</p>
-					<div class="choose_area">
-						<div class="choose_box" data-bgname="text1">
-							<h3>10萬/月</h3>
-							<div class="circle"><input type="hidden" value="15萬以下"></div>
-							<h4 data-bgname="text1">一般曝光</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text2">
-							<h3>20萬/月</h3>
-							<div class="circle"><input type="hidden" value="15~25萬"></div>
-							<h4 data-bgname="text2">精準曝光</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text3">
-							<h3>50萬/月</h3>
-							<div class="circle"><input type="hidden" value="25~50萬"></div>
-							<h4 data-bgname="text3">高強度曝光</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text4">
-							<h3>100萬/月</h3>
-							<div class="circle"><input type="hidden" value="50~100萬"></div>
-							<h4 data-bgname="text4">包覆性曝光</h4>
-						</div>
-					</div>
-				</div>
-				<div class="price_choose" data-selected="伺服器租賃" style="display:none;">
-					<p>預算選擇</p>
-					<div class="choose_area">
-						<div class="choose_box" data-bgname="text1">
-							<h3>8000/年</h3>
-							<div class="circle"><input type="hidden" value="15萬以下"></div>
-							<h4 data-bgname="text1">一般曝光</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text2">
-							<h3>18000/年</h3>
-							<div class="circle"><input type="hidden" value="15~25萬"></div>
-							<h4 data-bgname="text2">一般主機</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text3">
-							<h3>38000/年</h3>
-							<div class="circle"><input type="hidden" value="25~50萬"></div>
-							<h4 data-bgname="text3">商務主機</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text4">
-							<h3>依流量代管</h3>
-							<div class="circle"><input type="hidden" value="50~100萬"></div>
-							<h4 data-bgname="text4">客製化主機</h4>
-						</div>
-					</div>
-				</div>
-				<div class="price_choose" data-selected="其它問題" style="display:none;">
-					<p>預算選擇</p>
-					<div class="choose_area">
-						<div class="choose_box" data-bgname="text1">
-							<h3>15萬以下</h3>
-							<div class="circle"><input type="hidden" value="15萬以下"></div>
-							<h4 data-bgname="text1">普通或可能導致負面形象</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text2">
-							<h3>15~25萬</h3>
-							<div class="circle"><input type="hidden" value="15~25萬"></div>
-							<h4 data-bgname="text2">感到耳目一新</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text3">
-							<h3>25~50萬</h3>
-							<div class="circle"><input type="hidden" value="25~50萬"></div>
-							<h4 data-bgname="text3">印象非常深刻的網站</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text4">
-							<h3>50~100萬</h3>
-							<div class="circle"><input type="hidden" value="50~100萬"></div>
-							<h4 data-bgname="text4">最極致的設計</h4>
-						</div>
-					</div>
-				</div>
+
 					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
 					<input type="hidden" name="previous_url" value="<?=$previous_url?>">
 				</form>
 			</div>
-			<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page -->
-			<script type="text/javascript">
-			/* <![CDATA[ */
-			var google_conversion_id = 1037100439;
-			var google_conversion_language = "en";
-			var google_conversion_format = "3";
-			var google_conversion_color = "ffffff";
-			var google_conversion_label = "54GrCKiolVYQl8vD7gM";
-			var google_remarketing_only = false;
-			/* ]]> */
-			</script>
-			<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
-			<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
 		</div>
 	</div>
 </div>

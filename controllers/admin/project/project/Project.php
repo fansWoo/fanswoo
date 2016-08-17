@@ -118,7 +118,7 @@ class Project_Controller extends MY_Controller {
             )
         ));
 
-        //清空所有權限不存在於這個專案內的任務
+        //清空所有 projectid 等於這個專案但是 uid 不在此存取權限內的任務
         $WorktaskList = new ObjList([
             'db_where_arr' => [
                 [
