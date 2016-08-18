@@ -747,7 +747,7 @@ $(function(){
 					<div class="choose_box_copy" style=" display: none;">
 						<h3>預算</h3>
 						<div class="circle"><input type="hidden" name="budget_range" value="15萬以下"></div>
-						<h4 data-bgname="text1">文字</h4>
+						<h4>文字</h4>
 					</div>
 
 					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
