@@ -48,7 +48,7 @@ $(function(){
 		var contact_selector_arr = response;
 
 		// need_html 定義為 <select> 內的 HTML 內文
-		var need_html = '<option value="">請先選擇主要詢問項目</option>';
+		var need_html = '<option value="" style="color:#CCC;">請先選擇主要詢問項目</option>';
 		// 將 contact_selector_arr 內的 JSON 印出來，轉換成 <option>
 		for( key in contact_selector_arr )
 		{
@@ -64,7 +64,7 @@ $(function(){
 			$('.price_choose').css('display', 'none');
 
 			//建立 need_child_html 變數作為暫時的 HTML 內文
-			var need_child_html = '<option value="">請選擇次要詢問項目</option>';
+			var need_child_html = '<option value="" style="color:#CCC;">請選擇次要詢問項目</option>';
 
 			//迴圈 contact_selector_arr 
 			for( key in contact_selector_arr )
@@ -85,6 +85,13 @@ $(function(){
 		
 		// 當 select.need_child 的值發生變化的時候，執行以下內容
 		$(document).on('change', 'select.need_child', function(){
+
+			//如果沒有選擇次要選項的話，就隱藏預算區塊
+			if( $('select.need_child').val() == '' )
+			{
+				$('.price_choose').css('display', 'none');
+				return false;
+			}
 
 			//首先清空 .price_choose
 			$('.price_choose').html("");
@@ -108,7 +115,7 @@ $(function(){
 								$clone.css('display', 'block');
 								$clone.removeClass('choose_box_copy');
 								$clone.addClass('choose_box');
-								
+
 								$clone.find('h3').text( contact_selector_arr[key].child[key2].budget[key3].range );
 								$clone.find('h4').text( contact_selector_arr[key].child[key2].budget[key3].text );
 								$clone.find("input[name='budget_range']").val( contact_selector_arr[key].child[key2].budget[key3].text );
