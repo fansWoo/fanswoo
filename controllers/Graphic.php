@@ -24,6 +24,7 @@ class Graphic_Controller extends MY_controller
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'graphic/index.css';
 
+        $data['global']['js'][] = 'contact_form.js';
         $data['global']['js'][] = 'tool/smooth_scrollerator.js';
         $data['global']['js'][] = 'tool/cycle2.js';
             
@@ -33,6 +34,7 @@ class Graphic_Controller extends MY_controller
 		$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
 		$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
 		$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+        $data['temp']['contact_content_area'] = $this->load->view('temp/contact_content_area', $data, TRUE);
 
         //輸出模板
         $this->load->view('graphic/index', $data);

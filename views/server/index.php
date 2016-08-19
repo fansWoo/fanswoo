@@ -1,17 +1,6 @@
 <?=$temp['header_up']?>
 <script>
 $(function(){
-		$(document).on('click', '.content9 .choose_box , .content9 .circle', function(){
-			var bgname = $(this).data('bgname');
-			$('.content9 .choose_box').removeClass('clicked');
-			$(this).addClass('clicked');
-			//新增的
-			$('.content9 .choose_box').removeClass('hover');
-			$('.content9 h4').removeClass('hover');
-			$('.content9 .choose_box[data-bgname=' + bgname + '] ').addClass('hover');
-			$('.content9 .choose_box[data-bgname=' + bgname + '] input').attr('name', 'money');
-			$('.content9 h4[data-bgname=' + bgname + ']').addClass('hover');	
-		});
 		$(".content8 .slide_pic > .square1").cycle({
 				fx      :       "fade", 
 				//fade
@@ -127,36 +116,6 @@ $(function(){
 
 			}
 		}
-	});	
-	//var window_height = $(window).height();
-		//$('.content1').css('height', window_height  * 2);
-		//$('.content1 .area').css('height', window_height  * 2);
-		//$(window).resize(function(){
-			//var window_height = $(window).height();
-			//$('.content1').css('height', window_height);
-			//$('.content1 .area').css('height', window_height);
-		
-	//});
-	$(document).on('mouseenter', '.textContactForm', function(){
-		$('.textContactForm').addClass('hover');
-		$('.textContact').addClass('hidden');
-	});
-	$(document).on('focus', '.textContactForm.hover .need, .textContactForm.hover .need_child, .textContactForm.hover .money', function(){
-		$(this).find("option[value='']").remove();
-	});
-	
-	$(document).on('focus', '.textContactForm.hover .need', function(){
-		$('.textContactForm.hover .need').change();
-	});
-		
-	$(document).on('change', '.textContactForm.hover .need', function(){
-		var selected = $(this).val();
-		$('.need_child').css('display', 'none');
-		$('.need_child').addClass('displaynone');
-		$('.need_child[data-selected=' + selected + ']').css('display', 'block');
-		$('.need_child[data-selected=' + selected + ']').attr('name', 'classtype2');
-		$('.need_child option').removeAttr('selected');
-		$('.need_child[data-selected=' + selected + '] option:first').attr('selected', true);
 	});
 });
 </script>
@@ -578,143 +537,7 @@ $(function(){
 	</div>
 </div>
 <div class="content9">
-	<div class="content_area">
-		<h1>聯繫我們</h1>
-		<div class="title_box">
-			<div class="line1"></div>
-			<p>本公司設計案件較多，為盡早處理您的專案，請提前詢問或索取估價資訊。</p>
-			<div class="line2"></div>
-		</div>
-		<div class="textContactForm">
-			<div class="textContactFormContent">
-				<?php echo form_open("Contact/contact_post/")?>
-				<div class="leftBox">
-					<div class="area">
-						<p>您的姓名</p><input type="text" class="name" name="username" placeholder="請填寫您的姓名" required>
-					</div>
-					<div class="area">
-						<p>公司名稱</p><input type="text" class="company" name="company" placeholder="請填寫公司名稱" required>
-					</div>	
-					<div class="area">
-						<p>聯繫電話</p><input type="text" class="telphone" name="phone" placeholder="請填寫聯繫電話" required>
-					</div>
-					<div class="area">	
-						<p>電子郵件</p><input type="text" class="email" name="email" placeholder="請填寫電子郵件" required>
-					</div>
-					<div class="area">		
-						<p>公司地址</p><input type="text" class="address" name="address" placeholder="請填寫公司地址" required>
-					</div>
-					<div class="area">
-						<p>詢問項目</p>
-						<select class="need" name="classtype" required>
-							<option value="">請選擇詢問項目</option>
-							<option value="網站開發">網站開發</option>
-							<option value="程式系統開發">程式系統開發</option>
-							<option value="美術設計">美術設計</option>
-							<option value="網路行銷">網路行銷</option>
-							<option value="伺服器租賃">伺服器租賃</option>
-							<option value="其它問題">其它問題</option>
-						</select>
-					</div>
-					<div class="area">
-						<p>項目細節</p>
-						<select class="need_child">
-							<option value="先選擇主要項目">先選擇主要項目</option>
-						</select>
-						<select class="need_child" data-selected="網站開發" style="display:none;">
-							<option value="形象網站設計">形象網站設計</option>
-							<option value="0元套版網站">0元套版網站</option>
-							<option value="購物網站開發">購物網站開發</option>
-							<option value="網路平台開發">網路平台開發</option>
-						</select>
-						<select class="need_child" data-selected="程式系統開發" style="display:none;">
-							<option value="程式系統開發">程式系統開發</option>
-							<option value="手機App開發">手機App開發</option>
-						</select>
-						<select class="need_child" data-selected="美術設計" style="display:none;">
-							<option value="LOGO/CIS 設計">LOGO/CIS 設計</option>
-							<option value="平面設計">平面設計</option>
-							<option value="產品包裝設計">產品包裝設計</option>
-						</select>
-						<select class="need_child" data-selected="網路行銷" style="display:none;">
-							<option value="facebook 粉絲團">facebook 粉絲團</option>
-							<option value="Google Adwords">Google Adwords</option>
-							<option value="網路行銷企劃">網路行銷企劃</option>
-						</select>
-						<select class="need_child" data-selected="伺服器租賃" style="display:none;">
-							<option value="虛擬伺服器租賃">虛擬伺服器租賃</option>
-							<option value="雲端主機租賃">雲端主機租賃</option>
-							<option value="電子信箱主機租賃">電子信箱主機租賃</option>
-							<option value="Google Apps設定">Google Apps設定</option>
-						</select>
-						<select class="need_child" data-selected="其它問題" style="display:none;">
-							<option value="其它問題">其它問題</option>
-						</select>
-					</div>
-					<div class="area phone">
-						<span>您的預算：</span>
-						<select class="money" name="money">
-							<option value="">請選擇預算</option>
-							<option value="25~50萬">25~50萬</option>
-							<option value="50~100萬">50~100萬</option>
-							<option value="100~150萬">100~150萬</option>
-							<option value="150~200萬">150~200萬</option>
-						</select>
-						<div class="textContactFormMoneyFixed">
-							預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價
-						</div>
-					</div>
-				</div>
-				<div class="rightBox">
-					<textarea name="content" placeholder="我還想補充..."></textarea>
-				</div>
-				<div class="price_choose">
-					<p>預算選擇</p>
-					<div class="choose_area">
-						<div class="choose_box" data-bgname="text1">
-							<h3>25~50萬</h3>
-							<div class="circle"><input type="hidden" value="25~50萬"></div>
-							<h4 data-bgname="text1">普通或可能導致負面形象</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text2">
-							<h3>50~100萬</h3>
-							<div class="circle"><input type="hidden" value="50~100萬"></div>
-							<h4 data-bgname="text2">感到耳目一新</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text3">
-							<h3>100~150萬</h3>
-							<div class="circle"><input type="hidden" value="100~150萬"></div>
-							<h4 data-bgname="text3">印象非常深刻的網站</h4>
-						</div>
-						<div class="line"></div>
-						<div class="choose_box" data-bgname="text4">
-							<h3>150~200萬</h3>
-							<div class="circle"><input type="hidden" value="150~200萬"></div>
-							<h4 data-bgname="text4">最極致的設計</h4>
-						</div>
-					</div>
-				</div>
-					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
-					<input type="hidden" name="previous_url" value="<?=$previous_url?>">
-				</form>
-			</div>
-			<!-- Google Code for &#33287;&#25105;&#20497;&#32879;&#32097; Conversion Page -->
-			<script type="text/javascript">
-			/* <![CDATA[ */
-			var google_conversion_id = 1037100439;
-			var google_conversion_language = "en";
-			var google_conversion_format = "3";
-			var google_conversion_color = "ffffff";
-			var google_conversion_label = "54GrCKiolVYQl8vD7gM";
-			var google_remarketing_only = false;
-			/* ]]> */
-			</script>
-			<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
-			<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
-		</div>
-	</div>
+<?=$temp['contact_content_area']?>
 </div>
 
 <?=$temp['footer_bar']?>

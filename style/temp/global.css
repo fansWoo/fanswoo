@@ -66,3 +66,93 @@ html.agent-ie9 .logoFixed { background-image: url(../../img/logo.png); }
 
 
 
+
+.contact_content_area{ width:880px;height:770px; position:relative;margin:80px auto 0;}
+.contact_content_area h1{font-size:36px;letter-spacing:3px; margin:0px auto; display:block; font-weight:400;text-align:center;color:#444; margin-bottom:20px;}
+.contact_content_area .title_box{width:100%;margin-bottom:20px;overflow:hidden; }
+.contact_content_area .title_box p{float:left;margin:0px 15px 0px 15px;  font-size: 14px; letter-spacing:3px; line-height:22px; } 
+.contact_content_area .title_box .line1{width:140px;height:1px;background:#999;float:left;margin:10px 0px; }
+.contact_content_area .title_box .line2{width:140px;height:1px;background:#999;float:left;margin:10px 0px; }
+.textContactForm {width:700px;margin:0 auto;margin-top:30px;display:block;padding:15px; line-height:40px;  border-radius:10px;display:block;overflow:hidden;}
+.textContactForm .textContactFormContent { width:700px;overflow:hidden;}
+.textContactForm .textContactFormContent .rightBox {width:350px;float:right; }
+.textContactForm .textContactFormContent .rightBox textarea{ width:310px;height:280px;border-radius:3px;border:1px solid #7C7C7C; background:rgba(255,255,255,0.6);padding:15px;font-size:14px;letter-spacing:2px; }
+.textContactForm .textContactFormContent .contactSubmit {background:#FF4F80; color:#FFF; cursor:pointer; border-radius:5px; width:100px; height:40px;border:0px; border-bottom:3px solid #B03B7B;display:block;margin:40px auto;font-size:16px; letter-spacing:3px; clear:both; }
+.textContactForm .textContactFormContent .contactSubmit:active{background:#ff1858;}
+.textContactForm .textContactFormContent .leftBox {width:320px; margin-bottom:15px;float:left;  margin-bottom:30px;}
+.textContactForm .textContactFormContent .leftBox .area { font-size:14px;width:100%;display:block;overflow:hidden; margin-bottom:8px;}
+.textContactForm .textContactFormContent .leftBox .area.phone{display:none;}
+.textContactForm .textContactFormContent .leftBox .area select { width:75%;line-height:30px; height:30px; vertical-align:middel;border-radius:3px; float:right;font-size:14px;border:1px solid #7C7C7C;background:rgba(255,255,255,0.6);}
+.textContactForm .textContactFormContent .leftBox .area span{}
+.textContactForm .textContactFormContent .leftBox .area p{line-height:35px;border-radius:3px; margin-bottom:3px;font-size:14px;letter-spacing:2px;float:left; }
+.textContactForm .textContactFormContent .leftBox  input{width:72%; height:30px;float:right;margin-top:2px; border-radius:3px;border:1px solid #7C7C7C;padding-left:5px;background:rgba(255,255,255,0.6);}
+
+.textContactForm .textContactFormContent .price_choose{width:100%;height:100px;clear:both; }
+.textContactForm .textContactFormContent .price_choose p{line-height:100px; float:left; margin-right:10px;}
+.textContactForm .textContactFormContent .price_choose .choose_area{width:590px;height:100px; margin-top:0px;overflow:hidden;padding-left:30px;float:left;}
+.textContactForm .textContactFormContent .price_choose .choose_box{width:30px;float:left; position:relative;} 
+.textContactForm .textContactFormContent .price_choose .choose_box .circle{width:14px;height:14px;border:2px solid #000; border-radius:100px; margin:10px auto;margin-top:40px;} 
+.textContactForm .textContactFormContent .price_choose .choose_box .circle:hover{background-color:#FF4F80;cursor:pointer; }
+.textContactForm .textContactFormContent .price_choose .choose_box h3{width:80px;position:absolute;font-size:14px;left:50%;margin-left:-30px; }
+.textContactForm .textContactFormContent .price_choose .choose_box h4{display:none;width:200px;position:absolute;font-size:14px;left:50%;margin-left:-42px;}
+.textContactForm .textContactFormContent .price_choose .choose_box h4.hover{display:block;}
+.textContactForm .textContactFormContent .price_choose .choose_box.hover .circle{ background-color:#FF4F80; cursor:pointer; }
+.textContactForm .textContactFormContent .price_choose .choose_box:hover h4{display:block;}
+.textContactForm .textContactFormContent .price_choose .line{width:138px;height:1px;background:#000;float:left;margin:18px 5px;margin-top:48px;}
+.textContactForm .textContactFormContent .price_choose.one{display:block;}
+
+@media screen and (min-width:1400px){
+	.content_area{width:1100px;height:850px; position:relative;margin:80px auto;}
+	.content_area h1{font-size:36px;letter-spacing:3px; margin:0px auto; display:block; font-weight:400;text-align:center;color:#444; margin-bottom:20px;}
+	.content_area .title_box{width:100%;margin-bottom:20px;overflow:hidden; }
+	.content_area .title_box p{float:left;margin:0px 15px 0px 15px; } 
+	.content_area .title_box .line1{width:140px;height:1px;background:#999;float:left;margin:10px 0px; }
+	.content_area .title_box .line2{width:140px;height:1px;background:#999;float:left;margin:10px 0px; }
+	.textContactForm {width:800px;margin:0 auto;margin-top:30px;display:block;padding:15px; line-height:40px;  border-radius:10px;display:block;overflow:hidden;}
+	.textContactForm .textContactFormContent { width:800px;overflow:hidden;}
+	.textContactForm .textContactFormContent .rightBox {width:390px;float:right; }
+	.textContactForm .textContactFormContent .leftBox {width:380px; }
+	.textContactForm .textContactFormContent .leftBox .area.phone{display:none;}
+	.textContactForm .textContactFormContent .leftBox .area select { height:36px; }
+	.textContactForm .textContactFormContent .leftBox .area span{}
+	.textContactForm .textContactFormContent .leftBox .area p{line-height:38px;}
+	.textContactForm .textContactFormContent .leftBox  input{width:72%; height:36px;}
+
+	.textContactForm .textContactFormContent .price_choose .choose_area{width:630px;}
+	.textContactForm .textContactFormContent .price_choose .choose_box .circle{width:18px;height:18px;} 
+	.textContactForm .textContactFormContent .price_choose .line{width:150px;height:1px;background:#000;float:left;margin:23px 5px;margin-top:48px;}
+}
+
+
+@media screen and ( max-width:1024px ) and (min-width: 768px) {
+	.content_area{width:700px;height:850px; position:relative;margin:80px auto;}
+	.textContactForm {width:700px;margin:0 auto;margin-top:30px;display:block;padding:0px; line-height:40px;  border-radius:10px;display:block;overflow:hidden;overflow:hidden;}
+	.textContactForm .textContactFormContent { width:700px;}
+	.content_area .title_box{width:100%;margin-bottom:20px;overflow:hidden; }
+	.content_area .title_box p{float:left;margin:0px 8px 0px 8px; } 
+	.content_area .title_box .line1{width:50px;height:1px;background:#999;float:left;margin:10px 0px; }
+	.content_area .title_box .line2{width:50px;height:1px;background:#999;float:left;margin:10px 0px; }
+
+}
+
+@media screen and (max-width: 767px){
+	.content_area{width:90%;height:auto; position:relative;margin:80px auto;}
+	.content_area h1{font-size:36px;letter-spacing:3px; margin:0px auto; display:block; font-weight:400;text-align:center;color:#444; margin-bottom:20px;}
+	.content_area .title_box{width:100%;margin-bottom:20px;overflow:hidden; }
+	.content_area .title_box p{float:none;margin:0px 0px 0px 0px; } 
+	.content_area .title_box .line1{display:none;}
+	.content_area .title_box .line2{width:100%;height:1px;background:#999;float:none;margin:10px 0px; }
+	.textContactForm {width:100%;margin:0 auto;margin-top:30px;display:block;padding:0px; line-height:40px;  border-radius:10px;display:block;overflow:hidden;}
+	.textContactForm .textContactFormContent { width:100%;overflow:hidden;}
+	.textContactForm .textContactFormContent .rightBox {width:100%;float:none; }
+	.textContactForm .textContactFormContent .rightBox textarea{ width:88.5%;height:160px;border-radius:3px;border:1px solid #7C7C7C; background:rgba(255,255,255,0.6);padding:15px;font-size:14px;letter-spacing:2px; }
+	.textContactForm .textContactFormContent .leftBox {width:100%;float:none;  margin-bottom:20px;}
+	.textContactForm .textContactFormContent .leftBox .area.phone{display:block;}
+	.textContactForm .textContactFormContent .price_choose{display:none;}
+	.textContactForm .textContactFormContent .price_choose.one{display:none;}
+
+
+	.textContactFormMoneyFixed { display:block;line-height:25px; width:100%; height:50px; padding:15px 0; background: rgba(50, 50, 50, 0.6); color:#FFF; border-radius:5px; z-index:999; text-align:center;letter-spacing:2px;margin-top:10px;}
+	.textContactFormMoneyFixed span{ margin:0 5px; }
+	
+}
