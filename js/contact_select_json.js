@@ -71,7 +71,7 @@
 		"name": "手機 APP、ERP、CRM 系統",
 		"child": {
 			"phone_app": {
-				"name": "手機 APP",
+				"name": "APP 手機應用程式",
 				"budget": [
 					{
 						"range": "50~100萬",
@@ -91,8 +91,29 @@
 					}
 				]
 			},
-			"erp_crm": {
-				"name": "ERP、CRM 系統",
+			"erp": {
+				"name": "ERP 進銷存系統",
+				"budget": [
+					{
+						"range": "35~70萬",
+						"text": "簡易的客製化系統"
+					},
+					{
+						"range": "70~150萬",
+						"text": "少量客製化系統"
+					},
+					{
+						"range": "150~300萬",
+						"text": "大量客製化系統"
+					},
+					{
+						"range": "300萬以上",
+						"text": "高難度客製化系統"
+					}
+				]
+			},
+			"crm": {
+				"name": "CRM 客戶關係管理系統",
 				"budget": [
 					{
 						"range": "35~70萬",
