@@ -9,6 +9,7 @@ class Worktask extends ObjDbBase
     public $content_Html = '';
     public $class_ClassMetaList;
     public $estimate_hour = 0;
+    public $current_percent=0;
     public $use_hour = 0;
     public $uid_User;
     public $start_time_DateTime;
@@ -25,6 +26,7 @@ class Worktask extends ObjDbBase
         'content' => 'content_Html',
         'uid' => ['uid_User', 'uid'],
         'classids' => ['class_ClassMetaList', 'uniqueids'],
+    	'current_percent'=>'current_percent',
         'estimate_hour' => 'estimate_hour',
         'use_hour' => 'use_hour',
         'start_time' => array('start_time_DateTime', 'datetime'),
@@ -44,6 +46,7 @@ class Worktask extends ObjDbBase
         $this->set('title', $arg['title']);
         $this->set('content_Html', $arg['content']);
         $this->set('estimate_hour', $arg['estimate_hour']);
+        $this->set('current_percent', $arg['current_percent']);
         $this->set('use_hour', $arg['use_hour']);
         $this->set('prioritynum', $arg['prioritynum']);
         $this->set('work_status', $arg['work_status']);
@@ -63,8 +66,31 @@ class Worktask extends ObjDbBase
         ], 'DateTimeObj');
         $this->set__uid_User(['uid' => $arg['uid']]);
         $this->set__status(['status' => $arg['status']]);
+        $this->set__project_ProjectList(['projectid' => $arg['projectid']]);
         
         return TRUE;
+    }
+    
+    public function set__project_ProjectList($arg)
+    {
+    	reset_null_arr($arg, ['projectid']);
+    	foreach($arg as $key => $value) ${$key} = $arg[$key];
+    
+    	$project_ProjectList = new ObjList([
+    			'db_where_arr' => [
+    					'projectid' => $projectid
+    			],
+    			'obj_class' => 'Project',
+    			'limitstart' => 0,
+    			'limitcount' => 9999
+    	]);
+    	
+    	$this->set('project_ProjectList', $project_ProjectList);
+    }
+    
+    public function count_use_time($this_use_hour){
+    	
+    	$this->use_hour=$this->use_hour+$this_use_hour;
     }
 	
 }

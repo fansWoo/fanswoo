@@ -65,7 +65,9 @@ class Worktask_Controller extends MY_Controller {
         $projectid = $this->input->post('projectid', TRUE, '專案名稱', 'required');
         $uid = $this->input->post('uid', TRUE, '專案執行人', 'required');
         $classids = $this->input->post('classids', TRUE, '任務分類', 'required');
+        $current_percent=$this->input->post('current_percent',TRUE);
         $estimate_hour = $this->input->post('estimate_hour', TRUE, '預估時數');
+        $this_use_hour = $this->input->post('this_use_hour', TRUE);
         $use_hour = $this->input->post('use_hour', TRUE, '耗用時數');
         $content = $this->input->post('content', FALSE, '任務內容');
         $start_time = $this->input->post('start_time', TRUE, '起始時間');
@@ -75,6 +77,15 @@ class Worktask_Controller extends MY_Controller {
         $post_from = $this->input->post('post_from', TRUE);
 
         if( !$this->form_validation->check() ) return FALSE;
+        
+        if(!empty($worktaskid)){
+        	$old_Worktask = new Worktask([
+        			'db_where_arr' => [
+        					'worktaskid' => $worktaskid
+        			]
+        	]);
+        }
+        
 
         //建構Worktask物件，並且更新
         $Worktask = new Worktask([
@@ -82,8 +93,9 @@ class Worktask_Controller extends MY_Controller {
             'title' => $title,
             'projectid' => $projectid,
             'uid' => $uid,
+        	'current_percent'=>$current_percent,
             'classids' => $classids,
-            'estimate_hour' => $estimate_hour,
+            'estimate_hour' => $estimate_hour, 
             'use_hour' => $use_hour,
             'start_time' => $start_time,
             'end_time' => $end_time,
@@ -91,7 +103,52 @@ class Worktask_Controller extends MY_Controller {
             'work_status' => $work_status,
             'prioritynum' => $prioritynum
         ]);
+        
+       
+        
+        $Worktask->count_use_time($this_use_hour);
         $Worktask->update();
+        
+//         $data['WorktaskClassMetaList'] = new ObjList([
+//         		'db_where_arr' => [
+//         				'modelname' => 'worktask'
+//         		],
+//         		'obj_class' => 'ClassMeta',
+//         		'limitstart' => 0,
+//         		'limitcount' => 100
+//         ]);
+        
+        //更新專案耗時累計
+        $Project = new Project([
+        		'db_where_arr' => [
+        				'projectid' => $projectid
+        		]
+        ]);
+        
+        //加總預估工時
+        if(empty($worktaskid) || $estimate_hour != $old_Worktask->estimate_hour){
+        	$estimate_hour_total_arr=json_decode($Project->estimate_hour_total,true);
+        	$estimate_hour_total_arr[$Worktask->class_ClassMetaList->uniqueids]=$estimate_hour_total_arr[$Worktask->class_ClassMetaList->uniqueids]+($estimate_hour-$old_Worktask->estimate_hour);
+        	$estimate_hour_total_json=json_encode($estimate_hour_total_arr);
+        	$Project->estimate_hour_total=$estimate_hour_total_json;
+        }
+        	
+               
+        //加總耗用工時
+        $use_hour_total_arr=json_decode($Project->use_hour_total,true);       
+        $use_hour_total_arr[$Worktask->class_ClassMetaList->uniqueids]=$use_hour_total_arr[$Worktask->class_ClassMetaList->uniqueids]+$this_use_hour;      
+        $use_hour_total_json=json_encode($use_hour_total_arr);
+        $Project->use_hour_total=$use_hour_total_json;
+        
+        
+        
+        $Project->update(array(
+        		'db_update_arr' => array(
+        				'use_hour_total',
+        				'estimate_hour_total',
+        				'updatetime'
+        		)
+        ));
 
         if( $post_from == 'calendar')
         {
@@ -105,6 +162,7 @@ class Worktask_Controller extends MY_Controller {
                     'projectid' => $Worktask->projectid,
                     'uid' => $Worktask->uid_User->uid,
                     'classids' => $Worktask->class_ClassMetaList->obj_arr[0]->classid,
+                	'current_percent'=>$Worktask->current_percent,
                     'use_hour' => $Worktask->use_hour,
                     'estimate_hour' => $Worktask->estimate_hour,
                 ]
@@ -129,6 +187,9 @@ class Worktask_Controller extends MY_Controller {
 
         $data['search_worktaskid'] = $this->input->get('worktaskid');
         $data['search_title'] = $this->input->get('title');
+        $data['search_projectid'] = $this->input->get('projectid');
+        $data['search_pemission_uid'] = $this->input->get('pemission_uid');
+        $data['search_work_status'] = $this->input->get('work_status');
         $data['search_class_slug'] = $this->input->get('class_slug');
 
         $limitstart = $this->input->get('limitstart');
@@ -145,7 +206,10 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
                 'worktaskid' => $data['search_worktaskid'],
                 'title like' => $data['search_title'],
-                'classid' => $class_ClassMeta->classid
+            	'uid'=>$data['search_pemission_uid'],
+            	'projectid'=>$data['search_projectid'],
+            	'work_status'=> $data['search_work_status'],
+                'classids' => $class_ClassMeta->classid
             ],
             'db_orderby_arr' => [
                 'prioritynum' => 'DESC',
@@ -155,8 +219,28 @@ class Worktask_Controller extends MY_Controller {
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
         ]);
-        $data['page_link'] = $data['WorktaskList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
+		
+        $permission_arr=[];
+        foreach($data['WorktaskList']->obj_arr as $key=>$value_Worktask){
+        	$permission_arr[$value_Worktask->uid_User->uid]=$value_Worktask->uid_User->username;      	
+        };
+        $data['permission_arr']=$permission_arr;
+              
+        $data['ProjectList'] = new ObjList([
+        		'db_where_arr' => [
+					'status'=> 1
+        		],
+        		'db_where_deletenull_bln' => TRUE,
+        		'obj_class' => 'Project',
+        		'limitstart' => 0,
+        		'limitcount' => 100
+        ]);
+//         		ec2($data['ProjectList']);
+        
+        $data['page_link'] = $data['WorktaskList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
+        
+        
         $data['WorktaskClassMetaList'] = new ObjList([
             'db_where_arr' => [
                 'modelname' => 'worktask'
@@ -176,19 +260,37 @@ class Worktask_Controller extends MY_Controller {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
         $search_worktaskid = $this->input->post('search_worktaskid', TRUE);
+        $search_projectid = $this->input->post('search_projectid', TRUE);
+        $search_pemission_uid = $this->input->post('search_pemission_uid', TRUE);
+        $search_work_status = $this->input->post('search_work_status', TRUE);
         $search_class_slug = $this->input->post('search_class_slug', TRUE);
         $search_title = $this->input->post('search_title', TRUE);
 
-        $url = 'admin/base/worktask/worktask/tablelist/?';
+        $url = 'admin/project/worktask/worktask/tablelist/?';
 
         if(!empty($search_worktaskid))
         {
             $url = $url.'&worktaskid='.$search_worktaskid;
         }
+        
+        if(!empty($search_projectid))
+        {
+        	$url = $url.'&projectid='.$search_projectid;
+        }
+        
+        if(!empty($search_pemission_uid))
+        {
+        	$url = $url.'&pemission_uid='.$search_pemission_uid;
+        }
 
         if(!empty($search_class_slug))
         {
             $url = $url.'&class_slug='.$search_class_slug;
+        }
+        
+        if(!empty($search_work_status))
+        {
+        	$url = $url.'&work_status='.$search_work_status;
         }
 
         if(!empty($search_title))
@@ -196,6 +298,7 @@ class Worktask_Controller extends MY_Controller {
             $url = $url.'&title='.$search_title;
         }
 
+        
         //送出成功訊息
         $this->load->model('Message');
         $this->Message->show([

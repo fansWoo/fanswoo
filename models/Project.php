@@ -10,6 +10,8 @@ class Project extends ObjDbBase
     public $customer_uids_UserList = '';
     public $permission_uids_UserList = '';
     public $working_days = 0;
+    public $use_hour_total='';
+    public $estimate_hour_total='';
     public $class_ClassMetaList;
     public $pay_name = '';
     public $pay_account = '';
@@ -36,6 +38,8 @@ class Project extends ObjDbBase
         'customer_uids' => ['customer_uids_UserList', 'uniqueids'],
         'permission_uids' => ['permission_uids_UserList', 'uniqueids'],
         'working_days' => 'working_days',
+    	'use_hour_total'=>'use_hour_total',
+    	'estimate_hour_total'=>'estimate_hour_total',
         'classids' => array('class_ClassMetaList', 'uniqueids'),
         'designids' => 'designids',
         'pay_name' => 'pay_name',
@@ -61,6 +65,8 @@ class Project extends ObjDbBase
         $this->set('uid', $arg['uid']);
         $this->set('name', $arg['name']);
         $this->set('working_days', $arg['working_days']);
+        $this->set('estimate_hour_total', $arg['estimate_hour_total']);
+        $this->set('use_hour_total', $arg['use_hour_total']);
         $this->set('class_ClassMetaList', [
             'classids' => $arg['classids'],
             'classids_arr' => $arg['classids_arr']

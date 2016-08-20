@@ -30,6 +30,18 @@ class Project_Controller extends MY_Controller {
             'limitstart' => 0,
             'limitcount' => 100
         ]);
+        
+        $data['WorktaskClassMetaList'] = new ObjList([
+        		'db_where_arr' => [
+        				'modelname' => 'worktask'
+        		],
+        		'obj_class' => 'ClassMeta',
+        		'limitstart' => 0,
+        		'limitcount' => 100
+        ]);
+        
+        $data['use_hour_total_arr']=json_decode($data['Project']->use_hour_total,true);
+        $data['estimate_hour_total_arr']=json_decode($data['Project']->estimate_hour_total,true);
 
         $data['class2_ClassMetaList'] = new ObjList();
         $data['class2_ClassMetaList']->construct_db(array(

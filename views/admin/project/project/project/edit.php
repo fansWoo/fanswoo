@@ -1,9 +1,8 @@
 <?=$temp['header_up']?>
 <script>
 Temp.ready(function(){
-    $('#setuptime').datetimepicker({
-        dateFormat: 'yy-mm-dd',
-        timeFormat: 'HH:mm:ss'
+    $('#setuptime').datepicker({
+        dateFormat: 'yy-mm-dd'
     });
 });
 </script>
@@ -168,7 +167,7 @@ Temp.ready(function(){
                 專案開始日期
             </div>
             <div class="spanLineLeft">
-                <input type="text" id="setuptime" class="text" name="setuptime" value="<?=$Project->setuptime_DateTimeObj->datetime?>">
+                <input type="text" id="setuptime" class="text" name="setuptime" value="<?=$Project->setuptime_DateTimeObj->inputtime_date?>">
             </div>
         </div>
     </div>
@@ -178,7 +177,7 @@ Temp.ready(function(){
                 專案所需時程(天)
             </div>
             <div class="spanLineLeft">
-                <input type="number" min="0" class="text" name="working_days" placeholder="請輸入專案所需時程(天)" value="<?=$Project->working_days?>">
+                <input type="number" min="0" class="text" name="working_days" placeholder="請輸入專案所需時程(天)" value="<?=$Project->working_days?>">               
             </div>
         </div>
     </div>
@@ -220,6 +219,78 @@ Temp.ready(function(){
     </div>
 </div>
 </form>
+<div class="contentBox allWidth">
+    <h3>專案耗時</h3>
+    <h4>請確認本專案之專案耗時(耗時/預估)</h4>
+    <div class="spanLineTable">
+        <div class="spanLineTableContent">
+            <div class="spanLine order tablelist tableTitle">
+            	<div class="spanLineLeft text width100">
+                                                         
+                </div>
+                <div class="spanLineLeft text width150">
+                                                         總耗用工時
+                </div>
+                <?foreach($WorktaskClassMetaList->obj_arr as $key4 => $value_WorktaskClassMeta):?>
+                <div class="spanLineLeft text width150">
+                     <?=$value_WorktaskClassMeta->classname?>
+                </div>
+                <?endforeach;?>               
+                <div class="spanLineLeft text width150">
+                   任務
+                </div>
+            </div>
+            <div class="spanLine order tablelist" style="border-bottom: 0px solid #EEE;">
+            	<div class="spanLineLeft text width100">
+                       	耗用時間
+                </div>
+                <div class="spanLineLeft text width150">
+                       300h
+                </div>
+                <?foreach($WorktaskClassMetaList->obj_arr as $key4 => $value_WorktaskClassMeta):?>
+                <?foreach($use_hour_total_arr as $key5 => $value_hour):?>
+                <div class="spanLineLeft text width150">
+                	<?if($value_WorktaskClassMeta->classid == $key5):?>
+                       <?=$value_hour?>h
+                    <?else:?>
+                       0h
+                    <?endif;?>
+                </div>
+                <?endforeach;?> 
+                <?endforeach;?>                
+                <div class="spanLineLeft text width150">
+                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/suggest/edit/?suggestid=<?=$value_Suggest->suggestid?>&projectid=<?=$Project->projectid?>" target="_blank">
+                       	已完成任務
+                    </a>
+                </div>
+            </div>
+            <div class="spanLine order tablelist" style="border-bottom: 0px solid #EEE;">
+            	<div class="spanLineLeft text width100">
+                       	預估時間
+                </div>
+                <div class="spanLineLeft text width150">
+                       200h
+                </div>
+                <?foreach($WorktaskClassMetaList->obj_arr as $key4 => $value_WorktaskClassMeta):?>
+                <?foreach($estimate_hour_total_arr as $key6 => $value_estimate_hour):?>
+                <div class="spanLineLeft text width150">
+                	<?if($value_WorktaskClassMeta->classid == $key6):?>
+                       <?=$value_estimate_hour?>h
+                    <?else:?>
+                       0h
+                    <?endif;?>
+                </div>
+                <?endforeach;?> 
+                <?endforeach;?>                
+                <div class="spanLineLeft text width150">
+                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/suggest/edit/?suggestid=<?=$value_Suggest->suggestid?>&projectid=<?=$Project->projectid?>" target="_blank">
+                       	未完成任務(2)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?php echo form_open_multipart("admin/$child1_name/$child2_name/$child3_name/edit_price_post/") ?>
 <div class="contentBox allWidth">
     <h3>付款資訊</h3>

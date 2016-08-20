@@ -88,7 +88,7 @@
         <div class="spanLine">
             <div class="spanStage">
                 <div class="spanLineLeft">
-                    專案執行人
+                    被分派者
                 </div>
                 <div class="spanLineRight">
                     <select id="uid" name="uid">
@@ -101,25 +101,57 @@
             </div>
         </div>
         <div class="spanLine">
-            <div class="spanStage">
-                <div class="spanLineLeft">
-                    預估時數
-                </div>
-                <div class="spanLineRight">
-                    <input type="text" class="text" id="estimate_hour" name="estimate_hour" placeholder="請輸入問題標題" required>
-                </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                目前進度
+            </div>
+            <div class="spanLineRight">
+                <select>
+                	<option value="0"<?if($Worktask->curren_percent == 0):?> selected<?endif?>>0%</option>
+                    <option value="10"<?if($Worktask->curren_percent == 10):?> selected<?endif?>>10%</option>
+                    <option value="20"<?if($Worktask->curren_percent == 20):?> selected<?endif?>>20%</option>
+                    <option value="30"<?if($Worktask->curren_percent == 30):?> selected<?endif?>>30%</option>
+                    <option value="40"<?if($Worktask->curren_percent == 40):?> selected<?endif?>>40%</option>
+                    <option value="50"<?if($Worktask->curren_percent == 50):?> selected<?endif?>>50%</option>
+                    <option value="60"<?if($Worktask->curren_percent == 60):?> selected<?endif?>>60%</option>
+                    <option value="70"<?if($Worktask->curren_percent == 70):?> selected<?endif?>>70%</option>
+                    <option value="80"<?if($Worktask->curren_percent == 80):?> selected<?endif?>>80%</option>
+                    <option value="90"<?if($Worktask->curren_percent == 90):?> selected<?endif?>>90%</option>
+                    <option value="100"<?if($Worktask->curren_percent == 100):?> selected<?endif?>>100%</option>
+                </select>
             </div>
         </div>
-        <div class="spanLine">
-            <div class="spanStage">
-                <div class="spanLineLeft">
-                    耗用時數
-                </div>
-                <div class="spanLineRight">
-                    <input type="text" class="text" id="use_hour" name="use_hour" placeholder="請輸入問題標題" required>
-                </div>
+    </div>  
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                本次耗用時數
+            </div>
+            <div class="spanLineRight">
+                <input type="number" id="this_use_hour" class="text" name="use_hour" value="">
             </div>
         </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                預估時數
+            </div>
+            <div class="spanLineRight">
+                <input type="number" id="estimate_hour" class="text" name="estimate_hour" value="<?=$Worktask->estimate_hour?>">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                累計耗用時數
+            </div>
+            <div class="spanLineRight">
+                <input type="number" id="use_hour" class="text" name="use_hour" value="<?=$Worktask->use_hour?>">
+            </div>
+        </div>
+    </div>
         <div class="spanLine">
             <div class="spanStage">
                 <div class="spanLineLeft">

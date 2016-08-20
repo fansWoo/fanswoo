@@ -7,13 +7,11 @@ Temp.ready(function(){
         toolbar: 'basic'
     });
 
-    $('#start_time').datetimepicker({
-        dateFormat: 'yy-mm-dd',
-        timeFormat: 'HH:mm:ss'
+    $('#start_time').datepicker({
+        dateFormat: 'yy-mm-dd'
     });
-    $('#end_time').datetimepicker({
-        dateFormat: 'yy-mm-dd',
-        timeFormat: 'HH:mm:ss'
+    $('#end_time').datepicker({
+        dateFormat: 'yy-mm-dd'
     });
 });
 </script>
@@ -152,6 +150,38 @@ Temp.ready(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                目前進度
+            </div>
+            <div class="spanLineLeft">
+                <select name="current_percent">
+                	<option value="0"<?if($Worktask->current_percent == 0):?> selected<?endif?>>0%</option>
+                    <option value="10"<?if($Worktask->current_percent == 10):?> selected<?endif?>>10%</option>
+                    <option value="20"<?if($Worktask->current_percent == 20):?> selected<?endif?>>20%</option>
+                    <option value="30"<?if($Worktask->current_percent == 30):?> selected<?endif?>>30%</option>
+                    <option value="40"<?if($Worktask->current_percent == 40):?> selected<?endif?>>40%</option>
+                    <option value="50"<?if($Worktask->current_percent == 50):?> selected<?endif?>>50%</option>
+                    <option value="60"<?if($Worktask->current_percent == 60):?> selected<?endif?>>60%</option>
+                    <option value="70"<?if($Worktask->current_percent == 70):?> selected<?endif?>>70%</option>
+                    <option value="80"<?if($Worktask->current_percent == 80):?> selected<?endif?>>80%</option>
+                    <option value="90"<?if($Worktask->current_percent == 90):?> selected<?endif?>>90%</option>
+                    <option value="100"<?if($Worktask->current_percent == 100):?> selected<?endif?>>100%</option>
+                </select>
+            </div>
+        </div>
+    </div>  
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                本次耗用時數
+            </div>
+            <div class="spanLineLeft">
+                <input type="number" id="this_use_hour" class="text" name="this_use_hour" value="">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 預估時數
             </div>
             <div class="spanLineLeft">
@@ -162,7 +192,7 @@ Temp.ready(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                耗用時數
+                累計耗用時數
             </div>
             <div class="spanLineLeft">
                 <input type="number" id="use_hour" class="text" name="use_hour" value="<?=$Worktask->use_hour?>">
@@ -175,7 +205,7 @@ Temp.ready(function(){
                 起始時間
             </div>
             <div class="spanLineLeft">
-                <input type="text" id="start_time" class="text" name="start_time" value="<?=$Worktask->start_time_DateTime->datetime?>">
+                <input type="text" id="start_time" class="text" name="start_time" value="<?=$Worktask->start_time_DateTime->inputtime_date?>">
             </div>
         </div>
     </div>
@@ -185,7 +215,7 @@ Temp.ready(function(){
                 結束時間
             </div>
             <div class="spanLineLeft">
-                <input type="text" id="end_time" class="text" name="end_time" value="<?=$Worktask->end_time_DateTime->datetime?>">
+                <input type="text" id="end_time" class="text" name="end_time" value="<?=$Worktask->end_time_DateTime->inputtime_date?>">
             </div>
         </div>
     </div>

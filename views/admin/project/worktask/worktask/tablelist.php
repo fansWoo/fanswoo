@@ -27,13 +27,23 @@ Temp.ready(function(){
                 <div class="spanLineLeft checkbox"></div>
                 <?endif?>
                 <div class="spanLineLeft text width100">
-                    常見問題 ID
+                    任務ID
                 </div>
-                <div class="spanLineLeft text width500">
+                <div class="spanLineLeft text width180">
+                    專案名稱
+                </div>
+                <div class="spanLineLeft text width200">
                     問題標題
                 </div>
                 <div class="spanLineLeft text width150">
-                    分類標籤
+                    任務執行人
+                </div>
+                <div class="spanLineLeft text width150">
+                    目前狀態
+                </div>
+                
+                <div class="spanLineLeft text width150">
+                    工作分類
                 </div>
                 <div class="spanLineLeft text width150">
                     編輯操作
@@ -49,8 +59,32 @@ Temp.ready(function(){
                     <div class="spanLineLeft text width100">
                         <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_worktaskid)?$search_worktaskid:''?>" name="search_worktaskid" placeholder="請填寫ID">
                     </div>
-                    <div class="spanLineLeft text width500">
+                    <div class="spanLineLeft text width180">
+                        <select name="search_projectid" style="margin-left:-6px;">
+                            <option value="">不透過分類標籤篩選</option>
+                            <?foreach($ProjectList->obj_arr as $key2 => $value_Project):?>
+                            <option value="<?=$value_Project->projectid?>"<?if(!empty($search_projectid) && $search_projectid == $value_Project->projectid) echo ' selected'?>><?=$value_Project->name?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                    <div class="spanLineLeft text width200">
                         <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title)?$search_title:''?>" name="search_title" placeholder="請填寫問題標題">
+                    </div>
+                    <div class="spanLineLeft text width150">
+                        <select name="search_pemission_uid" style="margin-left:-6px;">
+                            <option value="">不透過分類標籤篩選</option>
+                            <?foreach($permission_arr as $key1 => $value_permission):?>
+                            <option value="<?=$key1?>"<?if(!empty($search_pemission_uid) && $search_pemission_uid == $key1) echo ' selected'?>><?=$value_permission?></option>
+                            <?endforeach?>
+                        </select>
+                    </div>
+                    <div class="spanLineLeft text width150">
+                        <select name="search_work_status" style="min-width:110px;">
+                            <option value="" <?if(empty($search_work_status)):?>selected<?endif?>>未選擇狀態</option>
+                            <option value="A0"<?if(!empty($search_work_status) && $search_work_status == A0):?>selected<?endif?>>任務未完成</option>
+                            <option value="1"<?if(!empty($search_work_status) && $search_work_status == 1):?>selected<?endif?>>主管檢核中</option>
+                            <option value="2"<?if(!empty($search_work_status) && $search_work_status == 2):?>selected<?endif?>>主管審核通過</option>
+                        </select>
                     </div>
                     <div class="spanLineLeft text width150">
                         <select name="search_class_slug" style="margin-left:-6px;">
@@ -75,8 +109,23 @@ Temp.ready(function(){
                 <div class="spanLineLeft text width100">
                     <?=$value_Worktask->worktaskid?>
                 </div>
-                <div class="spanLineLeft text width500">
+                <div class="spanLineLeft text width180">
+                    <?=$value_Worktask->project_ProjectList->obj_arr[0]->name?>
+                </div>
+                <div class="spanLineLeft text width200">
                     <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?worktaskid=<?=$value_Worktask->worktaskid?>"><?=$value_Worktask->title?></a>
+                </div>
+                <div class="spanLineLeft text width150">
+                    <?=$value_Worktask->uid_User->username?>
+                </div>
+                <div class="spanLineLeft text width150">
+                    <?if($value_Worktask->work_status == 1):?>
+                    <span class="red">主管檢核中</span>
+                    <?elseif($value_Worktask->work_status == 2):?>
+                    <span class="green">主管審核通過</span>
+                    <?elseif($value_Worktask->work_status == 0):?>
+                    <span class="red">未完成</span>
+                    <?endif?>
                 </div>
                 <div class="spanLineLeft text width150">
                     <?if(!empty($value_Worktask->class_ClassMetaList->obj_arr)):?>
