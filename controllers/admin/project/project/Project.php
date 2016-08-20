@@ -39,6 +39,36 @@ class Project_Controller extends MY_Controller {
         		'limitstart' => 0,
         		'limitcount' => 100
         ]);
+               
+        
+        //新增專案不用撈計時資料
+        if(!empty($data['projectid'])){
+        	
+        	$Worktask = new ObjList([
+        			'db_where_arr' => [
+        					'projectid' => $data['projectid']
+        			],
+        			'obj_class' => 'Worktask',
+        			'limitstart' => 0,
+        			'limitcount' => 100
+        	]);
+        	 
+        	$data['use_hour_all']=0;  //專案總耗用工時
+        	$data['estimate_hour_all']=0; //專案總預估工時
+        	$data['unfinish_job']=0;   //尚未完成總數
+        	
+        	foreach ($Worktask->obj_arr as $key => $value){
+        		$data['use_hour_all'] += $value->use_hour;
+        		$data['estimate_hour_all'] += $value->estimate_hour;
+        		 
+        		//未完成總數
+        		if($value->work_status == 0){
+        			$data['unfinish_job']++;
+        		}
+        	}
+        }
+        
+        
         
         $data['use_hour_total_arr']=json_decode($data['Project']->use_hour_total,true);
         $data['estimate_hour_total_arr']=json_decode($data['Project']->estimate_hour_total,true);

@@ -219,6 +219,7 @@ Temp.ready(function(){
     </div>
 </div>
 </form>
+<?if(!empty($Project->projectid)):?>
 <div class="contentBox allWidth">
     <h3>專案耗時</h3>
     <h4>請確認本專案之專案耗時(耗時/預估)</h4>
@@ -245,7 +246,7 @@ Temp.ready(function(){
                        	耗用時間
                 </div>
                 <div class="spanLineLeft text width150">
-                       300h
+                       <?=$use_hour_all?>h
                 </div>
                 <?foreach($WorktaskClassMetaList->obj_arr as $key4 => $value_WorktaskClassMeta):?>
                 <?foreach($use_hour_total_arr as $key5 => $value_hour):?>
@@ -259,7 +260,7 @@ Temp.ready(function(){
                 <?endforeach;?> 
                 <?endforeach;?>                
                 <div class="spanLineLeft text width150">
-                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/suggest/edit/?suggestid=<?=$value_Suggest->suggestid?>&projectid=<?=$Project->projectid?>" target="_blank">
+                    <a href="admin/project/worktask/worktask/tablelist/?projectid=<?=$Project->projectid?>&work_status=2" target="_blank">
                        	已完成任務
                     </a>
                 </div>
@@ -269,7 +270,7 @@ Temp.ready(function(){
                        	預估時間
                 </div>
                 <div class="spanLineLeft text width150">
-                       200h
+                       <?=$estimate_hour_all?>h
                 </div>
                 <?foreach($WorktaskClassMetaList->obj_arr as $key4 => $value_WorktaskClassMeta):?>
                 <?foreach($estimate_hour_total_arr as $key6 => $value_estimate_hour):?>
@@ -283,14 +284,15 @@ Temp.ready(function(){
                 <?endforeach;?> 
                 <?endforeach;?>                
                 <div class="spanLineLeft text width150">
-                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/suggest/edit/?suggestid=<?=$value_Suggest->suggestid?>&projectid=<?=$Project->projectid?>" target="_blank">
-                       	未完成任務(2)
+                    <a href="admin/project/worktask/worktask/tablelist/?projectid=<?=$Project->projectid?>&work_status=A0" target="_blank">
+                       	未完成任務(<?=$unfinish_job?>)
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<?endif;?>
 <?php echo form_open_multipart("admin/$child1_name/$child2_name/$child3_name/edit_price_post/") ?>
 <div class="contentBox allWidth">
     <h3>付款資訊</h3>

@@ -7,7 +7,22 @@ class MY_Controller extends FS_Controller
     {
         parent::__construct();
         $data = $this->data;
-
+		
+        $this->session->userdata('uid');
+               
+        
+        $WorktaskList = new ObjList([
+        		'db_where_arr' => [
+        				'uid' => $this->session->userdata('uid'),
+        				'work_status'=>0
+        		],
+        		'obj_class' => 'Worktask',
+        		'limitstart' => 0,
+        		'limitcount' => 100
+        ]);
+        $data['job_count']=count($WorktaskList->obj_arr);
+        
+        
         //引入該專案之global.js及global.css
         $data['global']['js'][] = 'global.js';
 
