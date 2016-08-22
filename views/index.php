@@ -194,7 +194,6 @@ Temp.ready(function(){
 		if(window_width >= 960){
 			var content_portfolio_top = $('.content_portfolio').offset().top;
 			var content_portfolio_height_all = $('.content_portfolio').heightAll();
-			var cloudy = $('.content_portfolio').heightAll();
 			var scroll_top_height = scroll_top + $(window).height();
 			 var scroll_top = $(document).scrollTop();
 
@@ -204,10 +203,8 @@ Temp.ready(function(){
 			{
 				var s1 = (scroll_top_height - content_portfolio_top) / 5;
 				var s2 = (scroll_top_height - content_portfolio_top) / 5;
-				var s3 = (scroll_top_height - content_portfolio_top) / 5;
 
 				$('.content_portfolio .bg1').css('transform', 'translate(0, ' + s1 + 'px)');
-				$('.content_portfolio .cloudy').css('transform', 'translate(0, ' + s3 + 'px)');
 				/* $('.content_portfolio .portfolio_box3').css('transform', 'translate(0, ' + s1 + 'px)'); */
 
 			}
@@ -306,9 +303,9 @@ Temp.ready(function(){
 				<div class="menu">
 					<span class="li">
 						<span class="title2">
-							<a href="scrollnote" fanswoo-hrefNone>最新趨勢</a>
-						</span>
-						<a href="scrollnote" fanswoo-hrefNone class="title1">News</a>
+							<a href="scrollnote" fanswoo-hrefNone>關於我們</a> <!-- 0817前為最新趨勢 News -->
+						</span> 
+						<a href="scrollnote" fanswoo-hrefNone class="title1">About</a>
 					</span>
 					<span class="li">
 						<span class="title2">
@@ -530,7 +527,7 @@ Temp.ready(function(){
 			</div>
 			<img src="img/index/fixed_table/pic3.png" class="pic">
 		</div>
-		<div class="pic_move pic3" id="pic_move_pic3" style="display:block;">
+		<div class="pic_move pic3" id="pic_move_pic3" style="display:none;">
 			<div class="text_box">
 				<h1>手機APP</h1>
 				<h2>Facebook、Google、Instagram</h2>

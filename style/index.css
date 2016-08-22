@@ -473,10 +473,6 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	.content_portfolio .portfolio_box1{width:100%;height:auto;position: relative;}
 	.content_portfolio .portfolio_box1 .bg1 { position: relative; margin-top:150px; width: 100%; bottom:0px;}
 	.content_portfolio .portfolio_box1 .cloudy{position: absolute;left:50%;margin-left:-50%;top:50%;margin-top:-23%;z-index:6;}
-	
-	
-	
-	
 }
 @media screen and (max-width: 700px){
 	.content_portfolio {height:auto; z-index: 1;padding:0px;margin:0px;overflow:hidden; }
@@ -510,7 +506,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	.content_portfolio  .portfolio_box2 {height:700px;margin-top:92px;}
 	.content_portfolio  .portfolio_box2 .pc{display:block;width:900px;position:absolute;left:50%;margin-left:50px; margin-top:-250px;}
 	.content_portfolio  .portfolio_box2 .sun{width:506px;position: absolute;left:50%; margin-left:-900px;top:-120px;}
-	.content_portfolio  .portfolio_box2 .cloudy{width:95%;position: absolute;left:50%;margin-left:-45%;top:50%; margin-top:0px; margin-top:-380px; }
+	.content_portfolio  .portfolio_box2 .cloudy{width:95%;position: absolute;left:50%;margin-left:-45%;top:50%; margin-top:0px; margin-top:-10px; }
 	.content_portfolio  .portfolio_box2 .text_box{display:block;width:500px;position: absolute;left:50%;margin-left:-500px; margin-top:110px;}
 	.content_portfolio  .portfolio_box2 .text_box a{display:block;}
 	.content_portfolio  .portfolio_box2 .text_box .title{width:480px; margin-bottom:20px;}
@@ -525,12 +521,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	.content_portfolio  .portfolio_box2 .text_box a{display:block;}
 	.content_portfolio  .portfolio_box2 .text_box .title{width:380px; margin-bottom:20px;}
 	.content_portfolio  .portfolio_box2 .title2{width:750px;margin-left:-350px;margin-top:200px;}	
-
-
 }
-
-
-
 @media screen and (max-width:1024px) and ( min-width: 700px) {
 	.content_portfolio  .portfolio_box2{width:100%;height:auto;position: relative; padding-bottom:50px;height:500px; background:#fff;}
 	.content_portfolio  .portfolio_box2 .pc{display:block;width:600px;position:absolute;left:50%;margin-left:50px; margin-top:-180px;}
@@ -540,9 +531,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	.content_portfolio  .portfolio_box2 .text_box a{display:block;}
 	.content_portfolio  .portfolio_box2 .text_box .title{width:380px; margin-bottom:20px;}
 	.content_portfolio  .portfolio_box2 .title2{ width:700px;margin-top:180px;margin-left:-350px;}
-
 }
-
 @media screen and (max-width: 700px){
 	.portfolio_box2{display:none;}
 	.phone_portfolio_box2{display:block;}
@@ -553,8 +542,6 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	.phone_portfolio_box2 .text_box a{display:block;}
 	.phone_portfolio_box2 .text_box .title{width:300px; margin-bottom:20px;}
 	.phone_portfolio_box2  .portfolio_more{z-index:9;margin-top:50px;position:absolute;left:50%; margin-left:-55px;margin-top:-10px;}
-
-
 }
 
 /**************portfolio 了解更多 按鈕*******************************/
@@ -776,7 +763,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 .content_bottom .pic_move.pic3 .text_box .more{margin-left:230px; }
 #pic_move_pic3.hover .text_box {display:block;animation: p201506270833 1.5s;-webkit-animation: p201506270833 1.5s;} 
 
-.content_bottom .pic_move.pic4 { margin-left: 5800px;margin-top:0px; }
+.content_bottom .pic_move.pic4 { margin-left: 5000px;margin-top:0px; }/*如果pic3打開width:5800px;*/
 .content_bottom .pic_move.pic4 .pic{width:400px;position:absolute;top:-230px;}
 .content_bottom .pic_move.pic4 .text_box { display:none;right:-50px;top:-170px;}
 .content_bottom .pic_move.pic4 .text_box .text{width:280px;}
@@ -795,10 +782,10 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 @media screen and (min-width: 1800px){
 	.content_bottom { height:4500px; overflow: hidden;}
 	.content_bottom .service { display:none; position: fixed; top:50%;width:700px; margin-top:-210px; margin-left:3000px;z-index:3; }
-	.content_bottom .pic_move.pic1 { margin-left: 4000px;}
+	.content_bottom .pic_move.pic1 { margin-left: 4100px;}
 	.content_bottom .pic_move.pic2 { margin-left: 5100px;margin-top:-30px; }
 	.content_bottom .pic_move.pic3 { margin-left: 6450px;margin-top:0px; }
-	.content_bottom .pic_move.pic4 { margin-left: 7400px;margin-top:0px; }
+	.content_bottom .pic_move.pic4 { margin-left: 6450px;margin-top:0px; } /*如果pic3打開width:7400px;*/
 	
 }
 
@@ -808,7 +795,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	.content_bottom .pic_move.pic1 { margin-left: 4100px;}
 	.content_bottom .pic_move.pic2 { margin-left: 5100px;margin-top:-30px; }
 	.content_bottom .pic_move.pic3 { margin-left: 6250px;margin-top:0px; }
-	.content_bottom .pic_move.pic4 { margin-left: 7100px;margin-top:0px; }
+	.content_bottom .pic_move.pic4 { margin-left: 6250px;margin-top:0px; } /*如果pic3打開width:7100px;*/
 	
 }
 
