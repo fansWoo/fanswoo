@@ -41,7 +41,6 @@ class Project extends ObjDbBase
     	'use_hour_total'=>'use_hour_total',
     	'estimate_hour_total'=>'estimate_hour_total',
         'classids' => array('class_ClassMetaList', 'uniqueids'),
-        'designids' => 'designids',
         'pay_name' => 'pay_name',
         'pay_account' => 'pay_account',
         'pay_price_total' => 'pay_price_total',
@@ -71,7 +70,6 @@ class Project extends ObjDbBase
             'classids' => $arg['classids'],
             'classids_arr' => $arg['classids_arr']
         ], 'ClassMetaList');
-        $this->set('designids', $arg['designids']);
         $this->set('pay_name', $arg['pay_name']);
         $this->set('pay_account', $arg['pay_account']);
         $this->set('pay_price_total', $arg['pay_price_total']);

@@ -219,7 +219,7 @@ Temp.ready(function(){
     </div>
 </div>
 </form>
-<?if(!empty($Project->projectid)):?>
+<?if(!empty($Project->use_hour_total)):?>
 <div class="contentBox allWidth">
     <h3>專案耗時</h3>
     <h4>請確認本專案之專案耗時(耗時/預估)</h4>
@@ -250,13 +250,14 @@ Temp.ready(function(){
                 </div>
                 <?foreach($WorktaskClassMetaList->obj_arr as $key4 => $value_WorktaskClassMeta):?>
                 <?foreach($use_hour_total_arr as $key5 => $value_hour):?>
-                <div class="spanLineLeft text width150">
-                	<?if($value_WorktaskClassMeta->classid == $key5):?>
-                       <?=$value_hour?>h
-                    <?else:?>
-                       0h
-                    <?endif;?>
+                <?if($value_WorktaskClassMeta->classid == $key5):?>
+                <div class="spanLineLeft text width150">                	
+                       <?=$value_hour?>h                  
                 </div>
+                <?else:?>
+                <div class="spanLineLeft text width150">                	                
+                </div>
+                <?endif;?>
                 <?endforeach;?> 
                 <?endforeach;?>                
                 <div class="spanLineLeft text width150">
@@ -274,13 +275,11 @@ Temp.ready(function(){
                 </div>
                 <?foreach($WorktaskClassMetaList->obj_arr as $key4 => $value_WorktaskClassMeta):?>
                 <?foreach($estimate_hour_total_arr as $key6 => $value_estimate_hour):?>
-                <div class="spanLineLeft text width150">
-                	<?if($value_WorktaskClassMeta->classid == $key6):?>
-                       <?=$value_estimate_hour?>h
-                    <?else:?>
-                       0h
-                    <?endif;?>
+                <?if($value_WorktaskClassMeta->classid == $key6):?>
+                <div class="spanLineLeft text width150">               	
+                       <?=$value_estimate_hour?>h                  
                 </div>
+                 <?endif;?>
                 <?endforeach;?> 
                 <?endforeach;?>                
                 <div class="spanLineLeft text width150">

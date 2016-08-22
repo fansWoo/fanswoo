@@ -195,7 +195,8 @@ class Project_Controller extends MY_Controller {
         //送出成功訊息
         $this->load->model('Message');
         $this->Message->show([
-            'message' => '設定成功'
+            'message' => '設定成功',
+        	'url' => 'admin/project/project/project/tablelist'
         ]);
     }
 
@@ -233,7 +234,8 @@ class Project_Controller extends MY_Controller {
         //送出成功訊息
         $this->load->model('Message');
         $this->Message->show([
-            'message' => '設定成功'
+            'message' => '設定成功',
+        	'url' => 'admin/project/project/project/tablelist'
         ]);
     }
 
@@ -286,7 +288,6 @@ class Project_Controller extends MY_Controller {
             'permission_uids' => $Project->permission_uids_UserList->uniqueids,
             'working_days' => $Project->working_days,
             'classids_arr' => $Project->class_ClassMetaList->uniqueids_arr,
-            'designids' => $Project->designids,
             'pay_price_total' => $Project->pay_price_total,
             'project_status' => $Project->project_status,
             'setuptime' => $Project->setuptime_DateTimeObj->datetime,

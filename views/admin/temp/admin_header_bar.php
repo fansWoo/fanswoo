@@ -2,7 +2,7 @@
     <a href="" class="logo"></a>
     <div class="logStatus">
         <?if( !empty($User->uid) ):?>
-        <span class="username"><?=$User->username?><a href="admin/project/worktask/worktask/tablelist/?pemission_uid=<?=$User->uid?>">(<?=$job_count?>)</a></span>
+        <span class="username"><?=$User->username?><a href="admin/project/worktask/worktask/tablelist/?pemission_uid=<?=$User->uid?>&work_status=A0">(<?=$job_count?>)</a></span>
         <a href="user/logout">登出</a>
         <?else:?>
         <a href="user">您尚未登入會員，請點此登入或註冊會員</a>
