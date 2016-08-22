@@ -249,16 +249,15 @@ Temp.ready(function(){
                        <?=$use_hour_all?>h
                 </div>
                 <?foreach($WorktaskClassMetaList->obj_arr as $key4 => $value_WorktaskClassMeta):?>
-                <?foreach($use_hour_total_arr as $key5 => $value_hour):?>
-                <?if($value_WorktaskClassMeta->classid == $key5):?>
+                <?if(!empty($use_hour_total_arr[$value_WorktaskClassMeta->classid])):?>               
                 <div class="spanLineLeft text width150">                	
-                       <?=$value_hour?>h                  
+                       <?=$use_hour_total_arr[$value_WorktaskClassMeta->classid]?>h                  
                 </div>
                 <?else:?>
-                <div class="spanLineLeft text width150">                	                
+                <div class="spanLineLeft text width150">                	
+                       0h                  
                 </div>
-                <?endif;?>
-                <?endforeach;?> 
+                <?endif;?>                            
                 <?endforeach;?>                
                 <div class="spanLineLeft text width150">
                     <a href="admin/project/worktask/worktask/tablelist/?projectid=<?=$Project->projectid?>&work_status=2" target="_blank">
@@ -274,13 +273,15 @@ Temp.ready(function(){
                        <?=$estimate_hour_all?>h
                 </div>
                 <?foreach($WorktaskClassMetaList->obj_arr as $key4 => $value_WorktaskClassMeta):?>
-                <?foreach($estimate_hour_total_arr as $key6 => $value_estimate_hour):?>
-                <?if($value_WorktaskClassMeta->classid == $key6):?>
+                <?if(!empty($estimate_hour_total_arr[$value_WorktaskClassMeta->classid])):?>
                 <div class="spanLineLeft text width150">               	
-                       <?=$value_estimate_hour?>h                  
+                       <?=$estimate_hour_total_arr[$value_WorktaskClassMeta->classid]?>h                  
                 </div>
-                 <?endif;?>
-                <?endforeach;?> 
+                <?else:?>
+                <div class="spanLineLeft text width150">               	
+                       0h                  
+                </div>
+                <?endif;?> 
                 <?endforeach;?>                
                 <div class="spanLineLeft text width150">
                     <a href="admin/project/worktask/worktask/tablelist/?projectid=<?=$Project->projectid?>&work_status=A0" target="_blank">

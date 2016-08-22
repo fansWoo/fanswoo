@@ -71,6 +71,7 @@ class Project_Controller extends MY_Controller {
         
         
         $data['use_hour_total_arr']=json_decode($data['Project']->use_hour_total,true);
+//         ec2($data['use_hour_total_arr'][17]);
         $data['estimate_hour_total_arr']=json_decode($data['Project']->estimate_hour_total,true);
 
         $data['class2_ClassMetaList'] = new ObjList();
