@@ -104,7 +104,6 @@ Temp.ready(function() {
             $('.fixed_window_close_bg').css('display', 'block');;
             $clone.insertBefore(".fixed_window").addClass('display').css('display', 'block');
 
-            console.log(event);
             var start_time_Date = new Date( event.start._d.getFullYear() + '-' + (event.start._d.getMonth() + 1) + '-' + event.start._d.getDate() + ' 00:00:00' );
             // start_time_Date.setDate( start_time_Date.getDate() + 0 );
             var start_time_str = start_time_Date.getFullYear() + '-' + ( start_time_Date.getMonth() + 1) + '-' + start_time_Date.getDate() + ' 00:00:00';
