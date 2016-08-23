@@ -21,6 +21,7 @@ class Worktask_Controller extends MY_Controller {
                 'worktaskid' => $worktaskid
             ]
         ]);
+        
 
         $data['UserList'] = new ObjList([
             'db_where_deletenull_bln' => TRUE,
@@ -38,14 +39,30 @@ class Worktask_Controller extends MY_Controller {
             'limitcount' => 100
         ]);
 
-        $data['ProjectList'] = new ObjList([
+        $data['ProjectList']=new ObjList([
             'db_where_arr' => [
+            	 
             ],
             'db_where_deletenull_bln' => TRUE,
             'obj_class' => 'Project',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
+        
+        $Project = new Project([
+            'db_where_arr' => [
+            	 'projectid'=>$data['Worktask']->projectid
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'obj_class' => 'Project',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
+        $data['admin_uids_arr']=$Project->admin_uids_UserList->uniqueids_arr;
+        
+        
+        
+        $data['uid']=$this->session->userdata('uid');
 
         $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
         $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
@@ -75,8 +92,9 @@ class Worktask_Controller extends MY_Controller {
         $prioritynum = $this->input->post('prioritynum', TRUE);
         $work_status = $this->input->post('work_status', TRUE);
         $post_from = $this->input->post('post_from', TRUE);
-
+		
         if( !$this->form_validation->check() ) return FALSE;
+        
         
         if(!empty($worktaskid)){
         	$old_Worktask = new Worktask([
@@ -86,7 +104,8 @@ class Worktask_Controller extends MY_Controller {
         	]);
         }
         
-
+        $work_status = is_numeric($work_status) ? $work_status : 2;
+        
         //建構Worktask物件，並且更新
         $Worktask = new Worktask([
             'worktaskid' => $worktaskid,
@@ -104,51 +123,34 @@ class Worktask_Controller extends MY_Controller {
             'prioritynum' => $prioritynum
         ]);
         
-       
+        $Project = new Project([
+        		'db_where_arr' => [
+        				'projectid'=>$Worktask->projectid
+        		],
+        		'db_where_deletenull_bln' => TRUE,
+        		'obj_class' => 'Project',
+        		'limitstart' => 0,
+        		'limitcount' => 100
+        ]);
         
+        
+        $login_uid=$this->session->userdata('uid');
+
+        //只有管理員即被分派者可以修改此張工作單
+        if(!in_array($login_uid, $Project->admin_uids_UserList->uniqueids_arr) && $login_uid != $Worktask->uid_User->uid){
+        	//送出成功訊息
+        	$this->load->model('Message');
+        	$this->Message->show([
+        			'message' => '您沒有權限修改此工作單',
+        			'url' => 'admin/project/worktask/worktask/edit/?worktaskid='.$worktaskid
+        	]);
+        	return TRUE;
+        }
+        
+              
         $Worktask->count_use_time($this_use_hour);
         $Worktask->update();
         
-//         $data['WorktaskClassMetaList'] = new ObjList([
-//         		'db_where_arr' => [
-//         				'modelname' => 'worktask'
-//         		],
-//         		'obj_class' => 'ClassMeta',
-//         		'limitstart' => 0,
-//         		'limitcount' => 100
-//         ]);
-        
-        //更新專案耗時累計
-        $Project = new Project([
-        		'db_where_arr' => [
-        				'projectid' => $projectid
-        		]
-        ]);
-        
-        //加總預估工時
-        if(empty($worktaskid) || $estimate_hour != $old_Worktask->estimate_hour){
-        	$estimate_hour_total_arr=json_decode($Project->estimate_hour_total,true);
-        	$estimate_hour_total_arr[$Worktask->class_ClassMetaList->uniqueids]=$estimate_hour_total_arr[$Worktask->class_ClassMetaList->uniqueids]+($estimate_hour-$old_Worktask->estimate_hour);
-        	$estimate_hour_total_json=json_encode($estimate_hour_total_arr);
-        	$Project->estimate_hour_total=$estimate_hour_total_json;
-        }
-        	
-               
-        //加總耗用工時
-        $use_hour_total_arr=json_decode($Project->use_hour_total,true);       
-        $use_hour_total_arr[$Worktask->class_ClassMetaList->uniqueids]=$use_hour_total_arr[$Worktask->class_ClassMetaList->uniqueids]+$this_use_hour;      
-        $use_hour_total_json=json_encode($use_hour_total_arr);
-        $Project->use_hour_total=$use_hour_total_json;
-        
-        
-        
-        $Project->update(array(
-        		'db_update_arr' => array(
-        				'use_hour_total',
-        				'estimate_hour_total',
-        				'updatetime'
-        		)
-        ));
 
         if( $post_from == 'calendar')
         {
@@ -236,7 +238,6 @@ class Worktask_Controller extends MY_Controller {
         		'limitstart' => 0,
         		'limitcount' => 100
         ]);
-//         		ec2($data['ProjectList']);
         
         $data['page_link'] = $data['WorktaskList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
         
@@ -377,7 +378,7 @@ class Worktask_Controller extends MY_Controller {
             'limitcount' => 100
         ]);
 
-        // ec($data['UserList']);
+        
         
         //global
         $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
@@ -508,7 +509,7 @@ class Worktask_Controller extends MY_Controller {
             $worktask_arr[$key]['classids'] = $value_Worktask->class_ClassMetaList->obj_arr[0]->classid;
             $worktask_arr[$key]['projectid'] = $value_Worktask->projectid;
             $worktask_arr[$key]['uid'] = $value_Worktask->uid_User->uid;
-
+            $worktask_arr[$key]['current_percent'] = $value_Worktask->current_percent;
             $worktask_arr[$key]['start_time'] = date("Y-m-d h:i:s", strtotime( $value_Worktask->start_time_DateTime->inputtime_date ) );
             $worktask_arr[$key]['end_time'] = date("Y-m-d h:i:s", strtotime("+1 Day", strtotime( $value_Worktask->end_time_DateTime->inputtime_date ) ) );
             $worktask_arr[$key]['start'] = date("Y-m-d", strtotime( $value_Worktask->start_time_DateTime->inputtime_date ) );

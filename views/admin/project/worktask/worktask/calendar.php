@@ -105,19 +105,19 @@
             <div class="spanLineLeft">
                 目前進度
             </div>
-            <div class="spanLineRight">
-                <select>
-                	<option value="0"<?if($Worktask->curren_percent == 0):?> selected<?endif?>>0%</option>
-                    <option value="10"<?if($Worktask->curren_percent == 10):?> selected<?endif?>>10%</option>
-                    <option value="20"<?if($Worktask->curren_percent == 20):?> selected<?endif?>>20%</option>
-                    <option value="30"<?if($Worktask->curren_percent == 30):?> selected<?endif?>>30%</option>
-                    <option value="40"<?if($Worktask->curren_percent == 40):?> selected<?endif?>>40%</option>
-                    <option value="50"<?if($Worktask->curren_percent == 50):?> selected<?endif?>>50%</option>
-                    <option value="60"<?if($Worktask->curren_percent == 60):?> selected<?endif?>>60%</option>
-                    <option value="70"<?if($Worktask->curren_percent == 70):?> selected<?endif?>>70%</option>
-                    <option value="80"<?if($Worktask->curren_percent == 80):?> selected<?endif?>>80%</option>
-                    <option value="90"<?if($Worktask->curren_percent == 90):?> selected<?endif?>>90%</option>
-                    <option value="100"<?if($Worktask->curren_percent == 100):?> selected<?endif?>>100%</option>
+            <div class="spanLineRight" >
+                <select name="current_percent" id="current_percent">
+                	<option value="0">0%</option>
+                    <option value="10">10%</option>
+                    <option value="20">20%</option>
+                    <option value="30">30%</option>
+                    <option value="40">40%</option>
+                    <option value="50">50%</option>
+                    <option value="60">60%</option>
+                    <option value="70">70%</option>
+                    <option value="80">80%</option>
+                    <option value="90">90%</option>
+                    <option value="100">100%</option>
                 </select>
             </div>
         </div>
@@ -128,7 +128,7 @@
                 本次耗用時數
             </div>
             <div class="spanLineRight">
-                <input type="number" id="this_use_hour" class="text" name="use_hour" value="">
+                <input type="number" id="this_use_hour" class="text" name="this_use_hour" value="">
             </div>
         </div>
     </div>
@@ -148,7 +148,7 @@
                 累計耗用時數
             </div>
             <div class="spanLineRight">
-                <input type="number" id="use_hour" class="text" name="use_hour" value="<?=$Worktask->use_hour?>">
+                <input type="number" id="use_hour" class="text" name="use_hour" value="<?=$Worktask->current_percent?>">
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-08-23 05:32:51
+-- 產生時間： 2016-08-23 12:35:09
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 7.0.8
 
@@ -96,7 +96,7 @@ INSERT INTO `fs_class` (`classid`, `classname`, `slug`, `content`, `uid`, `amoun
 (8, 'test', 'a066c1bd', '', 528502, 0, 'project_class2', '', 0, '2016-06-07 23:12:23', 'zh-TW', -1),
 (9, '美術設計', 'art_design', 'test', 528502, 0, 'faq', '', 0, '2016-06-11 16:24:31', 'zh-TW', 1),
 (10, 'test', 'ae1c7a53', '', 528502, 0, 'faq', '', 0, '2016-06-11 16:26:04', 'zh-TW', 1),
-(11, '美術設計', 'art_design(1)', '美術設計', 528502, 0, 'worktask', '', 0, '2016-06-11 16:27:33', 'zh-TW', 1),
+(11, '美術設計', 'art_design(1)', '美術設計', 528502, 0, 'worktask', '', 0, '2016-08-22 17:16:50', 'zh-TW', 1),
 (12, 'HTML 網頁設計', 'website_design', '網頁設計', 528502, 0, 'worktask', '', 0, '2016-06-21 22:03:26', 'zh-TW', 1),
 (13, '美術設計專案', 'ba9474f5', '', 528502, 0, 'project_class2', '', 0, '2016-06-12 11:24:15', 'zh-TW', 1),
 (14, '粉絲團代理經營', '8028084a', '', 528502, 0, 'project', '5', 0, '2016-06-12 11:26:29', 'zh-TW', 1),
@@ -379,8 +379,6 @@ CREATE TABLE `fs_project` (
   `customer_uids` char(100) NOT NULL,
   `permission_uids` char(100) NOT NULL,
   `working_days` mediumint(8) NOT NULL,
-  `use_hour_total` text NOT NULL,
-  `estimate_hour_total` text NOT NULL,
   `classids` char(100) NOT NULL,
   `pay_name` char(32) NOT NULL,
   `pay_account` char(50) NOT NULL,
@@ -403,13 +401,13 @@ CREATE TABLE `fs_project` (
 -- 資料表的匯出資料 `fs_project`
 --
 
-INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `admin_uids`, `customer_uids`, `permission_uids`, `working_days`, `use_hour_total`, `estimate_hour_total`, `classids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_price_receive`, `pay_price_schedule`, `pay_price_bad_debt`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `endtime`, `updatetime`, `status`) VALUES
-(528501, 528502, '日月光基金會', '528505', '528505', '528503,528505', 50, '{"17":8}', '{"17":4}', '1', '張琬君', '(700)1234567-1234567', 267750, 267750, 75, 0, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-30 00:00:00', '2016-02-18 00:00:00', '2016-08-20 10:02:23', 1),
-(528502, 528502, '長安旅行社', '', '', '', 60, '', '', '1', 'Mimi Chang', '(700)1111111-2222222', 291900, 204310, 33, 0, '2015-12-07 14:50:00', '付款備註', 1, 0, 2, '2015-12-07 00:00:00', '2016-02-05 00:00:00', '2016-08-20 09:58:31', 1),
-(528503, 528502, 'test', '0', '0', '', 0, '', '', '', '', '', 0, 0, 0, 0, '2016-06-07 23:10:15', '', 0, 0, 1, '2016-06-07 23:10:15', '1970-01-01 08:00:00', '2016-06-07 23:10:15', -1),
-(528504, 528502, 'test', '0', '0', '', 0, '', '', '', '', '', 0, 0, 0, 0, '2016-06-07 23:10:18', '', 0, 0, 1, '2016-06-07 23:10:18', '1970-01-01 08:00:00', '2016-06-07 23:10:18', -1),
-(528505, 528502, '日月光', '', '', '', 60, '', '', '1', '', '', 0, 0, 0, 0, '2016-08-22 17:50:08', '', 0, 0, 2, '2016-08-01 00:00:00', '2016-09-30 00:00:00', '2016-08-22 17:50:08', 1),
-(528506, 528502, '日月光', '', '', '528505', 60, '', '', '1', '', '', 0, 0, 0, 0, '2016-08-22 17:50:30', '', 0, 0, 2, '2016-08-01 00:00:00', '2016-09-30 00:00:00', '2016-08-22 17:50:30', -1);
+INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `admin_uids`, `customer_uids`, `permission_uids`, `working_days`, `classids`, `pay_name`, `pay_account`, `pay_price_total`, `pay_price_receive`, `pay_price_schedule`, `pay_price_bad_debt`, `pay_paytime`, `pay_remark`, `pay_status`, `paycheck_status`, `project_status`, `setuptime`, `endtime`, `updatetime`, `status`) VALUES
+(1, 528508, '日月光', '528508', '', '528505,528506,528507', 60, '1', '', '', 0, 0, 0, 0, '2016-08-22 17:52:47', '', 0, 0, 2, '2016-08-01 00:00:00', '2016-09-30 00:00:00', '2016-08-23 18:27:06', 1),
+(2, 528502, '長安旅行社', '528508', '', '528505,528506,528507', 58, '1', '', '', 0, 0, 0, 0, '2016-08-22 17:59:45', '', 0, 0, 2, '2016-07-29 00:00:00', '2016-09-25 00:00:00', '2016-08-22 17:59:45', 1),
+(3, 528502, 'UNI甜點店', '528508', '', '528505,528506,528507', 45, '1', '', '', 0, 0, 0, 0, '2016-08-22 18:01:00', '', 0, 0, 2, '2016-09-01 00:00:00', '2016-10-16 00:00:00', '2016-08-22 18:01:00', 1),
+(4, 528502, '鐘姐外匯網', '528508', '', '528505,528506,528507', 20, '1', '', '', 0, 0, 0, 0, '2016-08-22 18:02:16', '', 0, 0, 2, '2016-08-22 00:00:00', '2016-09-11 00:00:00', '2016-08-22 18:02:16', 1),
+(5, 528508, '幻域', '528508', '', '528505,528506,528507', 90, '3', '', '', 0, 0, 0, 0, '2016-08-22 23:13:07', '', 0, 0, 2, '2016-08-01 00:00:00', '2016-10-30 00:00:00', '2016-08-22 23:14:32', 1),
+(6, 528508, '巴黎草莓', '528508', '', '528505', 90, '3', '', '', 0, 0, 0, 0, '2016-08-22 23:14:06', '', 0, 0, 2, '2016-08-01 00:00:00', '2016-10-30 00:00:00', '2016-08-22 23:14:06', 1);
 
 -- --------------------------------------------------------
 
@@ -430,15 +428,6 @@ CREATE TABLE `fs_project_suggest` (
   `answer_status` int(1) NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 資料表的匯出資料 `fs_project_suggest`
---
-
-INSERT INTO `fs_project_suggest` (`suggestid`, `projectid`, `uid`, `title`, `content`, `answer`, `suggest_time`, `updatetime`, `suggest_status`, `answer_status`, `status`) VALUES
-(2, 528501, 528501, '修改建議測試2', '建議測試內容', '123', '2015-12-04 18:14:55', '2015-12-18 11:58:23', 1, 1, 1),
-(1, 528501, 528502, '修改建議測試', '測試內容', 'OK', '2015-12-04 18:08:40', '2015-12-04 18:17:56', 1, 3, 1),
-(3, 528501, 528501, 'SMTP Mail寄信功能', '測試修改建議寄信通知功能', 'OK', '2015-12-18 11:34:45', '2015-12-18 11:59:38', 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -468,51 +457,15 @@ CREATE TABLE `fs_project_worktask` (
 --
 
 INSERT INTO `fs_project_worktask` (`worktaskid`, `projectid`, `uid`, `title`, `content`, `classids`, `current_percent`, `estimate_hour`, `use_hour`, `start_time`, `end_time`, `prioritynum`, `work_status`, `status`) VALUES
-(1, 0, 528505, '加一些什麼什麼的系統', '修正首頁美術圖稿2', '17', 30, 12, 8, '2016-08-08 00:00:00', '2016-08-12 00:00:00', 0, 2, 1),
-(2, 0, 528502, 'test', '', '17', 0, 8, 16, '2016-06-13 00:00:00', '2016-06-15 00:00:00', 0, 2, 1),
-(3, 528501, 0, 'test', 'test', '17', 0, 8, 8, '2016-06-13 12:00:00', '2016-06-14 12:00:00', 0, 2, -1),
-(4, 528501, 0, '網頁 HTML BUG 修正2', '首頁有 BUG<br />\n超連結連錯地方了<br />\n<br />\n<span style="color:#FF0000">客人在催，請於今天修正完畢</span>', '12', 0, 16, 0, '2016-06-13 12:00:00', '2016-06-15 12:00:00', 0, 0, -1),
-(5, 528501, 0, '網頁 HTML BUG 修正4', '首頁有 BUG<br />\n超連結連錯地方了<br />\n<br />\n<span style="color:#FF0000">客人在催，請於今天修正完畢</span>', '12', 0, 16, 0, '2016-06-13 12:00:00', '2016-06-17 12:00:00', 0, 0, -1),
-(6, 528501, 0, 'test', 'test', '11', 0, 2, 2, '2016-06-14 00:00:00', '2016-06-14 00:00:00', 0, 1, -1),
-(7, 0, 528502, 'GG2', 'GG', '12', 0, 0, 0, '2016-06-13 00:00:00', '2016-06-15 00:00:00', 0, 1, 1),
-(8, 0, 528502, '上禮拜完成的事情', '上禮拜完成的事情', '17', 0, 50, 50, '2016-06-06 00:00:00', '2016-06-12 00:00:00', 0, 2, 1),
-(9, 0, 528502, '上禮拜完成的事情2', '上禮拜完成的事情2', '11', 0, 50, 50, '2016-06-06 00:00:00', '2016-06-12 00:00:00', 0, 2, 1),
-(10, 528501, 0, 'test', 'test', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(11, 528501, 0, 'test', 'test', '17', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(12, 528501, 0, 'test', 'test', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(13, 528503, 0, 'test2', 'test2', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(14, 528501, 0, 'test3', 'test3', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(15, 528501, 0, 'test4', 'test4', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(16, 528501, 0, 'test5', 'test5', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(17, 528501, 0, 'test2', 'test', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-18 00:00:00', 0, 0, -1),
-(18, 528502, 0, 'test', 'test', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(19, 528501, 0, 'test', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(20, 528501, 0, 'test3', '', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(21, 528501, 0, 'gg', '', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(22, 528501, 0, 'aaa', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-16 00:00:00', 0, 0, -1),
-(23, 528501, 0, 'test', '', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(24, 528501, 0, 'test', 'test', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(25, 528501, 0, 'test', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(26, 528501, 0, 'test', '', '17', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(27, 528501, 0, 'test3', '', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-18 00:00:00', 0, 0, -1),
-(28, 528501, 0, 'test', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(29, 528501, 0, 'test', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-19 00:00:00', 0, 0, -1),
-(30, 528503, 0, 'test4', '', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-20 00:00:00', 0, 0, -1),
-(31, 528502, 0, 'fff', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-18 00:00:00', 0, 0, -1),
-(32, 528503, 0, 'GGg', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(33, 528502, 0, 'fffss', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(34, 528503, 0, 'aaa', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(35, 528502, 0, 'hhh', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(36, 528502, 0, 'vvv', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(37, 528502, 0, 'aa', '', '11', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(38, 528503, 0, 'test', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-17 00:00:00', 0, 0, -1),
-(39, 0, 528502, 'test', '', '12', 0, 0, 0, '2016-06-16 00:00:00', '2016-06-18 00:00:00', 0, 2, 1),
-(40, 0, 528502, '七月份的東西', 'test4', '12', 0, 0, 0, '2016-07-04 00:00:00', '2016-07-04 00:00:00', 0, 0, 1),
-(41, 528501, 0, 'test', '', '11', 0, 8, 8, '2016-07-10 00:00:00', '2016-07-11 00:00:00', 0, 0, -1),
-(42, 0, 528502, '改一些有的沒的東西', 'test2', '12', 0, 8, 8, '2016-08-08 00:00:00', '2016-08-10 00:00:00', 0, 0, 1),
-(43, 0, 0, '', '', '', 0, 0, 0, '2016-07-10 14:29:43', '2016-07-10 14:29:43', 0, 0, -1),
-(44, 0, 528502, '畫一些奇怪的圖', 'test', '12', 0, 0, 0, '2016-08-08 00:00:00', '2016-08-10 00:00:00', 0, 1, 1),
-(45, 0, 528505, '不知道又有什麼BUG了', '不知道又要幹麻了...<br />\n不知道又要幹麻了...<br />\n不知道又要幹麻了...', '18', 0, 0, 0, '2016-08-08 00:00:00', '2016-08-10 00:00:00', 0, 0, 1);
+(1, 2, 528507, '(長安)第二階段-美術圖稿設計', '7/28-7/29 流程圖稿製作<br />\n8/1 &nbsp;-8/8 &nbsp; 美術圖稿完成(沒手機板)', '11', 0, 72, 52, '2016-07-28 00:00:00', '2016-08-08 00:00:00', 0, 2, 1),
+(2, 1, 528507, '(日月光)第一階段美術圖稿設計', '美木圖稿設計完成(不包含郁文兩頁面)', '11', 100, 48, 44, '2016-08-09 00:00:00', '2016-08-18 00:00:00', 0, 2, 1),
+(3, 2, 528507, '(長安)首頁修改', '依客戶需求修改首頁', '18', 100, 8, 8, '2016-08-10 00:00:00', '2016-08-10 00:00:00', 0, 2, 1),
+(4, 2, 528507, '(長安)首頁修改', '郵件內首頁修改', '18', 0, 10, 10, '2016-08-15 00:00:00', '2016-08-16 00:00:00', 0, 2, 1),
+(5, 4, 528506, '(外匯網)初版頁面完成', '完成初版一頁式網站頁面', '11', 0, 16, 0, '2016-08-22 00:00:00', '2016-08-24 00:00:00', 0, 0, 1),
+(6, 5, 528505, '(幻域)前端及訂單部分初步功能', '前端頁面呈現及訂單頁面功能 初版', '17', 0, 120, 0, '2016-08-05 00:00:00', '2016-09-02 00:00:00', 0, 2, 1),
+(7, 6, 528505, '(巴黎草莓)0809問題修正', '文件在雲端上，修改-&gt;0809修改文件', '18', 0, 14, 0, '2016-08-22 00:00:00', '2016-08-23 00:00:00', 0, 0, 1),
+(8, 2, 528507, '(長安)圖稿修改0822', '郵件0822 圖稿修改<br />\n&nbsp;', '11', 0, 8, 0, '2016-08-16 00:00:00', '2016-08-16 00:00:00', 0, 0, 1),
+(9, 5, 528507, '(幻域)前端頁面設計', '前端頁面設計~PC手機板ICON~購買流程圖稿', '11', 0, 12, 0, '2016-08-17 00:00:00', '2016-08-18 00:00:00', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1103,10 +1056,207 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('03d09de5fbb06ec00344632fba45bab8', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471594039, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:9:"tablelist";}'),
 ('792e72e19418cf3755c8f587fa881470', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471657658, 'a:1:{s:9:"user_data";s:0:"";}'),
 ('c03d26fd8905d00c029f8c8e08b47a62', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471657668, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:7:"project";s:17:"last_admin_child3";s:7:"project";s:17:"last_admin_child4";s:4:"edit";}'),
-('5305a2be1c9b354305167988d4b69f11', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471839410, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:18:"worktask_list_json";}'),
-('b0d6e48c5230c323e3b0b2db90a08a65', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471840040, ''),
-('c6a57fad32048c7c9f3fdf0cc5d75397', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471840040, ''),
-('7daddd1ce327b77f513be85281cf4f4c', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471840078, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:7:"project";s:17:"last_admin_child3";s:7:"project";s:17:"last_admin_child4";s:4:"edit";}');
+('8e371cf925ce6f4366c7b3c97256cd92', '122.116.178.68', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471845229, 'a:6:{s:9:"user_data";s:0:"";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:9:"tablelist";s:3:"uid";s:6:"528508";}'),
+('b65614ec6da05716533b18165ed9ede1', '66.220.158.120', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471845301, ''),
+('5f47930981ae57114c67c03c1b1c59d0', '66.220.158.120', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471845301, ''),
+('acd760b94e978921a2cfdaa58918889f', '66.220.158.107', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471845304, ''),
+('f36dcb2010e0f72db39421625a856eb1', '118.163.100.175', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471846622, ''),
+('35e6a127695ed4c87d2ff50f66c3d7f2', '118.163.44.186', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471847614, ''),
+('0a0131f94ca717bf65d5e02dd4b1c78c', '61.216.158.5', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471849293, ''),
+('90bebdbcbf41aa036f749c68833f843c', '185.31.136.59', 'NetLyzer FastProbe (See http://netlyzer.com/report/www.fanswoo.com for info)', 1471849781, ''),
+('879e6424c5d77b1b0fced7d55a952f94', '66.249.65.143', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1471849947, ''),
+('927f066770c21bcfcf70551fcc336635', '60.251.146.176', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko)', 1471850810, ''),
+('24edb656c1e7bd7195b934e5b5c49270', '60.251.146.176', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A3', 1471850810, ''),
+('c3543b02165c49705a7d69e0d41bed03', '203.69.30.90', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471850879, ''),
+('f0d0d213454b481a18459ab86154575d', '211.72.178.15', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471850962, ''),
+('1a4c9595363db907bd5685955a42148e', '183.136.142.184', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471851096, ''),
+('7a76509a998e8b6a491ea26744c15ae1', '219.85.166.48', 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; ASU2JS; rv:11.0) like Gecko', 1471851280, ''),
+('6f7ef99e3b823b0664915f4b9d318b44', '5.165.246.110', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 YaBrowser/1.7.1364.22194', 1471851388, ''),
+('0f2a7d7b57f5982bb183cacc3372087d', '210.71.190.181', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.3', 1471851686, ''),
+('09bc58a0295d20aab94b603738aec602', '180.97.63.55', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471852741, ''),
+('98532c7391c6888f4fa674b3d13a425e', '1.171.101.101', 'Mozilla/5.0 (Windows NT 6.3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471853259, ''),
+('f96a5ee7f1cb6cca0fbc867647e2fda3', '140.96.152.124', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36', 1471853490, ''),
+('04f72df6f8569495fbc6b592e6d45db6', '220.136.212.202', 'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471853996, ''),
+('0289abcdc019f682e96cef648434e4a8', '118.160.85.141', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.3', 1471854434, ''),
+('d31c8330ed94d62a8fc4ba37bfc2b3b6', '61.222.119.248', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471854457, ''),
+('7568e1757b4e2998119869f3a8a01864', '60.251.146.176', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko)', 1471855177, ''),
+('e1fbddee918687563542140dfdcaa026', '60.251.146.176', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A3', 1471855177, ''),
+('1438e5fc40fc48ba9d2342d062dd17dc', '119.188.66.165', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471855452, ''),
+('4f77fcab482d9cd2eaa623b601bd2cc2', '173.252.90.89', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471855610, ''),
+('ebc3a92b5b27783a2047a8095b9107de', '173.252.88.189', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471855612, ''),
+('f1577a65feea196c6b33c63308056a61', '173.252.88.189', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471855614, ''),
+('590a6b9af69dccca4a0cedac69adbfcf', '141.8.143.164', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1471855616, ''),
+('0c79ad3bdf6f4a04464b01efb320a60f', '141.8.143.187', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1471855616, ''),
+('ca9c3c5695474d5cf5c5ab941d12ebb0', '66.102.7.146', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1471855853, ''),
+('b50deb2f73c4176d2d34457adc1108cc', '49.218.33.53', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_4 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/47.0.2526.107 Mobile', 1471856259, ''),
+('1628fbb84b137b94e8a86b076afd5079', '220.132.37.36', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471856362, ''),
+('8127c99a8bf3eca634b2508aeb85420f', '122.116.178.68', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471856971, ''),
+('b1a0be38e1c13ebb988994495f60a429', '122.116.178.68', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471857739, ''),
+('37ade01b0a3d59ae8bcb4c7154792285', '122.116.178.68', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471857852, 'a:1:{s:9:"user_data";s:0:"";}'),
+('9e1c333986458017eb98c01ea98269fa', '122.116.178.68', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471857907, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528505";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:7:"project";s:17:"last_admin_child3";s:7:"project";s:17:"last_admin_child4";s:9:"tablelist";}'),
+('a14c4a28c5ac568e6941865922630197', '122.116.178.68', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471858026, 'a:1:{s:9:"user_data";s:0:"";}'),
+('afc79b2605094889d76a9bef2f4088f0', '223.136.243.0', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471858171, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:7:"project";s:17:"last_admin_child3";s:7:"project";s:17:"last_admin_child4";s:4:"edit";}'),
+('74e369f808c8abd398ee5c572372cac4', '182.118.54.58', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471858962, ''),
+('26541f86ecd19e86da1d2e15b28d1d97', '61.222.58.252', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471859052, ''),
+('a2662b7ad12598cec331d26b0ad8feaf', '203.104.145.30', 'facebookexternalhit/1.1;line-poker/1.0', 1471859061, ''),
+('9f3c657b49c76659f0f256e4ae39ac54', '203.104.145.39', 'facebookexternalhit/1.1;line-poker/1.0', 1471859061, ''),
+('d0633b0661e005aeeb8e28c81154c3af', '103.246.38.196', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36', 1471859805, ''),
+('45f47af3b26c433f564139163e360ed8', '85.238.140.11', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36', 1471859805, ''),
+('39a3e4103b8c386d2ff3ed14b9737f7c', '199.91.135.164', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36', 1471859805, ''),
+('d9cc9d98354f2f1b2d7b4c172314ba19', '66.220.158.100', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471861375, ''),
+('dfacaa3cedf56c31bb718743dcefa201', '60.251.146.176', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko)', 1471860390, ''),
+('31115056078dd027ba6ac7e461c0cf39', '60.251.146.176', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A3', 1471860390, ''),
+('bcc68cf3982363f64aafe787bf4352b4', '182.118.20.165', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471921763, ''),
+('98fa17df7c5214afadd1b7e9df6a1aa0', '66.220.158.108', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471861375, ''),
+('fafa2c9d308d45da3a2b1589231e93aa', '66.220.158.101', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471861375, ''),
+('84939b05b7025062f11600ca460f64e8', '180.97.63.56', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471863839, ''),
+('69244762f9c6a60214ae2429221b5b7c', '103.246.38.196', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471861515, ''),
+('252e78df7109e93368f0f7ba380144a0', '103.246.38.196', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471861640, ''),
+('62da125d2fbc4f63652c9762e86490ad', '114.42.109.107', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.3', 1471861547, ''),
+('f8655ed880b0bfdc0ff36bc9c5c4f8a6', '103.246.38.196', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471861610, ''),
+('681be734ef28d876214320348e783143', '122.116.178.68', 'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471863881, ''),
+('e1a06ccd9e7af252568992dea64e98a9', '36.230.17.119', 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko', 1471865199, ''),
+('bffa3315e223fd618a9d307564df66ae', '61.62.184.252', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471865472, ''),
+('6f19dd33b969937984bebf76959bc9c5', '68.180.229.242', 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)', 1471867018, ''),
+('7897b0ddf65c3b2e3a1d187ce732366f', '183.57.154.14', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471867595, ''),
+('e439fc051df7ad00e1d076a9d0e285c2', '185.31.136.59', 'NetLyzer FastProbe (See http://netlyzer.com/report/www.fanswoo.com for info)', 1471867861, ''),
+('84e9b8ecf417c67425928b9841b238e3', '39.10.109.210', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7', 1471868109, ''),
+('e762e8a697d8a98b05dcebbb25869c96', '124.219.82.41', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471868411, ''),
+('536c5154f96c3fc7f0d96633dd0fea7c', '123.125.71.77', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1471870442, ''),
+('dec9107fe210367ba6a378887c7a045c', '173.252.90.80', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872058, ''),
+('5f2b8f07f8f6a43233286657b47ea6bc', '173.252.88.191', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872058, ''),
+('0993dcd708e025a508c0c67e4b78ffa3', '173.252.88.185', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872059, ''),
+('32891e108bc2eb2c53eeb902c64cd457', '173.252.88.188', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872110, ''),
+('2cd5dbe532ba8f07585a82e3a45c179c', '173.252.90.91', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872110, ''),
+('48cdf15dd44089e358dba845f5915a7c', '173.252.90.87', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872111, ''),
+('abea1cb902cd49059cdae0171302986b', '173.252.90.84', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872145, ''),
+('59594cae1d04569501edf006cf68b8a9', '173.252.88.180', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872192, ''),
+('1a5e384bdd4be0abf982b550f3017f63', '173.252.90.81', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872192, ''),
+('5e56e2df14a215df7d23df8a660db72e', '173.252.88.181', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471872192, ''),
+('2871c6920ba0cd75945e3d2b69df78d1', '211.23.167.132', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471873098, ''),
+('0602545b3470f59e24fa48e31f92384d', '119.188.66.213', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471873247, ''),
+('11c829219e77c479042c7472b5f6fc37', '180.153.180.94', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471874065, ''),
+('d7561f4861ee669ef4f83793eecd16a8', '180.97.63.48', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471874318, ''),
+('da2df534e2c078e91ede3cfb8a5d4d5c', '39.9.0.229', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471874510, ''),
+('9b35d987856a3f25b6b8424b02e1378d', '180.76.15.156', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1471874649, ''),
+('8800e72d15ba0721acd9f18475269e14', '111.248.205.232', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471874902, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528508";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:9:"tablelist";}'),
+('b3e0ed5b3823b11c477687238b63b6c1', '114.46.0.230', 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471875201, ''),
+('5beb36ee6719a9f5c5270f30d8b70cc1', '66.249.65.143', 'Googlebot-Video/1.0', 1471876257, ''),
+('c12e07809a00f8662e61c7903b1712ba', '180.97.63.81', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471877268, ''),
+('543585c3db73128724d6c98d3435a1ed', '66.249.69.107', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1471882748, ''),
+('a28bf3abfdaab1216f354322571c79a5', '27.246.27.108', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471880745, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:18:"worktask_list_json";}'),
+('087041b9bfa733378c49ceb61d67acd6', '207.46.13.96', 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)', 1471882928, ''),
+('a3f33d6e6fc62c75e7075ccab63adac5', '180.153.180.115', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471884263, ''),
+('27c23c80a54039e4958bd78c4692fbea', '180.97.62.239', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471885158, ''),
+('7f2c6172e7072ff7f470d84d8ed546ba', '119.188.66.189', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471886086, ''),
+('00b9b620a9b6d631ba5a9033ff9095d1', '27.246.155.166', 'Mozilla/5.0 (iPad; CPU OS 9_3_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13F69 Safari/', 1471886439, ''),
+('d0cd685d9bd76786525c31132f04412e', '185.31.136.59', 'NetLyzer FastProbe (See http://netlyzer.com/report/www.fanswoo.com for info)', 1471887346, ''),
+('e127e1bce4dccca85bb4ba127b802dd3', '66.249.69.103', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1471887917, ''),
+('c194f10ab3d384a8aedd34459db1643d', '207.46.13.96', 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)', 1471890525, ''),
+('9b53191c60c2f9a975c9c5f4d7ab3c35', '119.188.66.173', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471891294, ''),
+('bc1ef64838f818190c8d236c38784a4d', '109.67.18.209', 'Chrome', 1471892632, ''),
+('8de04fff5dfaa7b175f351e062c39dc6', '59.125.106.200', '0', 1471893687, ''),
+('8a1a6819d71ced63fde3485fb7ba083d', '109.67.18.209', 'Chrome', 1471893799, ''),
+('1767bf73ff2ecaf6e08be2c3b0a371a4', '109.67.18.209', 'Chrome', 1471893799, ''),
+('bf7493fe70b9e9a3009d298b40e392b6', '109.67.18.209', 'Chrome', 1471893801, ''),
+('31392cace2c1485243aed048f0021b8d', '109.67.18.209', 'Chrome', 1471893806, ''),
+('44534079904335e3b22f99b69039808f', '54.234.116.162', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.3', 1471895742, ''),
+('b3a26cb2958079ea30c77a7426a7bb2c', '180.76.15.153', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1471897001, ''),
+('fc09d4cf2c6d2d5b012541835eadb400', '180.153.180.76', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471898023, ''),
+('2af2a7d1021dcc25410191144a21b68a', '202.102.99.35', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471899659, ''),
+('820d158b1d4b8bc83359b1b46bb11928', '202.102.99.99', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471900643, ''),
+('d27b69a8d96dd6102a599fa6935cfe7e', '202.102.99.99', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471900829, ''),
+('cb67d8f7eb513bc5a4eaa8e003130cb9', '183.57.153.204', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471900833, ''),
+('c96e003d5d296b25ec8c6cfb01f4a222', '119.188.66.218', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471901202, ''),
+('56f48f6551a625fc148027ee0b452046', '180.97.63.87', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471901261, ''),
+('c30c7ef0b09b60dd9441c24a79b69b3e', '185.31.136.59', 'NetLyzer FastProbe (See http://netlyzer.com/report/www.fanswoo.com for info)', 1471903057, ''),
+('9d4996159d89703978c02c474c9e2e62', '173.252.115.11', '0', 1471908127, ''),
+('4ce162f50fe99870721b188ae72b45f1', '141.212.113.180', '0', 1471910860, ''),
+('3c43932350c8ed3dd717e0084a1a5732', '202.102.99.92', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471911386, ''),
+('f261739333bdf7a4ed2fac6e7b4f291e', '140.207.198.210', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471913926, ''),
+('975901b16c8df9f65520b597ff171176', '207.46.13.96', 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)', 1471914777, ''),
+('22210b24938b99e1bb90be2f2837a553', '122.116.178.68', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471916486, 'a:1:{s:9:"user_data";s:0:"";}'),
+('16854b1525e9d7b2e962c2ff47ea4916', '66.249.93.80', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1471916499, ''),
+('0c232526335763649d34f9daa7e907cb', '1.163.189.224', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471916607, ''),
+('15b85a2812a372be57be51b3fae29262', '66.102.7.142', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1471917041, ''),
+('d7d1414f53d45f9c345b02013e489be9', '60.251.146.176', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko)', 1471917199, ''),
+('2f83bdf23afb770f3e6e5328ea9722b5', '60.251.146.176', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_0 like Mac OS X) AppleWebKit/602.1.38 (KHTML, like Gecko) Version/10.0 Mobile/14A3', 1471917200, ''),
+('5013e44ff40c93d1940d3c6f765bd3b7', '66.220.158.106', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471918396, ''),
+('868e7a7c28ef19dc86ef7cbeb45f4c10', '66.220.158.116', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471918396, ''),
+('7d6c1a4c8fe84cc8aa855678f14425cb', '66.220.158.108', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471918396, ''),
+('fe21a98a54ab25ab0f4d387387d17c6b', '66.220.158.117', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471918399, ''),
+('8f74c4b9ad061183eff13ad8edcd9288', '66.220.158.96', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471918400, ''),
+('6f4262c538e4d0b74352a7e5e2bbc6e1', '211.21.120.2', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36', 1471918432, ''),
+('28b314f9e40fcbd28af0ca891ed101f5', '52.4.244.57', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31', 1471918445, ''),
+('6904b4ad44087ecc39dea0a2127f069f', '66.220.158.96', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471918503, ''),
+('fa60d7fa56f5cdd332c09311f5c14616', '210.61.205.115', 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko', 1471918545, ''),
+('d4b44e140e1eac08232202b1c11d486a', '185.31.136.59', 'NetLyzer FastProbe (See http://netlyzer.com/report/www.fanswoo.com for info)', 1471918646, ''),
+('ce489ec179ec8f898912dbb71bbd4524', '66.102.9.170', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1471918837, ''),
+('ff9b36aeed1afed2a83355c3c2779f12', '66.249.69.36', 'SAMSUNG-SGH-E250/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Browser/6.2.3.3.c.1.101 (GUI) MMP/2.0 (compatible; Googl', 1471918858, ''),
+('077f1804c5942959ca575f197ec717d2', '204.79.180.19', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0;  Trident/5.0)', 1471918988, ''),
+('635534c8e1bf7b60039f2d49a0aa8a9d', '66.102.7.142', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1471919000, ''),
+('a8627ad8dd8d83dc6296f6bec9a841f8', '118.167.47.155', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471919951, ''),
+('4cfe26bcf7bbef8892a1f5f23a265059', '111.250.222.55', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471920339, ''),
+('30a99719287c7b5d3aa9bcf18a8fbd2a', '182.118.21.218', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471920437, ''),
+('2b0cc10aeb8c5f5f0a6000f1240bc5f3', '101.226.167.209', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471920455, ''),
+('f1f502ac33f4898fdf8afe6e2613f968', '182.118.21.217', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471920674, ''),
+('1e3ccc0a4810a1145df13aa6ba3da476', '182.118.20.170', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471920810, ''),
+('b52da35135f1d57a7aad83b1dc2a6b81', '182.118.21.221', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471920816, ''),
+('2e2bcdac8d22b708dd49385234f6d340', '182.118.25.218', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471920817, ''),
+('c7ee28111254d363939cac0e96af5e39', '182.118.21.222', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471920878, ''),
+('20a3201cde351f067b094cb40fee7370', '182.118.20.215', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471920935, ''),
+('ee76c8f54046370fce0a551b862d00b7', '182.118.21.205', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471921039, ''),
+('e8fff57e9eba386ed90010e412ac9bfb', '101.226.168.228', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471921056, ''),
+('24b81281d40a886c3d9931144200b57d', '182.118.25.211', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471921070, ''),
+('0934787e28c445e42187f2ba55a4eb80', '101.226.168.225', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471921084, ''),
+('cb634e2d74acea4909bbc3b8f81ca3ca', '66.249.69.44', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1471921097, ''),
+('77c5c87041c69190b520fa32894d2cfa', '136.243.67.139', 'Mozilla/5.0 (Windows NT 6.1; rv:24.0) Gecko/20100101 Firefox/24.0', 1471921331, ''),
+('99ad4cbfea64c0627b268ace83c891e8', '136.243.67.139', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .', 1471921332, ''),
+('95c194399ed878d9ada83688e807ecc4', '182.118.20.171', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471921567, ''),
+('272c613777fcfa984dfd53e037c20015', '101.226.167.226', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471921572, ''),
+('8d9b274b306972045977985e2699ec4c', '182.118.20.165', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471921584, ''),
+('25c77d4e14f963fe3b432794628d8a54', '182.118.20.163', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471921624, ''),
+('b35caf8d3ff8b7b01c7979c3c00796de', '182.118.21.214', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471921682, ''),
+('c47562634a28ae8d9303ff6bca0c5a44', '101.226.167.211', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471921763, ''),
+('8d5006c2d400cee58fb98200e5b8132e', '122.116.178.68', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471921837, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528505";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:18:"worktask_list_json";}'),
+('d8ec7bb05a1fb269f759959d46e2e37a', '101.226.168.246', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471921846, ''),
+('4d75a7c7898ff8982e5a9c80e2fce483', '101.226.166.234', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471921935, ''),
+('29f3f5953b69d452da4c7e4d694a080a', '182.118.22.220', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471921976, ''),
+('2d7408ec793a81bf34e17e1ee2b2422f', '101.226.169.202', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471922051, ''),
+('37db07d9df0e5c7afc3461d027c7e209', '182.118.20.236', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471922087, ''),
+('9c34cb3b169a56c2d9aee70ceb33e9be', '182.118.21.247', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0); 360Spider(compatible; HaosouSpider; http://www.haosou.c', 1471922153, ''),
+('3a8e0626676220021d32bda2a8f76dcc', '101.226.169.230', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471922241, ''),
+('486b07cb1aeef54973794999f8e14881', '122.116.178.68', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471922268, ''),
+('d8b255b02b90bc314b221c350c2afd51', '220.132.145.199', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471922772, ''),
+('69576c7c983f228c3cfe0cbcc6280edb', '66.102.9.174', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1471922975, ''),
+('d42c0f9c79cf5bdf1cc0c5c392eb4b3a', '180.153.180.113', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471923061, ''),
+('9e73c3612d3c2a81fe22ceefd698894c', '183.136.142.106', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471923108, ''),
+('0ed9a4a7ce6fba0f1f4c50beca5618b6', '66.249.93.80', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1471923108, ''),
+('a95c44bd097f32ad84c16ac33cf46d81', '101.226.167.227', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471923129, ''),
+('0a06c9b7ce93912abac918903e399a73', '101.226.167.229', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471923129, ''),
+('a386faaaf7d06f133c736d8f28d057a1', '101.226.168.235', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1; 360Spider(compatibl', 1471923449, ''),
+('c48c98b5f909ecfbeb52fd033266cab0', '123.125.71.116', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1471923727, ''),
+('fa50d78df4a0c58996e4fef886fb3140', '203.104.145.38', 'facebookexternalhit/1.1;line-poker/1.0', 1471923740, ''),
+('5d9866e5af882ca017abd876651febbc', '180.153.186.79', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471928625, ''),
+('07be3f44e997a74a702f4a6533a56456', '123.0.220.172', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0', 1471924844, ''),
+('56353b01cb2e17ed30c4d4cd819a2c61', '1.34.198.159', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471925835, ''),
+('c872b80900ee9291e3e012321883daec', '66.220.158.101', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)', 1471925962, ''),
+('a5f3a7f4cf8de713c496823ff39101c2', '211.75.169.72', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471926754, ''),
+('c0a96087ba39afb9c950b2021c4c9099', '36.231.75.175', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471926968, ''),
+('689e8fa4eee85a4a98f3ed4ed83cedf2', '59.104.34.79', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471928739, ''),
+('bbc7666f2036102bdd8445310c8206b7', '202.102.99.40', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471929506, ''),
+('aefdac35703f4cd3fa1392a09df58e6c', '66.249.69.40', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1471929587, ''),
+('ab701312db0ea6daeb2dc9b7fade352c', '207.46.13.96', 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)', 1471929979, ''),
+('7427ef55630a8daea5bcbc0e59ff3355', '79.177.151.58', 'Chrome', 1471931689, ''),
+('c52072428f783197e242ab4c631db388', '79.177.151.58', 'Chrome', 1471931690, ''),
+('2f5e4ae0d53d888ab180752c827a005f', '79.177.151.58', 'Chrome', 1471931690, ''),
+('0aa9c9294c12138d1a5977b9265e2b77', '180.153.186.69', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1471932372, ''),
+('d78cc474be122a280ab1c9e11138c506', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471933631, 'a:6:{s:9:"user_data";s:0:"";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:9:"tablelist";s:3:"uid";s:6:"528508";}'),
+('76d4a918f2bd4f939c3a6343f6645ed4', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471936223, 'a:6:{s:9:"user_data";s:0:"";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:18:"worktask_list_json";s:3:"uid";s:6:"528505";}'),
+('20c83270e2da3041053d557d51e540d6', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471940304, 'a:1:{s:9:"user_data";s:0:"";}');
+INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
+('e4d93deb0e065916cdf99a8bcc3571f6', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471940304, ''),
+('2f08e853c16d804bc2ff9513fee15e91', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471941404, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528505";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:9:"tablelist";}');
 
 -- --------------------------------------------------------
 
@@ -1568,9 +1718,13 @@ CREATE TABLE `fs_user` (
 INSERT INTO `fs_user` (`uid`, `email`, `username`, `picids`, `groupids`, `updatetime`, `status`) VALUES
 (528501, 'service@fanswoo.com', '系統管理員', '', '1', '2015-08-15 17:53:45', 1),
 (528504, 'test@fanswoo.com', 'test@fanswoo.com', '', '100', '2015-09-15 22:56:05', 1),
-(528503, 'admin2@fanswoo.com', '郁文', '', '3', '2016-08-20 09:09:40', 1),
+(528503, 'admin2@fanswoo.com', 'admin2', '', '3', '2016-08-22 17:42:10', 1),
 (528502, 'admin@fanswoo.com', '總管理員', '', '2', '2015-09-16 01:33:39', 1),
-(528505, 'mimi@fanswoo.com', 'mimi@fanswoo.com', '', '2', '2015-12-18 11:32:13', 1);
+(528505, 'mimi@fanswoo.com', 'mimi', '', '2', '2016-08-22 17:31:40', 1),
+(528506, 'fishpaypay@fanswoo.com', 'fish', '', '2', '2016-08-22 17:31:14', 1),
+(528507, 'wenyi@fanswoo.com', 'wenyi', '', '2', '2016-08-22 17:30:52', 1),
+(528508, 'william@fanswoo.com', 'william', '', '2', '2016-08-22 17:31:57', 1),
+(528509, 'vivian@fanswoo.com', 'vivian@fanswoo.com', '', '100', '2016-08-23 09:42:24', 1);
 
 -- --------------------------------------------------------
 
@@ -1595,7 +1749,11 @@ INSERT INTO `fs_user_field_shop` (`uid`, `receive_name`, `receive_phone`, `recei
 (528502, '', '', '', 5),
 (528504, 'test', '123', 'rrr', 454),
 (528503, '', '', '', 0),
-(528505, '', '', '', 0);
+(528505, '', '', '', 0),
+(528506, '', '', '', 0),
+(528507, '', '', '', 0),
+(528508, '', '', '', 0),
+(528509, '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1646,7 +1804,11 @@ INSERT INTO `fs_user_verification` (`uid`, `email`, `password`, `password_salt`,
 (528503, 'admin2@fanswoo.com', 'b2b5410b5f94eea7feff94aab7ba763e', 'f3ab44', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528502, 'admin@fanswoo.com', 'caf77603f131efe6b052eba84f65ff9d', 'db5afb', '12345678', '', '0000-00-00 00:00:00', 0, 0),
 (528504, 'test@fanswoo.com', '4476e1b3311ef7703d03d8b7ec4d503c', '4da76f', '12345678', '', '0000-00-00 00:00:00', 0, 0),
-(528505, 'mimi@fanswoo.com', '7b4147d7a28f8b61543b9dffd42f702c', '842bb8', '12345678', '', '0000-00-00 00:00:00', 0, 0);
+(528505, 'mimi@fanswoo.com', '7b4147d7a28f8b61543b9dffd42f702c', '842bb8', '12345678', '', '0000-00-00 00:00:00', 0, 0),
+(528506, 'fishpaypay@fanswoo.com', '1bce513fed4fe54a0410ca0fcbb21566', '54750b', 'fanswoopaypay', '', '0000-00-00 00:00:00', 0, 0),
+(528507, 'wenyi@fanswoo.com', 'e7a68e3b05d1378cf27c0c2b5be70718', '5ecdee', '89650899', '', '0000-00-00 00:00:00', 0, 0),
+(528508, 'william@fanswoo.com', '7f519a87c711cc43a9a496dcc7a57715', 'adf3ea', '2aoxxgju', '', '0000-00-00 00:00:00', 0, 0),
+(528509, 'vivian@fanswoo.com', 'fb9f85ef7953b65da3428c6e0f82b25a', 'd2100b', 'love0960552989', '', '0000-00-00 00:00:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1943,17 +2105,17 @@ ALTER TABLE `fs_pic`
 -- 使用資料表 AUTO_INCREMENT `fs_project`
 --
 ALTER TABLE `fs_project`
-  MODIFY `projectid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528507;
+  MODIFY `projectid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_project_suggest`
 --
 ALTER TABLE `fs_project_suggest`
-  MODIFY `suggestid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `suggestid` mediumint(8) NOT NULL AUTO_INCREMENT;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_project_worktask`
 --
 ALTER TABLE `fs_project_worktask`
-  MODIFY `worktaskid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `worktaskid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_setting`
 --
@@ -1993,12 +2155,12 @@ ALTER TABLE `fs_shop_transport`
 -- 使用資料表 AUTO_INCREMENT `fs_user`
 --
 ALTER TABLE `fs_user`
-  MODIFY `uid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528506;
+  MODIFY `uid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528510;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_user_field_shop`
 --
 ALTER TABLE `fs_user_field_shop`
-  MODIFY `uid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528506;
+  MODIFY `uid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528510;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_user_group`
 --
@@ -2008,7 +2170,7 @@ ALTER TABLE `fs_user_group`
 -- 使用資料表 AUTO_INCREMENT `fs_user_verification`
 --
 ALTER TABLE `fs_user_verification`
-  MODIFY `uid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528506;
+  MODIFY `uid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528510;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_wordpress_order`
 --

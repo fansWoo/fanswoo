@@ -175,7 +175,7 @@ Temp.ready(function(){
                 本次耗用時數
             </div>
             <div class="spanLineLeft">
-                <input type="number" id="this_use_hour" class="text" name="this_use_hour" value="">
+                <input type="number" id="this_use_hour" min="0" class="text" name="this_use_hour" value="">
             </div>
         </div>
     </div>
@@ -188,17 +188,21 @@ Temp.ready(function(){
                 <input type="number" id="estimate_hour" class="text" name="estimate_hour" value="<?=$Worktask->estimate_hour?>">
             </div>
         </div>
-    </div>
+    </div>   
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 累計耗用時數
             </div>
             <div class="spanLineLeft">
-                <input type="number" id="use_hour" class="text" name="use_hour" value="<?=$Worktask->use_hour?>">
+            	<?if(in_array($uid , $admin_uids_arr)):?>
+                <input type="number" id="use_hour" class="text" min="0" name="use_hour" value="<?=$Worktask->use_hour?>">
+                <?else:?>
+                <?=$Worktask->use_hour?>
+                <?endif;?>
             </div>
         </div>
-    </div>
+    </div>  
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -235,11 +239,21 @@ Temp.ready(function(){
                 執行狀態
             </div>
             <div class="spanLineLeft width300">
-                <select name="work_status">
+            	<?if($Worktask->work_status == 2 && !in_array($uid , $admin_uids_arr)):?>
+                <select name="work_status" disabled>
                     <option value="0"<?if($Worktask->work_status == 0):?> selected<?endif?>>任務未完成</option>
                     <option value="1"<?if($Worktask->work_status == 1):?> selected<?endif?>>任務完成，主管檢核中</option>
                     <option value="2"<?if($Worktask->work_status == 2):?> selected<?endif?>>任務完成，主管審核通過</option>
                 </select>
+                <?else:?>
+                <select name="work_status" >
+                    <option value="0"<?if($Worktask->work_status == 0):?> selected<?endif?>>任務未完成</option>
+                    <option value="1"<?if($Worktask->work_status == 1):?> selected<?endif?>>任務完成，主管檢核中</option>
+                    <?if(in_array($uid , $admin_uids_arr)):?>
+                    <option value="2"<?if($Worktask->work_status == 2):?> selected<?endif?>>任務完成，主管審核通過</option>
+                    <?endif;?>
+                </select>
+                <?endif;?>
             </div>
         </div>
     </div>

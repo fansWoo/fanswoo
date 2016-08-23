@@ -39,12 +39,40 @@ class Project_Controller extends MY_Controller {
         		'limitstart' => 0,
         		'limitcount' => 100
         ]);
-               
         
+        $data['use_hour_total_arr']=array();
+        $data['estimate_hour_total_arr']=array();
+        
+                       
         //新增專案不用撈計時資料
         if(!empty($data['projectid'])){
         	
-        	$Worktask = new ObjList([
+        	foreach ($data['WorktaskClassMetaList']->obj_arr as $key => $value_WorktaskClassMeta){
+        		 
+        		$WorktaskList = new ObjList([
+        				'db_where_arr' => [
+        					'projectid' => $data['projectid'],
+        					'classids' =>$value_WorktaskClassMeta->classid
+        				],
+        				'obj_class' => 'Worktask',
+        				'limitstart' => 0,
+        				'limitcount' => 100
+        		]);
+        		
+        		$use_hour_total=0;
+        		$estimate_hour_total=0;
+        		foreach ($WorktaskList->obj_arr as $key2 =>$value_Worktask){
+        			$use_hour_total=$use_hour_total+$value_Worktask->use_hour;
+        			$estimate_hour_total=$estimate_hour_total+$value_Worktask->estimate_hour;
+        		}
+        		$data['use_hour_total_arr'][$value_WorktaskClassMeta->classid]=$use_hour_total;
+        		$data['estimate_hour_total_arr'][$value_WorktaskClassMeta->classid]=$estimate_hour_total;
+        		
+        	}
+//         	ec2($data['use_hour_total_arr']);
+        	
+        	//加總不分classids物件
+        	$for_total_WorktaskList = new ObjList([
         			'db_where_arr' => [
         					'projectid' => $data['projectid']
         			],
@@ -52,27 +80,22 @@ class Project_Controller extends MY_Controller {
         			'limitstart' => 0,
         			'limitcount' => 100
         	]);
-        	 
+        	
         	$data['use_hour_all']=0;  //專案總耗用工時
         	$data['estimate_hour_all']=0; //專案總預估工時
         	$data['unfinish_job']=0;   //尚未完成總數
         	
-        	foreach ($Worktask->obj_arr as $key => $value){
-        		$data['use_hour_all'] += $value->use_hour;
-        		$data['estimate_hour_all'] += $value->estimate_hour;
+        	foreach ($for_total_WorktaskList->obj_arr as $key3 => $value_for_total_Worktask){
+        		$data['use_hour_all'] += $value_for_total_Worktask->use_hour;
+        		$data['estimate_hour_all'] += $value_for_total_Worktask->estimate_hour;
         		 
         		//未完成總數
-        		if($value->work_status == 0){
+        		if($value_for_total_Worktask->work_status == 0){
         			$data['unfinish_job']++;
         		}
         	}
         }
         
-        
-        
-        $data['use_hour_total_arr']=json_decode($data['Project']->use_hour_total,true);
-//         ec2($data['use_hour_total_arr'][17]);
-        $data['estimate_hour_total_arr']=json_decode($data['Project']->estimate_hour_total,true);
 
         $data['class2_ClassMetaList'] = new ObjList();
         $data['class2_ClassMetaList']->construct_db(array(
@@ -162,36 +185,36 @@ class Project_Controller extends MY_Controller {
         ));
 
         //清空所有 projectid 等於這個專案但是 uid 不在此存取權限內的任務
-        $WorktaskList = new ObjList([
-            'db_where_arr' => [
-                [
-                    'projectid' => $projectid,
-                    'uid !=' => $Project->uid
-                ],
-                [
-                    'projectid' => $projectid,
-                    'uid not in' => $Project->admin_uids_UserList->uniqueids_arr
-                ],
-                [
-                    'projectid' => $projectid,
-                    'uid not in' => $Project->customer_uids_UserList->uniqueids_arr
-                ],
-                [
-                    'projectid' => $projectid,
-                    'uid not in' => $Project->permission_uids_UserList->uniqueids_arr
-                ]
-            ],
-            'db_where_deletenull_bln' => TRUE,
-            'obj_class' => 'Worktask',
-            'limitstart' => 0,
-            'limitcount' => 100
-        ]);
+//         $WorktaskList = new ObjList([
+//             'db_where_arr' => [
+//                 [
+//                     'projectid' => $projectid,
+//                     'uid !=' => $Project->uid
+//                 ],
+//                 [
+//                     'projectid' => $projectid,
+//                     'uid not in' => $Project->admin_uids_UserList->uniqueids_arr
+//                 ],
+//                 [
+//                     'projectid' => $projectid,
+//                     'uid not in' => $Project->customer_uids_UserList->uniqueids_arr
+//                 ],
+//                 [
+//                     'projectid' => $projectid,
+//                     'uid not in' => $Project->permission_uids_UserList->uniqueids_arr
+//                 ]
+//             ],
+//             'db_where_deletenull_bln' => TRUE,
+//             'obj_class' => 'Worktask',
+//             'limitstart' => 0,
+//             'limitcount' => 100
+//         ]);
 
-        foreach( $WorktaskList->obj_arr as $key => $value_Worktask)
-        {
-            $value_Worktask->projectid = 0;
-            $value_Worktask->update();
-        }
+//         foreach( $WorktaskList->obj_arr as $key => $value_Worktask)
+//         {
+//             $value_Worktask->projectid = 0;
+//             $value_Worktask->update();
+//         }
 
         //送出成功訊息
         $this->load->model('Message');

@@ -82,6 +82,7 @@ Temp.ready(function() {
             $clone.find('#end_time').val( end._d.getFullYear() + '-' + (end._d.getMonth() + 1) + '-' + ( end._d.getDate() - 1) + ' 00:00:00' );
             $clone.find("#projectid > option[value='" + $("#search_projectid").val() + "']").prop('selected', true);
             $clone.find("#uid > option[value='" + $("#search_uid").val() + "']").prop('selected', true);
+            
 
             CKEDITOR.replace( 'content', {
                 toolbar: 'basic',
@@ -103,7 +104,7 @@ Temp.ready(function() {
             $('.fixed_window_close_bg').css('display', 'block');;
             $clone.insertBefore(".fixed_window").addClass('display').css('display', 'block');
 
-
+            console.log(event);
             var start_time_Date = new Date( event.start._d.getFullYear() + '-' + (event.start._d.getMonth() + 1) + '-' + event.start._d.getDate() + ' 00:00:00' );
             // start_time_Date.setDate( start_time_Date.getDate() + 0 );
             var start_time_str = start_time_Date.getFullYear() + '-' + ( start_time_Date.getMonth() + 1) + '-' + start_time_Date.getDate() + ' 00:00:00';
@@ -121,6 +122,7 @@ Temp.ready(function() {
             $clone.find('#use_hour').val( event.use_hour );
             $clone.find("#projectid > option[value='" + event.projectid + "']").prop('selected', true);
             $clone.find("#uid > option[value='" + event.uid + "']").prop('selected', true);
+            $clone.find("#current_percent > option[value='" + event.current_percent + "']").prop('selected', true);
             $clone.find("#classids > option[value='" + event.classids + "']").prop('selected', true);
             $clone.find("#work_status > option[value='" + event.work_status + "']").prop('selected', true);
             $clone.find('.detail').attr( 'href', $('base').attr('href') + 'admin/project/worktask/worktask/edit/?worktaskid=' + event.worktaskid );
@@ -160,6 +162,7 @@ Temp.ready(function() {
                 title: event.title,
                 use_hour: event.use_hour,
                 estimate_hour: event.estimate_hour,
+                current_percent:event.current_percent,
                 start_time: start_time_str,
                 end_time: end_time_str,
                 work_status: event.work_status,
@@ -198,7 +201,8 @@ Temp.ready(function() {
                 uid: event.uid,
                 classids: event.classids,
                 title: event.title,
-                use_hour: event.use_hour,
+                current_percent:event.current_percent,
+                use_hour: event.use_hour,                
                 estimate_hour: event.estimate_hour,
                 start_time: start_time_str,
                 end_time: end_time_str,
