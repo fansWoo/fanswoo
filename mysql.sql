@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-08-20 17:26:20
+-- 產生時間： 2016-08-23 05:32:51
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 7.0.8
 
@@ -407,7 +407,9 @@ INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `admin_uids`, `customer_ui
 (528501, 528502, '日月光基金會', '528505', '528505', '528503,528505', 50, '{"17":8}', '{"17":4}', '1', '張琬君', '(700)1234567-1234567', 267750, 267750, 75, 0, '2015-12-05 15:00:00', '無', 1, 1, 2, '2015-12-30 00:00:00', '2016-02-18 00:00:00', '2016-08-20 10:02:23', 1),
 (528502, 528502, '長安旅行社', '', '', '', 60, '', '', '1', 'Mimi Chang', '(700)1111111-2222222', 291900, 204310, 33, 0, '2015-12-07 14:50:00', '付款備註', 1, 0, 2, '2015-12-07 00:00:00', '2016-02-05 00:00:00', '2016-08-20 09:58:31', 1),
 (528503, 528502, 'test', '0', '0', '', 0, '', '', '', '', '', 0, 0, 0, 0, '2016-06-07 23:10:15', '', 0, 0, 1, '2016-06-07 23:10:15', '1970-01-01 08:00:00', '2016-06-07 23:10:15', -1),
-(528504, 528502, 'test', '0', '0', '', 0, '', '', '', '', '', 0, 0, 0, 0, '2016-06-07 23:10:18', '', 0, 0, 1, '2016-06-07 23:10:18', '1970-01-01 08:00:00', '2016-06-07 23:10:18', -1);
+(528504, 528502, 'test', '0', '0', '', 0, '', '', '', '', '', 0, 0, 0, 0, '2016-06-07 23:10:18', '', 0, 0, 1, '2016-06-07 23:10:18', '1970-01-01 08:00:00', '2016-06-07 23:10:18', -1),
+(528505, 528502, '日月光', '', '', '', 60, '', '', '1', '', '', 0, 0, 0, 0, '2016-08-22 17:50:08', '', 0, 0, 2, '2016-08-01 00:00:00', '2016-09-30 00:00:00', '2016-08-22 17:50:08', 1),
+(528506, 528502, '日月光', '', '', '528505', 60, '', '', '1', '', '', 0, 0, 0, 0, '2016-08-22 17:50:30', '', 0, 0, 2, '2016-08-01 00:00:00', '2016-09-30 00:00:00', '2016-08-22 17:50:30', -1);
 
 -- --------------------------------------------------------
 
@@ -466,8 +468,8 @@ CREATE TABLE `fs_project_worktask` (
 --
 
 INSERT INTO `fs_project_worktask` (`worktaskid`, `projectid`, `uid`, `title`, `content`, `classids`, `current_percent`, `estimate_hour`, `use_hour`, `start_time`, `end_time`, `prioritynum`, `work_status`, `status`) VALUES
-(1, 528501, 528505, '加一些什麼什麼的系統', '修正首頁美術圖稿2', '17', 30, 12, 8, '2016-08-08 00:00:00', '2016-08-12 00:00:00', 0, 2, 1),
-(2, 528501, 528502, 'test', '', '17', 0, 8, 16, '2016-06-13 00:00:00', '2016-06-15 00:00:00', 0, 2, 1),
+(1, 0, 528505, '加一些什麼什麼的系統', '修正首頁美術圖稿2', '17', 30, 12, 8, '2016-08-08 00:00:00', '2016-08-12 00:00:00', 0, 2, 1),
+(2, 0, 528502, 'test', '', '17', 0, 8, 16, '2016-06-13 00:00:00', '2016-06-15 00:00:00', 0, 2, 1),
 (3, 528501, 0, 'test', 'test', '17', 0, 8, 8, '2016-06-13 12:00:00', '2016-06-14 12:00:00', 0, 2, -1),
 (4, 528501, 0, '網頁 HTML BUG 修正2', '首頁有 BUG<br />\n超連結連錯地方了<br />\n<br />\n<span style="color:#FF0000">客人在催，請於今天修正完畢</span>', '12', 0, 16, 0, '2016-06-13 12:00:00', '2016-06-15 12:00:00', 0, 0, -1),
 (5, 528501, 0, '網頁 HTML BUG 修正4', '首頁有 BUG<br />\n超連結連錯地方了<br />\n<br />\n<span style="color:#FF0000">客人在催，請於今天修正完畢</span>', '12', 0, 16, 0, '2016-06-13 12:00:00', '2016-06-17 12:00:00', 0, 0, -1),
@@ -1100,7 +1102,11 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('59a70320440893fe73c8b1de87f1a1a9', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1470386240, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:18:"worktask_list_json";}'),
 ('03d09de5fbb06ec00344632fba45bab8', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471594039, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:9:"tablelist";}'),
 ('792e72e19418cf3755c8f587fa881470', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471657658, 'a:1:{s:9:"user_data";s:0:"";}'),
-('c03d26fd8905d00c029f8c8e08b47a62', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471657668, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:7:"project";s:17:"last_admin_child3";s:7:"project";s:17:"last_admin_child4";s:4:"edit";}');
+('c03d26fd8905d00c029f8c8e08b47a62', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471657668, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:7:"project";s:17:"last_admin_child3";s:7:"project";s:17:"last_admin_child4";s:4:"edit";}'),
+('5305a2be1c9b354305167988d4b69f11', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471839410, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:18:"worktask_list_json";}'),
+('b0d6e48c5230c323e3b0b2db90a08a65', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471840040, ''),
+('c6a57fad32048c7c9f3fdf0cc5d75397', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471840040, ''),
+('7daddd1ce327b77f513be85281cf4f4c', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471840078, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:7:"project";s:17:"last_admin_child3";s:7:"project";s:17:"last_admin_child4";s:4:"edit";}');
 
 -- --------------------------------------------------------
 
@@ -1937,7 +1943,7 @@ ALTER TABLE `fs_pic`
 -- 使用資料表 AUTO_INCREMENT `fs_project`
 --
 ALTER TABLE `fs_project`
-  MODIFY `projectid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528505;
+  MODIFY `projectid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528507;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_project_suggest`
 --
