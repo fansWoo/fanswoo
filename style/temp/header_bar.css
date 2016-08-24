@@ -39,7 +39,7 @@ html.agent-ie9 .logoFixed { background-image: url(../../img/logo.png); }
 
 .index_topHeader { display:none; position:fixed; width:100%; height:60px; top:0; background: rgba(0, 0, 0, 0.8); z-index:99999; }
 body.start .index_topHeader { display:block; -webkit-animation:p201407240427 1s; animation:p201407240427 1s; }
-body.start .index_topHeader.hover{display:block;z-index:111; height:75px;}
+body.start .index_topHeader.hover{display:block;z-index:111; height:60px;}
 @-webkit-keyframes p201407240427{
 	0%{ -webkit-transform: translate(0, -60px); opacity:0; }
 	100%{ -webkit-transform: translate(0, 0); opacity:1; }
@@ -121,6 +121,7 @@ body.start .scroll_top.unhover{ display:none; }
 
 	.logoFixed { display: block; position:fixed; left:50%; top:10px; margin-left:-600px; width:160px; height:60px; padding:0;}
 	.index_topHeader { height:75px; }
+	body.start .index_topHeader.hover{display:block;z-index:111; height:75px;}
 	.index_topHeader .center{width:1300px;margin:0 auto;}
 	.index_topHeader .navBar { width:500px; float:right; margin:0 auto; }
 	.index_topHeader .navBar .box{width:120px;height:60px; position:relative;float:left; text-align:center;}
