@@ -98,6 +98,9 @@ $(function(){
 
 			$('.price_choose').css('display', 'block');
 			$('.price_choose').prepend('<p>預算選擇</p>');
+
+			//點選第一個預算選項
+			$('.price_choose .choose_box:eq(0)').click();
 		});
 	})
 　　.fail(function(response){ // 如果 AJAX 取值錯誤的話，執行此行

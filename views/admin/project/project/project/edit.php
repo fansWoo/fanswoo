@@ -107,6 +107,16 @@ Temp.ready(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                專案擁有人 email
+            </div>
+            <div class="spanLineLeft width400">
+                <input type="text" class="text" name="user_email" placeholder="請輸入專案名稱" value="<?=$Project->uid_User->email?>">
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 專案主管 email
             </div>
             <div class="spanLineLeft width300">

@@ -142,6 +142,7 @@ class Project_Controller extends MY_Controller {
         //基本post欄位
         $projectid = $this->input->post('projectid', TRUE);
         $name = $this->input->post('name', TRUE, '專案名稱', 'required');
+        $user_email = $this->input->post('user_email', TRUE, '專案擁有人 email', 'required');
         $customer_emails = $this->input->post('customer_emails', TRUE);
         $admin_emails = $this->input->post('admin_emails', TRUE);
         $permission_emails = $this->input->post('permission_emails', TRUE);
@@ -158,6 +159,7 @@ class Project_Controller extends MY_Controller {
         //建構Project物件，並且更新
         $Project = new Project([
             'projectid' => $projectid,
+            'user_email' => $user_email,
             'name' => $name,
             'working_days' => $working_days,
             'classids_arr' => $classids_arr,
@@ -172,6 +174,7 @@ class Project_Controller extends MY_Controller {
         $Project->update(array(
             'db_update_arr' => array(
                 'name',
+                'uid',
                 'admin_uids',
                 'customer_uids',
                 'permission_uids',

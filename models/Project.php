@@ -4,7 +4,8 @@ class Project extends ObjDbBase
 {
 
     public $projectid = 0;
-    public $uid = 0;
+    // public $uid = 0;
+    public $uid_User;
     public $name = '';
     public $admin_uids_UserList = '';
     public $customer_uids_UserList = '';
@@ -32,7 +33,7 @@ class Project extends ObjDbBase
     public $db_uniqueid = 'projectid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_arr = [//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
         'projectid' => 'projectid',
-        'uid' => 'uid',
+        'uid' => ['uid_User', 'uid'],
         'name' => 'name',
         'admin_uids' => ['admin_uids_UserList', 'uniqueids'],
         'customer_uids' => ['customer_uids_UserList', 'uniqueids'],
@@ -61,7 +62,6 @@ class Project extends ObjDbBase
 	public function construct($arg = [])
 	{
         $this->set('projectid', $arg['projectid']);
-        $this->set('uid', $arg['uid']);
         $this->set('name', $arg['name']);
         $this->set('working_days', $arg['working_days']);
         $this->set('estimate_hour_total', $arg['estimate_hour_total']);
@@ -92,8 +92,8 @@ class Project extends ObjDbBase
             'datetime' => $arg['updatetime']
         ], 'DateTimeObj');
         $this->set('status', $arg['status']);
-        $this->set__uid(['uid' => $arg['uid']]);
-        $this->set__uid_User(['uid' => $arg['uid']]);
+        // $this->set__uid(['uid' => $arg['uid']]);
+        $this->set__uid_User(['uid' => $arg['uid'], 'email' => $arg['user_email']]);
         $this->set__pay_price_schedule();
         $this->set__permission_uids_UserList([
             'uids' => $arg['permission_uids'],
