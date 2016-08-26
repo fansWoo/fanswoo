@@ -6,6 +6,7 @@ $config['default_page'] = [
 	1 => 'admin/base/global/global/global_setting',
 	2 => 'admin/base/global/global/global_setting',
 	3 => 'admin/base/global/global/global_setting',
+	4 => 'admin/project/worktask/worktask/calendar',
 	100 => 'admin/user/global/global/user',
 	101 => 'admin/user/global/global/user'
 ];
@@ -595,26 +596,8 @@ $config['admin_sidebox'] = array(
 		// 	)
 		// ),
 		'project' => array(
-			'title' => '專案系統',
+			'title' => '公司內部管理',
 			'child2' => array(
-				'my_project' => array(
-					'title' => '我的專案',
-					'child3' => array(
-						'project' => array(
-							'title' => '我的專案',
-							'child4' => array(
-								'edit' => array(
-									'title' => '編輯',
-									'purview_groupids' => [100]
-								),
-								'tablelist' => array(
-									'title' => '列表',
-									'purview_groupids' => [100]
-								)
-							)
-						)
-					)
-				),
 				'project' => array(
 					'title' => '專案管理',
 					'child3' => array(
@@ -623,15 +606,15 @@ $config['admin_sidebox'] = array(
 							'child4' => array(
 								'edit' => array(
 									'title' => '編輯',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 								),
 								'tablelist' => array(
 									'title' => '列表',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 								),
 								'gantt' => array(
 									'title' => '甘特圖',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 								)
 							)
 						),
@@ -640,11 +623,11 @@ $config['admin_sidebox'] = array(
 						 	'child4' => array(
 						 		'edit' => array(
 						 			'title' => '編輯',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 						 		),
 						 		'tablelist' => array(
 						 			'title' => '列表',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 						 		)
 						 	)
 						),
@@ -653,11 +636,11 @@ $config['admin_sidebox'] = array(
 							'child4' => array(
 								'edit' => array(
 									'title' => '編輯',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 								),
 								'tablelist' => array(
 									'title' => '列表',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 								)
 							)
 						)
@@ -671,24 +654,42 @@ $config['admin_sidebox'] = array(
 							'child4' => array(
 								'edit' => array(
 									'title' => '編輯',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 								),
 								'tablelist' => array(
 									'title' => '任務列表',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 								),
 								'calendar' => array(
 									'title' => '任務日曆',
-									'purview_groupids' => [2]
+									'purview_groupids' => [2, 3, 4]
 								),
 								'worktask_list_json' => array(
-									'purview_groupids' => [2],
+									'purview_groupids' => [2, 3, 4],
 									'sidebar_hidden' => TRUE
 								)
 							)
 						),
 						'classmeta' => array(
 							'title' => '任務分類',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2, 3, 4]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2, 3, 4]
+								)
+							)
+						)
+					)
+				),
+				'sales_target' => array(
+					'title' => '業績進度管理',
+					'child3' => array(
+						'sales_target' => array(
+							'title' => '業績進度',
 							'child4' => array(
 								'edit' => array(
 									'title' => '編輯',
@@ -703,10 +704,41 @@ $config['admin_sidebox'] = array(
 					)
 				),
 				'sales_target' => array(
-					'title' => '業績進度管理',
+					'title' => '款項收入管理',
 					'child3' => array(
 						'sales_target' => array(
-							'title' => '業績進度',
+							'title' => '收入進度',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						)
+					)
+				),
+				'sales_target' => array(
+					'title' => '客戶關係管理',
+					'child3' => array(
+						'sales_target' => array(
+							'title' => '客戶資料',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						),
+						'sales_target' => array(
+							'title' => '拜訪紀錄',
 							'child4' => array(
 								'edit' => array(
 									'title' => '編輯',
