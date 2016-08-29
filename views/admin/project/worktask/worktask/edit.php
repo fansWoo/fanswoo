@@ -198,7 +198,7 @@ Temp.ready(function(){
             	<?if(in_array($uid , $admin_uids_arr)):?>
                 <input type="number" id="use_hour" class="text" min="0" name="use_hour" value="<?=$Worktask->use_hour?>">
                 <?else:?>
-                <?=$Worktask->use_hour?>
+                <input type="number" id="use_hour" class="text" min="0" name="use_hour" value="<?=$Worktask->use_hour?>" readonly>
                 <?endif;?>
             </div>
         </div>
