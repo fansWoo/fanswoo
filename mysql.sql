@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-08-23 12:35:09
+-- 產生時間： 2016-08-30 13:17:16
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 7.0.8
 
@@ -160,7 +160,8 @@ CREATE TABLE `fs_contact` (
 --
 
 INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, `content`, `status_process`, `classtype`, `classtype2`, `address`, `money`, `updatetime`, `locale`, `status`) VALUES
-(1, 'Mimi', 'mimi@fanswoo.com', '0912345678', 'fanswoo', 'Hello', 1, '程式系統開發', '手機App開發', '台北市重慶北路四段 248 號 3 樓', '15萬元以下', '2015-10-14 16:12:59', '', 1);
+(1, 'Mimi', 'mimi@fanswoo.com', '0912345678', 'fanswoo', 'Hello', 1, '程式系統開發', '手機App開發', '台北市重慶北路四段 248 號 3 樓', '15萬元以下', '2015-10-14 16:12:59', '', 1),
+(2, 'pei', 'fishpaypay@fanswoo.com', '0912345678', 'fanswoo', '456-0830', 1, 'website', 'graphic_website', '1325', '1', '2016-08-30 18:22:44', '', 1);
 
 -- --------------------------------------------------------
 
@@ -1256,7 +1257,20 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('20c83270e2da3041053d557d51e540d6', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471940304, 'a:1:{s:9:"user_data";s:0:"";}');
 INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
 ('e4d93deb0e065916cdf99a8bcc3571f6', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1471940304, ''),
-('2f08e853c16d804bc2ff9513fee15e91', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471941404, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528505";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:9:"tablelist";}');
+('2f08e853c16d804bc2ff9513fee15e91', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1471941404, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528505";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"worktask";s:17:"last_admin_child3";s:8:"worktask";s:17:"last_admin_child4";s:9:"tablelist";}'),
+('7b1a5d0f43ac6f0df1df2fe706a4e027', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472528264, ''),
+('56af7b6f2b079f530f63798266376443', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1472531212, ''),
+('504b19b6c6e3e6ddc879c99cbcab3bb2', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472531214, ''),
+('977c648a6f185006e988f633ff1f61d6', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1472537071, ''),
+('b4990682310a400d0615b7b5cf5b8329', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537124, ''),
+('43bfeb1dc302392cbc28f4077a78ad31', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537352, ''),
+('404dd3d7d1610ce537236c002d14fdd2', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; MASBJS; rv:11.0) like Gecko', 1472537505, ''),
+('796fac77ef9f656088379d12f63945f6', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537595, ''),
+('cdb6b95277a41c7c4916adb37a35b454', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537617, ''),
+('31ae328042f61bd09003569622befc65', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537659, ''),
+('176bb1474973d2a671d1fc6d2cb5c85a', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537731, ''),
+('02aba607dbaacab432832a6d086d1cde', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537738, ''),
+('74fa79a619b0d7d2c24055532dd83097', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537840, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:7:"contact";s:17:"last_admin_child3";s:7:"contact";s:17:"last_admin_child4";s:4:"edit";}');
 
 -- --------------------------------------------------------
 
@@ -2055,7 +2069,7 @@ ALTER TABLE `fs_comment`
 -- 使用資料表 AUTO_INCREMENT `fs_contact`
 --
 ALTER TABLE `fs_contact`
-  MODIFY `contactid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `contactid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_faq`
 --

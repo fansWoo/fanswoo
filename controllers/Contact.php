@@ -24,7 +24,7 @@ class Contact_Controller extends MY_controller
         $data = $this->data;
 
         $data['previous_url'] = $_SERVER['PHP_SELF'];
-
+        // ec($data['previous_url']);
         //global
         $data['global']['style'][] = 'temp/global.css';
         $data['global']['style'][] = 'temp/header_bar.css';
@@ -55,6 +55,8 @@ class Contact_Controller extends MY_controller
         $this->form_validation->set_rules('address', '公司地址', 'required');
         // $this->form_validation->set_rules('content', '聯繫內容', 'required');
         $this->form_validation->set_rules('classtype', '詢問項目', 'required');
+        $this->form_validation->set_rules('classtype2', '詢問細節','required');
+
         // $this->form_validation->set_rules('classtype2', '主要項目', 'required');
         $this->form_validation->set_rules('money', '預算', 'required');
 

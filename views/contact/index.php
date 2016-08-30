@@ -354,19 +354,19 @@ $(function(){
 					</div> -->
 					<div class="area">
 						<p>詢問項目</p>
-						<select class="need" name="classtype" required>
+						<select class="need" name="classtype">
 							<option value="請先選擇主要詢問項目">請先選擇主要詢問項目</option>
 						</select>
 					</div>
 					<div class="area">
 						<p>項目細節</p>
-						<select class="need_child">
+						<select class="need_child" name="classtype2">
 							<option value="請先選擇主要詢問項目">請先選擇主要詢問項目</option>
 						</select>
 					</div>
 					<div class="area phone">
 						<p>您的預算</p>
-						<select class="money">
+						<select class="money" name="money">
 							<option value="請先選擇預算金額">請先選擇預算金額</option>
 						</select>
 						<div class="textContactFormMoneyFixed">
@@ -513,22 +513,22 @@ $(function(){
 					</div> -->
 					<div class="area">
 						<span>詢問項目：</span>
-						<select class="need" name="classtype" required>
+						<select class="need" name="classtype">
 							<option value="請先選擇主要詢問項目">請先選擇主要詢問項目</option>
 						</select>
 					</div>
 					<div class="area">
 						<span>項目細節：</span>
-						<select class="need_child">
+						<select class="need_child" name="classtype2">
 							<option value="請先選擇主要詢問項目">請先選擇主要詢問項目</option>
 						</select>
 					</div>
-					<div class="area phone">
+					<div class="area phone" >
 						<div class="textContactFormMoneyFixed">
 							<span>預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價</span>
 						</div>
 						<span>您的預算：</span>
-						<select class="money">
+						<select class="money" name="money">
 							<option value="請先選擇預算金額">請先選擇預算金額</option>
 						</select>
 						
@@ -538,7 +538,7 @@ $(function(){
 					<?=validation_errors()?>
 					<p>您的姓名：<input type="text" class="name" name="name" placeholder="請填寫您的姓名"></p>
 					<p>公司名稱：<input type="text" class="company" name="company" placeholder="請填寫公司名稱"></p>
-					<p>聯繫電話：<input type="text" class="telphone" name="telphone" placeholder="請填寫聯繫電話"></p>
+					<p>聯繫電話：<input type="text" class="telphone" name="phone" placeholder="請填寫聯繫電話"></p>
 					<p>電子郵件：<input type="text" class="email" name="email" placeholder="請填寫電子郵件"></p>
 					<p>公司地址：<input type="text" class="address" name="address" placeholder="請填寫公司地址"></p>
 					<textarea name="text"></textarea>
