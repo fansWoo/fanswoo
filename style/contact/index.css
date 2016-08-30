@@ -133,8 +133,8 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 .pc_content .textContactForm .textContactFormContent .rightBox input.company ,
 .pc_content .textContactForm .textContactFormContent .rightBox input.telphone { padding:3px 5px; letter-spacing:2px; border:1px solid #888; }
 .pc_content .textContactForm .textContactFormContent .rightBox .contactSubmit:hover { background:#999; border:1px solid #777; }
-.pc_content .textContactForm .textContactFormContent .leftBox { width:220px; margin-bottom:15px; letter-spacing:2px; }
-.pc_content .textContactForm .textContactFormContent .leftBox .area { display:block; height:40px; overflow:hidden; line-height:47px; }
+.pc_content .textContactForm .textContactFormContent .leftBox { width:228px; margin-bottom:15px; letter-spacing:2px; }
+.pc_content .textContactForm .textContactFormContent .leftBox .area { display:block; height:40px; overflow:hidden; line-height:47px; font-size:13px; }
 .pc_content .textContactForm .textContactFormContent .leftBox .area select { width:150px; float:right; margin-top:10px; line-height:50px; padding:3px 5px; letter-spacing:2px; height:30px; vertical-align:middel; }
 .pc_content .textContactForm .textContactFormContent .leftBox .area option { padding:5px; }
 .pc_content .textContactForm h2 { margin-bottom:10px; color:#666; font-size:22px; }
