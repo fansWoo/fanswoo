@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-08-31 06:22:39
+-- 產生時間： 2016-08-31 12:15:45
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 7.0.8
 
@@ -160,7 +160,7 @@ CREATE TABLE `fs_contact` (
 --
 
 INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, `content`, `status_process`, `classtype`, `classtype2`, `address`, `budget_range`, `updatetime`, `locale`, `status`) VALUES
-(4, 'peipei', 'fishpaypay@fanswoo.com', '0945678912', '積電', '安安', 2, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '台北市999999', '50~100萬', '2016-08-31 12:01:27', 'zh-TW', 1);
+(4, 'peipei', 'fishpaypay@fanswoo.com', '0945678912', '積電', '安安', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '台北市999999', '50~100萬', '2016-08-31 12:01:27', 'zh-TW', 1);
 
 -- --------------------------------------------------------
 
@@ -225,17 +225,18 @@ CREATE TABLE `fs_note` (
   `noteid` mediumint(8) NOT NULL,
   `uid` mediumint(8) NOT NULL DEFAULT '0',
   `title` char(50) NOT NULL DEFAULT '',
-  `username` char(30) NOT NULL DEFAULT '',
-  `slug` char(100) NOT NULL,
-  `picids` char(100) NOT NULL DEFAULT '',
-  `classids` char(100) NOT NULL DEFAULT '',
-  `modelname` char(100) NOT NULL DEFAULT '',
-  `viewnum` mediumint(8) NOT NULL DEFAULT '0',
-  `replynum` mediumint(8) NOT NULL DEFAULT '0',
-  `prioritynum` mediumint(8) NOT NULL DEFAULT '0',
-  `updatetime` datetime NOT NULL,
-  `locale` char(5) NOT NULL,
-  `shelves_status` int(1) NOT NULL,
+  `username` char(30) DEFAULT '',
+  `slug` char(100) DEFAULT NULL,
+  `href` char(100) DEFAULT NULL,
+  `picids` char(100) DEFAULT '',
+  `classids` char(100) DEFAULT '',
+  `modelname` char(100) DEFAULT '',
+  `viewnum` mediumint(8) DEFAULT '0',
+  `replynum` mediumint(8) DEFAULT '0',
+  `prioritynum` mediumint(8) DEFAULT '0',
+  `updatetime` datetime DEFAULT NULL,
+  `locale` char(5) DEFAULT NULL,
+  `shelves_status` int(1) DEFAULT NULL,
   `status` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -243,18 +244,24 @@ CREATE TABLE `fs_note` (
 -- 資料表的匯出資料 `fs_note`
 --
 
-INSERT INTO `fs_note` (`noteid`, `uid`, `title`, `username`, `slug`, `picids`, `classids`, `modelname`, `viewnum`, `replynum`, `prioritynum`, `updatetime`, `locale`, `shelves_status`, `status`) VALUES
-(528501, 528501, '網頁設計的價差為什麼這麼大？在花錢買教訓之前，先瞭解台灣網頁設計的市場現況', '', '', '4', '', 'note', 0, 0, 0, '2015-07-09 02:23:26', 'zh-TW', 1, 1),
-(528502, 528501, '誰說投資一定要花錢？不花錢的投資才是真正的投資', '', '', '5', '', 'note', 0, 0, 0, '2015-07-09 02:25:20', 'zh-TW', 1, 1),
-(528503, 528502, 'test', '', 'da96b99a', '', '', 'note', 0, 0, 0, '2016-06-24 10:21:59', 'zh-TW', 1, 1),
-(528504, 528502, 'test', '', '1c5ffb49', '', '', 'note', 0, 0, 0, '2016-06-24 10:22:24', 'zh-TW', 1, 1),
-(528505, 528502, 'test', '', '42414d8c', '', '', 'note', 0, 0, 0, '2016-06-24 10:25:48', 'zh-TW', 1, 1),
-(528506, 528502, 'test', '', '9920e70d', '', '', 'note', 0, 0, 0, '2016-06-24 10:26:15', 'zh-TW', 1, 1),
-(528507, 528502, '122', '', 'dd52687e', '', '', 'note', 0, 0, 0, '2016-06-24 10:28:23', 'zh-TW', 1, 1),
-(528508, 528502, 'testttt', '', 'cdb89607', '', '', 'note', 0, 0, 0, '2016-06-24 11:19:30', 'zh-TW', 1, 1),
-(528509, 528502, '555', '', '902c9fad', '', '', 'note', 0, 0, 0, '2016-06-24 11:20:04', 'zh-TW', 1, 1),
-(528510, 0, '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00', '', 0, 0),
-(528511, 0, '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00', '', 0, 0);
+INSERT INTO `fs_note` (`noteid`, `uid`, `title`, `username`, `slug`, `href`, `picids`, `classids`, `modelname`, `viewnum`, `replynum`, `prioritynum`, `updatetime`, `locale`, `shelves_status`, `status`) VALUES
+(528501, 528501, '網頁設計的價差為什麼這麼大？在花錢買教訓之前，先瞭解台灣網頁設計的市場現況', '', '', '', '4', '', 'note', 0, 0, 0, '2015-07-09 02:23:26', 'zh-TW', 1, 1),
+(528502, 528501, '誰說投資一定要花錢？不花錢的投資才是真正的投資', '', '', '', '5', '', 'note', 0, 0, 0, '2015-07-09 02:25:20', 'zh-TW', 1, 1),
+(528503, 528502, 'test', '', 'da96b99a', '', '', '', 'note', 0, 0, 0, '2016-06-24 10:21:59', 'zh-TW', 1, 1),
+(528504, 528502, 'test', '', '1c5ffb49', '', '', '', 'note', 0, 0, 0, '2016-06-24 10:22:24', 'zh-TW', 1, 1),
+(528505, 528502, 'test', '', '42414d8c', '', '', '', 'note', 0, 0, 0, '2016-06-24 10:25:48', 'zh-TW', 1, 1),
+(528506, 528502, 'test', '', '9920e70d', '', '', '', 'note', 0, 0, 0, '2016-06-24 10:26:15', 'zh-TW', 1, 1),
+(528507, 528502, '122', '', 'dd52687e', '', '', '', 'note', 0, 0, 0, '2016-06-24 10:28:23', 'zh-TW', 1, 1),
+(528508, 528502, 'testttt', '', 'cdb89607', '', '', '', 'note', 0, 0, 0, '2016-06-24 11:19:30', 'zh-TW', 1, 1),
+(528509, 528502, '555', '', '902c9fad', '', '', '', 'note', 0, 0, 0, '2016-06-24 11:20:04', 'zh-TW', 1, 1),
+(528510, 0, '', '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00', '', 0, 0),
+(528511, 0, '', '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00', '', 0, 0),
+(528512, 0, '', '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00', '', 0, 0),
+(528513, 0, '', '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00', '', 0, 0),
+(528514, 0, '', '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00', '', 0, 0),
+(528515, 528502, '12312312', NULL, '312312312', NULL, '', '', 'note', NULL, NULL, 0, '2016-08-31 17:42:08', 'zh-TW', 1, 1),
+(528516, 528502, 'test0831', NULL, '112233', NULL, '', '', 'note', NULL, NULL, 0, '2016-08-17 00:00:00', 'zh-TW', 2, 1),
+(528517, 528502, '0831peipei', NULL, 'adfg', NULL, '8', '', 'note', NULL, NULL, 10, '2016-08-31 18:14:00', 'zh-TW', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -276,7 +283,13 @@ INSERT INTO `fs_note_field` (`noteid`, `content`) VALUES
 (528502, '<img src="http://www.artdes.monash.edu.au/design/assets/design_courses_communication.jpg" style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; border: 0px; width: 520px; max-height: 520px; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" /><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">投資必備的條件是金錢？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">在這個升職加薪不易的年代，我們都知道光是上班賺錢、存錢是很難達到財務自由的，而投資則是致富最好的管道之一，但許多人提及「投資」這個名詞時，想到的總是「投資不是我玩得起的」因為「需要很多錢」，然而投資最重要的條件真的是錢嗎？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">根據美國的統計，中樂透獲得大筆獎金的樂透富翁，平均在五年以內會把獎金花光，而且許多人的生活反而變得比中樂透之前更糟糕，先不論這些樂透富翁到底是怎麼花錢的，在這個統計之中最值得注意的應該是「為什麼一般人留不住大筆的樂透獎金？」，因為這些中樂透的樂透富翁，並不具備投資理財的知識和心理素質，他們總是搞不清楚投資和支出的差別，也分不出機會和風險的差異性，即使理財專員告知他們可能賺錢的投資機會，他們也不具備辨識機會和風險的能力，還可能弄巧成拙，錯把風險當作機會、把支出當作投資，最後當然就是大筆大筆的把鈔票全部消耗殆盡了。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">不花錢也可以投資嗎？</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">如果手上沒有現金投資別人的公司，若是具備足夠的知識、經驗、人脈，即使不需要任何金錢也可以投資，只要擁有足夠的能力，不但不必投資別人的公司，甚至還可以讓別人抱著鈔票投資自己的公司，當然前提是必須具備讓人信任這間公司的條件，例如：一款創新的產品、一個獨家的技術、一份具潛力的創業企劃書。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">任何投資都是有風險的，也因為比別人多承擔了風險，才會有豐厚的報酬，雖然投資者不可能將風險控制為零，但厲害的投資者卻能透過知識、經驗、人脈了解每一個投資的風險高低，並且把投資風險控制在容許的範圍內，因此我們能說，投資賺不賺錢，最重要的重點並不在於「手上有多少錢」，而是在於「專業能力」和「投資眼光的精準度」。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">[size=150]投資別人之前，必須先投資自己[/size]</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">投資並非僅指金融證券、房地產上的有形體的投資，真正的投資應該在於知識、經驗、人脈上的無形投資，只有累積足夠的知識、經驗和人脈，才有可能透過投資賺錢，甚至讓人們跟著自己投資。</span><br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<br style="font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; color: rgb(85, 85, 85); font-size: 15px; line-height: 30px;" />\r\n<span style="color: rgb(85, 85, 85); font-family: ''Noto Sans CJK TC'', ''LiHei Pro'', 儷黑體, sans-serif; font-size: 15px; line-height: 30px;">人生是一條不斷面臨投資選擇的岔路，當我們選擇閱讀的書籍時屬於知識的投資，當我們在做每一件不同的工作時是經驗的投資，當我們在跟不同的朋友握手的時候則是人脈的投資，首先拋開「投資不是我玩得起的」的觀念，在腦海中劃出一條屬於自己的、清晰的道路，時時刻刻告訴自己「現在我做的事，決定我五年以後過的生活」，想要在未來的某一天能夠獲得財務自由，不但要走出自己的舒適圈，還要勇敢的投資自己。</span>'),
 (528509, '555'),
 (528511, ''),
-(528512, '');
+(528512, ''),
+(528513, ''),
+(528514, ''),
+(528515, ''),
+(528516, '3123123'),
+(528517, 'test'),
+(528518, '正式測試');
 
 -- --------------------------------------------------------
 
@@ -358,16 +371,19 @@ CREATE TABLE `fs_pic` (
   `thumb` char(100) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL
+  `status` int(1) NOT NULL,
+  `upload_status` int(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `fs_pic`
 --
 
-INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`, `classids`, `thumb`, `prioritynum`, `updatetime`, `status`) VALUES
-(4, 528501, 'note1.jpg', 'note1.jpg', 49556, 'image/jpeg', '941ad429e9543e57', '', 'w50h50,w300h300,w600h600', 0, '2015-10-14 14:52:51', 1),
-(5, 528501, 'note2.jpg', 'note2.jpg', 226158, 'image/jpeg', '9f56fab9f42c1cd3', '', 'w50h50,w300h300,w600h600', 0, '2015-10-14 14:53:00', 1);
+INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`, `classids`, `thumb`, `prioritynum`, `updatetime`, `status`, `upload_status`) VALUES
+(4, 528501, 'note1.jpg', 'note1.jpg', 49556, 'image/jpeg', '941ad429e9543e57', '', 'w50h50,w300h300,w600h600', 0, '2015-10-14 14:52:51', 1, 0),
+(5, 528501, 'note2.jpg', 'note2.jpg', 226158, 'image/jpeg', '9f56fab9f42c1cd3', '', 'w50h50,w300h300,w600h600', 0, '2015-10-14 14:53:00', 1, 0),
+(6, 528502, 'content2_circle2.jpg', 'content2_circle2.jpg', 104503, 'image/jpeg', '0e68b8fb49bbb723', '', 'w50h50,w300h300,w600h600', 0, '2016-08-31 18:10:47', 1, 3),
+(8, 528502, 'content2_circle2.jpg', 'content2_circle2.jpg', 104503, 'image/jpeg', '4c62e2a3e04ae563', '', 'w50h50,w300h300,w600h600', 0, '2016-08-31 18:14:23', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -1273,7 +1289,10 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('31ae328042f61bd09003569622befc65', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537659, ''),
 ('176bb1474973d2a671d1fc6d2cb5c85a', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537731, ''),
 ('02aba607dbaacab432832a6d086d1cde', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537738, ''),
-('74fa79a619b0d7d2c24055532dd83097', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537840, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:7:"contact";s:17:"last_admin_child3";s:7:"contact";s:17:"last_admin_child4";s:9:"tablelist";}');
+('74fa79a619b0d7d2c24055532dd83097', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537840, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:4:"note";s:17:"last_admin_child3";s:4:"note";s:17:"last_admin_child4";s:4:"edit";}'),
+('7d7ed2b4591a5ee3b50d17c8f2cf289f', '::1', 'Microsoft Office Excel 2013 (15.0.4849) Windows NT 6.2', 1472636110, ''),
+('e6e1ecaf453d76279219006c1ef04406', '::1', 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET', 1472636110, ''),
+('58042be8891bcc8451cbe422d0bf397a', '::1', 'Microsoft Office Excel 2013 (15.0.4849) Windows NT 6.2', 1472636132, '');
 
 -- --------------------------------------------------------
 
@@ -2092,12 +2111,12 @@ ALTER TABLE `fs_file`
 -- 使用資料表 AUTO_INCREMENT `fs_note`
 --
 ALTER TABLE `fs_note`
-  MODIFY `noteid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528512;
+  MODIFY `noteid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528518;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_note_field`
 --
 ALTER TABLE `fs_note_field`
-  MODIFY `noteid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528513;
+  MODIFY `noteid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528519;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_pager`
 --
@@ -2117,7 +2136,7 @@ ALTER TABLE `fs_page_setting`
 -- 使用資料表 AUTO_INCREMENT `fs_pic`
 --
 ALTER TABLE `fs_pic`
-  MODIFY `picid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `picid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_project`
 --

@@ -98,7 +98,7 @@ class Contact_Controller extends MY_controller
             //送出訊息
             $this->load->model('Message');
             $this->Message->show(array(
-                'message' => 'error(4)：Mail Server Error.'
+                'message' => '聯繫單已送出，郵件系統忙碌中...'
             ));
             return FALSE;
         }
