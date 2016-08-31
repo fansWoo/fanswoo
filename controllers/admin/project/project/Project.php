@@ -142,7 +142,7 @@ class Project_Controller extends MY_Controller {
         //基本post欄位
         $projectid = $this->input->post('projectid', TRUE);
         $name = $this->input->post('name', TRUE, '專案名稱', 'required');
-        $user_email = $this->input->post('user_email', TRUE, '專案擁有人 email', 'required');
+        $user_email = $this->input->post('user_email', TRUE);
         $customer_emails = $this->input->post('customer_emails', TRUE);
         $admin_emails = $this->input->post('admin_emails', TRUE);
         $permission_emails = $this->input->post('permission_emails', TRUE);
@@ -383,14 +383,50 @@ class Project_Controller extends MY_Controller {
         $data['ProjectList'] = new ObjList();
         $data['ProjectList']->construct_db(array(
             'db_where_arr' => array(
-                'projectid' => $data['search_projectid'],
-                'pay_price_receive' => $data['search_pay_price_receive'],
-                'pay_price_total' => $data['search_pay_price_total'],
-                'pay_price_schedule' => $data['search_pay_price_schedule'],
-                'name like' => $data['search_name'],
-                'setuptime like' => $data['search_setuptime'],
-                'endtime like' => $data['search_endtime'],
-                'classids find' => array($class_ClassMeta->classid)
+                [
+                    'projectid' => $data['search_projectid'],
+                    'uid' => $data['User']->uid,
+                    'pay_price_receive' => $data['search_pay_price_receive'],
+                    'pay_price_total' => $data['search_pay_price_total'],
+                    'pay_price_schedule' => $data['search_pay_price_schedule'],
+                    'name like' => $data['search_name'],
+                    'setuptime like' => $data['search_setuptime'],
+                    'endtime like' => $data['search_endtime'],
+                    'classids find' => $class_ClassMeta->classid
+                ],
+                [
+                    'projectid' => $data['search_projectid'],
+                    'admin_uids find' => $data['User']->uid,
+                    'pay_price_receive' => $data['search_pay_price_receive'],
+                    'pay_price_total' => $data['search_pay_price_total'],
+                    'pay_price_schedule' => $data['search_pay_price_schedule'],
+                    'name like' => $data['search_name'],
+                    'setuptime like' => $data['search_setuptime'],
+                    'endtime like' => $data['search_endtime'],
+                    'classids find' => $class_ClassMeta->classid
+                ],
+                [
+                    'projectid' => $data['search_projectid'],
+                    'customer_uids find' => $data['User']->uid,
+                    'pay_price_receive' => $data['search_pay_price_receive'],
+                    'pay_price_total' => $data['search_pay_price_total'],
+                    'pay_price_schedule' => $data['search_pay_price_schedule'],
+                    'name like' => $data['search_name'],
+                    'setuptime like' => $data['search_setuptime'],
+                    'endtime like' => $data['search_endtime'],
+                    'classids find' => $class_ClassMeta->classid
+                ],
+                [
+                    'projectid' => $data['search_projectid'],
+                    'permission_uids find' => $data['User']->uid,
+                    'pay_price_receive' => $data['search_pay_price_receive'],
+                    'pay_price_total' => $data['search_pay_price_total'],
+                    'pay_price_schedule' => $data['search_pay_price_schedule'],
+                    'name like' => $data['search_name'],
+                    'setuptime like' => $data['search_setuptime'],
+                    'endtime like' => $data['search_endtime'],
+                    'classids find' => $class_ClassMeta->classid
+                ]
             ),
             'db_orderby_arr' => array(
                 array('updatetime', 'DESC')
@@ -433,7 +469,7 @@ class Project_Controller extends MY_Controller {
         $search_setuptime = $this->input->post('search_setuptime', TRUE);
         $search_endtime = $this->input->post('search_endtime', TRUE);
 
-        $url = base_url('admin/project/project/Project/tablelist/?');
+        $url = 'admin/project/project/Project/tablelist/?';
 
         if(!empty($search_projectid))
         {
@@ -475,7 +511,11 @@ class Project_Controller extends MY_Controller {
             $url = $url.'&endtime='.$search_endtime;
         }
 
-        header("Location: $url");
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
     }
 
     public function delete()

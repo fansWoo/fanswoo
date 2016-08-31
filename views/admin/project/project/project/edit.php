@@ -113,6 +113,13 @@ Temp.ready(function(){
                 <input type="text" class="text" name="user_email" placeholder="請輸入專案名稱" value="<?=$Project->uid_User->email?>">
             </div>
         </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineLeft width500">
+                <span class="gray">本欄位留空則將專案擁有人設定為自己</span>
+            </div>
+        </div>
     </div>
     <div class="spanLine">
         <div class="spanStage">
