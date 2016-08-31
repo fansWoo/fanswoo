@@ -15,7 +15,7 @@ $(function(){
 		// 將 contact_selector_arr 內的 JSON 印出來，轉換成 <option>
 		for( key in contact_selector_arr )
 		{
-			var need_html = need_html + '<option value="' + key + '"' + '>' + contact_selector_arr[key].name + '</option>';
+			var need_html = need_html + '<option value="' + contact_selector_arr[key].name + '"' + '>' + contact_selector_arr[key].name + '</option>';
 		}
 		// 將 need_html 寫到 <select> 裡面
 		$('.need').html( need_html );
@@ -33,11 +33,11 @@ $(function(){
 			for( key in contact_selector_arr )
 			{
 				// 如果 key 等於使用者選擇的內容的話，就將指定的內容抓到 need_child_html 內
-				if( $('select.need').val() == key )
+				if( $('select.need').val() == contact_selector_arr[key].name )
 				{
 					for( key2 in contact_selector_arr[key].child )
 					{
-						var need_child_html = need_child_html + '<option value="' + key2 + '"' + '>' + contact_selector_arr[key].child[key2].name + '</option>';
+						var need_child_html = need_child_html + '<option value="' + contact_selector_arr[key].child[key2].name + '"' + '>' + contact_selector_arr[key].child[key2].name + '</option>';
 					}
 				}
 			}
@@ -62,12 +62,12 @@ $(function(){
 			//迴圈 contact_selector_arr 
 			for( key in contact_selector_arr )
 			{
-				if( $('select.need').val() == key )
+				if( $('select.need').val() == contact_selector_arr[key].name )
 				{
 					//迴圈 contact_selector_arr[key].child
 					for( key2 in contact_selector_arr[key].child )
 					{
-						if( $('select.need_child').val() == key2 )
+						if( $('select.need_child').val() == contact_selector_arr[key].child[key2].name )
 						{
 							//迴圈 contact_selector_arr[key].child[key2].budget
 							for( key3 in contact_selector_arr[key].child[key2].budget )
@@ -81,7 +81,7 @@ $(function(){
 
 								$clone.find('h3').text( contact_selector_arr[key].child[key2].budget[key3].range );
 								$clone.find('h4').text( contact_selector_arr[key].child[key2].budget[key3].text );
-								$clone.find("input[name='budget_range']").val( contact_selector_arr[key].child[key2].budget[key3].text );
+								$clone.find("input[name='budget_range']").val( contact_selector_arr[key].child[key2].budget[key3].range );
 
 								//複製 $clone 插入 price_choose
 								$clone.appendTo(".price_choose");

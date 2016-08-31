@@ -55,7 +55,6 @@
 					<div class="circle"><input type="hidden" name="budget_range" value="" disabled></div>
 					<h4>文字</h4>
 				</div>
-
 				<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
 				<input type="hidden" name="previous_url" value="<?=$previous_url?>">
 			</form>
