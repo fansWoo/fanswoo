@@ -11,9 +11,10 @@ class ContactFanswoo extends Contact
         'phone' => 'phone',
         'content' => 'content',
         'company' => 'company',
+        'address' => 'address',
         'classtype' => 'classtype',
         'classtype2' => 'classtype2',
-        'money' => 'money',
+        'budget_range' => 'budget_range',
         'status_process' => 'status_process',
         'updatetime' => ['updatetime_DateTime', 'datetime'],
         'locale' => 'locale',
@@ -26,8 +27,8 @@ class ContactFanswoo extends Contact
         
         $this->set('company', $arg['company']);
         $this->set('classtype2', $arg['classtype2']);
-        $this->set('money', $arg['money']);
-        
+        $this->set('budget_range', $arg['budget_range']);
+        $this->set('address', $arg['address']);
         return TRUE;
     }
 }

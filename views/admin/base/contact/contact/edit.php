@@ -84,7 +84,7 @@
                 項目預算
             </div>
             <div class="spanLineLeft width500">
-                <?=$Contact->money?>
+                <?=$Contact->budget_range?>
             </div>
         </div>
     </div>

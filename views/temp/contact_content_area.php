@@ -32,7 +32,7 @@
 					</div>
 					<div class="area">
 						<p>項目細節</p>
-						<select class="need_child">
+						<select class="need_child" name="classtype2">
 							<option value="請先選擇主要詢問項目">請先選擇主要詢問項目</option>
 						</select>
 					</div>
@@ -56,7 +56,6 @@
 					<h4>文字</h4>
 				</div>
 				<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
-				<input type="hidden" name="previous_url" value="<?=$previous_url?>">
 			</form>
 		</div>
 	</div>

@@ -184,7 +184,6 @@ $(function(){
 					<textarea name="content"></textarea>
 					<p>本公司設計案件較多，為盡早處理您的專案，請提前詢問及索取報價資訊。</p>
 					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
-					<input type="hidden" name="previous_url" value="<?=$previous_url?>">
 				</div>
 				<div class="leftBox">
 					<h2>線上諮詢 / 索取報價</h2>
