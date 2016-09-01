@@ -107,7 +107,7 @@ $(function(){
 				<div class="portfolioPage portfolioPageWebsite">
 					<div class="portfolioLeft">
 						<h2 class="portfolioTitle">Website Design <span class="zhtw">RWD形象網站</span></h2>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yens/" data-csrc="img/portfolio/Yens.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yensgroup.com/" data-csrc="img/portfolio/Yens.jpg">
 							<div class="pic showOriginal">
 								<img src="img/portfolio/1-yens.png">
 							</div>

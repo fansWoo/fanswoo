@@ -5,7 +5,7 @@
 		<p class="title"><b>Website Design</b></p>
 		<p class="title2">RWD形象網站</p>
 		<div class="box">
-			<a href="http://web.fanswoo.com/yens/"><img src="img/portfolio/1-yens.png" class="webimg"></a>
+			<a href="http://web.fanswoo.com/yensgroup.com/"><img src="img/portfolio/1-yens.png" class="webimg"></a>
 			<p>Yens 元家水產食品集</p>
 		</div>
 		<div class="box">
