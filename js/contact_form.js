@@ -23,11 +23,15 @@ $(function(){
 		// 當 select.need 的值發生變化的時候，執行以下內容
 		$(document).on('change', 'select.need', function(){
 
+			$('select.need').val($(this).val());
+
 			// 把預算欄位暫時隱藏
 			$('.price_choose').css('display', 'none');
 
 			//建立 need_child_html 變數作為暫時的 HTML 內文
-			var need_child_html = '<option value="" style="color:#CCC;">請選擇次要詢問項目</option>';
+			var need_child_html = '<option value="" style="color:#CCC;">請先選擇次要詢問項目</option>';
+			var need_child_money = '<option value="" style="color:#CCC;">請選擇預算金額</option>';
+
 
 			//迴圈 contact_selector_arr 
 			for( key in contact_selector_arr )
@@ -43,22 +47,32 @@ $(function(){
 			}
 			// 將 need_child_html 寫到 <select> 裡面
 			$('.need_child').html( need_child_html );
+			$('.money').html( need_child_money );
 
 		});
 		
 		// 當 select.need_child 的值發生變化的時候，執行以下內容
 		$(document).on('change', 'select.need_child', function(){
 
-			//如果沒有選擇次要選項的話，就隱藏預算區塊
-			if( $('select.need_child').val() == '' )
+			var window_width = $(window).width();
+
+			$('select.need_child').val($(this).val());
+
+			var need_child_money = '<option value="" style="color:#CCC;">請選擇預算金額</option>';
+
+			if(window_width > 700)
 			{
-				$('.price_choose').css('display', 'none');
-				return false;
+				//如果沒有選擇次要選項的話，就隱藏預算區塊
+				if( $('select.need_child').val() == '' )
+				{
+					$('.price_choose').css('display', 'none');
+					return false;
+				}
+
+				//首先清空 .price_choose
+				$('.price_choose').html("");
 			}
-
-			//首先清空 .price_choose
-			$('.price_choose').html("");
-
+		
 			//迴圈 contact_selector_arr 
 			for( key in contact_selector_arr )
 			{
@@ -72,6 +86,8 @@ $(function(){
 							//迴圈 contact_selector_arr[key].child[key2].budget
 							for( key3 in contact_selector_arr[key].child[key2].budget )
 							{
+								var need_child_money = need_child_money + '<option value="' + contact_selector_arr[key].child[key2].budget[key3].range + '"' + '>' + contact_selector_arr[key].child[key2].budget[key3].range + '</option>';
+
 								// 複製 .choose_box_copy 作為模板
 								$clone = $('.choose_box_copy').clone();
 
@@ -94,6 +110,9 @@ $(function(){
 						}
 					}
 				}
+
+				// 將 need_child_html 寫到 <select> 裡面
+				$('.money').html( need_child_money );
 			}
 
 			$('.price_choose').css('display', 'block');
@@ -101,6 +120,10 @@ $(function(){
 
 			//點選第一個預算選項
 			$('.price_choose .choose_box:eq(0)').click();
+
+			if(window_width <= 700){
+				$('.price_choose').css('display','none');
+			}
 		});
 	})
 　　.fail(function(response){ // 如果 AJAX 取值錯誤的話，執行此行

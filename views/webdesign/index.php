@@ -239,8 +239,8 @@ $(function(){
 					<h3>洪秀女名品服飾設計<h3>
 				</div>
 				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/chid">
-						<img src="img/webdesign/cheng.jpg">
+					<div class="picbox" data-hrefto="http://web.fanswoo.com/yens">
+						<img src="img/portfolio/1-yens.png">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">
 					</div>

@@ -74,7 +74,7 @@ html.agent-ie .content1{ width:100%;height:1000px; background:url(../../img/mark
 	.content1 .area{ position:absolute;width:50%;left:50%; margin-left:-25%; }
 	.content1 .area .text{width:80%; position:absolute;left:50%; margin-left:-40%;top:50%;margin-top:-50px; padding-top:35px; }
 	.content1 .area .text h2{margin-bottom:20px;font-size:28px;letter-spacing:8px;}
-	.content1 .area .pic1{width:260px;margin-top:-330px;margin-left:-130px;}
+	.content1 .area .pic1{width:180px;margin-top:-280px;margin-left:-95px;}
 	.content1  .arrow{width:80px;height:120px;display:block;position:absolute;left:50%;margin-left:-40px;overflow:hidden;}	
 }
 @media screen and ( max-width:1024px ) and (min-width: 550px) {
@@ -901,8 +901,8 @@ html.agent-ie .content6{ width:100%; height:1150px; background:url(../../img/mar
 
 }
 
-@media screen and (max-width: 767px){
-	.content9{ width:100%;height:auto;overflow:hidden; background:url(../../img/bg5.jpg) center center ;background-size:cover;*/ }
+@media screen and (max-width: 800px){
+	.content9{ width:100%;height:1050px;overflow:hidden; background:url(../../img/bg5.jpg) center center ;background-size:cover;*/ }
 	
 }
 

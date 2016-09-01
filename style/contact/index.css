@@ -173,8 +173,8 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	.phone_content .textContactForm .textContactFormContent .textContactFormClose {display:none;}
 	
 	.phone_content .textContactForm .textContactFormContent .rightBox { padding-top:10px; width:100%; line-height:25px; }
-	.phone_content .textContactForm .textContactFormContent .rightBox p{ width:100%;display:block; min-height:40px; line-height:20px;border-radius:3px; margin-bottom:5px;}
-	.phone_content .textContactForm .textContactFormContent .rightBox textarea{ width:298px;height:200px;border-radius:3px;border:1px solid #cacaca; }
+	.phone_content .textContactForm .textContactFormContent .rightBox p { width:100%; display:block; min-height:20px; line-height:20px; border-radius:3px; margin-bottom:5px; margin-top:20px; }
+	.phone_content .textContactForm .textContactFormContent .rightBox textarea{ width:268px;height:200px;border-radius:3px;border:1px solid #cacaca; }
 	.phone_content .textContactForm .textContactFormContent .rightBox p input{width:190px;height:25px;float:right;margin-top:-4px; border-radius:3px;border:1px solid #cacaca;padding-left:5px; }
 	.phone_content .textContactForm .textContactFormContent .rightBox .contactSubmit { border:1px solid #555; background:#555; color:#FFF; cursor:pointer; border-radius:5px; width:200px; height:40px; -webkit-transition: all 1s; transition: all 1s;margin-left:55px;margin-top:10px;}
 	.phone_content .textContactForm .textContactFormContent .rightBox .contactSubmit:hover { background:#999; border:1px solid #777; }
@@ -184,7 +184,7 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	.phone_content .textContactForm .textContactFormContent .leftBox .area select { width:100%; margin-top:5px; line-height:50px; height:30px; vertical-align:middel;border-radius:3px; }
 	.phone_content .textContactForm h2 { margin-bottom:10px; }
 
-	.phone_content .textContactFormMoneyFixed { display:block;line-height:25px; width:270px; height:50px; padding:15px; background: rgba(50, 50, 50, 0.6); color:#FFF; border-radius:5px; z-index:999; text-align:center;letter-spacing:2px;margin-top:10px;}
+	.phone_content .textContactFormMoneyFixed { display:block;line-height:25px; width:270px; height:50px; padding:15px; background: rgba(50, 50, 50, 0.6); color:#FFF; border-radius:5px; z-index:999; text-align:center;letter-spacing:2px;margin-top:50px;}
 	
 	.pencil { display:block;animation:none;	}
 	body.start .pencil { display:block; animation:none;	}
@@ -196,6 +196,8 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	body.forever .plane{ display:none; }
 	
 	.contactFormHover{display:none;}
+
+
 
 	
 }

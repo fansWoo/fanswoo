@@ -260,13 +260,13 @@ $(function(){
 						</select>
 					</div>
 					<div class="area phone" >
-						<div class="textContactFormMoneyFixed">
-							<span>預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價</span>
-						</div>
 						<span>您的預算：</span>
 						<select class="money" name="budget_range">
 							<option value="請選擇預算金額">請選擇預算金額</option>
 						</select>
+						<div class="textContactFormMoneyFixed">
+							<span>預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價</span>
+						</div>
 					</div>
 				</div>
 				<div class="rightBox">

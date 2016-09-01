@@ -124,7 +124,7 @@ html.agent-ie9 .logoFixed { background-image: url(../../img/logo.png); }
 }
 
 
-@media screen and ( max-width:1024px ) and (min-width: 768px) {
+@media screen and ( max-width:1024px ) and (min-width: 800px) {
 	.content_area{width:700px;height:850px; position:relative;margin:80px auto;}
 	.textContactForm {width:700px;margin:0 auto;margin-top:30px;display:block;padding:0px; line-height:40px;  border-radius:10px;display:block;overflow:hidden;overflow:hidden;}
 	.textContactForm .textContactFormContent { width:700px;}
@@ -133,9 +133,12 @@ html.agent-ie9 .logoFixed { background-image: url(../../img/logo.png); }
 	.content_area .title_box .line1{width:50px;height:1px;background:#999;float:left;margin:10px 0px; }
 	.content_area .title_box .line2{width:50px;height:1px;background:#999;float:left;margin:10px 0px; }
 
+
+	.contact_content_area{ width:700px;height:770px; position:relative;margin:80px auto 0;}
+
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 799px) and (min-width: 701px){
 	.content_area{width:90%;height:auto; position:relative;margin:80px auto;}
 	.content_area h1{font-size:36px;letter-spacing:3px; margin:0px auto; display:block; font-weight:400;text-align:center;color:#444; margin-bottom:20px;}
 	.content_area .title_box{width:100%;margin-bottom:20px;overflow:hidden; }
@@ -145,14 +148,40 @@ html.agent-ie9 .logoFixed { background-image: url(../../img/logo.png); }
 	.textContactForm {width:100%;margin:0 auto;margin-top:30px;display:block;padding:0px; line-height:40px;  border-radius:10px;display:block;overflow:hidden;}
 	.textContactForm .textContactFormContent { width:100%;overflow:hidden;}
 	.textContactForm .textContactFormContent .rightBox {width:100%;float:none; }
-	.textContactForm .textContactFormContent .rightBox textarea{ width:88.5%;height:160px;border-radius:3px;border:1px solid #7C7C7C; background:rgba(255,255,255,0.6);padding:15px;font-size:14px;letter-spacing:2px; }
+	.textContactForm .textContactFormContent .rightBox textarea{ width:94.5%;height:160px;border-radius:3px;border:1px solid #7C7C7C; background:rgba(255,255,255,0.6);padding:15px;font-size:14px;letter-spacing:2px; }
 	.textContactForm .textContactFormContent .leftBox {width:100%;float:none;  margin-bottom:20px;}
 	.textContactForm .textContactFormContent .leftBox .area.phone{display:block;}
 	.textContactForm .textContactFormContent .price_choose{display:none;}
 	.textContactForm .textContactFormContent .price_choose.one{display:none;}
 
 
-	.textContactFormMoneyFixed { display:block;line-height:25px; width:100%; height:50px; padding:15px 0; background: rgba(50, 50, 50, 0.6); color:#FFF; border-radius:5px; z-index:999; text-align:center;letter-spacing:2px;margin-top:10px;}
+	.textContactFormMoneyFixed { display:block;line-height:25px; width:100%; height:50px; padding:15px 0; background: rgba(50, 50, 50, 0.6); color:#FFF; border-radius:5px; z-index:999; text-align:center;letter-spacing:2px;margin-top:50px;}
 	.textContactFormMoneyFixed span{ margin:0 5px; }
-	
+
+
+	.contact_content_area{ width:600px;height:770px; position:relative;margin:80px auto 0;}
+	.contact_content_area .title_box .line1 { display:none; }
+	.contact_content_area .title_box .line2 { display:none; }
+	.textContactForm .textContactFormContent .leftBox input { width:85%; }
+	.textContactForm .textContactFormContent .leftBox .area select { width:86%; }
+
+}
+
+@media screen and ( max-width:700px ) {
+	.contact_content_area{ width:100%;height:1000px; position:relative;margin:80px auto 0; text-align:center; }
+	.contact_content_area .title_box .line1 { display:none; }
+	.contact_content_area .title_box .line2 { display:none; }
+	.textContactForm { width:100%; padding:15px 0; }
+	.textContactForm .textContactFormContent { width:90%; margin:0 auto; }
+	.textContactForm .textContactFormContent .leftBox { width:100%; }
+	.textContactForm .textContactFormContent .leftBox input { width:73%; }
+	.textContactForm .textContactFormContent .leftBox .area select { width:75%; }
+	.textContactForm .textContactFormContent .leftBox .area.phone { display:block; }
+	.textContactFormMoneyFixed { display:block;line-height:25px; width:100%; height:50px; padding:15px 0; background: rgba(50, 50, 50, 0.6); color:#FFF; border-radius:5px; z-index:999; text-align:center;letter-spacing:2px;margin-top:50px;}
+	.textContactFormMoneyFixed span{ margin:0 5px; }
+
+	.textContactForm .textContactFormContent .rightBox {width:100%;float:none; }
+	.textContactForm .textContactFormContent .rightBox textarea{ width:80.5%;height:100px;border-radius:3px;border:1px solid #7C7C7C; background:rgba(255,255,255,0.6);padding:15px;font-size:14px;letter-spacing:2px; }
+	.textContactForm .textContactFormContent .price_choose{display:none;}
+	.textContactForm .textContactFormContent .price_choose.one{display:none;}
 }

@@ -33,12 +33,13 @@
 					<div class="area">
 						<p>項目細節</p>
 						<select class="need_child" name="classtype2">
-							<option value="請先選擇主要詢問項目">請先選擇主要詢問項目</option>
+							<option value="請先選擇次要詢問項目">請先選擇次要詢問項目</option>
 						</select>
 					</div>
 					<div class="area phone">
-						<span>您的預算：</span>
-						<select class="money">
+						<p>您的預算</p>
+						<select class="money" name="budget_range">
+							<option value="請選擇預算金額">請選擇預算金額</option>
 						</select>
 						<div class="textContactFormMoneyFixed">
 							<span>預算欄位僅供參考，每個客製化專案皆可依客戶需求給予報價</span>
