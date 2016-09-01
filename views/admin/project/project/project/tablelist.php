@@ -11,13 +11,6 @@ Temp.ready(function(){
         dateFormat: 'yy-mm-dd',
         timeFormat: 'HH:mm:ss'
     });
-    //專案金額加總計算
-    var project_price_total = 0;
-    $(".project_price").each(function(key, value){
-        project_price_total += parseInt($(".project_price").eq(key).text());
-    });
-
-    $("#project_price_total").text(project_price_total);
 });
 </script>
 <?=$temp['header_down']?>
@@ -32,7 +25,6 @@ Temp.ready(function(){
         </div>
 	</div>
 	<div class="spanLineTable">
-        <p style="margin:5px 10px; 0 0;">專案金額加總：NT $<span id="project_price_total"></span></p>
         <div class="spanLineTableContent">
             <div class="spanLine tablelist tableTitle">
                 <div class="spanLineLeft text width100">

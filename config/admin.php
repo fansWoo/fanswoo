@@ -612,10 +612,10 @@ $config['admin_sidebox'] = array(
 									'title' => '列表',
 									'purview_groupids' => [2, 3, 4]
 								),
-								'gantt' => array(
-									'title' => '甘特圖',
-									'purview_groupids' => [2, 3, 4]
-								)
+								// 'gantt' => array(
+								// 	'title' => '甘特圖',
+								// 	'purview_groupids' => [2, 3, 4]
+								// )
 							)
 						),
 						'classmeta' => array(
@@ -686,7 +686,7 @@ $config['admin_sidebox'] = array(
 					)
 				),
 				'sales_target' => array(
-					'title' => '業績進度管理',
+					'title' => '業績管理',
 					'child3' => array(
 						'sales_target' => array(
 							'title' => '業績進度',
@@ -703,10 +703,10 @@ $config['admin_sidebox'] = array(
 						)
 					)
 				),
-				'sales_target' => array(
-					'title' => '款項收入管理',
+				'income' => array(
+					'title' => '收入管理',
 					'child3' => array(
-						'sales_target' => array(
+						'income' => array(
 							'title' => '收入進度',
 							'child4' => array(
 								'edit' => array(
@@ -721,10 +721,10 @@ $config['admin_sidebox'] = array(
 						)
 					)
 				),
-				'sales_target' => array(
-					'title' => '客戶關係管理',
+				'customer' => array(
+					'title' => '客戶管理',
 					'child3' => array(
-						'sales_target' => array(
+						'customer' => array(
 							'title' => '客戶資料',
 							'child4' => array(
 								'edit' => array(
@@ -737,7 +737,7 @@ $config['admin_sidebox'] = array(
 								)
 							)
 						),
-						'sales_target' => array(
+						'customer_meet' => array(
 							'title' => '拜訪紀錄',
 							'child4' => array(
 								'edit' => array(
@@ -751,7 +751,25 @@ $config['admin_sidebox'] = array(
 							)
 						)
 					)
-				)
+				),
+				'server_rent' => array(
+					'title' => '伺服器租期管理',
+					'child3' => array(
+						'sales_target' => array(
+							'title' => '伺服器租賃',
+							'child4' => array(
+								'edit' => array(
+									'title' => '編輯',
+									'purview_groupids' => [2]
+								),
+								'tablelist' => array(
+									'title' => '列表',
+									'purview_groupids' => [2]
+								)
+							)
+						)
+					)
+				),
 			)
 		),
 		'user' => array(
