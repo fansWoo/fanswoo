@@ -195,7 +195,7 @@ Temp.ready(function(){
                 累計耗用時數
             </div>
             <div class="spanLineLeft">
-            	<?if(in_array($uid , $admin_uids_arr)):?>
+            	<?if( !empty($admin_uids_arr) && in_array($uid , $admin_uids_arr)):?>
                 <input type="number" id="use_hour" class="text" min="0" name="use_hour" value="<?=$Worktask->use_hour?>">
                 <?else:?>
                 <input type="number" id="use_hour" class="text" min="0" name="use_hour" value="<?=$Worktask->use_hour?>" readonly>
@@ -239,7 +239,7 @@ Temp.ready(function(){
                 執行狀態
             </div>
             <div class="spanLineLeft width300">
-            	<?if($Worktask->work_status == 2 && !in_array($uid , $admin_uids_arr)):?>
+            	<?if($Worktask->work_status == 2 && !empty($admin_uids_arr) && !in_array($uid , $admin_uids_arr)):?>
                 <select name="work_status" disabled>
                     <option value="0"<?if($Worktask->work_status == 0):?> selected<?endif?>>任務未完成</option>
                     <option value="1"<?if($Worktask->work_status == 1):?> selected<?endif?>>任務完成，主管檢核中</option>
