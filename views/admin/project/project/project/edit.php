@@ -236,7 +236,7 @@ Temp.ready(function(){
     </div>
 </div>
 </form>
-<?if(!empty($Project->use_hour_total)):?>
+<?if($use_hour_all!=0):?>
 <div class="contentBox allWidth">
     <h3>專案耗時</h3>
     <h4>請確認本專案之專案耗時(耗時/預估)</h4>
