@@ -86,7 +86,7 @@ html.agent-ie .content1{ width:100%;height:1000px; background:url(../../img/mark
 @media screen and (max-width: 550px){
 	.content1 {}
 	.content1 .area{position:absolute;width:100%;left:0px; margin-left:0px;top:50%;margin-top:-170px;}
-	.content1 .area .pic1{width:150px;position:absolute;left:50%;top:50%;margin-top:-155px; margin-left:-75px;--webkit-animation:none;animation:none;}
+	.content1 .area .pic1{width:100px;position:absolute;left:56.5%;top:50%;margin-top:-155px; margin-left:-75px;--webkit-animation:none;animation:none;}
 	.content1 .area .text{width:80%; left:50%; margin-left:-40%;top:50%;margin-top:0%; padding-top:10px;-webkit-animation:none;animation:none;}
 	.content1 .area .text h2{display:block;margin-bottom:10px;font-size:14px;letter-spacing:2px;}
 	.content1 .area .text h2:nth-of-type(1){display:block;-webkit-animation:none;animation:none;}
