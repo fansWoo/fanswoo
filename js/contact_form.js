@@ -58,7 +58,7 @@ $(function(){
 
 			$('select.need_child').val($(this).val());
 
-			var need_child_money = '<option value="" style="color:#CCC;">請選擇預算金額</option>';
+			// var need_child_money = '<option value="" style="color:#CCC;">請選擇預算金額</option>';
 
 			if(window_width > 700)
 			{
