@@ -313,7 +313,7 @@ $(function(){
 				
 			
 			</div>
-			<img src="img/webdesign/content2_dot.png" class="dot">
+			<img src="img/webdesign/content2_dot.png" class="dot" style='display: none;'>
 			<!--<div data-hrefto="index.php?ac=portfolio" class="enter">More Design</div>-->
 		</div>
 	</div>
