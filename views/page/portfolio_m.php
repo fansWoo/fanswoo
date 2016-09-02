@@ -33,7 +33,7 @@
 			<p>Candace 洪秀女名品服飾設計</p>
 		</div>
 		<div class="box">
-			<a href="http://web.fanswoo.com/kingtownbank"><img src="img/portfolio/8-kingtownbank.png" class="webimg"></a>
+			<a href="http://web.fanswoo.com/customer.ktb.com.tw"><img src="img/portfolio/8-kingtownbank.png" class="webimg"></a>
 			<p>KingTownBank 京城銀行</p>
 		</div>
 
