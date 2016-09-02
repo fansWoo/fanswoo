@@ -216,19 +216,19 @@ $(function(){
 								<img src="img/portfolio/designSampleLogoCandace.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/hicer" data-csrc="img/portfolio/Hicer.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/kingtownbank" data-csrc="img/portfolio/kingtownbank.png">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/8-hicer.png">
+								<img src="img/portfolio/8-kingtownbank1.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/8-hicer.png">
+								<img src="img/portfolio/8-kingtownbank1.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								 Hicer 立鑽材質開發
+								 KingTownBank 京城銀行
 							</div>
 							<div class="logo">
-								<img src="img/portfolio/hicer_logo.png">
+								<img src="img/portfolio/kingtownbank_logo.png">
 							</div>
 						</div>
 					</div>
@@ -377,19 +377,19 @@ $(function(){
 								<img src="img/portfolio/petkit_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit/" data-csrc="img/portfolio/187.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/wu_ice/" data-csrc="img/portfolio/wuice.png">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/8-187.jpg">
+								<img src="img/portfolio/8-wuice.png">
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/8-187.jpg">
+								<img src="img/portfolio/8-wuice.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								187精緻甜點
+								Maj.Frutti 精緻冰店
 							</div>
 							<div class="logo">
-								<img src="img/portfolio/187_logo.png">
+								<img src="img/portfolio/wuice_logo.png">
 							</div>
 						</div>
 					</div>

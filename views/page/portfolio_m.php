@@ -33,8 +33,8 @@
 			<p>Candace 洪秀女名品服飾設計</p>
 		</div>
 		<div class="box">
-			<a href="http://web.fanswoo.com/hicer"><img src="img/portfolio/8-hicer.png" class="webimg"></a>
-			<p>Hicer 立鑽材質開發</p>
+			<a href="http://web.fanswoo.com/kingtownbank"><img src="img/portfolio/8-kingtownbank.png" class="webimg"></a>
+			<p>KingTownBank 京城銀行</p>
 		</div>
 
     </div>
@@ -72,8 +72,8 @@
 			<p>PetKit 寵物智能管家</p>
 		</div>
 		<div class="box">
-			<a href="http://web.fanswoo.com/187french/"><img src="img/portfolio/8-187.jpg" class="webimg"></a>
-			<p>187French 法式糕點</p>
+			<a href="http://web.fanswoo.com/wu_ice/"><img src="img/portfolio/8-wuice.png" class="webimg"></a>
+			<p>Maj.Frutti 精緻冰店</p>
 		</div>
 	</div>
 </div>

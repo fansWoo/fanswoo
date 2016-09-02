@@ -507,21 +507,21 @@ $(function(){
 						<div class="item">
 							<img src="img/server/content8/pic1.png">
 							<h1>提供付費網頁設計服務</h1>
-							<p>數萬台伺服器共同組成的雲端即時備援，任何主機發生問題，立刻有其它主機支援。任何主機發生問題，立刻有其。</p>
+							<p>專業設計團隊針對企業形象打造最適切的網站氛圍，為使用者創造絕佳的使用者體驗。</p>
 						</div>
 					</div>
 					<div class="slide_pic_href">
 						<div class="item">
 							<img src="img/server/content8/pic3.png">
 							<h1>提供免費網站模板</h1>
-							<p>數萬台伺服器共同組成的雲端即時備援，任何主機發生問題，立刻有其它主機支援。任何主機發生問題，立刻有其。</p>
+							<p>網路創業零負擔！免費提供上百種網站模板，依客戶需求調整版型及欄位，快速交件、輕鬆上手。</p>
 						</div>
 					</div>
 					<div class="slide_pic_href">
 						<div class="item">
 							<img src="img/server/content8/pic2.png">
 							<h1>協助客戶搬遷主機</h1>
-							<p>數萬台伺服器共同組成的雲端即時備援，任何主機發生問題，立刻有其它主機支援。任何主機發生問題，立刻有其。</p>
+							<p>迅速佈署主機運作環境，有效解決主機搬遷的轉移時效問題，讓網站運作不中斷，降低客戶流失風險。</p>
 						</div>
 					</div>
 				</div>
