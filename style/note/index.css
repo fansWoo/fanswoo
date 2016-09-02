@@ -117,3 +117,17 @@ body.newsOver .bg2 { -webkit-animation:p201309090355 1s; animation:p201309090355
 	0%{ transform:translate(0,-100px); opacity:1; }
 	100%{ transform:translate(0,50%); opacity:0; }
 }
+
+
+@media screen and  (min-width: 1800px) {
+	
+}
+
+@media screen and ( max-width:959px ) and (min-width: 700px) {
+	
+}
+
+@media screen and (max-width: 700px){
+	.newsContent { padding:100px 30px 30px 50px; width:90%; margin:0 auto; }
+	body.forever .textHotNews { display:none; }
+}

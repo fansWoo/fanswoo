@@ -372,7 +372,7 @@ text-align: left;font-size: 15px;letter-spacing: 5px;line-height: 25px;}
 	.wrapMarketing .wrapContent .leftContent .textArea { margin-bottom: 60px;}
 }
 @media screen and (max-width: 700px){
-	.wrapMarketing {width: 100%;height: 1100px;overflow: hidden;background: url(../img/index/bg_table.jpg) 50% 50% fixed;background-size: cover;z-index: 2;background-attachment:fixed;}
+	.wrapMarketing {width: 100%;height:900px;overflow: hidden;background: url(../img/index/bg_table.jpg) 50% 50% scroll;background-size: cover;z-index: 2;background-attachment:fixed;}
 	.wrapMarketing .wrapContent {position: relative; width: 300px;padding: 70px 0px;margin: 0 auto;}
 	.wrapMarketing .wrapContent .leftContent {width: 300px;margin-top: 150px;padding: 50px 0px 20px 0px;margin: 0 auto;background: ;}
 	.wrapMarketing .wrapContent .leftContent .textArea { margin-bottom: 60px;}
@@ -400,7 +400,7 @@ border-radius: 20px;width: 200px;margin: 0 auto;color: #FFF;font-weight: 900;pad
 	.wrapGraphic .wrapContent .leftContent .textArea { margin-bottom: 60px;}
 }
 @media screen and (max-width: 700px){
-	.wrapGraphic {width: 100%;height: 1100px;overflow: hidden;background: url(../img/index/bg_table2.jpg) 50% 50% fixed;background-size:;z-index: 2;}
+	.wrapGraphic {width: 100%;height: 950px;overflow: hidden;background: url(../img/index/bg_table2.jpg) 50% 100% scroll;background-size:;z-index: 2;}
 	.wrapGraphic .wrapContent {position: relative; width: 300px;padding: 70px 0px;margin: 0 auto;}
 	.wrapGraphic .wrapContent .leftContent {width:280px;margin-top:40px;padding: 50px 10px 20px 10px;text-align:center;letter-spacing: 3px;font-size: 15px;line-height: 25px;color: #FFF;}
 	.wrapGraphic .wrapContent .leftContent .textArea { margin-bottom: 60px;}
@@ -433,7 +433,7 @@ background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-he
 	.wrapProgram .wrapContent .leftContent .textArea { margin-bottom: 60px;}
 }
 @media screen and (max-width: 700px){
-	.wrapProgram {width: 100%;height: 1100px;overflow: hidden;background: url(../img/index/bg_table3.jpg) 50% 50% fixed;background-size: cover;z-index: 2;}
+	.wrapProgram {width: 100%;height: 900px;overflow: hidden;background: url(../img/index/bg_table3.jpg) 50% 100% scroll;background-size: cover;z-index: 2;}
 	.wrapProgram .wrapContent {position: relative; width: 300px;padding: 70px 0px;margin: 0 auto;}
 	.wrapProgram .wrapContent .leftContent {float: none;display:block;margin:0 auto;text-align: left;width:260px;margin-top: 50px;padding: 20px;background: rgba(255, 255, 255, 0.9);letter-spacing: 3px;font-size: 15px;line-height: 25px;color: #000;}
 	.wrapProgram .wrapContent .leftContent .textArea { margin-bottom: 60px;}

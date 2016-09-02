@@ -78,7 +78,7 @@ body  .content1 .area  img{display:block;-webkit-animation:p201410010334 1.4s;an
 }
 @media screen and (max-width: 700px){
 
-	.content1{ width:100%; height:700px;}
+	.content1{ width:100%; height:700px;background:url(../../img/wordpress/contant1_bg.jpg) 50% 50% scroll;}
 	.content1 .area{ width:300px; height:400px; margin-left:auto; margin-right:auto;padding-top:130px;}
 	.content1 .area h1{display:block;width:300px; height:55px; background-image:url(../../img/wordpress/contant1.png); background-size:cover;}
 	.content1 .area h2{display:block;color:#fff;font-size:30px;}
@@ -333,7 +333,7 @@ body  .content1 .area  img{display:block;-webkit-animation:p201410010334 1.4s;an
 @media screen and (max-width: 700px){
 
 
-	.content3{ width:100%; height:600px;overflow:hidden;}
+	.content3{ width:100%; height:600px;overflow:hidden;background:url(../../img/wordpress/contant2_bg.jpg) 50% 50% scroll; }
 	.content3 .area{ display:none;}
 	.content3 .phone_area{ display:block;width:100%;height:400px; margin:80px auto; }
 	.content3 .phone_area .slide_pic_box{width:100%;height:400px;}
@@ -524,7 +524,7 @@ body  .content1 .area  img{display:block;-webkit-animation:p201410010334 1.4s;an
 	
 @media screen and (max-width: 700px){
 
-	.content5{ width:100%; height:600px;background-size:cover;overflow:hidden;padding-bottom:50px; }
+	.content5{ width:100%; height:600px;background-size:cover;overflow:hidden;padding-bottom:50px;background:url(../../img/wordpress/contant5_bg.jpg) 50% 50% scroll; }
 	.content5 .area{ width:300px; height:auto; margin-left:auto; margin-right:auto; margin-left:auto;padding-top:60px;}
 	.content5 h1{display:block; width:100%; height:auto;color:#4b4b4b; text-align:center; font-size:35px; margin-bottom:15px;padding-bottom:20px; }
 	.content5 p{display:block; width:100%;font-size:14px;}
@@ -723,7 +723,7 @@ body  .content1 .area  img{display:block;-webkit-animation:p201410010334 1.4s;an
 }	
 @media screen and (max-width: 700px){
 
-	.content7{ width:100%; height:auto;padding-bottom:70px;}
+	.content7{ width:100%; height:auto;padding-bottom:70px;background:url(../../img/wordpress/contant5.jpg) 50% 50% scroll;}
 	.content7 .area{ width:90%;padding-right:0px;padding-top:50px;padding-left:0px;}
 	.content7 .area h1{ display:block;width:300px; height:40px;font-size:28px;letter-spacing:2px;}
 	.content7 .area .box{display:block;width:90%;height:auto;float:none;margin-left:auto;margin-right:auto;margin-top:40px;}

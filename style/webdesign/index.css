@@ -454,10 +454,10 @@ body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;anim
 	.content5 .area { width:90%; margin:0 auto; padding:80px 0; height:1150px; }
 	.content5 .area .content { width:100%; }
 	.content5 .area .content .box { display:block; width:47%; height:145px; }
-	.content5 .area .content .box .boxCircleBorder { width:120px; height:120px; }
-	.content5 .area .content .box .pic { width:120px; height:120px; background-size:100%; }
-	.content5 .area .content .box .boxCircle { width:111px; height:111px; margin-top:17px; }
-	.content5 .area .content .box:hover .boxCircleBorder { width: 120px; height: 120px; border: 3px solid #2f78bd; }
+	.content5 .area .content .box .boxCircleBorder { width:120px; height:120px; margin-left:5px; }
+	.content5 .area .content .box .pic { width:120px; height:120px; background-size:100%; margin-left:5px; }
+	.content5 .area .content .box .boxCircle { width:111px; height:111px; margin-top:17px; margin-left:12px; }
+	.content5 .area .content .box:hover .boxCircleBorder { width: 120px; height: 120px; border: 3px solid #2f78bd; margin-left:5px; }
 
 	/*.content5 .area .content .box.box1 .boxCircleBorder { width:65px; height:65px; margin-left:0; }
 	.content5 .area .content .box.box1 .boxCircleBorder { width:65px; height:65px; margin-left:0; }
@@ -496,7 +496,7 @@ body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;anim
 	.content5 .area .content .box.box10:hover  .pic{ background-size:100%; }
 
 	.content5 .area .content .box .boxTitle { font-size:13px; margin-left:7px; }
-	.content5 .area .content .box .hoverbox{ display:none; position:absolute; width:120px;  line-height:25px; height:170px; background: url(../../img/webdesign/content5_hoverbox.png); background-size:100% 100%; top:50px; left:10px; margin-left:5px; padding:15px ; margin-top:-250px; color:#fff; font-size:12px; letter-spacing:2px; text-align:left; }
+	.content5 .area .content .box .hoverbox{ display:none; position:absolute; width:120px;  line-height:25px; height:170px; background: url(../../img/webdesign/content5_hoverbox.png); background-size:100% 100%; top:50px; left:-10px; margin-left:5px; padding:15px ; margin-top:-250px; color:#fff; font-size:12px; letter-spacing:2px; text-align:left; }
 }
 
 /*****************.content8****************************/
