@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-08-31 12:15:45
+-- 產生時間： 2016-09-02 09:08:38
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 7.0.8
 
@@ -160,7 +160,18 @@ CREATE TABLE `fs_contact` (
 --
 
 INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, `content`, `status_process`, `classtype`, `classtype2`, `address`, `budget_range`, `updatetime`, `locale`, `status`) VALUES
-(4, 'peipei', 'fishpaypay@fanswoo.com', '0945678912', '積電', '安安', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '台北市999999', '50~100萬', '2016-08-31 12:01:27', 'zh-TW', 1);
+(10, 'peipei', 'fishpaypay@fanswoo.com', '091345689', 'fanswoo', '瘋沃科技有限公司0902\nemail-test', 1, '形象、購物網站', '購物網站', '瘋沃科技有限公司', '70~150萬', '2016-09-02 12:31:32', 'zh-TW', -1),
+(9, 'peipei', 'fishpaypay@fanswoo.com', '091345689', 'fanswoo', '瘋沃科技有限公司0902\nemail-test', 1, '形象、購物網站', '購物網站', '瘋沃科技有限公司', '70~150萬', '2016-09-02 12:30:19', 'zh-TW', -1),
+(4, 'peipei', 'fishpaypay@fanswoo.com', '0945678912', '積電', '安安', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '台北市999999', '50~100萬', '2016-08-31 12:01:27', 'zh-TW', 1),
+(8, 'ppppp', 'fishpaypay@fanswoo.com', '0955455678', 'zdfryg', 'HI,\n\nI would like to ask something about Logo design.\nHow can I get a message from you?\n\nThanks!', 1, 'CIS / LOGO 美術設計', 'CIS / LOGO 美術設計', 'stg42srt', '25~50萬', '2016-08-31 18:41:28', 'zh-TW', 1),
+(7, 'peipei0831', 'fishpaypay@fanswoo.com', '09123458678', 'fanswoo', '789456123', 1, '形象、購物網站', '形象網站', '瘋沃科技有限公司', '50~100萬', '2016-08-31 18:17:34', 'zh-TW', 1),
+(11, 'peipei', 'fishpaypay@fanswoo.com', '091345689', 'fanswoo', '瘋沃科技有限公司0902\nemail-test', 1, '形象、購物網站', '購物網站', '瘋沃科技有限公司', '70~150萬', '2016-09-02 12:33:22', 'zh-TW', -1),
+(12, '0902', 'fishpaypay@gmail.com', '09134567489', '4654', 'szad452asg', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', 'ws.kljbfd', '100~200萬', '2016-09-02 14:32:39', 'zh-TW', -1),
+(13, 'peipei', 'fishpaypay@gmail.com', '090205465', '0902', 'sdgvlkihjs/.fd', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '615', '200~300萬', '2016-09-02 14:37:26', 'zh-TW', -1),
+(14, 'peipei', 'fishpaypay@gmail.com', '090205465', '0902', 'sdgvlkihjs/.fd', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '615', '200~300萬', '2016-09-02 14:53:50', 'zh-TW', -1),
+(15, 'pei', 'fishpaypay@gmail.com', '0912345678', 'fanswoo', 'hihihihihihihihihihih', 1, '形象、購物網站', '形象網站', '瘋沃科技有限公司', '25~50萬', '2016-09-02 14:58:42', 'zh-TW', -1),
+(16, 'pei', 'fishpaypay@gmail.com', '0912345678', 'fanswoo', 'hihihihihihihihihihih', 1, '形象、購物網站', '形象網站', '瘋沃科技有限公司', '25~50萬', '2016-09-02 15:01:37', 'zh-TW', -1),
+(17, '佩佩', 'fishpayapay@gmail.com', '0913467496', '嗨嗨', '4536583', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '45234563', '100~200萬', '2016-09-02 15:03:02', 'zh-TW', 1);
 
 -- --------------------------------------------------------
 
@@ -1292,7 +1303,13 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('74fa79a619b0d7d2c24055532dd83097', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472537840, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:4:"note";s:17:"last_admin_child3";s:4:"note";s:17:"last_admin_child4";s:4:"edit";}'),
 ('7d7ed2b4591a5ee3b50d17c8f2cf289f', '::1', 'Microsoft Office Excel 2013 (15.0.4849) Windows NT 6.2', 1472636110, ''),
 ('e6e1ecaf453d76279219006c1ef04406', '::1', 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET', 1472636110, ''),
-('58042be8891bcc8451cbe422d0bf397a', '::1', 'Microsoft Office Excel 2013 (15.0.4849) Windows NT 6.2', 1472636132, '');
+('58042be8891bcc8451cbe422d0bf397a', '::1', 'Microsoft Office Excel 2013 (15.0.4849) Windows NT 6.2', 1472636132, ''),
+('6a183363e48e8db673ce42130c50c246', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1472711725, ''),
+('f8e36254dde51774eb7d23b3297239c7', '::1', 'Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/6', 1472711743, ''),
+('f6fefe1025265cb7c6aa97497fc4b4d1', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472711833, ''),
+('20759acc8a052e5d93925d3978f09746', '::1', 'Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/6', 1472790489, 'a:1:{s:9:"user_data";s:0:"";}'),
+('55fd192a23ebd47b9279bd893c1b5ec7', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472790503, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:7:"contact";s:17:"last_admin_child3";s:7:"contact";s:17:"last_admin_child4";s:9:"tablelist";}'),
+('7582393a53f29d0f346272f02219d34c', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; MASBJS; rv:11.0) like Gecko', 1472797502, '');
 
 -- --------------------------------------------------------
 
@@ -1321,9 +1338,9 @@ INSERT INTO `fs_setting` (`settingid`, `keyword`, `value`, `modelname`, `locale`
 (5, 'website_name', 'fansWoo website', '', 'en-US', 1),
 (6, 'website_logo', 'fansWoo website', '', 'en-US', 1),
 (7, 'website_metatag', 's', '', 'en-US', 1),
-(8, 'smtp_account', 'mimi@fanswoo.com', 'smtp', 'zh-TW', 1),
-(9, 'smtp_email', 'mimi@fanswoo.com', 'smtp', 'zh-TW', 1),
-(10, 'smtp_password', 'qwe33117785200', 'smtp', 'zh-TW', 1),
+(8, 'smtp_account', 'fishpaypay@fanswoo.com', 'smtp', 'zh-TW', 1),
+(9, 'smtp_email', 'fishpaypay@fanswoo.com', 'smtp', 'zh-TW', 1),
+(10, 'smtp_password', 'fanswoopaypay@@', 'smtp', 'zh-TW', 1),
 (11, 'smtp_host', 'smtp.gmail.com', 'smtp', 'zh-TW', 1),
 (12, 'smtp_username', 'fansWoo 瘋沃科技', 'smtp', 'zh-TW', 1),
 (13, 'smtp_ssl_checkbox', '1', 'smtp', 'zh-TW', 1),
@@ -2091,7 +2108,7 @@ ALTER TABLE `fs_comment`
 -- 使用資料表 AUTO_INCREMENT `fs_contact`
 --
 ALTER TABLE `fs_contact`
-  MODIFY `contactid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `contactid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_faq`
 --
