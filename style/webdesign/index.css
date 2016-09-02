@@ -293,11 +293,11 @@ body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;anim
 }
 @media screen and (max-width: 700px){
 
-	.content2 { height:750px; }
+	.content2 { height:815px; }
 	.content2 .area { width:100%; padding-top:0; }
 	.content2 .area .box1 .dot1 { left:0px; }
 	.content2 .area .box1 .dot2 { display:none; }
-	.content2 .area .box1 .dot3 { left:0px; }
+	.content2 .area .box1 .dot3 { left:0px; bottom:190px; }
 	.content2 .area .box1 .dot4 { display:none; }
 	.content2 .area .box1 { width:0px; }
 
@@ -354,9 +354,9 @@ body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;anim
 }
 @media screen and (max-width: 700px){
 
-	.content3{ background:url(../../img/webdesign/content3_bg2.jpg) scroll; }
+	.content3{ background:url(../../img/webdesign/content3_bg2.jpg) scroll; height:770px; }
 	.content3 .area { width:100%; height:700px; padding:100px 0; }
-	.content3 .area h1 { width:90%; font-size:24px; }
+	.content3 .area h1 { width:90%; font-size:19px; letter-spacing:4px; }
 	.content3 .area p { display:block; width:90%; font-size:14px; text-align:center; }
 }
 
@@ -466,7 +466,7 @@ body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;anim
 @media screen and (max-width: 700px){
 
 	.content5 { height:100%; }
-	.content5 h1 { width:100%; font-size:28px; }
+	.content5 h1 { width:100%; font-size:24px; letter-spacing:4px; }
 	.content5 h2 { width:100%; font-size:14px; }
 
 	.content5 .area { width:90%; margin:0 auto; padding-top:80px; height:630px; }
