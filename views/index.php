@@ -618,9 +618,9 @@ Temp.ready(function(){
 								</div>
 								<img src="img/index/fixed_table/pic3.png" class="pic">
 							</div>
-							<div class="slide_pic_href four">
+							<!-- <div class="slide_pic_href four" style='display:none;'>
 								<div class="text">
-									<h1>網路行銷</h1>
+									<h1>手機APP</h1>
 									<h2>Facebook、Google、Instagram</h2>
 									<p class="in_p">透過Big Data建立行銷大數據<br>幫助網站及APP增加來客數</p>
 									<a href="wordpress"  class="more">
@@ -630,7 +630,7 @@ Temp.ready(function(){
 									</a>
 								</div>
 								<img src="img/index/fixed_table/pic4.png" class="pic">
-							</div>
+							</div> -->
 							<div class="slide_pic_href five">
 								<div class="text">
 									<h1>伺服器租賃</h1>
