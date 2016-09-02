@@ -446,7 +446,7 @@ Temp.ready(function(){
 			<img src="img/index/portfolio_box3/title2.png" class="title2">
 			<div class="text_box">
 				<img src="img/index/portfolio_box3/bg2_pic.png" class="title">
-				<a href="http://web.fanswoo.com/ipix/"  target="_blank" class="portfolio_more">
+				<a href="http://web.fanswoo.com/ipixcc.com.tw/"  target="_blank" class="portfolio_more">
 					<p>立即前往</p>
 					<img src="img/index/arrow.png">
 				</a>
@@ -454,7 +454,7 @@ Temp.ready(function(){
 		</div>
 		<div class="phone_portfolio_box3">
 			<img src="img/index/mobile/index_mobile-10.png" class="bg">
-			<a href="http://web.fanswoo.com/ipix/"  target="_blank"  class="portfolio_more">
+			<a href="http://web.fanswoo.com/ipixcc.com.tw/"  target="_blank"  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="img/index/arrow.png">
 			</a>
