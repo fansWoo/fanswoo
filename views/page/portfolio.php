@@ -216,7 +216,7 @@ $(function(){
 								<img src="img/portfolio/designSampleLogoCandace.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/kingtownbank" data-csrc="img/portfolio/kingtownbank.png">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/customer.ktb.com.tw" data-csrc="img/portfolio/kingtownbank.png">
 							<div class="pic showOriginal">
 								<img src="img/portfolio/8-kingtownbank1.png">
 							</div>

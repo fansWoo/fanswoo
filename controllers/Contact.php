@@ -71,7 +71,7 @@ class Contact_Controller extends MY_controller
             ]
         ]);
 
-        $email = $Setting->value;
+        $smtp_email = $Setting->value;
         $email_name = 'fanswoo';
         $title = $company.'的'.$username.'有一封瘋沃科技的需求單';
         $message = '您好，我們收到一封聯繫單<br>
@@ -88,7 +88,7 @@ class Contact_Controller extends MY_controller
         '<br><br>後台位置：<a href="http://'.$_SERVER['HTTP_HOST'].base_url().'admin">http://'.$_SERVER['HTTP_HOST'].base_url().'admin</a><br>';
 
         $Mailer = new Mailer;
-        $return_message = $Mailer->sendmail($email, $email_name, $title, $message);
+        $return_message = $Mailer->sendmail($smtp_email, $email_name, $title, $message);
         if($return_message === TRUE)
         {
             //寄件成功
