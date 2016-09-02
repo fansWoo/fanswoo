@@ -417,7 +417,7 @@ Temp.ready(function(){
 		<div class="portfolio_box2">
 			<div class="text_box">
 				<img class="title" src="img/index/portfolio_box2/index4-08.png">
-				<a href="http://web.fanswoo.com/million_roof/  "  target="_blank" class="portfolio_more">
+				<a href="http://web.fanswoo.com/mrpv.org.tw/  "  target="_blank" class="portfolio_more">
 					<p>立即前往</p>
 					<img src="img/index/arrow.png">
 					<div class="light"></div>
@@ -434,7 +434,7 @@ Temp.ready(function(){
 			</div>
 			<img class="pc" src="img/index/mobile/pc.png">
 			<img class="sun" src="img/index/portfolio_box2/sun.png">
-			<a href="http://web.fanswoo.com/million_roof/ "  target="_blank" class="portfolio_more">
+			<a href="http://web.fanswoo.com/mrpv.org.tw/ "  target="_blank" class="portfolio_more">
 				<p>立即前往</p>
 				<img src="img/index/arrow.png">
 			</a>
@@ -465,14 +465,14 @@ Temp.ready(function(){
 			<img src="img/index/portfolio_box4/pad.png" class="pad">
 			<img src="img/index/portfolio_box4/text1.png" class="text1">
 			<img src="img/index/portfolio_box4/text2.png" class="text2">
-			<a href="http://web.fanswoo.com/candace/" target="_blank"  class="portfolio_more">
+			<a href="http://web.fanswoo.com/candace.asia/" target="_blank"  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="img/index/arrow.png">
 			</a>
 		</div>
 		<div class="phone_portfolio_box4">
 			<img src="img/index/mobile/bg2.png" class="bg">
-			<a href="http://web.fanswoo.com/candace/" target="_blank"  class="portfolio_more">
+			<a href="http://web.fanswoo.com/candace.asia/" target="_blank"  class="portfolio_more">
 				<p>立即前往</p>
 				<img src="img/index/arrow.png">
 			</a>

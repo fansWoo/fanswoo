@@ -207,7 +207,7 @@
 				<img src="img/webdesign/content2_dot.png" class="dot">
 				<div class="boxarea">
 					<div class="box">
-						<div class="picbox" data-hrefto="http://web.fanswoo.com/candace">
+						<div class="picbox" data-hrefto="http://web.fanswoo.com/candace.asia">
 							<img src="img/webdesign/candace.jpg">
 							<img src="img/webdesign/content9_border.png" class="border">
 							<img src="img/webdesign/content9_shadow.png" class="shadow">
@@ -252,7 +252,7 @@
 						<h3>美商新能動力集團</h3>
 					</div>
 					<div class="box">
-						<div class="picbox" data-hrefto="http://web.fanswoo.com/ipix">
+						<div class="picbox" data-hrefto="http://web.fanswoo.com/ipixcc.com.tw">
 							<img src="img/webdesign/ipix.jpg">
 							<img src="img/webdesign/content9_border.png" class="border">
 							<img src="img/webdesign/content9_shadow.png" class="shadow">

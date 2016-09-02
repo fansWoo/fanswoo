@@ -230,7 +230,7 @@ $(function(){
 			<img src="img/webdesign/content2_dot.png" class="dot">
 			<div class="boxarea">
 				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/candace">
+					<div class="picbox" data-hrefto="http://web.fanswoo.com/candace.asia">
 						<img src="img/webdesign/candace.jpg">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">
@@ -239,7 +239,7 @@ $(function(){
 					<h3>洪秀女名品服飾設計<h3>
 				</div>
 				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/yens">
+					<div class="picbox" data-hrefto="http://web.fanswoo.com/yensgroup.com">
 						<img src="img/portfolio/1-yens.png">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">
@@ -275,7 +275,7 @@ $(function(){
 					<h3>Tomato 番茄娛樂</h3>
 				</div>
 				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/ipix">
+					<div class="picbox" data-hrefto="http://web.fanswoo.com/ipixcc.com.tw">
 						<img src="img/webdesign/ipix.jpg">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">
@@ -302,7 +302,7 @@ $(function(){
 					<h3>Dobby 精緻糕點 </h3>
 				</div>
 				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/basilai">
+					<div class="picbox" data-hrefto="http://web.fanswoo.com/bazu-beer.com">
 						<img src="img/webdesign/beer.jpg">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">

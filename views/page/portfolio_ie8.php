@@ -7,7 +7,7 @@
 				<div class="portfolioPage portfolioPageWebsite">
 					<div class="portfolioLeft">
 						<h2 class="portfolioTitle">Website Design <span class="zhtw">形象、購物網站設計</span></h2>
-						<a href="http://web.fanswoo.com/candace" target="_blank">
+						<a href="http://web.fanswoo.com/candace.asia" target="_blank">
 							<div class="portfolioDiv2" >
 								<div class="pic showOriginal">
 									<img src="app/img/designSampleCandace.jpg">
@@ -24,7 +24,7 @@
 								</div>
 							</div>
 						</a>
-						<a href="http://web.fanswoo.com/basilai" target="_blank">
+						<a href="http://web.fanswoo.com/bazu-beer.com" target="_blank">
 							<div class="portfolioDiv2" >
 								<div class="pic showOriginal">
 									<img src="app/img/beer.jpg">
@@ -79,7 +79,7 @@
 					<div class="portfolioContent">
 					</div>
 					<div class="portfolioRight">
-						<a href="http://web.fanswoo.com/ipix" target="_blank">
+						<a href="http://web.fanswoo.com/ipixcc.com.tw" target="_blank">
 							<div class="portfolioDiv2" >
 								<div class="pic showOriginal">
 									<img src="app/img/ipix.jpg">
