@@ -15,9 +15,6 @@ Temp.ready(function(){
 	window._fbq = window._fbq || [];
 	window._fbq.push(['track', '6020797556140', {'value':'0.00','currency':'TWD'}]);
 
-	$(window).resize(function(){
-		location.href = ' contact ';
-	});
 	//聯繫頁變更
 	$(document).on('mouseenter', '.textContactForm', function(){
 		$('.textContactForm').addClass('hover');
@@ -236,8 +233,8 @@ $(function(){
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/add.png">
-					 <p class="p">台北市重慶北路四段 248 號 4 樓</p>
-					 <p>3F., No.248, Sec. 4, Chongqing N. Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
+					 <p>台北市大南路 419 號 6 樓</p>
+					 <p>6F., No.419, Danan Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
 				</div>
 			</div>
 		</div>

@@ -3,10 +3,6 @@
 <script>
 Temp.ready(function(){
 
-	$(window).resize(function(){
-		location.href = '';
-	});
-
 	$(document).scroll(function(){
 		var window_width = $(window).width();
 		var scroll_top = $(document).scrollTop();
