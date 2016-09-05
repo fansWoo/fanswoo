@@ -115,7 +115,7 @@ $(function(){
 						<h2 class="portfolioTitle">Website Design <span class="zhtw">RWD形象網站</span></h2>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yensgroup.com/" data-csrc="img/portfolio/Yens.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/1-yens.png">
+								<a href="http://web.fanswoo.com/yensgroup.com/"><img src="img/portfolio/1-yens.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/1-yens.png">
@@ -130,7 +130,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/hcmedi.de/" data-csrc="img/portfolio/HCMedi.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/3-hcmedi.png">
+								<a href="http://web.fanswoo.com/hcmedi.de/"><img src="img/portfolio/3-hcmedi.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/3-hcmedi.png">
@@ -145,7 +145,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/bazu-beer.com" data-csrc="img/portfolio/web_7.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/5-beer.jpg">
+								<a href="http://web.fanswoo.com/bazu-beer.com"><img src="img/portfolio/5-beer.jpg"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/5-beer.jpg">
@@ -160,7 +160,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/ruok.com.tw/" data-csrc="img/portfolio/tomato.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/7-tomato.png">
+								<a href="http://web.fanswoo.com/ruok.com.tw/"><img src="img/portfolio/7-tomato.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/7-tomato.png">
@@ -179,7 +179,7 @@ $(function(){
 					<div class="portfolioRight">
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/mrpv.org.tw" data-csrc="img/portfolio/sun_roof_web.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/2-million-roof.png">
+								<a href="http://web.fanswoo.com/mrpv.org.tw"><img src="img/portfolio/2-million-roof.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/sun_roof.jpg">
@@ -194,7 +194,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/alchema.com/" data-csrc="img/portfolio/Alchema.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/4-alchema.png">
+								<a href="http://web.fanswoo.com/alchema.com/"><img src="img/portfolio/4-alchema.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/4-alchema.png">
@@ -209,7 +209,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace.asia" data-csrc="img/portfolio/web_1.jpg" id="no_rwd">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/6-designSampleCandace.jpg">
+								<a href="http://web.fanswoo.com/candace.asia"><img src="img/portfolio/6-designSampleCandace.jpg"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/6-designSampleCandace.jpg">
@@ -224,7 +224,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/customer.ktb.com.tw" data-csrc="img/portfolio/kingtownbank.png">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/8-kingtownbank1.png">
+								<a href="http://web.fanswoo.com/customer.ktb.com.tw"><img src="img/portfolio/8-kingtownbank1.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/8-kingtownbank1.png">
@@ -246,7 +246,7 @@ $(function(){
 						<h2 class="portfolioTitle">Electronic Commerce <span class="zhtw">購物網站、ERP</span></h2>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/dobbysoven.com/" data-csrc="img/portfolio/Dobby.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/1-dobby.png">
+								<a href="http://web.fanswoo.com/dobbysoven.com/"><img src="img/portfolio/1-dobby.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/1-dobby.png">
@@ -261,7 +261,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/ipixcc.com.tw/" data-csrc="img/portfolio/ipix.jpg" id="no_rwd">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/3-ipix.jpg">
+								<a href="http://web.fanswoo.com/ipixcc.com.tw/"><img src="img/portfolio/3-ipix.jpg"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/3-ipix.jpg">
@@ -276,7 +276,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/huanyi331.com/" data-csrc="img/portfolio/Huanyi.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/5-whenyi.jpg">
+								<a href="http://web.fanswoo.com/huanyi331.com/"><img src="img/portfolio/5-whenyi.jpg"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/5-whenyi.jpg">
@@ -291,7 +291,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/assari.com.tw/" data-csrc="img/portfolio/assari.png">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/assari_pic.jpg">
+								<a href="http://web.fanswoo.com/assari.com.tw/"><img src="img/portfolio/assari_pic.jpg"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/assari_pic.jpg">
@@ -325,7 +325,7 @@ $(function(){
 					<div class="portfolioRight">
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/paris-strawberry.cn/" data-csrc="img/portfolio/Paris.jpg" id="no_rwd">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/2-paris-strawberry.png">
+								<a href="http://web.fanswoo.com/paris-strawberry.cn/"><img src="img/portfolio/2-paris-strawberry.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/2-paris-strawberry.png">
@@ -340,7 +340,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/nxstgirl/" data-csrc="img/portfolio/nxstgirl.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/4-nxstgirl.png">
+								<a href="http://web.fanswoo.com/nxstgirl/"><img src="img/portfolio/4-nxstgirl.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/4-nxstgirl.png">
@@ -355,7 +355,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/www.taiwanbaseball.com.tw/" data-csrc="img/portfolio/tb_web.png">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/tb.png">
+								<a href="http://web.fanswoo.com/www.taiwanbaseball.com.tw/"><img src="img/portfolio/tb.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/tb.png">
@@ -370,7 +370,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/petkit/" data-csrc="img/portfolio/petkit.jpg">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/6-petkit.jpg">
+								<a href="http://web.fanswoo.com/petkit/"><img src="img/portfolio/6-petkit.jpg"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/6-petkit.jpg">
@@ -385,7 +385,7 @@ $(function(){
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/wu_ice/" data-csrc="img/portfolio/wuice.png">
 							<div class="pic showOriginal">
-								<img src="img/portfolio/8-wuice.png">
+								<a href="http://web.fanswoo.com/wu_ice/"><img src="img/portfolio/8-wuice.png"></a>
 							</div>
 							<div class="pic showBlur">
 								<img src="img/portfolio/8-wuice.png">
