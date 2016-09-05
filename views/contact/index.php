@@ -129,6 +129,17 @@ $(function(){
 		$(this).find("h4").addClass('hover');
 		$(this).find("[name='budget_range']").removeAttr('disabled');
 	});
+	//footer置底
+	$(document).scroll(function(){
+		var window_width = $(window).width();
+		var scroll_top = $(document).scrollTop();
+		var window_height = $(window).height();
+		if(window_width >= 700 ){
+			
+			$('.wrap').css('height', window_height);
+		}
+	});
+
 
 });
 </script>

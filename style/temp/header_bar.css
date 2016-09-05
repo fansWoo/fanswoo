@@ -178,6 +178,7 @@ body.start .scroll_top.unhover{ display:none; }
 	.phone_topHeader .navBar .box:nth-of-type(6) .item span{color:#84ae43;}
 	.phone_topHeader .navBar .box:nth-of-type(7) .item span{color:#ed8d25;}
 	.phone_topHeader .navBar .box:nth-of-type(8) .item span{color:#dd3c7b;}
+	.phone_topHeader .navBar .box:nth-of-type(9) .item span{color:#84ae43;}
 	.phone_topHeader .navBar .box .nav{}
 	.phone_topHeader .navBar .box .nav2{font-size:14px;letter-spacing:2px;}
 	.phone_topHeader .toggle{position:absolute;right:18px;top:17px;width:28px;height:28px;cursor:pointer;opacity:0.65;transition:0.3s;}

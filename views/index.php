@@ -332,9 +332,9 @@ Temp.ready(function(){
 			<div class="logo"></div>
 			<div class="nav">
 				<div class="menu">
-					<span class="li"><span class="title2"><a href="scrollnote" fanswoo-hrefNone>最新趨勢</a></span><span class="title1">About</span></span>
-					<span class="li"><span class="title2"><a href="scrollportfolio" fanswoo-hrefNone>經典作品</a></span><span class="title1">Portfolio</span></span>
-					<span class="li"><span class="title2"><a href="scrollabout" fanswoo-hrefNone>服務項目</a></span><span class="title1">Service</span></span>
+					<span class="li"><span class="title2"><a href="scrollnote" fanswoo-hrefNone>最新趨勢</a></span><span class="title1"><a href="scrollnote" fanswoo-hrefNone>About</a></span></span>
+					<span class="li"><span class="title2"><a href="scrollportfolio" fanswoo-hrefNone>經典作品</a></span><span class="title1"><a href="scrollportfolio" fanswoo-hrefNone>Portfolio</a></span></span>
+					<span class="li"><span class="title2"><a href="scrollabout" fanswoo-hrefNone>服務項目</a></span><span class="title1"><a href="scrollabout" fanswoo-hrefNone>Service</a></span></span>
 				</div>
 				<a href="#wrapMarketing">
 					<div class="arrow">

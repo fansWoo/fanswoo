@@ -149,8 +149,8 @@ body { background-size:cover; overflow-x:hidden; overflow-y:srcoll; }
 	.bodyPagePortfolio .portfolioPageCISBg .portfolioTitle .zhtw ,
 	.bodyPagePortfolio .portfolioPageMarketingBg .portfolioTitle .zhtw { color:#000; }
 
-	.bodyPagePortfolio .portfolioPageWebsiteBg {width:100%;height:1750px;padding-top:50px;}
-	.bodyPagePortfolio .portfolioPageCISBg { width:100%;height:2150px;background:url(../../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
+	.bodyPagePortfolio .portfolioPageWebsiteBg {width:100%;height:1490px;padding-top:50px;}
+	.bodyPagePortfolio .portfolioPageCISBg { width:100%;height:1550px;background:url(../../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
 	.bodyPagePortfolio .portfolioPageGraphicDesignBg {width:100%;height:1650px; background:url(../../img/bg10.jpg) 50% 50% fixed; background-size:cover; }
 	.bodyPagePortfolio .portfolioPageMarketingBg { width:100%;height:1650px;background:url(../../img/bg13.jpg) 50% 50% fixed; background-size:cover; }
 	.bodyPagePortfolio .portfolioPageBg .portfolioPageWebsite,

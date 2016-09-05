@@ -124,17 +124,20 @@ body.newsOver .bg2 { -webkit-animation:p201309090355 1s; animation:p201309090355
 }
 
 @media screen and ( max-width:959px ) and (min-width: 700px) {
-	
+	.newsContent { width:445px; margin-left:-195px; }
+	.textHotNews { margin-top:200px; margin-left:-336px; }
 }
 
 @media screen and (max-width: 700px){
-	body.forever .textHotNews { display:none; }
-	.newsContent { padding:100px 10px 30px 10px; width:90%; margin:0 auto; }
+	.newsContent { width:80%; margin:0 auto; left:0; padding: 100px 20px 30px 20px; }
+	.textHotNews { margin-top:200px; margin-left:-336px; display:none; }
+	.newsContent .stage .pic { width:100%; }
+	.newsContent .stage .pic img { width:100%; }
 
-	.bg1 { position:fixed;display:none; box-shadow:none; left:50%; top:50%; height:800px; width:1000px; background: url(../../img/bg1.png) no-repeat center center; -webkit-transform: rotate(15deg) translate(120px,-100px); transform: rotate(15deg) translate(120px,-100px); z-index:2; margin-left:-500px; margin-top:-300px; }
-	body.start .bg1 { display:block; -webkit-animation:p084220130905 3s; animation:p084220130905 3s; }
-	.bg2 {position:fixed; display:none; box-shadow:none; left:50%; top:50%; height:800px; width:1000px; background: url(../../img/bg1.png) no-repeat center center; z-index:2; -webkit-transform: rotate(-15deg) translate(-120px,-100px); transform: rotate(-15deg) translate(-120px,-100px); margin-left:-500px; margin-top:-300px; }
-	body.start .bg2 { display:block; -webkit-animation:p085320130905 3s; animation:p085320130905 3s; }
-	.bg3 { position:fixed;display:none; width:2000px; height:2000px;opacity:0.5; -webkit-transform: translate(0,0); transform: translate(0,0); background: url(../../img/bg1Black.png)   top center repeat-x; left:0; top:0; margin-top:0; z-index:1;}
-	body.start .bg3 { display:block; -webkit-animation:p4322013828 3s; animation:p4322013828 3s; }
+	.bg1 { -webkit-animation:none; animation:none; }
+	.bg2 { -webkit-animation:none; animation:none; }
+	.bg3 { -webkit-animation:none; animation:none; }
+	body.start .bg1 { -webkit-animation:none; animation:none; }
+	body.start .bg2 { -webkit-animation:none; animation:none; }
+	body.start .bg3 { -webkit-animation:none; animation:none; }
 }

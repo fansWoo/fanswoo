@@ -87,6 +87,12 @@ $(function(){
 			},2000);
 		}
 	});
+	$(document).scroll(function(){
+		var window_width = $(window).width();
+		if(window_width <= 700){
+			$('div[id="no_rwd"]').css('display','none');
+		}
+	});
 });
 </script>
 <?=$temp['header_down']?>
@@ -201,7 +207,7 @@ $(function(){
 								<img src="img/portfolio/alchema_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace.asia" data-csrc="img/portfolio/web_1.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/candace.asia" data-csrc="img/portfolio/web_1.jpg" id="no_rwd">
 							<div class="pic showOriginal">
 								<img src="img/portfolio/6-designSampleCandace.jpg">
 							</div>
@@ -253,7 +259,7 @@ $(function(){
 								<img src="img/portfolio/dobby_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/ipixcc.com.tw/" data-csrc="img/portfolio/ipix.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/ipixcc.com.tw/" data-csrc="img/portfolio/ipix.jpg" id="no_rwd">
 							<div class="pic showOriginal">
 								<img src="img/portfolio/3-ipix.jpg">
 							</div>
@@ -298,7 +304,7 @@ $(function(){
 								<img src="img/portfolio/assari_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/solnine/" data-csrc="img/portfolio/solnine.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/solnine/" data-csrc="img/portfolio/solnine.jpg" id="no_rwd">
 							<div class="pic showOriginal">
 								<img src="img/portfolio/7-solnine.png">
 							</div>
@@ -317,7 +323,7 @@ $(function(){
 					<div class="portfolioContent"  >
 					</div>
 					<div class="portfolioRight">
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/paris-strawberry.cn/" data-csrc="img/portfolio/Paris.jpg">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/paris-strawberry.cn/" data-csrc="img/portfolio/Paris.jpg" id="no_rwd">
 							<div class="pic showOriginal">
 								<img src="img/portfolio/2-paris-strawberry.png">
 							</div>

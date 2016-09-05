@@ -86,7 +86,7 @@ $(window).scroll(function(){
 				<div class="navBar">
 					<div class="box down">
 						<a href="<?=base_url()?>" class="nav<?if($page == 'about'):?> hover<?endif?>">About</a>
-						<a class="nav2" href="<?=base_url()?>">關於我們</a>
+						<a class="nav2">關於我們</a> <!-- <a class="nav2" href="<?=base_url()?>">關於我們</a> -->
 						<div class="downbox">
 							<div class="downbox1">
 								<a href="webdesign">客製化網站</a>
