@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.0.10.9
 -- http://www.phpmyadmin.net
 --
--- 主機: 127.0.0.1
--- 產生時間： 2016-09-02 09:08:38
--- 伺服器版本: 10.1.13-MariaDB
--- PHP 版本： 7.0.8
+-- 主機: localhost
+-- 建立日期: 2016-09-05: 21:54:49
+-- 伺服器版本: 10.1.10-MariaDB
+-- PHP 版本: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- 資料庫： `fanswoo_com_fanswoo`
+-- 資料庫: `fanswoo`
 --
 
 -- --------------------------------------------------------
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- 資料表結構 `fs_advertising`
 --
 
-CREATE TABLE `fs_advertising` (
-  `advertisingid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_advertising` (
+  `advertisingid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `title` char(100) NOT NULL,
   `href` char(100) NOT NULL,
@@ -36,8 +36,9 @@ CREATE TABLE `fs_advertising` (
   `classids` char(100) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `advertisingid` (`advertisingid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -45,8 +46,8 @@ CREATE TABLE `fs_advertising` (
 -- 資料表結構 `fs_browsing_log`
 --
 
-CREATE TABLE `fs_browsing_log` (
-  `browsing_logid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_browsing_log` (
+  `browsing_logid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) DEFAULT NULL,
   `real_ip` char(15) NOT NULL,
   `proxy_ip` char(15) NOT NULL,
@@ -57,8 +58,9 @@ CREATE TABLE `fs_browsing_log` (
   `header_message` char(200) DEFAULT NULL,
   `locale` char(5) NOT NULL,
   `updatetime` datetime DEFAULT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `browsing_logid` (`browsing_logid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -66,8 +68,8 @@ CREATE TABLE `fs_browsing_log` (
 -- 資料表結構 `fs_class`
 --
 
-CREATE TABLE `fs_class` (
-  `classid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_class` (
+  `classid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `classname` char(40) NOT NULL,
   `slug` char(40) NOT NULL DEFAULT '',
   `content` char(200) NOT NULL,
@@ -78,8 +80,9 @@ CREATE TABLE `fs_class` (
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
   `locale` char(5) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL DEFAULT '0',
+  UNIQUE KEY `classid` (`classid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- 資料表的匯出資料 `fs_class`
@@ -111,16 +114,17 @@ INSERT INTO `fs_class` (`classid`, `classname`, `slug`, `content`, `uid`, `amoun
 -- 資料表結構 `fs_comment`
 --
 
-CREATE TABLE `fs_comment` (
-  `commentid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_comment` (
+  `commentid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `typename` char(100) NOT NULL,
   `id` mediumint(8) NOT NULL,
   `title` char(100) DEFAULT NULL,
   `content` text,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `commentid` (`commentid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 資料表的匯出資料 `fs_comment`
@@ -138,8 +142,8 @@ INSERT INTO `fs_comment` (`commentid`, `uid`, `typename`, `id`, `title`, `conten
 -- 資料表結構 `fs_contact`
 --
 
-CREATE TABLE `fs_contact` (
-  `contactid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_contact` (
+  `contactid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `username` char(100) NOT NULL,
   `email` char(100) NOT NULL,
   `phone` char(100) NOT NULL,
@@ -152,26 +156,17 @@ CREATE TABLE `fs_contact` (
   `budget_range` char(100) NOT NULL,
   `updatetime` datetime NOT NULL,
   `locale` char(5) NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `contactid` (`contactid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- 資料表的匯出資料 `fs_contact`
 --
 
 INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, `content`, `status_process`, `classtype`, `classtype2`, `address`, `budget_range`, `updatetime`, `locale`, `status`) VALUES
-(10, 'peipei', 'fishpaypay@fanswoo.com', '091345689', 'fanswoo', '瘋沃科技有限公司0902\nemail-test', 1, '形象、購物網站', '購物網站', '瘋沃科技有限公司', '70~150萬', '2016-09-02 12:31:32', 'zh-TW', -1),
-(9, 'peipei', 'fishpaypay@fanswoo.com', '091345689', 'fanswoo', '瘋沃科技有限公司0902\nemail-test', 1, '形象、購物網站', '購物網站', '瘋沃科技有限公司', '70~150萬', '2016-09-02 12:30:19', 'zh-TW', -1),
 (4, 'peipei', 'fishpaypay@fanswoo.com', '0945678912', '積電', '安安', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '台北市999999', '50~100萬', '2016-08-31 12:01:27', 'zh-TW', 1),
-(8, 'ppppp', 'fishpaypay@fanswoo.com', '0955455678', 'zdfryg', 'HI,\n\nI would like to ask something about Logo design.\nHow can I get a message from you?\n\nThanks!', 1, 'CIS / LOGO 美術設計', 'CIS / LOGO 美術設計', 'stg42srt', '25~50萬', '2016-08-31 18:41:28', 'zh-TW', 1),
-(7, 'peipei0831', 'fishpaypay@fanswoo.com', '09123458678', 'fanswoo', '789456123', 1, '形象、購物網站', '形象網站', '瘋沃科技有限公司', '50~100萬', '2016-08-31 18:17:34', 'zh-TW', 1),
-(11, 'peipei', 'fishpaypay@fanswoo.com', '091345689', 'fanswoo', '瘋沃科技有限公司0902\nemail-test', 1, '形象、購物網站', '購物網站', '瘋沃科技有限公司', '70~150萬', '2016-09-02 12:33:22', 'zh-TW', -1),
-(12, '0902', 'fishpaypay@gmail.com', '09134567489', '4654', 'szad452asg', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', 'ws.kljbfd', '100~200萬', '2016-09-02 14:32:39', 'zh-TW', -1),
-(13, 'peipei', 'fishpaypay@gmail.com', '090205465', '0902', 'sdgvlkihjs/.fd', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '615', '200~300萬', '2016-09-02 14:37:26', 'zh-TW', -1),
-(14, 'peipei', 'fishpaypay@gmail.com', '090205465', '0902', 'sdgvlkihjs/.fd', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '615', '200~300萬', '2016-09-02 14:53:50', 'zh-TW', -1),
-(15, 'pei', 'fishpaypay@gmail.com', '0912345678', 'fanswoo', 'hihihihihihihihihihih', 1, '形象、購物網站', '形象網站', '瘋沃科技有限公司', '25~50萬', '2016-09-02 14:58:42', 'zh-TW', -1),
-(16, 'pei', 'fishpaypay@gmail.com', '0912345678', 'fanswoo', 'hihihihihihihihihihih', 1, '形象、購物網站', '形象網站', '瘋沃科技有限公司', '25~50萬', '2016-09-02 15:01:37', 'zh-TW', -1),
-(17, '佩佩', 'fishpayapay@gmail.com', '0913467496', '嗨嗨', '4536583', 1, '手機 APP、ERP、CRM 系統', 'APP 手機應用程式', '45234563', '100~200萬', '2016-09-02 15:03:02', 'zh-TW', 1);
+(7, 'test', 'test@fanswoo.com', 'test', 'test', 'test', 1, '形象、購物網站', '購物網站', 'test', '150~300萬', '2016-09-01 19:06:09', 'zh-TW', 1);
 
 -- --------------------------------------------------------
 
@@ -179,8 +174,8 @@ INSERT INTO `fs_contact` (`contactid`, `username`, `email`, `phone`, `company`, 
 -- 資料表結構 `fs_faq`
 --
 
-CREATE TABLE `fs_faq` (
-  `faqid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_faq` (
+  `faqid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL DEFAULT '0',
   `title` char(100) NOT NULL DEFAULT '',
   `username` char(30) NOT NULL DEFAULT '',
@@ -190,8 +185,9 @@ CREATE TABLE `fs_faq` (
   `prioritynum` mediumint(8) NOT NULL DEFAULT '0',
   `updatetime` datetime NOT NULL,
   `locale` char(5) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
+  `status` int(1) NOT NULL DEFAULT '0',
+  UNIQUE KEY `qaid` (`faqid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -199,10 +195,11 @@ CREATE TABLE `fs_faq` (
 -- 資料表結構 `fs_faq_field`
 --
 
-CREATE TABLE `fs_faq_field` (
-  `faqid` mediumint(8) NOT NULL,
-  `content` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+CREATE TABLE IF NOT EXISTS `fs_faq_field` (
+  `faqid` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL,
+  UNIQUE KEY `qaid` (`faqid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -210,8 +207,8 @@ CREATE TABLE `fs_faq_field` (
 -- 資料表結構 `fs_file`
 --
 
-CREATE TABLE `fs_file` (
-  `fileid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_file` (
+  `fileid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `title` char(100) CHARACTER SET utf8 NOT NULL,
   `filename` char(100) CHARACTER SET utf8 NOT NULL,
@@ -223,8 +220,9 @@ CREATE TABLE `fs_file` (
   `thumb` char(100) CHARACTER SET utf8 NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` int(1) NOT NULL,
+  PRIMARY KEY (`fileid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -232,8 +230,8 @@ CREATE TABLE `fs_file` (
 -- 資料表結構 `fs_note`
 --
 
-CREATE TABLE `fs_note` (
-  `noteid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_note` (
+  `noteid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL DEFAULT '0',
   `title` char(50) NOT NULL DEFAULT '',
   `username` char(30) DEFAULT '',
@@ -248,8 +246,9 @@ CREATE TABLE `fs_note` (
   `updatetime` datetime DEFAULT NULL,
   `locale` char(5) DEFAULT NULL,
   `shelves_status` int(1) DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL DEFAULT '0',
+  UNIQUE KEY `noteid` (`noteid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=528518 ;
 
 --
 -- 資料表的匯出資料 `fs_note`
@@ -280,10 +279,11 @@ INSERT INTO `fs_note` (`noteid`, `uid`, `title`, `username`, `slug`, `href`, `pi
 -- 資料表結構 `fs_note_field`
 --
 
-CREATE TABLE `fs_note_field` (
-  `noteid` mediumint(8) NOT NULL,
-  `content` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `fs_note_field` (
+  `noteid` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL,
+  UNIQUE KEY `noteid` (`noteid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=528519 ;
 
 --
 -- 資料表的匯出資料 `fs_note_field`
@@ -308,8 +308,8 @@ INSERT INTO `fs_note_field` (`noteid`, `content`) VALUES
 -- 資料表結構 `fs_pager`
 --
 
-CREATE TABLE `fs_pager` (
-  `pagerid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_pager` (
+  `pagerid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `username` char(30) NOT NULL,
   `title` char(100) NOT NULL,
@@ -321,8 +321,9 @@ CREATE TABLE `fs_pager` (
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
   `locale` char(5) NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  PRIMARY KEY (`pagerid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -330,10 +331,11 @@ CREATE TABLE `fs_pager` (
 -- 資料表結構 `fs_pager_field`
 --
 
-CREATE TABLE `fs_pager_field` (
-  `pagerid` mediumint(8) NOT NULL,
-  `content` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `fs_pager_field` (
+  `pagerid` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL,
+  PRIMARY KEY (`pagerid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -341,8 +343,8 @@ CREATE TABLE `fs_pager_field` (
 -- 資料表結構 `fs_page_setting`
 --
 
-CREATE TABLE `fs_page_setting` (
-  `page_settingid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_page_setting` (
+  `page_settingid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `title` char(100) NOT NULL,
   `tag` char(100) NOT NULL,
@@ -352,8 +354,9 @@ CREATE TABLE `fs_page_setting` (
   `script_plugin` text NOT NULL,
   `synopsis` char(200) NOT NULL,
   `view` mediumint(8) NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `adtagid` (`page_settingid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 資料表的匯出資料 `fs_page_setting`
@@ -370,8 +373,8 @@ INSERT INTO `fs_page_setting` (`page_settingid`, `uid`, `title`, `tag`, `href`, 
 -- 資料表結構 `fs_pic`
 --
 
-CREATE TABLE `fs_pic` (
-  `picid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_pic` (
+  `picid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `title` char(100) NOT NULL,
   `filename` char(100) NOT NULL,
@@ -383,8 +386,9 @@ CREATE TABLE `fs_pic` (
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
   `status` int(1) NOT NULL,
-  `upload_status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `upload_status` int(1) NOT NULL,
+  UNIQUE KEY `picid` (`picid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- 資料表的匯出資料 `fs_pic`
@@ -402,8 +406,8 @@ INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`
 -- 資料表結構 `fs_project`
 --
 
-CREATE TABLE `fs_project` (
-  `projectid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_project` (
+  `projectid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `name` char(100) NOT NULL,
   `admin_uids` char(100) NOT NULL,
@@ -425,8 +429,9 @@ CREATE TABLE `fs_project` (
   `setuptime` datetime NOT NULL,
   `endtime` datetime NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `projectid` (`projectid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- 資料表的匯出資料 `fs_project`
@@ -446,8 +451,8 @@ INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `admin_uids`, `customer_ui
 -- 資料表結構 `fs_project_suggest`
 --
 
-CREATE TABLE `fs_project_suggest` (
-  `suggestid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_project_suggest` (
+  `suggestid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `projectid` mediumint(8) NOT NULL,
   `uid` mediumint(8) NOT NULL,
   `title` char(50) NOT NULL,
@@ -457,8 +462,9 @@ CREATE TABLE `fs_project_suggest` (
   `updatetime` datetime NOT NULL,
   `suggest_status` int(1) NOT NULL,
   `answer_status` int(1) NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `suggestid` (`suggestid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -466,8 +472,8 @@ CREATE TABLE `fs_project_suggest` (
 -- 資料表結構 `fs_project_worktask`
 --
 
-CREATE TABLE `fs_project_worktask` (
-  `worktaskid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_project_worktask` (
+  `worktaskid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `projectid` mediumint(8) NOT NULL,
   `uid` mediumint(8) NOT NULL,
   `title` char(100) NOT NULL,
@@ -480,8 +486,9 @@ CREATE TABLE `fs_project_worktask` (
   `end_time` datetime NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `work_status` int(1) NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `worktaskid` (`worktaskid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- 資料表的匯出資料 `fs_project_worktask`
@@ -504,12 +511,15 @@ INSERT INTO `fs_project_worktask` (`worktaskid`, `projectid`, `uid`, `title`, `c
 -- 資料表結構 `fs_sessions`
 --
 
-CREATE TABLE `fs_sessions` (
+CREATE TABLE IF NOT EXISTS `fs_sessions` (
   `session_id` varchar(40) NOT NULL DEFAULT '0',
   `ip_address` varchar(45) NOT NULL DEFAULT '0',
   `user_agent` varchar(120) NOT NULL,
-  `last_activity` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `user_data` text NOT NULL
+  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
+  `user_data` text NOT NULL,
+  PRIMARY KEY (`session_id`),
+  UNIQUE KEY `session_id` (`session_id`),
+  KEY `last_activity_idx` (`last_activity`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -1304,12 +1314,16 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('7d7ed2b4591a5ee3b50d17c8f2cf289f', '::1', 'Microsoft Office Excel 2013 (15.0.4849) Windows NT 6.2', 1472636110, ''),
 ('e6e1ecaf453d76279219006c1ef04406', '::1', 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; Win64; x64; Trident/7.0; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET', 1472636110, ''),
 ('58042be8891bcc8451cbe422d0bf397a', '::1', 'Microsoft Office Excel 2013 (15.0.4849) Windows NT 6.2', 1472636132, ''),
-('6a183363e48e8db673ce42130c50c246', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1472711725, ''),
-('f8e36254dde51774eb7d23b3297239c7', '::1', 'Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/6', 1472711743, ''),
-('f6fefe1025265cb7c6aa97497fc4b4d1', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472711833, ''),
-('20759acc8a052e5d93925d3978f09746', '::1', 'Mozilla/5.0 (iPad; CPU OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/6', 1472790489, 'a:1:{s:9:"user_data";s:0:"";}'),
-('55fd192a23ebd47b9279bd893c1b5ec7', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472790503, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:7:"contact";s:17:"last_admin_child3";s:7:"contact";s:17:"last_admin_child4";s:9:"tablelist";}'),
-('7582393a53f29d0f346272f02219d34c', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; MASBJS; rv:11.0) like Gecko', 1472797502, '');
+('016e8004f22b0eb76307d537ac07ce14', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143', 1472727866, ''),
+('06e43eedb41f104baae0e93ad671194a', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472727885, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:7:"contact";s:17:"last_admin_child3";s:7:"contact";s:17:"last_admin_child4";s:9:"tablelist";}'),
+('0821a77e0dd39e75a5222f33746c9840', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143', 1472727901, ''),
+('6cbd6d83183f479f1c441f43a52675ab', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472727987, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:7:"contact";s:17:"last_admin_child3";s:7:"contact";s:17:"last_admin_child4";s:9:"tablelist";}'),
+('23d6a026f8e03f34271ea0c19c949112', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143', 1472728090, ''),
+('fa3c4ddc0a17780e87ddaad98b648c62', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472800667, ''),
+('753dfe45c10aac51c6ac7acf5caacc0d', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143', 1472801130, ''),
+('a086456c15c643f56f1a02a1b72cee33', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472804848, ''),
+('3111c35bbb55bd05039b43607c8fe3e4', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143', 1472804900, ''),
+('df033b9640efd5225abc17b26352406b', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472804907, '');
 
 -- --------------------------------------------------------
 
@@ -1317,14 +1331,15 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 -- 資料表結構 `fs_setting`
 --
 
-CREATE TABLE `fs_setting` (
-  `settingid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_setting` (
+  `settingid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `keyword` char(200) NOT NULL,
   `value` text NOT NULL,
   `modelname` char(32) NOT NULL DEFAULT '',
   `locale` char(5) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL DEFAULT '0',
+  UNIQUE KEY `settingid` (`settingid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=39 ;
 
 --
 -- 資料表的匯出資料 `fs_setting`
@@ -1338,9 +1353,9 @@ INSERT INTO `fs_setting` (`settingid`, `keyword`, `value`, `modelname`, `locale`
 (5, 'website_name', 'fansWoo website', '', 'en-US', 1),
 (6, 'website_logo', 'fansWoo website', '', 'en-US', 1),
 (7, 'website_metatag', 's', '', 'en-US', 1),
-(8, 'smtp_account', 'fishpaypay@fanswoo.com', 'smtp', 'zh-TW', 1),
-(9, 'smtp_email', 'fishpaypay@fanswoo.com', 'smtp', 'zh-TW', 1),
-(10, 'smtp_password', 'fanswoopaypay@@', 'smtp', 'zh-TW', 1),
+(8, 'smtp_account', 'mimi@fanswoo.com', 'smtp', 'zh-TW', 1),
+(9, 'smtp_email', 'mimi@fanswoo.com', 'smtp', 'zh-TW', 1),
+(10, 'smtp_password', 'qwe33117785200', 'smtp', 'zh-TW', 1),
 (11, 'smtp_host', 'smtp.gmail.com', 'smtp', 'zh-TW', 1),
 (12, 'smtp_username', 'fansWoo 瘋沃科技', 'smtp', 'zh-TW', 1),
 (13, 'smtp_ssl_checkbox', '1', 'smtp', 'zh-TW', 1),
@@ -1376,8 +1391,8 @@ INSERT INTO `fs_setting` (`settingid`, `keyword`, `value`, `modelname`, `locale`
 -- 資料表結構 `fs_shop_cart`
 --
 
-CREATE TABLE `fs_shop_cart` (
-  `cartid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_shop_cart` (
+  `cartid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `orderid` mediumint(8) NOT NULL,
   `productid` mediumint(8) NOT NULL,
   `sessionid` mediumint(8) NOT NULL,
@@ -1385,8 +1400,9 @@ CREATE TABLE `fs_shop_cart` (
   `uid` mediumint(8) NOT NULL,
   `price` mediumint(8) NOT NULL,
   `amount` mediumint(8) NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `cartid` (`cartid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=528625 ;
 
 --
 -- 資料表的匯出資料 `fs_shop_cart`
@@ -1524,16 +1540,17 @@ INSERT INTO `fs_shop_cart` (`cartid`, `orderid`, `productid`, `sessionid`, `stoc
 -- 資料表結構 `fs_shop_gift`
 --
 
-CREATE TABLE `fs_shop_gift` (
-  `giftid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_shop_gift` (
+  `giftid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `name` char(100) NOT NULL,
   `synopsis` char(200) NOT NULL,
   `picids` char(100) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `giftid` (`giftid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 資料表的匯出資料 `fs_shop_gift`
@@ -1550,8 +1567,8 @@ INSERT INTO `fs_shop_gift` (`giftid`, `uid`, `name`, `synopsis`, `picids`, `prio
 -- 資料表結構 `fs_shop_order`
 --
 
-CREATE TABLE `fs_shop_order` (
-  `orderid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_shop_order` (
+  `orderid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `sessionid` mediumint(8) NOT NULL,
   `uid` mediumint(8) NOT NULL,
   `receive_name` char(32) DEFAULT '',
@@ -1581,8 +1598,9 @@ CREATE TABLE `fs_shop_order` (
   `sendtime` datetime NOT NULL,
   `setuptime` datetime DEFAULT NULL,
   `updatetime` datetime DEFAULT NULL,
-  `status` int(1) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) DEFAULT '0',
+  UNIQUE KEY `ordersid` (`orderid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=528553 ;
 
 --
 -- 資料表的匯出資料 `fs_shop_order`
@@ -1646,8 +1664,8 @@ INSERT INTO `fs_shop_order` (`orderid`, `sessionid`, `uid`, `receive_name`, `rec
 -- 資料表結構 `fs_shop_product`
 --
 
-CREATE TABLE `fs_shop_product` (
-  `productid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_shop_product` (
+  `productid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `name` char(100) NOT NULL,
   `price` mediumint(10) NOT NULL,
@@ -1662,8 +1680,9 @@ CREATE TABLE `fs_shop_product` (
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
   `shelves_status` int(1) NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `productid` (`productid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=528520 ;
 
 --
 -- 資料表的匯出資料 `fs_shop_product`
@@ -1679,16 +1698,17 @@ INSERT INTO `fs_shop_product` (`productid`, `uid`, `name`, `price`, `cost`, `mai
 -- 資料表結構 `fs_shop_product_stock`
 --
 
-CREATE TABLE `fs_shop_product_stock` (
-  `stockid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_shop_product_stock` (
+  `stockid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `stocknum` mediumint(8) NOT NULL,
   `color_rgb` char(6) NOT NULL,
   `status` int(1) NOT NULL,
   `productid` mediumint(8) NOT NULL,
   `classname1` char(100) NOT NULL,
   `classname2` char(100) NOT NULL,
-  `prioritynum` mediumint(8) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `prioritynum` mediumint(8) NOT NULL,
+  UNIQUE KEY `stockid` (`stockid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 --
 -- 資料表的匯出資料 `fs_shop_product_stock`
@@ -1727,8 +1747,8 @@ INSERT INTO `fs_shop_product_stock` (`stockid`, `stocknum`, `color_rgb`, `status
 -- 資料表結構 `fs_shop_transport`
 --
 
-CREATE TABLE `fs_shop_transport` (
-  `transportid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_shop_transport` (
+  `transportid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `name` char(100) NOT NULL,
   `company` char(100) NOT NULL,
@@ -1737,8 +1757,9 @@ CREATE TABLE `fs_shop_transport` (
   `additional_price` mediumint(10) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `transportid` (`transportid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 資料表的匯出資料 `fs_shop_transport`
@@ -1754,15 +1775,16 @@ INSERT INTO `fs_shop_transport` (`transportid`, `uid`, `name`, `company`, `url`,
 -- 資料表結構 `fs_user`
 --
 
-CREATE TABLE `fs_user` (
-  `uid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_user` (
+  `uid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `email` char(32) NOT NULL,
   `username` char(32) NOT NULL,
   `picids` char(100) NOT NULL,
   `groupids` char(100) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `uid` (`uid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=528510 ;
 
 --
 -- 資料表的匯出資料 `fs_user`
@@ -1785,13 +1807,14 @@ INSERT INTO `fs_user` (`uid`, `email`, `username`, `picids`, `groupids`, `update
 -- 資料表結構 `fs_user_field_shop`
 --
 
-CREATE TABLE `fs_user_field_shop` (
-  `uid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_user_field_shop` (
+  `uid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `receive_name` char(100) DEFAULT '',
   `receive_phone` char(100) NOT NULL DEFAULT '',
   `receive_address` char(100) NOT NULL DEFAULT '',
-  `coupon_count` mediumint(8) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `coupon_count` mediumint(8) NOT NULL,
+  UNIQUE KEY `uid` (`uid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=528510 ;
 
 --
 -- 資料表的匯出資料 `fs_user_field_shop`
@@ -1814,11 +1837,12 @@ INSERT INTO `fs_user_field_shop` (`uid`, `receive_name`, `receive_phone`, `recei
 -- 資料表結構 `fs_user_group`
 --
 
-CREATE TABLE `fs_user_group` (
-  `groupid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_user_group` (
+  `groupid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `groupname` char(40) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL DEFAULT '0',
+  UNIQUE KEY `groupid` (`groupid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=101 ;
 
 --
 -- 資料表的匯出資料 `fs_user_group`
@@ -1836,8 +1860,8 @@ INSERT INTO `fs_user_group` (`groupid`, `groupname`, `status`) VALUES
 -- 資料表結構 `fs_user_verification`
 --
 
-CREATE TABLE `fs_user_verification` (
-  `uid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_user_verification` (
+  `uid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `email` char(32) NOT NULL,
   `password` char(32) NOT NULL,
   `password_salt` char(6) NOT NULL,
@@ -1845,8 +1869,9 @@ CREATE TABLE `fs_user_verification` (
   `change_email_key` char(6) NOT NULL,
   `change_email_updatetime` datetime NOT NULL,
   `facebookid` mediumint(12) NOT NULL,
-  `googleid` mediumint(12) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `googleid` mediumint(12) NOT NULL,
+  UNIQUE KEY `uid` (`uid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=528510 ;
 
 --
 -- 資料表的匯出資料 `fs_user_verification`
@@ -1869,8 +1894,8 @@ INSERT INTO `fs_user_verification` (`uid`, `email`, `password`, `password_salt`,
 -- 資料表結構 `fs_wordpress_order`
 --
 
-CREATE TABLE `fs_wordpress_order` (
-  `wordpress_orderid` mediumint(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `fs_wordpress_order` (
+  `wordpress_orderid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `orderid` mediumint(8) NOT NULL,
   `uid` mediumint(8) NOT NULL,
   `username` char(100) NOT NULL,
@@ -1883,8 +1908,9 @@ CREATE TABLE `fs_wordpress_order` (
   `years` mediumint(2) NOT NULL,
   `price` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `orderid` (`wordpress_orderid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=528502 ;
 
 --
 -- 資料表的匯出資料 `fs_wordpress_order`
@@ -1894,341 +1920,6 @@ INSERT INTO `fs_wordpress_order` (`wordpress_orderid`, `orderid`, `uid`, `userna
 (528500, 528500, 528505, '張琬君', 'mimi@fanswoo.com', '0912345678', 'Fanswoo', '', '微型主機', '台北市', 2, 16800, '2015-11-20 10:26:03', 1),
 (528501, 528501, 528505, '張琬君', 'mimi@fanswoo.com', '0912345678', 'Fanswoo', '', '標準主機', '台北市', 3, 54000, '2015-11-20 10:46:00', 1);
 
---
--- 已匯出資料表的索引
---
-
---
--- 資料表索引 `fs_advertising`
---
-ALTER TABLE `fs_advertising`
-  ADD UNIQUE KEY `advertisingid` (`advertisingid`);
-
---
--- 資料表索引 `fs_browsing_log`
---
-ALTER TABLE `fs_browsing_log`
-  ADD UNIQUE KEY `browsing_logid` (`browsing_logid`);
-
---
--- 資料表索引 `fs_class`
---
-ALTER TABLE `fs_class`
-  ADD UNIQUE KEY `classid` (`classid`);
-
---
--- 資料表索引 `fs_comment`
---
-ALTER TABLE `fs_comment`
-  ADD UNIQUE KEY `commentid` (`commentid`);
-
---
--- 資料表索引 `fs_contact`
---
-ALTER TABLE `fs_contact`
-  ADD UNIQUE KEY `contactid` (`contactid`);
-
---
--- 資料表索引 `fs_faq`
---
-ALTER TABLE `fs_faq`
-  ADD UNIQUE KEY `qaid` (`faqid`);
-
---
--- 資料表索引 `fs_faq_field`
---
-ALTER TABLE `fs_faq_field`
-  ADD UNIQUE KEY `qaid` (`faqid`);
-
---
--- 資料表索引 `fs_file`
---
-ALTER TABLE `fs_file`
-  ADD PRIMARY KEY (`fileid`);
-
---
--- 資料表索引 `fs_note`
---
-ALTER TABLE `fs_note`
-  ADD UNIQUE KEY `noteid` (`noteid`);
-
---
--- 資料表索引 `fs_note_field`
---
-ALTER TABLE `fs_note_field`
-  ADD UNIQUE KEY `noteid` (`noteid`);
-
---
--- 資料表索引 `fs_pager`
---
-ALTER TABLE `fs_pager`
-  ADD PRIMARY KEY (`pagerid`);
-
---
--- 資料表索引 `fs_pager_field`
---
-ALTER TABLE `fs_pager_field`
-  ADD PRIMARY KEY (`pagerid`);
-
---
--- 資料表索引 `fs_page_setting`
---
-ALTER TABLE `fs_page_setting`
-  ADD UNIQUE KEY `adtagid` (`page_settingid`);
-
---
--- 資料表索引 `fs_pic`
---
-ALTER TABLE `fs_pic`
-  ADD UNIQUE KEY `picid` (`picid`);
-
---
--- 資料表索引 `fs_project`
---
-ALTER TABLE `fs_project`
-  ADD UNIQUE KEY `projectid` (`projectid`);
-
---
--- 資料表索引 `fs_project_suggest`
---
-ALTER TABLE `fs_project_suggest`
-  ADD UNIQUE KEY `suggestid` (`suggestid`);
-
---
--- 資料表索引 `fs_project_worktask`
---
-ALTER TABLE `fs_project_worktask`
-  ADD UNIQUE KEY `worktaskid` (`worktaskid`);
-
---
--- 資料表索引 `fs_sessions`
---
-ALTER TABLE `fs_sessions`
-  ADD PRIMARY KEY (`session_id`),
-  ADD UNIQUE KEY `session_id` (`session_id`),
-  ADD KEY `last_activity_idx` (`last_activity`);
-
---
--- 資料表索引 `fs_setting`
---
-ALTER TABLE `fs_setting`
-  ADD UNIQUE KEY `settingid` (`settingid`);
-
---
--- 資料表索引 `fs_shop_cart`
---
-ALTER TABLE `fs_shop_cart`
-  ADD UNIQUE KEY `cartid` (`cartid`);
-
---
--- 資料表索引 `fs_shop_gift`
---
-ALTER TABLE `fs_shop_gift`
-  ADD UNIQUE KEY `giftid` (`giftid`);
-
---
--- 資料表索引 `fs_shop_order`
---
-ALTER TABLE `fs_shop_order`
-  ADD UNIQUE KEY `ordersid` (`orderid`);
-
---
--- 資料表索引 `fs_shop_product`
---
-ALTER TABLE `fs_shop_product`
-  ADD UNIQUE KEY `productid` (`productid`);
-
---
--- 資料表索引 `fs_shop_product_stock`
---
-ALTER TABLE `fs_shop_product_stock`
-  ADD UNIQUE KEY `stockid` (`stockid`);
-
---
--- 資料表索引 `fs_shop_transport`
---
-ALTER TABLE `fs_shop_transport`
-  ADD UNIQUE KEY `transportid` (`transportid`);
-
---
--- 資料表索引 `fs_user`
---
-ALTER TABLE `fs_user`
-  ADD UNIQUE KEY `uid` (`uid`);
-
---
--- 資料表索引 `fs_user_field_shop`
---
-ALTER TABLE `fs_user_field_shop`
-  ADD UNIQUE KEY `uid` (`uid`);
-
---
--- 資料表索引 `fs_user_group`
---
-ALTER TABLE `fs_user_group`
-  ADD UNIQUE KEY `groupid` (`groupid`);
-
---
--- 資料表索引 `fs_user_verification`
---
-ALTER TABLE `fs_user_verification`
-  ADD UNIQUE KEY `uid` (`uid`);
-
---
--- 資料表索引 `fs_wordpress_order`
---
-ALTER TABLE `fs_wordpress_order`
-  ADD UNIQUE KEY `orderid` (`wordpress_orderid`);
-
---
--- 在匯出的資料表使用 AUTO_INCREMENT
---
-
---
--- 使用資料表 AUTO_INCREMENT `fs_advertising`
---
-ALTER TABLE `fs_advertising`
-  MODIFY `advertisingid` mediumint(8) NOT NULL AUTO_INCREMENT;
---
--- 使用資料表 AUTO_INCREMENT `fs_browsing_log`
---
-ALTER TABLE `fs_browsing_log`
-  MODIFY `browsing_logid` mediumint(8) NOT NULL AUTO_INCREMENT;
---
--- 使用資料表 AUTO_INCREMENT `fs_class`
---
-ALTER TABLE `fs_class`
-  MODIFY `classid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
---
--- 使用資料表 AUTO_INCREMENT `fs_comment`
---
-ALTER TABLE `fs_comment`
-  MODIFY `commentid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- 使用資料表 AUTO_INCREMENT `fs_contact`
---
-ALTER TABLE `fs_contact`
-  MODIFY `contactid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
---
--- 使用資料表 AUTO_INCREMENT `fs_faq`
---
-ALTER TABLE `fs_faq`
-  MODIFY `faqid` mediumint(8) NOT NULL AUTO_INCREMENT;
---
--- 使用資料表 AUTO_INCREMENT `fs_faq_field`
---
-ALTER TABLE `fs_faq_field`
-  MODIFY `faqid` mediumint(8) NOT NULL AUTO_INCREMENT;
---
--- 使用資料表 AUTO_INCREMENT `fs_file`
---
-ALTER TABLE `fs_file`
-  MODIFY `fileid` mediumint(8) NOT NULL AUTO_INCREMENT;
---
--- 使用資料表 AUTO_INCREMENT `fs_note`
---
-ALTER TABLE `fs_note`
-  MODIFY `noteid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528518;
---
--- 使用資料表 AUTO_INCREMENT `fs_note_field`
---
-ALTER TABLE `fs_note_field`
-  MODIFY `noteid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528519;
---
--- 使用資料表 AUTO_INCREMENT `fs_pager`
---
-ALTER TABLE `fs_pager`
-  MODIFY `pagerid` mediumint(8) NOT NULL AUTO_INCREMENT;
---
--- 使用資料表 AUTO_INCREMENT `fs_pager_field`
---
-ALTER TABLE `fs_pager_field`
-  MODIFY `pagerid` mediumint(8) NOT NULL AUTO_INCREMENT;
---
--- 使用資料表 AUTO_INCREMENT `fs_page_setting`
---
-ALTER TABLE `fs_page_setting`
-  MODIFY `page_settingid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- 使用資料表 AUTO_INCREMENT `fs_pic`
---
-ALTER TABLE `fs_pic`
-  MODIFY `picid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- 使用資料表 AUTO_INCREMENT `fs_project`
---
-ALTER TABLE `fs_project`
-  MODIFY `projectid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- 使用資料表 AUTO_INCREMENT `fs_project_suggest`
---
-ALTER TABLE `fs_project_suggest`
-  MODIFY `suggestid` mediumint(8) NOT NULL AUTO_INCREMENT;
---
--- 使用資料表 AUTO_INCREMENT `fs_project_worktask`
---
-ALTER TABLE `fs_project_worktask`
-  MODIFY `worktaskid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- 使用資料表 AUTO_INCREMENT `fs_setting`
---
-ALTER TABLE `fs_setting`
-  MODIFY `settingid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
---
--- 使用資料表 AUTO_INCREMENT `fs_shop_cart`
---
-ALTER TABLE `fs_shop_cart`
-  MODIFY `cartid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528625;
---
--- 使用資料表 AUTO_INCREMENT `fs_shop_gift`
---
-ALTER TABLE `fs_shop_gift`
-  MODIFY `giftid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- 使用資料表 AUTO_INCREMENT `fs_shop_order`
---
-ALTER TABLE `fs_shop_order`
-  MODIFY `orderid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528553;
---
--- 使用資料表 AUTO_INCREMENT `fs_shop_product`
---
-ALTER TABLE `fs_shop_product`
-  MODIFY `productid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528520;
---
--- 使用資料表 AUTO_INCREMENT `fs_shop_product_stock`
---
-ALTER TABLE `fs_shop_product_stock`
-  MODIFY `stockid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
---
--- 使用資料表 AUTO_INCREMENT `fs_shop_transport`
---
-ALTER TABLE `fs_shop_transport`
-  MODIFY `transportid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- 使用資料表 AUTO_INCREMENT `fs_user`
---
-ALTER TABLE `fs_user`
-  MODIFY `uid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528510;
---
--- 使用資料表 AUTO_INCREMENT `fs_user_field_shop`
---
-ALTER TABLE `fs_user_field_shop`
-  MODIFY `uid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528510;
---
--- 使用資料表 AUTO_INCREMENT `fs_user_group`
---
-ALTER TABLE `fs_user_group`
-  MODIFY `groupid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
---
--- 使用資料表 AUTO_INCREMENT `fs_user_verification`
---
-ALTER TABLE `fs_user_verification`
-  MODIFY `uid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528510;
---
--- 使用資料表 AUTO_INCREMENT `fs_wordpress_order`
---
-ALTER TABLE `fs_wordpress_order`
-  MODIFY `wordpress_orderid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528502;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
