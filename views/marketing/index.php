@@ -1,10 +1,10 @@
 <?=$temp['header_up']?>
 <script>
 $(function(){
-	$(window).resize(function(){
-		$(document).scrollTop(0);
-		location.href = 'marketing';
-	});
+	// $(window).resize(function(){
+	// 	$(document).scrollTop(0);
+	// 	location.href = 'marketing';
+	// });
 	$(" .slide_pic > .square").cycle({
 		fx      :       "scrollHorz", 
 		//fade

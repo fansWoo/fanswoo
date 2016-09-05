@@ -1,10 +1,10 @@
 <?=$temp['header_up']?>
 <script>
 $(function(){
-	$(window).resize(function(){
-		$(document).scrollTop(0);
-		location.href = 'graphic';
-	});
+	// $(window).resize(function(){
+	// 	$(document).scrollTop(0);
+	// 	location.href = 'graphic';
+	// });
 	var window_width = $(window).width();
 	var window_height = $(window).height();
 			
