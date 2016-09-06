@@ -29,9 +29,6 @@
             </div>
         </div>
     </div>
-
-
-
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -52,6 +49,7 @@
             </div>
         </div>
     </div>
+
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -62,9 +60,6 @@
             </div>
         </div>
     </div>
-
-
-
 <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -75,9 +70,6 @@
             </div>
         </div>
     </div>
-
-
-
 <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
@@ -121,6 +113,16 @@
             </div>
             <div class="spanLineLeft width200">
                 <?=$Contact->updatetime_DateTime->datetime?>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                聯繫地址
+            </div>
+            <div class="spanLineLeft width500">
+                <?=$Contact->address?>
             </div>
         </div>
     </div>
