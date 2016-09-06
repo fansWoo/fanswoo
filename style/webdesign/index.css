@@ -293,9 +293,9 @@ body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;anim
 }
 @media screen and (max-width: 700px){
 
-	.content2 {  }
+	.content2 { height:800px }
 	.content2 .area { width:100%; padding-top:0; }
-	.content2 .area .box1 .dot1 { left:0px; }
+	.content2 .area .box1 .dot1 { left:0px; top:130px; }
 	.content2 .area .box1 .dot2 { display:none; }
 	.content2 .area .box1 .dot3 { left:0px; bottom:190px; }
 	.content2 .area .box1 .dot4 { display:none; }
@@ -305,7 +305,7 @@ body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;anim
 	.content2 .area .box1 .contentbox2 { left:-130px; display:none; }
 	.content2 .area .box1 .contentbox3 { top:485px; left:-150px; display:none; }
 
-	.content2 .area .box2 { width:90%; height:315px; margin-left:5%; margin-top:100px; padding-left:0; }
+	.content2 .area .box2 { width:90%; height:315px; margin-left:5%; margin-top:80px; padding-left:0; }
 	.content2 .area .box2 h1 { margin-bottom: 23px; text-align:center; letter-spacing:4px; }
 	.content2 .area .box2 .webdesignTop { font-size:13px; margin-bottom:25px; }
 		
@@ -448,8 +448,8 @@ body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;anim
 @media screen and (max-width: 700px){
 
 	.content5 {  }
-	.content5 h1 { width:100%; font-size:24px; letter-spacing:4px; }
-	.content5 h2 { width:100%; font-size:14px; }
+	.content5 h1 { width:100%; font-size:23px; letter-spacing:4px; }
+	.content5 h2 { width:100%; font-size:13px; }
 
 	.content5 .area { width:90%; margin:0 auto; padding:80px 0; height:1150px; }
 	.content5 .area .content { width:284px; }

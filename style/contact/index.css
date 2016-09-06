@@ -205,6 +205,8 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	body.start .bg2 { display:none; animation:none; }
 	.plane{ display:none; animation:none; }
 	body.forever .plane{ display:none; animation:none; }
+	.pc_content .textContact{ display:none; }
+	body.forever .pc_content .textContact { display:none; -webkit-animation:none; animation:none; }
 	
 	.contactFormHover{display:none;}
 
