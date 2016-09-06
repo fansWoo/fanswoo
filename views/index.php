@@ -238,12 +238,12 @@ Temp.ready(function(){
 
 	$('a[href=scrollnote]').click(function () {
 		var speed = 500;
-		var position = $('.wrapContent').offset().top;
+		var position = $('.wrapContent').offset().top - 50;
 	  	$("html, body").animate({scrollTop: position}, speed, "swing");
 	});
 	$('a[href=scrollportfolio]').click(function () {
 		var speed = 1000;
-		var position = $('.content_portfolio').offset().top;
+		var position = $('.content_portfolio').offset().top - 50;
 	  	$("html, body").animate({scrollTop: position}, speed, "swing");
 	});
 	$('a[href=scrollcontact]').click(function () {
@@ -260,7 +260,7 @@ Temp.ready(function(){
 
 	$('a[href=scrollabout]').click(function () {
 		var speed = 1500;
-		var position = $('.phone_content_bottom').offset().top;
+		var position = $('.phone_content_bottom').offset().top - 50;
 	  	$("html, body").animate({scrollTop: position}, speed, "swing");
 	});
 	$('a[href=scroll_top]').click(function () {

@@ -11,9 +11,9 @@ body { background-image:url(../../img/bg5.jpg) ; background-size:cover; }
 
 
 body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;animation:  p201410010334 1.5s;}
-body  .content1 .area  h2{display:block;-webkit-animation:p201410010334 1.2s;animation:  p201410010334 1.7s;}
-body  .content1 .area  h3{display:block;-webkit-animation:p201410010334 1.4s;animation:  p201410010334 1.9s;}
-body  .content1 .area  img{display:block;-webkit-animation:p201410010334 1.4s;animation:  p201410010334 1s;}
+body  .content1 .area  h2{display:block;-webkit-animation:p201410010334 1.5s;animation:  p201410010334 2s;}
+body  .content1 .area  h3{display:block;-webkit-animation:p201410010334 2s;animation:  p201410010334 2.5s;}
+body  .content1 .area  img{display:block;-webkit-animation:p201410010334 2s;animation:  p201410010334 3s;}
 @-webkit-keyframes p201410010334{
 	0%{ -webkit-transform: translate(0, -30px); opacity:0; }
 	50%{ -webkit-transform: translate(0, -30px); opacity:0; }
@@ -85,10 +85,10 @@ body  .content1 .area  img{display:block;-webkit-animation:p201410010334 1.4s;an
 	.content1 .area h3{display:block; width:300px;color:#fff; }
 	.content1 .area img{display:block; width:80px; margin-left:auto;margin-right:auto;}
 	
-	body  .content1 .area  h1{display:block; -webkit-animation:none;animation: none;}
+/*	body  .content1 .area  h1{display:block; -webkit-animation:none;animation: none;}
 	body  .content1 .area  h2{display:block;-webkit-animation:none;animation:none;}
 	body  .content1 .area  h3{display:block;-webkit-animation:none;animation:none;}
-	body  .content1 .area  img{display:block;-webkit-animation:none;animation:none;}
+	body  .content1 .area  img{display:block;-webkit-animation:none;animation:none;}*/
 	
 	
 }
@@ -252,7 +252,7 @@ body  .content1 .area  img{display:block;-webkit-animation:p201410010334 1.4s;an
 	.content2 .area .box1 .contantbox  .box .hoverbox:hover{opacity:1; }
 
 	.content2 .area .box1 .contantbox  .box .hoverbox .pc_p{display:none; }
-	.content2 .area .box1 .contantbox  .box .hoverbox .phone_p{width:70%;display:block; margin:45px auto 20px auto; font-size:14px;color:#fff; letter-spacing:3px;  text-align:center;}
+	.content2 .area .box1 .contantbox  .box .hoverbox .phone_p{width:70%;display:block; margin:45px auto 20px auto; font-size:13px;color:#fff; letter-spacing:3px;  text-align:center;}
 		
 
 	.content2 .contant{width:100%;height:auto; margin-bottom:10px;overflow:hidden; margin-top:-40px;}
