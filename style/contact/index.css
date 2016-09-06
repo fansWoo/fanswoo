@@ -197,15 +197,15 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 
 	.phone_content .textContactFormMoneyFixed { display:block;line-height:25px; width:270px; height:50px; padding:15px; background: rgba(50, 50, 50, 0.6); color:#FFF; border-radius:5px; z-index:999; text-align:center;letter-spacing:2px;margin-top:50px;}
 	
-	.pencil { display:block;animation:none;	}
-	body.start .pencil { display:block; animation:none;	}
-	.bg1 { display:none; animation:none; }
-	body.start .bg1 { display:none; animation:none; }
-	.bg2 { display:none; animation:none; }
-	body.start .bg2 { display:none; animation:none; }
-	.plane{ display:none; animation:none; }
-	body.forever .plane{ display:none; animation:none; }
-	.pc_content .textContact{ display:none; }
+	.pencil { display:block; animation:none; -webkit-animation:none; opacity:0; }
+	body.start .pencil { display:block; animation:none;  -webkit-animation:none; }
+	.bg1 { display:none; animation:none; -webkit-animation:none; opacity:0; }
+	body.start .bg1 { display:none; animation:none; -webkit-animation:none; }
+	.bg2 { display:none; animation:none; -webkit-animation:none; opacity:0; }
+	body.start .bg2 { display:none; animation:none; -webkit-animation:none; }
+	.plane{ display:none; animation:none; -webkit-animation:none; opacity:0; }
+	body.forever .plane{ display:none; animation:none; -webkit-animation:none; }
+	.pc_content .textContact{ display:none; -webkit-animation:none; animation:none; opacity:0; }
 	body.forever .pc_content .textContact { display:none; -webkit-animation:none; animation:none; }
 	
 	.contactFormHover{display:none;}
