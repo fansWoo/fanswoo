@@ -1,4 +1,7 @@
 <?=$temp['header_up']?>
+<script src="js/tool/ckeditor/ckeditor.js"></script>
+<script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
+<link rel="stylesheet" type="text/css" href="style/tool/jquery-ui-timepicker-addon/style.css"></link>
 <script>
 Temp.ready(function(){
 
@@ -7,8 +10,9 @@ Temp.ready(function(){
         toolbar: 'basic'
     });
 
-    $('#Contact_time').datepicker({
-        dateFormat: 'yy-mm-dd'
+    $('#contact_time').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'HH:mm:ss'
     });
 });
 </script>
@@ -43,26 +47,6 @@ Temp.ready(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                手機號碼
-            </div>
-            <div class="spanLineLeft width200">
-                <input type="text" class="text" name="phone" placeholder="請輸入手機號碼" value="<?=$Customer->phone?>" required>
-            </div>
-        </div>
-    </div>
-        <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                公司號碼
-            </div>
-            <div class="spanLineLeft width200">
-                <input type="text" class="text" name="tel" placeholder="請輸入公司號碼" value="<?=$Customer->tel?>" required>
-            </div>
-        </div>
-    </div>  
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
                 電子郵件
             </div>
             <div class="spanLineLeft width200">
@@ -73,15 +57,67 @@ Temp.ready(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
+                手機號碼
+            </div>
+            <div class="spanLineLeft width200">
+                <input type="text" class="text" name="phone" placeholder="請輸入手機號碼" value="<?=$Customer->phone?>" required>
+            </div>
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                公司電話號碼
+            </div>
+            <div class="spanLineLeft width200">
+                <input type="text" class="text" name="tel" placeholder="請輸入公司號碼" value="<?=$Customer->tel?>" required>
+            </div>
+        </div>
+    </div>  
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                公司地址
+            </div>
+
+            <div class="spanLineLeft width300">
+                <input type="text" class="text" name="address" placeholder="請輸入客戶公司地址" value="<?=$Customer->address?>" required>
+            </div>           
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                公司網址
+            </div>
+
+            <div class="spanLineLeft width300">
+                <input type="text" class="text" name="website" placeholder="請輸入客戶公司網址" value="<?=$Customer->website?>" required>
+            </div>           
+        </div>
+    </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                最後聯繫時間
+            </div>
+            <div class="spanLineLeft">
+                <input type="text" id="contact_time" class="text" name="contact_time" value="<?=$Customer->contact_time_DateTime->datetime?>">
+            </div>
+        </div>
+     </div>
+    <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
                 意願程度
             </div>
             <div class="spanLineLeft">
                 <select name="wish">
-                    <option value="0"<?if($Customer->wish == 0):?> selected<?endif?>>S</option>
-                    <option value="1"<?if($Customer->wish == 1):?> selected<?endif?>>A</option>
-                    <option value="2"<?if($Customer->wish == 2):?> selected<?endif?>>B</option>
-                    <option value="3"<?if($Customer->wish == 3):?> selected<?endif?>>C</option>
-                    <option value="4"<?if($Customer->wish == 4):?> selected<?endif?>>D</option>
+                    <option value="S"<?if($Customer->wish == 'S'):?> selected<?endif?>>S</option>
+                    <option value="A"<?if($Customer->wish == 'A'):?> selected<?endif?>>A</option>
+                    <option value="B"<?if($Customer->wish == 'B'):?> selected<?endif?>>B</option>
+                    <option value="C"<?if($Customer->wish == 'C'):?> selected<?endif?>>C</option>
+                    <option value="D"<?if($Customer->wish == 'D'):?> selected<?endif?>>D</option>
                 </select>
             </div>
         </div>
@@ -98,8 +134,14 @@ Temp.ready(function(){
             <div class="spanLineLeft">
                 預算
             </div>
-            <div class="spanLineRight">
-                <input type="text" class="money" name="budget_range" placeholder="請輸入預算金額" value="<?=$Customer->budget_range?>" required>
+            <div class="spanLineLeft">
+                <select name="budget_range">
+                    <option value="15萬以下"<?if($Customer->budget_range == '15萬以下'):?> selected<?endif?>>15萬以下</option>
+                    <option value="15-50萬"<?if($Customer->budget_range == '15-50萬'):?> selected<?endif?>>15-50萬</option>
+                    <option value="50-100萬"<?if($Customer->budget_range == '50-100萬'):?> selected<?endif?>>50-100萬</option>
+                    <option value="100-150萬"<?if($Customer->budget_range == '100-150萬'):?> selected<?endif?>>100-150萬</option>
+                    <option value="150萬-200萬"<?if($Customer->budget_range == '150萬-200萬'):?> selected<?endif?>>150萬-200萬</option>
+                </select>
             </div>
         </div>  
      </div>
@@ -109,29 +151,35 @@ Temp.ready(function(){
                 功能需求
             </div>
             <div class="spanLineRight">
-                <textarea cols="80" id="demand" name="demand" rows="10" required><?=$Customer->demand_Html?></textarea>
+                <textarea cols="80" id="content" name="content" rows="10" required><?=$Customer->content_Html?></textarea>
             </div>
         </div>
     </div>
-    <div class="spanLine">
-        <div class="spanStage">
-            <div class="spanLineLeft">
-                最後聯繫時間
-            </div>
-            <div class="spanLineLeft">
-                <input type="text" id="contact_time" class="text" name="contact_time" value="<?=$Customer->contact_time_DateTime->inputtime_date?>">
-            </div>
-        </div>
-     </div>
      <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                公司地址
+                名單新增時間
             </div>
-
-            <div class="spanLineLeft width300">
-                <input type="text" class="text" name="address" placeholder="請輸入客戶公司地址" value="<?=$Customer->address?>" required>
-            </div>           
+            <div class="spanLineLeft" style="width:160px;">
+                <input type="text" id="updatetime" class="text" name="updatetime" value="<?=$Customer->updatetime_DateTime->datetime?>">
+            </div>
+        </div>
+    </div>
+     <div class="spanLine">
+        <div class="spanStage">
+            <div class="spanLineLeft">
+                優先排序指數
+            </div>
+            <div class="spanLineLeft" style="width:160px;">
+                <input type="number" class="text " name="prioritynum" min="0" value="<?=$Customer->prioritynum?>">
+            </div>
+        </div>
+        <div class="spanStage">
+            <div class="spanLineLeft">
+            </div>
+            <div class="spanLineRight">
+                <p class="gray">優先排序值較高者，其排序較為前面</p>
+            </div>
         </div>
     </div>
     <div class="spanLine spanSubmit">

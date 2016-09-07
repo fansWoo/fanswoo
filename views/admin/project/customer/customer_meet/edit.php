@@ -9,7 +9,7 @@
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                分類名稱
+                公司名稱
             </div>
             <div class="spanLineLeft">
                 <input type="text" class="text" name="classname" placeholder="分類名稱" value="<?=$class_ClassMeta->classname?>">

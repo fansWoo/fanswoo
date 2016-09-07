@@ -2,38 +2,26 @@
 
 class Customer extends ObjDbBase
 {
-
-    public $customerid = 0;
-    public $projectid = 0;
-    public $title = '';
-    public $content_Html = '';
-    public $class_ClassMetaList;
-    public $estimate_hour = 0;
-    public $current_percent=0;
-    public $use_hour = 0;
-    public $uid_User;
-    public $start_time_DateTime;
-    public $end_time_DateTime;
-    public $prioritynum = 0;
-    public $work_status = 1;
-    public $status = 1;
-    public $db_name_arr = ['project_worktask'];//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid = 'worktaskid';//填寫物件聯繫資料庫之唯一ID
+    public $contact_time_DateTime;
+    public $updatetime_DateTime;
+    public $db_name_arr = ['project_customer'];//填寫物件聯繫資料庫之名稱
+    public $db_uniqueid = 'customerid';//填寫物件聯繫資料庫之唯一ID
     public $db_field_arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'worktaskid' => 'worktaskid',
-        'projectid' => 'projectid',
-        'title' => 'title',
-        'content' => 'content_Html',
+        'customerid' => 'customerid',
         'uid' => ['uid_User', 'uid'],
-        'classids' => ['class_ClassMetaList', 'uniqueids'],
-    	'current_percent'=>'current_percent',
-        'estimate_hour' => 'estimate_hour',
-        'use_hour' => 'use_hour',
-        'start_time' => array('start_time_DateTime', 'datetime'),
-        'end_time' => array('end_time_DateTime', 'datetime'),
+        'company' => 'company',
+        'customer_name' => 'customer_name',
+        'phone'=>'phone',
+        'tel'=>'tel',
+        'email'=>'email',
+    	'wish'=>'wish',
+        'content' => 'content_Html',
+        'address'=>'address',
+        'budget_range' => 'budget_range',
+        'contact_time' => array('contact_time_DateTime', 'datetime'),
+        'website' => 'website',
         'prioritynum' => 'prioritynum',
-        'work_status' => 'work_status',
-        'status' => 'status'
+        'updatetime' => ['updatetime_DateTime', 'datetime']
     );
 	
 	public function construct($arg = [])
@@ -41,56 +29,32 @@ class Customer extends ObjDbBase
         $data = $this->data;
         
         //將引數設為物件屬性，或將引數作為物件型屬性的建構值
-        $this->set('worktaskid', $arg['worktaskid']);
-        $this->set('projectid', $arg['projectid']);
-        $this->set('title', $arg['title']);
+        $this->set('customerid', $arg['customerid']);
+        $this->set('company', $arg['company']);
+        $this->set('customer_name', $arg['customer_name']);
         $this->set('content_Html', $arg['content']);
-        $this->set('estimate_hour', $arg['estimate_hour']);
-        $this->set('current_percent', $arg['current_percent']);
-        $this->set('use_hour', $arg['use_hour']);
+        $this->set('phone', $arg['phone']);
+        $this->set('tel', $arg['tel']);
+        $this->set('email', $arg['email']);
+        $this->set('wish', $arg['wish']);
+        $this->set('address', $arg['address']);
+        $this->set('budget_range', $arg['budget_range']);
+        $this->set('website', $arg['website']);
         $this->set('prioritynum', $arg['prioritynum']);
-        $this->set('work_status', $arg['work_status']);
-        $this->set('start_time_DateTime', [
-            'datetime' => $arg['start_time'],
+        $this->set('contact_time_DateTime', [
+            'datetime' => $arg['contact_time'],
             'inputtime_date' => $arg['start_inputtime_date'],
             'inputtime_time' => $arg['start_inputtime_time']
         ], 'DateTimeObj');
-        $this->set('class_ClassMetaList', [
-            'classids' => $arg['classids'],
-            'classids_arr' => $arg['classids_arr']
-        ], 'ClassMetaList');
-        $this->set('end_time_DateTime', [
-            'datetime' => $arg['end_time'],
+        $this->set('updatetime_DateTime', [
+            'datetime' => $arg['updatetime'],
             'inputtime_date' => $arg['start_inputtime_date'],
             'inputtime_time' => $arg['start_inputtime_time']
         ], 'DateTimeObj');
         $this->set__uid_User(['uid' => $arg['uid']]);
         $this->set__status(['status' => $arg['status']]);
-        $this->set__project_ProjectList(['projectid' => $arg['projectid']]);
         
         return TRUE;
-    }
-    
-    public function set__project_ProjectList($arg)
-    {
-    	reset_null_arr($arg, ['projectid']);
-    	foreach($arg as $key => $value) ${$key} = $arg[$key];
-    
-    	$project_ProjectList = new ObjList([
-    			'db_where_arr' => [
-    					'projectid' => $projectid
-    			],
-    			'obj_class' => 'Project',
-    			'limitstart' => 0,
-    			'limitcount' => 9999
-    	]);
-    	
-    	$this->set('project_ProjectList', $project_ProjectList);
-    }
-    
-    public function count_use_time($this_use_hour){
-    	
-    	$this->use_hour=$this->use_hour+$this_use_hour;
     }
 	
 }

@@ -27,23 +27,22 @@ Temp.ready(function(){
                 <div class="spanLineLeft checkbox"></div>
                 <?endif?>
                 <div class="spanLineLeft text width100">
-                    任務ID
-                </div>
-                <div class="spanLineLeft text width180">
-                    專案名稱
+                    客戶ID
                 </div>
                 <div class="spanLineLeft text width200">
-                    問題標題
+                    公司名稱
                 </div>
                 <div class="spanLineLeft text width150">
-                    任務執行人
+                    客戶名稱
                 </div>
                 <div class="spanLineLeft text width150">
-                    目前狀態
+                    意願程度
                 </div>
-                
                 <div class="spanLineLeft text width150">
-                    工作分類
+                    預算
+                </div>              
+                <div class="spanLineLeft text width150">
+                    最後聯繫時間
                 </div>
                 <div class="spanLineLeft text width150">
                     編輯操作
@@ -59,40 +58,34 @@ Temp.ready(function(){
                     <div class="spanLineLeft text width100">
                         <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_customerid)?$search_customerid:''?>" name="search_customerid" placeholder="請填寫ID">
                     </div>
-                    <div class="spanLineLeft text width180">
-                        <select name="search_projectid" style="margin-left:-6px;">
-                            <option value="">不透過分類標籤篩選</option>
-                            <?foreach($ProjectList->obj_arr as $key2 => $value_Project):?>
-                            <option value="<?=$value_Project->projectid?>"<?if(!empty($search_projectid) && $search_projectid == $value_Project->projectid) echo ' selected'?>><?=$value_Project->name?></option>
-                            <?endforeach?>
-                        </select>
-                    </div>
                     <div class="spanLineLeft text width200">
-                        <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title)?$search_title:''?>" name="search_title" placeholder="請填寫問題標題">
+                        <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_company)?$search_company:''?>" name="search_company" placeholder="請填寫公司名稱">
                     </div>
                     <div class="spanLineLeft text width150">
-                        <select name="search_pemission_uid" style="margin-left:-6px;">
-                            <option value="">不透過分類標籤篩選</option>
-                            <?foreach($permission_arr as $key1 => $value_permission):?>
-                            <option value="<?=$key1?>"<?if(!empty($search_pemission_uid) && $search_pemission_uid == $key1) echo ' selected'?>><?=$value_permission?></option>
-                            <?endforeach?>
+                        <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_customer_name)?$search_customer_name:''?>" name="search_customer_name" placeholder="請填寫客戶名稱">
+                    </div>
+                    <div class="spanLineLeft text width150">
+                        <select name="search_wish" style="min-width:110px;">
+                            <option value="" <?if(empty($search_wish)):?>selected<?endif?>>未選擇意願程度</option>
+                            <option value="S"<?if(!empty($search_wish) && $search_wish == 'S'):?>selected<?endif?>>S</option>
+                            <option value="A"<?if(!empty($search_wish) && $search_wish == 'A'):?>selected<?endif?>>A</option>
+                            <option value="B"<?if(!empty($search_wish) && $search_wish == 'B'):?>selected<?endif?>>B</option>
+                            <option value="C"<?if(!empty($search_wish) && $search_wish == 'C'):?>selected<?endif?>>C</option>
+                            <option value="D"<?if(!empty($search_wish) && $search_wish == 'D'):?>selected<?endif?>>D</option>
                         </select>
                     </div>
                     <div class="spanLineLeft text width150">
-                        <select name="search_work_status" style="min-width:110px;">
-                            <option value="" <?if(empty($search_work_status)):?>selected<?endif?>>未選擇狀態</option>
-                            <option value="A0"<?if(!empty($search_work_status) && $search_work_status == A0):?>selected<?endif?>>任務未完成</option>
-                            <option value="1"<?if(!empty($search_work_status) && $search_work_status == 1):?>selected<?endif?>>主管檢核中</option>
-                            <option value="2"<?if(!empty($search_work_status) && $search_work_status == 2):?>selected<?endif?>>主管審核通過</option>
+                        <select name="search_budget_range" style="min-width:100px;">
+                            <option value="" <?if(empty($search_budget_range)):?>selected<?endif?>>未選擇預算範圍</option>
+                            <option value="0"<?if(!empty($search_budget_range) && $search_budget_range == 0):?>selected<?endif?>>15萬以下</option>
+                            <option value="1"<?if(!empty($search_budget_range) && $search_budget_range == 1):?>selected<?endif?>>15-50萬</option>
+                            <option value="2"<?if(!empty($search_budget_range) && $search_budget_range == 2):?>selected<?endif?>>50-100萬</option>
+                            <option value="3"<?if(!empty($search_budget_range) && $search_budget_range == 3):?>selected<?endif?>>100-150萬</option>
+                            <option value="4"<?if(!empty($search_budget_range) && $search_budget_range == 4):?>selected<?endif?>>150萬-200萬</option>
                         </select>
                     </div>
                     <div class="spanLineLeft text width150">
-                        <select name="search_class_slug" style="margin-left:-6px;">
-                            <option value="">不透過分類標籤篩選</option>
-                            <?foreach($CustomerClassMetaList->obj_arr as $key => $value_ClassMeta):?>
-                            <option value="<?=$value_ClassMeta->slug?>"<?if(!empty($search_class_slug) && $search_class_slug == $value_ClassMeta->slug) echo ' selected'?>><?=$value_ClassMeta->classname?></option>
-                            <?endforeach?>
-                        </select>
+                    最後聯繫時間
                     </div>
                     <div class="spanLineLeft text width150">
                         <input type="submit" class="button" style="height: 30px;" value="篩選">
@@ -100,7 +93,6 @@ Temp.ready(function(){
                 </form>
             </div>
             <?if(!empty($CustomerList->obj_arr)):?>
-            <?php echo form_open("admin/$child1_name/$child2_name/$child3_name/delete_batch_post/") ?>
             <?foreach($CustomerList->obj_arr as $key => $value_Customer):?>
             <div class="spanLine tablelist">
                 <div class="spanLineLeft checkbox">
@@ -109,32 +101,20 @@ Temp.ready(function(){
                 <div class="spanLineLeft text width100">
                     <?=$value_Customer->customerid?>
                 </div>
-                <div class="spanLineLeft text width180">
-                    <?=$value_Customer->project_ProjectList->obj_arr[0]->name?>
-                </div>
                 <div class="spanLineLeft text width200">
-                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?customerid=<?=$value_Customer->customerid?>"><?=$value_Customer->title?></a>
+                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?customerid=<?=$value_Customer->customerid?>"><?=$value_Customer->company?></a>
                 </div>
                 <div class="spanLineLeft text width150">
-                    <?=$value_Customer->uid_User->username?>
+                    <?=$value_Customer->customer_name?>
                 </div>
                 <div class="spanLineLeft text width150">
-                    <?if($value_Customer->work_status == 1):?>
-                    <span class="red">主管檢核中</span>
-                    <?elseif($value_Customer->work_status == 2):?>
-                    <span class="green">主管審核通過</span>
-                    <?elseif($value_Customer->work_status == 0):?>
-                    <span class="red">未完成</span>
-                    <?endif?>
+                    <?=$value_Customer->wish?>
                 </div>
                 <div class="spanLineLeft text width150">
-                    <?if(!empty($value_Customer->class_ClassMetaList->obj_arr)):?>
-                    <?foreach($value_Customer->class_ClassMetaList->obj_arr as $key => $value_ClassMeta):?>
-                        <?if($key !== 0):?>,<?endif?><?=$value_ClassMeta->classname?>
-                    <?endforeach?>
-                    <?else:?>
-                    <span class="gray">沒有分類標籤</span>
-                    <?endif?>
+                    <?=$value_Customer->budget_range?>
+                </div>
+                <div class="spanLineLeft text width150">
+                    <?=$value_Customer->contact_time_DateTime->datetime?>
                 </div>
                 <div class="spanLineLeft width150 tablelistMenu">
                     <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?customerid=<?=$value_Customer->customerid?>">編輯</a>
