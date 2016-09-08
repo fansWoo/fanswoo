@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-09-06 13:06:16
+-- 產生時間： 2016-09-08 03:58:34
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 7.0.8
 
@@ -438,18 +438,31 @@ INSERT INTO `fs_project` (`projectid`, `uid`, `name`, `admin_uids`, `customer_ui
 
 CREATE TABLE `fs_project_customer` (
   `customerid` mediumint(8) NOT NULL COMMENT 'AUTO_INCREMENT',
+  `uid` mediumint(8) NOT NULL,
   `customer_name` char(100) NOT NULL,
   `company` char(100) NOT NULL,
   `phone` char(100) NOT NULL,
   `tel` char(100) NOT NULL,
+  `email` char(100) NOT NULL,
   `address` char(100) NOT NULL,
   `budget_range` char(100) NOT NULL,
   `wish` char(5) NOT NULL,
   `content` text NOT NULL,
-  `demand` text NOT NULL,
   `contact_time` datetime NOT NULL,
-  `website` text NOT NULL
+  `website` text NOT NULL,
+  `status` int(1) NOT NULL,
+  `prioritynum` mediumint(8) DEFAULT '0',
+  `updatetime` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_project_customer`
+--
+
+INSERT INTO `fs_project_customer` (`customerid`, `uid`, `customer_name`, `company`, `phone`, `tel`, `email`, `address`, `budget_range`, `wish`, `content`, `contact_time`, `website`, `status`, `prioritynum`, `updatetime`) VALUES
+(1, 528502, 'sthu', 'xfgth', 'fghfdghfd', 'fdh', 'fishpaypay@fanswoo.com', 'srtdhryjh', '15萬以下', 'S', 'sthyryth', '2016-09-28 13:00:00', 'fghjdfhyj', -1, 10, '2016-09-07 17:57:09'),
+(2, 528502, '123', '123', '123', '123', 'fsad@fvkf.com', 'dfsd', '100-150萬', 'A', 'dfd', '2016-09-07 16:10:59', 'sdfsd', 1, 0, NULL),
+(3, 528502, '0907', '0907', '0907', '0907', '0907@123.com', '0907', '15-50萬', 'B', '0907', '2016-09-05 00:00:00', '0907', 1, 3, '2016-09-07 18:07:44');
 
 -- --------------------------------------------------------
 
@@ -1324,7 +1337,10 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('753dfe45c10aac51c6ac7acf5caacc0d', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143', 1472801130, ''),
 ('a086456c15c643f56f1a02a1b72cee33', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472804848, ''),
 ('3111c35bbb55bd05039b43607c8fe3e4', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143', 1472804900, ''),
-('df033b9640efd5225abc17b26352406b', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472804907, '');
+('df033b9640efd5225abc17b26352406b', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472804907, ''),
+('1f77990301242a5e70611645a38892a9', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473213871, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:8:"customer";s:17:"last_admin_child4";s:9:"tablelist";}'),
+('b87f2f9ae2a801d0b185449fcd2fb401', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1473222272, 'a:1:{s:9:"user_data";s:0:"";}'),
+('cfe2b24a5ca8137a45ece2509a4a42f4', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473222291, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:8:"customer";s:17:"last_admin_child4";s:4:"edit";}');
 
 -- --------------------------------------------------------
 
@@ -2184,7 +2200,7 @@ ALTER TABLE `fs_project`
 -- 使用資料表 AUTO_INCREMENT `fs_project_customer`
 --
 ALTER TABLE `fs_project_customer`
-  MODIFY `customerid` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT';
+  MODIFY `customerid` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT', AUTO_INCREMENT=4;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_project_suggest`
 --
