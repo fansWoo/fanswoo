@@ -103,10 +103,14 @@ class Customer_Controller extends MY_Controller {
         $data['CustomerList'] = new ObjList([
             'db_where_arr' => [
                 'customerid' => $data['search_customerid'],
-                'company like' => $data['search_company'],          	
+                'company like' => $data['search_company'],
+                'customer_name like' => $data['search_customer_name'],
+                'wish like' => $data['search_wish'],
+                'budget_range like' => $data['search_budget_range']
             ],
             'db_orderby_arr' => [
-                'wish' => 'DESC',
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
             ],
             'db_where_deletenull_bln' => TRUE,
             'obj_class' => 'Customer',

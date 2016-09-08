@@ -77,11 +77,11 @@ Temp.ready(function(){
                     <div class="spanLineLeft text width150">
                         <select name="search_budget_range" style="min-width:100px;">
                             <option value="" <?if(empty($search_budget_range)):?>selected<?endif?>>未選擇預算範圍</option>
-                            <option value="0"<?if(!empty($search_budget_range) && $search_budget_range == 0):?>selected<?endif?>>15萬以下</option>
-                            <option value="1"<?if(!empty($search_budget_range) && $search_budget_range == 1):?>selected<?endif?>>15-50萬</option>
-                            <option value="2"<?if(!empty($search_budget_range) && $search_budget_range == 2):?>selected<?endif?>>50-100萬</option>
-                            <option value="3"<?if(!empty($search_budget_range) && $search_budget_range == 3):?>selected<?endif?>>100-150萬</option>
-                            <option value="4"<?if(!empty($search_budget_range) && $search_budget_range == 4):?>selected<?endif?>>150萬-200萬</option>
+                            <option value="15萬以下"<?if(!empty($search_budget_range) && $search_budget_range == '15萬以下'):?>selected<?endif?>>15萬以下</option>
+                            <option value="15-50萬"<?if(!empty($search_budget_range) && $search_budget_range == '15-50萬'):?>selected<?endif?>>15-50萬</option>
+                            <option value="50-100萬"<?if(!empty($search_budget_range) && $search_budget_range == '50-100萬'):?>selected<?endif?>>50-100萬</option>
+                            <option value="100-150萬"<?if(!empty($search_budget_range) && $search_budget_range == '100-150萬'):?>selected<?endif?>>100-150萬</option>
+                            <option value="150萬-200萬"<?if(!empty($search_budget_range) && $search_budget_range == '150萬-200萬'):?>selected<?endif?>>150萬-200萬</option>
                         </select>
                     </div>
                     <div class="spanLineLeft text width150">
@@ -117,6 +117,9 @@ Temp.ready(function(){
                     <?=$value_Customer->contact_time_DateTime->datetime?>
                 </div>
                 <div class="spanLineLeft width150 tablelistMenu">
+
+                    <a href="admin/<?=$child1_name?>/customer/customer_meet/tablelist/?class_slug=<?=$value_ClassMeta->slug?>">拜訪紀錄</a>
+
                     <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?customerid=<?=$value_Customer->customerid?>">編輯</a>
                     <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?customerid=<?=$value_Customer->customerid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
                 </div>

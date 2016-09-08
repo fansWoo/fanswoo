@@ -1,6 +1,6 @@
 <?php
 
-class Classmeta_Controller extends MY_Controller {
+class Customer_meet_Controller extends MY_Controller {
 
     public function __construct()
     {
@@ -14,17 +14,17 @@ class Classmeta_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $classid = $this->input->get('classid');
-        $slug = $this->input->get('slug');
+        $visitid = $this->input->get('visitid');
 
-        //初始化ClassMeta
-        $data['class_ClassMeta'] = new ClassMeta([
+        $data['Customer_meet'] = new Customer_meet([
             'db_where_arr' => [
-                'classid' => $classid,
-                'slug' => $slug
-            ],
-            'db_where_deletenull_bln' => TRUE
+                'visitid' => $visitid
+            ]
         ]);
+
+        $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
+        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
+        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/style.css';
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
@@ -34,132 +34,193 @@ class Classmeta_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $classid = $this->input->post('classid', TRUE);
-        $classname = $this->input->post('classname', TRUE, '分類名稱', 'required');
-        $slug = $this->input->post('slug', TRUE);
-        $content = $this->input->post('content', TRUE);
-        $prioritynum = $this->input->post('prioritynum', TRUE);
+        //基本post欄位
+        $visitid = $this->input->post('visitid', TRUE);
+        $customerids = $this->input->post('customerids', TRUE, '客戶ID', 'required');
+        $visit = $this->input->post('visit', TRUE, '拜訪性質');
+        $visit_time = $this->input->post('visit_time', TRUE, '拜訪時間');
         if( !$this->form_validation->check() ) return FALSE;
-                
-        $ClassMeta = new ClassMeta([
-            'classid' => $classid,
-            'classname' => $classname,
-            'slug' => $slug,
-            'content' => $content,
-            'prioritynum' => $prioritynum,
-            'modelname' => 'worktask'
-        ]);
-        $ClassMeta->update();
 
+        //建構Customer_meet物件，並且更新
+        $Customer_meet = new Customer_meet([
+            'visitid' => $visitid,
+            'customerids' => $customerids,
+            'visit_' => $visit,
+            'visit_time' => $visit_time
+            
+            
+        ]);
+        $Customer_meet->update();
+               
         //送出成功訊息
         $this->load->model('Message');
         $this->Message->show([
             'message' => '設定成功',
-            'url' => 'admin/project/worktask/classmeta/tablelist'
+            'url' => 'admin/project/customer/customer_meet/tablelist/'
         ]);
+        return TRUE;
     }
 
     public function tablelist()
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
+        $data['search_visitid'] = $this->input->get('visitid');
+        $data['search_customerids'] = $this->input->get('customerids');
+        $data['search_visit'] = $this->input->get('visit');
+        $data['search_visit_time'] = $this->input->get('visit_time');
+        $data['search_class_slug'] = $this->input->get('class_slug');
         $limitstart = $this->input->get('limitstart');
         $limitcount = $this->input->get('limitcount');
-        $limitcount = empty($limitcount) ? 20 : $limitcount;
-        $limitcount = $limitcount > 100 ? 100 : $limitcount;
+        $limitcount = !empty($limitcount) ? $limitcount : 20;
 
-        $data['search_classname'] = $this->input->get('classname');
-        $data['search_slug'] = $this->input->get('slug');
+        $class_ClassMeta = new ClassMeta([
+            'db_where_arr' => [
+                'slug' => $data['search_class_slug']
+            ]
+        ]);
 
-        $data['class_list_ClassMetaList'] = new ObjList();
-        $data['class_list_ClassMetaList']->construct_db(array(
-            'db_where_arr' => array(
-                'modelname' => 'worktask',
-                'slug' => $data['search_slug'],
-                'classname like' => $data['search_classname']
-            ),
+        $data['Customer_meetList'] = new ObjList([
+            'db_where_arr' => [
+                'customerids' => $data['search_customerids'],
+                'visitid' => $data['search_visitid'],
+                'visit like' => $data['search_visit'],
+                'visit_time like' => $data['search_visit_time']
+                
+            ],
+            'db_orderby_arr' => [
+                // 'prioritynum' => 'DESC',
+                'visit_time' => 'DESC'
+            ],
             'db_where_deletenull_bln' => TRUE,
-            'db_orderby_arr' => array(
-                array('prioritynum', 'DESC'),
-                array('classid', 'DESC')
-            ),
-            'obj_class' => 'ClassMeta',
-            'limitstart' => 0,
-            'limitcount' => 100
-        ));
-        $data['class_links'] = $data['class_list_ClassMetaList']->create_links(array('base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']));
+            'obj_class' => 'Customer_meet',
+            'limitstart' => $limitstart,
+            'limitcount' => $limitcount
+        ]);
+
+        $data['page_link'] = $data['CustomerList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
         
-        //建立class2_ClassMetaList
-        $data['class2_ClassMetaList'] = new ObjList();
-        $data['class2_ClassMetaList']->construct_db(array(
-            'db_where_arr' => array(
-                'modelname' => 'project_class2'
-            ),
+        
+        $data['Customer_meetClassMetaList'] = new ObjList([
+            'db_where_arr' => [
+                'modelname' => 'customer'
+            ],
             'obj_class' => 'ClassMeta',
             'limitstart' => 0,
             'limitcount' => 100
-        ));
+        ]);
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
+
     }
 
     public function tablelist_post()
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        $search_classname = $this->input->post('search_classname', TRUE);
-        $search_slug = $this->input->post('search_slug', TRUE);
-        $search_class2_slug = $this->input->post('search_class2_slug', TRUE);
+        $search_customerid = $this->input->post('search_customerid', TRUE);
+        $search_company = $this->input->post('search_company', TRUE);           
+        $search_class_slug = $this->input->post('search_class_slug', TRUE);
+        $search_visit = $this->input->post('search_visit', TRUE);
+        $search_visit_time = $this->input->post('search_visit_time', TRUE);
+        
 
-        $url = base_url('admin/project/project/classmeta/tablelist/?');
 
-        if(!empty($search_classname))
+        $url = 'admin/project/customer/customer/tablelist/?';
+
+        if(!empty($search_customerid))
         {
-            $url = $url.'&classname='.$search_classname;
+            $url = $url.'&customerid='.$search_customerid;
+        }
+        
+        if(!empty($search_company))
+        {
+            $url = $url.'&company='.$search_company;
         }
 
-        if(!empty($search_slug))
+        if(!empty($search_visit))
         {
-            $url = $url.'&slug='.$search_slug;
+            $url = $url.'&visit='.$search_visit;
         }
 
-        if(!empty($search_class2_slug))
+        if(!empty($search_visit_time))
         {
-            $url = $url.'&class2_slug='.$search_class2_slug;
+            $url = $url.'&visit_time='.$search_visit_time;
         }
 
-        header("Location: $url");
+
+        
+        //送出成功訊息
+        $this->load->model('Message');
+        $this->Message->show([
+            'message' => '資料存取中...',
+            'url' => $url
+        ]);
+    }
+
+    public function calendar()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+
+        $data['CustomerClassMetaList'] = new ObjList([
+            'db_where_arr' => [
+                'modelname' => 'customer'
+            ],
+            'obj_class' => 'ClassMeta',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
+              
+        //global
+        $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
+        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
+        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/zh-tw.js';
+        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/style.css';
+        $data['global']['js'][] = 'tool/fullcalendar/moment.min.js';
+        $data['global']['js'][] = 'tool/fullcalendar/fullcalendar.min.js';
+        $data['global']['js'][] = 'tool/fullcalendar/gcal.js';
+        $data['global']['js'][] = 'admin/project/customer/customer/calendar.js';
+
+        //輸出模板
+        $this->load->view('admin/'.$data['admin_child_url'], $data);
+
     }
 
     public function delete()
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
-        
-        $hash = $this->input->get('hash');
-        $classid = $this->input->get('classid');
+
+        $url = FALSE;
+        $dont_change_page = $this->input->get('dont_change_page');
+        if( empty( $dont_change_page ) )
+        {
+            $url = 'admin/project/customer/customer_meet/tablelist';
+        }
 
         //CSRF過濾
-        if($hash == $this->security->get_csrf_hash())
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $ClassMeta = new ClassMeta();
-            $ClassMeta->construct(array('classid' => $classid));
-            $ClassMeta->delete();
+            $customer = new customer([
+                'customerid' => $this->input->get('customerid')
+            ]);
+            $customer->delete();
 
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => '刪除成功',
-                'url' => 'admin/project/project/classmeta/tablelist'
-            ));
+                'url' => $url
+            ]);
         }
         else
         {
             $this->load->model('Message');
-            $this->Message->show(array(
+            $this->Message->show([
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
-                'url' => 'admin/project/project/classmeta/tablelist'
-            ));
+                'url' => $url
+            ]);
         }
     }
+}
 
 }
