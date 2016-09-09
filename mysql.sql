@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-09-08 12:56:10
+-- 產生時間： 2016-09-09 06:07:01
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 7.0.8
 
@@ -389,20 +389,6 @@ INSERT INTO `fs_pic` (`picid`, `uid`, `title`, `filename`, `size`, `type`, `md5`
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `fs_product_customer_meet`
---
-
-CREATE TABLE `fs_product_customer_meet` (
-  `visitid` mediumint(8) NOT NULL,
-  `customerids` mediumint(8) NOT NULL,
-  `visit_class` char(100) NOT NULL,
-  `visit_time` datetime NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- 資料表結構 `fs_project`
 --
 
@@ -477,6 +463,20 @@ INSERT INTO `fs_project_customer` (`customerid`, `uid`, `customer_name`, `compan
 (1, 528502, 'sthu', 'xfgth', 'fghfdghfd', 'fdh', 'fishpaypay@fanswoo.com', 'srtdhryjh', '15萬以下', 'S', 'sthyryth', '2016-09-28 13:00:00', 'fghjdfhyj', -1, 10, '2016-09-07 17:57:09'),
 (2, 528502, '123', '123', '123', '123', 'fsad@fvkf.com', 'dfsd', '100-150萬', 'A', 'dfd', '2016-09-07 16:10:59', 'sdfsd', 1, 0, NULL),
 (3, 528502, '0907', '0907', '0907', '0907', '0907@123.com', '0907', '15-50萬', 'B', '0907', '2016-09-05 00:00:00', '0907', 1, 3, '2016-09-07 18:07:44');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_project_customer_meet`
+--
+
+CREATE TABLE `fs_project_customer_meet` (
+  `visitid` mediumint(8) NOT NULL,
+  `customerids` mediumint(8) NOT NULL,
+  `visit_class` char(100) NOT NULL,
+  `visit_time` datetime NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1354,7 +1354,7 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('df033b9640efd5225abc17b26352406b', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472804907, ''),
 ('1f77990301242a5e70611645a38892a9', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473213871, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:8:"customer";s:17:"last_admin_child4";s:9:"tablelist";}'),
 ('b87f2f9ae2a801d0b185449fcd2fb401', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1473222272, 'a:1:{s:9:"user_data";s:0:"";}'),
-('cfe2b24a5ca8137a45ece2509a4a42f4', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473222291, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:7:"contact";s:17:"last_admin_child3";s:7:"contact";s:17:"last_admin_child4";s:9:"tablelist";}');
+('cfe2b24a5ca8137a45ece2509a4a42f4', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473222291, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:4:"base";s:17:"last_admin_child2";s:6:"global";s:17:"last_admin_child3";s:6:"global";s:17:"last_admin_child4";s:14:"global_setting";}');
 
 -- --------------------------------------------------------
 
@@ -2028,12 +2028,6 @@ ALTER TABLE `fs_pic`
   ADD UNIQUE KEY `picid` (`picid`);
 
 --
--- 資料表索引 `fs_product_customer_meet`
---
-ALTER TABLE `fs_product_customer_meet`
-  ADD PRIMARY KEY (`visitid`);
-
---
 -- 資料表索引 `fs_project`
 --
 ALTER TABLE `fs_project`
@@ -2044,6 +2038,12 @@ ALTER TABLE `fs_project`
 --
 ALTER TABLE `fs_project_customer`
   ADD PRIMARY KEY (`customerid`);
+
+--
+-- 資料表索引 `fs_project_customer_meet`
+--
+ALTER TABLE `fs_project_customer_meet`
+  ADD PRIMARY KEY (`visitid`);
 
 --
 -- 資料表索引 `fs_project_suggest`
@@ -2212,11 +2212,6 @@ ALTER TABLE `fs_page_setting`
 ALTER TABLE `fs_pic`
   MODIFY `picid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- 使用資料表 AUTO_INCREMENT `fs_product_customer_meet`
---
-ALTER TABLE `fs_product_customer_meet`
-  MODIFY `visitid` mediumint(8) NOT NULL AUTO_INCREMENT;
---
 -- 使用資料表 AUTO_INCREMENT `fs_project`
 --
 ALTER TABLE `fs_project`
@@ -2226,6 +2221,11 @@ ALTER TABLE `fs_project`
 --
 ALTER TABLE `fs_project_customer`
   MODIFY `customerid` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT', AUTO_INCREMENT=4;
+--
+-- 使用資料表 AUTO_INCREMENT `fs_project_customer_meet`
+--
+ALTER TABLE `fs_project_customer_meet`
+  MODIFY `visitid` mediumint(8) NOT NULL AUTO_INCREMENT;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_project_suggest`
 --

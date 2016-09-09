@@ -23,7 +23,7 @@ Temp.ready(function(){
     <div class="spanLineTable">
         <div class="spanLineTableContent">
             <div class="spanLine tablelist tableTitle">
-                <?if(!empty($CustomerList->obj_arr)):?>
+                <?if(!empty($CustomerMeetList->obj_arr)):?>
                 <div class="spanLineLeft checkbox"></div>
                 <?endif?>
                 <div class="spanLineLeft text width100">
@@ -92,33 +92,27 @@ Temp.ready(function(){
                     </div>
                 </form>
             </div>
-            <?if(!empty($CustomerList->obj_arr)):?>
-            <?foreach($CustomerList->obj_arr as $key => $value_Customer):?>
+            <?if(!empty($CustomerMeetList->obj_arr)):?>
+            <?foreach($CustomerMeetList->obj_arr as $key => $value_CustomerMeet):?>
             <div class="spanLine tablelist">
                 <div class="spanLineLeft checkbox">
-                    <input type="checkbox" name="customerid_arr[]" value="<?=$value_Customer->customerid?>" class="check">
+                    <input type="checkbox" name="customerid_arr[]" value="<?=$value_CustomerMeet->customerid?>" class="check">
                 </div>
                 <div class="spanLineLeft text width100">
-                    <?=$value_Customer->customerid?>
+                    <?=$value_CustomerMeet->customerid?>
                 </div>
                 <div class="spanLineLeft text width200">
-                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?customerid=<?=$value_Customer->customerid?>"><?=$value_Customer->company?></a>
+                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?customerid=<?=$value_CustomerMeet->customerid?>"><?=$value_CustomerMeet->company?></a>
                 </div>
                 <div class="spanLineLeft text width150">
-                    <?=$value_Customer->customer_name?>
+                    <?=$value_CustomerMeet->customer_name?>
                 </div>
                 <div class="spanLineLeft text width150">
-                    <?=$value_Customer->wish?>
-                </div>
-                <div class="spanLineLeft text width150">
-                    <?=$value_Customer->budget_range?>
-                </div>
-                <div class="spanLineLeft text width150">
-                    <?=$value_Customer->contact_time_DateTime->datetime?>
+                    <?=$value_CustomerMeet->visit_time_DateTime->datetime?>
                 </div>
                 <div class="spanLineLeft width150 tablelistMenu">
-                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?customerid=<?=$value_Customer->customerid?>">編輯</a>
-                    <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?customerid=<?=$value_Customer->customerid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
+                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?customerid=<?=$value_CustomerMeet->customerid?>">編輯</a>
+                    <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?customerid=<?=$value_CustomerMeet->customerid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
                 </div>
             </div>
             <?endforeach?>
@@ -133,7 +127,7 @@ Temp.ready(function(){
             <?endif?>
         </div>
     </div>
-    <?if(!empty($CustomerList->obj_arr[0]->customerid)):?>
+    <?if(!empty($CustomerMeetList->obj_arr[0]->customerid)):?>
     <div class="batch_deletion">
         <input type="button" class="button" id="delete" style="height: 32px;" value="批量刪除">
     </div>
