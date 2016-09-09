@@ -95,15 +95,6 @@ class Worktask_Controller extends MY_Controller {
 		
         if( !$this->form_validation->check() ) return FALSE;
         
-        
-        if(!empty($worktaskid)){
-        	$old_Worktask = new Worktask([
-        			'db_where_arr' => [
-        					'worktaskid' => $worktaskid
-        			]
-        	]);
-        }
-        
         $work_status = is_numeric($work_status) ? $work_status : 2;
         
         //建構Worktask物件，並且更新
@@ -132,12 +123,9 @@ class Worktask_Controller extends MY_Controller {
         		'limitstart' => 0,
         		'limitcount' => 100
         ]);
-        
-        
-        $login_uid=$this->session->userdata('uid');
 
         //只有管理員即被分派者可以修改此張工作單
-        if(!in_array($login_uid, $Project->admin_uids_UserList->uniqueids_arr) && $login_uid != $Worktask->uid_User->uid){
+        if(!in_array($data['User']->uid, $Project->admin_uids_UserList->uniqueids_arr) && $data['User']->uid != $Worktask->uid_User->uid){
         	//送出成功訊息
         	$this->load->model('Message');
         	$this->Message->show([
@@ -194,9 +182,23 @@ class Worktask_Controller extends MY_Controller {
         $data['search_work_status'] = $this->input->get('work_status');
         $data['search_class_slug'] = $this->input->get('class_slug');
 
-        if( empty( $data['search_work_status'] ) )
+        if( !isset( $data['search_work_status'] ) )
         {
             $data['search_work_status'] = 0;
+        }
+        else if( $data['search_work_status'] == 'unselected' )
+        {
+            $data['search_work_status'] = NULL;
+        }
+
+        //優先搜尋自己的工作任務
+        if( !isset( $data['search_pemission_uid'] ) )
+        {
+            $data['search_pemission_uid'] = $data['User']->uid;
+        }
+        else if( $data['search_pemission_uid'] == 'unselected' )
+        {
+            $data['search_pemission_uid'] = NULL;
         }
 
         $limitstart = $this->input->get('limitstart');
@@ -227,12 +229,45 @@ class Worktask_Controller extends MY_Controller {
             'limitcount' => $limitcount
         ]);
 
-		
-        $permission_arr=[];
-        foreach($data['WorktaskList']->obj_arr as $key=>$value_Worktask){
-        	$permission_arr[$value_Worktask->uid_User->uid]=$value_Worktask->uid_User->username;      	
-        };
-        $data['permission_arr']=$permission_arr;
+        //抓出有權限更改的帳號有誰
+        $admin_ProjectList = new ObjList([
+            'db_where_arr' => [
+                [
+                    'uid' => $data['User']->uid
+                ],
+                [
+                    'admin_uids find' => $data['User']->uid
+                ]
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'obj_class' => 'Project',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
+
+        $permission_uid_arr = [];
+        foreach($admin_ProjectList->obj_arr as $key => $value_Project)
+        {
+            foreach($value_Project->admin_uids_UserList->obj_arr as $key2 => $value_User)
+            {
+                $permission_uid_arr[] = $value_User->uid;
+            }
+            foreach($value_Project->permission_uids_UserList->obj_arr as $key2 => $value_User)
+            {
+                $permission_uid_arr[] = $value_User->uid;
+            }
+        }
+        $permission_uid_arr[] = $data['User']->uid;
+
+        $data['permission_UserList'] = new ObjList([
+            'db_where_arr' => [
+                'uid in' => $permission_uid_arr
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'obj_class' => 'User',
+            'limitstart' => 0,
+            'limitcount' => 100
+        ]);
               
         $data['ProjectList'] = new ObjList([
         		'db_where_arr' => [
@@ -284,7 +319,7 @@ class Worktask_Controller extends MY_Controller {
         	$url = $url.'&projectid='.$search_projectid;
         }
         
-        if(!empty($search_pemission_uid))
+        if(!empty($search_pemission_uid) || $search_pemission_uid == 0)
         {
         	$url = $url.'&pemission_uid='.$search_pemission_uid;
         }
@@ -294,7 +329,7 @@ class Worktask_Controller extends MY_Controller {
             $url = $url.'&class_slug='.$search_class_slug;
         }
         
-        if(!empty($search_work_status))
+        if(!empty($search_work_status) || $search_work_status == 0)
         {
         	$url = $url.'&work_status='.$search_work_status;
         }
@@ -303,7 +338,6 @@ class Worktask_Controller extends MY_Controller {
         {
             $url = $url.'&title='.$search_title;
         }
-
         
         //送出成功訊息
         $this->load->model('Message');
@@ -344,6 +378,7 @@ class Worktask_Controller extends MY_Controller {
             'limitcount' => 100
         ]);
 
+        //抓出有權限更改的帳號有誰
         $admin_ProjectList = new ObjList([
             'db_where_arr' => [
                 [

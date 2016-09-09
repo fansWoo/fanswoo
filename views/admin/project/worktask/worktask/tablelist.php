@@ -66,18 +66,18 @@ Temp.ready(function(){
                     </div>
                     <div class="spanLineLeft text width150">
                         <select name="search_pemission_uid" style="margin-left:-6px;">
-                            <option value="">不透過分類標籤篩選</option>
-                            <?foreach($permission_arr as $key1 => $value_permission):?>
-                            <option value="<?=$key1?>"<?if(!empty($search_pemission_uid) && $search_pemission_uid == $key1) echo ' selected'?>><?=$value_permission?></option>
+                            <option value="unselected">不透過分類標籤篩選</option>
+                            <?foreach($permission_UserList->obj_arr as $key => $value_User):?>
+                            <option value="<?=$value_User->uid?>"<?if(!empty($search_pemission_uid) && $search_pemission_uid == $value_User->uid):?> selected<?endif?>><?=$value_User->username?></option>
                             <?endforeach?>
                         </select>
                     </div>
                     <div class="spanLineLeft text width150">
                         <select name="search_work_status" style="min-width:110px;">
-                            <option value="">未選擇狀態</option>
-                            <option value="0"<?if( $search_work_status == 0):?> selected<?endif?>>任務未完成</option>
-                            <option value="1"<?if( $search_work_status == 1):?> selected<?endif?>>主管檢核中</option>
-                            <option value="2"<?if( $search_work_status == 2):?> selected<?endif?>>主管審核通過</option>
+                            <option value="unselected"<?if( empty($search_work_status) ):?> selected<?endif?>>未選擇狀態</option>
+                            <option value="0"<?if( isset($search_work_status) && $search_work_status == 0):?> selected<?endif?>>任務未完成</option>
+                            <option value="1"<?if( isset($search_work_status) && $search_work_status == 1):?> selected<?endif?>>主管檢核中</option>
+                            <option value="2"<?if( isset($search_work_status) && $search_work_status == 2):?> selected<?endif?>>主管審核通過</option>
                         </select>
                     </div>
                     <div class="spanLineLeft text width150">
