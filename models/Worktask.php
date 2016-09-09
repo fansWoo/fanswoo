@@ -15,7 +15,7 @@ class Worktask extends ObjDbBase
     public $start_time_DateTime;
     public $end_time_DateTime;
     public $prioritynum = 0;
-    public $work_status = 1;
+    public $work_status = 0;
     public $status = 1;
     public $db_name_arr = ['project_worktask'];//填寫物件聯繫資料庫之名稱
     public $db_uniqueid = 'worktaskid';//填寫物件聯繫資料庫之唯一ID

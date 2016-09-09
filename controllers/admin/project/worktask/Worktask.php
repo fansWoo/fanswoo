@@ -194,6 +194,11 @@ class Worktask_Controller extends MY_Controller {
         $data['search_work_status'] = $this->input->get('work_status');
         $data['search_class_slug'] = $this->input->get('class_slug');
 
+        if( empty( $data['search_work_status'] ) )
+        {
+            $data['search_work_status'] = 0;
+        }
+
         $limitstart = $this->input->get('limitstart');
         $limitcount = $this->input->get('limitcount');
         $limitcount = !empty($limitcount) ? $limitcount : 20;

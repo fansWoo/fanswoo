@@ -74,10 +74,10 @@ Temp.ready(function(){
                     </div>
                     <div class="spanLineLeft text width150">
                         <select name="search_work_status" style="min-width:110px;">
-                            <option value="" <?if(empty($search_work_status)):?>selected<?endif?>>未選擇狀態</option>
-                            <option value="A0"<?if(!empty($search_work_status) && $search_work_status == A0):?>selected<?endif?>>任務未完成</option>
-                            <option value="1"<?if(!empty($search_work_status) && $search_work_status == 1):?>selected<?endif?>>主管檢核中</option>
-                            <option value="2"<?if(!empty($search_work_status) && $search_work_status == 2):?>selected<?endif?>>主管審核通過</option>
+                            <option value="">未選擇狀態</option>
+                            <option value="0"<?if( $search_work_status == 0):?> selected<?endif?>>任務未完成</option>
+                            <option value="1"<?if( $search_work_status == 1):?> selected<?endif?>>主管檢核中</option>
+                            <option value="2"<?if( $search_work_status == 2):?> selected<?endif?>>主管審核通過</option>
                         </select>
                     </div>
                     <div class="spanLineLeft text width150">
