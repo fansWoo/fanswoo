@@ -26,14 +26,11 @@ Temp.ready(function(){
                 <?if(!empty($WorktaskList->obj_arr)):?>
                 <div class="spanLineLeft checkbox"></div>
                 <?endif?>
-                <div class="spanLineLeft text width100">
-                    任務ID
+                <div class="spanLineLeft text width200">
+                    問題標題
                 </div>
                 <div class="spanLineLeft text width180">
                     專案名稱
-                </div>
-                <div class="spanLineLeft text width200">
-                    問題標題
                 </div>
                 <div class="spanLineLeft text width150">
                     任務執行人
@@ -56,8 +53,8 @@ Temp.ready(function(){
                         <input type="checkbox" id="check_all">
                     </div>
                     <?endif?>
-                    <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_worktaskid)?$search_worktaskid:''?>" name="search_worktaskid" placeholder="請填寫ID">
+                    <div class="spanLineLeft text width200">
+                        <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title)?$search_title:''?>" name="search_title" placeholder="請填寫問題標題">
                     </div>
                     <div class="spanLineLeft text width180">
                         <select name="search_projectid" style="margin-left:-6px;">
@@ -66,9 +63,6 @@ Temp.ready(function(){
                             <option value="<?=$value_Project->projectid?>"<?if(!empty($search_projectid) && $search_projectid == $value_Project->projectid) echo ' selected'?>><?=$value_Project->name?></option>
                             <?endforeach?>
                         </select>
-                    </div>
-                    <div class="spanLineLeft text width200">
-                        <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_title)?$search_title:''?>" name="search_title" placeholder="請填寫問題標題">
                     </div>
                     <div class="spanLineLeft text width150">
                         <select name="search_pemission_uid" style="margin-left:-6px;">
@@ -106,23 +100,20 @@ Temp.ready(function(){
                 <div class="spanLineLeft checkbox">
                     <input type="checkbox" name="worktaskid_arr[]" value="<?=$value_Worktask->worktaskid?>" class="check">
                 </div>
-                <div class="spanLineLeft text width100">
-                    <?=$value_Worktask->worktaskid?>
+                <div class="spanLineLeft text width200">
+                    <a class="<?if($value_Worktask->work_status == 1):?> green<?elseif($value_Worktask->work_status == 2):?> gray<?elseif($value_Worktask->work_status == 0):?> red<?endif?>" href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?worktaskid=<?=$value_Worktask->worktaskid?>"><?=$value_Worktask->title?></a>
                 </div>
                 <div class="spanLineLeft text width180">
                     <?=$value_Worktask->project_ProjectList->obj_arr[0]->name?>
-                </div>
-                <div class="spanLineLeft text width200">
-                    <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?worktaskid=<?=$value_Worktask->worktaskid?>"><?=$value_Worktask->title?></a>
                 </div>
                 <div class="spanLineLeft text width150">
                     <?=$value_Worktask->uid_User->username?>
                 </div>
                 <div class="spanLineLeft text width150">
                     <?if($value_Worktask->work_status == 1):?>
-                    <span class="red">主管檢核中</span>
+                    <span class="green">主管檢核中</span>
                     <?elseif($value_Worktask->work_status == 2):?>
-                    <span class="green">主管審核通過</span>
+                    <span class="gray">主管審核通過</span>
                     <?elseif($value_Worktask->work_status == 0):?>
                     <span class="red">未完成</span>
                     <?endif?>

@@ -22,7 +22,7 @@ Temp.ready(function() {
             day: 'YYYY年 YYYY月d日 dddd'
         },
         monthNames: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
-        dayNames: ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期日"],
+        dayNames: ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
         header: {
             left: 'prev,next',
             center: 'title',
