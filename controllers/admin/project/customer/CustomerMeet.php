@@ -159,5 +159,3 @@ class CustomerMeet_Controller extends MY_Controller {
         }
     }
 }
-
-}
