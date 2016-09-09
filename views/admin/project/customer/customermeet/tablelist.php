@@ -34,18 +34,9 @@ Temp.ready(function(){
                 </div>
                 <div class="spanLineLeft text width150">
                     客戶名稱
-                </div>
+                </div>          
                 <div class="spanLineLeft text width150">
-                    意願程度
-                </div>
-                <div class="spanLineLeft text width150">
-                    預算
-                </div>              
-                <div class="spanLineLeft text width150">
-                    最後聯繫時間
-                </div>
-                <div class="spanLineLeft text width150">
-                    編輯操作
+                    拜訪時間
                 </div>
             </div>
             <div class="spanLine tablelist">

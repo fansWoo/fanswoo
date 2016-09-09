@@ -22,6 +22,18 @@ class CustomerMeet_Controller extends MY_Controller {
             ]
         ]);
 
+        $data['CustomerList'] = new ObjList([
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'obj_class' => 'Customer',
+            'limitstart' => 0,
+            'limitcount' => 9999999
+        ]);
+        
+
         $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
         $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
         $data['global']['js'][] = 'style/jquery-ui-timepicker-addon/style.css';
@@ -39,6 +51,7 @@ class CustomerMeet_Controller extends MY_Controller {
         $customerids = $this->input->post('customerids', TRUE, '客戶ID', 'required');
         $visit_class = $this->input->post('visit_class', TRUE, '拜訪性質');
         $visit_time = $this->input->post('visit_time', TRUE, '拜訪時間');
+        $content = $this->input->post('content', FALSE, '拜訪內容');
         if( !$this->form_validation->check() ) return FALSE;
 
         //建構CustomerMeet物件，並且更新
@@ -46,10 +59,14 @@ class CustomerMeet_Controller extends MY_Controller {
             'visitid' => $visitid,
             'customerids' => $customerids,
             'visit_class' => $visit_class,
-            'visit_time' => $visit_time         
+            'visit_time' => $visit_time,
+            'content' => $content     
         ]);
         $CustomerMeet->update();
-               
+
+        
+
+
         //送出成功訊息
         $this->load->model('Message');
         $this->Message->show([
@@ -86,6 +103,7 @@ class CustomerMeet_Controller extends MY_Controller {
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
         ]);
+
 
         $data['page_link'] = $data['CustomerMeetList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 

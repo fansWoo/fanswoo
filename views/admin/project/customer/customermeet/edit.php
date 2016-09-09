@@ -1,11 +1,14 @@
 <?=$temp['header_up']?>
+<script src="js/tool/ckeditor/ckeditor.js"></script>
+<script src="js/tool/jquery-ui-timepicker-addon/script.js"></script>
+<link rel="stylesheet" type="text/css" href="style/tool/jquery-ui-timepicker-addon/style.css"></link>
 <script>
 Temp.ready(function(){
 
-    //加載 HTML 編輯器
-    // CKEDITOR.replace( 'content', {
-    //     toolbar: 'basic'
-    // });
+    // 加載 HTML 編輯器
+    CKEDITOR.replace( 'content', {
+        toolbar: 'basic'
+    });
 
     $('#visit_time').datetimepicker({
         dateFormat: 'yy-mm-dd',
@@ -26,7 +29,11 @@ Temp.ready(function(){
                 公司名稱
             </div>
             <div class="spanLineLeft width200">
-                <input type="text" class="text" name="" placeholder="請選擇客戶公司名稱" value="" required>
+                <select name="customerids_arr">
+                   <?foreach($CustomerList->obj_arr as $key => $value_customer):?>
+                    <option value="<?=$value_customer->customerid?>"><?=$value_customer->company?></option>
+                    <?endforeach?>
+                </select>
             </div>
         </div>
     </div>
@@ -35,7 +42,6 @@ Temp.ready(function(){
             <div class="spanLineLeft">
                 客戶名稱
             </div>
-
             <div class="spanLineLeft width200">
                 <input type="text" class="text" name="" placeholder="請輸入客戶名稱" value="" required>
             </div>           
@@ -61,8 +67,6 @@ Temp.ready(function(){
                     <option value="接洽"<?if($Customer_meet->visit_class == '接洽'):?> selected<?endif?>>接洽</option>
                     <option value="議價"<?if($Customer_meet->visit_class == '議價'):?> selected<?endif?>>議價</option>
                     <option value="其他"<?if($Customer_meet->visit_class == '其他'):?> selected<?endif?>>其他</option>
-                    <option value="C"<?if($Customer_meet->visit_class == 'C'):?> selected<?endif?>>C</option>
-                    <option value="D"<?if($Customer_meet->visit_class == 'D'):?> selected<?endif?>>D</option>
                 </select>
             </div>
         </div>
@@ -72,9 +76,8 @@ Temp.ready(function(){
             <div class="spanLineLeft">
                 拜訪內容
             </div>
-
-            <div class="spanLineLeft width200">
-                <input type="text" class="text" name="" placeholder="請輸入客戶名稱" value="" required>
+            <div class="spanLineRight"> 
+                <textarea cols="80" id="content" name="content" rows="10" required><?=$Customer_meet->content_Html?></textarea>
             </div>           
         </div>
     </div>

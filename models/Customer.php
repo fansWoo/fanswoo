@@ -26,7 +26,7 @@ class Customer extends ObjDbBase
 	
 	public function construct($arg = [])
     {
-        $data = $this->data;
+        
         
         //將引數設為物件屬性，或將引數作為物件型屬性的建構值
         $this->set('customerid', $arg['customerid']);
