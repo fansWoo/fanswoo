@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-09-09 13:08:16
+-- 產生時間： 2016-09-10 12:32:17
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 7.0.8
 
@@ -462,7 +462,9 @@ CREATE TABLE `fs_project_customer` (
 INSERT INTO `fs_project_customer` (`customerid`, `uid`, `customer_name`, `company`, `phone`, `tel`, `email`, `address`, `budget_range`, `wish`, `content`, `contact_time`, `website`, `status`, `prioritynum`, `updatetime`) VALUES
 (1, 528502, 'sthu', 'xfgth', 'fghfdghfd', 'fdh', 'fishpaypay@fanswoo.com', 'srtdhryjh', '15萬以下', 'S', 'sthyryth', '2016-09-28 13:00:00', 'fghjdfhyj', -1, 10, '2016-09-07 17:57:09'),
 (2, 528502, '123', '123', '123', '123', 'fsad@fvkf.com', 'dfsd', '100-150萬', 'A', 'dfd', '2016-09-07 16:10:59', 'sdfsd', 1, 0, NULL),
-(3, 528502, '213', '0907', '0907', '0907', '0907@123.com', '0907', '15-50萬', 'B', '0907', '2016-09-05 00:00:00', '0907', 1, 3, '2016-09-07 18:07:44');
+(3, 528502, 'XXX', 'ZOO', '0907', '0907', '0907@123.com', '0907', '15-50萬', 'B', '0907', '2016-09-05 00:00:00', '0907', 1, 0, '2016-09-07 18:07:44'),
+(4, 528502, 'peipei', 'fanswoo', '09134567489', '0222266624', 'fishpaypay@fanswoo.com', '新北市三重區', '15萬以下', 'B', '待拜訪洽談', '2016-08-12 10:00:00', 'none', 1, 5, '2016-08-31 08:00:00'),
+(5, 528502, '施小姐', '戚戚', '0516354163', '', 'adfrg@gmail.com', 'fghhfrghy', '100-150萬', 'S', 'szdtgh', '2016-09-15 00:00:00', 'none', 1, 12, '2016-09-10 17:03:42');
 
 -- --------------------------------------------------------
 
@@ -478,6 +480,26 @@ CREATE TABLE `fs_project_customer_meet` (
   `content` text NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `fs_project_customer_meet`
+--
+
+INSERT INTO `fs_project_customer_meet` (`visitid`, `customerids`, `visit_class`, `visit_time`, `content`, `status`) VALUES
+(1, 4, '議價', '2016-09-10 10:59:37', '嗨嗨嗨嗨嗨嗨', 1),
+(2, 2, '接洽', '2016-09-08 13:00:00', 'sdfswaedf', 1),
+(3, 4, '接洽', '2016-09-09 11:14:54', 'EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE', 1),
+(4, 2, '接洽', '2016-09-10 13:39:48', '', -1),
+(5, 0, '議價', '2016-09-16 00:00:00', 'hahahhahhahahha', -1),
+(6, 0, '接洽', '2016-09-14 00:00:00', '31111', -1),
+(7, 0, '', '2016-09-10 16:00:22', '', -1),
+(8, 0, '議價', '2016-09-10 00:00:00', 'yhth', -1),
+(9, 0, '接洽', '2016-09-06 00:00:00', 'gjhgvhj', -1),
+(10, 0, '議價', '2016-09-06 00:00:00', 'xfthusyt', -1),
+(11, 0, '議價', '2016-09-14 00:00:00', 'DRFG', -1),
+(12, 4, '議價', '2016-09-08 00:00:00', '網站', 1),
+(13, 5, '議價', '2016-09-16 12:00:00', 'dtfghdgth', -1),
+(14, 5, '議價', '2016-09-30 14:00:00', '戚戚', 1);
 
 -- --------------------------------------------------------
 
@@ -1355,7 +1377,10 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('df033b9640efd5225abc17b26352406b', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1472804907, ''),
 ('1f77990301242a5e70611645a38892a9', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473213871, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:8:"customer";s:17:"last_admin_child4";s:9:"tablelist";}'),
 ('b87f2f9ae2a801d0b185449fcd2fb401', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1473222272, 'a:1:{s:9:"user_data";s:0:"";}'),
-('cfe2b24a5ca8137a45ece2509a4a42f4', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473222291, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:12:"customermeet";s:17:"last_admin_child4";s:9:"tablelist";}');
+('cfe2b24a5ca8137a45ece2509a4a42f4', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473222291, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:12:"customermeet";s:17:"last_admin_child4";s:9:"tablelist";}'),
+('c212bdadec425e548061b0c4432d297e', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473494843, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:12:"customermeet";s:17:"last_admin_child4";s:9:"tablelist";}'),
+('4dcfbd7351db9bad93417f961cfb6b3f', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1473498320, 'a:1:{s:9:"user_data";s:0:"";}'),
+('71d959aa1d4079ad6440ac56e74d55ef', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473498339, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:12:"customermeet";s:17:"last_admin_child4";s:4:"edit";}');
 
 -- --------------------------------------------------------
 
@@ -2221,12 +2246,12 @@ ALTER TABLE `fs_project`
 -- 使用資料表 AUTO_INCREMENT `fs_project_customer`
 --
 ALTER TABLE `fs_project_customer`
-  MODIFY `customerid` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT', AUTO_INCREMENT=4;
+  MODIFY `customerid` mediumint(8) NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT', AUTO_INCREMENT=6;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_project_customer_meet`
 --
 ALTER TABLE `fs_project_customer_meet`
-  MODIFY `visitid` mediumint(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `visitid` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- 使用資料表 AUTO_INCREMENT `fs_project_suggest`
 --
