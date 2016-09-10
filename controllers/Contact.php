@@ -22,6 +22,7 @@ class Contact_Controller extends MY_controller
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'contact/index.css';
         
+        $data['global']['js'][] = 'contact_form.js';
         $data['global']['js'][] = 'tool/smooth_scrollerator.js';
             
         //temp

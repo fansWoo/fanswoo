@@ -5,6 +5,12 @@ class Page_Controller extends MY_Controller {
     
 	public function _remap($slug = 'index'){
         $data = $this->data;
+
+        if($slug == 'about')
+        {
+        	header("Location: http://fanswoo.com");
+        	return FALSE;
+        }
         
         $data['page_slug'] = $slug;
 
