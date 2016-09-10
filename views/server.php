@@ -230,7 +230,7 @@ $(function(){
 			<div class="item_box">
 				<div class="item one">
 					<p>容量</p>
-					<p>10G</p> 
+					<p>10G SSD</p> 
 				</div>
 				<div class="item">
 					<p>流量</p>
@@ -250,15 +250,15 @@ $(function(){
 			<div class="item_box">
 				<div class="item one">
 					<p>容量</p>
-					<p>10G</p> 
+					<p>20G SSD</p> 
 				</div>
 				<div class="item">
 					<p>流量</p>
-					<p>40G/400G</p> 
+					<p>80G/800G</p> 
 				</div>
 				<div class="item">
 					<p>頻寬</p>
-					<p>2M/1T</p> 
+					<p>5M/1T</p> 
 				</div>
 			</div>
 		</div>
@@ -270,15 +270,15 @@ $(function(){
 			<div class="item_box">
 				<div class="item one">
 					<p>容量</p>
-					<p>10G</p> 
+					<p>40G SSD</p> 
 				</div>
 				<div class="item">
 					<p>流量</p>
-					<p>40G/400G</p> 
+					<p>120G/1200G</p> 
 				</div>
 				<div class="item">
 					<p>頻寬</p>
-					<p>2M/1T</p> 
+					<p>10M/1T</p> 
 				</div>
 			</div>
 		</div>
@@ -333,7 +333,7 @@ $(function(){
 				<img src="img/server/content6/pic1.png" class="type">
 				<div class="item_box">
 					<div class="price">
-						<p>NT$<span>8,000</span>/年</p>
+						<p>NT$<span>8,000</span>/月</p>
 					</div>
 					<div class="item"><p>200G SSD </p></div>
 					<div class="item"><p>2T</p></div>
@@ -344,7 +344,7 @@ $(function(){
 				<img src="img/server/content6/pic2.png" class="type">
 				<div class="item_box">
 					<div class="price">
-						<p>NT$<span>15,800</span>/年</p>
+						<p>NT$<span>18,000</span>/月</p>
 					</div>
 					<div class="item"><p>400G SSD </p></div>
 					<div class="item"><p>4T</p></div>
@@ -355,7 +355,7 @@ $(function(){
 				<img src="img/server/content6/pic3.png" class="type">
 				<div class="item_box">
 					<div class="price">
-						<p>NT$<span>31,800</span>/年</p>
+						<p>NT$<span>38,000</span>/月</p>
 					</div>
 					<div class="item"><p>800G SSD</p></div>
 					<div class="item"><p>8T</p></div>
@@ -373,12 +373,12 @@ $(function(){
 		<div class="box">
 			<div class="type_price_box">
 				<img src="img/server/content6/mobile/pic1.png">
-				<p>NT$<span>8,000</span>/年</p>
+				<p>NT$<span>8,000</span>/月</p>
 			</div>
 			<div class="item_box">
 				<div class="item one">
 					<p>容量</p>
-					<p>200G</p> 
+					<p>200G SSD</p> 
 				</div>
 				<div class="item">
 					<p>流量</p>
@@ -393,12 +393,12 @@ $(function(){
 		<div class="box">
 			<div class="type_price_box">
 				<img src="img/server/content6/mobile/pic2.png">
-				<p>NT$<span>15,800</span>/年</p>
+				<p>NT$<span>18,000</span>/月</p>
 			</div>
 			<div class="item_box">
 				<div class="item one">
 					<p>容量</p>
-					<p>400G </p> 
+					<p>400G SSD</p> 
 				</div>
 				<div class="item">
 					<p>流量</p>
@@ -413,12 +413,12 @@ $(function(){
 		<div class="box">
 			<div class="type_price_box">
 				<img src="img/server/content6/mobile/pic3.png">
-				<p>NT$<span>31,800</span>/年</p>
+				<p>NT$<span>38,000</span>/月</p>
 			</div>
 			<div class="item_box">
 				<div class="item one">
 					<p>容量</p>
-					<p>800G</p> 
+					<p>800G SSD</p> 
 				</div>
 				<div class="item">
 					<p>流量</p>

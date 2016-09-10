@@ -33,7 +33,7 @@ class Contact_Controller extends MY_controller
 		$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('contact/index', $data);
+        $this->load->view('contact', $data);
     }
 
     public function contact_post()

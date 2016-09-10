@@ -37,7 +37,7 @@ class Webdesign_Controller extends MY_controller
         $data['temp']['contact_content_area'] = $this->load->view('temp/contact_content_area', $data, TRUE);
 
         //輸出模板
-        $this->load->view('webdesign/index', $data);
+        $this->load->view('webdesign', $data);
     }
 
 }

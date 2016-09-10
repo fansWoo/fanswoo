@@ -35,7 +35,7 @@ class Wordpress_Controller extends MY_controller
 		$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
 
         //輸出模板
-        $this->load->view('wordpress/index', $data);
+        $this->load->view('wordpress', $data);
     }
 
     public function order_submit()
