@@ -130,15 +130,15 @@ $(function(){
 		$(this).find("[name='budget_range']").removeAttr('disabled');
 	});
 	//footer置底
-	$(document).scroll(function(){
-		var window_width = $(window).width();
-		var scroll_top = $(document).scrollTop();
-		var window_height = $(window).height();
-		if(window_width >= 700 ){
+	// $(document).scroll(function(){
+	// 	var window_width = $(window).width();
+	// 	var scroll_top = $(document).scrollTop();
+	// 	var window_height = $(window).height();
+	// 	if(window_width >= 700 ){
 			
-			$('.wrap').css('height', window_height);
-		}
-	});
+	// 		$('.wrap').css('height', window_height);
+	// 	}
+	// });
 
 
 });

@@ -1,4 +1,4 @@
-.wrap { width:100%;margin:0 auto; overflow:hidden;height:900px; }
+.wrap { width:100%;margin:0 auto; overflow:hidden; min-height:1000px; }
 
 .pencil { display:none; }
 body.start .pencil { display:block; -webkit-animation:pencilPageMarketing 3s; animation:pencilPageMarketing 3s; }
@@ -155,7 +155,7 @@ body.forever .pc_content .textContactForm.hover { width:780px; height:600px; -we
 	body.forever .pc_content .textContactForm.hover { margin-top: 300px; width: 610px; }
 	.pc_content .textContactForm .textContactFormContent { width:620px; }
 	.pc_content .textContactForm .textContactFormContent .rightBox { width:420px; }
-	.pc_content .textContactForm .textContactFormContent .rightBox textarea { width:385px; }
+	.pc_content .textContactForm .textContactFormContent .rightBox textarea { width:355px; }
 	.pc_content .textContactForm .textContactFormContent .textContactFormClose { margin-left: 595px; }
 
 	.pc_content .textContactForm h2 { font-size:17px; margin-bottom:0; }
