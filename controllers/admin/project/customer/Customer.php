@@ -138,7 +138,6 @@ class Customer_Controller extends MY_Controller {
     public function tablelist_post()
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
-
         $search_customerid = $this->input->post('search_customerid', TRUE);
         $search_company = $this->input->post('search_company', TRUE);           
         $search_class_slug = $this->input->post('search_class_slug', TRUE);
@@ -151,6 +150,7 @@ class Customer_Controller extends MY_Controller {
 
 
         $url = 'admin/project/customer/customer/tablelist/?';
+
 
         if(!empty($search_customerid))
         {

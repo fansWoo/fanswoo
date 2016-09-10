@@ -85,6 +85,8 @@ class CustomerMeet_Controller extends MY_Controller {
         $limitcount = $this->input->get('limitcount');
         $limitcount = !empty($limitcount) ? $limitcount : 20;
 
+        // ec($data['search_customerids']);
+
         $data['CustomerMeetList'] = new ObjList([
             'db_where_arr' => [
                 'customerids' => $data['search_customerids'],

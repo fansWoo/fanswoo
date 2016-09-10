@@ -32,7 +32,7 @@ Temp.ready(function(){
                 <div class="spanLineLeft text width200">
                     公司名稱
                 </div>         
-                <div class="spanLineLeft text width150">
+                <div class="spanLineLeft text width300">
                     拜訪時間
                 </div>
             </div>
@@ -66,11 +66,9 @@ Temp.ready(function(){
                 <div class="spanLineLeft text width100" >
                     <?=$value_CustomerMeet->visitid?>
                 </div>
-
                 <div class="spanLineLeft text width200">         
                     <?=$value_CustomerMeet->CustomerList->obj_arr[0]->company?>    
                 </div>
-
                 <div class="spanLineLeft text width150">
                     <?=$value_CustomerMeet->visit_time_DateTime->datetime?>
                 </div>

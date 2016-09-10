@@ -29,7 +29,7 @@ Temp.ready(function(){
                 公司名稱
             </div>
             <div class="spanLineLeft width200">
-                <select name="customerids_arr">
+                <select name="customerids_arr[]">
                    <?foreach($CustomerList->obj_arr as $key => $value_customer):?>
                     <option value="<?=$value_customer->customerid?>"><?=$value_customer->company?></option>
                     <?endforeach?>
@@ -37,16 +37,16 @@ Temp.ready(function(){
             </div>
         </div>
     </div>
-    <div class="spanLine">
+<!--     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 客戶名稱
             </div>
-            <div class="spanLineLeft width200">
-                    <input type="text" class="text" name="customer_name" value="<?=$CustomerMeet->customer_name?>">
+            <div class="spanLineLeft text width200">
+                <?=$CustomerMeet->customerids->customer_name?>
             </div>           
         </div>
-    </div>
+    </div> -->
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">

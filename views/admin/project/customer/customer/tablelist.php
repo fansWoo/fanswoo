@@ -118,7 +118,7 @@ Temp.ready(function(){
                 </div>
                 <div class="spanLineLeft width150 tablelistMenu">
 
-                    <a href="admin/<?=$child1_name?>/customer/customermeet/tablelist/?class_slug=<?=$value_ClassMeta->slug?>">拜訪紀錄</a>
+                    <a href="admin/<?=$child1_name?>/customer/customermeet/tablelist/?customerids=<?=$value_Customer->customerid?>">拜訪紀錄</a>
 
                     <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?customerid=<?=$value_Customer->customerid?>">編輯</a>
                     <span class="ahref" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?customerid=<?=$value_Customer->customerid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除</span>
