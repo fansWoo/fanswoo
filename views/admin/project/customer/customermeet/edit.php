@@ -43,7 +43,7 @@ Temp.ready(function(){
                 客戶名稱
             </div>
             <div class="spanLineLeft width200">
-                <input type="text" class="text" name="" placeholder="請輸入客戶名稱" value="" required>
+                    <input type="text" class="text" name="customer_name" value="<?=$CustomerMeet->customer_name?>">
             </div>           
         </div>
     </div>
@@ -53,7 +53,7 @@ Temp.ready(function(){
                 拜訪時間
             </div>
             <div class="spanLineLeft">
-                <input type="text" id="visit_time" class="text" name="visit_time" value="<?=$Customer_meet->visit_time_DateTime->datetime?>">
+                <input type="text" id="visit_time" class="text" name="visit_time" value="<?=$CustomerMeet->visit_time_DateTime->datetime?>">
             </div>
         </div>
      </div>
@@ -63,10 +63,11 @@ Temp.ready(function(){
                 拜訪性質
             </div>
             <div class="spanLineLeft">
-                <select name="visit_class">
-                    <option value="接洽"<?if($Customer_meet->visit_class == '接洽'):?> selected<?endif?>>接洽</option>
-                    <option value="議價"<?if($Customer_meet->visit_class == '議價'):?> selected<?endif?>>議價</option>
-                    <option value="其他"<?if($Customer_meet->visit_class == '其他'):?> selected<?endif?>>其他</option>
+                <select name="visit_class" >
+                    <option value="">請選擇拜訪性質</option>
+                    <option value="接洽"<?if($CustomerMeet->visit_class == '接洽'):?> selected<?endif?>>接洽</option>
+                    <option value="議價"<?if($CustomerMeet->visit_class == '議價'):?> selected<?endif?>>議價</option>
+                    <option value="其他"<?if($CustomerMeet->visit_class == '其他'):?> selected<?endif?>>其他</option>
                 </select>
             </div>
         </div>
@@ -77,7 +78,7 @@ Temp.ready(function(){
                 拜訪內容
             </div>
             <div class="spanLineRight"> 
-                <textarea cols="80" id="content" name="content" rows="10" required><?=$Customer_meet->content_Html?></textarea>
+                <textarea cols="80" id="content" name="content" rows="10" required><?=$CustomerMeet->content_Html?></textarea>
             </div>           
         </div>
     </div>
@@ -86,9 +87,9 @@ Temp.ready(function(){
             <div class="spanLineLeft">
             </div>
             <div class="spanLineRight">
-                <?if(!empty($Customer_meet->visitid)):?><input type="hidden" name="visitid" value="<?=$Customer_meet->visitid?>"><?endif?>
-                <input type="submit" class="submit" value="<?if(!empty($Customer_meet->visitid)):?>儲存變更<?else:?>新增拜訪紀錄<?endif?>">
-                <?if(!empty($Customer_meet->visitid)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?visitid=<?=$Customer_meet->visitid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title?></span><?endif?>
+                <?if(!empty($CustomerMeet->visitid)):?><input type="hidden" name="visitid" value="<?=$CustomerMeet->visitid?>"><?endif?>
+                <input type="submit" class="submit" value="<?if(!empty($CustomerMeet->visitid)):?>儲存變更<?else:?>新增拜訪紀錄<?endif?>">
+                <?if(!empty($CustomerMeet->visitid)):?><span class="submit gray" onClick="fanswoo.check_href_action('確定要刪除嗎？', 'admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/delete/?visitid=<?=$CustomerMeet->visitid?>&hash=<?=$this->security->get_csrf_hash()?>');">刪除<?=$child3_title?></span><?endif?>
             </div>
         </div>
     </div>

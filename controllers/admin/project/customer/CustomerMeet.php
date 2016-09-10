@@ -48,24 +48,21 @@ class CustomerMeet_Controller extends MY_Controller {
 
         //基本post欄位
         $visitid = $this->input->post('visitid', TRUE);
-        $customerids = $this->input->post('customerids', TRUE, '客戶ID', 'required');
-        $visit_class = $this->input->post('visit_class', TRUE, '拜訪性質');
-        $visit_time = $this->input->post('visit_time', TRUE, '拜訪時間');
-        $content = $this->input->post('content', FALSE, '拜訪內容');
+        $customerids_arr = $this->input->post('customerids_arr', TRUE);
+        $visit_class = $this->input->post('visit_class', TRUE, '拜訪性質','required');
+        $visit_time = $this->input->post('visit_time', TRUE, '拜訪時間','required');
+        $content = $this->input->post('content', FALSE, '拜訪內容','required');
         if( !$this->form_validation->check() ) return FALSE;
 
         //建構CustomerMeet物件，並且更新
         $CustomerMeet = new CustomerMeet([
             'visitid' => $visitid,
-            'customerids' => $customerids,
+            'customerids_arr' => $customerids_arr,
             'visit_class' => $visit_class,
             'visit_time' => $visit_time,
             'content' => $content     
         ]);
         $CustomerMeet->update();
-
-        
-
 
         //送出成功訊息
         $this->load->model('Message');
@@ -93,7 +90,7 @@ class CustomerMeet_Controller extends MY_Controller {
                 'customerids' => $data['search_customerids'],
                 'visitid' => $data['search_visitid'],
                 'visit_class like' => $data['search_visit_class'],
-                'visit_time like' => $data['search_visit_time']                
+                'visit_time like' => $data['search_visit_time']              
             ],
             'db_orderby_arr' => [
                 'visit_time' => 'DESC'
@@ -104,6 +101,16 @@ class CustomerMeet_Controller extends MY_Controller {
             'limitcount' => $limitcount
         ]);
 
+        $data['CustomerList'] = new ObjList([
+            'db_orderby_arr' => [
+                'prioritynum' => 'DESC',
+                'updatetime' => 'DESC'
+            ],
+            'db_where_deletenull_bln' => TRUE,
+            'obj_class' => 'Customer',
+            'limitstart' => 0,
+            'limitcount' => 9999999
+        ]);
 
         $data['page_link'] = $data['CustomerMeetList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
 
@@ -156,10 +163,10 @@ class CustomerMeet_Controller extends MY_Controller {
         //CSRF過濾
         if( $this->input->get('hash') == $this->security->get_csrf_hash() )
         {
-            $customermeet = new CustomerMeet([
+            $CustomerMeet = new CustomerMeet([
                 'visitid' => $this->input->get('visitid')
             ]);
-            $customermeet->delete();
+            $CustomerMeet->delete();
 
             $this->load->model('Message');
             $this->Message->show([
@@ -174,6 +181,50 @@ class CustomerMeet_Controller extends MY_Controller {
                 'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
                 'url' => 'admin/project/customer/customermeet/tablelist'
             ]);
+        }
+    }
+
+    public function delete_batch_post()
+    {
+        $visitid_arr = $this->input->post('visitid_arr[]');
+
+        //CSRF過濾
+        if( $this->input->get('hash') == $this->security->get_csrf_hash() )
+        {
+            if(!empty($visitid_arr))
+            {
+                foreach($visitid_arr as $key => $visitid)
+                {
+                    $CustomerMeet = new CustomerMeet([
+                        'visitid' => $visitid
+                    ]);
+                    $CustomerMeet->delete();
+                }
+            }
+            else
+            {
+                $this->load->model('Message');
+                $this->Message->show([
+                    'message' => '未選擇要刪除的文章'
+                ]);
+                return TRUE;
+            }
+
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '刪除成功',
+                'url' => 'admin/project/customer/customermeet/tablelist'
+            ]);
+            return TRUE;
+        }
+        else
+        {
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => 'hash驗證失敗，請使用標準瀏覽器進行刪除動作',
+                'url' => 'admin/project/customer/customermeet/tablelist'
+            ]);
+            return TRUE;
         }
     }
 }

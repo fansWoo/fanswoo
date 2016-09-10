@@ -39,7 +39,7 @@ class Customer_Controller extends MY_Controller {
         $customer_name = $this->input->post('customer_name', TRUE, '客戶名稱', 'required');
         $company = $this->input->post('company', TRUE, '公司名稱', 'required');
         $phone = $this->input->post('phone', TRUE, '手機號碼', 'required');
-        $tel = $this->input->post('tel', TRUE, '公司電話', 'required');
+        $tel = $this->input->post('tel', TRUE, '公司電話');
         $email = $this->input->post('email', TRUE, '電子郵件', 'required|valid_email');
         $address = $this->input->post('address', TRUE, '公司地址', 'required');
         $wish = $this->input->post('wish','意願',TRUE);
@@ -48,7 +48,7 @@ class Customer_Controller extends MY_Controller {
         $contact_time = $this->input->post('contact_time', TRUE, '最後聯繫時間');
         $website = $this->input->post('website', TRUE, '公司網址');
         $prioritynum = $this->input->post('prioritynum', TRUE);
-        $updatetime = $this->input->post('updatetime', TRUE);
+        $updatetime = $this->input->post('updatetime', TRUE, 名單新增時間);
         if( !$this->form_validation->check() ) return FALSE;
 
         //建構Customer物件，並且更新
@@ -121,7 +121,7 @@ class Customer_Controller extends MY_Controller {
         $data['page_link'] = $data['CustomerList']->create_links(['base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']]);
         
         
-        $data['CustomerClassMetaList'] = new ObjList([
+        $data['ClassMetaList'] = new ObjList([
             'db_where_arr' => [
                 'modelname' => 'customer'
             ],
@@ -179,6 +179,10 @@ class Customer_Controller extends MY_Controller {
         if(!empty($search_budget_range))
         {
             $url = $url.'&budget_range='.$search_budget_range;
+        }
+        if(!empty($search_updatetime))
+        {
+            $url = $url.'&updatetime='.$search_updatetime;
         }
         
         //送出成功訊息

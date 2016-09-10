@@ -109,10 +109,11 @@ Temp.ready(function(){
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
-                意願程度
+                意願等級
             </div>
             <div class="spanLineLeft">
                 <select name="wish">
+                    <option value="">請選擇意願等級</option>
                     <option value="S"<?if($Customer->wish == 'S'):?> selected<?endif?>>S</option>
                     <option value="A"<?if($Customer->wish == 'A'):?> selected<?endif?>>A</option>
                     <option value="B"<?if($Customer->wish == 'B'):?> selected<?endif?>>B</option>
@@ -136,6 +137,7 @@ Temp.ready(function(){
             </div>
             <div class="spanLineLeft">
                 <select name="budget_range">
+                    <option value="">請選擇預算範圍</option>
                     <option value="15萬以下"<?if($Customer->budget_range == '15萬以下'):?> selected<?endif?>>15萬以下</option>
                     <option value="15-50萬"<?if($Customer->budget_range == '15-50萬'):?> selected<?endif?>>15-50萬</option>
                     <option value="50-100萬"<?if($Customer->budget_range == '50-100萬'):?> selected<?endif?>>50-100萬</option>
@@ -171,7 +173,7 @@ Temp.ready(function(){
                 優先排序指數
             </div>
             <div class="spanLineLeft" style="width:160px;">
-                <input type="number" class="text " name="prioritynum" min="0" value="<?=$Customer->prioritynum?>">
+                <input type="number" class="text " name="prioritynum" min="0" value="<?=$Customer->priokmnritynum?>">
             </div>
         </div>
         <div class="spanStage">
