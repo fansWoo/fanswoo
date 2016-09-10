@@ -176,7 +176,7 @@ body  .content1 .area  h1{display:block; -webkit-animation:p201410010334 1s;anim
 .content2 .area .box2 h1{display:block; height:50px;color:#646464;font-size:35px;letter-spacing:7px;font-weight:800; line-height:50px; margin-bottom:40px;text-align:left; }
 .content2 .area .box2 p{ display:block; letter-spacing:3px; text-align:left; line-height:22px; }
 .content2 .area .box2 .webdesignTop { font-size:15px; line-height:40px; margin-bottom:100px; }
-.content2 .area .box2 .webdesignNotice { font-size:12px; line-height:30px; }
+.content2 .area .box2 .webdesignNotice { font-size:14px; line-height:30px; }
 .content2 .area .box2 .webdesignNotice h3 { margin-bottom:20px; }
 
 @media screen and (min-width:1800px){	

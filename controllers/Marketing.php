@@ -36,6 +36,8 @@ class Marketing_Controller extends MY_controller
 		$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
         $data['temp']['contact_content_area'] = $this->load->view('temp/contact_content_area', $data, TRUE);
 
+        $data['loading_page'] = 'marketing';
+
         //輸出模板
         $this->load->view('marketing', $data);
     }

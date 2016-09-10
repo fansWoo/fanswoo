@@ -337,7 +337,7 @@ $(function(){
 					</div>
 					<div class="item"><p>200G SSD </p></div>
 					<div class="item"><p>2T</p></div>
-					<div class="item"><p>頻寬</p></div>
+					<div class="item"><p>無限頻寬</p></div>
 				</div>
 			</div>
 			<div class="box">
@@ -434,7 +434,7 @@ $(function(){
 </div>
 <div class="content7">
 	<div class="area">
-		<img src="img/server/content7/title.png" class="title">
+		<h3 class="title">伺服器優勢</h3>
 		<div class="item_area">
 			<div class="box">
 				<div class="pic">

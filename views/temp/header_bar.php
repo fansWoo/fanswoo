@@ -1,4 +1,5 @@
-<script>(function() {
+<script>
+(function() {
 var _fbq = window._fbq || (window._fbq = []);
 if (!_fbq.loaded) {
 var fbds = document.createElement('script');
@@ -12,75 +13,70 @@ _fbq.push(['addPixelId', '694153537333853']);
 })();
 window._fbq = window._fbq || [];
 window._fbq.push(['track', 'PixelInitialized', {}]);
-
-$(window).scroll(function(){
-	var wrap_height = $(window).height();
-	$('.weap').css('height', wrap_height);
-});
 </script>
 <noscript>
 	<img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=694153537333853&amp;ev=PixelInitialized" />
 </noscript>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$(".toggle").click(function() {
-			$(this).toggleClass("active");
-			$(" .phone_topHeader .navBar").slideToggle();
-		});	
+$(document).ready(function() {
+	$(window).scroll(function(){
+		var wrap_height = $(window).height();
+		$('.weap').css('height', wrap_height);
 	});
-	//$(document).on('click', '.toggle', function() {
-			//if($('..phone_topHeader .navBar').hasClass('active') == true)
-			//{
-			//	$('..phone_topHeader .navBar').removeClass("active");
-			//}
-			//else
-			//{
-			//	$('..phone_topHeader .navBar').addClass("active");
-			//}
-			
-			//});
+	$(".toggle").click(function() {
+		$(this).toggleClass("active");
+		$(" .phone_topHeader .navBar").slideToggle();
+	});	
+});
 </script>
+<div class="logoStart"></div>
+<div class="picLoadingList">
+	<img src="img/bg5.jpg">
+    <?if( isset($loading_page) ):?>
+	<?if($loading_page == 'index'):?>
+	<img src="img/bg1.png">
+	<img src="img/boxBg.png">
+	<img src="img/inhale.png">
+	<img src="img/brush.png">
+	<?elseif($loading_page == 'note'):?>
+	<img src="img/bg1.png">
+	<img src="img/bg1Black.png">
+	<?elseif($loading_page == 'portfolio'):?>
+	<img src="img/bg10.jpg">
+	<img src="img/bg13.jpg">
+	<img src="img/bg14.jpg">
+	<?elseif($loading_page == 'contact'):?>
+	<img src="img/bg3p1color.png">
+	<img src="img/bg3p1.png">
+	<img src="img/bg3p2_1.png">
+	<img src="img/plane.png">
+	<?elseif($loading_page == 'server'):?>
+	<img src="img/server/content1/pic1.png">
+	<img src="img/server/content1/bg4.png">
+	<img src="img/server/content1/bg3.png">
+	<img src="img/server/content1/bg2.png">
+	<img src="img/server/content1/bg.png">
+	<?elseif($loading_page == 'marketing'):?>
+	<img src="img/marketing/content1/bg.png">
+	<img src="img/marketing/content1/pic1.png">
+	<?elseif($loading_page == 'graphic'):?>
+	<img src="img/graphic/content1/bg.png">
+	<img src="img/graphic/content1/pic1.png">
+	<?elseif($loading_page == 'wordpress'):?>
+	<img src="img/wordpress/wordpress.png">
+	<img src="img/wordpress/contant1_bg.jpg">
+	<?elseif($loading_page == 'webdesign'):?>
+	<img src="img/webdesign/content1_bg.jpg">
+	<?endif?>
+	<?endif?>
+</div>
+<div class="picLoading"></div>
 <div class="body">
-	<div class="logoStart"></div>
-	<div class="picLoadingList">
-		<img src="img/bg5.jpg">
-        <?if( isset($page) ):?>
-		<?if($page == 'index'):?>
-		<img src="img/bg1.png">
-		<img src="img/bg1Black.png">
-		<img src="img/boxBg.png">
-		<?elseif($page == 'news'):?>
-		<img src="img/bg1.png">
-		<img src="img/bg1Black.png">
-		<?elseif($page == 'about'):?>
-		<img src="img/line.png">
-		<img src="img/bulb.png">
-		<img src="img/bulb2.png">
-		<img src="img/inhale.png">
-		<img src="img/brush.png">
-		<img src="img/bg6.jpg">
-		<img src="img/bg7.jpg">
-		<img src="img/bg8.jpg">
-		<img src="img/bg13.jpg">
-		<img src="img/bg18.jpg">
-		<?elseif($page == 'portfolio'):?>
-		<img src="img/bg10.jpg">
-		<img src="img/bg13.jpg">
-		<img src="img/bg14.jpg">
-		<?elseif($page == 'contact'):?>
-		<img src="img/bg3p1color.png">
-		<img src="img/bg3p1.png">
-		<img src="img/bg3p2_1.png">
-		<img src="img/plane.png">
-		<?endif?>
-		<?endif?>
-	</div>
-	<div class="picLoading"></div>
 	<div class="wrap">
-		<span data-hrefto="<?=base_url()?>" class="logoFixed"></span>
-		<div data-hrefto="contact" class="contactFormHover">
+		<a href="<?=base_url()?>" class="logoFixed"></a>
+		<a href="contact" class="contactFormHover">
 			線<br>上<br>諮<br>詢<br>/<br>索<br>取<br>報<br>價
-		</div>
+		</a>
 		<div class="index_topHeader">
 			<div class="center">
 				<div class="navBar">

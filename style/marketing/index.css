@@ -1,6 +1,6 @@
 /*************************************************Page news***/
 
-body { background-image:none; background-size:cover;  }
+body { background-size:cover;  }
 p{font-size:14px; letter-spacing:3px;line-height:22px;}
 h1{font-size:36px;letter-spacing:3px;line-height:42px;font-weight:500;}
 @media screen and (min-width:1400px){

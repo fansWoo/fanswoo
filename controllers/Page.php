@@ -91,6 +91,7 @@ class Page_Controller extends MY_Controller {
 			$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
 			$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
 			$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+			$data['loading_page'] = $slug;
 			
 			//輸出模板
 			$this->load->view('page/'.$slug, $data);

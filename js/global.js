@@ -26,12 +26,19 @@ $(function(){
 		callback: function(){
 			$(".logoStart").addClass('opacity0');
 			$(".picLoading").addClass("opacity0");
+			$(".footer").css("display", 'none');
+			$("body").css("height", $(window).height() );
+			$("body").css("overflow-y", 'scroll' );
+			$(".body").css("display", 'block');
 			setTimeout(function(){
 				$(".logoStart").css('display', 'none');
 				$(".picLoading").css('display', 'none');
-				$("body").addClass("start");
+				$("body").css("height", '' );
+				$("body").css("overflow-y", 'auto' );
+				$(".body").addClass("start");
+				$(".footer").css("display", 'block');
 				setTimeout(function(){
-					$("body").addClass("forever");
+					$(".body").addClass("forever");
 				}, 3000);
 			}, 1000);
 		}

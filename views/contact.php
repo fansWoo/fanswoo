@@ -38,11 +38,11 @@ Temp.ready(function(){
 <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
 <noscript style="display:none;"><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6020797556140&amp;cd[value]=0.00&amp;cd[currency]=TWD&amp;noscript=1" /></noscript>
 <?=$temp['header_down']?>
-<div class="pencil">fansWoo</div>
-<div class="plane">fansWoo</div>
-<div class="bg1">fansWoo</div>
-<div class="bg2"></div>
 <?=$temp['header_bar']?>
+	<div class="pencil">fansWoo</div>
+	<div class="plane">fansWoo</div>
+	<div class="bg1">fansWoo</div>
+	<div class="bg2"></div>
 	<div class="pc_content">
 		<div class="textContact">
 			<div class="textContactContent">

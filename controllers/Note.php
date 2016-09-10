@@ -59,6 +59,7 @@ class Note_Controller extends MY_controller {
         $data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
         $data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+        $data['loading_page'] = 'note';
 		
 		//輸出模板
 		$this->load->view('note/index', $data);
@@ -122,6 +123,7 @@ class Note_Controller extends MY_controller {
         $data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
         $data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
         $data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+        $data['loading_page'] = 'note';
         
         //輸出模板
         $this->load->view('note/view', $data);
