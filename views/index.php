@@ -155,6 +155,7 @@ Temp.ready(function(){
 			setTimeout(function(){
 				$('.content_start').removeClass('unhover');
 				$('.content_start').addClass('hover');
+				$('.menu').css('display','block');
 				
 			}, 500);
         }
@@ -164,6 +165,7 @@ Temp.ready(function(){
 			$('.content_title1').addClass('hover');
 			$('.content_start').removeClass('hover');
 			$('.content_start').addClass('unhover');
+			$('.menu').css('display','none');
 			$('.content_start .arrow').css('display' , 'none');
         }
 		if(scroll_top > 0 )
@@ -567,8 +569,8 @@ Temp.ready(function(){
 						<div class="cycle-slideshow"
 							data-cycle-slides="> .slide_pic_href" 
 							data-cycle-swipe=true
-							data-cycle-swipe-fx=scrollHorz
-							data-cycle-fx=scrollHorz
+							data-cycle-swipe-fx=fade
+							data-cycle-fx=fade
 							data-cycle-timeout=6000
 							data-cycle-prev="img.prev "
 							data-cycle-next="img.next "

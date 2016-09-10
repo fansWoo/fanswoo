@@ -174,6 +174,11 @@ $(function(){
 			}
 		}
 	});
+	$('.arrow').click(function () {
+		var speed = 500;
+		var position = $('.content2').offset().top;
+	  	$("html, body").animate({scrollTop: position}, speed, "swing");
+	});
 	
 });
 </script>
@@ -189,7 +194,7 @@ $(function(){
 			<h2>以不同凡響的姿態注入生命力</h2>	
 			<h2>創造印象深刻的視覺饗宴</h2>	
 		</div>
-		<a href="#content2" class="arrow">
+		<a href="#content2" fanswoo-hrefNone class="arrow">
 			<img src="img/index/arrow_down.png">	
 		</a>
 	</div>

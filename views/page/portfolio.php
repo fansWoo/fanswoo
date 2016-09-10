@@ -286,7 +286,7 @@ $(function(){
 								WhenYi 寰藝美容藥妝
 							</div>
 							<div class="logo">
-								<img src="img/portfolio/huanyi_logo.png">
+								<img src="img/portfolio/Huanyi_logo.png">
 							</div>
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/assari.com.tw/" data-csrc="img/portfolio/assari.png">
