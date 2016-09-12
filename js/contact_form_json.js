@@ -128,7 +128,7 @@
 						"text": "客製化 Native App"
 					},
 					{
-						"range": "300萬以上",
+						"range": "400萬以上",
 						"text": "高難度客製化 Native App"
 					}
 				]

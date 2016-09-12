@@ -37,7 +37,9 @@ $(document).ready(function() {
 	<img src="img/bg1.png">
 	<img src="img/boxBg.png">
 	<img src="img/inhale.png">
-	<img src="img/brush.png">
+	<img src="img/index/brush.png">
+	<img src="img/index/bg_table.jpg">
+	<img src="img/index/bg_table2.jpg">
 	<?elseif($loading_page == 'note'):?>
 	<img src="img/bg1.png">
 	<img src="img/bg1Black.png">
@@ -82,7 +84,7 @@ $(document).ready(function() {
 				<div class="navBar">
 					<div class="box down">
 						<a href="<?=base_url()?>" class="nav<?if($page == 'about'):?> hover<?endif?>">About</a>
-						<a class="nav2">關於我們</a> <!-- <a class="nav2" href="<?=base_url()?>">關於我們</a> -->
+						<a href="<?=base_url()?>" class="nav2">關於我們</a> <!-- <a class="nav2" href="<?=base_url()?>">關於我們</a> -->
 						<div class="downbox">
 							<div class="downbox1">
 								<a href="webdesign">客製化網站</a>

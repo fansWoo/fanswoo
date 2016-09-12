@@ -56,7 +56,7 @@
 					<div class="circle"><input type="hidden" name="budget_range" value="" disabled></div>
 					<h4>文字</h4>
 				</div>
-				<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
+				<input type="submit" value="立即聯繫" class="contactSubmit" name="contactSubmit">
 			</form>
 		</div>
 	</div>

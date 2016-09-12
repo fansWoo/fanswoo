@@ -125,14 +125,6 @@ Temp.ready(function(){
 		}
 	});
 
-	var window_height = $(window).height();
-	$('.content_start').css('height', window_height);
-	
-	$(window).resize(function(){
-		var window_height = $(window).height();
-		$('.content_start').css('height', window_height);
-	});
-
 	$(document).on('click', "a[href^='#']", function(){
 		var speed = 500;
 		var href = $(this).attr("href");
@@ -155,7 +147,7 @@ Temp.ready(function(){
 			setTimeout(function(){
 				$('.content_start').removeClass('unhover');
 				$('.content_start').addClass('hover');
-				$('.menu').css('display','block');
+				$('.pc_nav .menu').css('display','block');
 				
 			}, 500);
         }
@@ -165,7 +157,7 @@ Temp.ready(function(){
 			$('.content_title1').addClass('hover');
 			$('.content_start').removeClass('hover');
 			$('.content_start').addClass('unhover');
-			$('.menu').css('display','none');
+			$('.pc_nav .menu').css('display','none');
 			$('.content_start .arrow').css('display' , 'none');
         }
 		if(scroll_top > 0 )
@@ -230,14 +222,6 @@ Temp.ready(function(){
 		}
     });
 
-	setTimeout(function(){
-		if( $(document).scrollTop() !== 0 )
-		{
-			$(document).scrollTop(0);
-			location.href = '';
-		}
-	}, 500);
-
 	$('a[href=scrollnote]').click(function () {
 		var speed = 500;
 		var position = $('.wrapContent').offset().top - 50;
@@ -285,7 +269,7 @@ Temp.ready(function(){
 		<div class="brush">fansWoo</div>
 		<div class="textHome">
 			<h2>品牌故事 <b>S</b>tory</h2>
-			<p>我們堅持服務有品味的頂級客戶，建立質感超脫的<b class="orange">網站、APP</b>，並以獨家研發的<b class="blue">fansWoo-framework</b>技術，幫助客戶打造一百分的品牌形象！</p>
+			<p>我們堅持服務有品味的頂級客戶，建立質感超脫的<b class="orange">網站、APP、CIS</b>，並以獨家 <b class="blue">fansWoo-framework</b> 技術，幫助客戶打造一百分的品牌形象！</p>
 		</div>
 		<div class="textContactBg"></div>
 		<div class="oneRightBox">
@@ -297,7 +281,7 @@ Temp.ready(function(){
 			</div>
 		</div>
 		<div class="wrapper">
-			<nav>
+			<div class="pc_nav">
 				<div class="menu">
 					<span class="li">
 						<span class="title2">
@@ -325,14 +309,13 @@ Temp.ready(function(){
 					</span>
 				</div>
 				<a href="#wrapMarketing"><img src="img/index/arrow_down.png" class="arrow"></a>	
-			</nav>
+			</div>
 		</div>
 	</div>
 	<div class="phone_content_start">
 		<div class="bg2"></div>
 		<div class="wrapper">
-			<div class="logo"></div>
-			<div class="nav">
+			<div class="mobile_nav">
 				<div class="menu">
 					<span class="li"><span class="title2"><a href="scrollnote" fanswoo-hrefNone>最新趨勢</a></span><span class="title1"><a href="scrollnote" fanswoo-hrefNone style='color:#fff;'>About</a></span></span>
 					<span class="li"><span class="title2"><a href="scrollportfolio" fanswoo-hrefNone>經典作品</a></span><span class="title1"><a href="scrollportfolio" fanswoo-hrefNone style='color:#fff;'>Portfolio</a></span></span>
@@ -348,27 +331,27 @@ Temp.ready(function(){
 	</div>
 	<div class="wrapMarketing" id="wrapMarketing">
 		<div class="wrapContent">
-			<h4>Notice</h4>
-			<h2>客製網站 VS 套版網站</h2>
-			<h3>MATTERS NEED ATTENTION</h3>
+			<h4><b>fansWoo</b></h4>
+			<h2>讓你的粉絲驚艷不已</h2>
+			<h3>LET YOUR FANS SURPRISED</h3>
 			<div class="leftContent">
 				<div class="textArea">
-					<p>預算不足的企業<span class="red">千萬別相信數萬元的客製化網站</span>！真正的客製化網站是由美術設計師、網頁設計師、程式設計師共同設計的，一個月下來的設計成本最少<span class="blue">十萬元以上</span>，而幾萬元的專案連設計師的薪水都不夠付，只能使用套版軟體換幾張圖片充當客製化網站。</p>
+					<p>品牌，不僅是由一個圖騰或幾個文字組成，品牌的背後必須由精神層面建構，<span class="red">我們擅長為客戶由一張白紙開始規劃</span>，由經驗豐富的行銷和設計團隊為品牌塑造根基，當我們<span class="blue">找出品牌的利基點及差異性</span>，才能在偌大的市場中獨樹一格。</p>
 				</div>
 				<div class="textArea en">
-					<h3>架設網站前一定要問清楚的事項！</h3>
-					<p>1.黑心公司以數萬元的設計名目出售成本不到一千元的套版軟體</p>
-					<p>2.黑心公司通常不提供PHP原始碼，導致其它設計師無法補救與修改</p>
-					<p>3.黑心公司鎖住FTP、MySQL帳號不讓使用者使用，網站無法搬移</p>
+					<h3>台灣每年有 80% 公司倒閉<br>他們都有以下特徵：</h3>
+					<p>1. 沒有投資概念，凡事都選最便宜的就好</p>
+					<p>2. 觀念老舊，無法適應新時代的工具</p>
+					<p>3. 忽略品牌形象的重要性，導致負面形象</p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="wrapGraphic">
 		<div class="wrapContent">
-			<h4>Customized</h4>
-			<h2>真正客製化的網站及APP</h2>
-			<h3>TRULY CUSTOMIZED FOR THE ENTERPRISE</h3>
+			<h4>BRAND</h4>
+			<h2>讓我們為你的品牌填上色彩</h2>
+			<h3>FILL COLOR FOR YOUR BRAND</h3>
 			<div class="leftContent">
 				<div class="textArea">
 					<p>依客戶預算及需求做客製化設計</p>
@@ -376,24 +359,25 @@ Temp.ready(function(){
 					<p>堅持7:2:1的黃金比例設計原則</p>
 					<p>以使用者體驗為最主要的設計重點</p>
 				</div>
-				<div class="textArea en">
-					<p>According to customer demand guest system design</p>
-					<p>Starting from the heart of UI / UX Design</p>
-					<p>Adhere 7: design principles golden ratio 1: 2</p>
-					<p>To the user experience as the most important design focus</p>
+				<div class="textArea">
+					<p>CIS / LOGO 設計</p>
+					<p>形象、購物網站、手機 APP</p>
+					<p>Facebook、Google 行銷</p>
+					<p>ERP、CRM</p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="wrapProgram">
 		<div class="wrapContent">
-			<h4>Service</h4>
-			<h2>為企業提供完整的服務</h2>
-			<h3>IN THE CENTER OF THE SYSTEM DEVELOPMENT LIFE</h3>
+			<h4>SERVICE</h4>
+			<h2>把構思中的品牌化為現實</h2>
+			<h3>IT MADE IT ALL POSSIBLE</h3>
 			<div class="leftContent">
 				<div class="textArea">
-					<p>您知道嗎？<span class="red">全世界有78%的網站都是賠錢貨</span>！因為設計不良的網站不只無法帶動業績提升，還會造成揮之不去的負面形象！</p>
-					<p>想要贏得消費者的青睞，除了<span class="blue">高質感的網站和APP</span>，還需要專業的<span class="orange">網路行銷</span>作推廣，我們提供一條龍式的服務，舉凡網頁設計、CIS設計、LOGO設計、程式設計、手機APP開發、伺服器租賃、網路行銷皆可無縫接軌，幫助企業獲得成功的品牌形象。</p>
+					<p><span class="red">我們受到無數知名品牌的邀約及委託</span>，協助各大品牌改善及強化品牌形象，我們已經為日月光集團、城邦集團、旺旺集團、元家集團、京城銀行、巴黎草莓、工研院、GoPro、CANDACE、Alchema等知名企業共同創造出市場上的經典之作。</p>
+					<br>
+					<p><span class="blue">想跟你的競爭對手拉開距離嗎</span>？讓我們以專業的角度為你的產品進行分析，與你一同建立你的品牌形象吧。</p>
 				</div>
 			</div>
 		</div>
@@ -543,8 +527,8 @@ Temp.ready(function(){
 			<div class="text_box">
 				<h1>伺服器租賃</h1>
 				<h2>Google SSD雲端主機</h2>
-				<p>交由專業程式設計團隊開發
-				<br>無論iOS、android、webapp皆可製作</p>
+				<p>交由專業雲端級主機代管
+				<br>24小時即時備援、資訊安全有保障</p>
 				<a href="server" target="_blank" class="more">
 					<p>了解更多</p>
 					<img src="img/index/arrow.png">
@@ -633,7 +617,8 @@ Temp.ready(function(){
 								<div class="text">
 									<h1>伺服器租賃</h1>
 									<h2>Google SSD雲端主機</h2>
-									<p class="in_p">交由專業程式設計團隊開發<br>無論iOS、android、webapp皆可製作</p>
+									<p class="in_p">交由專業雲端級主機代管
+									<br>24小時即時備援、資訊安全有保障</p>
 									<a href="server"  class="more">
 										<p>了解更多</p>
 										<img src="img/index/arrow.png">
