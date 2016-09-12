@@ -6,7 +6,7 @@ p{font-size:14px; letter-spacing:3px;line-height:22px;}
 	p{font-size:18px; letter-spacing:4px;line-height:26px;}
 
 }
-.content1{ width:100%;height:1000px; background:url(../../img/server/content1/bg.png) 50% 50% fixed; background-size:cover;position:relative;overflow:hidden;}
+.content1{ width:100%;height:1000px; background:url(../../img/server/content1/bg.jpg) 50% 50% fixed; background-size:cover;position:relative;overflow:hidden;}
 .content1 .bg1{width:100%;position:absolute; left:50px;top:50px;-webkit-animation: p201507170127 5s;animation: p201507170127 5s; }
 .content1 .bg1 img{width:90%;} 
 .content1 .bg2{width:100%;position:absolute;left:50px;top:50px;-webkit-animation: p201507170127 4s;animation: p201507170127 4s;  }
@@ -92,7 +92,7 @@ p{font-size:14px; letter-spacing:3px;line-height:22px;}
 	.content1  .arrow{margin-left:-30px;margin-top:130px;}
 }
 @media screen and (max-width: 700px){
-	.content1 {height:600px;background:url(../../img/server/content1/bg.png) 50% 50% scroll;}
+	.content1 {height:600px;background:url(../../img/server/content1/bg.jpg) 50% 50% scroll;}
 	.content1 .area{ height:600px;position:absolute;width:86%;left:50%; margin-left:-43%;top:50%;margin-top:-300px;}
 	.content1 .area .pic1{width:250px;margin-top:-170px;margin-left:-125px;/*-webkit-animation:none;animation:none;*/}
 	.content1 .area .text{width:100%; left:50%; margin-left:-50%;top:50%;margin-top:-5%; padding-top:20px;-webkit-animation:none;animation:none;}

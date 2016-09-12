@@ -112,7 +112,7 @@ $(function(){
 			<div class="portfolioPageBg portfolioPageWebsiteBg">
 				<div class="portfolioPage portfolioPageWebsite">
 					<div class="portfolioLeft">
-						<h2 class="portfolioTitle">Website Design <span class="zhtw">RWD形象網站</span></h2>
+						<h2 class="portfolioTitle">Website Design<br> <span class="zhtw">RWD形象網站</span></h2>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yensgroup.com/" data-csrc="img/portfolio/Yens.jpg">
 							<div class="pic showOriginal">
 								<a href="http://web.fanswoo.com/yensgroup.com/"><img src="img/portfolio/1-yens.png"></a>

@@ -57,9 +57,9 @@ $(document).ready(function() {
 	<img src="img/server/content1/bg4.png">
 	<img src="img/server/content1/bg3.png">
 	<img src="img/server/content1/bg2.png">
-	<img src="img/server/content1/bg.png">
+	<img src="img/server/content1/bg.jpg">
 	<?elseif($loading_page == 'marketing'):?>
-	<img src="img/marketing/content1/bg.png">
+	<img src="img/marketing/content1/bg.jpg">
 	<img src="img/marketing/content1/pic1.png">
 	<?elseif($loading_page == 'graphic'):?>
 	<img src="img/graphic/content1/bg.png">

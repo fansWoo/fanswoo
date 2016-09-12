@@ -7,8 +7,8 @@ h1{font-size:36px;letter-spacing:3px;line-height:42px;font-weight:500;}
 	p{font-size:18px; letter-spacing:4px;line-height:26px;}
 	h1{font-size:42px;letter-spacing:3px;line-height:52px;font-weight:500;}
 }
-.content1{ width:100%;height:1000px; background:url(../../img/marketing/content1/bg.png) 50% 50% fixed; background-size:cover;position:relative;overflow:hidden;}
-html.agent-ie .content1{ width:100%;height:1000px; background:url(../../img/marketing/content1/bg.png) 50% 50% ; background-size:cover;position:relative;overflow:hidden;}
+.content1{ width:100%;height:1000px; background:url(../../img/marketing/content1/bg.jpg) 50% 50% fixed; background-size:cover;position:relative;overflow:hidden;}
+html.agent-ie .content1{ width:100%;height:1000px; background:url(../../img/marketing/content1/bg.jpg) 50% 50% ; background-size:cover;position:relative;overflow:hidden;}
 .content1 .mobile_bg{display:none;}
 @-webkit-keyframes p201507170127{
 	0% { opacity:0 ; }
@@ -84,7 +84,7 @@ html.agent-ie .content1{ width:100%;height:1000px; background:url(../../img/mark
 	.content1  .arrow{}
 }
 @media screen and (max-width: 550px){
-	.content1 {background:url(../../img/marketing/content1/bg.png) 50% 50% scroll; }
+	.content1 {background:url(../../img/marketing/content1/bg.jpg) 50% 50% scroll; }
 	.content1 .area{position:absolute;width:100%;left:0px; margin-left:0px;top:50%;margin-top:-170px;}
 	.content1 .area .pic1{width:100px;position:absolute;left:56.5%;top:50%;margin-top:-155px; margin-left:-75px;/*-webkit-animation:none;animation:none;*/}
 	.content1 .area .text{width:80%; left:50%; margin-left:-40%;top:50%;margin-top:0%; padding-top:10px;/*-webkit-animation:none;animation:none;*/}
