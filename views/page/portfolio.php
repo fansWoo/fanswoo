@@ -112,20 +112,20 @@ $(function(){
 			<div class="portfolioPageBg portfolioPageWebsiteBg">
 				<div class="portfolioPage portfolioPageWebsite">
 					<div class="portfolioLeft">
-						<h2 class="portfolioTitle">Website Design<br> <span class="zhtw">RWD形象網站</span></h2>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yensgroup.com/" data-csrc="img/portfolio/Yens.jpg">
+						<h2 class="portfolioTitle">Website Design <span class="zhtw">RWD形象網站</span></h2>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/customer.ktb.com.tw" data-csrc="img/portfolio/kingtownbank.png">
 							<div class="pic showOriginal">
-								<a href="http://web.fanswoo.com/yensgroup.com/"><img src="img/portfolio/1-yens.png"></a>
+								<a href="http://web.fanswoo.com/customer.ktb.com.tw"><img src="img/portfolio/8-kingtownbank1.png"></a>
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/1-yens.png">
+								<img src="img/portfolio/8-kingtownbank1.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								Yens 元家水產食品集
+								 KingTownBank 京城銀行
 							</div>
 							<div class="logo">
-								<img src="img/portfolio/yens_logo.png">
+								<img src="img/portfolio/kingtownbank_logo.png">
 							</div>
 						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/hcmedi.de/" data-csrc="img/portfolio/HCMedi.jpg">
@@ -222,19 +222,19 @@ $(function(){
 								<img src="img/portfolio/designSampleLogoCandace.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/customer.ktb.com.tw" data-csrc="img/portfolio/kingtownbank.png">
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/yensgroup.com/" data-csrc="img/portfolio/Yens.jpg">
 							<div class="pic showOriginal">
-								<a href="http://web.fanswoo.com/customer.ktb.com.tw"><img src="img/portfolio/8-kingtownbank1.png"></a>
+								<a href="http://web.fanswoo.com/yensgroup.com/"><img src="img/portfolio/1-yens.png"></a>
 							</div>
 							<div class="pic showBlur">
-								<img src="img/portfolio/8-kingtownbank1.png">
+								<img src="img/portfolio/1-yens.png">
 							</div>
 							<div class="bg"></div>
 							<div class="text">
-								 KingTownBank 京城銀行
+								Yens 元家水產食品集
 							</div>
 							<div class="logo">
-								<img src="img/portfolio/kingtownbank_logo.png">
+								<img src="img/portfolio/yens_logo.png">
 							</div>
 						</div>
 					</div>
@@ -244,6 +244,21 @@ $(function(){
 				<div class="portfolioPage portfolioPageCIS">
 					<div class="portfolioLeft">
 						<h2 class="portfolioTitle">Electronic Commerce <span class="zhtw">購物網站、ERP</span></h2>
+						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/paris-strawberry.cn/" data-csrc="img/portfolio/Paris.jpg" id="no_rwd">
+							<div class="pic showOriginal">
+								<a href="http://web.fanswoo.com/paris-strawberry.cn/"><img src="img/portfolio/2-paris-strawberry.png"></a>
+							</div>
+							<div class="pic showBlur">
+								<img src="img/portfolio/2-paris-strawberry.png">
+							</div>
+							<div class="bg"></div>
+							<div class="text">
+								Paris Strawberry 巴黎草莓國際彩妝
+							</div>
+							<div class="logo">
+								<img src="img/portfolio/paris_logo.png">
+							</div>
+						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/dobbysoven.com/" data-csrc="img/portfolio/Dobby.jpg">
 							<div class="pic showOriginal">
 								<a href="http://web.fanswoo.com/dobbysoven.com/"><img src="img/portfolio/1-dobby.png"></a>
@@ -289,55 +304,10 @@ $(function(){
 								<img src="img/portfolio/Huanyi_logo.png">
 							</div>
 						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/assari.com.tw/" data-csrc="img/portfolio/assari.png">
-							<div class="pic showOriginal">
-								<a href="http://web.fanswoo.com/assari.com.tw/"><img src="img/portfolio/assari_pic.jpg"></a>
-							</div>
-							<div class="pic showBlur">
-								<img src="img/portfolio/assari_pic.jpg">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								Assari 鑫億家俱
-							</div>
-							<div class="logo">
-								<img src="img/portfolio/assari_logo.png">
-							</div>
-						</div>
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/solnine/" data-csrc="img/portfolio/solnine.jpg" id="no_rwd">
-							<div class="pic showOriginal">
-								<img src="img/portfolio/7-solnine.png">
-							</div>
-							<div class="pic showBlur">
-								<img src="img/portfolio/7-solnine.png">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								Solnine 旭浩科技
-							</div>
-							<div class="logo">
-								<img src="img/portfolio/solnine_logo.png">
-							</div>
-						</div>
 					</div>
 					<div class="portfolioContent"  >
 					</div>
 					<div class="portfolioRight">
-						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/paris-strawberry.cn/" data-csrc="img/portfolio/Paris.jpg" id="no_rwd">
-							<div class="pic showOriginal">
-								<a href="http://web.fanswoo.com/paris-strawberry.cn/"><img src="img/portfolio/2-paris-strawberry.png"></a>
-							</div>
-							<div class="pic showBlur">
-								<img src="img/portfolio/2-paris-strawberry.png">
-							</div>
-							<div class="bg"></div>
-							<div class="text">
-								Paris Strawberry 巴黎草莓國際彩妝
-							</div>
-							<div class="logo">
-								<img src="img/portfolio/paris_logo.png">
-							</div>
-						</div>
 						<div class="portfolioDiv" data-chref="http://web.fanswoo.com/nxstgirl/" data-csrc="img/portfolio/nxstgirl.jpg">
 							<div class="pic showOriginal">
 								<a href="http://web.fanswoo.com/nxstgirl/"><img src="img/portfolio/4-nxstgirl.png"></a>
