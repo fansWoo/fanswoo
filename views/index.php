@@ -377,7 +377,7 @@ Temp.ready(function(){
 				<div class="textArea">
 					<p><span class="red">我們受到無數知名品牌的邀約及委託</span>，協助各大品牌改善及強化品牌形象，我們已經為日月光集團、城邦集團、旺旺集團、元家集團、京城銀行、巴黎草莓、工研院、GoPro、CANDACE、Alchema等知名企業共同創造出市場上的經典之作。</p>
 					<br>
-					<p><span class="blue">想跟你的競爭對手拉開距離嗎</span>？讓我們以專業的角度為你的產品進行分析，與你一同建立你的品牌形象吧。</p>
+					<p><span class="blue">想跟你的競爭對手拉開距離嗎</span>？讓我們以專業的角度為你的產品進行分析，與你一同建立一個成功品牌該有的形象吧。</p>
 				</div>
 			</div>
 		</div>

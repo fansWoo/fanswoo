@@ -44,9 +44,6 @@ $(document).ready(function() {
 	<img src="img/bg1.png">
 	<img src="img/bg1Black.png">
 	<?elseif($loading_page == 'portfolio'):?>
-	<img src="img/bg10.jpg">
-	<img src="img/bg13.jpg">
-	<img src="img/bg14.jpg">
 	<?elseif($loading_page == 'contact'):?>
 	<img src="img/bg3p1color.png">
 	<img src="img/bg3p1.png">

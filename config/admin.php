@@ -7,6 +7,7 @@ $config['default_page'] = [
 	2 => 'admin/base/global/global/global_setting',
 	3 => 'admin/base/global/global/global_setting',
 	4 => 'admin/project/worktask/worktask/calendar',
+	5 => 'admin/project/customer/customer/tablelist',
 	100 => 'admin/user/global/global/user',
 	101 => 'admin/user/global/global/user'
 ];
@@ -737,7 +738,7 @@ $config['admin_sidebox'] = array(
 								)
 							)
 						),
-						'customermeet' => array(
+						'customer_meet' => array(
 							'title' => '拜訪紀錄',
 							'child4' => array(
 								'edit' => array(
