@@ -10,6 +10,7 @@ $config['default_page'] = [
 	5 => 'admin/project/customer/customer/tablelist',
 	100 => 'admin/user/global/global/user',
 	101 => 'admin/user/global/global/user'
+	
 ];
 
 //後台架構
