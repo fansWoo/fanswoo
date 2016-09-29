@@ -4,6 +4,8 @@ CREATE TABLE `fs_shop_transport` (
   `name` char(100) NOT NULL,
   `company` char(100) NOT NULL,
   `url` text NOT NULL,
+  `is_store` mediumint(2) NOT NULL,
+  `store_url` text NOT NULL,
   `base_price` mediumint(10) NOT NULL,
   `additional_price` mediumint(10) NOT NULL,
   `prioritynum` mediumint(8) NOT NULL,

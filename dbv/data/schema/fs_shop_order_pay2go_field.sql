@@ -1,0 +1,20 @@
+CREATE TABLE `fs_shop_order_pay2go_field` (
+  `orderid` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `merchantid` char(15) CHARACTER SET utf8 NOT NULL,
+  `tradeno` char(20) CHARACTER SET utf8 NOT NULL,
+  `merchant_order_no` char(20) CHARACTER SET utf8 NOT NULL,
+  `amt` mediumint(10) NOT NULL,
+  `payment_type` char(10) CHARACTER SET utf8 NOT NULL,
+  `check_code` char(50) CHARACTER SET utf8 NOT NULL,
+  `pay_time` datetime NOT NULL,
+  `card_4_no` char(4) CHARACTER SET utf8 NOT NULL,
+  `credit_amount` mediumint(2) NOT NULL,
+  `bank_code` char(10) CHARACTER SET utf8 NOT NULL,
+  `virtual_account` char(30) CHARACTER SET utf8 NOT NULL,
+  `pay_bank_code` char(10) CHARACTER SET utf8 NOT NULL,
+  `pay_account_5_code` char(5) CHARACTER SET utf8 NOT NULL,
+  `ExpireDate` datetime NOT NULL,
+  `response_status` char(10) CHARACTER SET utf8 NOT NULL,
+  `response_msg` char(50) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`orderid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

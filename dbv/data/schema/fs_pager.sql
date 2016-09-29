@@ -1,5 +1,5 @@
 CREATE TABLE `fs_pager` (
-  `pagerid` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `pagerid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `uid` mediumint(8) NOT NULL,
   `username` char(30) NOT NULL,
   `title` char(100) NOT NULL,
