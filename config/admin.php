@@ -739,7 +739,7 @@ $config['admin_sidebox'] = array(
 								)
 							)
 						),
-						'customer_meet' => array(
+						'customermeet' => array(
 							'title' => '拜訪紀錄',
 							'child4' => array(
 								'edit' => array(
