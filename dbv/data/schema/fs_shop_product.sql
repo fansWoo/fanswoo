@@ -1,0 +1,19 @@
+CREATE TABLE `fs_shop_product` (
+  `productid` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `uid` mediumint(8) NOT NULL,
+  `name` char(100) NOT NULL,
+  `price` mediumint(10) NOT NULL,
+  `cost` mediumint(10) NOT NULL,
+  `mainpicids` char(100) NOT NULL,
+  `classids` char(100) NOT NULL,
+  `content` text NOT NULL,
+  `content_specification` text NOT NULL,
+  `synopsis` text NOT NULL,
+  `picids` char(100) NOT NULL,
+  `warehouseid` text NOT NULL,
+  `prioritynum` mediumint(8) NOT NULL,
+  `updatetime` datetime NOT NULL,
+  `shelves_status` int(1) NOT NULL,
+  `status` int(1) NOT NULL,
+  UNIQUE KEY `productid` (`productid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8
