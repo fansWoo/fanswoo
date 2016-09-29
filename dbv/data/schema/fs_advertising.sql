@@ -10,4 +10,4 @@ CREATE TABLE `fs_advertising` (
   `updatetime` datetime NOT NULL,
   `status` int(1) NOT NULL,
   UNIQUE KEY `advertisingid` (`advertisingid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

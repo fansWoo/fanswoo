@@ -11,6 +11,5 @@ CREATE TABLE `fs_pic` (
   `prioritynum` mediumint(8) NOT NULL,
   `updatetime` datetime NOT NULL,
   `status` int(1) NOT NULL,
-  `upload_status` int(1) NOT NULL,
   UNIQUE KEY `picid` (`picid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8

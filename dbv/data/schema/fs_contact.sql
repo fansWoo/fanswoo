@@ -9,7 +9,7 @@ CREATE TABLE `fs_contact` (
   `classtype` char(100) NOT NULL,
   `classtype2` char(100) NOT NULL,
   `address` char(100) NOT NULL,
-  `budget_range` char(100) NOT NULL,
+  `money` char(100) NOT NULL,
   `updatetime` datetime NOT NULL,
   `locale` char(5) NOT NULL,
   `status` int(1) NOT NULL,
