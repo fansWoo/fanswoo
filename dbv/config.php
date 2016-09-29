@@ -4,11 +4,21 @@
  * Your database authentication information goes here
  * @see http://dbv.vizuina.com/documentation/
  */
-define('DB_HOST', 'localhost');
-define('DB_PORT', 3306);
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '1234qwera');
-define('DB_NAME', 'fanswoo');
+// define('DB_HOST', 'localhost');
+// define('DB_PORT', 3306);
+// define('DB_USERNAME', 'root');
+// define('DB_PASSWORD', '1234qwera');
+// define('DB_NAME', 'fanswoo');
+
+define('BASEPATH', 'TRUE');
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '../config/database.php';
+
+define('DB_HOST', $db['default']['hostname']);
+define('DB_PORT', $db['default']['port']);
+define('DB_USERNAME', $db['default']['username']);
+define('DB_PASSWORD', $db['default']['password']);
+define('DB_NAME', $db['default']['database']);
+
 
 /**
  * Authentication data for access to DBV itself
