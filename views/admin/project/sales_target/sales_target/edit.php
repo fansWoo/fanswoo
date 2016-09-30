@@ -104,7 +104,7 @@ Temp.ready(function(){
             </div>
         </div>
     </div>
-    <div class="spanLine">
+<!--     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 專案擁有人 email
@@ -120,8 +120,8 @@ Temp.ready(function(){
                 <span class="gray">本欄位留空則將專案擁有人設定為自己</span>
             </div>
         </div>
-    </div>
-    <div class="spanLine">
+    </div> -->
+   <!--  <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
                 專案主管 email
@@ -139,7 +139,7 @@ Temp.ready(function(){
                 <span class="gray">請填寫擁有查看此專案系統權限之專案主管 email ，每個 email 一行</span>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="spanLine">
         <div class="spanStage">
             <div class="spanLineLeft">
