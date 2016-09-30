@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-09-10 12:32:17
+-- 產生時間： 2016-09-30 13:10:53
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 7.0.8
 
@@ -500,6 +500,20 @@ INSERT INTO `fs_project_customer_meet` (`visitid`, `customerids`, `visit_class`,
 (12, 4, '議價', '2016-09-08 00:00:00', '網站', 1),
 (13, 5, '議價', '2016-09-16 12:00:00', 'dtfghdgth', -1),
 (14, 5, '議價', '2016-09-30 14:00:00', '戚戚', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `fs_project_sales_target`
+--
+
+CREATE TABLE `fs_project_sales_target` (
+  `sales_target_id` mediumint(8) NOT NULL,
+  `projectids` char(100) NOT NULL,
+  `customerids` char(100) NOT NULL,
+  `pay_price_total` mediumint(10) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1380,7 +1394,8 @@ INSERT INTO `fs_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 ('cfe2b24a5ca8137a45ece2509a4a42f4', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473222291, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:12:"customermeet";s:17:"last_admin_child4";s:9:"tablelist";}'),
 ('c212bdadec425e548061b0c4432d297e', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473494843, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:12:"customermeet";s:17:"last_admin_child4";s:9:"tablelist";}'),
 ('4dcfbd7351db9bad93417f961cfb6b3f', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.76 Mobile', 1473498320, 'a:1:{s:9:"user_data";s:0:"";}'),
-('71d959aa1d4079ad6440ac56e74d55ef', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473498339, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:12:"customermeet";s:17:"last_admin_child4";s:4:"edit";}');
+('71d959aa1d4079ad6440ac56e74d55ef', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36', 1473498339, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:8:"customer";s:17:"last_admin_child3";s:12:"customermeet";s:17:"last_admin_child4";s:4:"edit";}'),
+('e5ddd76b4d3f70cb7944a7775410fb8a', '::1', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36', 1475226268, 'a:6:{s:9:"user_data";s:0:"";s:3:"uid";s:6:"528502";s:17:"last_admin_child1";s:7:"project";s:17:"last_admin_child2";s:7:"project";s:17:"last_admin_child3";s:7:"project";s:17:"last_admin_child4";s:4:"edit";}');
 
 -- --------------------------------------------------------
 
