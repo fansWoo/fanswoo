@@ -170,12 +170,12 @@ Temp.ready(function(){
 					</div>
 				</div>
 				<div class="rightBox">
-					<p>您的姓名：<input type="text" class="name" name="name" placeholder="請填寫您的姓名"></p>
+					<p>您的姓名：<input type="text" class="name" name="username" placeholder="請填寫您的姓名"></p>
 					<p>公司名稱：<input type="text" class="company" name="company" placeholder="請填寫公司名稱"></p>
 					<p>聯繫電話：<input type="text" class="telphone" name="phone" placeholder="請填寫聯繫電話"></p>
 					<p>電子郵件：<input type="text" class="email" name="email" placeholder="請填寫電子郵件"></p>
 					<p>公司地址：<input type="text" class="address" name="address" placeholder="請填寫公司地址"></p>
-					<textarea name="text"></textarea>
+					<textarea name="content"></textarea>
 					<p style="text-align:center;">本公司設計案件較多，為盡早處理您的專案，請提前詢問及索取報價資訊。</p>
 					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
 				</div>
