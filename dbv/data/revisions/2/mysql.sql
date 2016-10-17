@@ -1,1 +1,0 @@
-ALTER TABLE `fs_user` CHANGE `emailabc` `email` CHAR(100) NOT NULL;

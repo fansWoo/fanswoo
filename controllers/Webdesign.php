@@ -19,13 +19,13 @@ class Webdesign_Controller extends MY_controller
         $data['previous_url'] = base_url($_SERVER['REQUEST_URI']);
 
         //global
+        $data['global']['page_title_name'] = '客製化網站設計';
         $data['global']['style'][] = 'temp/global.css';
         $data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'webdesign/index.css';
 
         $data['global']['js'][] = 'contact_form.js';
-        $data['global']['js'][] = 'tool/smooth_scrollerator.js';
         $data['global']['js'][] = 'tool/cycle2.js';
             
         //temp

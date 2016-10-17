@@ -19,13 +19,13 @@ class Marketing_Controller extends MY_controller
         $data['previous_url'] = base_url($_SERVER['REQUEST_URI']);
 
         //global
+        $data['global']['page_title_name'] = 'facebook 、 Google網路行銷';
         $data['global']['style'][] = 'temp/global.css';
         $data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'marketing/index.css';
 
         $data['global']['js'][] = 'contact_form.js';
-        $data['global']['js'][] = 'tool/smooth_scrollerator.js';
         $data['global']['js'][] = 'tool/cycle2.js';
             
         //temp

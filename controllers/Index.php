@@ -7,6 +7,7 @@ class Index_Controller extends MY_Controller
     	$data = $this->data;
 
 	    //global
+		$data['global']['page_title_name'] = '客製化網站設計';
 		$data['global']['style'][] = 'temp/global.css';
 		$data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
