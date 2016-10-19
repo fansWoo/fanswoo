@@ -26,7 +26,7 @@ class Set_Controller extends MY_Controller {
             'db_where_arr' => [
                 'status' => -1,
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Contact',
             'limitstart' => 0,
             'limitcount' => 100
@@ -63,7 +63,7 @@ class Set_Controller extends MY_Controller {
             'db_where_arr' => [
                 'status' => -1,
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Contact',
             'limitstart' => 0,
             'limitcount' => 100

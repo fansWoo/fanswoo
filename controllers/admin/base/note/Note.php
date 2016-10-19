@@ -194,7 +194,7 @@ class Note_Controller extends MY_Controller {
                     'prioritynum' => 'DESC',
                     'updatetime' => 'DESC'
                 ],
-                'db_where_deletenull_bln' => TRUE,
+                'db_delete_all_null' => TRUE,
                 'obj_class' => 'Note',
                 'limitstart' => $limitstart,
                 'limitcount' => $limitcount
@@ -215,7 +215,7 @@ class Note_Controller extends MY_Controller {
                     'prioritynum' => 'DESC',
                     'updatetime' => 'DESC'
                 ],
-                'db_where_deletenull_bln' => TRUE,
+                'db_delete_all_null' => TRUE,
                 'obj_class' => 'Note',
                 'limitstart' => $limitstart,
                 'limitcount' => $limitcount

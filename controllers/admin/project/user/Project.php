@@ -83,7 +83,7 @@ class Project_Controller extends MY_Controller {
             'db_orderby_Arr' => array(
                 array('updatetime', 'DESC')
             ),
-            'db_where_deletenull_Bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'model_name_Str' => 'Design',
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
@@ -97,7 +97,7 @@ class Project_Controller extends MY_Controller {
             'db_orderby_Arr' => array(
                 array('suggestid', 'ASC')
             ),
-            'db_where_deletenull_Bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'model_name_Str' => 'Suggest',
             'limitstart_Num' => 0,
             'limitcount_Num' => 100
@@ -169,7 +169,7 @@ class Project_Controller extends MY_Controller {
             'db_orderby_Arr' => array(
                 array('projectid', 'DESC')
             ),
-            'db_where_deletenull_Bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'model_name_Str' => 'Project',
             'limitstart_Num' => $limitstart_Num,
             'limitcount_Num' => $limitcount_Num

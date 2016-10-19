@@ -79,13 +79,12 @@ class Contact_Controller extends MY_Controller {
             'db_where_arr' => [
                 'contactid' => $data['search_contactid'],
                 'status_process' => $data['search_status_process'],
-                'username like' => $data['search_username'],
-                'classids find' => $class_ClassMeta->classid
+                'username like' => $data['search_username']
             ],
             'db_orderby_arr' => [
                 'contactid' => 'DESC'
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'ContactFanswoo',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount

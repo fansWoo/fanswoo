@@ -28,7 +28,7 @@ class Note_Controller extends MY_controller {
                 array('prioritynum', 'DESC'),
                 array('updatetime', 'DESC')
             ),
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'NoteField',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
@@ -96,7 +96,7 @@ class Note_Controller extends MY_controller {
                 array('prioritynum', 'DESC'),
                 array('updatetime', 'DESC')
             ),
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'NoteField',
             'limitstart' => 0,
             'limitcount' => 5

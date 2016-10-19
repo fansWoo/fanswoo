@@ -23,7 +23,7 @@ class Classmeta_Controller extends MY_Controller {
                 'classid' => $classid,
                 'slug' => $slug
             ],
-            'db_where_deletenull_bln' => TRUE
+            'db_delete_all_null' => TRUE
         ]);
 
         //輸出模板
@@ -78,7 +78,7 @@ class Classmeta_Controller extends MY_Controller {
                 'slug' => $data['search_slug'],
                 'classname like' => $data['search_classname']
             ),
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'db_orderby_arr' => array(
                 array('prioritynum', 'DESC'),
                 array('classid', 'DESC')

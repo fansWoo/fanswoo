@@ -115,7 +115,7 @@ class Project_Controller extends MY_Controller {
             'db_orderby_arr' => array(
                 array('suggestid', 'ASC')
             ),
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Suggest',
             'limitstart' => 0,
             'limitcount' => 100
@@ -207,7 +207,7 @@ class Project_Controller extends MY_Controller {
 //                     'uid not in' => $Project->permission_uids_UserList->uniqueids_arr
 //                 ]
 //             ],
-//             'db_where_deletenull_bln' => TRUE,
+//             'db_delete_all_null' => TRUE,
 //             'obj_class' => 'Worktask',
 //             'limitstart' => 0,
 //             'limitcount' => 100
@@ -431,7 +431,7 @@ class Project_Controller extends MY_Controller {
             'db_orderby_arr' => array(
                 array('updatetime', 'DESC')
             ),
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Project',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount

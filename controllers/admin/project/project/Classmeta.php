@@ -27,7 +27,7 @@ class Classmeta_Controller extends MY_Controller {
                 'classid' => $classid,
                 'slug' => $slug
             ),
-            'db_where_deletenull_bln' => TRUE
+            'db_delete_all_null' => TRUE
         ));
         
         //建立class2_ClassMetaList
@@ -114,7 +114,7 @@ class Classmeta_Controller extends MY_Controller {
                 'classname like' => $data['search_classname'],
                 'classids find' => array($class_ClassMeta->classid)
             ),
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'db_orderby_arr' => array(
                 array('prioritynum', 'DESC'),
                 array('classid', 'DESC')

@@ -24,7 +24,7 @@ class Worktask_Controller extends MY_Controller {
         
 
         $data['UserList'] = new ObjList([
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'User',
             'limitstart' => 0,
             'limitcount' => 100
@@ -43,7 +43,7 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
             	 
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Project',
             'limitstart' => 0,
             'limitcount' => 100
@@ -53,7 +53,7 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
             	 'projectid'=>$data['Worktask']->projectid
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Project',
             'limitstart' => 0,
             'limitcount' => 100
@@ -118,7 +118,7 @@ class Worktask_Controller extends MY_Controller {
         		'db_where_arr' => [
         				'projectid'=>$Worktask->projectid
         		],
-        		'db_where_deletenull_bln' => TRUE,
+        		'db_delete_all_null' => TRUE,
         		'obj_class' => 'Project',
         		'limitstart' => 0,
         		'limitcount' => 100
@@ -223,7 +223,7 @@ class Worktask_Controller extends MY_Controller {
             'db_orderby_arr' => [
                 'prioritynum' => 'DESC',
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Worktask',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
@@ -239,7 +239,7 @@ class Worktask_Controller extends MY_Controller {
                     'admin_uids find' => $data['User']->uid
                 ]
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Project',
             'limitstart' => 0,
             'limitcount' => 100
@@ -263,7 +263,7 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
                 'uid in' => $permission_uid_arr
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'User',
             'limitstart' => 0,
             'limitcount' => 100
@@ -273,7 +273,7 @@ class Worktask_Controller extends MY_Controller {
         		'db_where_arr' => [
 					'status'=> 1
         		],
-        		'db_where_deletenull_bln' => TRUE,
+        		'db_delete_all_null' => TRUE,
         		'obj_class' => 'Project',
         		'limitstart' => 0,
         		'limitcount' => 100
@@ -372,7 +372,7 @@ class Worktask_Controller extends MY_Controller {
                     'permission_uids find' => $data['User']->uid
                 ]
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Project',
             'limitstart' => 0,
             'limitcount' => 100
@@ -388,7 +388,7 @@ class Worktask_Controller extends MY_Controller {
                     'admin_uids find' => $data['User']->uid
                 ]
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Project',
             'limitstart' => 0,
             'limitcount' => 100
@@ -412,7 +412,7 @@ class Worktask_Controller extends MY_Controller {
             'db_where_arr' => [
                 'uid in' => $permission_uid_arr
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'User',
             'limitstart' => 0,
             'limitcount' => 100
@@ -455,7 +455,7 @@ class Worktask_Controller extends MY_Controller {
                         'admin_uids find' => $data['User']->uid
                     ]
                 ],
-                'db_where_deletenull_bln' => TRUE,
+                'db_delete_all_null' => TRUE,
                 'obj_class' => 'Project',
                 'limitstart' => 0,
                 'limitcount' => 100
@@ -500,7 +500,7 @@ class Worktask_Controller extends MY_Controller {
                         'permission_uids find' => $data['User']->uid
                     ]
                 ],
-                'db_where_deletenull_bln' => TRUE,
+                'db_delete_all_null' => TRUE,
                 'obj_class' => 'Project',
                 'limitstart' => 0,
                 'limitcount' => 100
@@ -531,7 +531,7 @@ class Worktask_Controller extends MY_Controller {
                 'uid in' => $permission_uid_arr,
                 'projectid in' => $projectid_arr
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Worktask',
             'limitstart' => 0,
             'limitcount' => 100

@@ -27,7 +27,7 @@ class Classmeta2_Controller extends MY_Controller {
                 'classid' => $classid,
                 'slug' => $slug
             ),
-            'db_where_deletenull_bln' => TRUE
+            'db_delete_all_null' => TRUE
         ));
 
         //輸出模板
@@ -77,7 +77,7 @@ class Classmeta2_Controller extends MY_Controller {
         $data['search_class2_slug'] = $this->input->get('class2_slug');
 
         $class_ClassMeta = new ClassMeta([
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'db_where_arr' => [
                 'slug' => $data['search_class2_slug']
             ]
@@ -90,7 +90,7 @@ class Classmeta2_Controller extends MY_Controller {
                 'classname like' => $data['search_classname'],
                 'classids find' => [$class_ClassMeta->classid]
             ),
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'db_orderby_arr' => array(
                 'prioritynum' => 'DESC',
                 'classid' => 'DESC'

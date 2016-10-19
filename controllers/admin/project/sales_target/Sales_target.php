@@ -112,7 +112,7 @@ class Customer_Controller extends MY_Controller {
                 'prioritynum' => 'DESC',
                 'updatetime' => 'DESC'
             ],
-            'db_where_deletenull_bln' => TRUE,
+            'db_delete_all_null' => TRUE,
             'obj_class' => 'Customer',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
