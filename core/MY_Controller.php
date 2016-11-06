@@ -28,7 +28,10 @@ class MY_Controller extends FS_Controller
 
         //引入專案模板style，如果 admin 則不載入
         $url = explode( base_url(), $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] );
-        if( substr($url[1], 0, 5) !== 'admin' )
+        if(
+            substr($url[1], 0, 5) !== 'admin' &&
+            substr($url[1], 0, 4) !== 'user'
+        )
         {
             $data['global']['style'][] = 'temp/global.css';
             $data['global']['style'][] = 'temp/header_bar.css';
