@@ -354,14 +354,14 @@ Temp.ready(function(){
 			<h3>FILL COLOR FOR YOUR BRAND</h3>
 			<div class="leftContent">
 				<div class="textArea">
-					<p>依客戶預算及需求做客製化設計</p>
+					<p>依客戶預算及需求的客製化網站設計</p>
 					<p>由心出發的UI/UX設計</p>
-					<p>堅持7:2:1的黃金比例設計原則</p>
 					<p>以使用者體驗為最主要的設計重點</p>
 				</div>
 				<div class="textArea">
+					<p>形象、購物、客製化網站</p>
 					<p>CIS / LOGO 設計</p>
-					<p>形象、購物網站、手機 APP</p>
+					<p>手機 APP 開發</p>
 					<p>Facebook、Google 行銷</p>
 					<p>ERP、CRM</p>
 				</div>
@@ -469,7 +469,7 @@ Temp.ready(function(){
 		</div>
 		<div class="service">
 			<div class="text_box">
-				<h1>RWD客製化網站</h1>
+				<h1>RWD客製化網站設計</h1>
 				<h2>打造一個真正能提升業績的網站</h2>
 				<p>迅速提升企業形象及產品銷售量
 				<br>避免製作導致負面形象的網站！</p>
