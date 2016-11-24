@@ -2,7 +2,7 @@
 	<h1>聯繫我們</h1>
 	<div class="title_box">
 		<div class="line1"></div>
-		<p>本公司設計案件較多，為盡早處理您的專案，請提前詢問或索取估價資訊。</p>
+		<p>本公司設計案件較多，為盡早處理您的專案，請提前詢問或索取估價資訊</p>
 		<div class="line2"></div>
 	</div>
 	<div class="textContactForm">

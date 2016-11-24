@@ -1,0 +1,10 @@
+/*fanwoo ajax submit表單送出動畫*/
+[fanswoo-ajax_submit_wrap] {  }
+[fanswoo-ajax_submit_loading] {  }
+[fanswoo-ajax_submit_wrap] input[disabled='disabled'] { background: #CCC !important; color: #AAA  !important; border: 1px solid #AAA  !important; }
+
+/*RWD手機版自動調整.wrap大小*/
+@media screen and (max-width: 700px) {
+	body { overflow-x:hidden; }
+	.wrap { overflow-y: scroll; margin: 50px 0 0; padding: 20px; }
+}

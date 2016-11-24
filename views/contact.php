@@ -1,42 +1,4 @@
 <?=$temp['header_up']?>
-<script>
-Temp.ready(function(){
-	(function() {
-	  var _fbq = window._fbq || (window._fbq = []);
-	  if (!_fbq.loaded) {
-	    var fbds = document.createElement('script');
-	    fbds.async = true;
-	    fbds.src = '//connect.facebook.net/en_US/fbds.js';
-	    var s = document.getElementsByTagName('script')[0];
-	    s.parentNode.insertBefore(fbds, s);
-	    _fbq.loaded = true;
-	  }
-	})();
-	window._fbq = window._fbq || [];
-	window._fbq.push(['track', '6020797556140', {'value':'0.00','currency':'TWD'}]);
-
-	//聯繫頁變更
-	$(document).on('mouseenter', '.textContactForm', function(){
-		$('.textContactForm').addClass('hover');
-		$('.textContact').addClass('hidden');
-	});
-	$(document).on('click', '.textContactFormClose', function(){
-		$('.textContactForm').removeClass('hover');
-		$('.textContact').removeClass('hidden');
-	});
-
-	/* <![CDATA[ */
-	var google_conversion_id = 1037100439;
-	var google_conversion_language = "en";
-	var google_conversion_format = "3";
-	var google_conversion_color = "ffffff";
-	var google_conversion_label = "54GrCKiolVYQl8vD7gM";
-	var google_remarketing_only = false;
-	/* ]]> */
-});
-</script>
-<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
-<noscript style="display:none;"><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6020797556140&amp;cd[value]=0.00&amp;cd[currency]=TWD&amp;noscript=1" /></noscript>
 <?=$temp['header_down']?>
 <?=$temp['header_bar']?>
 	<div class="pencil">fansWoo</div>
@@ -82,7 +44,7 @@ Temp.ready(function(){
 					<p>電子郵件：<input type="email" class="email" name="email" placeholder="請填寫電子郵件" required></p>
 					<p>公司地址：<input type="text" class="address" name="address" placeholder="請填寫公司地址" required></p>
 					<textarea name="content"></textarea>
-					<p>本公司設計案件較多，為盡早處理您的專案，請提前詢問及索取報價資訊。</p>
+					<p>本公司設計案件較多，為盡早處理您的專案，請提前詢問及索取報價資訊</p>
 					<input type="submit" value="送出" class="contactSubmit" name="contactSubmit">
 				</div>
 				<div class="leftBox">

@@ -2,32 +2,32 @@
 
 class Customer extends ObjDbBase
 {
-    public $contact_time_DateTime;
-    public $updatetime_DateTime;
-    public $db_name_arr = ['project_customer'];//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid = 'customerid';//填寫物件聯繫資料庫之唯一ID
-    public $db_field_arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'customerid' => 'customerid',
-        'uid' => ['uid_User', 'uid'],
-        'company' => 'company',
-        'customer_name' => 'customer_name',
-        'phone'=>'phone',
-        'tel'=>'tel',
-        'email'=>'email',
-    	'wish'=>'wish',
-        'content' => 'content_Html',
-        'address'=>'address',
-        'budget_range' => 'budget_range',
-        'contact_time' => array('contact_time_DateTime', 'datetime'),
-        'website' => 'website',
-        'prioritynum' => 'prioritynum',
-        'updatetime' => ['updatetime_DateTime', 'datetime']
-    );
+
+    public function attr_setting()
+    {
+        $this->set_db_uniqueid('customerid');
+        $this->add_db_name('project_customer');
+
+        $this->attr('customerid')->field('customerid');
+        $this->attr('company')->field('company');
+        $this->attr('customer_name')->field('customer_name');
+        $this->attr('phone')->field('phone');
+        $this->attr('tel')->field('tel');
+        $this->attr('email')->field('email');
+        $this->attr('wish')->field('wish');
+        $this->attr('content_Html')->field('content');
+        $this->attr('address')->field('address');
+        $this->attr('budget_range')->field('budget_range');
+        $this->attr('website')->field('website');
+        $this->attr('prioritynum')->field('prioritynum');
+
+        $this->attr('uid_User')->field('uid')->update_child('uid');
+        $this->attr('contact_time_DateTime')->field('contact_time')->update_child('datetime');
+        $this->attr('updatetime_DateTime')->field('updatetime')->update_child('datetime');
+    }
 	
 	public function construct($arg = [])
     {
-        
-        
         //將引數設為物件屬性，或將引數作為物件型屬性的建構值
         $this->set('customerid', $arg['customerid']);
         $this->set('company', $arg['company']);

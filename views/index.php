@@ -1,5 +1,4 @@
 <?=$temp['header_up']?>
-<script src="js/tool/cycle2.js"></script>
 <script>
 Temp.ready(function(){
 

@@ -2,33 +2,15 @@
 
 class ContactFanswoo extends Contact
 {
-    public $db_name_arr = ['contact'];//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid = 'contactid';//填寫物件聯繫資料庫之唯一ID
-    public $db_field_arr = [//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'contactid' => 'contactid',
-        'username' => 'username',
-        'email' => 'email',
-        'phone' => 'phone',
-        'content' => 'content',
-        'company' => 'company',
-        'address' => 'address',
-        'classtype' => 'classtype',
-        'classtype2' => 'classtype2',
-        'budget_range' => 'budget_range',
-        'status_process' => 'status_process',
-        'updatetime' => ['updatetime_DateTime', 'datetime'],
-        'locale' => 'locale',
-        'status' => 'status'
-    ];
 	
-	public function construct($arg = [])
-	{
-        parent::construct($arg);
-        
-        $this->set('company', $arg['company']);
-        $this->set('classtype2', $arg['classtype2']);
-        $this->set('budget_range', $arg['budget_range']);
-        $this->set('address', $arg['address']);
-        return TRUE;
+    public function attr_setting()
+    {
+        parent::attr_setting();
+
+        $this->attr('company')->field('company');
+        $this->attr('address')->field('address');
+        $this->attr('classtype2')->field('classtype2');
+        $this->attr('budget_range')->field('budget_range');
     }
+
 }

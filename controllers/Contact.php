@@ -107,9 +107,10 @@ class Contact_Controller extends MY_controller
 
         //送出成功訊息
         $this->load->model('Message');
-        $this->Message->show(array(
-            'message' => '寄件成功', 
-        ));
+        $this->Message->show([
+            'message' => '寄件成功',
+            'js' => "fbq('track', 'Lead');"
+        ]);
     }
 }
 

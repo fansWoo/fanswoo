@@ -8,10 +8,13 @@ class Index_Controller extends MY_Controller
 
 	    //global
 		$data['global']['page_title_name'] = '客製化網站設計';
+		
 		$data['global']['style'][] = 'temp/global.css';
 		$data['global']['style'][] = 'temp/header_bar.css';
 		$data['global']['style'][] = 'temp/footer_bar.css';
 	    $data['global']['style'][] = 'index.css';
+
+	    $data['global']['js'][] = 'tool/cycle2.js';
 
 		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
 		$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);

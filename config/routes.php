@@ -72,9 +72,9 @@ $route['space/(:num)'] = "space/view/$1";
 $route['space/slug/(:any)'] = "space/view/$1";
 
 //讀取檔案
-$route['js/(.*)'] = "api/read_file/js/$1";
-$route['style/(.*)'] = "api/read_file/style/$1";
-$route['img/(.*)'] = "api/read_file/img/$1";
+// $route['js/(.*)'] = "api/read_file/js/$1";
+// $route['style/(.*)'] = "api/read_file/style/$1";
+// $route['img/(.*)'] = "api/read_file/img/$1";
 
 
 /* End of file routes.php */
