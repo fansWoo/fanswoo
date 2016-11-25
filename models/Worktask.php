@@ -3,38 +3,27 @@
 class Worktask extends ObjDbBase
 {
 
-    public $worktaskid = 0;
-    public $projectid = 0;
-    public $title = '';
-    public $content_Html = '';
-    public $class_ClassMetaList;
-    public $estimate_hour = 0;
-    public $current_percent=0;
-    public $use_hour = 0;
-    public $uid_User;
-    public $start_time_DateTime;
-    public $end_time_DateTime;
-    public $prioritynum = 0;
-    public $work_status = 0;
-    public $status = 1;
-    public $db_name_arr = ['project_worktask'];//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid = 'worktaskid';//填寫物件聯繫資料庫之唯一ID
-    public $db_field_arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'worktaskid' => 'worktaskid',
-        'projectid' => 'projectid',
-        'title' => 'title',
-        'content' => 'content_Html',
-        'uid' => ['uid_User', 'uid'],
-        'classids' => ['class_ClassMetaList', 'uniqueids'],
-    	'current_percent'=>'current_percent',
-        'estimate_hour' => 'estimate_hour',
-        'use_hour' => 'use_hour',
-        'start_time' => array('start_time_DateTime', 'datetime'),
-        'end_time' => array('end_time_DateTime', 'datetime'),
-        'prioritynum' => 'prioritynum',
-        'work_status' => 'work_status',
-        'status' => 'status'
-    );
+    public function attr_setting()
+    {
+        $this->set_db_uniqueid('worktaskid');
+        $this->add_db_name('project_worktask');
+
+        $this->attr('worktaskid')->field('worktaskid');
+        $this->attr('projectid')->field('projectid');
+        $this->attr('content_Html')->field('content');
+        $this->attr('title')->field('title');
+        $this->attr('current_percent')->field('current_percent');
+        $this->attr('estimate_hour')->field('estimate_hour');
+        $this->attr('use_hour')->field('use_hour');
+        $this->attr('prioritynum')->field('prioritynum');
+        $this->attr('work_status')->field('work_status');
+        $this->attr('status')->field('status');
+
+        $this->attr('uid_User')->field('classids')->update_child('uniqueids');
+        $this->attr('class_ClassMetaList')->field('uid')->update_child('uid');
+        $this->attr('start_time_DateTime')->field('start_time')->update_child('datetime');
+        $this->attr('end_time_DateTime')->field('end_time')->update_child('datetime');
+    }
 	
 	public function construct($arg = [])
     {

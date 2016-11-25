@@ -2,17 +2,20 @@
 
 class CustomerMeet extends ObjDbBase
 {
-    public $visit_time_DateTime;
-    public $db_name_arr = ['project_customer_meet'];//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid = 'visitid';//填寫物件聯繫資料庫之唯一ID
-    public $db_field_arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'visitid' => 'visitid',
-        'customerids' => ['CustomerList', 'uniqueids'],
-        'visit_class'=> 'visit_class',
-        'content' => 'content_Html',
-        'visit_time' => array('visit_time_DateTime', 'datetime'),
-        'status'=> 'status'       
-    );
+
+    public function attr_setting()
+    {
+        $this->set_db_uniqueid('visitid');
+        $this->add_db_name('project_customer_meet');
+
+        $this->attr('visitid')->field('visitid');
+        $this->attr('visit_class')->field('visit_class');
+        $this->attr('content_Html')->field('content');
+        $this->attr('status')->field('status');
+
+        $this->attr('CustomerList')->field('customerids')->update_child('uniqueids');
+        $this->attr('visit_time_DateTime')->field('visit_time')->update_child('datetime');
+    }
 	
 	public function construct($arg = [])
     {

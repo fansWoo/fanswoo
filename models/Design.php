@@ -3,28 +3,21 @@
 class Design extends ObjDbBase
 {
 
-    public $designid = 0;
-    public $projectid = 0;
-    public $title = '';
-    public $synopsis = '';
-    public $price = 0;
-    public $classname = '';
-    public $days = 0;
-    public $prioritynum = 0;
-    public $status = 1;
-    public $db_name_arr = ['project_design'];//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid = 'designid';//填寫物件聯繫資料庫之唯一ID
-    public $db_field_arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'designid' => 'designid',
-        'projectid' => 'projectid',
-        'title' => 'title',
-        'synopsis' => 'synopsis',
-        'price' => 'price',
-        'classname' => 'classname',
-        'days' => 'days',
-        'prioritynum' => 'prioritynum',
-        'status' => 'status'
-    );
+    public function attr_setting()
+    {
+        $this->set_db_uniqueid('designid');
+        $this->add_db_name('project_design');
+
+        $this->attr('designid')->field('designid');
+        $this->attr('projectid')->field('projectid');
+        $this->attr('title')->field('title');
+        $this->attr('synopsis')->field('synopsis');
+        $this->attr('price')->field('price');
+        $this->attr('classname')->field('classname');
+        $this->attr('days')->field('days');
+        $this->attr('prioritynum')->field('prioritynum');
+        $this->attr('status')->field('status');
+    }
 	
 	public function construct($arg = [])
     {

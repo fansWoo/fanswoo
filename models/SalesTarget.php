@@ -2,19 +2,20 @@
 
 class Customer extends ObjDbBase
 {
-    public $contact_time_DateTime;
-    public $updatetime_DateTime;
-    public $db_name_arr = ['project_sales_target'];//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid = 'sales_target_id';//填寫物件聯繫資料庫之唯一ID
-    public $db_field_arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'sales_target_id' => 'sales_target_id',
-        'uid' => ['uid_User', 'uid'],
-        'customer_name' => 'customer_name',
-        'project'=>'project',
-        'website' => 'website',
-        'prioritynum' => 'prioritynum',
-        // 'updatetime' => ['updatetime_DateTime', 'datetime']
-    );
+
+    public function attr_setting()
+    {
+        $this->set_db_uniqueid('sales_target_id');
+        $this->add_db_name('project_sales_target');
+
+        $this->attr('sales_target_id')->field('sales_target_id');
+        $this->attr('customer_name')->field('customer_name');
+        $this->attr('project')->field('project');
+        $this->attr('website')->field('website');
+        $this->attr('prioritynum')->field('prioritynum');
+        $this->attr('uid_User')->field('uid')->update_child('uid');
+        $this->attr('status')->field('status');
+    }
 	
 	public function construct($arg = [])
     {

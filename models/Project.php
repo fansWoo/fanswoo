@@ -3,62 +3,39 @@
 class Project extends ObjDbBase
 {
 
-    public $projectid = 0;
-    // public $uid = 0;
-    public $uid_User;
-    public $name = '';
-    public $admin_uids_UserList = '';
-    public $customer_uids_UserList = '';
-    public $permission_uids_UserList = '';
-    public $working_days = 0;
-    public $use_hour_total='';
-    public $estimate_hour_total='';
-    public $class_ClassMetaList;
-    public $pay_name = '';
-    public $pay_account = '';
-    public $pay_price_total = 0;
-    public $pay_price_receive = 0;
-    public $pay_price_schedule = 0;
-    public $pay_price_bad_debt = 0;
-    public $pay_remark = '';
-    public $pay_status = 0;
-    public $paycheck_status = 0;
-    public $project_status = 1;
-    public $pay_paytime_DateTimeObj;
-    public $setuptime_DateTimeObj;
-    public $endtime_DateTimeObj;
-    public $updatetime_DateTimeObj;
-    public $status = 1;
-    public $db_name_arr = ['project'];//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid = 'projectid';//填寫物件聯繫資料庫之唯一ID
-    public $db_field_arr = [//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'projectid' => 'projectid',
-        'uid' => ['uid_User', 'uid'],
-        'name' => 'name',
-        'admin_uids' => ['admin_uids_UserList', 'uniqueids'],
-        'customer_uids' => ['customer_uids_UserList', 'uniqueids'],
-        'permission_uids' => ['permission_uids_UserList', 'uniqueids'],
-        'working_days' => 'working_days',
-    	'use_hour_total'=>'use_hour_total',
-    	'estimate_hour_total'=>'estimate_hour_total',
-        'classids' => array('class_ClassMetaList', 'uniqueids'),
-        'pay_name' => 'pay_name',
-        'pay_account' => 'pay_account',
-        'pay_price_total' => 'pay_price_total',
-        'pay_price_receive' => 'pay_price_receive',
-        'pay_price_schedule' => 'pay_price_schedule',
-        'pay_price_bad_debt' => 'pay_price_bad_debt',
-        'pay_remark' => 'pay_remark',
-        'pay_status' => 'pay_status',
-        'paycheck_status' => 'paycheck_status',
-        'project_status' => 'project_status',
-        'pay_paytime' => array('pay_paytime_DateTimeObj', 'datetime'),
-        'setuptime' => array('setuptime_DateTimeObj', 'datetime'),
-        'endtime' => array('endtime_DateTimeObj', 'datetime'),
-        'updatetime' => array('updatetime_DateTimeObj', 'datetime'),
-        'status' => 'status'
-    ];
-	
+    public function attr_setting()
+    {
+        $this->set_db_uniqueid('projectid');
+        $this->add_db_name('project');
+
+        $this->attr('projectid')->field('projectid');
+        $this->attr('name')->field('name');
+        $this->attr('working_days')->field('working_days');
+        $this->attr('use_hour_total')->field('use_hour_total');
+        $this->attr('estimate_hour_total')->field('estimate_hour_total');
+        $this->attr('pay_name')->field('pay_name');
+        $this->attr('pay_account')->field('pay_account');
+        $this->attr('pay_price_total')->field('pay_price_total');
+        $this->attr('pay_price_receive')->field('pay_price_receive');
+        $this->attr('pay_price_schedule')->field('pay_price_schedule');
+        $this->attr('pay_price_bad_debt')->field('pay_price_bad_debt');
+        $this->attr('pay_remark')->field('pay_remark');
+        $this->attr('pay_status')->field('pay_status');
+        $this->attr('paycheck_status')->field('paycheck_status');
+        $this->attr('project_status')->field('project_status');
+        $this->attr('status')->field('status');
+
+        $this->attr('uid_User')->field('uid')->update_child('uid');
+        $this->attr('admin_uids_UserList')->field('admin_uids')->update_child('uniqueids');
+        $this->attr('customer_uids_UserList')->field('customer_uids')->update_child('uniqueids');
+        $this->attr('permission_uids_UserList')->field('permission_uids')->update_child('uniqueids');
+        $this->attr('class_ClassMetaList')->field('classids')->update_child('uniqueids');
+        $this->attr('pay_paytime_DateTimeObj')->field('pay_paytime')->update_child('datetime');
+        $this->attr('setuptime_DateTimeObj')->field('setuptime')->update_child('datetime');
+        $this->attr('endtime_DateTimeObj')->field('endtime')->update_child('datetime');
+        $this->attr('updatetime_DateTimeObj')->field('updatetime')->update_child('datetime');
+    }
+
 	public function construct($arg = [])
 	{
         $this->set('projectid', $arg['projectid']);

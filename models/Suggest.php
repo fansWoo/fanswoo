@@ -3,32 +3,24 @@
 class Suggest extends ObjDbBase
 {
 
-    public $suggestid = 0;
-    public $projectid = 0;
-    public $uid = 0;
-    public $title = '';
-    public $content = '';
-    public $answer = '';
-    public $suggest_time_DateTime;
-    public $updatetime_DateTime;
-    public $suggest_status = 0;
-    public $answer_status = 1;
-    public $status = 1;
-    public $db_name_arr = ['project_suggest'];//填寫物件聯繫資料庫之名稱
-    public $db_uniqueid = 'suggestid';//填寫物件聯繫資料庫之唯一ID
-    public $db_field_arr = array(//填寫資料庫欄位與本物件屬性之關係，前者為資料庫欄位，後者為屬性
-        'suggestid' => 'suggestid',
-        'projectid' => 'projectid',
-        'uid' => 'uid',
-        'title' => 'title',
-        'content' => 'content',
-        'answer' => 'answer',
-        'suggest_time' => array('suggest_time_DateTime', 'datetime'),
-        'updatetime' => array('updatetime_DateTime', 'datetime'),
-        'suggest_status' => 'suggest_status',
-        'answer_status' => 'answer_status',
-        'status' => 'status'
-    );
+    public function attr_setting()
+    {
+        $this->set_db_uniqueid('suggestid');
+        $this->add_db_name('project_suggest');
+
+        $this->attr('suggestid')->field('suggestid');
+        $this->attr('projectid')->field('projectid');
+        $this->attr('uid')->field('uid');
+        $this->attr('title')->field('title');
+        $this->attr('content')->field('content');
+        $this->attr('answer')->field('answer');
+        $this->attr('suggest_status')->field('suggest_status');
+        $this->attr('answer_status')->field('answer_status');
+        $this->attr('status')->field('status');
+
+        $this->attr('suggest_time_DateTime')->field('suggest_time')->update_child('datetime');
+        $this->attr('updatetime_DateTime')->field('updatetime')->update_child('datetime');
+    }
 	
 	public function construct($arg = [])
     {
