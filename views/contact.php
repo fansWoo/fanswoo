@@ -1,4 +1,18 @@
 <?=$temp['header_up']?>
+<script>
+Temp.ready(function(){
+	//聯繫頁變更
+	$(document).on('mouseenter', '.textContactForm', function(){
+		$('.textContactForm').addClass('hover');
+		$('.textContact').addClass('hidden');
+	});
+	$(document).on('click', '.textContactFormClose', function(){
+		$('.textContactForm').removeClass('hover');
+		$('.textContact').removeClass('hidden');
+	});
+
+});
+</script>
 <?=$temp['header_down']?>
 <?=$temp['header_bar']?>
 	<div class="pencil">fansWoo</div>
@@ -88,8 +102,9 @@
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/tel.png">
-					<p>業務部 (02)2816-4533 #333</p>
-					<p>傳真機 (02)2816-4538</p>
+					<p>070-1018-1068</p>
+					<p>業務部 #888</p>
+					<p>設計部 #333</p>
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/email.png">

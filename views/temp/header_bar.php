@@ -1,15 +1,3 @@
-<script type="text/javascript">
-$(document).ready(function() {
-	$(window).scroll(function(){
-		var wrap_height = $(window).height();
-		$('.weap').css('height', wrap_height);
-	});
-	$(".toggle").click(function() {
-		$(this).toggleClass("active");
-		$(" .phone_topHeader .navBar").slideToggle();
-	});	
-});
-</script>
 <div class="logoStart"></div>
 <div class="picLoadingList">
 	<img src="img/bg5.jpg">
@@ -67,7 +55,7 @@ $(document).ready(function() {
 							<div class="downbox1">
 								<a href="webdesign">客製化網站</a>
 							</div>
-							<div class="downbox1">
+							<div class="downbox1" style="display: none;">
 								<a href="wordpress">套版網站</a>
 							</div>
 							<div class="downbox1">
@@ -116,7 +104,7 @@ $(document).ready(function() {
 						<p class="nav2">客製化網站</p>
 					</div>
 				</a>
-				<a href="wordpress"  class="box">
+				<a href="wordpress" style="display: none;" class="box">
 					<div class="item">
 						<p class="nav hover"><span>W</span>ordpress</p>
 						<p class="nav2">套版網站</p>

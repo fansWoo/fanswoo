@@ -54,8 +54,6 @@ class Page_Controller extends MY_Controller {
 			$data['global']['style'][] = 'temp/header_bar.css';
 			$data['global']['style'][] = 'temp/footer_bar.css';
 	        $data['global']['style'][] = 'pager/default.css';
-	        
-	        $data['global']['js'][] = 'tool/smooth_scrollerator.js';
 	        $data['global']['js'][] = 'tool/cycle2.js';
 	        
 	        //temp
@@ -81,8 +79,6 @@ class Page_Controller extends MY_Controller {
 			$data['global']['style'][] = 'temp/header_bar.css';
 			$data['global']['style'][] = 'temp/footer_bar.css';
 	        $data['global']['style'][] = 'page/'.$slug.'.css';
-
-	        $data['global']['js'][] = 'tool/smooth_scrollerator.js';
 	        $data['global']['js'][] = 'tool/cycle2.js';
 	        
 	        //temp

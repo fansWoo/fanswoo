@@ -48,7 +48,8 @@ class Contact_Controller extends MY_controller
         $content = $this->input->post('content', TRUE, '聯繫內容', 'required');
         $classtype = $this->input->post('classtype', TRUE, '詢問項目', 'required');
         $classtype2 = $this->input->post('classtype2', TRUE, '詢問細節','required');
-        $budget_range = $this->input->post('budget_range', TRUE, '預算', 'required');
+        $budget_range = $this->input->post('budget_range', TRUE, '預算欄位','required');
+
         if( !$this->form_validation->check() ) return FALSE;
 
         //建構Contact物件，並且更新

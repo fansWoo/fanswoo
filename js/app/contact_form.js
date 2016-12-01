@@ -58,7 +58,7 @@ $(function(){
 
 			$('select.need_child').val($(this).val());
 
-			// var need_child_money = '<option value="" style="color:#CCC;">請選擇預算金額</option>';
+			var need_child_money = '<option value="" style="color:#CCC;">請選擇預算金額</option>';
 
 			if(window_width > 700)
 			{
@@ -97,7 +97,7 @@ $(function(){
 
 								$clone.find('h3').text( contact_selector_arr[key].child[key2].budget[key3].range );
 								$clone.find('h4').text( contact_selector_arr[key].child[key2].budget[key3].text );
-								$clone.find("input[name='budget_range']").val( contact_selector_arr[key].child[key2].budget[key3].range );
+								$clone.find("input.budget_range_pc").val( contact_selector_arr[key].child[key2].budget[key3].range );
 
 								//複製 $clone 插入 price_choose
 								$clone.appendTo(".price_choose");
@@ -137,10 +137,10 @@ $(function(){
 	$(document).on('click', '.choose_box', function(){
 		$('.choose_box').removeClass('hover');
 		$('.choose_box').find("h4").removeClass('hover');
-		$('.choose_box').find("[name='budget_range']").attr('disabled', 'disabled');
+		// $('.choose_box').find(".budget_range_pc").attr('disabled', 'disabled');
 		$(this).addClass('hover');
 		$(this).find("h4").addClass('hover');
-		$(this).find("[name='budget_range']").removeAttr('disabled');
+		$("select[name='budget_range'] > option[value='" + $(this).find(".budget_range_pc").val() + "']").attr('selected', 'selected');
 	});
 
 });

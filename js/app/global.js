@@ -4,6 +4,15 @@ $(function(){
 	$(window).resize(function(){
 		smallWindowWidth();
 	});
+
+	$(window).scroll(function(){
+		var wrap_height = $(window).height();
+		$('.weap').css('height', wrap_height);
+	});
+	$(".toggle").click(function() {
+		$(this).toggleClass("active");
+		$(" .phone_topHeader .navBar").slideToggle();
+	});	
 	
 	//回到最上層
 	$(document).on('click', '.pageGoTop', function(){

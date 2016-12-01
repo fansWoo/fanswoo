@@ -229,92 +229,89 @@ $(function(){
 			<h4>專案作品</h4>
 			<img src="img/webdesign/content2_dot.png" class="dot">
 			<div class="boxarea">
-				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/candace.asia">
+				<a class="box" target="_blank" href="http://web.fanswoo.com/ipixcc.com.tw">
+					<div class="picbox">
+						<img src="img/webdesign/ipix.jpg">
+						<img src="img/webdesign/content9_border.png" class="border">
+						<img src="img/webdesign/content9_shadow.png" class="shadow">
+					</div>
+					<h2>Gropro 台灣代理</h2>
+					<h3>IPIX 鏡花園</h3>
+				</a>
+				<a class="box" target="_blank" href="http://web.fanswoo.com/mrpv.org.tw">
+					<div class="picbox">
+						<img src="img/portfolio/2-million-roof.png">
+						<img src="img/webdesign/content9_border.png" class="border">
+						<img src="img/webdesign/content9_shadow.png" class="shadow">
+					</div>
+					<h2>工研院</h2>
+					<h3>陽光屋頂百萬座</h3>
+				</a>
+				<a class="box" target="_blank" href="http://web.fanswoo.com/paris-strawberry.cn/">
+					<div class="picbox">
+						<img src="img/portfolio/2-paris-strawberry.png">
+						<img src="img/webdesign/content9_border.png" class="border">
+						<img src="img/webdesign/content9_shadow.png" class="shadow">
+					</div>
+					<h2>Paris Strawberry</h2>
+					<h3>巴黎草莓</h3>
+				</a>
+				<a class="box" target="_blank" href="http://web.fanswoo.com/customer.ktb.com.tw/">
+					<div class="picbox">
+						<img src="img/portfolio/8-kingtownbank1.png">
+						<img src="img/webdesign/content9_border.png" class="border">
+						<img src="img/webdesign/content9_shadow.png" class="shadow">
+					</div>
+					<h2>King's Town Bank</h2>
+					<h3>京城銀行</h3>
+				</a>
+				<a class="box" target="_blank" href="http://web.fanswoo.com/candace.asia">
+					<div class="picbox">
 						<img src="img/webdesign/candace.jpg">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">
 					</div>
-				    <h2>Candace </h2>
-					<h3>洪秀女名品服飾設計<h3>
-				</div>
-				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/yensgroup.com">
+					<h2>CANDACE</h2>
+					<h3>洪秀女精品服飾</h3>
+				</a>
+				<a class="box" target="_blank" href="http://web.fanswoo.com/yensgroup.com">
+					<div class="picbox">
 						<img src="img/portfolio/1-yens.png">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">
 					</div>
 					<h2>Yens</h2>
-					<h3>Yens 元家水產食品集</h3>
-				</div>
-				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/yyh">
-						<img src="img/webdesign/yyh.jpg">
-						<img src="img/webdesign/content9_border.png" class="border">
-						<img src="img/webdesign/content9_shadow.png" class="shadow">
-					</div>
-					<h2>Y.Y.H </h2>
-					<h3>昀諭行專業空氣濾網</h3>
-				</div>
-				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/hcmedi.de/">
+					<h3>元家水產食品集</h3>
+				</a>
+				<a class="box" target="_blank" href="http://web.fanswoo.com/hcmedi.de/">
+					<div class="picbox">
 						<img src="img/portfolio/3-hcmedi.png">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">
 					</div>
-					<h2>HCMedi </h2>
-					<h3>HCMedi 心誠美行動醫療</h3>
-				</div>
-				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/ruok.com.tw/">
-						<img src="img/portfolio/7-tomato.png">
-						<img src="img/webdesign/content9_border.png" class="border">
-						<img src="img/webdesign/content9_shadow.png" class="shadow">
-					</div>
-					<h2>Tomato </h2>
-					<h3>Tomato 番茄娛樂</h3>
-				</div>
-				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/ipixcc.com.tw">
-						<img src="img/webdesign/ipix.jpg">
-						<img src="img/webdesign/content9_border.png" class="border">
-						<img src="img/webdesign/content9_shadow.png" class="shadow">
-					</div>
-					<h2>IPIX </h2>
-					<h3>鏡花園 </h3>
-				</div>
-				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/mrpv.org.tw">
-						<img src="img/portfolio/2-million-roof.png">
-						<img src="img/webdesign/content9_border.png" class="border">
-						<img src="img/webdesign/content9_shadow.png" class="shadow">
-					</div>
-					<h2>工研院 </h2>
-					<h3>工研院 陽光屋頂百萬座</h3>
-				</div>
-				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/dobbysoven.com/">
+					<h2>HCMedi</h2>
+					<h3>心誠美行動醫療</h3>
+				</a>
+				<a class="box" target="_blank" href="http://web.fanswoo.com/dobbysoven.com/">
+					<div class="picbox">
 						<img src="img/portfolio/1-dobby.png">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">
 					</div>
-					<h2>Dobby  </h2>
-					<h3>Dobby 精緻糕點 </h3>
-				</div>
-				<div class="box">
-					<div class="picbox" data-hrefto="http://web.fanswoo.com/bazu-beer.com">
+					<h2>Dobby</h2>
+					<h3>精緻糕點</h3>
+				</a>
+				<a class="box" target="_blank" href="http://web.fanswoo.com/bazu-beer.com">
+					<div class="picbox">
 						<img src="img/webdesign/beer.jpg">
 						<img src="img/webdesign/content9_border.png" class="border">
 						<img src="img/webdesign/content9_shadow.png" class="shadow">
 					</div>
-					<h2>BASALAI </h2>
+					<h2>BASALAI</h2>
 					<h3>巴斯萊手工鮮釀啤酒</h3>
-				</div>
-				
-			
+				</a>
 			</div>
 			<img src="img/webdesign/content2_dot.png" class="dot" style='display: none;'>
-			<!--<div data-hrefto="index.php?ac=portfolio" class="enter">More Design</div>-->
 		</div>
 	</div>
 	<div class="content9">

@@ -53,7 +53,7 @@
 				</div>
 				<div class="choose_box_copy" style=" display: none;">
 					<h3>預算</h3>
-					<div class="circle"><input type="hidden" name="budget_range" value="" disabled></div>
+					<div class="circle"><input type="hidden" class="budget_range_pc" name="budget_range_pc" value="" disabled></div>
 					<h4>文字</h4>
 				</div>
 				<input type="submit" value="立即聯繫" class="contactSubmit" name="contactSubmit">
