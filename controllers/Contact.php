@@ -20,7 +20,6 @@ class Contact_Controller extends MY_controller
         $data['global']['page_title_name'] = '聯繫我們';
         $data['global']['style'][] = 'temp/global.css';
         $data['global']['style'][] = 'temp/header_bar.css';
-		$data['global']['style'][] = 'temp/footer_bar.css';
         $data['global']['style'][] = 'contact/index.css';
         
         $data['global']['js'][] = 'contact_form.js';

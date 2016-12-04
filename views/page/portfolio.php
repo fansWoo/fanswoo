@@ -12,7 +12,7 @@ Temp.ready(function(){
 <?=$temp['header_down']?>
 <?=$temp['header_bar']?>
 		<div class="bodyPagePortfolio">
-			<div class="portfolioPageBg portfolioPageCISBg">
+			<div class="portfolioPageBg">
 				<h2 class="portfolioTitle">Electronic Commerce <span class="zhtw">購物網站</span></h2>
 				<a class="portfolioDiv" target="_blank" href="http://web.fanswoo.com/ipixcc.com.tw/" id="no_rwd">
 					<div class="pic showOriginal">
@@ -135,7 +135,7 @@ Temp.ready(function(){
 					</div>
 				</a>
 			</div>
-			<div class="portfolioPageBg portfolioPageWebsiteBg">
+			<div class="portfolioPageBg">
 				<h2 class="portfolioTitle">Website Design <span class="zhtw">RWD形象網站</span></h2>
 				<a class="portfolioDiv" target="_blank" href="http://web.fanswoo.com/customer.ktb.com.tw">
 					<div class="pic showOriginal">

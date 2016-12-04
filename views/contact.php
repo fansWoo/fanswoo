@@ -158,7 +158,6 @@ Temp.ready(function(){
 				</div>
 				</form>
 			</div>
-			<noscript style="display:none;"><img style="display:none;" height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1037100439/?label=54GrCKiolVYQl8vD7gM&amp;guid=ON&amp;script=0"/></noscript>
 		</div>
 	</div>
 <?=$temp['footer_bar']?>
