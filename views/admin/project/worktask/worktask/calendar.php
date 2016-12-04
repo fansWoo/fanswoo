@@ -1,6 +1,6 @@
 <?=$temp['header_up']?>
-<link href='js/tool/fullcalendar/fullcalendar.css' rel='stylesheet' />
-<link href='js/tool/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<link href='style/fanswoo-framework/tool/fullcalendar/fullcalendar.css' rel='stylesheet' />
+<link href='style/fanswoo-framework/tool/fullcalendar/fullcalendar.css' rel='stylesheet' media='print' />
 <?=$temp['header_down']?>
 <?=$temp['admin_header_bar']?>
 <h2><?=$child2_title?> - <?=$child4_title?></h2>

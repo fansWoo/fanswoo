@@ -19,8 +19,8 @@ class Worktask extends ObjDbBase
         $this->attr('work_status')->field('work_status');
         $this->attr('status')->field('status');
 
-        $this->attr('uid_User')->field('classids')->update_child('uniqueids');
-        $this->attr('class_ClassMetaList')->field('uid')->update_child('uid');
+        $this->attr('uid_User')->field('uid')->update_child('uid');
+        $this->attr('class_ClassMetaList')->field('classids')->update_child('uniqueids');
         $this->attr('start_time_DateTime')->field('start_time')->update_child('datetime');
         $this->attr('end_time_DateTime')->field('end_time')->update_child('datetime');
     }
