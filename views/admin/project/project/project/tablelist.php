@@ -16,7 +16,7 @@ Temp.ready(function(){
      return num;
      
     }
-    
+
     $('#start_time').datetimepicker({
         dateFormat: 'yy-mm-dd',
         timeFormat: 'HH:mm:ss'
@@ -31,11 +31,12 @@ Temp.ready(function(){
     $('.project.tablelist').each(function(key, value){
         var $this = $(value);
         var projectid = $this.find('.projectid').text();
-        $this.find('.pay_price_total').text(
-            thousandComma( $this.find('.pay_price_total').attr('data-pay_price_total') )
-             + 
-            ' 元'
-        );
+        var pay_price_total = $this.find('.pay_price_total').attr('data-pay_price_total');
+        var pay_price_receive = $this.find('.pay_price_receive').attr('data-pay_price_receive')
+
+        $this.find('.pay_price_total').text( thousandComma( pay_price_total ) + ' 元' );
+        $this.find('.pay_price_receive').text( thousandComma( pay_price_receive ) + ' 元' );
+
         $.ajax({
             url: $('base').attr('href') + 'admin/project/project/project/time_json',
             type: 'GET',
@@ -48,12 +49,31 @@ Temp.ready(function(){
             if( fanswoo.is_json(response) )
             {
                 var response_json = $.parseJSON(response);
-                $this.find('.actual_use_day_total').text(response_json.actual_use_day_total + ' 天');
-                $this.find('.actual_use_hour_total').text(response_json.actual_use_hour_total + ' 小時');
-                $this.find('.actual_use_day_pay').text( thousandComma( response_json.actual_use_day_pay ) + ' 元');
-                $this.find('.actual_use_day_pay_total').text( thousandComma( response_json.actual_use_day_pay_total ) + ' 元');
-                console.log( $this.find('.actual_use_day_total').text() );
-                console.log(response_json);
+                var actual_use_day_total = response_json.actual_use_day_total;
+                var actual_use_hour_total = response_json.actual_use_hour_total;
+                var actual_use_day_pay = response_json.actual_use_day_pay;
+                var actual_use_day_pay_total = response_json.actual_use_day_pay_total;
+                var real_receipt_profit = pay_price_receive - actual_use_day_pay_total;
+                var estimates_profit = pay_price_total - actual_use_day_pay_total;
+
+
+                $this.find('.actual_use_day_total').text(actual_use_day_total + ' 天');
+                $this.find('.actual_use_hour_total').text(actual_use_hour_total + ' 小時');
+                $this.find('.actual_use_day_pay').text( thousandComma( actual_use_day_pay ) + ' 元');
+                $this.find('.actual_use_day_pay_total').text( thousandComma( actual_use_day_pay_total ) + ' 元');
+                $this.find('.real_receipt_profit').text( thousandComma( real_receipt_profit ) + ' 元');
+                $this.find('.estimates_profit').text( thousandComma( estimates_profit ) + ' 元');
+
+
+                if( real_receipt_profit < 0 )
+                {
+                    $this.find('.real_receipt_profit').css('color', 'red');
+                }
+
+                if( estimates_profit < 0 )
+                {
+                    $this.find('.estimates_profit').css('color', 'red');
+                }
             }
         })
     　　.fail(function(response){
@@ -67,6 +87,9 @@ Temp.ready(function(){
 <div class="contentBox contentTablelist allWidth">
 	<h3><?=$child3_title?> > <?=$child4_title?></h3>
 	<h4>請選擇欲修改之<?=$child3_title?></h4>
+    <div class="spanLine noneBg">
+        <p>業務獎金百分比： 5% | 營業稅百分比： 5% | 基礎管銷成本百分比： 50%</p>
+    </div>
 	<div class="spanLine noneBg">
         <div class="spanLineLeft">
 			<a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit" class="button">新增<?=$child3_title?></a>
@@ -81,12 +104,6 @@ Temp.ready(function(){
                 <div class="spanLineLeft text width200">
         			專案名稱
                 </div>
-                <div class="spanLineLeft text width100">
-                    實際消耗天數
-                </div>
-                <div class="spanLineLeft text width100">
-                    實際消耗時數
-                </div>
                 <div class="spanLineLeft text width100" title="以專案執行人員及主管之薪資計算">
                     執行成本估算
                 </div>
@@ -97,10 +114,22 @@ Temp.ready(function(){
                     專案總金額
                 </div>
                 <div class="spanLineLeft text width100">
+                    實收利潤
+                </div>
+                <div class="spanLineLeft text width100">
+                    預估利潤
+                </div>
+                <div class="spanLineLeft text width100">
                     已收款項
                 </div>
                 <div class="spanLineLeft text width100">
                     付款進度 (%)
+                </div>
+                <div class="spanLineLeft text width100">
+                    實際消耗天數
+                </div>
+                <div class="spanLineLeft text width100">
+                    實際消耗時數
                 </div>
                 <div class="spanLineLeft text width100">
                     開始日期
@@ -124,21 +153,31 @@ Temp.ready(function(){
                         <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_name)?$search_name:''?>" name="search_name" placeholder="請填寫專案名稱">
                     </div>
                     <div class="spanLineLeft text width100">
+                        0 元
                     </div>
                     <div class="spanLineLeft text width100">
+                        0 元
                     </div>
                     <div class="spanLineLeft text width100">
+                        0 元
                     </div>
                     <div class="spanLineLeft text width100">
+                        0 元
                     </div>
                     <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_total)?$search_pay_price_total:''?>" name="search_pay_price_total" placeholder="專案總金額">
+                        0 元
                     </div>
                     <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_receive)?$search_pay_price_receive:''?>" name="search_pay_price_receive" placeholder="已收款項">
+                        0 元
                     </div>
                     <div class="spanLineLeft text width100">
-                        <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_schedule)?$search_pay_price_schedule:''?>" name="search_pay_price_schedule" placeholder="付款進度">
+                        0 %
+                    </div>
+                    <div class="spanLineLeft text width100">
+                        0 天
+                    </div>
+                    <div class="spanLineLeft text width100">
+                        0 小時
                     </div>
                     <div class="spanLineLeft text width100">
                         <input type="text" id="start_time" class="text" style="margin-left:-6px;" value="<?=!empty($search_setuptime)?$search_setuptime:''?>" name="search_start_time" placeholder="開始日期">
@@ -168,12 +207,6 @@ Temp.ready(function(){
                         <?=$value_Project->name?>
                     </a>
                 </div>
-                <div class="actual_use_day_total spanLineLeft text width100">
-                    0 天
-                </div>
-                <div class="actual_use_hour_total spanLineLeft text width100">
-                    0 小時
-                </div>
                 <div class="actual_use_day_pay spanLineLeft text width100" title="以專案執行人員及主管之薪資計算">
                     0 元
                 </div>
@@ -182,11 +215,23 @@ Temp.ready(function(){
                 </div>
                 <div class="pay_price_total spanLineLeft text width100" data-pay_price_total="<?=$value_Project->pay_price_total?>">
                 </div>
-                <div class="spanLineLeft text width100">
-                    NT $<?=$value_Project->pay_price_receive?>
+                <div class="real_receipt_profit spanLineLeft text width100" title="以收款金額作為計算之收款利潤">
+                    0 元
+                </div>
+                <div class="estimates_profit spanLineLeft text width100" title="以總金額作為計算之預估利潤">
+                    0 元
+                </div>
+                <div class="pay_price_receive spanLineLeft text width100" data-pay_price_receive="<?=$value_Project->pay_price_receive?>">
+                    0 元
                 </div>
                 <div class="spanLineLeft text width100">
                     <?=$value_Project->pay_price_schedule?> %
+                </div>
+                <div class="actual_use_day_total spanLineLeft text width100">
+                    0 天
+                </div>
+                <div class="actual_use_hour_total spanLineLeft text width100">
+                    0 小時
                 </div>
                 <div class="spanLineLeft text width100">
                     <?=$value_Project->setuptime_DateTimeObj->inputtime_date?>
