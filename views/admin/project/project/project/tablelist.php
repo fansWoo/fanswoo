@@ -2,6 +2,21 @@
 <script>
 Temp.ready(function(){
 
+
+    function thousandComma(number)
+    {
+     var num = number.toString();
+     var pattern = /(-?\d+)(\d{3})/;
+      
+     while(pattern.test(num))
+     {
+      num = num.replace(pattern, "$1,$2");
+      
+     }
+     return num;
+     
+    }
+    
     $('#start_time').datetimepicker({
         dateFormat: 'yy-mm-dd',
         timeFormat: 'HH:mm:ss'
@@ -10,6 +25,39 @@ Temp.ready(function(){
     $('#end_time').datetimepicker({
         dateFormat: 'yy-mm-dd',
         timeFormat: 'HH:mm:ss'
+    });
+
+    // 根據算
+    $('.project.tablelist').each(function(key, value){
+        var $this = $(value);
+        var projectid = $this.find('.projectid').text();
+        $this.find('.pay_price_total').text(
+            thousandComma( $this.find('.pay_price_total').attr('data-pay_price_total') )
+             + 
+            ' 元'
+        );
+        $.ajax({
+            url: $('base').attr('href') + 'admin/project/project/project/time_json',
+            type: 'GET',
+            data: {
+                projectid: projectid
+            },
+            async: true
+        })
+        .done(function(response){
+            if( fanswoo.is_json(response) )
+            {
+                var response_json = $.parseJSON(response);
+                $this.find('.actual_use_day_total').text(response_json.actual_use_day_total + ' 天');
+                $this.find('.actual_use_hour_total').text(response_json.actual_use_hour_total + ' 小時');
+                $this.find('.actual_use_day_pay').text( thousandComma( response_json.actual_use_day_pay ) + ' 元');
+                $this.find('.actual_use_day_pay_total').text( thousandComma( response_json.actual_use_day_pay_total ) + ' 元');
+                console.log( $this.find('.actual_use_day_total').text() );
+                console.log(response_json);
+            }
+        })
+    　　.fail(function(response){
+        });
     });
 });
 </script>
@@ -30,8 +78,20 @@ Temp.ready(function(){
                 <div class="spanLineLeft text width100">
         			專案ID
                 </div>
-                <div class="spanLineLeft text width300">
+                <div class="spanLineLeft text width200">
         			專案名稱
+                </div>
+                <div class="spanLineLeft text width100">
+                    實際消耗天數
+                </div>
+                <div class="spanLineLeft text width100">
+                    實際消耗時數
+                </div>
+                <div class="spanLineLeft text width100" title="以專案執行人員及主管之薪資計算">
+                    執行成本估算
+                </div>
+                <div class="spanLineLeft text width100" title="執行成本加上公司其它人員薪資之計算">
+                    實際成本估算
                 </div>
                 <div class="spanLineLeft text width100">
                     專案總金額
@@ -60,8 +120,16 @@ Temp.ready(function(){
                     <div class="spanLineLeft text width100">
                         <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_projectid)?$search_projectid:''?>" name="search_projectid" placeholder="請填寫ID">
                     </div>
-                    <div class="spanLineLeft text width300">
+                    <div class="spanLineLeft text width200">
                         <input type="text" class="text" style="margin-left:-6px;" value="<?=!empty($search_name)?$search_name:''?>" name="search_name" placeholder="請填寫專案名稱">
+                    </div>
+                    <div class="spanLineLeft text width100">
+                    </div>
+                    <div class="spanLineLeft text width100">
+                    </div>
+                    <div class="spanLineLeft text width100">
+                    </div>
+                    <div class="spanLineLeft text width100">
                     </div>
                     <div class="spanLineLeft text width100">
                         <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_total)?$search_pay_price_total:''?>" name="search_pay_price_total" placeholder="專案總金額">
@@ -73,13 +141,9 @@ Temp.ready(function(){
                         <input type="number" class="text" style="margin-left:-6px;" value="<?=!empty($search_pay_price_schedule)?$search_pay_price_schedule:''?>" name="search_pay_price_schedule" placeholder="付款進度">
                     </div>
                     <div class="spanLineLeft text width100">
-                        <script src="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/script.js"></script>
-                        <link rel="stylesheet" type="text/css" href="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/style.css"></link>
                         <input type="text" id="start_time" class="text" style="margin-left:-6px;" value="<?=!empty($search_setuptime)?$search_setuptime:''?>" name="search_start_time" placeholder="開始日期">
                     </div>
                     <div class="spanLineLeft text width100">
-                        <script src="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/script.js"></script>
-                        <link rel="stylesheet" type="text/css" href="js/fanswoo-framework/tool/jquery-ui-timepicker-addon/style.css"></link>
                         <input type="text" id="end_time" class="text" style="margin-left:-6px;" value="<?=!empty($search_endtime)?$search_endtime:''?>" name="search_end_time" placeholder="結束日期">
                     </div>
                     <div class="spanLineLeft text width150">
@@ -97,17 +161,26 @@ Temp.ready(function(){
             </div>
             <?if(!empty($ProjectList->obj_arr)):?>
             <?foreach($ProjectList->obj_arr as $key => $value_Project):?>
-            <div class="spanLine tablelist">
-                <div class="spanLineLeft text width100">
-                    <?=$value_Project->projectid?>
-                </div>
-                <div class="spanLineLeft text width300">
+            <div class="project spanLine tablelist">
+                <div class="projectid spanLineLeft text width100"><?=$value_Project->projectid?></div>
+                <div class="spanLineLeft text width200">
                     <a href="admin/<?=$child1_name?>/<?=$child2_name?>/<?=$child3_name?>/edit/?projectid=<?=$value_Project->projectid?>">
                         <?=$value_Project->name?>
                     </a>
                 </div>
-                <div class="spanLineLeft text width100">
-                    NT $<span class="project_price"><?=$value_Project->pay_price_total?></span>
+                <div class="actual_use_day_total spanLineLeft text width100">
+                    0 天
+                </div>
+                <div class="actual_use_hour_total spanLineLeft text width100">
+                    0 小時
+                </div>
+                <div class="actual_use_day_pay spanLineLeft text width100" title="以專案執行人員及主管之薪資計算">
+                    0 元
+                </div>
+                <div class="actual_use_day_pay_total spanLineLeft text width100" title="執行成本加上公司其它人員薪資之計算">
+                    0 元
+                </div>
+                <div class="pay_price_total spanLineLeft text width100" data-pay_price_total="<?=$value_Project->pay_price_total?>">
                 </div>
                 <div class="spanLineLeft text width100">
                     NT $<?=$value_Project->pay_price_receive?>

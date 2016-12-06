@@ -299,6 +299,8 @@ Temp.ready(function() {
             uid: $('#search_uid').val()
         };
 
+        console.log(data);
+
         $.ajax({
             url: $('base').attr('href') + 'admin/project/worktask/worktask/worktask_list_json',
             data: data,
@@ -306,6 +308,8 @@ Temp.ready(function() {
         })
         .done(function(response){
             var events_data = $.parseJSON(response);
+
+            console.log(events_data);
 
             $('#calendar').fullCalendar('removeEvents');
 

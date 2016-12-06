@@ -21,7 +21,6 @@ class Worktask_Controller extends MY_Controller {
                 'worktaskid' => $worktaskid
             ]
         ]);
-        
 
         $data['UserList'] = new ObjList([
             'db_delete_all_null' => TRUE,
@@ -39,9 +38,20 @@ class Worktask_Controller extends MY_Controller {
             'limitcount' => 100
         ]);
 
-        $data['ProjectList']=new ObjList([
+        $data['ProjectList'] = new ObjList([
             'db_where_arr' => [
-            	 
+                [
+                    'uid' => $data['User']->uid
+                ],
+                [
+                    'admin_uids find' => $data['User']->uid
+                ],
+                [
+                    'customer_uids find' => $data['User']->uid
+                ],
+                [
+                    'permission_uids find' => $data['User']->uid
+                ]
             ],
             'db_delete_all_null' => TRUE,
             'obj_class' => 'Project',
@@ -66,7 +76,7 @@ class Worktask_Controller extends MY_Controller {
 
         $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
         $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
-        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/style.css';
+        $data['global']['style'][] = 'tool/jquery-ui-timepicker-addon/style.css';
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
@@ -268,10 +278,21 @@ class Worktask_Controller extends MY_Controller {
             'limitstart' => 0,
             'limitcount' => 100
         ]);
-              
+        
         $data['ProjectList'] = new ObjList([
         		'db_where_arr' => [
-					'status'=> 1
+                    [
+                        'uid' => $data['User']->uid
+                    ],
+                    [
+                        'admin_uids find' => $data['User']->uid
+                    ],
+                    [
+                        'customer_uids find' => $data['User']->uid
+                    ],
+                    [
+                        'permission_uids find' => $data['User']->uid
+                    ]
         		],
         		'db_delete_all_null' => TRUE,
         		'obj_class' => 'Project',
@@ -424,11 +445,12 @@ class Worktask_Controller extends MY_Controller {
         $data['global']['js'][] = 'tool/ckeditor/ckeditor.js';
         $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
         $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/zh-tw.js';
-        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/style.css';
         $data['global']['js'][] = 'tool/fullcalendar/moment.min.js';
         $data['global']['js'][] = 'tool/fullcalendar/fullcalendar.min.js';
         $data['global']['js'][] = 'tool/fullcalendar/gcal.js';
         $data['global']['js'][] = 'admin/project/worktask/worktask/calendar.js';
+
+        $data['global']['style'][] = 'tool/jquery-ui-timepicker-addon/style.css';
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
@@ -506,7 +528,7 @@ class Worktask_Controller extends MY_Controller {
                 'limitcount' => 100
             ]);
 
-            foreach( $ProjectList as $key => $value_Project)
+            foreach( $ProjectList->obj_arr as $key => $value_Project)
             {
                 $projectid_arr[] = $value_Project->projectid;
             }
@@ -524,7 +546,7 @@ class Worktask_Controller extends MY_Controller {
         $timenow_month_start = date("Y-m-d", mktime(24, 0, 0, date("m", $DateTimeObj->unix) - 1, 0, date("Y", $DateTimeObj->unix)));
         $timenow_month_end = date("Y-m-d", mktime(0, 0, 0, date("m", $DateTimeObj->unix) + 1 + 1, 0, date("Y", $DateTimeObj->unix)));
 
-        $WorktaskList = new ObjList([
+        $WorktaskList = Worktask::list([
             'db_where_arr' => [
                 'start_time >' => $timenow_month_start,
                 'end_time <' => $timenow_month_end,
@@ -532,10 +554,17 @@ class Worktask_Controller extends MY_Controller {
                 'projectid in' => $projectid_arr
             ],
             'db_delete_all_null' => TRUE,
-            'obj_class' => 'Worktask',
             'limitstart' => 0,
             'limitcount' => 100
         ]);
+
+        // dd(
+        //     $timenow_month_start,
+        //     $timenow_month_end,
+        //     $permission_uid_arr,
+        //     $projectid_arr,
+        //     $WorktaskList
+        // );
 
         $worktask_arr = [];
         foreach( (array) $WorktaskList->obj_arr as $key => $value_Worktask )

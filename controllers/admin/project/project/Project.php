@@ -129,7 +129,7 @@ class Project_Controller extends MY_Controller {
         ));
 
         $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
-        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/style.css';
+        $data['global']['style'][] = 'tool/jquery-ui-timepicker-addon/style.css';
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
@@ -449,7 +449,7 @@ class Project_Controller extends MY_Controller {
         ));
 
         $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/script.js';
-        $data['global']['js'][] = 'tool/jquery-ui-timepicker-addon/style.css';
+        $data['global']['style'][] = 'tool/jquery-ui-timepicker-addon/style.css';
 
         //輸出模板
         $this->load->view('admin/'.$data['admin_child_url'], $data);
@@ -516,6 +516,167 @@ class Project_Controller extends MY_Controller {
             'message' => '資料存取中...',
             'url' => $url
         ]);
+    }
+
+    public function time_json()
+    {
+        $data = $this->AdminModel->get_data(__FUNCTION__);
+            
+        $projectid = $this->input->get('projectid');
+        $dd = $this->input->get('dd');
+
+        $Project = Project::orm([
+            'db_where_arr' => [
+                'projectid' => $projectid
+            ],
+        ]);
+
+        $ProjectList = Project::list([
+            'db_where_arr' => [
+                'setuptime >' => date('Y-m-d H-i-s', strtotime("-6 month") )
+            ],
+            'limitcount' => 100
+        ]);
+
+        $WorktaskList = Worktask::list([
+            'db_where_arr' => [
+                'projectid' => $projectid
+            ],
+            'limitstart' => 0,
+            'limitcount' => 100000,
+            'limitcount_max_bln' => TRUE
+        ]);
+
+        foreach( (array) $WorktaskList->obj_arr as $key => $value_Worktask )
+        {
+            // 計算專案有牽涉到該任務的消耗天數
+            $related_use_day = ( ( $value_Worktask->end_time_DateTime->unix - $value_Worktask->start_time_DateTime->unix ) + 86400 ) / 86400;
+            // 計算專案有牽涉到該任務的消耗時數
+
+            $day_WorktaskList = Worktask::list([
+                'db_where_arr' => [
+                    [
+                        'worktaskid !=' => $value_Worktask->worktaskid,
+                        'uid' => $value_Worktask->uid_User->uid,
+                        'end_time <=' => $value_Worktask->end_time_DateTime->datetime,
+                        'end_time >=' => $value_Worktask->start_time_DateTime->datetime
+                    ],
+                    [
+                        'worktaskid !=' => $value_Worktask->worktaskid,
+                        'uid' => $value_Worktask->uid_User->uid,
+                        'start_time >=' => $value_Worktask->start_time_DateTime->datetime,
+                        'start_time <=' => $value_Worktask->end_time_DateTime->datetime
+                    ]
+                ],
+                'limitstart' => 0,
+                'limitcount' => 100000,
+                'limitcount_max_bln' => TRUE
+            ]);
+
+            // 扣除的天數先歸零
+            $out_day = 0;
+
+            // 未填寫工作天數的話，扣除天數以系統自己計算
+            if( 1 )
+            {
+                foreach( (array) $day_WorktaskList->obj_arr as $key2 => $value_other_Worktask )
+                {
+                    // 計算其它專案有牽涉到該任務的消耗天數
+                    $related_use_other_day = ( ( $value_other_Worktask->end_time_DateTime->unix - $value_other_Worktask->start_time_DateTime->unix ) + 86400 ) / 86400;
+
+                    // 計算該相關任務的開始日期比此任務的開始日期早幾天
+                    $related_use_other_day_start = ( $value_Worktask->start_time_DateTime->unix - $value_other_Worktask->start_time_DateTime->unix ) / 86400;
+                    $related_use_other_day_start = $related_use_other_day_start > 0 ? $related_use_other_day_start : 0;
+
+                    // 計算該相關任務的結束日期比此任務的結束日期晚幾天
+                    $related_use_other_day_end = ( $value_other_Worktask->end_time_DateTime->unix - $value_Worktask->end_time_DateTime->unix ) / 86400;
+                    $related_use_other_day_end = $related_use_other_day_end > 0 ? $related_use_other_day_end : 0;
+                    // dd($related_use_other_day_end, $value_Worktask->end_time_DateTime, $value_other_Worktask->end_time_DateTime);
+
+                    // 實際影響到該任務的時間
+                    $out_day = $out_day + $related_use_other_day - $related_use_other_day_start - $related_use_other_day_end;
+                }
+            }
+            // 如果該任務有填寫小時的話，則以填寫的小時轉成天數進行計算
+            // 每 8 小時視為 1 天
+            else
+            {
+
+            }
+
+            // $out_day 需要再扣掉假日
+            // $out_day 需要再扣掉假日
+            // $out_day 需要再扣掉假日
+
+            // 實際消耗天數，計算扣除其它任務時間的耗時並且四捨五入
+            $actual_use_day = round( $related_use_day / ( $related_use_day + $out_day ) * $related_use_day, 1);
+            // 實際消耗時數
+            $actual_use_hour = round( $actual_use_day * 8);
+
+            $related_use_day_arr[] = $related_use_day;
+            $actual_use_day_arr[] = $actual_use_day;
+            $actual_use_hour_arr[] = $actual_use_hour;
+        }
+
+        // 計算實際消耗總時數
+        foreach( $actual_use_hour_arr as $key => $value )
+        {
+            $actual_use_hour_total = $actual_use_hour_total + $value;
+        }
+
+        // 計算關聯消耗總天數
+        foreach( $related_use_day_arr as $key => $value )
+        {
+            $related_use_day_total = $related_use_day_total + $value;
+        }
+
+        // 計算實際消耗總天數
+        foreach( $actual_use_day_arr as $key => $value )
+        {
+            $actual_use_day_total = $actual_use_day_total + $value;
+        }
+
+        $actual_use_day_pay = $actual_use_day_total * 2200; // 耗用時間加上內部人員天數薪資
+        $project_total_count = count( $ProjectList->obj_arr ) ; // 最近 6 個月的專案總數
+
+        $esther_pay = ( 25000 + 7000 + 5000 ) * 6; // 時婷半年薪 + 健保 + 年終
+        $shuan_pay = ( 25000 + 7000 ) * 6; // 尚恩半年底薪 + 健保
+        $yi_pay = ( 80000 + 7000 ) * 6; // 楊翊半年薪 + 健保
+        $other_pay = 60000 * 6; // 房租估算 + 行銷估算 + 雜費
+
+        $bonus_pay = $Project->pay_price_total * 0.05; // 業績獎金
+
+        $total_pay_price_total = 0;
+        foreach( (array) $ProjectList->obj_arr as $key => $value_Project )
+        {
+            $total_pay_price_total = $total_pay_price_total + $value_Project->pay_price_total;
+        }
+        $pay_price_proportion = $Project->pay_price_total / $total_pay_price_total; // 該專案佔總專案之金額比例
+
+        // 目前實際成本計算暫時以每個月人事開銷總額除以案量數估算，之後會加上最近 6 個月之每個專案金額之佔比參數
+        $actual_use_day_pay_total = round(
+            $actual_use_day_pay + // 專案執行人員
+            $bonus_pay + // 業績獎金
+            ( 
+                ( $esther_pay + $shuan_pay + $yi_pay + $other_pay ) * // 其它人員薪資 + 雜費
+                $pay_price_proportion  // 該專案佔總專案之金額比例
+            )
+        );
+
+        // 如果有帶 $dd 參數的話，就把資料改成以 $dd 印出來
+        if( ! empty($dd) )
+        {
+            dd( $actual_use_day_pay, $actual_use_day_pay_total, $actual_use_hour_total, $actual_use_day_total, $related_use_day_total, $related_use_day_arr, $actual_use_hour_arr );
+        }
+
+        echo json_encode([
+            'actual_use_day_pay' => $actual_use_day_pay, // 真實時間計算成本
+            'actual_use_day_pay_total' => $actual_use_day_pay_total, // 真實時間計算成本
+            'actual_use_hour_total' => $actual_use_hour_total, // 真實消耗總時數
+            'actual_use_day_total' => $actual_use_day_total, // 真實消耗總天數
+            'related_use_day_total' => $related_use_day_total, // 關聯天數
+        ]);
+
     }
 
     public function delete()
