@@ -380,9 +380,8 @@ class Project_Controller extends MY_Controller {
             )
         ));
 
-        $data['ProjectList'] = new ObjList();
-        $data['ProjectList']->construct_db(array(
-            'db_where_arr' => array(
+        $data['ProjectList'] = Project::list([
+            'db_where_arr' => [
                 [
                     'projectid' => $data['search_projectid'],
                     'uid' => $data['User']->uid,
@@ -427,15 +426,14 @@ class Project_Controller extends MY_Controller {
                     'endtime like' => $data['search_endtime'],
                     'classids find' => $class_ClassMeta->classid
                 ]
-            ),
-            'db_orderby_arr' => array(
-                array('updatetime', 'DESC')
-            ),
+            ],
+            'db_orderby_arr' => [
+                'updatetime' => 'DESC'
+            ],
             'db_delete_all_null' => TRUE,
-            'obj_class' => 'Project',
             'limitstart' => $limitstart,
             'limitcount' => $limitcount
-        ));
+        ]);
         $data['page_link'] = $data['ProjectList']->create_links(array('base_url' => 'admin/'.$data['child1_name'].'/'.$data['child2_name'].'/'.$data['child3_name'].'/'.$data['child4_name']));
 
         $data['ProjectClassMetaList'] = new ObjList();
