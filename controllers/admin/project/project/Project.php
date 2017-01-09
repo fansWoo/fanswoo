@@ -231,6 +231,8 @@ class Project_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
+        dd('hey');
+
         //基本post欄位
         $projectid = $this->input->post('projectid', TRUE);
         $pay_price_total = $this->input->post('pay_price_total', TRUE);
@@ -239,7 +241,6 @@ class Project_Controller extends MY_Controller {
         $paycheck_status = $this->input->post('paycheck_status', TRUE);
 
         if( !$this->form_validation->check() ) return FALSE;
-        
 
         //建構Project物件，並且更新
         $Project = new Project([
@@ -428,7 +429,7 @@ class Project_Controller extends MY_Controller {
                 ]
             ],
             'db_orderby_arr' => [
-                'updatetime' => 'DESC'
+                'setuptime' => 'DESC'
             ],
             'db_delete_all_null' => TRUE,
             'limitstart' => $limitstart,
