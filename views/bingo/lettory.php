@@ -50,10 +50,14 @@ Temp.ready(function(){
 
 });
 </script>
+<style>
+.lettory_table .number { float: left; line-height: 50px; text-align: center; width: 50px; height: 50px; background: #EEE; margin: 0 10px 10px 0; }
+.lettory_table { overflow: hidden; }
+</style>
 <?=$temp['header_down']?>
 <div class="lettory_table">
 	<?foreach( $number_arr as $key => $value ):?>
-	<div number="<?=$value?>"><?=$value?></div>
+	<div class="number" number="<?=$value?>"><?=$value?></div>
 	<?endforeach?>
 </div>
 <div class="ask_window" style=" background: #EEE; display: none;">
