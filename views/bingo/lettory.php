@@ -10,15 +10,22 @@ Temp.ready(function(){
 		channel: 'bingo'
 	});
 
-    bingo_Pusher.event('lettory_add', function(response) {
+    bingo_Pusher.event('lettory_update', function(response) {
 
-     	$(".lettory_table div[number='" + response.number + "']").css('color', 'red');
-     	$(".lettory_table div[number='" + response.number + "']").attr('title', response.name);
+     	$(".lettory_table [number]").css('color', 'black');
+     	$(".lettory_table [number]").attr('title', '');
+    	for( key in response.number_get_arr)
+    	{
+	     	$(".lettory_table [number='" + response.number_get_arr[key] + "']").css('color', 'red');
+	     	$(".lettory_table [number='" + response.number_get_arr[key] + "']").attr('title', response.name);
+    	}
 
-		var ask_text = response.name + "抽到的數字是" + response.number + "，你想要投票重抽這個數字嗎？";
-		$('.ask_text').text(ask_text);
-		$('.ask_window .ask_number').val(response.number);
-		$('.ask_window').css('display', 'block');
+    	if( response.number_new )
+    	{
+			var ask_text = response.name + "抽到的數字是" + response.number_new + "，你想要投票重抽這個數字嗎？";
+			$('.ask_text').text(ask_text);
+			$('.ask_window').css('display', 'block');
+    	}
     });
 
     $(document).on('click', '.vote_reset', function(){
@@ -35,7 +42,6 @@ Temp.ready(function(){
 
     	bingo_Pusher.send('vote_reset', {
     		name: $('#username').val(),
-    		number: $('.ask_number').val(),
     		vote: 'no_reset'
     	});
 
@@ -52,7 +58,6 @@ Temp.ready(function(){
 </div>
 <div class="ask_window" style=" background: #EEE; display: none;">
 	<h2 class="ask_text"></h2>
-	<input type="hidden" class="ask_number" value="">
 	<div class="vote_reset">我要重抽數字</div>
 	<div class="vote_no_reset">不要重抽</div>
 </div>

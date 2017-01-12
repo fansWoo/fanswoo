@@ -28,12 +28,12 @@ Temp.ready(function(){
 
     	if( response.vote == 'reset' )
     	{
-			$('.vote_history').append('<p>' + response.name + ' 建議重抽這個數字</p>');
+			$('.vote_history').append('<p>' + response.name + ' 建議重抽 ' + vote_number + ' 號數字</p>');
 			vote_count = vote_count + 1;
     	}
     	else if( response.vote == 'no_reset' )
     	{
-			$('.vote_history').append('<p>' + response.name + ' 說不要重抽這個數字</p>');
+			$('.vote_history').append('<p>' + response.name + ' 說不要重抽 ' + vote_number + ' 號數字</p>');
     	}
 
 		$('.vote_history').scrollTop(9999999);
@@ -57,7 +57,10 @@ Temp.ready(function(){
      		$('.lettory_history').append('<p>數字 ' + vote_number + ' 被大家投票取消重抽了</p>'); 
      		$('.lettory_history').scrollTop(9999999);
 
-    		console.log(number_get_arr);
+			// 送出推播
+		    bingo_Pusher.send('lettory_update', {
+				number_get_arr: number_get_arr
+			});
 
 			number_arr_view();
 		}
@@ -98,9 +101,10 @@ Temp.ready(function(){
      			$('.lettory_history').scrollTop(9999999);
 
 				// 送出推播
-			    bingo_Pusher.send('lettory_add', {
+			    bingo_Pusher.send('lettory_update', {
 					name: name,
-					number: number
+					number_new: number,
+					number_get_arr: number_get_arr
 				});
 			}
 			else if( number_arr.length == 0 )
