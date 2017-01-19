@@ -78,7 +78,7 @@ Temp.ready(function(){
                 </div>
             </div>
             <?endforeach?>
-            <input type="submit" id="delete" class="button" style="display:none;"
+            <input type="submit" id="delete" class="button" style="display:none;">
             </form>
             <?else:?>
             <div class="spanLine">
