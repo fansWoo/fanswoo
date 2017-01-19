@@ -237,23 +237,24 @@ h1{
     background: linear-gradient(white,#E8B236);
 }
 .picture{
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     position: absolute;
-    left: 14%;
+    left: 11%;
+    top: 28%;
 }
 
 
 .btn-success{
 	top: 78%;
-    left: 22%;
+    left: 13%;
 	font-size: 25px;
 	text-align: center;
 	position:absolute;
 }
 .btn-danger{
 	top: 78%;
-    left: 58%;
+    left: 56%;
 	font-size: 25px;
 	text-align: center;
 	position:absolute;
@@ -273,14 +274,14 @@ h1{
 }
 .special_box { 
     position: absolute;
-    left: 52%;
-    margin-top: 15%;
-    margin-left: 114px;
+    top: 31%;
+    right: 0;
+    margin-right: 7%;
+    width: 32%;
+    height: 32%;
 }
-.box1{
-    background-image: -moz-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%, rgba(0,0,0,1) 100%), -moz-linear-gradient(-90deg,rgba(0,0,0,0) 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%),-moz-linear-gradient(0deg,#F79905 45%, #333 45%, #3f3f3f 50%, #333 55%, #F79905 55%);
-    background-image: -webkit-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%, rgba(0,0,0,1) 100%), -webkit-linear-gradient(-90deg,rgba(0,0,0,0) 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%),-webkit-linear-gradient(0deg,#F79905 45%, #333 45%, #3f3f3f 50%, #333 55%, #F79905 55%);
-}
+
+
 .box:before{
     content: "";
     display: block;
@@ -322,6 +323,11 @@ h1{
     left: 23%;
     top: 14%;
     font-weight: bolder;
+}
+.word2{
+    left: 9px;
+    top: 6px;
+
 }
 .container{
     display: inline-block;
@@ -476,7 +482,7 @@ h1{
 <div class="container1">xxx抽了XX數字你想要投票重新抽這個數字嗎?
 
 	<div class="picture"><img src="img/bingo/final/yi.jpg" alt=""></div>
-	<div class="box special_box"><div class="word">25</div></div>
+	<div class="box special_box"><div class="word word2">25</div></div>
 	<button type="button" class="btn btn-success">
 		Bingo!
 		</button>
