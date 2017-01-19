@@ -23,6 +23,7 @@ Temp.ready(function(){
 
 		//改圖片
 		$('.picture img').attr('src','img/bingo/final/'+response.name+'.jpg')
+
 		//改球的數字
 		$('.container1 .word').text(response.number_new);
 
@@ -32,7 +33,7 @@ Temp.ready(function(){
      	$(".lettory_table [number]").attr('title', '');
     	for( key in response.number_get_arr)
     	{
-	     	$(".lettory_table [number='" + response.number_get_arr[key] + "']").css('color', 'red');
+	     	$(".cover [number='" + response.number_get_arr[key] + "']").attr('src','img/bingo/final/'+response.name+'.jpg');
 	     	$(".lettory_table [number='" + response.number_get_arr[key] + "']").attr('title', response.name);
     	}
 
@@ -42,9 +43,12 @@ Temp.ready(function(){
 			$('.ask_text').text(ask_text);
 			$('.ask_window').css('display', 'block');
     	}
+        //BINGO球改圖片
+
+        
     });
 
-    $(document).on('click', '.btn.btn-success', function(){
+    $(document).on('click', '.btn.btn-danger', function(){
 
     	
     	bingo_Pusher.send('vote_reset', {
@@ -55,7 +59,7 @@ Temp.ready(function(){
 		$('.container1').css('display', 'none');
     });
 
-    $(document).on('click', '.btn.btn-danger', function(){
+    $(document).on('click', '.btn.btn-success', function(){
 
     	bingo_Pusher.send('vote_reset', {
     		name: $('#username').val(),
@@ -165,22 +169,7 @@ overflow: hidden;
 
 }
 
-/* .circle{
-    display: block;
-    background: black;
-    border-radius: 50%;
-    height: 300px;
-    width: 300px;
-    margin: 0;
-} */
 
-/* .choose_number{
-	border: solid 1px black;
-    width: 99%;
-    height: 25%;
-    position: absolute;
-    top: 10%;
-} */
 .outbox{
 	border: solid 1px gold;
     position: absolute;
@@ -190,11 +179,6 @@ overflow: hidden;
     left: 2%;
 
 }
-/* .numberbox{
-    position: absolute;
-    top: 20%;
-    left: 2%;
-} */
 
 .choicebox{
     border: solid 2px black ;
@@ -211,33 +195,7 @@ h1{
     font-weight: bolder;
 
 }
-/* .circle{
-     display: block;
-     background: black;
-     border-radius: 50%;
-     height: 300px;
-     width: 300px;
-     margin: 0;
-     z-index:-1;
-    border: solid 1px black;
-    text-align: center;
-    font-size: 71px;
-    font-family: fantasy;
-    line-height: 171px;
-    height: 170px;
-    width: 184px;
-    display: inline-block;
-     background: radial-gradient(circle at 100px 100px, #5cabff, #000);
-        } */
 
-/* .select_button{
-	border: solid 1px black;
-    width: 100%;
-    height: 13%;
-    top: 87%;
-    position: absolute;
-   
-} */
 .container1{
 	z-index: 10;
     border: solid 2px black;
@@ -385,6 +343,27 @@ h1{
 	width: 100%;
     height: 100%;
 }
+/* .containerBig{
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+} */
+.big{
+    z-index: 9;
+}
+.cover{
+    width: 18%;
+    height: 18%;
+    display: inline-block;
+}
+.cover img { 
+    width: 100%;
+    height: 100%;
+
+
+}
 </style>
 <?=$temp['header_down']?>
 <div class="outoutbox">
@@ -402,19 +381,35 @@ h1{
 	<div class="container2">
 		<div class="choiceword">已抽出的號碼</div>				
 	</div>
-	<div class="container">
-		<?foreach($number_arr  as  $key=>$value):?>
-		<?if($key !=12):?>
-		<div class="box">
-			<div class="word"><?=$value?></div>
-		</div>
-		<?else :?>	
-		<div class="box">
-			<div class="word1">瘋</div>
-		</div>
-		<?endif;?>		
-		<?endforeach;?>
-	</div>
+    <div class="container big">
+        <div class="cover"><img src="img/bingo/final/yi.jpg" alt=""></div>
+<!--             <?foreach($number_arr  as  $key=>$value):?>
+            <?if($key !=12):?>
+            <div class="cover"><img src="img/bingo/final/yi.jpg" alt="">
+            </div>
+            <?else :?>
+                    <div class="box">
+                <div class="word1">瘋</div>
+            </div>  
+            <?endif;?>      
+            <?endforeach;?> -->
+        </div>
+    </div>
+<!--     <div class="containerBig"> -->
+    	<div class="container">
+    		<?foreach($number_arr  as  $key=>$value):?>
+    		<?if($key !=12):?>
+    		<div class="box">
+    			<div class="word"><?=$value?></div>
+    		</div>
+    		<?else :?>	
+    		<div class="box">
+    			<div class="word1">瘋</div>
+    		</div>
+    		<?endif;?>		
+    		<?endforeach;?>
+    	</div>
+<!--     </div> -->
 <div class="container1" style="display:none;"><span id="show_choose_title">xxx抽了XX數字你想要投票重新抽這個數字嗎?</span>
 
 	<div class="picture"><img src="img/bingo/final/yi.jpg" alt=""></div>

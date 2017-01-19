@@ -160,7 +160,14 @@ Temp.ready(function(){
 <div>
 	<select id="name" name="name">
 		<option value="沛沛">沛沛</option>
-		<option value="廖哲賢">廖哲賢</option>
+		<option value="william">廖哲賢</option>
+		<option value="郁文">郁文</option>
+		<option value="文憶">文憶</option>
+		<option value="婉君">婉君</option>
+		<option value="yi">楊晉良</option>
+		<option value="時婷">時婷</option>
+		<option value="shaun">尚恩</option>
+		<option value="葉老闆">葉老闆</option>	
 	</select>
 	<input id="send" type="button" value="抽數字">
 	<h3>還剩這些沒抽到</h3>
