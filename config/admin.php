@@ -335,7 +335,7 @@ $config['admin_sidebox'] = array(
 								),
 								'delete' => array(
 									'purview_groupids' => [2, 3, 4]
-								)
+								),
 								'calendar' => array(
 									'title' => '任務日曆',
 									'purview_groupids' => [2, 3, 4]
