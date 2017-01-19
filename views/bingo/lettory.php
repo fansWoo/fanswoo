@@ -10,8 +10,24 @@ Temp.ready(function(){
 		channel: 'bingo'
 	});
 
-    bingo_Pusher.event('lettory_update', function(response) {
+// 	$('#show_choose_title').text('111');
+	
+	
+	
 
+    bingo_Pusher.event('lettory_update', function(response) {
+        
+		console.log(response);
+		$('.container1').css('display','block');//彈跳視窗
+		$('#show_choose_title').text(response.name+'抽了:'+response.number_new+'數字你想要投票重新抽這個數字嗎?');//改文字
+
+		//改圖片
+		$('.picture img').attr('src','img/bingo/final/'+response.name+'.jpg')
+		//改球的數字
+		$('.container1 .word').text(response.number_new);
+
+		//長數字球
+		$('.container2').append('<div class="choiceword2">'+response.number_new+'</div>');
      	$(".lettory_table [number]").css('color', 'black');
      	$(".lettory_table [number]").attr('title', '');
     	for( key in response.number_get_arr)
@@ -28,24 +44,25 @@ Temp.ready(function(){
     	}
     });
 
-    $(document).on('click', '.vote_reset', function(){
+    $(document).on('click', '.btn.btn-success', function(){
 
+    	
     	bingo_Pusher.send('vote_reset', {
     		name: $('#username').val(),
     		vote: 'reset'
     	});
 
-		$('.ask_window').css('display', 'none');
+		$('.container1').css('display', 'none');
     });
 
-    $(document).on('click', '.vote_no_reset', function(){
+    $(document).on('click', '.btn.btn-danger', function(){
 
     	bingo_Pusher.send('vote_reset', {
     		name: $('#username').val(),
     		vote: 'no_reset'
     	});
 
-		$('.ask_window').css('display', 'none');
+		$('.container1').css('display', 'none');
     });
 
 });
@@ -383,24 +400,14 @@ h1{
 		<!-- <div class=choicebox>
 			<h1>已抽出的號碼</h1> -->
 	<div class="container2">
-		<div class="choiceword">已抽出的號碼</div>
-		<div class="choiceword2">10</div>
-		<div class="choiceword2">10</div>
-		<div class="choiceword2">10</div>
-		<div class="choiceword2">10</div>
-		<div class="choiceword2">10</div>
-		<div class="choiceword2">10</div>
-		<div class="choiceword2">10</div>
-		<div class="choiceword2">10</div>
-		<div class="choiceword2">10</div>
-		<div class="choiceword2">10</div>		
+		<div class="choiceword">已抽出的號碼</div>				
 	</div>
 	<div class="container">
 		<?foreach($number_arr  as  $key=>$value):?>
 		<?if($key !=12):?>
 		<div class="box">
 			<div class="word"><?=$value?></div>
-		</div>	
+		</div>
 		<?else :?>	
 		<div class="box">
 			<div class="word1">瘋</div>
@@ -408,12 +415,12 @@ h1{
 		<?endif;?>		
 		<?endforeach;?>
 	</div>
-<div class="container1">xxx抽了XX數字你想要投票重新抽這個數字嗎?
+<div class="container1" style="display:none;"><span id="show_choose_title">xxx抽了XX數字你想要投票重新抽這個數字嗎?</span>
 
 	<div class="picture"><img src="img/bingo/final/yi.jpg" alt=""></div>
-	<div class="box special_box"><div class="word" style=" left: 11px;top: 10px;">
-        25</div>
-        </div>
+	<div class="box special_box">
+		<div class="word" style=" left: 11px;top: 10px;">25</div>
+    </div>
 	<button type="button" class="btn btn-success">
 		Bingo!
 		</button>
@@ -426,5 +433,5 @@ h1{
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	
-<input type="hidden" id="username" value="<?=$username?>">
+	<input type="hidden" id="username" value="<?=$username?>">
 <?=$temp['body_end']?>
