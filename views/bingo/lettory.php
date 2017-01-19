@@ -14,10 +14,13 @@ Temp.ready(function(){
 	
 	
 	
+	
+	
+	
 
     bingo_Pusher.event('lettory_update', function(response) {
         
-		console.log(response);
+		//console.log(response);
 		$('.container1').css('display','block');//彈跳視窗
 		$('#show_choose_title').text(response.name+'抽了:'+response.number_new+'數字你想要投票重新抽這個數字嗎?');//改文字
 
@@ -29,6 +32,21 @@ Temp.ready(function(){
 
 		//長數字球
 		$('.container2').append('<div class="choiceword2">'+response.number_new+'</div>');
+
+		//改下面的圖片
+		$('.container .box').each(function(key, value){
+
+			var ball_number=parseInt($(this).text());
+
+			if(response.number_new == ball_number){
+
+				$(this).children().remove();
+				$(this).removeClass('box');
+				$(this).addClass('box123');
+				$(this).append('<img src="img/bingo/final/'+response.name+'.jpg">');
+				console.log(ball_number);
+			}
+		});
      	$(".lettory_table [number]").css('color', 'black');
      	$(".lettory_table [number]").attr('title', '');
     	for( key in response.number_get_arr)
@@ -95,7 +113,7 @@ overflow: hidden;
 .title1{
 	width: 16%;
     height: 92%;
-    font-size: 50px;
+    font-size: 38px;
     text-align: center;
     color: white;
     background: -webkit-linear-gradient(white,#30E802);
@@ -246,6 +264,28 @@ h1{
     background-image: -moz-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%, rgba(0,0,0,1) 100%), -moz-linear-gradient(-90deg, #f33 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%);
     background-image: -webkit-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%, rgba(0,0,0,1) 100%), -webkit-linear-gradient(-90deg, #f33 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%);
 }
+
+.box123{
+    /*    float: left;*/
+    width: 18% ;
+ /*   margin: 1%;*/
+    margin:0px;
+    height: 18%;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%; 
+  
+}
+.box123 img{
+	width: 100%;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+    border-radius: 100%;
+    box-shadow: 1px 1px 2px #000;
+	
+	
+}
 .special_box { 
     position: absolute;
     width: 37%;
@@ -380,37 +420,21 @@ h1{
 			<h1>已抽出的號碼</h1> -->
 	<div class="container2">
 		<div class="choiceword">已抽出的號碼</div>				
-	</div>
-    <div class="container big">
-        <div class="cover"><img src="img/bingo/final/yi.jpg" alt=""></div>
-<!--             <?foreach($number_arr  as  $key=>$value):?>
-            <?if($key !=12):?>
-            <div class="cover"><img src="img/bingo/final/yi.jpg" alt="">
-            </div>
-            <?else :?>
-                    <div class="box">
-                <div class="word1">瘋</div>
-            </div>  
-            <?endif;?>      
-            <?endforeach;?> -->
-        </div>
-    </div>
-<!--     <div class="containerBig"> -->
-    	<div class="container">
-    		<?foreach($number_arr  as  $key=>$value):?>
-    		<?if($key !=12):?>
-    		<div class="box">
-    			<div class="word"><?=$value?></div>
-    		</div>
-    		<?else :?>	
-    		<div class="box">
-    			<div class="word1">瘋</div>
-    		</div>
-    		<?endif;?>		
-    		<?endforeach;?>
+	</div>  
+    <div class="container">
+    	<?foreach($number_arr  as  $key=>$value):?>
+    	<?if($key !=12):?>
+    	<div class="box" value="<?=$value?>">
+    		<div class="word"><?=$value?></div>
     	</div>
-<!--     </div> -->
-<div class="container1" style="display:none;"><span id="show_choose_title">xxx抽了XX數字你想要投票重新抽這個數字嗎?</span>
+    	<?else :?>	
+    	<div class="box">
+       		<div class="word1">瘋</div>
+      	</div>
+    	<?endif;?>		
+    	<?endforeach;?>
+    </div>
+	<div class="container1" style="display:none;"><span id="show_choose_title">xxx抽了XX數字你想要投票重新抽這個數字嗎?</span>
 
 	<div class="picture"><img src="img/bingo/final/yi.jpg" alt=""></div>
 	<div class="box special_box">
