@@ -87,6 +87,9 @@ Temp.ready(function(){
 		$('.container1').css('display', 'none');
     });
 
+
+    bingo_Pusher.send('get_number_arr');
+
 });
 </script>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">

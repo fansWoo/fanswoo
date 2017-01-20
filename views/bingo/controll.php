@@ -121,6 +121,14 @@ Temp.ready(function(){
 
 	});
 
+
+
+    bingo_Pusher.event('get_number_arr', function(response) {
+	    bingo_Pusher.send('lettory_update', {
+			number_get_arr: number_get_arr
+		});
+    });
+
 	function number_arr_view()
 	{
 		// 顯示尚未收到的數字
