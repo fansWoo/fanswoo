@@ -38,7 +38,7 @@ class Bingo_Controller extends MY_Controller
         else if( $data['username'] == 'wenyi' )
         {
             $data['name'] = '文憶';
-            $data['number_arr'] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+            $data['number_arr'] = [2, 3, 4, 8, 9, 10, 14, 15, 16, 20, 21, 22, 26, 27, 28, 32, 33, 34, 38, 39, 40, 44, 45, 46, 50];
         }
         else if( $data['username'] == 'vivian' )
         {
