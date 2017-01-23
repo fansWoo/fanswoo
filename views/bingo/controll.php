@@ -1,7 +1,6 @@
 <?=$temp['header_up']?>
 <script>
 Temp.ready(function(){
-
 	
 	// 新增一個 Pusher 並指定頻道為 chat_test ，可以同時開啟多個不同頻道的不同 Pusher
 	// 只要頻道名稱相同，就算在不同頁面仍然可以接收
