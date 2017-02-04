@@ -140,12 +140,6 @@ $config['admin_sidebox'] = array(
 								'edit_post' => array(
 									'purview_groupids' => [1, 2]
 								),
-								'edit_adduser_post' => [
-									'purview_groupids' => [1, 2]
-								],
-								'edit_changepassword_post' => [
-									'purview_groupids' => [1, 2]
-								],
 								'tablelist' => array(
 									'title' => '列表',
 									'purview_groupids' => [1, 2]
@@ -154,9 +148,6 @@ $config['admin_sidebox'] = array(
 									'purview_groupids' => [1, 2]
 								),
 								'delete' => array(
-									'purview_groupids' => [1, 2]
-								),
-								'delete_batch_post' => array(
 									'purview_groupids' => [1, 2]
 								)
 							)

@@ -11,7 +11,7 @@ class Contact_Controller extends MY_controller
         $this->load->helper('form');
         $this->load->library('form_validation');
     }
-    
+
     public function index()
     {
         $data = $this->data;
@@ -21,15 +21,15 @@ class Contact_Controller extends MY_controller
         $data['global']['style'][] = 'temp/global.css';
         $data['global']['style'][] = 'temp/header_bar.css';
         $data['global']['style'][] = 'contact/index.css';
-        
+
         $data['global']['js'][] = 'contact_form.js';
-            
+
         //temp
-		$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
-		$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
-		$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
-		$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
-		$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
+				$data['temp']['header_up'] = $this->load->view('temp/header_up', $data, TRUE);
+				$data['temp']['header_down'] = $this->load->view('temp/header_down', $data, TRUE);
+				$data['temp']['header_bar'] = $this->load->view('temp/header_bar', $data, TRUE);
+				$data['temp']['footer_bar'] = $this->load->view('temp/footer_bar', $data, TRUE);
+				$data['temp']['body_end'] = $this->load->view('temp/body_end', $data, TRUE);
         $data['loading_page'] = 'contact';
 
         //輸出模板
@@ -93,7 +93,12 @@ class Contact_Controller extends MY_controller
         $return_message = $Mailer->sendmail($smtp_email, $email_name, $title, $message);
         if($return_message === TRUE)
         {
-            //寄件成功
+            //送出成功訊息
+            $this->load->model('Message');
+            $this->Message->show([
+                'message' => '寄件成功',
+                'js' => "fbq('track', 'Lead');"
+            ]);
         }
         else
         {
@@ -104,13 +109,6 @@ class Contact_Controller extends MY_controller
             ));
             return FALSE;
         }
-
-        //送出成功訊息
-        $this->load->model('Message');
-        $this->Message->show([
-            'message' => '寄件成功',
-            'js' => "fbq('track', 'Lead');"
-        ]);
     }
 }
 

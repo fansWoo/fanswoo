@@ -231,8 +231,6 @@ class Project_Controller extends MY_Controller {
     {
         $data = $this->AdminModel->get_data(__FUNCTION__);
 
-        dd('hey');
-
         //基本post欄位
         $projectid = $this->input->post('projectid', TRUE);
         $pay_price_total = $this->input->post('pay_price_total', TRUE);
@@ -524,21 +522,6 @@ class Project_Controller extends MY_Controller {
         $projectid = $this->input->get('projectid');
         $dd = $this->input->get('dd');
 
-        $month = 6; // 以最近幾個月作為近期支出的計算基準
-
-        $Project = Project::orm([
-            'db_where_arr' => [
-                'projectid' => $projectid
-            ],
-        ]);
-
-        $ProjectList = Project::list([
-            'db_where_arr' => [
-                'setuptime >' => date('Y-m-d H-i-s', strtotime("-" + $month + " month") )
-            ],
-            'limitcount' => 100
-        ]);
-
         $WorktaskList = Worktask::list([
             'db_where_arr' => [
                 'projectid' => $projectid
@@ -620,62 +603,30 @@ class Project_Controller extends MY_Controller {
         }
 
         // 計算實際消耗總時數
-        foreach( $actual_use_hour_arr as $key => $value )
+        foreach( (array) $actual_use_hour_arr as $key => $value )
         {
             $actual_use_hour_total = $actual_use_hour_total + $value;
         }
 
         // 計算關聯消耗總天數
-        foreach( $related_use_day_arr as $key => $value )
+        foreach( (array) $related_use_day_arr as $key => $value )
         {
             $related_use_day_total = $related_use_day_total + $value;
         }
 
         // 計算實際消耗總天數
-        foreach( $actual_use_day_arr as $key => $value )
+        foreach( (array) $actual_use_day_arr as $key => $value )
         {
             $actual_use_day_total = $actual_use_day_total + $value;
         }
 
-        $actual_use_day_pay = $actual_use_day_total * 2200; // 耗用時間加上內部人員天數薪資
-        $project_total_count = count( $ProjectList->obj_arr ) ; // 最近的專案總數
-
-        $esther_pay = ( 25000 + 7000 + 5000 ) * $month; // 時婷半年薪 + 健保 + 年終
-        $shuan_pay = ( 25000 + 7000 ) * $month; // 尚恩半年底薪 + 健保
-        $yi_pay = ( 80000 + 7000 ) * $month; // 楊翊半年薪 + 健保
-        $other_pay = 60000 * $month; // 房租估算 + 行銷估算 + 雜費
-
-        $bonus_pay = $Project->pay_price_total * 0.05; // 業績獎金
-        $tax_pay = $Project->pay_price_total * 0.05; // 稅收
-
-        $total_pay_price_receive_total = 0; // 總收款金額加總
-        foreach( (array) $ProjectList->obj_arr as $key => $value_Project )
-        {
-            $total_pay_price_receive_total = $total_pay_price_receive_total + $value_Project->pay_price_receive;
-        }
-        // 該專案收款佔總收款之金額比例
-        $pay_price_proportion = $Project->pay_price_receive / $total_pay_price_receive_total;
-
-        // 目前實際成本計算暫時以每個月人事開銷總額除以案量數估算，之後會加上最近之每個專案金額之佔比參數
-        $actual_use_day_pay_total = round(
-            $actual_use_day_pay + // 專案執行人員
-            $bonus_pay + // 業績獎金
-            $tax_pay + // 稅收
-            ( 
-                ( $esther_pay + $shuan_pay + $yi_pay + $other_pay ) * // 其它人員薪資 + 雜費
-                $pay_price_proportion  // 該專案佔總專案之金額比例
-            )
-        );
-
         // 如果有帶 $dd 參數的話，就把資料改成以 $dd 印出來
         if( ! empty($dd) )
         {
-            dd( $actual_use_day_pay, $actual_use_day_pay_total, $actual_use_hour_total, $actual_use_day_total, $related_use_day_total, $related_use_day_arr, $actual_use_hour_arr );
+            dd( $actual_use_hour_total, $actual_use_day_total, $related_use_day_total, $related_use_day_arr, $actual_use_hour_arr );
         }
 
         echo json_encode([
-            'actual_use_day_pay' => $actual_use_day_pay, // 真實時間計算成本
-            'actual_use_day_pay_total' => $actual_use_day_pay_total, // 真實時間計算成本
             'actual_use_hour_total' => $actual_use_hour_total, // 真實消耗總時數
             'actual_use_day_total' => $actual_use_day_total, // 真實消耗總天數
             'related_use_day_total' => $related_use_day_total, // 關聯天數

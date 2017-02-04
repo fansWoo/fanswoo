@@ -31,7 +31,7 @@ Temp.ready(function(){
     $('.project.tablelist').each(function(key, value){
         var $this = $(value);
         var projectid = $this.attr('data-projectid');
-        var pay_price_total = $this.find('.pay_price_total').attr('data-pay_price_total');
+        var pay_price_total = parseInt( $this.find('.pay_price_total').attr('data-pay_price_total') );
         var pay_price_receive = $this.find('.pay_price_receive').attr('data-pay_price_receive')
 
         $this.find('.pay_price_total').text( thousandComma( pay_price_total ) + ' 元' );
@@ -50,14 +50,16 @@ Temp.ready(function(){
             {
                 var response_json = $.parseJSON(response);
                 var actual_use_day_total = response_json.actual_use_day_total;
+                if( actual_use_day_total == null )
+                {
+                    actual_use_day_total = 0.1;
+                }
                 var actual_use_hour_total = response_json.actual_use_hour_total;
-                var actual_use_day_pay = response_json.actual_use_day_pay;
+                var actual_use_day_pay = actual_use_day_total * 2200;
                 var actual_use_day_pay_percent = Math.round( actual_use_day_pay / pay_price_total * 100 );
-                var actual_use_day_pay_total = response_json.actual_use_day_pay_total;
+                var actual_use_day_pay_total = actual_use_day_pay + ( pay_price_receive * 0.5 );
                 var real_receipt_profit = pay_price_receive - actual_use_day_pay_total;
                 var estimates_profit = pay_price_total - actual_use_day_pay_total;
-
-
 
                 $this.find('.actual_use_day_total').text(actual_use_day_total + ' 天');
                 $this.find('.actual_use_hour_total').text(actual_use_hour_total + ' H');
@@ -180,9 +182,6 @@ Temp.ready(function(){
                         0 元
                     </div>
                     <div class="spanLineLeft text width100">
-                        0 元
-                    </div>
-                    <div class="spanLineLeft text width100">
                         0 元<!--專案總金額-->
                     </div>
                     <div class="spanLineLeft text width100" title="以目前收款金額作為計算之收款利潤">
@@ -190,6 +189,9 @@ Temp.ready(function(){
                     </div>
                     <div class="spanLineLeft text width100" title="以簽約總金額作為計算之預估利潤">
                         0 元
+                    </div>
+                    <div class="spanLineLeft text width100">
+                        0 元<!--收款金額-->
                     </div>
                     <div class="spanLineLeft text width60">
                         0 %
