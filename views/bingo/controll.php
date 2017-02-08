@@ -233,8 +233,8 @@ body{ padding: 0; margin: 0; overflow: hidden;background-color: #ffd624; color: 
 		<option value="yi">楊翊</option>
 		<option value="esther">時婷</option>
 		<option value="shaun">尚恩</option>
-		<option value="admn">楊青龍</option>
-		<option value="husky">羅一騰</option>
+		<option value="adam">楊青龍</option>
+		<option value="jason">羅一騰</option>
 		<option value="ken">偉祥</option>
 		<option value="abby">邱皮兒</option>
 		<option value="tsao">甜點師</option>

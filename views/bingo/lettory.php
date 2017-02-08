@@ -21,7 +21,7 @@ Temp.ready(function(){
             console.log(response.number_get_arr[key].number);
             $('.container_window_get_history').append('<div class="choiceword2">' + response.number_get_arr[key].number + '</div>');
             $(".container .box[value='" + response.number_get_arr[key].number + "']").addClass('box_face');
-            $(".container .box[value='" + response.number_get_arr[key].number + "']").append('<img src="img/bingo/final/'+  response.number_get_arr[key].english_name + '.jpg">');
+            $(".container .box[value='" + response.number_get_arr[key].number + "']").append('<img src="img/bingo/'+  response.number_get_arr[key].english_name + '.jpg">');
         }
 
         if( response.number_new == undefined )
@@ -33,7 +33,7 @@ Temp.ready(function(){
         $('.container_window_get_history').css('display','none');
         $('.container_window_vote_ask').css('display','block');
         $('.container_window_vote_ask .word').text(response.number_new);
-        $('.container_window_vote_ask .picture img').attr('src','img/bingo/final/'+response.english_name+'.jpg');
+        $('.container_window_vote_ask .picture img').attr('src','img/bingo/'+response.english_name+'.jpg');
         $('.container_window_vote_ask #show_choose_title').html(response.name + ' 抽到數字 <b style="font-size:20px;">' + response.number_new + '</b>，你想要投票重新抽這個數字嗎?');
 
     	if( response.number_new )
@@ -180,7 +180,7 @@ body.touching .box.box_face .word { display: block; }
         <div class="container_window_get_history">
         </div>  
         <div class="container_window_vote_ask" style="display:none;">
-            <div class="picture"><img src="img/bingo/final/yi.jpg" alt=""></div>
+            <div class="picture"><img src="img/bingo/yi.jpg" alt=""></div>
             <span id="show_choose_title"></span>
 
             <button type="button" class="btn-success">
