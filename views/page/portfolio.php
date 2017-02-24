@@ -91,17 +91,17 @@ Temp.ready(function(){
 				</a>
 				<a class="portfolioDiv" target="_blank" href="http://web.fanswoo.com/www.taiwanbaseball.com.tw/">
 					<div class="pic showOriginal">
-						<img src="img/portfolio/tb.png">
+						<img src="img/portfolio/prog.jpg">
 					</div>
 					<div class="pic showBlur">
-						<img src="img/portfolio/tb.png">
+						<img src="img/portfolio/prog.jpg">
 					</div>
 					<div class="bg"></div>
 					<div class="text">
-						Taiwan Baseball
+						破格音樂
 					</div>
 					<div class="logo">
-						<img src="img/portfolio/tb_logo.png">
+						<img src="img/portfolio/prog_logo.png">
 					</div>
 				</a>
 				<a class="portfolioDiv" target="_blank" href="http://web.fanswoo.com/petkit/">
