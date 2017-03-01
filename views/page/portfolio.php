@@ -89,7 +89,7 @@ Temp.ready(function(){
 						<img src="img/portfolio/paris_logo.png">
 					</div>
 				</a>
-				<a class="portfolioDiv" target="_blank" href="http://web.fanswoo.com/www.taiwanbaseball.com.tw/">
+				<a class="portfolioDiv" target="_blank" href="http://web.fanswoo.com/prog/">
 					<div class="pic showOriginal">
 						<img src="img/portfolio/prog.jpg">
 					</div>
