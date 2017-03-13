@@ -41,9 +41,11 @@ Temp.ready(function(){
 					<p><a href="mailto:yi@fanswoo.com">yi@fanswoo.com</a></p>
 				</div>
 				<div class="stage">
-					<img class="pic" src="img/add.png">
-					 <p>台北市大南路 419 號 6 樓</p>
-					 <p>6F., No.419, Danan Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
+					<img class="pic" src="img/add.png" style="margin:0 15px 85px 0;">
+					 <p>總部 台北市士林區聖山里20鄰忠誠路一段147巷11號6樓</p>
+					 <p>6F., No.11, Ln. 147, Sec. 1, Zhongcheng Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
+					 <p>研發部 新北市蘆洲區集賢路238號10樓</p>
+					 <p>10F., No.238, Jixian Rd., Luzhou Dist., New Taipei City 247, Taiwan (R.O.C.)</p>
 				</div>
 			</div>
 		</div>
@@ -113,8 +115,10 @@ Temp.ready(function(){
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/add.png">
-					 <p>台北市大南路 419 號 6 樓</p>
-					 <p>6F., No.419, Danan Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
+					 <p>總部 台北市士林區聖山里20鄰忠誠路一段147巷11號6樓</p>
+					 <p>6F., No.11, Ln. 147, Sec. 1, Zhongcheng Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
+					 <p>研發部 新北市蘆洲區集賢路238號10樓</p>
+					 <p>10F., No.238, Jixian Rd., Luzhou Dist., New Taipei City 247, Taiwan (R.O.C.)</p>
 				</div>
 			</div>
 		</div>
