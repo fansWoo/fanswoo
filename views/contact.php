@@ -31,9 +31,7 @@ Temp.ready(function(){
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/tel.png">
-					<p>070-1018-1068</p>
-					<p>業務部 #888</p>
-					<p>設計部 #333</p>
+					<p><a href="tel:02-8286-2656">02-8286-2656</a></p>
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/email.png">
@@ -42,9 +40,9 @@ Temp.ready(function(){
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/add.png" style="margin:0 15px 85px 0;">
-					 <p>總部 台北市士林區聖山里20鄰忠誠路一段147巷11號6樓</p>
-					 <p>6F., No.11, Ln. 147, Sec. 1, Zhongcheng Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
-					 <p>研發部 新北市蘆洲區集賢路238號10樓</p>
+					 <p>行政管理部 台北市北投區石牌路2段348巷17號4樓之1</p>
+					 <p>4F.-1, No.17, Ln. 348, Sec. 2, Shipai Rd., Beitou Dist., Taipei City 112, Taiwan (R.O.C.)</p>
+					 <p>業務營運部 新北市蘆洲區集賢路238號10樓</p>
 					 <p>10F., No.238, Jixian Rd., Luzhou Dist., New Taipei City 247, Taiwan (R.O.C.)</p>
 				</div>
 			</div>
@@ -104,9 +102,7 @@ Temp.ready(function(){
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/tel.png">
-					<p>070-1018-1068</p>
-					<p>業務部 #888</p>
-					<p>設計部 #333</p>
+					<p><a href="tel:02-8286-2656">02-8286-2656</a></p>
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/email.png">
@@ -115,9 +111,9 @@ Temp.ready(function(){
 				</div>
 				<div class="stage">
 					<img class="pic" src="img/add.png">
-					 <p>總部 台北市士林區聖山里20鄰忠誠路一段147巷11號6樓</p>
-					 <p>6F., No.11, Ln. 147, Sec. 1, Zhongcheng Rd., Shilin Dist., Taipei City 111, Taiwan (R.O.C.)</p>
-					 <p>研發部 新北市蘆洲區集賢路238號10樓</p>
+					 <p>行政管理部 台北市北投區石牌路2段348巷17號4樓之1</p>
+					 <p>4F.-1, No.17, Ln. 348, Sec. 2, Shipai Rd., Beitou Dist., Taipei City 112, Taiwan (R.O.C.)</p>
+					 <p>業務營運部 新北市蘆洲區集賢路238號10樓</p>
 					 <p>10F., No.238, Jixian Rd., Luzhou Dist., New Taipei City 247, Taiwan (R.O.C.)</p>
 				</div>
 			</div>
