@@ -555,7 +555,8 @@ class Worktask_Controller extends MY_Controller {
             ],
             'db_delete_all_null' => TRUE,
             'limitstart' => 0,
-            'limitcount' => 200
+            'limitcount' => 200,
+        	'limitcount_max_bln' => TRUE
         ]);
 
         // dd(
