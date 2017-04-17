@@ -396,9 +396,9 @@ class Worktask_Controller extends MY_Controller {
             'db_delete_all_null' => TRUE,
             'obj_class' => 'Project',
             'limitstart' => 0,
-            'limitcount' => 100
+            'limitcount' => 200
         ]);
-
+// 		dd2($data['ProjectList']);
         //抓出有權限更改的帳號有誰
         $admin_ProjectList = new ObjList([
             'db_where_arr' => [
